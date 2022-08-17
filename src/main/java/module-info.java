@@ -1,0 +1,26 @@
+module com.enigma.waratsea {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires javafx.web;
+    requires lombok;
+    requires com.google.guice;
+    requires com.google.gson;
+    requires org.slf4j;
+
+    opens com.enigma.waratsea to javafx.fxml;
+
+    exports com.enigma.waratsea;
+    exports com.enigma.waratsea.entity;
+    exports com.enigma.waratsea.model;
+    exports com.enigma.waratsea.model.game;
+    exports com.enigma.waratsea.property;
+    exports com.enigma.waratsea.repository;
+    exports com.enigma.waratsea.resource;
+    exports com.enigma.waratsea.service;
+
+    exports com.enigma.waratsea.view.resources;
+    exports com.enigma.waratsea.view.pregame;
+    exports com.enigma.waratsea.view.properties;
+
+    exports com.enigma.waratsea.viewmodel.pregame;
+}
