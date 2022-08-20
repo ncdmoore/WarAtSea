@@ -6,5 +6,5 @@ import lombok.Getter;
 @Singleton
 @Getter
 public class ResourceNames {
-    private final String scenarioDirectory = "/scenarios";
+    private final String scenarioDirectory = "scenarios";
 }

@@ -10,14 +10,16 @@ import java.util.Map;
 public enum GameName {
     ARCTIC_CONVOY("arcticConvoy"),
     BOMB_ALLEY("bombAlley"),
-    CORAL_SEA("coralSea");
+    CORAL_SEA("coralSea"),
+    EASTERN_FLEET("easternFleet");
 
     private final String value;
 
     private static final Map<String, GameName> CONVERSION_MAP = Map.of(
             "arcticConvoy", GameName.ARCTIC_CONVOY,
             "bombAlley", GameName.BOMB_ALLEY,
-            "coralSea", GameName.CORAL_SEA
+            "coralSea", GameName.CORAL_SEA,
+            "easternFleet", GameName.EASTERN_FLEET
     );
 
     public static GameName convert(final String value) {

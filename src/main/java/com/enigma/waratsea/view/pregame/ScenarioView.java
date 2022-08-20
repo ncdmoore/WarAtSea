@@ -1,7 +1,8 @@
 package com.enigma.waratsea.view.pregame;
 
+import com.enigma.waratsea.property.Props;
+import com.enigma.waratsea.property.PropsFactory;
 import com.enigma.waratsea.view.View;
-import com.enigma.waratsea.view.properties.ViewProps;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.ScenarioViewModel;
 import com.google.inject.Inject;
@@ -14,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import static com.enigma.waratsea.Globals.VIEW_PROPS;
+
 /**
  * This is the new game scenario selection screen.
  */
@@ -21,15 +24,15 @@ import javafx.stage.Stage;
 public class ScenarioView implements View {
     private static final String CSS_FILE = "scenarioView.css";
 
-    private final ViewProps viewProps;
+    private final Props viewProps;
     private final ResourceProvider resourceProvider;
     private final ScenarioViewModel scenarioViewModel;
 
     @Inject
-    public ScenarioView(final ViewProps viewProps,
+    public ScenarioView(final PropsFactory propsFactory,
                         final ResourceProvider resourceProvider,
                         final ScenarioViewModel scenarioViewModel) {
-        this.viewProps = viewProps;
+        this.viewProps = propsFactory.create(VIEW_PROPS);
         this.resourceProvider = resourceProvider;
         this.scenarioViewModel = scenarioViewModel;
     }

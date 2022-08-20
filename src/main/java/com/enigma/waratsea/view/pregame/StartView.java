@@ -1,7 +1,8 @@
 package com.enigma.waratsea.view.pregame;
 
+import com.enigma.waratsea.property.Props;
+import com.enigma.waratsea.property.PropsFactory;
 import com.enigma.waratsea.view.View;
-import com.enigma.waratsea.view.properties.ViewProps;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.StartViewModel;
 import com.google.inject.Inject;
@@ -18,6 +19,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import static com.enigma.waratsea.Globals.VIEW_PROPS;
+
 /**
  * This is the game starting screen.
  * It shows the game name and the main game start buttons.
@@ -26,15 +29,15 @@ import javafx.stage.Stage;
 public class StartView implements View {
     private static final String CSS_FILE = "startView.css";
 
-    private final ViewProps viewProps;
+    private final Props viewProps;
     private final ResourceProvider resourceProvider;
     private final StartViewModel startViewModel;
 
     @Inject
-    public StartView(final ViewProps viewProps,
+    public StartView(final PropsFactory propsFactory,
                      final ResourceProvider resourceProvider,
                      final StartViewModel startViewModel) {
-        this.viewProps = viewProps;
+        this.viewProps = propsFactory.create(VIEW_PROPS);
         this.resourceProvider = resourceProvider;
         this.startViewModel = startViewModel;
     }
@@ -43,9 +46,7 @@ public class StartView implements View {
     public void display(final Stage stage) {
         Node titlePane = buildTitlePane();
         Node buttonPane = buildButtonPane(stage);
-
-        VBox mainPane = new VBox(titlePane, buttonPane);
-        mainPane.setId("start-main-pane");
+        VBox mainPane = buildMainPane(titlePane, buttonPane);
 
         int sceneWidth = viewProps.getInt("pregame.scene.width");
         int sceneHeight = viewProps.getInt("pregame.scene.height");
@@ -87,33 +88,39 @@ public class StartView implements View {
         return new StackPane(backgroundImageView, buttons);
     }
 
-    private Node buildButtons(final Stage stage) {
-        int buttonWidth = viewProps.getInt("pregame.start.button.width");
+    private VBox buildMainPane(final Node titlePane, final Node buttonPane) {
+        VBox mainPane = new VBox(titlePane, buttonPane);
+        mainPane.setId("start-main-pane");
+        return mainPane;
+    }
 
-        Button newButton = new Button("New Game");
-        newButton.setMaxWidth(buttonWidth);
-        newButton.setMinWidth(buttonWidth);
+    private Node buildButtons(final Stage stage) {
+        Button newButton = buildButton("New Game");
         newButton.setOnAction(event -> startViewModel.newGame(stage));
 
-        Button savedButton = new Button("Saved Game");
-        savedButton.setMaxWidth(buttonWidth);
-        savedButton.setMinWidth(buttonWidth);
+        Button savedButton = buildButton("Saved Game");
         savedButton.setOnAction(event -> startViewModel.savedGame());
 
-        Button optionsButton = new Button("Options");
-        optionsButton.setMaxWidth(buttonWidth);
-        optionsButton.setMinWidth(buttonWidth);
+        Button optionsButton = buildButton("Options");
         optionsButton.setOnAction(event -> startViewModel.options());
 
-        Button quitButton = new Button("Quit Game");
-        quitButton.setMaxWidth(buttonWidth);
-        quitButton.setMinWidth(buttonWidth);
+        Button quitButton = buildButton("Quit Game");
         quitButton.setOnAction(event -> startViewModel.quitGame(stage));
 
         VBox vBox = new VBox(newButton, savedButton, optionsButton, quitButton);
         vBox.setId("start-command-buttons-vbox");
 
         return vBox;
+    }
+
+    private Button buildButton(final String title) {
+        int buttonWidth = viewProps.getInt("pregame.start.button.width");
+
+        Button button = new Button(title);
+        button.setMinWidth(buttonWidth);
+        button.setMaxWidth(buttonWidth);
+
+        return button;
     }
 
     private ImageView getBackgroundImage() {

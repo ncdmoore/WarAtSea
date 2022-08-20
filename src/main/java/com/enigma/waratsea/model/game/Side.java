@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 @RequiredArgsConstructor
@@ -15,26 +16,22 @@ public enum Side {
 
     private final String value;
 
+    private static final Map<Side, Side> OPPOSITE_MAP = Map.of(
+            ALLIES, AXIS,
+            AXIS, ALLIES,
+            NEUTRAL, NEUTRAL);
+
+    private static final Map<Side, List<Side>> FRIENDLY_MAP = Map.of(
+            ALLIES, List.of(ALLIES, NEUTRAL),
+            AXIS, List.of(AXIS, NEUTRAL),
+            NEUTRAL, List.of(NEUTRAL));
+
     public Side opposite() {
-        switch (this) {
-            case ALLIES:
-                return AXIS;
-            case AXIS:
-                return ALLIES;
-            default:
-                return NEUTRAL;
-        }
+        return OPPOSITE_MAP.get(this);
     }
 
     public List<Side> getFriendly() {
-        switch (this) {
-            case ALLIES:
-                return List.of(ALLIES, NEUTRAL);
-            case AXIS:
-                return List.of(AXIS, NEUTRAL);
-            default:
-                return List.of(NEUTRAL);
-        }
+        return FRIENDLY_MAP.get(this);
     }
 
     @Override

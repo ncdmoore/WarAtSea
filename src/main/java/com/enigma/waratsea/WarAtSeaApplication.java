@@ -1,17 +1,15 @@
 package com.enigma.waratsea;
 
+import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.game.CurrentGameName;
 import com.enigma.waratsea.model.game.GameName;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +21,6 @@ import java.util.stream.Stream;
  */
 @Slf4j
 public class WarAtSeaApplication extends Application {
-    private static final String APPLICATION_NAME = "World War Two At Sea";
     private static final String GAME_NAME = "game";
 
     private static final Map<String, String> GAME_PARAMETERS = new HashMap<>();
@@ -48,15 +45,10 @@ public class WarAtSeaApplication extends Application {
 
     private static void handleArguments(final String[] args) {
         Stream.of(args).forEach(argument -> {
-            String[] parameter = argument.trim().split("\\s*=\\s*");
+            String[] parameter = getGameParameter(argument);
 
-            if (parameter.length == 2) {
-                String name = parameter[0];
-                String value = parameter[1];
-
-                HANDLERS
-                        .getOrDefault(name, WarAtSeaApplication::unknownParameter)
-                        .accept(value);
+            if (isValidParameter(parameter)) {
+                processParameter(parameter);
             }
         });
     }
@@ -70,15 +62,29 @@ public class WarAtSeaApplication extends Application {
         log.warn("Found unknown parameter with value '{}'", unknownParameterValue);
     }
 
-    private static boolean isGameValid(final String game) {
+    private static void isGameValid(final String game) {
         URL url = WarAtSeaApplication.class.getClassLoader().getResource(game);
 
         if (url == null) {
-            log.error("{} resource directory does not exist.", game);
-            return false;
+            throw new GameException(game);
         }
+    }
 
-        return true;
+    private static String[] getGameParameter(final String arg) {
+        return arg.trim().split("\\s*=\\s*");
+    }
+
+    private static boolean isValidParameter(final String[] parameter) {
+        return parameter.length == 2;
+    }
+
+    private static void processParameter(final String[] parameter) {
+        String name = parameter[0];
+        String value = parameter[1];
+
+        HANDLERS
+                .getOrDefault(name, WarAtSeaApplication::unknownParameter)
+                .accept(value);
     }
 
     private void initGame(final Injector injector) {
@@ -86,7 +92,7 @@ public class WarAtSeaApplication extends Application {
         currentGameName.setValue(GameName.convert(GAME_PARAMETERS.get(GAME_NAME)));
         log.info("Game set to '{}'", currentGameName.getValue());
     }
-    
+
     private void initGui(final Injector injector, final Stage stage) {
         StartView startView = injector.getInstance(StartView.class);
         startView.display(stage);
