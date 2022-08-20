@@ -2,6 +2,8 @@ package com.enigma.waratsea.repository;
 
 import com.enigma.waratsea.entity.Scenario;
 import com.enigma.waratsea.exceptions.ScenarioException;
+import com.enigma.waratsea.property.Props;
+import com.enigma.waratsea.property.PropsFactory;
 import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.resource.ResourceProvider;
 import com.google.gson.Gson;
@@ -21,18 +23,23 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.enigma.waratsea.Globals.APP_PROPS;
+
 @Singleton
 @Slf4j
 public class ScenarioRepository {
     private static final String SUMMARY_FILE_NAME = "summary.json";
 
+    private final Props appProps;
     private final ResourceNames resourceNames;
     private final ResourceProvider resourceProvider;
 
 
     @Inject
-    public ScenarioRepository(final ResourceNames resourceNames,
+    public ScenarioRepository(final PropsFactory propsFactory,
+                              final ResourceNames resourceNames,
                               final ResourceProvider resourceProvider) {
+        this.appProps = propsFactory.create(APP_PROPS);
         this.resourceNames = resourceNames;
         this.resourceProvider = resourceProvider;
     }
@@ -76,8 +83,9 @@ public class ScenarioRepository {
     }
 
     private Scenario readScenario(final BufferedReader bufferedReader)  {
+        var dateFormat = appProps.getString("scenario.date.format");
         GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateDeserializer());
+        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
         Gson gson = gsonBuilder.create();
 
         Scenario scenario = gson.fromJson(bufferedReader, Scenario.class);

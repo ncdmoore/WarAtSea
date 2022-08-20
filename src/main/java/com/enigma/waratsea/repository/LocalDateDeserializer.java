@@ -15,9 +15,15 @@ import java.util.Locale;
  * This is a GSON deserializer for the LocalDate class. This enables GSON to deserialize a date into a Java LocalDate object.
  */
 class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
+    private final String dateFormat;
+
+    public LocalDateDeserializer(final String dateFormat) {
+        this.dateFormat = dateFormat;
+    }
+
     @Override
     public LocalDate deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
-        return LocalDate.parse(json.getAsString(), DateTimeFormatter.ofPattern("MM/dd/yyyy").withLocale(Locale.ENGLISH));
+        return LocalDate.parse(json.getAsString(), DateTimeFormatter.ofPattern(dateFormat).withLocale(Locale.ENGLISH));
     }
 }
 
