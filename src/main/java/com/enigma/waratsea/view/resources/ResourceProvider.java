@@ -1,7 +1,7 @@
 package com.enigma.waratsea.view.resources;
 
 import com.enigma.waratsea.exceptions.ResourceException;
-import com.enigma.waratsea.model.game.CurrentGameName;
+import com.enigma.waratsea.resource.ResourceNames;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import javafx.scene.image.Image;
@@ -20,11 +20,11 @@ public class ResourceProvider {
     private static final String CSS_DIR = "css";
     private static final String IMAGE_DIR = "images";
     private static final String GAME_IMAGE_DIR = Paths.get(IMAGE_DIR,"game").toString();
-    private final String currentGameName;
+    private final String gameName;
 
     @Inject
-    public ResourceProvider(final CurrentGameName currentGameName) {
-        this.currentGameName = currentGameName.toString();
+    public ResourceProvider(final ResourceNames resourceNames) {
+        this.gameName = resourceNames.getGameName();
     }
 
     public String getCss(final String name) {
@@ -39,7 +39,7 @@ public class ResourceProvider {
     }
 
     public Image getGameImage(final String imageName) {
-        var path = Paths.get(currentGameName, GAME_IMAGE_DIR, imageName).toString();
+        var path = Paths.get(gameName, GAME_IMAGE_DIR, imageName).toString();
         log.debug("get image: '{}'", path);
         return getImageResource(path);
     }

@@ -25,15 +25,15 @@ import java.util.stream.Collectors;
 
 import static com.enigma.waratsea.Globals.APP_PROPS;
 
+/**
+ * Provides Scenario's.
+ */
 @Singleton
 @Slf4j
 public class ScenarioRepository {
-    private static final String SUMMARY_FILE_NAME = "summary.json";
-
     private final Props appProps;
     private final ResourceNames resourceNames;
     private final ResourceProvider resourceProvider;
-
 
     @Inject
     public ScenarioRepository(final PropsFactory propsFactory,
@@ -68,9 +68,9 @@ public class ScenarioRepository {
     }
 
     private Scenario createScenario(final String scenarioName) {
-        try (InputStream in = getScenarioInputStream(scenarioName);
-             Reader reader = new InputStreamReader(in, StandardCharsets.UTF_8);
-             BufferedReader br = new BufferedReader(reader)) {
+        try (var in = getScenarioInputStream(scenarioName);
+             var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
+             var br = new BufferedReader(reader)) {
             return readScenario(br);
         } catch (IOException e) {
             throw new ScenarioException("Unable to create scenario:" + scenarioName);
@@ -78,22 +78,22 @@ public class ScenarioRepository {
     }
 
     private InputStream getScenarioInputStream(final String scenarioName) {
-        var resourceName = Paths.get(resourceNames.getScenarioDirectory(), scenarioName, SUMMARY_FILE_NAME).toString();
+        var scenarioDirectoryName = resourceNames.getScenarioDirectory();
+        var scenarioSummaryFileName = resourceNames.getSummaryFileName();
+        var resourceName = Paths.get(scenarioDirectoryName, scenarioName, scenarioSummaryFileName).toString();
         return resourceProvider.getResourceInputStream(resourceName);
     }
 
     private Scenario readScenario(final BufferedReader bufferedReader)  {
         var dateFormat = appProps.getString("scenario.date.format");
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
-        Gson gson = gsonBuilder.create();
+        var gsonBuilder = new GsonBuilder()
+                .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
+        var gson = gsonBuilder.create();
 
-        Scenario scenario = gson.fromJson(bufferedReader, Scenario.class);
+        var scenario = gson.fromJson(bufferedReader, Scenario.class);
 
         log.debug("load scenario: {}", scenario.getTitle());
 
         return scenario;
     }
-
-
 }

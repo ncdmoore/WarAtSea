@@ -1,8 +1,8 @@
 package com.enigma.waratsea;
 
 import com.enigma.waratsea.exceptions.GameException;
-import com.enigma.waratsea.model.game.CurrentGameName;
-import com.enigma.waratsea.model.game.GameName;
+import com.enigma.waratsea.model.GameName;
+import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -10,7 +10,6 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -63,9 +62,10 @@ public class WarAtSeaApplication extends Application {
     }
 
     private static void isGameValid(final String game) {
-        URL url = WarAtSeaApplication.class.getClassLoader().getResource(game);
+        var isValidGame = GameName.isValid(game);
+        var gameResourceUrl = WarAtSeaApplication.class.getClassLoader().getResource(game);
 
-        if (url == null) {
+        if (!isValidGame || gameResourceUrl == null) {
             throw new GameException(game);
         }
     }
@@ -79,8 +79,8 @@ public class WarAtSeaApplication extends Application {
     }
 
     private static void processParameter(final String[] parameter) {
-        String name = parameter[0];
-        String value = parameter[1];
+        var name = parameter[0];
+        var value = parameter[1];
 
         HANDLERS
                 .getOrDefault(name, WarAtSeaApplication::unknownParameter)
@@ -88,13 +88,13 @@ public class WarAtSeaApplication extends Application {
     }
 
     private void initGame(final Injector injector) {
-        CurrentGameName currentGameName = injector.getInstance(CurrentGameName.class);
-        currentGameName.setValue(GameName.convert(GAME_PARAMETERS.get(GAME_NAME)));
-        log.info("Game set to '{}'", currentGameName.getValue());
+        var resourceNames = injector.getInstance(ResourceNames.class);
+        resourceNames.setGameName(GAME_PARAMETERS.get(GAME_NAME));
+        log.info("Game set to '{}'", resourceNames.getGameName());
     }
 
     private void initGui(final Injector injector, final Stage stage) {
-        StartView startView = injector.getInstance(StartView.class);
+        var startView = injector.getInstance(StartView.class);
         startView.display(stage);
     }
 }

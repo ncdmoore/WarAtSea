@@ -15,7 +15,6 @@ module com.enigma.waratsea {
     exports com.enigma.waratsea.entity;
     exports com.enigma.waratsea.exceptions;
     exports com.enigma.waratsea.model;
-    exports com.enigma.waratsea.model.game;
     exports com.enigma.waratsea.property;
     exports com.enigma.waratsea.repository;
     exports com.enigma.waratsea.resource;

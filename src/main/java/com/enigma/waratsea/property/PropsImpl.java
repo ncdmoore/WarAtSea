@@ -1,13 +1,11 @@
 package com.enigma.waratsea.property;
 
-import com.enigma.waratsea.model.game.CurrentGameName;
+import com.enigma.waratsea.resource.ResourceNames;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.google.inject.assistedinject.Assisted;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -21,9 +19,9 @@ public class PropsImpl implements Props {
     private final Properties properties = new Properties();
 
     @Inject
-    public PropsImpl(final CurrentGameName currentGameName, @Assisted final String name) {
+    public PropsImpl(final ResourceNames resourceNames, @Assisted final String name) {
         var generalPath = Paths.get(PROPERTIES_DIR, name).toString();
-        var gameSpecificPath = Paths.get(currentGameName.toString(), PROPERTIES_DIR, name).toString();
+        var gameSpecificPath = Paths.get(resourceNames.getGameName(), PROPERTIES_DIR, name).toString();
 
         load(generalPath);
         load(gameSpecificPath);

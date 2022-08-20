@@ -1,6 +1,5 @@
 package com.enigma.waratsea.resource;
 
-import com.enigma.waratsea.model.game.CurrentGameName;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -21,22 +20,22 @@ import java.util.stream.Collectors;
 @Slf4j
 @Singleton
 public class ResourceProvider {
-    private final CurrentGameName currentGameName;
+    private final ResourceNames resourceNames;
 
     @Inject
-    public ResourceProvider(final CurrentGameName currentGameName) {
-        this.currentGameName  = currentGameName;
+    public ResourceProvider(final ResourceNames resourceNames) {
+        this.resourceNames  = resourceNames;
     }
 
     public InputStream getResourceInputStream(final String resourceName) {
-        var fullPath = Paths.get(currentGameName.toString(), resourceName);
+        var fullPath = Paths.get(resourceNames.getGameName(), resourceName);
         return getClass()
                 .getClassLoader()
                 .getResourceAsStream(fullPath.toString());
     }
 
     public List<Path> getSubDirectoryPaths(final String parentDirectoryName) {
-        var fullName = Paths.get(currentGameName.toString(), parentDirectoryName);
+        var fullName = Paths.get(resourceNames.getGameName(), parentDirectoryName);
 
         try {
             return getSubDirectoryPathsFromJar(fullName.toString());

@@ -1,10 +1,13 @@
-package com.enigma.waratsea.model.game;
+package com.enigma.waratsea.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 
+/**
+ * Defines all the valid games. Used to make sure that the string given as game name is valid.
+ */
 @RequiredArgsConstructor
 @Getter
 public enum GameName {
@@ -22,7 +25,7 @@ public enum GameName {
             "easternFleet", GameName.EASTERN_FLEET
     );
 
-    public static GameName convert(final String value) {
-        return CONVERSION_MAP.get(value);
+    public static boolean isValid(final String value) {
+        return CONVERSION_MAP.containsKey(value);
     }
 }

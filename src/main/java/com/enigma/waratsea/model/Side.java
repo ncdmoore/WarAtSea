@@ -1,4 +1,4 @@
-package com.enigma.waratsea.model.game;
+package com.enigma.waratsea.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Stream;
 
+/**
+ * The player sides of the game.
+ */
 @RequiredArgsConstructor
 @Getter
 public enum Side {
@@ -26,11 +29,11 @@ public enum Side {
             AXIS, List.of(AXIS, NEUTRAL),
             NEUTRAL, List.of(NEUTRAL));
 
-    public Side opposite() {
+    public Side oppositeSide() {
         return OPPOSITE_MAP.get(this);
     }
 
-    public List<Side> getFriendly() {
+    public List<Side> getFriendlySides() {
         return FRIENDLY_MAP.get(this);
     }
 
