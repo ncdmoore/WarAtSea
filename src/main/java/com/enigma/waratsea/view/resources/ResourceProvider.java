@@ -17,6 +17,7 @@ import java.util.Optional;
 @Singleton
 @Slf4j
 public class ResourceProvider {
+    private final String scenarioDirectory;
     private final String cssDirectory;
     private final String gameImageDirectory;
     private final String gameName;
@@ -26,6 +27,7 @@ public class ResourceProvider {
         var imageDirectory = resourceNames.getImageDirectory();
         var gameDirectory = resourceNames.getGameDirectory();
 
+        this.scenarioDirectory = resourceNames.getScenarioDirectory();
         this.cssDirectory = resourceNames.getCssDirectory();
         this.gameImageDirectory = Paths.get(imageDirectory, gameDirectory).toString();
         this.gameName = resourceNames.getGameName();
@@ -40,6 +42,11 @@ public class ResourceProvider {
         }
 
         return cssPath;
+    }
+    public Image getImage(final String scenario, final String resourceName) {
+        String path = Paths.get(gameName, scenarioDirectory, scenario ,resourceName).toString();
+        log.debug("get image: {}", path);
+        return getImageResource(path);
     }
 
     public ImageView getGameImageView(final String imageName) {

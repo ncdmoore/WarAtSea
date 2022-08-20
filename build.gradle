@@ -36,6 +36,7 @@ javafx {
 
 dependencies {
     implementation("org.projectlombok:lombok:${lombokVersion}")
+    implementation 'org.jetbrains:annotations:23.0.0'
     annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 
     implementation("com.google.inject:guice:${guiceVersion}")
@@ -48,6 +49,10 @@ dependencies {
 
     implementation("org.slf4j:slf4j-api:1.7.36")
     implementation("ch.qos.logback:logback-classic:1.2.11")
+
+    implementation 'org.mapstruct:mapstruct:1.5.2.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.2.Final'
+    annotationProcessor "org.projectlombok:lombok-mapstruct-binding:0.2.0"
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")

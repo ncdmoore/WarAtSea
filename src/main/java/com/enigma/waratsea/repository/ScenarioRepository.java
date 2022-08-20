@@ -1,12 +1,11 @@
 package com.enigma.waratsea.repository;
 
-import com.enigma.waratsea.entity.Scenario;
+import com.enigma.waratsea.entity.ScenarioEntity;
 import com.enigma.waratsea.exceptions.ScenarioException;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.property.PropsFactory;
 import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.resource.ResourceProvider;
-import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -16,7 +15,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.time.LocalDate;
@@ -52,7 +50,7 @@ public class ScenarioRepository {
      *
      * @return The scenario names for the current game.
      */
-    public List<Scenario> get() {
+    public List<ScenarioEntity> get() {
         return getScenarioNames()
                 .stream()
                 .map(this::createScenario)
@@ -67,7 +65,7 @@ public class ScenarioRepository {
                 .collect(Collectors.toList());
     }
 
-    private Scenario createScenario(final String scenarioName) {
+    private ScenarioEntity createScenario(final String scenarioName) {
         try (var in = getScenarioInputStream(scenarioName);
              var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
              var br = new BufferedReader(reader)) {
@@ -84,13 +82,13 @@ public class ScenarioRepository {
         return resourceProvider.getResourceInputStream(resourceName);
     }
 
-    private Scenario readScenario(final BufferedReader bufferedReader)  {
+    private ScenarioEntity readScenario(final BufferedReader bufferedReader)  {
         var dateFormat = appProps.getString("scenario.date.format");
         var gsonBuilder = new GsonBuilder()
                 .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
         var gson = gsonBuilder.create();
 
-        var scenario = gson.fromJson(bufferedReader, Scenario.class);
+        var scenario = gson.fromJson(bufferedReader, ScenarioEntity.class);
 
         log.debug("load scenario: {}", scenario.getTitle());
 

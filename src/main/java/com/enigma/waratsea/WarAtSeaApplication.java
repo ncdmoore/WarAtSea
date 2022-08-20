@@ -2,7 +2,7 @@ package com.enigma.waratsea;
 
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.GameName;
-import com.enigma.waratsea.resource.ResourceNames;
+import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
@@ -88,9 +88,10 @@ public class WarAtSeaApplication extends Application {
     }
 
     private void initGame(final Injector injector) {
-        var resourceNames = injector.getInstance(ResourceNames.class);
-        resourceNames.setGameName(GAME_PARAMETERS.get(GAME_NAME));
-        log.info("Game set to '{}'", resourceNames.getGameName());
+        GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
+        var gameService = injector.getInstance(GameService.class);
+        gameService.initialize(currentName);
+        log.info("Game set to '{}'", currentName);
     }
 
     private void initGui(final Injector injector, final Stage stage) {

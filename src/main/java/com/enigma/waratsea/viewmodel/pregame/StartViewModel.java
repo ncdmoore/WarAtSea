@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -12,14 +13,18 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Singleton
 public class StartViewModel {
-    public final Navigate navigate;
+    private final Navigate navigate;
+    private final GameService gameService;
 
     @Inject
-    public StartViewModel(final Navigate navigate) {
+    public StartViewModel(final Navigate navigate,
+                          final GameService gameService) {
         this.navigate = navigate;
+        this.gameService = gameService;
     }
 
     public void newGame(final Stage stage) {
+        gameService.create();
         navigate.goNext(StartView.class, stage);
     }
 

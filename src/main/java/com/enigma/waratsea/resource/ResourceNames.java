@@ -10,6 +10,9 @@ public class ResourceNames {
     @Setter
     private String gameName;
 
+    @Setter
+    private String scenarioName;
+
     private final String gameDirectory = "game";
     private final String cssDirectory = "css";
     private final String imageDirectory = "images";

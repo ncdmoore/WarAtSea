@@ -8,9 +8,9 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class Scenario {
-    private String name;
+public class ScenarioEntity {
     private Integer id;
+    private String name;
     private String title;
     private String image;
     private String description;

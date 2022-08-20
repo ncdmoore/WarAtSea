@@ -1,5 +1,6 @@
 package com.enigma.waratsea.view.pregame;
 
+import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.property.PropsFactory;
 import com.enigma.waratsea.view.View;
@@ -7,13 +8,18 @@ import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.ScenarioViewModel;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import javafx.beans.binding.Bindings;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+
+import java.util.Optional;
 
 import static com.enigma.waratsea.Globals.VIEW_PROPS;
 
@@ -23,6 +29,8 @@ import static com.enigma.waratsea.Globals.VIEW_PROPS;
 @Singleton
 public class ScenarioView implements View {
     private static final String CSS_FILE = "scenarioView.css";
+
+    private final ListView<Scenario> scenarios = new ListView<>();
 
     private final Props viewProps;
     private final ResourceProvider resourceProvider;
@@ -43,7 +51,10 @@ public class ScenarioView implements View {
 
         Node pushButtons = buildPushButtons(stage);
 
-        VBox vBox = new VBox(title, pushButtons);
+        Node  scenarios = buildScenarioList();
+
+
+        VBox vBox = new VBox(title, scenarios, pushButtons);
 
         int sceneWidth = viewProps.getInt("pregame.scene.width");
         int sceneHeight = viewProps.getInt("pregame.scene.height");
@@ -56,13 +67,31 @@ public class ScenarioView implements View {
     }
 
     private Node buildTitle() {
-        Label title = new Label("Select a Scenario");
+        Label title = new Label("Scenario Selection");
         title.setId("scenario-title");
 
         HBox titlePane = new HBox(title);
         titlePane.setId("scenario-title-pane");
 
         return titlePane;
+    }
+
+    private Node buildScenarioList() {
+        var selectedScenario = scenarioViewModel.getSelectedScenario();
+
+        var scenarioImage = new ImageView();
+
+        scenarioImage.imageProperty().bind(Bindings.createObjectBinding(() ->
+                Optional.ofNullable(selectedScenario.getValue())
+                        .map(s -> resourceProvider.getImage(s.getName(), s.getImage()))
+                        .orElse(null), selectedScenario));
+
+        scenarios.itemsProperty().bind(scenarioViewModel.getScenariosProperty());
+        selectedScenario.bind(scenarios.getSelectionModel().selectedItemProperty());
+
+        scenarios.getSelectionModel().selectFirst();
+
+        return new VBox(scenarioImage, scenarios);
     }
 
     private Node buildPushButtons(final Stage stage) {

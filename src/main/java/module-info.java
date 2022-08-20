@@ -7,6 +7,8 @@ module com.enigma.waratsea {
     requires com.google.guice.extensions.assistedinject;
     requires com.google.gson;
     requires org.slf4j;
+    requires org.mapstruct;
+    requires org.jetbrains.annotations;
 
     opens com.enigma.waratsea to javafx.fxml;
     opens com.enigma.waratsea.entity to com.google.gson;
@@ -14,6 +16,7 @@ module com.enigma.waratsea {
     exports com.enigma.waratsea;
     exports com.enigma.waratsea.entity;
     exports com.enigma.waratsea.exceptions;
+    exports com.enigma.waratsea.mappers;
     exports com.enigma.waratsea.model;
     exports com.enigma.waratsea.property;
     exports com.enigma.waratsea.repository;

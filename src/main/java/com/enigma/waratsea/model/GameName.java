@@ -28,4 +28,8 @@ public enum GameName {
     public static boolean isValid(final String value) {
         return CONVERSION_MAP.containsKey(value);
     }
+
+    public static GameName convert(final String value) {
+        return CONVERSION_MAP.get(value);
+    }
 }
