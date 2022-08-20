@@ -9,6 +9,10 @@ import lombok.Setter;
 public class ResourceNames {
     @Setter
     private String gameName;
+
+    private final String gameDirectory = "game";
+    private final String cssDirectory = "css";
+    private final String imageDirectory = "images";
     private final String scenarioDirectory = "scenarios";
     private final String summaryFileName = "summary.json";
 

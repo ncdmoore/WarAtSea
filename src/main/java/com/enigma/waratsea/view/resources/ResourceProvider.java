@@ -17,21 +17,29 @@ import java.util.Optional;
 @Singleton
 @Slf4j
 public class ResourceProvider {
-    private static final String CSS_DIR = "css";
-    private static final String IMAGE_DIR = "images";
-    private static final String GAME_IMAGE_DIR = Paths.get(IMAGE_DIR,"game").toString();
+    private final String cssDirectory;
+    private final String gameImageDirectory;
     private final String gameName;
 
     @Inject
     public ResourceProvider(final ResourceNames resourceNames) {
+        var imageDirectory = resourceNames.getImageDirectory();
+        var gameDirectory = resourceNames.getGameDirectory();
+
+        this.cssDirectory = resourceNames.getCssDirectory();
+        this.gameImageDirectory = Paths.get(imageDirectory, gameDirectory).toString();
         this.gameName = resourceNames.getGameName();
     }
 
     public String getCss(final String name) {
-        var cssPath = Paths.get(CSS_DIR, name).toString();
-        var url = Optional.ofNullable(getClass().getClassLoader().getResource(cssPath));
-        url.ifPresent(u -> log.debug("Found url: '{}'", u.getPath()));
-        return url.map(dummy -> cssPath).orElseThrow(() -> new ResourceException(cssPath));
+        var cssPath = Paths.get(cssDirectory, name).toString();
+        var url = getClass().getClassLoader().getResource(cssPath);
+
+        if (url == null) {
+            throw new ResourceException(cssPath);
+        }
+
+        return cssPath;
     }
 
     public ImageView getGameImageView(final String imageName) {
@@ -39,7 +47,7 @@ public class ResourceProvider {
     }
 
     public Image getGameImage(final String imageName) {
-        var path = Paths.get(gameName, GAME_IMAGE_DIR, imageName).toString();
+        var path = Paths.get(gameName, gameImageDirectory, imageName).toString();
         log.debug("get image: '{}'", path);
         return getImageResource(path);
     }
