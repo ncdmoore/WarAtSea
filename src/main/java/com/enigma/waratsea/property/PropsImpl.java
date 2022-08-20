@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
 import java.util.Properties;
 
 /**
@@ -16,14 +17,16 @@ import java.util.Properties;
  */
 @Slf4j
 public class PropsImpl implements Props {
-    private static final String PROPERTIES_DIR = "properties/";
+    private static final String PROPERTIES_DIR = "properties";
     private final Properties properties = new Properties();
 
     @Inject
     public PropsImpl(final CurrentGameName currentGameName, @Assisted final String name) {
-        var path = PROPERTIES_DIR + name;
-        load(path);
-        load(currentGameName.toString() + "/" + path);
+        var generalPath = Paths.get(PROPERTIES_DIR, name).toString();
+        var gameSpecificPath = Paths.get(currentGameName.toString(), PROPERTIES_DIR, name).toString();
+
+        load(generalPath);
+        load(gameSpecificPath);
     }
 
     @Override
