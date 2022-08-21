@@ -1,7 +1,10 @@
 package com.enigma.waratsea;
 
+import com.enigma.waratsea.events.GameEvent;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.GameName;
+import com.enigma.waratsea.model.GlobalEvents;
+import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Guice;
@@ -88,14 +91,32 @@ public class WarAtSeaApplication extends Application {
     }
 
     private void initGame(final Injector injector) {
-        GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
-        var gameService = injector.getInstance(GameService.class);
-        gameService.initialize(currentName);
-        log.info("Game set to '{}'", currentName);
+        setGameName();
+        bootstrap(injector);
+        fireGameNameEvent(injector);
     }
 
     private void initGui(final Injector injector, final Stage stage) {
         var startView = injector.getInstance(StartView.class);
         startView.display(stage);
+    }
+
+    private void setGameName() {
+        GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
+        log.info("Game set to '{}'", currentName);
+    }
+
+    private void bootstrap(final Injector injector) {
+        // The classes injected here need to receive GameEvents.
+        // Thus, they must be created or bootstrapped here before the GameEvent is fired.
+        injector.getInstance(GameService.class);
+        injector.getInstance(ResourceNames.class);
+        log.debug("Bootstrap classes created.");
+    }
+
+    private void fireGameNameEvent(final Injector injector) {
+        GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
+        var globalEvents = injector.getInstance(GlobalEvents.class);
+        globalEvents.getGameEvents().fire(new GameEvent(currentName));
     }
 }

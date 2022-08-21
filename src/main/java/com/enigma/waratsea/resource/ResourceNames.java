@@ -1,9 +1,15 @@
 package com.enigma.waratsea.resource;
 
+import com.enigma.waratsea.events.GameEvent;
+import com.enigma.waratsea.events.ScenarioEvent;
+import com.enigma.waratsea.model.GlobalEvents;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Singleton
 @Getter
 public class ResourceNames {
@@ -18,5 +24,21 @@ public class ResourceNames {
     private final String imageDirectory = "images";
     private final String scenarioDirectory = "scenarios";
     private final String summaryFileName = "summary.json";
+
+    @Inject
+    public ResourceNames(final GlobalEvents globalEvents) {
+        globalEvents.getGameEvents().register(this::handleGameSelected);
+        globalEvents.getScenarioEvents().register(this::handleScenarioSelected);
+    }
+
+    private void handleGameSelected(final GameEvent gameEvent) {
+        gameName = gameEvent.getGameName().getValue();
+        log.debug("ResourceNames received gameEvent, game set to: '{}'", gameName);
+    }
+
+    private void handleScenarioSelected(final ScenarioEvent scenarioEvent) {
+        scenarioName = scenarioEvent.getScenario().getName();
+        log.debug("ResourceNames received scenarioEvent, scenario name: '{}'", scenarioName);
+    }
 
 }

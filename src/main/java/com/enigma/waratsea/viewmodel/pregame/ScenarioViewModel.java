@@ -1,7 +1,8 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.events.ScenarioEvent;
+import com.enigma.waratsea.model.GlobalEvents;
 import com.enigma.waratsea.model.Scenario;
-import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.ScenarioService;
 import com.enigma.waratsea.view.pregame.ScenarioView;
 import com.google.inject.Inject;
@@ -27,15 +28,15 @@ public class ScenarioViewModel {
     @Getter
     private final ObjectProperty<Scenario> selectedScenario = new SimpleObjectProperty<>();
 
+    private final GlobalEvents globalEvents;
     private final Navigate navigate;
-    private final GameService gameService;
 
     @Inject
-    public ScenarioViewModel(final Navigate navigate,
-                             final GameService gameService,
+    public ScenarioViewModel(final GlobalEvents globalEvents,
+                             final Navigate navigate,
                              final ScenarioService scenarioService) {
+        this.globalEvents = globalEvents;
         this.navigate = navigate;
-        this.gameService = gameService;
 
         var scenarios = scenarioService.get();
         scenariosProperty.setValue(FXCollections.observableList(scenarios));
@@ -52,6 +53,6 @@ public class ScenarioViewModel {
     }
 
     private void setSelectedScenario(final Scenario scenario) {
-        gameService.setScenario(scenario);
+        globalEvents.getScenarioEvents().fire(new ScenarioEvent(scenario));
     }
 }
