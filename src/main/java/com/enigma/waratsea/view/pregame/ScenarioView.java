@@ -57,7 +57,7 @@ public class ScenarioView implements View {
         var scenarioList = buildScenarioList();
         var scenarioDetails = buildScenarioDetails();
 
-        HBox scenarioPane = new HBox(scenarioList, scenarioDetails);
+        var scenarioPane = new HBox(scenarioList, scenarioDetails);
         scenarioPane.setId("scenario-pane");
 
         var mainPane = new VBox(scenarioPane, pushButtons);
@@ -65,8 +65,8 @@ public class ScenarioView implements View {
 
         var overAllPane = new VBox(titlePane, mainPane);
 
-        int sceneWidth = props.getInt("pregame.scene.width");
-        int sceneHeight = props.getInt("pregame.scene.height");
+        var sceneWidth = props.getInt("pregame.scene.width");
+        var sceneHeight = props.getInt("pregame.scene.height");
 
         Scene scene = new Scene(overAllPane, sceneWidth, sceneHeight);
         scene.getStylesheets().add(resourceProvider.getCss(CSS_FILE));
@@ -76,10 +76,10 @@ public class ScenarioView implements View {
     }
 
     private Node buildTitle() {
-        Label title = new Label("Scenario Selection");
+        var title = new Label("Scenario Selection");
         title.setId("title");
 
-        HBox titlePane = new HBox(title);
+        var titlePane = new HBox(title);
         titlePane.setId("title-pane");
 
         return titlePane;
@@ -137,7 +137,7 @@ public class ScenarioView implements View {
                         .map(this::getMaxTurns)
                         .orElse(""), selectedScenario));
 
-        GridPane detailsGrid = new GridPane();
+        var detailsGrid = new GridPane();
         detailsGrid.add(dateLabel, 0, 0);
         detailsGrid.add(dateValue, 1, 0);
         detailsGrid.add(turnLabel, 0, 1);
@@ -151,13 +151,13 @@ public class ScenarioView implements View {
     }
 
     private Node buildPushButtons(final Stage stage) {
-        Button backButton = new Button("Back");
+        var backButton = new Button("Back");
         backButton.setOnAction(event -> scenarioViewModel.goBack(stage));
 
-        Button continueButton = new Button("Continue");
+        var continueButton = new Button("Continue");
         continueButton.setOnAction(event -> scenarioViewModel.continueOn(stage));
 
-        HBox hBox =  new HBox(backButton, continueButton);
+        var hBox =  new HBox(backButton, continueButton);
         hBox.setId("push-buttons-pane");
         return hBox;
     }
