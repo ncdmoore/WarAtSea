@@ -35,4 +35,5 @@
 
 #start-main-pane {
     -fx-alignment: top-center;
+    -fx-padding: /* top: */ 120 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
 }
