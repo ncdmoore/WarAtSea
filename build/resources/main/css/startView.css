@@ -12,7 +12,7 @@
 ////////////////////////////////////////////////////////////////////
 // Game title.
 ////////////////////////////////////////////////////////////////////
-#start-title {
+#title {
     -fx-font: bold 16pt "Lucida Grande";
     -fx-text-fill: navy;
     -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
@@ -21,19 +21,19 @@
 ////////////////////////////////////////////////////////////////////
 // Apply gradient to the title pane.
 ////////////////////////////////////////////////////////////////////
-#start-title-pane {
+#title-pane {
     -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, gray 0%, lightblue 100%);
 }
 
 ////////////////////////////////////////////////////////////////////
 // Center Command buttons within the main pane.
 ////////////////////////////////////////////////////////////////////
-#start-command-buttons-vbox {
+#command-buttons-vbox {
     -fx-spacing: 3;
     -fx-alignment: center;
 }
 
-#start-main-pane {
+#main-pane {
     -fx-alignment: top-center;
     -fx-padding: /* top: */ 120 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
 }

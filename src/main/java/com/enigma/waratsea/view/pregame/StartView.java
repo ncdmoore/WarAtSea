@@ -29,7 +29,7 @@ import static com.enigma.waratsea.Globals.VIEW_PROPS;
 public class StartView implements View {
     private static final String CSS_FILE = "startView.css";
 
-    private final Props viewProps;
+    private final Props props;
     private final ResourceProvider resourceProvider;
     private final StartViewModel startViewModel;
 
@@ -37,21 +37,21 @@ public class StartView implements View {
     public StartView(final PropsFactory propsFactory,
                      final ResourceProvider resourceProvider,
                      final StartViewModel startViewModel) {
-        this.viewProps = propsFactory.create(VIEW_PROPS);
+        this.props = propsFactory.create(VIEW_PROPS);
         this.resourceProvider = resourceProvider;
         this.startViewModel = startViewModel;
     }
 
     @Override
     public void display(final Stage stage) {
-        Node titlePane = buildTitlePane();
-        Node buttonPane = buildButtonPane(stage);
-        VBox mainPane = buildMainPane(titlePane, buttonPane);
+        var titlePane = buildTitlePane();
+        var buttonPane = buildButtonPane(stage);
+        var mainPane = buildMainPane(titlePane, buttonPane);
 
-        int sceneWidth = viewProps.getInt("pregame.scene.width");
-        int sceneHeight = viewProps.getInt("pregame.scene.height");
+        var sceneWidth = props.getInt("pregame.scene.width");
+        var sceneHeight = props.getInt("pregame.scene.height");
 
-        Scene scene = new Scene(mainPane, sceneWidth, sceneHeight);
+        var scene = new Scene(mainPane, sceneWidth, sceneHeight);
         scene.getStylesheets().add(resourceProvider.getCss(CSS_FILE));
 
         stage.setScene(scene);
@@ -59,64 +59,64 @@ public class StartView implements View {
     }
 
     private Node buildTitlePane() {
-        int flagHBoxWidth = viewProps.getInt("pregame.image.width");
+        var flagHBoxWidth = props.getInt("pregame.start.image.width");
 
-        ImageView alliesFlag = resourceProvider.getGameImageView(viewProps.getString("allies.flag.large.image"));
+        var alliesFlag = resourceProvider.getGameImageView(props.getString("allies.flag.large.image"));
 
-        Region leftRegion = new Region();
+        var leftRegion = new Region();
         HBox.setHgrow(leftRegion, Priority.ALWAYS);
 
-        Label title = new Label(viewProps.getString("game.title"));
-        title.setId("start-title");
+        var title = new Label(props.getString("game.title"));
+        title.setId("title");
 
-        Region rightRegion = new Region();
+        var rightRegion = new Region();
         HBox.setHgrow(rightRegion, Priority.ALWAYS);
 
-        ImageView axisFlag = resourceProvider.getGameImageView(viewProps.getString("axis.flag.large.image"));
+        var axisFlag = resourceProvider.getGameImageView(props.getString("axis.flag.large.image"));
 
-        HBox hBox = new HBox(alliesFlag, leftRegion, title, rightRegion, axisFlag);
-        hBox.setMaxWidth(flagHBoxWidth);
-        hBox.setId("start-title-pane");
+        var titlePane = new HBox(alliesFlag, leftRegion, title, rightRegion, axisFlag);
+        titlePane.setMaxWidth(flagHBoxWidth);
+        titlePane.setId("title-pane");
 
-        return hBox;
+        return titlePane;
     }
 
     private Node buildButtonPane(final Stage stage) {
-        ImageView backgroundImageView = getBackgroundImage();
-        Node buttons = buildButtons(stage);
+        var backgroundImageView = getBackgroundImage();
+        var buttons = buildButtons(stage);
 
         return new StackPane(backgroundImageView, buttons);
     }
 
     private VBox buildMainPane(final Node titlePane, final Node buttonPane) {
-        VBox mainPane = new VBox(titlePane, buttonPane);
-        mainPane.setId("start-main-pane");
+        var mainPane = new VBox(titlePane, buttonPane);
+        mainPane.setId("main-pane");
         return mainPane;
     }
 
     private Node buildButtons(final Stage stage) {
-        Button newButton = buildButton("New Game");
+        var newButton = buildButton("New Game");
         newButton.setOnAction(event -> startViewModel.newGame(stage));
 
-        Button savedButton = buildButton("Saved Game");
+        var savedButton = buildButton("Saved Game");
         savedButton.setOnAction(event -> startViewModel.savedGame());
 
-        Button optionsButton = buildButton("Options");
+        var optionsButton = buildButton("Options");
         optionsButton.setOnAction(event -> startViewModel.options());
 
-        Button quitButton = buildButton("Quit Game");
+        var quitButton = buildButton("Quit Game");
         quitButton.setOnAction(event -> startViewModel.quitGame(stage));
 
-        VBox vBox = new VBox(newButton, savedButton, optionsButton, quitButton);
-        vBox.setId("start-command-buttons-vbox");
+        var commandButtonsVBox = new VBox(newButton, savedButton, optionsButton, quitButton);
+        commandButtonsVBox.setId("command-buttons-vbox");
 
-        return vBox;
+        return commandButtonsVBox;
     }
 
     private Button buildButton(final String title) {
-        int buttonWidth = viewProps.getInt("pregame.start.button.width");
+        var buttonWidth = props.getInt("pregame.start.button.width");
 
-        Button button = new Button(title);
+        var button = new Button(title);
         button.setMinWidth(buttonWidth);
         button.setMaxWidth(buttonWidth);
 
@@ -124,6 +124,6 @@ public class StartView implements View {
     }
 
     private ImageView getBackgroundImage() {
-        return resourceProvider.getGameImageView(viewProps.getString("pregame.start.image"));
+        return resourceProvider.getGameImageView(props.getString("pregame.start.image"));
     }
 }

@@ -2,8 +2,8 @@ package com.enigma.waratsea.events;
 
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * This class is responsible for delivering events to event handlers.
@@ -12,7 +12,7 @@ import java.util.List;
  */
 @Slf4j
 public class EventDispatcher<E extends  Event> {
-    private final List<EventHandler<E>> handlers = new ArrayList<>();
+    private final Set<EventHandler<E>> handlers = new HashSet<>();
     private final String name;
 
     public EventDispatcher(final String name) {
@@ -37,7 +37,7 @@ public class EventDispatcher<E extends  Event> {
         // interested in the event. Thus, it unregisters to keep from receiving unwanted events. If we don't copy
         // the handlers we may end up with the map's keys being modified while we are trying to iterate over them.
         // This can lead to a memory corruption exception.
-        List<EventHandler<E>> copyOfHandlers = new ArrayList<>(handlers);
+        Set<EventHandler<E>> copyOfHandlers = new HashSet<>(handlers);
 
         copyOfHandlers.forEach(h -> h.notify(e));
     }
