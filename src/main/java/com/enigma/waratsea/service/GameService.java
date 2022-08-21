@@ -1,15 +1,14 @@
 package com.enigma.waratsea.service;
 
-import com.enigma.waratsea.events.GameEvent;
+import com.enigma.waratsea.events.GameNameEvent;
+import com.enigma.waratsea.events.NewGameEvent;
 import com.enigma.waratsea.events.ScenarioEvent;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.GlobalEvents;
-import com.enigma.waratsea.resource.ResourceNames;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -22,17 +21,19 @@ public class GameService {
 
     @Inject
     public GameService(final GlobalEvents globalEvents) {
-        globalEvents.getGameEvents().register(this::setGameName);
+        globalEvents.getGameNameEvents().register(this::setGameName);
+        globalEvents.getNewGameEvents().register(this::create);
         globalEvents.getScenarioEvents().register(this::setScenario);
     }
 
-    public void create() {
-        game = new Game(gameName);
+    private void setGameName(final GameNameEvent gameEvent) {
+        gameName = gameEvent.getGameName();
+        log.debug("Game Service received gameNameEvent, game set to: '{}'", gameEvent.getGameName());
     }
 
-    public void setGameName(final GameEvent gameEvent) {
-        gameName = gameEvent.getGameName();
-        log.debug("Game Service received gameEvent, game set to: '{}'", gameEvent.getGameName());
+    private void create(final NewGameEvent newGameEvent) {
+        game = new Game(gameName);
+        log.debug("Game Service received newGameEvent");
     }
 
     private void setScenario(final ScenarioEvent scenarioEvent) {

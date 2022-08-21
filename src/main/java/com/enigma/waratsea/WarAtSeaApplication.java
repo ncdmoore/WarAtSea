@@ -1,6 +1,6 @@
 package com.enigma.waratsea;
 
-import com.enigma.waratsea.events.GameEvent;
+import com.enigma.waratsea.events.GameNameEvent;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.GlobalEvents;
@@ -107,8 +107,8 @@ public class WarAtSeaApplication extends Application {
     }
 
     private void bootstrap(final Injector injector) {
-        // The classes injected here need to receive GameEvents.
-        // Thus, they must be created or bootstrapped here before the GameEvent is fired.
+        // The classes injected here need to receive GameNameEvents.
+        // Thus, they must be created or bootstrapped here before the GameNameEvent is fired.
         injector.getInstance(GameService.class);
         injector.getInstance(ResourceNames.class);
         log.debug("Bootstrap classes created.");
@@ -117,6 +117,6 @@ public class WarAtSeaApplication extends Application {
     private void fireGameNameEvent(final Injector injector) {
         GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
         var globalEvents = injector.getInstance(GlobalEvents.class);
-        globalEvents.getGameEvents().fire(new GameEvent(currentName));
+        globalEvents.getGameNameEvents().fire(new GameNameEvent(currentName));
     }
 }

@@ -9,6 +9,6 @@ import lombok.RequiredArgsConstructor;
  */
 @Getter
 @RequiredArgsConstructor
-public class GameEvent implements Event {
+public class GameNameEvent implements Event {
     private final GameName gameName;
 }
