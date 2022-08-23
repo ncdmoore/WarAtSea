@@ -4,17 +4,17 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum WeatherType {
-    CLEAR("Clear"),
-    CLOUDY("Cloudy"),
-    RAIN("Rain"),
-    SQUALL("Squall"),
-    STORM("Storm"),
-    GALE("Gale");
+  CLEAR("Clear"),
+  CLOUDY("Cloudy"),
+  RAIN("Rain"),
+  SQUALL("Squall"),
+  STORM("Storm"),
+  GALE("Gale");
 
-    private final String value;
+  private final String value;
 
-    @Override
-    public String toString() {
-        return value;
-    }
+  @Override
+  public String toString() {
+    return value;
+  }
 }

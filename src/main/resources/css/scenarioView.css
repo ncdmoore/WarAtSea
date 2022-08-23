@@ -8,6 +8,10 @@
     -fx-text-fill: navy;
 }
 
+.separator .line {
+    -fx-border-width: 2;
+}
+
 #title {
     -fx-font: bold 16pt "Lucida Grande";
     -fx-text-fill: navy;
@@ -22,7 +26,7 @@
 }
 
 #list-pane {
-    -fx-spacing: 3;
+    -fx-spacing: 8;
 }
 
 #details-grid {
@@ -31,11 +35,27 @@
     -fx-vgap: 30;
 }
 
+#scenario-pane-hbox {
+    -fx-spacing: 50;
+}
+
 #scenario-pane {
-    -fx-spacing: 20;
+    -fx-spacing: 3;
+}
+
+#radio-buttons-hbox {
+    -fx-spacing: 200;
+}
+
+#side-pane {
+    -fx-spacing: 3;
+    -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
+}
+
+#push-buttons-pane {
 }
 
 #main-pane {
     -fx-border-width: 1px;
-    -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 20;
+    -fx-padding: /* top: */ 20 /* right: */ 20 /* bottom: */ 0 /* left: */ 20;
 }

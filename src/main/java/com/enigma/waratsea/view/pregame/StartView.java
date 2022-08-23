@@ -27,103 +27,103 @@ import static com.enigma.waratsea.Globals.VIEW_PROPS;
  */
 @Singleton
 public class StartView implements View {
-    private static final String CSS_FILE = "startView.css";
+  private static final String CSS_FILE = "startView.css";
 
-    private final Props props;
-    private final ResourceProvider resourceProvider;
-    private final StartViewModel startViewModel;
+  private final Props props;
+  private final ResourceProvider resourceProvider;
+  private final StartViewModel startViewModel;
 
-    @Inject
-    public StartView(final PropsFactory propsFactory,
-                     final ResourceProvider resourceProvider,
-                     final StartViewModel startViewModel) {
-        this.props = propsFactory.create(VIEW_PROPS);
-        this.resourceProvider = resourceProvider;
-        this.startViewModel = startViewModel;
-    }
+  @Inject
+  public StartView(final PropsFactory propsFactory,
+                   final ResourceProvider resourceProvider,
+                   final StartViewModel startViewModel) {
+    this.props = propsFactory.create(VIEW_PROPS);
+    this.resourceProvider = resourceProvider;
+    this.startViewModel = startViewModel;
+  }
 
-    @Override
-    public void display(final Stage stage) {
-        var titlePane = buildTitlePane();
-        var buttonPane = buildButtonPane(stage);
-        var mainPane = buildMainPane(titlePane, buttonPane);
+  @Override
+  public void display(final Stage stage) {
+    var titlePane = buildTitlePane();
+    var buttonPane = buildButtonPane(stage);
+    var mainPane = buildMainPane(titlePane, buttonPane);
 
-        var sceneWidth = props.getInt("pregame.scene.width");
-        var sceneHeight = props.getInt("pregame.scene.height");
+    var sceneWidth = props.getInt("pregame.scene.width");
+    var sceneHeight = props.getInt("pregame.scene.height");
 
-        var scene = new Scene(mainPane, sceneWidth, sceneHeight);
-        scene.getStylesheets().add(resourceProvider.getCss(CSS_FILE));
+    var scene = new Scene(mainPane, sceneWidth, sceneHeight);
+    scene.getStylesheets().add(resourceProvider.getCss(CSS_FILE));
 
-        stage.setScene(scene);
-        stage.show();
-    }
+    stage.setScene(scene);
+    stage.show();
+  }
 
-    private Node buildTitlePane() {
-        var flagHBoxWidth = props.getInt("pregame.start.image.width");
+  private Node buildTitlePane() {
+    var flagHBoxWidth = props.getInt("pregame.start.image.width");
 
-        var alliesFlag = resourceProvider.getGameImageView(props.getString("allies.flag.large.image"));
+    var alliesFlag = resourceProvider.getGameImageView(props.getString("allies.flag.large.image"));
 
-        var leftRegion = new Region();
-        HBox.setHgrow(leftRegion, Priority.ALWAYS);
+    var leftRegion = new Region();
+    HBox.setHgrow(leftRegion, Priority.ALWAYS);
 
-        var title = new Label(props.getString("game.title"));
-        title.setId("title");
+    var title = new Label(props.getString("game.title"));
+    title.setId("title");
 
-        var rightRegion = new Region();
-        HBox.setHgrow(rightRegion, Priority.ALWAYS);
+    var rightRegion = new Region();
+    HBox.setHgrow(rightRegion, Priority.ALWAYS);
 
-        var axisFlag = resourceProvider.getGameImageView(props.getString("axis.flag.large.image"));
+    var axisFlag = resourceProvider.getGameImageView(props.getString("axis.flag.large.image"));
 
-        var titlePane = new HBox(alliesFlag, leftRegion, title, rightRegion, axisFlag);
-        titlePane.setMaxWidth(flagHBoxWidth);
-        titlePane.setId("title-pane");
+    var titlePane = new HBox(alliesFlag, leftRegion, title, rightRegion, axisFlag);
+    titlePane.setMaxWidth(flagHBoxWidth);
+    titlePane.setId("title-pane");
 
-        return titlePane;
-    }
+    return titlePane;
+  }
 
-    private Node buildButtonPane(final Stage stage) {
-        var backgroundImageView = getBackgroundImage();
-        var buttons = buildButtons(stage);
+  private Node buildButtonPane(final Stage stage) {
+    var backgroundImageView = getBackgroundImage();
+    var buttons = buildButtons(stage);
 
-        return new StackPane(backgroundImageView, buttons);
-    }
+    return new StackPane(backgroundImageView, buttons);
+  }
 
-    private VBox buildMainPane(final Node titlePane, final Node buttonPane) {
-        var mainPane = new VBox(titlePane, buttonPane);
-        mainPane.setId("main-pane");
-        return mainPane;
-    }
+  private VBox buildMainPane(final Node titlePane, final Node buttonPane) {
+    var mainPane = new VBox(titlePane, buttonPane);
+    mainPane.setId("main-pane");
+    return mainPane;
+  }
 
-    private Node buildButtons(final Stage stage) {
-        var newButton = buildButton("New Game");
-        newButton.setOnAction(event -> startViewModel.newGame(stage));
+  private Node buildButtons(final Stage stage) {
+    var newButton = buildButton("New Game");
+    newButton.setOnAction(event -> startViewModel.newGame(stage));
 
-        var savedButton = buildButton("Saved Game");
-        savedButton.setOnAction(event -> startViewModel.savedGame());
+    var savedButton = buildButton("Saved Game");
+    savedButton.setOnAction(event -> startViewModel.savedGame());
 
-        var optionsButton = buildButton("Options");
-        optionsButton.setOnAction(event -> startViewModel.options());
+    var optionsButton = buildButton("Options");
+    optionsButton.setOnAction(event -> startViewModel.options());
 
-        var quitButton = buildButton("Quit Game");
-        quitButton.setOnAction(event -> startViewModel.quitGame(stage));
+    var quitButton = buildButton("Quit Game");
+    quitButton.setOnAction(event -> startViewModel.quitGame(stage));
 
-        var commandButtonsVBox = new VBox(newButton, savedButton, optionsButton, quitButton);
-        commandButtonsVBox.setId("command-buttons-vbox");
+    var commandButtonsVBox = new VBox(newButton, savedButton, optionsButton, quitButton);
+    commandButtonsVBox.setId("command-buttons-vbox");
 
-        return commandButtonsVBox;
-    }
+    return commandButtonsVBox;
+  }
 
-    private Button buildButton(final String title) {
-        var buttonWidth = props.getInt("pregame.start.button.width");
+  private Button buildButton(final String title) {
+    var buttonWidth = props.getInt("pregame.start.button.width");
 
-        var button = new Button(title);
-        button.setMinWidth(buttonWidth);
-        button.setMaxWidth(buttonWidth);
+    var button = new Button(title);
+    button.setMinWidth(buttonWidth);
+    button.setMaxWidth(buttonWidth);
 
-        return button;
-    }
+    return button;
+  }
 
-    private ImageView getBackgroundImage() {
-        return resourceProvider.getGameImageView(props.getString("pregame.start.image"));
-    }
+  private ImageView getBackgroundImage() {
+    return resourceProvider.getGameImageView(props.getString("pregame.start.image"));
+  }
 }

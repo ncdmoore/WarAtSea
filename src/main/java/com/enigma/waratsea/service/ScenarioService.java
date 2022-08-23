@@ -13,19 +13,19 @@ import java.util.stream.Collectors;
 @Slf4j
 @Singleton
 public class ScenarioService {
-    private final ScenarioRepository scenarioRepository;
+  private final ScenarioRepository scenarioRepository;
 
-    @Inject
-    public ScenarioService(final ScenarioRepository scenarioRepository) {
-        this.scenarioRepository = scenarioRepository;
-    }
+  @Inject
+  public ScenarioService(final ScenarioRepository scenarioRepository) {
+    this.scenarioRepository = scenarioRepository;
+  }
 
-    public List<Scenario> get() {
-        return scenarioRepository
-                .get()
-                .stream()
-                .map(ScenarioMapper.INSTANCE::toModel)
-                .sorted()
-                .collect(Collectors.toList());
-    }
+  public List<Scenario> get() {
+    return scenarioRepository
+        .get()
+        .stream()
+        .map(ScenarioMapper.INSTANCE::toModel)
+        .sorted()
+        .collect(Collectors.toList());
+  }
 }

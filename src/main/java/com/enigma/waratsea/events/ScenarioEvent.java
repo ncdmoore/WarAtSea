@@ -10,5 +10,5 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class ScenarioEvent implements Event {
-    private final Scenario scenario;
+  private final Scenario scenario;
 }

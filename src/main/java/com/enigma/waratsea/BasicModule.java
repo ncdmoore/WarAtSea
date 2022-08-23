@@ -10,8 +10,8 @@ import com.google.inject.assistedinject.FactoryModuleBuilder;
  * Guice basic module.
  */
 public class BasicModule extends AbstractModule {
-    @Override
-    protected void configure() {
-        install(new FactoryModuleBuilder().implement(Props.class, PropsImpl.class).build(PropsFactory.class));
-    }
+  @Override
+  protected void configure() {
+    install(new FactoryModuleBuilder().implement(Props.class, PropsImpl.class).build(PropsFactory.class));
+  }
 }

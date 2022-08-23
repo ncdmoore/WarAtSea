@@ -7,7 +7,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper
 public interface ScenarioMapper {
-    ScenarioMapper INSTANCE = Mappers.getMapper(ScenarioMapper.class);
+  ScenarioMapper INSTANCE = Mappers.getMapper(ScenarioMapper.class);
 
-    Scenario toModel(ScenarioEntity scenarioEntity);
+  Scenario toModel(ScenarioEntity scenarioEntity);
 }

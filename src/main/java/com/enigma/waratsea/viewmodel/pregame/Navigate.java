@@ -18,55 +18,55 @@ import java.util.Map;
  */
 @Singleton
 public class Navigate {
-    @Data
-    private static class Page {
-        private boolean active = true;
-        private Provider<? extends View> view;
-        private Page prev;
-        private Page next;
+  @Data
+  private static class Page {
+    private boolean active = true;
+    private Provider<? extends View> view;
+    private Page prev;
+    private Page next;
 
-        public Page(final Provider<? extends View> view) {
-            this.view = view;
-        }
-
-        public void setNext(final Page nextPage) {
-            next = nextPage;
-            nextPage.setPrev(this);
-        }
+    public Page(final Provider<? extends View> view) {
+      this.view = view;
     }
 
-    private final Map<Class<?>, Page> newGamePages = new HashMap<>();
+    public void setNext(final Page nextPage) {
+      next = nextPage;
+      nextPage.setPrev(this);
+    }
+  }
 
-    @Inject
-    public Navigate(final Provider<StartView> startViewProvider,
-                    final Provider<ScenarioView> scenarioViewProvider) {
+  private final Map<Class<?>, Page> newGamePages = new HashMap<>();
 
-        Page startPage = new Page(startViewProvider);
-        Page scenarioPage = new Page(scenarioViewProvider);
+  @Inject
+  public Navigate(final Provider<StartView> startViewProvider,
+                  final Provider<ScenarioView> scenarioViewProvider) {
 
-        startPage.setNext(scenarioPage);
+    Page startPage = new Page(startViewProvider);
+    Page scenarioPage = new Page(scenarioViewProvider);
 
-        newGamePages.put(StartView.class, startPage);
-        newGamePages.put(ScenarioView.class, scenarioPage);
+    startPage.setNext(scenarioPage);
+
+    newGamePages.put(StartView.class, startPage);
+    newGamePages.put(ScenarioView.class, scenarioPage);
+  }
+
+  public void goNext(final Class<?> currentPage, final Stage stage) {
+    Page nextPage = newGamePages.get(currentPage).getNext();
+
+    while (!nextPage.isActive()) {
+      nextPage = nextPage.getNext();
     }
 
-    public void goNext(final Class<?> currentPage, final Stage stage) {
-        Page nextPage = newGamePages.get(currentPage).getNext();
+    nextPage.getView().get().display(stage);
+  }
 
-        while (!nextPage.isActive()) {
-            nextPage = nextPage.getNext();
-        }
+  public void goPrev(final Class<?> currentPage, final Stage stage) {
+    Page prevPage = newGamePages.get(currentPage).getPrev();
 
-        nextPage.getView().get().display(stage);
+    while (!prevPage.isActive()) {
+      prevPage = prevPage.getPrev();
     }
 
-    public void goPrev(final Class<?> currentPage, final Stage stage) {
-        Page prevPage = newGamePages.get(currentPage).getPrev();
-
-        while (!prevPage.isActive()) {
-            prevPage = prevPage.getPrev();
-        }
-
-        prevPage.getView().get().display(stage);
-    }
+    prevPage.getView().get().display(stage);
+  }
 }

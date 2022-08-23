@@ -17,53 +17,65 @@ import java.util.Optional;
 @Singleton
 @Slf4j
 public class ResourceProvider {
-    private final String scenarioDirectory;
-    private final String cssDirectory;
-    private final String gameImageDirectory;
-    private final String gameName;
+  private final String scenarioDirectory;
+  private final String cssDirectory;
+  private final String imageDirectory;
+  private final String gameImageDirectory;
+  private final String gameName;
 
-    @Inject
-    public ResourceProvider(final ResourceNames resourceNames) {
-        var imageDirectory = resourceNames.getImageDirectory();
-        var gameDirectory = resourceNames.getGameDirectory();
+  @Inject
+  public ResourceProvider(final ResourceNames resourceNames) {
+    var gameDirectory = resourceNames.getGameDirectory();
 
-        this.scenarioDirectory = resourceNames.getScenarioDirectory();
-        this.cssDirectory = resourceNames.getCssDirectory();
-        this.gameImageDirectory = Paths.get(imageDirectory, gameDirectory).toString();
-        this.gameName = resourceNames.getGameName();
+    this.imageDirectory = resourceNames.getImageDirectory();
+    this.scenarioDirectory = resourceNames.getScenarioDirectory();
+    this.cssDirectory = resourceNames.getCssDirectory();
+    this.gameImageDirectory = Paths.get(imageDirectory, gameDirectory).toString();
+    this.gameName = resourceNames.getGameName();
+  }
+
+  public String getCss(final String name) {
+    var cssPath = Paths.get(cssDirectory, name).toString();
+    var url = getClass().getClassLoader().getResource(cssPath);
+
+    if (url == null) {
+      throw new ResourceException(cssPath);
     }
 
-    public String getCss(final String name) {
-        var cssPath = Paths.get(cssDirectory, name).toString();
-        var url = getClass().getClassLoader().getResource(cssPath);
+    return cssPath;
+  }
 
-        if (url == null) {
-            throw new ResourceException(cssPath);
-        }
+  public Image getImage(final String scenario, final String imageName) {
+    return getScenarioSpecificImage(scenario, imageName)
+        .or(() -> getCommonImage(imageName))
+        .orElseThrow(() -> new ResourceException(imageName));
+  }
 
-        return cssPath;
-    }
-    public Image getImage(final String scenario, final String resourceName) {
-        String path = Paths.get(gameName, scenarioDirectory, scenario ,resourceName).toString();
-        log.debug("get image: {}", path);
-        return getImageResource(path);
-    }
+  public Image getGameImage(final String imageName) {
+    return getCommonImage(imageName)
+        .orElseThrow(() -> new ResourceException(imageName));
+  }
 
-    public ImageView getGameImageView(final String imageName) {
-        return new ImageView(getGameImage(imageName));
-    }
+  public ImageView getGameImageView(final String imageName) {
+    return new ImageView(getGameImage(imageName));
+  }
 
-    public Image getGameImage(final String imageName) {
-        var path = Paths.get(gameName, gameImageDirectory, imageName).toString();
-        log.debug("get image: '{}'", path);
-        return getImageResource(path);
-    }
+  private Optional<Image> getCommonImage(final String imageName) {
+    var path = Paths.get(gameName, gameImageDirectory, imageName).toString();
+    log.debug("get image: '{}'", path);
+    return getImageResource(path);
+  }
 
-    private Image getImageResource(final String path) {
-        return Optional.ofNullable(getClass()
-                .getClassLoader()
-                .getResourceAsStream(path))
-                .map(Image::new)
-                .orElseThrow(() -> new ResourceException(path));
-    }
+  private Optional<Image> getScenarioSpecificImage(final String scenario, final String imageName) {
+    String path = Paths.get(gameName, scenarioDirectory, scenario, imageDirectory, imageName).toString();
+    log.debug("get image: {}", path);
+    return getImageResource(path);
+  }
+
+  private Optional<Image> getImageResource(final String path) {
+    return Optional.ofNullable(getClass()
+            .getClassLoader()
+            .getResourceAsStream(path))
+        .map(Image::new);
+  }
 }

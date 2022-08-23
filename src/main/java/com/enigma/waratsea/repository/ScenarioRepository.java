@@ -29,69 +29,69 @@ import static com.enigma.waratsea.Globals.APP_PROPS;
 @Singleton
 @Slf4j
 public class ScenarioRepository {
-    private final Props appProps;
-    private final ResourceNames resourceNames;
-    private final ResourceProvider resourceProvider;
+  private final Props appProps;
+  private final ResourceNames resourceNames;
+  private final ResourceProvider resourceProvider;
 
-    @Inject
-    public ScenarioRepository(final PropsFactory propsFactory,
-                              final ResourceNames resourceNames,
-                              final ResourceProvider resourceProvider) {
-        this.appProps = propsFactory.create(APP_PROPS);
-        this.resourceNames = resourceNames;
-        this.resourceProvider = resourceProvider;
+  @Inject
+  public ScenarioRepository(final PropsFactory propsFactory,
+                            final ResourceNames resourceNames,
+                            final ResourceProvider resourceProvider) {
+    this.appProps = propsFactory.create(APP_PROPS);
+    this.resourceNames = resourceNames;
+    this.resourceProvider = resourceProvider;
+  }
+
+  /**
+   * Get all the defined scenarios for the current game.
+   * <p>
+   * We must dynamically get the scenario names since these are not known ahead of time.
+   * The directories under the scenario directory equate to the scenario names for the current game.
+   *
+   * @return The scenario names for the current game.
+   */
+  public List<ScenarioEntity> get() {
+    return getScenarioNames()
+        .stream()
+        .map(this::createScenario)
+        .collect(Collectors.toList());
+  }
+
+
+  private List<String> getScenarioNames() {
+    return resourceProvider.getSubDirectoryPaths(resourceNames.getScenarioDirectory())
+        .stream()
+        .map(path -> path.getFileName().toString())
+        .collect(Collectors.toList());
+  }
+
+  private ScenarioEntity createScenario(final String scenarioName) {
+    try (var in = getScenarioInputStream(scenarioName);
+         var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
+         var br = new BufferedReader(reader)) {
+      return readScenario(br);
+    } catch (IOException e) {
+      throw new ScenarioException("Unable to create scenario:" + scenarioName);
     }
+  }
 
-    /**
-     * Get all the defined scenarios for the current game.
-     *
-     * We must dynamically get the scenario names since these are not known ahead of time.
-     * The directories under the scenario directory equate to the scenario names for the current game.
-     *
-     * @return The scenario names for the current game.
-     */
-    public List<ScenarioEntity> get() {
-        return getScenarioNames()
-                .stream()
-                .map(this::createScenario)
-                .collect(Collectors.toList());
-    }
+  private InputStream getScenarioInputStream(final String scenarioName) {
+    var scenarioDirectoryName = resourceNames.getScenarioDirectory();
+    var scenarioSummaryFileName = resourceNames.getSummaryFileName();
+    var resourceName = Paths.get(scenarioDirectoryName, scenarioName, scenarioSummaryFileName).toString();
+    return resourceProvider.getResourceInputStream(resourceName);
+  }
 
+  private ScenarioEntity readScenario(final BufferedReader bufferedReader) {
+    var dateFormat = appProps.getString("scenario.date.format");
+    var gsonBuilder = new GsonBuilder()
+        .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
+    var gson = gsonBuilder.create();
 
-    private List<String> getScenarioNames()  {
-        return resourceProvider.getSubDirectoryPaths(resourceNames.getScenarioDirectory())
-                .stream()
-                .map(path -> path.getFileName().toString())
-                .collect(Collectors.toList());
-    }
+    var scenario = gson.fromJson(bufferedReader, ScenarioEntity.class);
 
-    private ScenarioEntity createScenario(final String scenarioName) {
-        try (var in = getScenarioInputStream(scenarioName);
-             var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
-             var br = new BufferedReader(reader)) {
-            return readScenario(br);
-        } catch (IOException e) {
-            throw new ScenarioException("Unable to create scenario:" + scenarioName);
-        }
-    }
+    log.debug("load scenario: {}", scenario.getTitle());
 
-    private InputStream getScenarioInputStream(final String scenarioName) {
-        var scenarioDirectoryName = resourceNames.getScenarioDirectory();
-        var scenarioSummaryFileName = resourceNames.getSummaryFileName();
-        var resourceName = Paths.get(scenarioDirectoryName, scenarioName, scenarioSummaryFileName).toString();
-        return resourceProvider.getResourceInputStream(resourceName);
-    }
-
-    private ScenarioEntity readScenario(final BufferedReader bufferedReader)  {
-        var dateFormat = appProps.getString("scenario.date.format");
-        var gsonBuilder = new GsonBuilder()
-                .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
-        var gson = gsonBuilder.create();
-
-        var scenario = gson.fromJson(bufferedReader, ScenarioEntity.class);
-
-        log.debug("load scenario: {}", scenario.getTitle());
-
-        return scenario;
-    }
+    return scenario;
+  }
 }

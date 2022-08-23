@@ -5,15 +5,15 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public enum TurnType {
-    DAY("Day"),
-    TWILIGHT("Twilight"),
-    NIGHT("Night") ;
+  DAY("Day"),
+  TWILIGHT("Twilight"),
+  NIGHT("Night");
 
-    @Getter
-    private final String value;
+  @Getter
+  private final String value;
 
-    @Override
-    public String toString() {
-        return value;
-    }
+  @Override
+  public String toString() {
+    return value;
+  }
 }

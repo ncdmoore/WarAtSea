@@ -14,30 +14,30 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Singleton
 public class StartViewModel {
-    private final Navigate navigate;
-    private final GlobalEvents globalEvents;
+  private final Navigate navigate;
+  private final GlobalEvents globalEvents;
 
-    @Inject
-    public StartViewModel(final Navigate navigate,
-                          final GlobalEvents globalEvents) {
-        this.navigate = navigate;
-        this.globalEvents = globalEvents;
-    }
+  @Inject
+  public StartViewModel(final Navigate navigate,
+                        final GlobalEvents globalEvents) {
+    this.navigate = navigate;
+    this.globalEvents = globalEvents;
+  }
 
-    public void newGame(final Stage stage) {
-        globalEvents.getNewGameEvents().fire(new NewGameEvent());
-        navigate.goNext(StartView.class, stage);
-    }
+  public void newGame(final Stage stage) {
+    globalEvents.getNewGameEvents().fire(new NewGameEvent());
+    navigate.goNext(StartView.class, stage);
+  }
 
-    public void savedGame() {
-        log.info("saved game");
-    }
+  public void savedGame() {
+    log.info("saved game");
+  }
 
-    public void options() {
-        log.info("options todo");
-    }
+  public void options() {
+    log.info("options todo");
+  }
 
-    public void quitGame(final Stage stage) {
-        stage.close();
-    }
+  public void quitGame(final Stage stage) {
+    stage.close();
+  }
 }

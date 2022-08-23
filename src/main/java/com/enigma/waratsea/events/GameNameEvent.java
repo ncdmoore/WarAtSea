@@ -10,5 +10,5 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public class GameNameEvent implements Event {
-    private final GameName gameName;
+  private final GameName gameName;
 }

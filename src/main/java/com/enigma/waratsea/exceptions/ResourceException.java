@@ -7,8 +7,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 public class ResourceException extends RuntimeException {
-    public ResourceException(final String name) {
-        super(name);
-        log.error("Unable to load resource: '{}'", name);
-    }
+  public ResourceException(final String name) {
+    super(name);
+    log.error("Unable to load resource: '{}'", name);
+  }
 }
