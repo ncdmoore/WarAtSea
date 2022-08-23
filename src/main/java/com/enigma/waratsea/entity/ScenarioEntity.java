@@ -1,7 +1,7 @@
 package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.SquadronDeploymentType;
-import com.enigma.waratsea.model.TurnIndex;
+import com.enigma.waratsea.model.TurnType;
 import com.enigma.waratsea.model.WeatherType;
 import lombok.Data;
 
@@ -20,7 +20,7 @@ public class ScenarioEntity {
   private LocalDate date;
   private WeatherType weather;
   private int maxTurns;
-  private TurnIndex turnIndex;
+  private TurnType turnType;
   private String map;
   private String objectives;
   private SquadronDeploymentType squadron;

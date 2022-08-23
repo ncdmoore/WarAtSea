@@ -2,6 +2,9 @@ package com.enigma.waratsea.model;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Weather types.
+ */
 @RequiredArgsConstructor
 public enum WeatherType {
   CLEAR("Clear"),

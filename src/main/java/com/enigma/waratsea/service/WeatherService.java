@@ -8,7 +8,7 @@ import java.util.Map;
 import static com.enigma.waratsea.model.WeatherType.*;
 
 @Singleton
-public class weatherService {
+public class WeatherService {
   private final Map<WeatherType, WeatherType> worsenMap = Map.of(
       CLEAR, CLOUDY,    // CLEAR worsens to CLOUDY, etc.
       CLOUDY, RAIN,

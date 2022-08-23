@@ -18,7 +18,7 @@ public class Scenario implements Comparable<Scenario> {
   private LocalDate date;
   private WeatherType weather;
   private int maxTurns;
-  private TurnIndex turnIndex;
+  private TurnType turnType;
   private String map;
   private String objectives;
   private SquadronDeploymentType squadron;

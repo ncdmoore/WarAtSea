@@ -14,6 +14,9 @@ public class Game {
   @Setter
   private Scenario scenario;
 
+  @Setter
+  private Turn turn;
+
   public Game(final GameName gameName) {
     this.gameName = gameName;
   }
