@@ -21,6 +21,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -63,10 +64,13 @@ public class ScenarioView implements View {
     var sidePane = buildSidePane();
     var pushButtons = buildPushButtons(stage);
 
-    var mainPane = new VBox(scenarioPane, sidePane, pushButtons);
+    var mainPane = new VBox(scenarioPane, sidePane);
     mainPane.setId("main-pane");
 
-    var overAllPane = new VBox(titlePane, mainPane);
+    var overAllPane = new BorderPane();
+    overAllPane.setTop(titlePane);
+    overAllPane.setCenter(mainPane);
+    overAllPane.setBottom(pushButtons);
 
     var sceneWidth = props.getInt("pregame.scene.width");
     var sceneHeight = props.getInt("pregame.scene.height");
@@ -91,6 +95,7 @@ public class ScenarioView implements View {
   private Node buildScenarioPane() {
     var horizontalLine = new Separator();
     var instructionLabel = new Label("Select Scenario:");
+    instructionLabel.getStyleClass().add("instruction");
     var scenarioList = buildScenarioList();
     var scenarioDetails = buildScenarioDetails();
 
@@ -108,6 +113,7 @@ public class ScenarioView implements View {
 
     var horizontalLine = new Separator();
     var instructionLabel = new Label("Select Side:");
+    instructionLabel.getStyleClass().add("instruction");
 
     var alliesRadioButton = new RadioButton("Allies");
     var axisRadioButton = new RadioButton("Axis");

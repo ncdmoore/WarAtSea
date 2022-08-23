@@ -1,4 +1,5 @@
 @import "colors.css"
+@import "common.css"
 
 .root {
     -fx-background: -fx-var-background-color;
@@ -36,6 +37,7 @@
 }
 
 #scenario-pane-hbox {
+    -fx-alignment: center;
     -fx-spacing: 50;
 }
 
@@ -44,6 +46,7 @@
 }
 
 #radio-buttons-hbox {
+    -fx-alignment: center;
     -fx-spacing: 200;
 }
 
@@ -52,10 +55,14 @@
     -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
 }
 
-#push-buttons-pane {
-}
-
 #main-pane {
     -fx-border-width: 1px;
     -fx-padding: /* top: */ 20 /* right: */ 20 /* bottom: */ 0 /* left: */ 20;
 }
+
+#push-buttons-pane {
+    -fx-alignment: center;
+    -fx-spacing: 50;
+    -fx-padding: /* top: */ 0 /* right: */ 0 /* bottom: */ 20 /* left: */ 0;
+}
+
