@@ -34,9 +34,9 @@ public class ScenarioRepository {
   private final ResourceProvider resourceProvider;
 
   @Inject
-  public ScenarioRepository(final PropsFactory propsFactory,
-                            final ResourceNames resourceNames,
-                            final ResourceProvider resourceProvider) {
+  ScenarioRepository(final PropsFactory propsFactory,
+                     final ResourceNames resourceNames,
+                     final ResourceProvider resourceProvider) {
     this.appProps = propsFactory.create(APP_PROPS);
     this.resourceNames = resourceNames;
     this.resourceProvider = resourceProvider;

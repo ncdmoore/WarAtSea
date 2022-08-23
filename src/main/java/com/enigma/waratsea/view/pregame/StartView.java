@@ -34,9 +34,9 @@ public class StartView implements View {
   private final StartViewModel startViewModel;
 
   @Inject
-  public StartView(final PropsFactory propsFactory,
-                   final ResourceProvider resourceProvider,
-                   final StartViewModel startViewModel) {
+  StartView(final PropsFactory propsFactory,
+            final ResourceProvider resourceProvider,
+            final StartViewModel startViewModel) {
     this.props = propsFactory.create(VIEW_PROPS);
     this.resourceProvider = resourceProvider;
     this.startViewModel = startViewModel;

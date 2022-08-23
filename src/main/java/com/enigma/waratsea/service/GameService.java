@@ -20,7 +20,7 @@ public class GameService {
   private Game game;
 
   @Inject
-  public GameService(final GlobalEvents globalEvents) {
+  GameService(final GlobalEvents globalEvents) {
     globalEvents.getGameNameEvents().register(this::setGameName);
     globalEvents.getNewGameEvents().register(this::create);
     globalEvents.getScenarioEvents().register(this::setScenario);

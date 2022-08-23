@@ -24,7 +24,7 @@ public class ResourceProvider {
   private final String gameName;
 
   @Inject
-  public ResourceProvider(final ResourceNames resourceNames) {
+  ResourceProvider(final ResourceNames resourceNames) {
     var gameDirectory = resourceNames.getGameDirectory();
 
     this.imageDirectory = resourceNames.getImageDirectory();

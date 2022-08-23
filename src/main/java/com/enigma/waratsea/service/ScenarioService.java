@@ -16,7 +16,7 @@ public class ScenarioService {
   private final ScenarioRepository scenarioRepository;
 
   @Inject
-  public ScenarioService(final ScenarioRepository scenarioRepository) {
+  ScenarioService(final ScenarioRepository scenarioRepository) {
     this.scenarioRepository = scenarioRepository;
   }
 

@@ -47,9 +47,9 @@ public class ScenarioView implements View {
   private final ScenarioViewModel scenarioViewModel;
 
   @Inject
-  public ScenarioView(final PropsFactory propsFactory,
-                      final ResourceProvider resourceProvider,
-                      final ScenarioViewModel scenarioViewModel) {
+  ScenarioView(final PropsFactory propsFactory,
+               final ResourceProvider resourceProvider,
+               final ScenarioViewModel scenarioViewModel) {
     this.props = propsFactory.create(VIEW_PROPS);
     this.resourceProvider = resourceProvider;
     this.scenarioViewModel = scenarioViewModel;

@@ -21,7 +21,7 @@ public class ResourceNames {
   private final String summaryFileName = "summary.json";
 
   @Inject
-  public ResourceNames(final GlobalEvents globalEvents) {
+  ResourceNames(final GlobalEvents globalEvents) {
     globalEvents.getGameNameEvents().register(this::handleGameSelected);
     globalEvents.getScenarioEvents().register(this::handleScenarioSelected);
   }

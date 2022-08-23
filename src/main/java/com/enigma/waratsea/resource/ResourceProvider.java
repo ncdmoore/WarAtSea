@@ -23,7 +23,7 @@ public class ResourceProvider {
   private final ResourceNames resourceNames;
 
   @Inject
-  public ResourceProvider(final ResourceNames resourceNames) {
+  ResourceProvider(final ResourceNames resourceNames) {
     this.resourceNames = resourceNames;
   }
 

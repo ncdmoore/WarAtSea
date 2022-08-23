@@ -19,7 +19,7 @@ public class PropsImpl implements Props {
   private final Properties properties = new Properties();
 
   @Inject
-  public PropsImpl(final ResourceNames resourceNames, @Assisted final String name) {
+  PropsImpl(final ResourceNames resourceNames, @Assisted final String name) {
     var generalPath = Paths.get(PROPERTIES_DIR, name).toString();
     var gameSpecificPath = Paths.get(resourceNames.getGameName(), PROPERTIES_DIR, name).toString();
 

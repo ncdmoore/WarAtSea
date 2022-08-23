@@ -38,8 +38,8 @@ public class Navigate {
   private final Map<Class<?>, Page> newGamePages = new HashMap<>();
 
   @Inject
-  public Navigate(final Provider<StartView> startViewProvider,
-                  final Provider<ScenarioView> scenarioViewProvider) {
+  Navigate(final Provider<StartView> startViewProvider,
+           final Provider<ScenarioView> scenarioViewProvider) {
 
     Page startPage = new Page(startViewProvider);
     Page scenarioPage = new Page(scenarioViewProvider);

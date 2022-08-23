@@ -32,9 +32,9 @@ public class ScenarioViewModel {
   private final Navigate navigate;
 
   @Inject
-  public ScenarioViewModel(final GlobalEvents globalEvents,
-                           final Navigate navigate,
-                           final ScenarioService scenarioService) {
+  ScenarioViewModel(final GlobalEvents globalEvents,
+                    final Navigate navigate,
+                    final ScenarioService scenarioService) {
     this.globalEvents = globalEvents;
     this.navigate = navigate;
 

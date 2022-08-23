@@ -18,8 +18,8 @@ public class StartViewModel {
   private final GlobalEvents globalEvents;
 
   @Inject
-  public StartViewModel(final Navigate navigate,
-                        final GlobalEvents globalEvents) {
+  StartViewModel(final Navigate navigate,
+                 final GlobalEvents globalEvents) {
     this.navigate = navigate;
     this.globalEvents = globalEvents;
   }
