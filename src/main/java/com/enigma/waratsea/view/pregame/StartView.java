@@ -44,9 +44,7 @@ public class StartView implements View {
 
   @Override
   public void display(final Stage stage) {
-    var titlePane = buildTitlePane();
-    var buttonPane = buildButtonPane(stage);
-    var mainPane = buildMainPane(titlePane, buttonPane);
+    var mainPane = buildMainPane(stage);
 
     var sceneWidth = props.getInt("pregame.scene.width");
     var sceneHeight = props.getInt("pregame.scene.height");
@@ -56,6 +54,15 @@ public class StartView implements View {
 
     stage.setScene(scene);
     stage.show();
+  }
+
+  private VBox buildMainPane(final Stage stage) {
+    var titlePane = buildTitlePane();
+    var buttonPane = buildButtonPane(stage);
+
+    var mainPane = new VBox(titlePane, buttonPane);
+    mainPane.setId("main-pane");
+    return mainPane;
   }
 
   private Node buildTitlePane() {
@@ -86,12 +93,6 @@ public class StartView implements View {
     var buttons = buildButtons(stage);
 
     return new StackPane(backgroundImageView, buttons);
-  }
-
-  private VBox buildMainPane(final Node titlePane, final Node buttonPane) {
-    var mainPane = new VBox(titlePane, buttonPane);
-    mainPane.setId("main-pane");
-    return mainPane;
   }
 
   private Node buildButtons(final Stage stage) {

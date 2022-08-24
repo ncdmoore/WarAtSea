@@ -61,13 +61,8 @@ public class ScenarioView implements View {
   @Override
   public void display(final Stage stage) {
     var titlePane = buildTitle();
-
-    var scenarioPane = buildScenarioPane();
-    var sidePane = buildSidePane();
+    var mainPane = buildMainPane();
     var pushButtons = buildPushButtons(stage);
-
-    var mainPane = new VBox(scenarioPane, sidePane);
-    mainPane.setId("main-pane");
 
     var overAllPane = new BorderPane();
     overAllPane.setTop(titlePane);
@@ -92,6 +87,28 @@ public class ScenarioView implements View {
     titlePane.setId("title-pane");
 
     return titlePane;
+  }
+
+  private Node buildMainPane() {
+    var scenarioPane = buildScenarioPane();
+    var sidePane = buildSidePane();
+
+    var mainPane = new VBox(scenarioPane, sidePane);
+    mainPane.setId("main-pane");
+
+    return mainPane;
+  }
+
+  private Node buildPushButtons(final Stage stage) {
+    var backButton = new Button("Back");
+    backButton.setOnAction(event -> scenarioViewModel.goBack(stage));
+
+    var continueButton = new Button("Continue");
+    continueButton.setOnAction(event -> scenarioViewModel.continueOn(stage));
+
+    var hBox = new HBox(backButton, continueButton);
+    hBox.setId("push-buttons-pane");
+    return hBox;
   }
 
   private Node buildScenarioPane() {
@@ -136,11 +153,8 @@ public class ScenarioView implements View {
     var alliesFlagName = props.getString("allies.flag.medium.image");
     var axisFlagName = props.getString("axis.flag.medium.image");
 
-    alliesFlag.imageProperty().bind(Bindings.createObjectBinding(() ->
-        getFlagImage(selectedScenario, alliesFlagName), selectedScenario));
-
-    axisFlag.imageProperty().bind(Bindings.createObjectBinding(() ->
-        getFlagImage(selectedScenario, axisFlagName), selectedScenario));
+    bindFlag(alliesFlag, alliesFlagName, selectedScenario);
+    bindFlag(axisFlag, axisFlagName, selectedScenario);
 
     HBox radioButtonsHBox = new HBox(alliesFlag, alliesRadioButton, axisRadioButton, axisFlag);
     radioButtonsHBox.setId("radio-buttons-hbox");
@@ -156,10 +170,7 @@ public class ScenarioView implements View {
 
     var scenarioImage = new ImageView();
 
-    scenarioImage.imageProperty().bind(Bindings.createObjectBinding(() ->
-        Optional.ofNullable(selectedScenario.getValue())
-            .map(s -> resourceProvider.getImage(s.getName(), s.getImage()))
-            .orElse(null), selectedScenario));
+    bindScenarioImage(scenarioImage, selectedScenario);
 
     scenarios.itemsProperty().bind(scenarioViewModel.getScenariosProperty());
     selectedScenario.bind(scenarios.getSelectionModel().selectedItemProperty());
@@ -176,11 +187,11 @@ public class ScenarioView implements View {
   }
 
   private Node buildScenarioDetails() {
+    var selectedScenario = scenarioViewModel.getSelectedScenario();
+
     var dateLabel = new Text("Date:");
     var turnLabel = new Text("Number of Turns:");
     var descriptionLabel = new Text("Description:");
-
-    var selectedScenario = scenarioViewModel.getSelectedScenario();
 
     var descriptionValue = new Text();
     var dateValue = new Text();
@@ -188,20 +199,9 @@ public class ScenarioView implements View {
 
     descriptionValue.setWrappingWidth(props.getInt("pregame.scenario.description.wrap"));
 
-    dateValue.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedScenario.getValue())
-            .map(this::formatDate)
-            .orElse(""), selectedScenario));
-
-    descriptionValue.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedScenario.getValue())
-            .map(Scenario::getDescription)
-            .orElse(""), selectedScenario));
-
-    turnValue.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedScenario.getValue())
-            .map(this::getMaxTurns)
-            .orElse(""), selectedScenario));
+    bindDate(dateValue, selectedScenario);
+    bindDescription(descriptionValue, selectedScenario);
+    bindTurn(turnValue, selectedScenario);
 
     var detailsGrid = new GridPane();
     detailsGrid.add(dateLabel, 0, 0);
@@ -216,16 +216,37 @@ public class ScenarioView implements View {
     return detailsGrid;
   }
 
-  private Node buildPushButtons(final Stage stage) {
-    var backButton = new Button("Back");
-    backButton.setOnAction(event -> scenarioViewModel.goBack(stage));
+  private void bindFlag(final ImageView flag, final String flagName, final ObjectProperty<Scenario> selectedScenario) {
+    flag.imageProperty().bind(Bindings.createObjectBinding(() ->
+        getFlagImage(selectedScenario, flagName), selectedScenario));
+  }
 
-    var continueButton = new Button("Continue");
-    continueButton.setOnAction(event -> scenarioViewModel.continueOn(stage));
+  private void bindScenarioImage(final ImageView scenarioImage, final ObjectProperty<Scenario> selectedScenario) {
+    scenarioImage.imageProperty().bind(Bindings.createObjectBinding(() ->
+        Optional.ofNullable(selectedScenario.getValue())
+            .map(s -> resourceProvider.getImage(s.getName(), s.getImage()))
+            .orElse(null), selectedScenario));
+  }
 
-    var hBox = new HBox(backButton, continueButton);
-    hBox.setId("push-buttons-pane");
-    return hBox;
+  private void bindDate(final Text dateValue, final ObjectProperty<Scenario> selectedScenario) {
+    dateValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedScenario.getValue())
+            .map(this::formatDate)
+            .orElse(""), selectedScenario));
+  }
+
+  private void bindDescription(final Text descriptionValue, final ObjectProperty<Scenario> selectedScenario) {
+    descriptionValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedScenario.getValue())
+            .map(Scenario::getDescription)
+            .orElse(""), selectedScenario));
+  }
+
+  private void bindTurn(final Text turnValue, final ObjectProperty<Scenario> selectedScenario) {
+    turnValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedScenario.getValue())
+            .map(this::getMaxTurns)
+            .orElse(""), selectedScenario));
   }
 
   private String formatDate(final Scenario scenario) {
