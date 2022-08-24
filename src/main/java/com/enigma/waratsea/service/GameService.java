@@ -12,6 +12,9 @@ import com.google.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Creates and manages games.
+ */
 @Slf4j
 @Singleton
 public class GameService {
