@@ -9,10 +9,12 @@ import lombok.Setter;
 @Getter
 public class Game {
   private final GameName gameName;
-  private final GameEvents gameEvents = new GameEvents();
 
   @Setter
   private Scenario scenario;
+
+  @Setter
+  private Side humanSide;
 
   @Setter
   private Turn turn;

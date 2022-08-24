@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Used to broadcast the setting of the game name.
+ * Thrown on start-up when the game is specified.
  */
 @Getter
 @RequiredArgsConstructor

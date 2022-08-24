@@ -1,8 +1,10 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.events.ScenarioEvent;
-import com.enigma.waratsea.model.GlobalEvents;
+import com.enigma.waratsea.events.SideEvent;
+import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.Scenario;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.service.ScenarioService;
 import com.enigma.waratsea.view.pregame.ScenarioView;
 import com.google.inject.Inject;
@@ -12,6 +14,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
+import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -28,20 +31,24 @@ public class ScenarioViewModel {
   @Getter
   private final ObjectProperty<Scenario> selectedScenario = new SimpleObjectProperty<>();
 
-  private final GlobalEvents globalEvents;
+  @Getter
+  private final ObjectProperty<Toggle> selectedSide = new SimpleObjectProperty<>();
+
+  private final Events events;
   private final Navigate navigate;
 
   @Inject
-  ScenarioViewModel(final GlobalEvents globalEvents,
+  ScenarioViewModel(final Events events,
                     final Navigate navigate,
                     final ScenarioService scenarioService) {
-    this.globalEvents = globalEvents;
+    this.events = events;
     this.navigate = navigate;
 
     var scenarios = scenarioService.get();
     scenariosProperty.setValue(FXCollections.observableList(scenarios));
 
     selectedScenario.addListener((observable, oldValue, newValue) -> setSelectedScenario(newValue));
+    selectedSide.addListener((observable, oldValue, newValue) -> setSelectedSide(newValue));
   }
 
   public void goBack(final Stage stage) {
@@ -53,6 +60,21 @@ public class ScenarioViewModel {
   }
 
   private void setSelectedScenario(final Scenario scenario) {
-    globalEvents.getScenarioEvents().fire(new ScenarioEvent(scenario));
+    events.getScenarioEvents().fire(new ScenarioEvent(scenario));
+  }
+
+  private void setSelectedSide(final Toggle toggle) {
+    var selectedSide = getSelectedSideFromToggle(toggle);
+    events.getSideEvents().fire(new SideEvent(selectedSide));
+  }
+
+  private Side getSelectedSideFromToggle(final Toggle toggle) {
+    return (Side) toggle.getToggleGroup()
+        .getToggles()
+        .stream()
+        .filter(Toggle::isSelected)
+        .findFirst()
+        .orElseThrow()
+        .getUserData();
   }
 }

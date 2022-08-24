@@ -3,7 +3,7 @@ package com.enigma.waratsea;
 import com.enigma.waratsea.events.GameNameEvent;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.GameName;
-import com.enigma.waratsea.model.GlobalEvents;
+import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
@@ -116,7 +116,7 @@ public class WarAtSeaApplication extends Application {
 
   private void fireGameNameEvent(final Injector injector) {
     GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
-    var globalEvents = injector.getInstance(GlobalEvents.class);
-    globalEvents.getGameNameEvents().fire(new GameNameEvent(currentName));
+    var events = injector.getInstance(Events.class);
+    events.getGameNameEvents().fire(new GameNameEvent(currentName));
   }
 }

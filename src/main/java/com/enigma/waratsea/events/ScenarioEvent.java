@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Broadcast the selection of the scenario.
+ * Thrown when a scenario is selected.
  */
 @Getter
 @RequiredArgsConstructor

@@ -2,7 +2,7 @@ package com.enigma.waratsea.resource;
 
 import com.enigma.waratsea.events.GameNameEvent;
 import com.enigma.waratsea.events.ScenarioEvent;
-import com.enigma.waratsea.model.GlobalEvents;
+import com.enigma.waratsea.model.Events;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;
@@ -21,9 +21,9 @@ public class ResourceNames {
   private final String summaryFileName = "summary.json";
 
   @Inject
-  ResourceNames(final GlobalEvents globalEvents) {
-    globalEvents.getGameNameEvents().register(this::handleGameSelected);
-    globalEvents.getScenarioEvents().register(this::handleScenarioSelected);
+  ResourceNames(final Events events) {
+    events.getGameNameEvents().register(this::handleGameSelected);
+    events.getScenarioEvents().register(this::handleScenarioSelected);
   }
 
   private void handleGameSelected(final GameNameEvent gameEvent) {

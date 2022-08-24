@@ -33,6 +33,8 @@ import java.util.Locale;
 import java.util.Optional;
 
 import static com.enigma.waratsea.Globals.VIEW_PROPS;
+import static com.enigma.waratsea.model.Side.ALLIES;
+import static com.enigma.waratsea.model.Side.AXIS;
 
 /**
  * This is the new game scenario selection screen.
@@ -110,19 +112,23 @@ public class ScenarioView implements View {
 
   private Node buildSidePane() {
     var selectedScenario = scenarioViewModel.getSelectedScenario();
+    var selectedSide = scenarioViewModel.getSelectedSide();
 
     var horizontalLine = new Separator();
     var instructionLabel = new Label("Select Side:");
     instructionLabel.getStyleClass().add("instruction");
 
     var alliesRadioButton = new RadioButton("Allies");
+    alliesRadioButton.setUserData(ALLIES);
     var axisRadioButton = new RadioButton("Axis");
+    axisRadioButton.setUserData(AXIS);
 
     alliesRadioButton.setSelected(true);
 
     ToggleGroup sideGroup = new ToggleGroup();
     alliesRadioButton.setToggleGroup(sideGroup);
     axisRadioButton.setToggleGroup(sideGroup);
+    selectedSide.bind(sideGroup.selectedToggleProperty());
 
     var alliesFlag = new ImageView();
     var axisFlag = new ImageView();
