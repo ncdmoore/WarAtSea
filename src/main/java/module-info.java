@@ -12,6 +12,7 @@ module com.enigma.waratsea {
 
   opens com.enigma.waratsea to javafx.fxml;
   opens com.enigma.waratsea.entity to com.google.gson;
+  opens com.enigma.waratsea.mappers to com.google.guice;
 
   exports com.enigma.waratsea;
   exports com.enigma.waratsea.entity;
