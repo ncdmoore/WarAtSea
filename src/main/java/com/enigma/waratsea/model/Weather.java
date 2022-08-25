@@ -1,14 +1,14 @@
-package com.enigma.waratsea.service;
+package com.enigma.waratsea.model;
 
-import com.enigma.waratsea.model.WeatherType;
 import com.google.inject.Singleton;
 
 import java.util.Map;
 
 import static com.enigma.waratsea.model.WeatherType.*;
 
+
 @Singleton
-public class WeatherService {
+public class Weather {
   private final Map<WeatherType, WeatherType> worsenMap = Map.of(
       CLEAR, CLOUDY,    // CLEAR worsens to CLOUDY, etc.
       CLOUDY, RAIN,
