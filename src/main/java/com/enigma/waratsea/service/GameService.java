@@ -1,9 +1,9 @@
 package com.enigma.waratsea.service;
 
-import com.enigma.waratsea.events.GameNameEvent;
-import com.enigma.waratsea.events.NewGameEvent;
-import com.enigma.waratsea.events.ScenarioEvent;
-import com.enigma.waratsea.events.SideEvent;
+import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.NewGameEvent;
+import com.enigma.waratsea.event.ScenarioEvent;
+import com.enigma.waratsea.event.SideEvent;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Events;
@@ -18,17 +18,36 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Singleton
 public class GameService {
+  private final WeatherService weatherService;
   private GameName gameName;
 
   @Getter
   private Game game;
 
   @Inject
-  GameService(final Events events) {
+  GameService(final Events events,
+              final WeatherService weatherService) {
     events.getGameNameEvents().register(this::setGameName);
     events.getNewGameEvents().register(this::create);
     events.getScenarioEvents().register(this::setScenario);
     events.getSideEvents().register(this::setHumanSide);
+
+    this.weatherService = weatherService;
+  }
+
+  private void nextTurn() {
+    game.nextTurn();
+  }
+
+  private void determineWeather() {
+    var weatherInput = WeatherService.WeatherInput
+        .builder()
+        .weather(game.getWeather())
+        .turn(game.getTurn())
+        .build();
+
+    var newWeather = weatherService.determine(weatherInput);
+    game.setWeather(newWeather);
   }
 
   private void setGameName(final GameNameEvent gameEvent) {

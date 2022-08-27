@@ -1,7 +1,7 @@
 package com.enigma.waratsea.resource;
 
-import com.enigma.waratsea.events.GameNameEvent;
-import com.enigma.waratsea.events.ScenarioEvent;
+import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.ScenarioEvent;
 import com.enigma.waratsea.model.Events;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

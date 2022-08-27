@@ -1,6 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.events.NewGameEvent;
+import com.enigma.waratsea.event.NewGameEvent;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Inject;

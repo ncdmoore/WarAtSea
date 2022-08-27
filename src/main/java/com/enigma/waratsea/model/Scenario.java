@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 import java.time.LocalDate;
 
 import static com.enigma.waratsea.model.SquadronDeploymentType.COMPUTER;
-import static com.enigma.waratsea.model.TurnType.DAY_1;
+import static com.enigma.waratsea.model.TimeRange.DAY_1;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -19,9 +19,9 @@ public class Scenario implements Comparable<Scenario> {
   private String image;
   private String description;
   private LocalDate date;
-  private WeatherType weather;
+  private Weather weather;
   private int maxTurns;
-  private TurnType turnType = DAY_1;
+  private TimeRange timeRange = DAY_1;
   private String map;
   private String objectives;
   private SquadronDeploymentType squadron = COMPUTER;

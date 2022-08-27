@@ -1,4 +1,4 @@
-package com.enigma.waratsea.events;
+package com.enigma.waratsea.event;
 
 /**
  * Implement this interface to receive game events.

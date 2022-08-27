@@ -42,21 +42,12 @@ public class ScenarioRepository {
     this.resourceProvider = resourceProvider;
   }
 
-  /**
-   * Get all the defined scenarios for the current game.
-   * <p>
-   * We must dynamically get the scenario names since these are not known ahead of time.
-   * The directories under the scenario directory equate to the scenario names for the current game.
-   *
-   * @return The scenario names for the current game.
-   */
   public List<ScenarioEntity> get() {
     return getScenarioNames()
         .stream()
         .map(this::createScenario)
         .collect(Collectors.toList());
   }
-
 
   private List<String> getScenarioNames() {
     return resourceProvider.getSubDirectoryPaths(resourceNames.getScenarioDirectory())

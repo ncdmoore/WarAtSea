@@ -1,6 +1,6 @@
 package com.enigma.watatsea.events;
 
-import com.enigma.waratsea.events.Event;
+import com.enigma.waratsea.event.Event;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

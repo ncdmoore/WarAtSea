@@ -1,6 +1,6 @@
 package com.enigma.waratsea;
 
-import com.enigma.waratsea.events.GameNameEvent;
+import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Events;

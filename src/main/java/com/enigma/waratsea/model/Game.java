@@ -19,7 +19,14 @@ public class Game {
   @Setter
   private Turn turn;
 
+  @Setter
+  private Weather weather;
+
   public Game(final GameName gameName) {
     this.gameName = gameName;
+  }
+
+  public void nextTurn() {
+    turn = turn.next();
   }
 }

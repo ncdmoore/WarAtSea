@@ -1,7 +1,7 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.events.ScenarioEvent;
-import com.enigma.waratsea.events.SideEvent;
+import com.enigma.waratsea.event.ScenarioEvent;
+import com.enigma.waratsea.event.SideEvent;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.Side;

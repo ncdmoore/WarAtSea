@@ -1,7 +1,7 @@
 package com.enigma.watatsea.events;
 
-import com.enigma.waratsea.events.EventDispatcher;
-import com.enigma.waratsea.events.EventHandler;
+import com.enigma.waratsea.event.EventDispatcher;
+import com.enigma.waratsea.event.EventHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

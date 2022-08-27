@@ -1,4 +1,4 @@
-package com.enigma.waratsea.mappers;
+package com.enigma.waratsea.mapper;
 
 import com.enigma.waratsea.entity.GameEntity;
 import com.enigma.waratsea.model.Game;

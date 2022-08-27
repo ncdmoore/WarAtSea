@@ -191,25 +191,35 @@ public class ScenarioView implements View {
 
     var dateLabel = new Text("Date:");
     var turnLabel = new Text("Number of Turns:");
+    var weatherLabel = new Text("Weather:");
+    var visibilityLabel = new Text("Visibility:");
     var descriptionLabel = new Text("Description:");
 
-    var descriptionValue = new Text();
     var dateValue = new Text();
     var turnValue = new Text();
+    var weatherValue = new Text();
+    var visibilityValue = new Text();
+    var descriptionValue = new Text();
 
     descriptionValue.setWrappingWidth(props.getInt("pregame.scenario.description.wrap"));
 
     bindDate(dateValue, selectedScenario);
-    bindDescription(descriptionValue, selectedScenario);
     bindTurn(turnValue, selectedScenario);
+    bindWeather(weatherValue, selectedScenario);
+    bindVisibility(visibilityValue, selectedScenario);
+    bindDescription(descriptionValue, selectedScenario);
 
     var detailsGrid = new GridPane();
     detailsGrid.add(dateLabel, 0, 0);
     detailsGrid.add(dateValue, 1, 0);
     detailsGrid.add(turnLabel, 0, 1);
     detailsGrid.add(turnValue, 1, 1);
-    detailsGrid.add(descriptionLabel, 0, 2);
-    detailsGrid.add(descriptionValue, 1, 2);
+    detailsGrid.add(weatherLabel, 0, 2);
+    detailsGrid.add(weatherValue, 1, 2);
+    detailsGrid.add(visibilityLabel, 0, 3);
+    detailsGrid.add(visibilityValue, 1, 3);
+    detailsGrid.add(descriptionLabel, 0, 4);
+    detailsGrid.add(descriptionValue, 1, 4);
     detailsGrid.setId("details-grid");
     GridPane.setValignment(descriptionLabel, VPos.TOP);
 
@@ -235,6 +245,20 @@ public class ScenarioView implements View {
             .orElse(""), selectedScenario));
   }
 
+  private void bindWeather(final Text weatherValue, final ObjectProperty<Scenario> selectedScenario) {
+    weatherValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedScenario.getValue())
+            .map(this::getWeather)
+            .orElse(""), selectedScenario));
+  }
+
+  private void bindVisibility(final Text visibilityValue, final ObjectProperty<Scenario> selectedScenario) {
+    visibilityValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedScenario.getValue())
+            .map(this::getVisibility)
+            .orElse(""), selectedScenario));
+  }
+
   private void bindDescription(final Text descriptionValue, final ObjectProperty<Scenario> selectedScenario) {
     descriptionValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedScenario.getValue())
@@ -254,6 +278,14 @@ public class ScenarioView implements View {
     return scenario
         .getDate()
         .format(DateTimeFormatter.ofPattern(dateFormat).withLocale(Locale.ENGLISH));
+  }
+
+  private String getWeather(final Scenario scenario) {
+    return scenario.getWeather().getWeatherType().toString();
+  }
+
+  private String getVisibility(final Scenario scenario) {
+    return scenario.getWeather().getVisibility().toString();
   }
 
   private String getMaxTurns(final Scenario scenario) {

@@ -1,8 +1,8 @@
 package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.SquadronDeploymentType;
-import com.enigma.waratsea.model.TurnType;
-import com.enigma.waratsea.model.WeatherType;
+import com.enigma.waratsea.model.TimeRange;
+import com.enigma.waratsea.model.Weather;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -18,9 +18,9 @@ public class ScenarioEntity {
   private String image;
   private String description;
   private LocalDate date;
-  private WeatherType weather;
+  private Weather weather;
   private int maxTurns;
-  private TurnType turnType;
+  private TimeRange timeRange;
   private String map;
   private String objectives;
   private SquadronDeploymentType squadron;

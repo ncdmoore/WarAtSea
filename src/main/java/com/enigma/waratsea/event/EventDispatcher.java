@@ -1,4 +1,4 @@
-package com.enigma.waratsea.events;
+package com.enigma.waratsea.event;
 
 import lombok.extern.slf4j.Slf4j;
 

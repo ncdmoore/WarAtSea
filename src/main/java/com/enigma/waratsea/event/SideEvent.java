@@ -1,4 +1,4 @@
-package com.enigma.waratsea.events;
+package com.enigma.waratsea.event;
 
 import com.enigma.waratsea.model.Side;
 import lombok.Data;

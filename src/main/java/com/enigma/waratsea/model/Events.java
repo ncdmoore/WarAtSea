@@ -1,10 +1,10 @@
 package com.enigma.waratsea.model;
 
-import com.enigma.waratsea.events.EventDispatcher;
-import com.enigma.waratsea.events.GameNameEvent;
-import com.enigma.waratsea.events.NewGameEvent;
-import com.enigma.waratsea.events.ScenarioEvent;
-import com.enigma.waratsea.events.SideEvent;
+import com.enigma.waratsea.event.EventDispatcher;
+import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.NewGameEvent;
+import com.enigma.waratsea.event.ScenarioEvent;
+import com.enigma.waratsea.event.SideEvent;
 import com.google.inject.Singleton;
 import lombok.Getter;
 

@@ -1,7 +1,7 @@
 package com.enigma.waratsea.service;
 
 import com.enigma.waratsea.exceptions.ScenarioException;
-import com.enigma.waratsea.mappers.ScenarioMapper;
+import com.enigma.waratsea.mapper.ScenarioMapper;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.repository.ScenarioRepository;
 import com.google.inject.Inject;

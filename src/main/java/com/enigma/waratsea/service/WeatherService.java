@@ -1,0 +1,69 @@
+package com.enigma.waratsea.service;
+
+import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.model.GameName;
+import com.enigma.waratsea.model.Turn;
+import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.strategy.VisibilityStrategy;
+import com.enigma.waratsea.strategy.WeatherStrategy;
+import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import com.google.inject.name.Named;
+import lombok.Builder;
+import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.Map;
+
+@Slf4j
+@Singleton
+public class WeatherService {
+  private final WeatherStrategy defaultWeatherStrategy;
+  private final VisibilityStrategy defaultVisibilityStrategy;
+  private final Map<GameName, WeatherStrategy> weatherStrategies;
+  private final Map<GameName, VisibilityStrategy> visibilityStrategies;
+
+  private WeatherStrategy weatherStrategy;
+  private VisibilityStrategy visibilityStrategy;
+
+  @Data
+  @Builder
+  public static class WeatherInput {
+    private Weather weather;
+    private Turn turn;
+  }
+
+  @Inject
+  public WeatherService(final Events events,
+                        final @Named("Default") WeatherStrategy defaultWeatherStrategy,
+                        final @Named("Default") VisibilityStrategy defaultVisibilityStrategy,
+                        final Map<GameName, WeatherStrategy> weatherStrategies,
+                        final Map<GameName, VisibilityStrategy> visibilityStrategies) {
+    this.defaultWeatherStrategy = defaultWeatherStrategy;
+    this.defaultVisibilityStrategy = defaultVisibilityStrategy;
+    this.weatherStrategies = weatherStrategies;
+    this.visibilityStrategies = visibilityStrategies;
+
+    events.getGameNameEvents().register(this::setGameName);
+  }
+
+  public Weather determine(WeatherInput input) {
+    var visibility = visibilityStrategy.determine(input.getTurn());
+    var weatherType = weatherStrategy.determine(input);
+
+    return Weather
+        .builder()
+        .weatherType(weatherType)
+        .visibility(visibility)
+        .build();
+  }
+
+  private void setGameName(final GameNameEvent gameNameEvent) {
+    var gameName = gameNameEvent.getGameName();
+
+    weatherStrategy = weatherStrategies.getOrDefault(gameName, defaultWeatherStrategy);
+    visibilityStrategy = visibilityStrategies.getOrDefault(gameName, defaultVisibilityStrategy);
+    log.debug("Weather Service received gameNameEvent, gameName set to '{}'", gameName);
+  }
+}
