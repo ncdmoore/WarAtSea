@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.event.ScenarioEvent;
 import com.enigma.waratsea.event.SideEvent;
 import com.enigma.waratsea.model.Events;
@@ -57,10 +58,13 @@ public class ScenarioViewModel {
 
   public void continueOn(final Stage stage) {
     log.info("continue");
+    events.getSaveGameEvents().fire(new SaveGameEvent());
   }
 
   private void setSelectedScenario(final Scenario scenario) {
-    events.getScenarioEvents().fire(new ScenarioEvent(scenario));
+    if (scenario != null) { // can be null is listview is unstaged?
+      events.getScenarioEvents().fire(new ScenarioEvent(scenario));
+    }
   }
 
   private void setSelectedSide(final Toggle toggle) {

@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 public class GameEntity {
   private final GameName gameName;
+  private final String id;
   private final int scenario;
   private final Side humanSide;
   private final Turn turn;

@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.Map;
 
 /**
- * A game turn represents a 4-hour period of time.
+ * A game turn represents a 4-hour period of time. Thus, each day consists of 6 turns.232
  */
 @Getter
 @RequiredArgsConstructor

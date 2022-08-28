@@ -1,10 +1,10 @@
 package com.enigma.waratsea;
 
+import com.enigma.waratsea.data.DataProvider;
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Events;
-import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Guice;
@@ -110,7 +110,7 @@ public class WarAtSeaApplication extends Application {
     // The classes injected here need to receive GameNameEvents.
     // Thus, they must be created or bootstrapped here before the GameNameEvent is fired.
     injector.getInstance(GameService.class);
-    injector.getInstance(ResourceNames.class);
+    injector.getInstance(DataProvider.class);
     log.debug("Bootstrap classes created.");
   }
 

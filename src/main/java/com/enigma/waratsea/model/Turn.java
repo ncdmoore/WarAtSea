@@ -8,13 +8,16 @@ import java.time.LocalDate;
 import static com.enigma.waratsea.model.TimeRange.NIGHT_2;
 
 /**
- * Game turn.
+ * Game turn. Each day is divided into six game turns.
  */
 @Data
 @Builder
 public class Turn {
   private TimeRange timeRange;
-  private int number;
+
+  @Builder.Default
+  private int number = 1;
+
   private LocalDate date;
 
   public Turn next() {

@@ -1,8 +1,7 @@
 package com.enigma.waratsea.view.pregame;
 
 import com.enigma.waratsea.model.Scenario;
-import com.enigma.waratsea.property.Props;
-import com.enigma.waratsea.property.PropsFactory;
+import com.enigma.waratsea.property.ViewProps;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.ScenarioViewModel;
@@ -32,7 +31,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Optional;
 
-import static com.enigma.waratsea.Globals.VIEW_PROPS;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
 
@@ -43,17 +41,15 @@ import static com.enigma.waratsea.model.Side.AXIS;
 public class ScenarioView implements View {
   private static final String CSS_FILE = "scenarioView.css";
 
-  private final ListView<Scenario> scenarios = new ListView<>();
-
-  private final Props props;
+  private final ViewProps props;
   private final ResourceProvider resourceProvider;
   private final ScenarioViewModel scenarioViewModel;
 
   @Inject
-  ScenarioView(final PropsFactory propsFactory,
+  ScenarioView(final ViewProps props,
                final ResourceProvider resourceProvider,
                final ScenarioViewModel scenarioViewModel) {
-    this.props = propsFactory.create(VIEW_PROPS);
+    this.props = props;
     this.resourceProvider = resourceProvider;
     this.scenarioViewModel = scenarioViewModel;
   }
@@ -172,6 +168,7 @@ public class ScenarioView implements View {
 
     bindScenarioImage(scenarioImage, selectedScenario);
 
+    ListView<Scenario> scenarios = new ListView<>();
     scenarios.itemsProperty().bind(scenarioViewModel.getScenariosProperty());
     selectedScenario.bind(scenarios.getSelectionModel().selectedItemProperty());
 

@@ -18,6 +18,7 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.mapper to com.google.guice;
 
   exports com.enigma.waratsea;
+  exports com.enigma.waratsea.data;
   exports com.enigma.waratsea.entity;
   exports com.enigma.waratsea.event;
   exports com.enigma.waratsea.exceptions;

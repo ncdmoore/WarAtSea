@@ -7,6 +7,9 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
+import static com.enigma.waratsea.model.SquadronDeploymentType.HUMAN;
+import static com.enigma.waratsea.model.TimeRange.DAY_1;
+
 /**
  * This represents a Scenario's persisted data.
  */
@@ -20,10 +23,10 @@ public class ScenarioEntity {
   private LocalDate date;
   private Weather weather;
   private int maxTurns;
-  private TimeRange timeRange;
+  private TimeRange timeRange = DAY_1;
   private String map;
   private String objectives;
-  private SquadronDeploymentType squadron;
+  private SquadronDeploymentType squadron = HUMAN;
   private boolean minefieldForHumanSide;
   private boolean flotillasForHumanSide;
 }

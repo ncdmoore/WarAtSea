@@ -1,16 +1,22 @@
 package com.enigma.waratsea.service;
 
 import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.LoadGameEvent;
+import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.event.NewGameEvent;
 import com.enigma.waratsea.event.ScenarioEvent;
 import com.enigma.waratsea.event.SideEvent;
+import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.repository.GameRepository;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.stream.Collectors;
 
 /**
  * Creates and manages games.
@@ -19,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @Singleton
 public class GameService {
   private final WeatherService weatherService;
+  private final GameRepository gameRepository;
   private GameName gameName;
 
   @Getter
@@ -26,13 +33,17 @@ public class GameService {
 
   @Inject
   GameService(final Events events,
-              final WeatherService weatherService) {
+              final WeatherService weatherService,
+              final GameRepository gameRepository) {
     events.getGameNameEvents().register(this::setGameName);
     events.getNewGameEvents().register(this::create);
+    events.getLoadGameEvents().register(this::load);
+    events.getSaveGameEvents().register(this::save);
     events.getScenarioEvents().register(this::setScenario);
     events.getSideEvents().register(this::setHumanSide);
 
     this.weatherService = weatherService;
+    this.gameRepository = gameRepository;
   }
 
   private void nextTurn() {
@@ -58,6 +69,27 @@ public class GameService {
   private void create(final NewGameEvent newGameEvent) {
     game = new Game(gameName);
     log.debug("Game Service received newGameEvent");
+  }
+
+  private void load(final LoadGameEvent loadGameEvent) {
+     var savedGames = gameRepository
+         .get()
+         .stream()
+         .map(GameMapper.INSTANCE::toModel)
+         .collect(Collectors.toList());
+
+    savedGames.forEach(g -> log.debug("Game Service: {}", g));
+
+    log.debug("Game Service received loadGameEvent");
+  }
+
+  private void save(final SaveGameEvent gameSaveEvent) {
+    game.setId(gameSaveEvent.getName());
+    var gameMapper = GameMapper.INSTANCE;
+    var gameEntity = gameMapper.toEntity(game);
+
+    gameRepository.save(gameEntity);
+    log.debug("Game Service received gameSaveEvent, save: '{}'", game.getId());
   }
 
   private void setScenario(final ScenarioEvent scenarioEvent) {

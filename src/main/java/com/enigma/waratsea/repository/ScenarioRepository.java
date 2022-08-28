@@ -2,8 +2,7 @@ package com.enigma.waratsea.repository;
 
 import com.enigma.waratsea.entity.ScenarioEntity;
 import com.enigma.waratsea.exceptions.ScenarioException;
-import com.enigma.waratsea.property.Props;
-import com.enigma.waratsea.property.PropsFactory;
+import com.enigma.waratsea.property.AppProps;
 import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.resource.ResourceProvider;
 import com.google.gson.GsonBuilder;
@@ -21,23 +20,21 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.enigma.waratsea.Globals.APP_PROPS;
-
 /**
  * Provides Scenario's.
  */
 @Singleton
 @Slf4j
 public class ScenarioRepository {
-  private final Props appProps;
+  private final AppProps props;
   private final ResourceNames resourceNames;
   private final ResourceProvider resourceProvider;
 
   @Inject
-  ScenarioRepository(final PropsFactory propsFactory,
+  ScenarioRepository(final AppProps props,
                      final ResourceNames resourceNames,
                      final ResourceProvider resourceProvider) {
-    this.appProps = propsFactory.create(APP_PROPS);
+    this.props = props;
     this.resourceNames = resourceNames;
     this.resourceProvider = resourceProvider;
   }
@@ -74,7 +71,7 @@ public class ScenarioRepository {
   }
 
   private ScenarioEntity readScenario(final BufferedReader bufferedReader) {
-    var dateFormat = appProps.getString("scenario.date.format");
+    var dateFormat = props.getString("scenario.date.format");
     var gsonBuilder = new GsonBuilder()
         .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
     var gson = gsonBuilder.create();

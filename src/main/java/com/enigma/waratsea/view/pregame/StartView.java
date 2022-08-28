@@ -1,7 +1,6 @@
 package com.enigma.waratsea.view.pregame;
 
-import com.enigma.waratsea.property.Props;
-import com.enigma.waratsea.property.PropsFactory;
+import com.enigma.waratsea.property.ViewProps;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.StartViewModel;
@@ -19,8 +18,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import static com.enigma.waratsea.Globals.VIEW_PROPS;
-
 /**
  * This is the game starting screen.
  * It shows the game name and the main game start buttons.
@@ -29,15 +26,15 @@ import static com.enigma.waratsea.Globals.VIEW_PROPS;
 public class StartView implements View {
   private static final String CSS_FILE = "startView.css";
 
-  private final Props props;
+  private final ViewProps props;
   private final ResourceProvider resourceProvider;
   private final StartViewModel startViewModel;
 
   @Inject
-  StartView(final PropsFactory propsFactory,
+  StartView(final ViewProps props,
             final ResourceProvider resourceProvider,
             final StartViewModel startViewModel) {
-    this.props = propsFactory.create(VIEW_PROPS);
+    this.props = props;
     this.resourceProvider = resourceProvider;
     this.startViewModel = startViewModel;
   }
