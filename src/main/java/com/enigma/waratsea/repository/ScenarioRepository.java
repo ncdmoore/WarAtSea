@@ -56,7 +56,7 @@ public class ScenarioRepository {
          var br = new BufferedReader(reader)) {
       return readScenario(br);
     } catch (IOException e) {
-      throw new ScenarioException("Unable to create scenario:" + scenarioName);
+      throw new ScenarioException("Unable to create scenario: " + scenarioName);
     }
   }
 

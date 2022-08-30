@@ -36,7 +36,7 @@ public class ScenarioService {
         .stream()
         .filter(scenario -> scenario.getId() == id)
         .findAny()
-        .orElseThrow(() -> new ScenarioException("Unable to find scenario with id = " + id));
+        .orElseThrow(() -> new ScenarioException("Unable to find scenario with id: " + id));
   }
 
   private Optional<List<Scenario>> getCachedScenarios() {

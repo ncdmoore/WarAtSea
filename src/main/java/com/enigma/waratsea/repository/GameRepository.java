@@ -3,6 +3,7 @@ package com.enigma.waratsea.repository;
 import com.enigma.waratsea.data.DataNames;
 import com.enigma.waratsea.data.DataProvider;
 import com.enigma.waratsea.entity.GameEntity;
+import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.property.AppProps;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -66,9 +67,6 @@ public class GameRepository {
   }
 
   private GameEntity createGame(final String directoryName) {
-
-    log.debug("'{}'", directoryName);
-
     var savedGameDirectory = dataNames.getSavedGameDirectory();
     var filePath = Paths.get(savedGameDirectory, directoryName, dataNames.getGameEntityName());
 
@@ -77,10 +75,8 @@ public class GameRepository {
          var br = new BufferedReader(reader)) {
         return readGame(br);
     } catch (IOException e) {
-      log.error("Unable to read game: '{}'", filePath, e);
+      throw new GameException("Unable to read game: " + filePath, e);
     }
-
-    return null;
   }
 
   private GameEntity readGame(final BufferedReader bufferedReader) {
@@ -88,7 +84,6 @@ public class GameRepository {
     var gsonBuilder = new GsonBuilder()
         .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
     var gson = gsonBuilder.create();
-
     var game = gson.fromJson(bufferedReader, GameEntity.class);
 
     log.debug("loaded game: {}", game.getId());
@@ -109,7 +104,7 @@ public class GameRepository {
       String json = gson.toJson(game);
       writer.write(json);
     } catch (IOException e) {
-      log.error("Unable to save '{}' to path: '{}'", game.getId(), filePath, e);
+      throw new GameException("Unable to save " + game.getId() + " to path: " + filePath, e);
     }
   }
 
