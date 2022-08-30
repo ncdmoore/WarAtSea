@@ -12,9 +12,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-/**
- * Provides Scenarios
- */
 @Slf4j
 @Singleton
 public class ScenarioService {

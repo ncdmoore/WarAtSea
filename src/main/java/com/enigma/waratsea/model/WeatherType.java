@@ -4,9 +4,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 
-/**
- * Weather types.
- */
 @RequiredArgsConstructor
 public enum WeatherType {
   CLEAR("Clear"),

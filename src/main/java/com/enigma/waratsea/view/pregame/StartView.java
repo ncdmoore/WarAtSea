@@ -18,10 +18,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-/**
- * This is the game starting screen.
- * It shows the game name and the main game start buttons.
- */
 @Singleton
 public class StartView implements View {
   private static final String CSS_FILE = "startView.css";

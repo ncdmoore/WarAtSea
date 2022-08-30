@@ -23,9 +23,6 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * Provides games.
- */
 @Slf4j
 @Singleton
 public class GameRepository {

@@ -10,9 +10,6 @@ import java.time.LocalDate;
 import static com.enigma.waratsea.model.SquadronDeploymentType.HUMAN;
 import static com.enigma.waratsea.model.TimeRange.DAY_1;
 
-/**
- * This represents a Scenario's persisted data.
- */
 @Data
 public class ScenarioEntity {
   private Integer id;

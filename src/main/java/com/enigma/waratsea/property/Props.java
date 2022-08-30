@@ -1,8 +1,5 @@
 package com.enigma.waratsea.property;
 
-/**
- * Game properties.
- */
 public interface Props {
   String getString(String key);
 

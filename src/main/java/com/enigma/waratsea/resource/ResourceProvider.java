@@ -1,5 +1,6 @@
 package com.enigma.waratsea.resource;
 
+import com.enigma.waratsea.exceptions.ResourceException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.nio.file.FileSystem;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -28,27 +28,29 @@ public class ResourceProvider {
   }
 
   public InputStream getResourceInputStream(final String resourceName) {
-    var fullPath = Paths.get(resourceNames.getGameName(), resourceName);
+    var fullPath = Paths.get(resourceNames.getGameName(), resourceName).toString();
+
     return getClass()
         .getClassLoader()
-        .getResourceAsStream(fullPath.toString());
+        .getResourceAsStream(fullPath);
   }
 
   public List<Path> getSubDirectoryPaths(final String parentDirectoryName) {
-    var fullName = Paths.get(resourceNames.getGameName(), parentDirectoryName);
+    var fullName = Paths.get(resourceNames.getGameName(), parentDirectoryName).toString();
 
     try {
-      return getSubDirectoryPathsFromJar(fullName.toString());
+      return getSubDirectoryPathsFromJar(fullName);
     } catch (URISyntaxException | IOException e) {
-      log.error("Unable to get sub directory paths for directory: '{}'", fullName, e);
-      return Collections.emptyList();
+      throw new ResourceException("Unable to get sub directory paths for directory: " + fullName, e);
     }
   }
 
   private List<Path> getSubDirectoryPathsFromJar(final String directoryName) throws URISyntaxException, IOException {
     var jarUri = getJarPathUri();
-    try (FileSystem fs = FileSystems.newFileSystem(jarUri, Collections.emptyMap())) {
-      return Files.walk(fs.getPath(directoryName))
+
+    try (var fs = FileSystems.newFileSystem(jarUri, Collections.emptyMap());
+         var paths = Files.walk(fs.getPath(directoryName))) {
+      return paths
           .filter(Files::isDirectory)
           .filter(Files::isReadable)
           .filter(path -> isPathSubDirectory(path, directoryName))

@@ -10,9 +10,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-/**
- * This is a GSON deserializer for the LocalDate class. This enables GSON to deserialize a date into a Java LocalDate object.
- */
 class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
   private final String dateFormat;
 

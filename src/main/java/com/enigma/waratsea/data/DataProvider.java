@@ -1,17 +1,18 @@
 package com.enigma.waratsea.data;
 
+import com.enigma.waratsea.exceptions.DataException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Singleton
 public class DataProvider {
   private final DataNames dataNames;
@@ -24,7 +25,7 @@ public class DataProvider {
   public List<Path> getSubDirectoryPaths(final String directoryName) {
     var directoryPath = Paths.get(directoryName);
 
-    createDirectory(directoryName);
+    createDirectory(directoryPath);
 
     try (var paths = Files.walk(directoryPath)) {
       return paths
@@ -33,18 +34,16 @@ public class DataProvider {
           .filter(path -> isPathSubDirectory(path, directoryName))
           .collect(Collectors.toList());
     } catch (IOException e) {
-      return Collections.emptyList();
+      throw new DataException("Unable to get directory paths for: " + directoryPath, e);
     }
   }
 
-  @SneakyThrows
   public void createDirectory(final Path directoryPath) {
-    Files.createDirectories(directoryPath);
-  }
-
-  @SneakyThrows
-  private void createDirectory(final String directoryName) {
-    Files.createDirectories(Paths.get(directoryName));
+    try {
+      Files.createDirectories(directoryPath);
+    } catch (IOException e) {
+      throw new DataException("Unable to create directory path: " + directoryPath, e);
+    }
   }
 
   private boolean isPathSubDirectory(final Path path, final String parentName) {

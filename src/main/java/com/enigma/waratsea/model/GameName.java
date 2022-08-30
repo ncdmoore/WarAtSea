@@ -5,9 +5,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 
-/**
- * Defines all the valid games. Used to make sure that the string given as game name is valid.
- */
 @RequiredArgsConstructor
 @Getter
 public enum GameName {

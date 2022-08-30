@@ -8,12 +8,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Optional;
 
-/**
- * This is a utility class that provides methods for accessing game resources such as css, images and media.
- */
 @Singleton
 @Slf4j
 public class ResourceProvider {
@@ -39,7 +37,7 @@ public class ResourceProvider {
     var url = getClass().getClassLoader().getResource(cssPath);
 
     if (url == null) {
-      throw new ResourceException(cssPath);
+      throw new ResourceException("Unable to get css: " + cssPath);
     }
 
     return cssPath;
@@ -48,7 +46,7 @@ public class ResourceProvider {
   public Image getImage(final String scenario, final String imageName) {
     return getScenarioSpecificImage(scenario, imageName)
         .or(() -> getCommonImage(imageName))
-        .orElseThrow(() -> new ResourceException(imageName));
+        .orElseThrow(() -> new ResourceException("Unable to get image: " + imageName));
   }
 
   public Image getGameImage(final String imageName) {
@@ -73,9 +71,12 @@ public class ResourceProvider {
   }
 
   private Optional<Image> getImageResource(final String path) {
-    return Optional.ofNullable(getClass()
-            .getClassLoader()
-            .getResourceAsStream(path))
-        .map(Image::new);
+    try (var inputStream = getClass().getClassLoader().getResourceAsStream(path)) {
+      return Optional
+          .ofNullable(inputStream)
+          .map(Image::new);
+    } catch (IOException e) {
+      throw new ResourceException("Unable to get image resource: " + path);
+    }
   }
 }

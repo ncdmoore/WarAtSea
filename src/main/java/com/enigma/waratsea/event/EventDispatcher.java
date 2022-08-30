@@ -5,11 +5,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * This class is responsible for delivering events to event handlers.
- *
- * @param <E> The type of event.
- */
 @Slf4j
 public class EventDispatcher<E extends Event> {
   private final Set<EventHandler<E>> handlers = new HashSet<>();

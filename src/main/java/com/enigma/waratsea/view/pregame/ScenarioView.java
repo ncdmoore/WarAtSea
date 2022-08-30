@@ -34,9 +34,6 @@ import java.util.Optional;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
 
-/**
- * This is the new game scenario selection screen.
- */
 @Singleton
 public class ScenarioView implements View {
   private static final String CSS_FILE = "scenarioView.css";
