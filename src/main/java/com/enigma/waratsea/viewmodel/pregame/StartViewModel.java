@@ -2,6 +2,7 @@ package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.event.LoadGameEvent;
 import com.enigma.waratsea.event.NewGameEvent;
+import com.enigma.waratsea.exceptions.WarAtSeaException;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Inject;
@@ -26,8 +27,12 @@ public class StartViewModel {
   }
 
   public void newGame(final Stage stage) {
-    events.getNewGameEvents().fire(new NewGameEvent());
-    navigate.goNext(StartView.class, stage);
+    try {
+      events.getNewGameEvents().fire(new NewGameEvent());
+      navigate.goNext(StartView.class, stage);
+    } catch (WarAtSeaException e) {
+     navigate.goFatalError("Cannot create new game");
+    }
   }
 
   public void savedGame() {

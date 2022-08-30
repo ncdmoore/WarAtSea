@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.view.FatalErrorDialog;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.pregame.ScenarioView;
 import com.enigma.waratsea.view.pregame.StartView;
@@ -35,11 +36,15 @@ public class Navigate {
     }
   }
 
+  private final Provider<FatalErrorDialog> fatalErrorDialogProvider;
   private final Map<Class<?>, Page> newGamePages = new HashMap<>();
 
   @Inject
-  Navigate(final Provider<StartView> startViewProvider,
+  Navigate(final Provider<FatalErrorDialog> fatalErrorDialogProvider,
+           final Provider<StartView> startViewProvider,
            final Provider<ScenarioView> scenarioViewProvider) {
+
+    this.fatalErrorDialogProvider = fatalErrorDialogProvider;
 
     Page startPage = new Page(startViewProvider);
     Page scenarioPage = new Page(scenarioViewProvider);
@@ -68,5 +73,9 @@ public class Navigate {
     }
 
     prevPage.getView().get().display(stage);
+  }
+
+  public void goFatalError(final String message) {
+    fatalErrorDialogProvider.get().display(message);
   }
 }

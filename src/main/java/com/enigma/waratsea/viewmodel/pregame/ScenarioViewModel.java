@@ -62,7 +62,7 @@ public class ScenarioViewModel {
   }
 
   private void setSelectedScenario(final Scenario scenario) {
-    if (scenario != null) { // can be null is listview is unstaged?
+    if (scenario != null) { // can be null is listview is un-staged?
       events.getScenarioEvents().fire(new ScenarioEvent(scenario));
     }
   }

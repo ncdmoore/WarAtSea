@@ -32,6 +32,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.strategy.bombAlley;
   exports com.enigma.waratsea.strategy.arcticConvoy;
 
+  exports com.enigma.waratsea.view;
   exports com.enigma.waratsea.view.resources;
   exports com.enigma.waratsea.view.pregame;
 
