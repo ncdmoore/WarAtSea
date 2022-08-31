@@ -12,7 +12,7 @@ import org.mapstruct.factory.Mappers;
 
 @Mapper(componentModel = "jsr330", unmappedTargetPolicy = ReportingPolicy.IGNORE, builder = @Builder(disableBuilder = true))
 public abstract class GameMapper {
-  public static GameMapper INSTANCE = Mappers.getMapper(GameMapper.class);
+  public static final GameMapper INSTANCE = Mappers.getMapper(GameMapper.class);
 
   @Inject
   private ScenarioService scenarioService;

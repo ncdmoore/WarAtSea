@@ -2,9 +2,7 @@ package com.enigma.waratsea;
 
 import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.model.GameName;
-import com.enigma.waratsea.property.Props;
-import com.enigma.waratsea.property.PropsFactory;
-import com.enigma.waratsea.property.PropsImpl;
+import com.enigma.waratsea.property.*;
 import com.enigma.waratsea.strategy.DefaultVisibilityStrategy;
 import com.enigma.waratsea.strategy.DefaultWeatherStrategy;
 import com.enigma.waratsea.strategy.VisibilityStrategy;
@@ -26,12 +24,19 @@ import static com.enigma.waratsea.model.GameName.BOMB_ALLEY;
 public class BasicModule extends AbstractModule {
   @Override
   protected void configure() {
-    install(new FactoryModuleBuilder().implement(Props.class, PropsImpl.class).build(PropsFactory.class));
 
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
 
+    bindProps();
     bindWeatherStrategies();
     bindVisibilityStrategies();
+  }
+
+  private void bindProps() {
+    install(new FactoryModuleBuilder().implement(PropsWrapper.class, PropsWrapperImpl.class).build(PropsWrapperFactory.class));
+
+    bind(Props.class).annotatedWith(Names.named("View")).to(ViewProps.class);
+    bind(Props.class).annotatedWith(Names.named("App")).to(AppProps.class);
   }
 
   private void bindWeatherStrategies() {

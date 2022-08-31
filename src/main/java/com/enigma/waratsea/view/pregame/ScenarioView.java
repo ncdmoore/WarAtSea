@@ -1,12 +1,13 @@
 package com.enigma.waratsea.view.pregame;
 
 import com.enigma.waratsea.model.Scenario;
-import com.enigma.waratsea.property.ViewProps;
+import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.ScenarioViewModel;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
 import javafx.geometry.VPos;
@@ -38,12 +39,12 @@ import static com.enigma.waratsea.model.Side.AXIS;
 public class ScenarioView implements View {
   private static final String CSS_FILE = "scenarioView.css";
 
-  private final ViewProps props;
+  private final Props props;
   private final ResourceProvider resourceProvider;
   private final ScenarioViewModel scenarioViewModel;
 
   @Inject
-  ScenarioView(final ViewProps props,
+  ScenarioView(final @Named("View") Props props,
                final ResourceProvider resourceProvider,
                final ScenarioViewModel scenarioViewModel) {
     this.props = props;

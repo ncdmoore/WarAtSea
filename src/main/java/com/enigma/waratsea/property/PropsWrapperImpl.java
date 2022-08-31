@@ -14,12 +14,12 @@ import java.util.Properties;
  * properties override general properties.
  */
 @Slf4j
-public class PropsImpl implements Props {
+public class PropsWrapperImpl implements PropsWrapper {
   private static final String PROPERTIES_DIR = "properties";
   private final Properties properties = new Properties();
 
   @Inject
-  PropsImpl(final ResourceNames resourceNames, @Assisted final String name) {
+  PropsWrapperImpl(final ResourceNames resourceNames, @Assisted final String name) {
     var generalPath = Paths.get(PROPERTIES_DIR, name).toString();
     var gameSpecificPath = Paths.get(resourceNames.getGameName(), PROPERTIES_DIR, name).toString();
 

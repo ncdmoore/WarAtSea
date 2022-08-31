@@ -1,9 +1,10 @@
 package com.enigma.waratsea.view;
 
-import com.enigma.waratsea.property.ViewProps;
+import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,11 +16,11 @@ import javafx.stage.Stage;
 @Singleton
 public class FatalErrorDialog {
   private static final String CSS_FILE = "fatalError.css";
-  private final ViewProps props;
+  private final Props props;
   private final ResourceProvider resourceProvider;
 
   @Inject
-  FatalErrorDialog(final ViewProps props,
+  FatalErrorDialog(final @Named("View") Props props,
                    final ResourceProvider resourceProvider) {
     this.props = props;
     this.resourceProvider = resourceProvider;

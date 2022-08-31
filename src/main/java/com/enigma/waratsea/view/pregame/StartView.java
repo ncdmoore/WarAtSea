@@ -1,11 +1,12 @@
 package com.enigma.waratsea.view.pregame;
 
-import com.enigma.waratsea.property.ViewProps;
+import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.StartViewModel;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,12 +23,12 @@ import javafx.stage.Stage;
 public class StartView implements View {
   private static final String CSS_FILE = "startView.css";
 
-  private final ViewProps props;
+  private final Props props;
   private final ResourceProvider resourceProvider;
   private final StartViewModel startViewModel;
 
   @Inject
-  StartView(final ViewProps props,
+  StartView(final @Named("View") Props props,
             final ResourceProvider resourceProvider,
             final StartViewModel startViewModel) {
     this.props = props;

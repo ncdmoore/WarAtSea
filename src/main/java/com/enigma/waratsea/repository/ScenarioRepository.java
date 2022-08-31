@@ -2,12 +2,13 @@ package com.enigma.waratsea.repository;
 
 import com.enigma.waratsea.entity.ScenarioEntity;
 import com.enigma.waratsea.exceptions.ScenarioException;
-import com.enigma.waratsea.property.AppProps;
+import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.resource.ResourceProvider;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -23,12 +24,12 @@ import java.util.stream.Collectors;
 @Singleton
 @Slf4j
 public class ScenarioRepository {
-  private final AppProps props;
+  private final Props props;
   private final ResourceNames resourceNames;
   private final ResourceProvider resourceProvider;
 
   @Inject
-  ScenarioRepository(final AppProps props,
+  ScenarioRepository(final @Named("App") Props props,
                      final ResourceNames resourceNames,
                      final ResourceProvider resourceProvider) {
     this.props = props;

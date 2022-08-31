@@ -4,11 +4,12 @@ import com.enigma.waratsea.data.DataNames;
 import com.enigma.waratsea.data.DataProvider;
 import com.enigma.waratsea.entity.GameEntity;
 import com.enigma.waratsea.exceptions.GameException;
-import com.enigma.waratsea.property.AppProps;
+import com.enigma.waratsea.property.Props;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.google.inject.name.Named;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -27,15 +28,15 @@ import java.util.stream.Collectors;
 @Slf4j
 @Singleton
 public class GameRepository {
-  private final AppProps appProps;
+  private final Props props;
   private final DataNames dataNames;
   private final DataProvider dataProvider;
 
   @Inject
-  public GameRepository(final AppProps appProps,
+  public GameRepository(final @Named("App") Props props,
                         final DataNames dataNames,
                         final DataProvider dataProvider) {
-    this.appProps = appProps;
+    this.props = props;
     this.dataNames = dataNames;
     this.dataProvider = dataProvider;
   }
@@ -109,6 +110,6 @@ public class GameRepository {
   }
 
   private String getDateFormat() {
-    return appProps.getString("scenario.date.format");
+    return props.getString("scenario.date.format");
   }
 }
