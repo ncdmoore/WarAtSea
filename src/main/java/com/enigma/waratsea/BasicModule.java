@@ -10,6 +10,10 @@ import com.enigma.waratsea.strategy.WeatherStrategy;
 import com.enigma.waratsea.strategy.arcticConvoy.ArcticConvoyWeatherStrategy;
 import com.enigma.waratsea.strategy.bombAlley.BombAlleyVisibilityStrategy;
 import com.enigma.waratsea.strategy.bombAlley.BombAlleyWeatherStrategy;
+import com.enigma.waratsea.view.View;
+import com.enigma.waratsea.view.ViewFactory;
+import com.enigma.waratsea.view.pregame.NewGameView;
+import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.AbstractModule;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.google.inject.multibindings.MapBinder;
@@ -24,10 +28,10 @@ import static com.enigma.waratsea.model.GameName.BOMB_ALLEY;
 public class BasicModule extends AbstractModule {
   @Override
   protected void configure() {
-
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
 
     bindProps();
+    bindViews();
     bindWeatherStrategies();
     bindVisibilityStrategies();
   }
@@ -37,6 +41,13 @@ public class BasicModule extends AbstractModule {
 
     bind(Props.class).annotatedWith(Names.named("View")).to(ViewProps.class);
     bind(Props.class).annotatedWith(Names.named("App")).to(AppProps.class);
+  }
+
+  private void bindViews() {
+    install(new FactoryModuleBuilder()
+            .implement(View.class, Names.named("Start"), StartView.class)
+            .implement(View.class, Names.named("NewGame"), NewGameView.class)
+            .build(ViewFactory.class));
   }
 
   private void bindWeatherStrategies() {

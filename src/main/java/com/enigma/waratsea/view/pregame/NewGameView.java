@@ -6,7 +6,6 @@ import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.ScenarioViewModel;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ObjectProperty;
@@ -35,8 +34,7 @@ import java.util.Optional;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
 
-@Singleton
-public class ScenarioView implements View {
+public class NewGameView implements View {
   private static final String CSS_FILE = "scenarioView.css";
 
   private final Props props;
@@ -44,9 +42,9 @@ public class ScenarioView implements View {
   private final ScenarioViewModel scenarioViewModel;
 
   @Inject
-  ScenarioView(final @Named("View") Props props,
-               final ResourceProvider resourceProvider,
-               final ScenarioViewModel scenarioViewModel) {
+  NewGameView(final @Named("View") Props props,
+              final ResourceProvider resourceProvider,
+              final ScenarioViewModel scenarioViewModel) {
     this.props = props;
     this.resourceProvider = resourceProvider;
     this.scenarioViewModel = scenarioViewModel;

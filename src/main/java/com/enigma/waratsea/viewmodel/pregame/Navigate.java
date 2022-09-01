@@ -2,7 +2,8 @@ package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.view.FatalErrorDialog;
 import com.enigma.waratsea.view.View;
-import com.enigma.waratsea.view.pregame.ScenarioView;
+import com.enigma.waratsea.view.ViewFactory;
+import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -12,6 +13,7 @@ import lombok.Data;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * This class provides view or game screen navigation.
@@ -22,12 +24,12 @@ public class Navigate {
   @Data
   private static class Page {
     private boolean active = true;
-    private Provider<? extends View> view;
+    private Supplier<View> viewSupplier;
     private Page prev;
     private Page next;
 
-    public Page(final Provider<? extends View> view) {
-      this.view = view;
+    public Page(final Supplier<View> viewSupplier) {
+      this.viewSupplier = viewSupplier;
     }
 
     public void setNext(final Page nextPage) {
@@ -41,18 +43,17 @@ public class Navigate {
 
   @Inject
   Navigate(final Provider<FatalErrorDialog> fatalErrorDialogProvider,
-           final Provider<StartView> startViewProvider,
-           final Provider<ScenarioView> scenarioViewProvider) {
+           final ViewFactory viewFactory) {
 
     this.fatalErrorDialogProvider = fatalErrorDialogProvider;
 
-    Page startPage = new Page(startViewProvider);
-    Page scenarioPage = new Page(scenarioViewProvider);
+    Page startPage = new Page(viewFactory::buildStart);
+    Page scenarioPage = new Page(viewFactory::buildNewGame);
 
     startPage.setNext(scenarioPage);
 
     newGamePages.put(StartView.class, startPage);
-    newGamePages.put(ScenarioView.class, scenarioPage);
+    newGamePages.put(NewGameView.class, scenarioPage);
   }
 
   public void goNext(final Class<?> currentPage, final Stage stage) {
@@ -62,7 +63,7 @@ public class Navigate {
       nextPage = nextPage.getNext();
     }
 
-    nextPage.getView().get().display(stage);
+    nextPage.getViewSupplier().get().display(stage);
   }
 
   public void goPrev(final Class<?> currentPage, final Stage stage) {
@@ -72,7 +73,7 @@ public class Navigate {
       prevPage = prevPage.getPrev();
     }
 
-    prevPage.getView().get().display(stage);
+    prevPage.getViewSupplier().get().display(stage);
   }
 
   public void goFatalError(final String message) {

@@ -7,7 +7,7 @@ import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.service.ScenarioService;
-import com.enigma.waratsea.view.pregame.ScenarioView;
+import com.enigma.waratsea.view.pregame.NewGameView;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import javafx.beans.property.ListProperty;
@@ -53,7 +53,7 @@ public class ScenarioViewModel {
   }
 
   public void goBack(final Stage stage) {
-    navigate.goPrev(ScenarioView.class, stage);
+    navigate.goPrev(NewGameView.class, stage);
   }
 
   public void continueOn(final Stage stage) {

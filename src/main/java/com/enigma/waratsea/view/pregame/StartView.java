@@ -5,7 +5,6 @@ import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.StartViewModel;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import com.google.inject.name.Named;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -19,7 +18,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-@Singleton
 public class StartView implements View {
   private static final String CSS_FILE = "startView.css";
 
