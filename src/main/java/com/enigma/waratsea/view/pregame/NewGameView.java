@@ -4,7 +4,7 @@ import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
-import com.enigma.waratsea.viewmodel.pregame.ScenarioViewModel;
+import com.enigma.waratsea.viewmodel.pregame.NewGameViewModel;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import javafx.beans.binding.Bindings;
@@ -39,15 +39,15 @@ public class NewGameView implements View {
 
   private final Props props;
   private final ResourceProvider resourceProvider;
-  private final ScenarioViewModel scenarioViewModel;
+  private final NewGameViewModel newGameViewModel;
 
   @Inject
   NewGameView(final @Named("View") Props props,
               final ResourceProvider resourceProvider,
-              final ScenarioViewModel scenarioViewModel) {
+              final NewGameViewModel newGameViewModel) {
     this.props = props;
     this.resourceProvider = resourceProvider;
-    this.scenarioViewModel = scenarioViewModel;
+    this.newGameViewModel = newGameViewModel;
   }
 
   @Override
@@ -93,10 +93,10 @@ public class NewGameView implements View {
 
   private Node buildPushButtons(final Stage stage) {
     var backButton = new Button("Back");
-    backButton.setOnAction(event -> scenarioViewModel.goBack(stage));
+    backButton.setOnAction(event -> newGameViewModel.goBack(stage));
 
     var continueButton = new Button("Continue");
-    continueButton.setOnAction(event -> scenarioViewModel.continueOn(stage));
+    continueButton.setOnAction(event -> newGameViewModel.continueOn(stage));
 
     var hBox = new HBox(backButton, continueButton);
     hBox.setId("push-buttons-pane");
@@ -120,8 +120,8 @@ public class NewGameView implements View {
   }
 
   private Node buildSidePane() {
-    var selectedScenario = scenarioViewModel.getSelectedScenario();
-    var selectedSide = scenarioViewModel.getSelectedSide();
+    var selectedScenario = newGameViewModel.getSelectedScenario();
+    var selectedSide = newGameViewModel.getSelectedSide();
 
     var horizontalLine = new Separator();
     var instructionLabel = new Label("Select Side:");
@@ -158,14 +158,14 @@ public class NewGameView implements View {
   }
 
   private Node buildScenarioList() {
-    var selectedScenario = scenarioViewModel.getSelectedScenario();
+    var selectedScenario = newGameViewModel.getSelectedScenario();
 
     var scenarioImage = new ImageView();
 
     bindScenarioImage(scenarioImage, selectedScenario);
 
     ListView<Scenario> scenarios = new ListView<>();
-    scenarios.itemsProperty().bind(scenarioViewModel.getScenariosProperty());
+    scenarios.itemsProperty().bind(newGameViewModel.getScenariosProperty());
     selectedScenario.bind(scenarios.getSelectionModel().selectedItemProperty());
 
     scenarios.getSelectionModel().selectFirst();
@@ -180,7 +180,7 @@ public class NewGameView implements View {
   }
 
   private Node buildScenarioDetails() {
-    var selectedScenario = scenarioViewModel.getSelectedScenario();
+    var selectedScenario = newGameViewModel.getSelectedScenario();
 
     var dateLabel = new Text("Date:");
     var turnLabel = new Text("Number of Turns:");

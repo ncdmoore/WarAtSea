@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Singleton
-public class ScenarioViewModel {
+public class NewGameViewModel {
   @Getter
   private final ListProperty<Scenario> scenariosProperty = new SimpleListProperty<>(FXCollections.emptyObservableList());
 
@@ -39,9 +39,9 @@ public class ScenarioViewModel {
   private final Navigate navigate;
 
   @Inject
-  ScenarioViewModel(final Events events,
-                    final Navigate navigate,
-                    final ScenarioService scenarioService) {
+  NewGameViewModel(final Events events,
+                   final Navigate navigate,
+                   final ScenarioService scenarioService) {
     this.events = events;
     this.navigate = navigate;
 
