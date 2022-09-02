@@ -5,41 +5,37 @@ import com.enigma.waratsea.event.NewGameEvent;
 import com.enigma.waratsea.exceptions.WarAtSeaException;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.view.pregame.StartView;
+import com.enigma.waratsea.viewmodel.events.ErrorEvent;
+import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * The start screen view model.
- */
+import static com.enigma.waratsea.viewmodel.events.NavigationType.FORWARD;
+
 @Slf4j
 @Singleton
 public class StartViewModel {
-  private final Navigate navigate;
   private final Events events;
 
   @Inject
-  StartViewModel(final Navigate navigate,
-                 final Events events) {
-    this.navigate = navigate;
+  StartViewModel(final Events events) {
     this.events = events;
   }
 
   public void newGame(final Stage stage) {
     try {
       events.getNewGameEvents().fire(new NewGameEvent());
-      navigate.goNext(StartView.class, stage);
+      events.getNavigateEvents().fire(buildForwardNavigateEvent(stage));
     } catch (WarAtSeaException e) {
-     navigate.goFatalError("Cannot create new game");
+      events.getErrorEvents().fire(buildErrorEvent("Cannot create new game"));
     }
   }
 
   public void savedGame(final Stage stage) {
-    log.info("saved game");
     events.getLoadGameEvents().fire(new LoadGameEvent());
-    navigate.goNext(StartView.class, stage);
-
+    events.getNavigateEvents().fire(buildForwardNavigateEvent(stage));
   }
 
   public void options() {
@@ -48,5 +44,22 @@ public class StartViewModel {
 
   public void quitGame(final Stage stage) {
     stage.close();
+  }
+
+  private NavigateEvent buildForwardNavigateEvent(final Stage stage) {
+    return NavigateEvent
+        .builder()
+        .clazz(StartView.class)
+        .stage(stage)
+        .type(FORWARD)
+        .build();
+  }
+
+  public ErrorEvent buildErrorEvent(final String message) {
+    return ErrorEvent
+        .builder()
+        .message(message)
+        .fatal(true)
+        .build();
   }
 }

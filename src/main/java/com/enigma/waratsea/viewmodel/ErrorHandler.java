@@ -1,0 +1,28 @@
+package com.enigma.waratsea.viewmodel;
+
+import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.view.ErrorDialog;
+import com.enigma.waratsea.viewmodel.events.ErrorEvent;
+import com.google.inject.Inject;
+import com.google.inject.Provider;
+import com.google.inject.Singleton;
+
+@Singleton
+public class ErrorHandler {
+  private final Provider<ErrorDialog> errorDialogProvider;
+
+  @Inject
+  public ErrorHandler(final Events events,
+                      final Provider<ErrorDialog> errorDialogProvider) {
+    this.errorDialogProvider = errorDialogProvider;
+
+    events.getErrorEvents().register(this::handleError);
+  }
+
+  private void handleError(final ErrorEvent errorEvent) {
+    var message = errorEvent.getMessage();
+    var fatal = errorEvent.isFatal();
+
+    errorDialogProvider.get().display(message, fatal);
+  }
+}

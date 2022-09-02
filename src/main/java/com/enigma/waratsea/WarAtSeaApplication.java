@@ -6,7 +6,8 @@ import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
-import com.enigma.waratsea.viewmodel.pregame.Navigate;
+import com.enigma.waratsea.viewmodel.ErrorHandler;
+import com.enigma.waratsea.viewmodel.NavigationHandler;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import javafx.application.Application;
@@ -103,7 +104,8 @@ public class WarAtSeaApplication extends Application {
   }
 
   private void bootstrapGui(final Injector injector) {
-    injector.getInstance(Navigate.class);
+    injector.getInstance(NavigationHandler.class);
+    injector.getInstance(ErrorHandler.class);
     log.debug("Bootstrap GUI classes created.");
   }
 

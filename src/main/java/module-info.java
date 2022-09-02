@@ -36,5 +36,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.view.resources;
   exports com.enigma.waratsea.view.pregame;
 
+  exports com.enigma.waratsea.viewmodel;
   exports com.enigma.waratsea.viewmodel.pregame;
+  exports com.enigma.waratsea.viewmodel.events;
 }

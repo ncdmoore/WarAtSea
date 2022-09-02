@@ -1,12 +1,8 @@
 package com.enigma.waratsea.model;
 
-import com.enigma.waratsea.event.EventDispatcher;
-import com.enigma.waratsea.event.GameNameEvent;
-import com.enigma.waratsea.event.SaveGameEvent;
-import com.enigma.waratsea.event.LoadGameEvent;
-import com.enigma.waratsea.event.NewGameEvent;
-import com.enigma.waratsea.event.ScenarioEvent;
-import com.enigma.waratsea.event.SideEvent;
+import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.viewmodel.events.ErrorEvent;
+import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Singleton;
 import lombok.Getter;
 
@@ -19,4 +15,6 @@ public class Events {
   private final EventDispatcher<SaveGameEvent> saveGameEvents = new EventDispatcher<>("SaveGameEvent");
   private final EventDispatcher<ScenarioEvent> scenarioEvents = new EventDispatcher<>("ScenarioEvent");
   private final EventDispatcher<SideEvent> sideEvents = new EventDispatcher<>("SideEvent");
+  private final EventDispatcher<NavigateEvent> navigateEvents = new EventDispatcher<>("NavigateEvent");
+  private final EventDispatcher<ErrorEvent> ErrorEvents = new EventDispatcher<>("ErrorEvent");
 }

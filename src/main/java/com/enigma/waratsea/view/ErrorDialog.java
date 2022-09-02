@@ -14,19 +14,19 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 @Singleton
-public class FatalErrorDialog {
+public class ErrorDialog {
   private static final String CSS_FILE = "fatalError.css";
   private final Props props;
   private final ResourceProvider resourceProvider;
 
   @Inject
-  FatalErrorDialog(final @Named("View") Props props,
-                   final ResourceProvider resourceProvider) {
+  ErrorDialog(final @Named("View") Props props,
+              final ResourceProvider resourceProvider) {
     this.props = props;
     this.resourceProvider = resourceProvider;
   }
 
-  public void display(final String message) {
+  public void display(final String message, final boolean fatal) {
     var stageWidth = props.getInt("fatal.dialog.width");
     var stage = new Stage();
 
@@ -37,7 +37,7 @@ public class FatalErrorDialog {
     var label = new Label(message);
 
     var ok = new Button("Ok");
-    ok.setOnAction(event -> close(stage));
+    ok.setOnAction(event -> close(stage, fatal));
 
     var vBox = new VBox(label, ok);
     vBox.setId("error-main-pane");
@@ -53,8 +53,10 @@ public class FatalErrorDialog {
     stage.showAndWait();
   }
 
-  private void close(final Stage stage) {
+  private void close(final Stage stage, final boolean fatal) {
     stage.close();
-    Platform.exit();
+    if (fatal) {
+      Platform.exit();
+    }
   }
 }

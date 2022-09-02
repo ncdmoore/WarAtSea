@@ -8,6 +8,7 @@ import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.service.ScenarioService;
 import com.enigma.waratsea.view.pregame.NewGameView;
+import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import javafx.beans.property.ListProperty;
@@ -19,6 +20,8 @@ import javafx.scene.control.Toggle;
 import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+
+import static com.enigma.waratsea.viewmodel.events.NavigationType.BACKWARD;
 
 @Slf4j
 @Singleton
@@ -33,14 +36,11 @@ public class NewGameViewModel {
   private final ObjectProperty<Toggle> selectedSide = new SimpleObjectProperty<>();
 
   private final Events events;
-  private final Navigate navigate;
 
   @Inject
   NewGameViewModel(final Events events,
-                   final Navigate navigate,
                    final ScenarioService scenarioService) {
     this.events = events;
-    this.navigate = navigate;
 
     var scenarios = scenarioService.get();
     scenariosProperty.setValue(FXCollections.observableList(scenarios));
@@ -50,7 +50,7 @@ public class NewGameViewModel {
   }
 
   public void goBack(final Stage stage) {
-    navigate.goPrev(NewGameView.class, stage);
+    events.getNavigateEvents().fire(buildBackwardNav(stage));
   }
 
   public void continueOn(final Stage stage) {
@@ -77,5 +77,13 @@ public class NewGameViewModel {
         .findFirst()
         .orElseThrow()
         .getUserData();
+  }
+
+  public NavigateEvent buildBackwardNav(final Stage stage) {
+    return NavigateEvent.builder()
+        .clazz(NewGameView.class)
+        .type(BACKWARD)
+        .stage(stage)
+        .build();
   }
 }
