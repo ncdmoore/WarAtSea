@@ -11,10 +11,10 @@ import static com.enigma.waratsea.Globals.APP_PROPS;
 public class AppProps implements Props {
   private final PropsWrapperFactory propsWrapperFactory;
   private PropsWrapper propsWrapper;
-
   private Function<String, String> getStringFunc = this::loadAndGetStringValue;
   private Function<String, Integer> getIntFunc = this::loadAndGetIntValue;
   private Function<String, Double> getDoubleFunc = this::loadAndGetDoubleValue;
+
   @Inject
   public AppProps(final PropsWrapperFactory propsWrapperFactory) {
     this.propsWrapperFactory = propsWrapperFactory;

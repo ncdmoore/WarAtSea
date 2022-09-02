@@ -8,4 +8,7 @@ public interface ViewFactory {
 
     @Named("NewGame")
     View buildNewGame();
+
+    @Named("SavedGame")
+    View buildSavedGame();
 }

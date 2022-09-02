@@ -35,7 +35,7 @@ import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
 
 public class NewGameView implements View {
-  private static final String CSS_FILE = "scenarioView.css";
+  private static final String CSS_FILE = "newGameView.css";
 
   private final Props props;
   private final ResourceProvider resourceProvider;

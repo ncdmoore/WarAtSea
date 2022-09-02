@@ -1,9 +1,13 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.event.LoadGameEvent;
+import com.enigma.waratsea.event.NewGameEvent;
+import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.view.FatalErrorDialog;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
 import com.enigma.waratsea.view.pregame.NewGameView;
+import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -38,26 +42,39 @@ public class Navigate {
     }
   }
 
+  //
+  // scenario selected event triggers minefield and flotilla settings.
+
+  // next and prev navigation events.
+
+  // would fatal dialog event listener. Handled separately from navigation.
+
+
+
+
+  private final ViewFactory viewFactory;
   private final Provider<FatalErrorDialog> fatalErrorDialogProvider;
-  private final Map<Class<?>, Page> newGamePages = new HashMap<>();
+  private final Map<Class<?>, Page> newGamePageFlow = new HashMap<>();
+  private final Map<Class<?>, Page> savedGamePageFlow = new HashMap<>();
+
+  private Map<Class<?>, Page> pageFlow;
 
   @Inject
-  Navigate(final Provider<FatalErrorDialog> fatalErrorDialogProvider,
+  Navigate(final Events events,
+           final Provider<FatalErrorDialog> fatalErrorDialogProvider,
            final ViewFactory viewFactory) {
-
+    this.viewFactory = viewFactory;
     this.fatalErrorDialogProvider = fatalErrorDialogProvider;
 
-    Page startPage = new Page(viewFactory::buildStart);
-    Page scenarioPage = new Page(viewFactory::buildNewGame);
+    buildNewGameFlow();
+    buildSavedGameFlow();
 
-    startPage.setNext(scenarioPage);
-
-    newGamePages.put(StartView.class, startPage);
-    newGamePages.put(NewGameView.class, scenarioPage);
+    events.getNewGameEvents().register(this::handleNewGame);
+    events.getLoadGameEvents().register(this::handleLoadGame);
   }
 
   public void goNext(final Class<?> currentPage, final Stage stage) {
-    Page nextPage = newGamePages.get(currentPage).getNext();
+    Page nextPage = pageFlow.get(currentPage).getNext();
 
     while (!nextPage.isActive()) {
       nextPage = nextPage.getNext();
@@ -67,7 +84,7 @@ public class Navigate {
   }
 
   public void goPrev(final Class<?> currentPage, final Stage stage) {
-    Page prevPage = newGamePages.get(currentPage).getPrev();
+    Page prevPage = pageFlow.get(currentPage).getPrev();
 
     while (!prevPage.isActive()) {
       prevPage = prevPage.getPrev();
@@ -78,5 +95,34 @@ public class Navigate {
 
   public void goFatalError(final String message) {
     fatalErrorDialogProvider.get().display(message);
+  }
+
+
+  public void buildNewGameFlow() {
+    Page startPage = new Page(viewFactory::buildStart);
+    Page newGamePage = new Page(viewFactory::buildNewGame);
+
+    startPage.setNext(newGamePage);
+
+    newGamePageFlow.put(StartView.class, startPage);
+    newGamePageFlow.put(NewGameView.class, newGamePage);
+  }
+
+  public void buildSavedGameFlow() {
+    Page startPage = new Page(viewFactory::buildStart);
+    Page savedGamePage = new Page(viewFactory::buildSavedGame);
+
+    startPage.setNext(savedGamePage);
+
+    savedGamePageFlow.put(StartView.class, startPage);
+    savedGamePageFlow.put(SavedGameView.class, savedGamePage);
+  }
+
+  private void handleNewGame(final NewGameEvent newGameEvent) {
+    pageFlow = newGamePageFlow;
+  }
+
+  private void handleLoadGame(final LoadGameEvent loadGameEvent) {
+    pageFlow = savedGamePageFlow;
   }
 }

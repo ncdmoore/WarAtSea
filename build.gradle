@@ -65,11 +65,6 @@ test {
     useJUnitPlatform()
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDirs = ["src/main/resources"]
-            includes = ["**/*.fxml", "**/*.css", "**/*.json", "**/*.xml", "**/*.png", "**/*.mp3", "**/*.properties"]
-        }
-    }
+java {
+    modularity.inferModulePath.set(true)
 }

@@ -35,9 +35,11 @@ public class StartViewModel {
     }
   }
 
-  public void savedGame() {
+  public void savedGame(final Stage stage) {
     log.info("saved game");
     events.getLoadGameEvents().fire(new LoadGameEvent());
+    navigate.goNext(StartView.class, stage);
+
   }
 
   public void options() {

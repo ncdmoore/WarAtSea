@@ -20,9 +20,6 @@ import javafx.stage.Stage;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-/**
- * Scenario view model.
- */
 @Slf4j
 @Singleton
 public class NewGameViewModel {

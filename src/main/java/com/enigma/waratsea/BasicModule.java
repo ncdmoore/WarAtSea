@@ -13,6 +13,7 @@ import com.enigma.waratsea.strategy.bombAlley.BombAlleyWeatherStrategy;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
 import com.enigma.waratsea.view.pregame.NewGameView;
+import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.AbstractModule;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
@@ -45,9 +46,10 @@ public class BasicModule extends AbstractModule {
 
   private void bindViews() {
     install(new FactoryModuleBuilder()
-            .implement(View.class, Names.named("Start"), StartView.class)
-            .implement(View.class, Names.named("NewGame"), NewGameView.class)
-            .build(ViewFactory.class));
+        .implement(View.class, Names.named("Start"), StartView.class)
+        .implement(View.class, Names.named("NewGame"), NewGameView.class)
+        .implement(View.class, Names.named("SavedGame"), SavedGameView.class)
+        .build(ViewFactory.class));
   }
 
   private void bindWeatherStrategies() {

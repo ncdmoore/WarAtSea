@@ -11,7 +11,6 @@ import static com.enigma.waratsea.Globals.VIEW_PROPS;
 public class ViewProps implements Props {
   private final PropsWrapperFactory propsWrapperFactory;
   private PropsWrapper propsWrapper;
-
   private Function<String, String> getStringFunc = this::loadAndGetStringValue;
   private Function<String, Integer> getIntFunc = this::loadAndGetIntValue;
   private Function<String, Double> getDoubleFunc = this::loadAndGetDoubleValue;
