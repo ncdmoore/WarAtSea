@@ -48,8 +48,7 @@ public class DataProvider {
   }
 
   private boolean isPathSubDirectory(final Path path, final String parentName) {
-    return
-        Optional.ofNullable(path.getParent())
+    return Optional.ofNullable(path.getParent())
         .map(p -> p.endsWith(parentName))
         .orElseThrow(() -> new DataException("Cannot get parent directory from path: " + path));
   }

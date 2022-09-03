@@ -67,8 +67,8 @@ public class GameService {
   }
 
   private void setGameName(final GameNameEvent gameEvent) {
-    gameName = gameEvent.getGameName();
-    log.debug("Game Service received gameNameEvent, game set to: '{}'", gameEvent.getGameName());
+    gameName = gameEvent.gameName();
+    log.debug("Game Service received gameNameEvent, game set to: '{}'", gameEvent.gameName());
   }
 
   private void create(final NewGameEvent newGameEvent) {

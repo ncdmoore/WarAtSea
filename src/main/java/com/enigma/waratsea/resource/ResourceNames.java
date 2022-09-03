@@ -27,7 +27,7 @@ public class ResourceNames {
   }
 
   private void handleGameSelected(final GameNameEvent gameEvent) {
-    gameName = gameEvent.getGameName().getValue();
+    gameName = gameEvent.gameName().getValue();
     log.debug("ResourceNames received gameNameEvent, game set to: '{}'", gameName);
   }
 

@@ -60,7 +60,7 @@ public class WeatherService {
   }
 
   private void setGameName(final GameNameEvent gameNameEvent) {
-    var gameName = gameNameEvent.getGameName();
+    var gameName = gameNameEvent.gameName();
 
     weatherStrategy = weatherStrategies.getOrDefault(gameName, defaultWeatherStrategy);
     visibilityStrategy = visibilityStrategies.getOrDefault(gameName, defaultVisibilityStrategy);
