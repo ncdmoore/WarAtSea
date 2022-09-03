@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -47,6 +48,9 @@ public class DataProvider {
   }
 
   private boolean isPathSubDirectory(final Path path, final String parentName) {
-    return path.getParent().endsWith(parentName);
+    return
+        Optional.ofNullable(path.getParent())
+        .map(p -> p.endsWith(parentName))
+        .orElseThrow(() -> new DataException("Cannot get parent directory from path: " + path));
   }
 }

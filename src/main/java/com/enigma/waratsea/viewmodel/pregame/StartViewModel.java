@@ -29,7 +29,7 @@ public class StartViewModel {
       events.getNewGameEvents().fire(new NewGameEvent());
       events.getNavigateEvents().fire(buildForwardNavigateEvent(stage));
     } catch (WarAtSeaException e) {
-      events.getErrorEvents().fire(buildErrorEvent("Cannot create new game"));
+      events.getErrorEvents().fire(buildErrorEvent());
     }
   }
 
@@ -55,10 +55,10 @@ public class StartViewModel {
         .build();
   }
 
-  public ErrorEvent buildErrorEvent(final String message) {
+  private ErrorEvent buildErrorEvent() {
     return ErrorEvent
         .builder()
-        .message(message)
+        .message("Cannot create new game")
         .fatal(true)
         .build();
   }

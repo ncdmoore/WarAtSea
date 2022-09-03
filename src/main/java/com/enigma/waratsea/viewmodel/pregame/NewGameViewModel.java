@@ -79,7 +79,7 @@ public class NewGameViewModel {
         .getUserData();
   }
 
-  public NavigateEvent buildBackwardNav(final Stage stage) {
+  private NavigateEvent buildBackwardNav(final Stage stage) {
     return NavigateEvent.builder()
         .clazz(NewGameView.class)
         .type(BACKWARD)

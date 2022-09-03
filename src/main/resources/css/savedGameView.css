@@ -18,10 +18,25 @@
     -fx-alignment: top-center;
 }
 
+#list-pane {
+    -fx-spacing: 8;
+}
 
+#details-grid {
+    -fx-alignment: top-left;
+    -fx-hgap: 30;
+    -fx-vgap: 30;
+}
 
+#game-pane-hbox {
+    -fx-alignment: center;
+    -fx-spacing: 50;
+}
 
-
+#main-pane {
+    -fx-border-width: 1px;
+    -fx-padding: /* top: */ 20 /* right: */ 20 /* bottom: */ 0 /* left: */ 20;
+}
 
 #push-buttons-pane {
     -fx-alignment: center;

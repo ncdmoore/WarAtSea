@@ -1,7 +1,6 @@
 package com.enigma.waratsea.service;
 
 import com.enigma.waratsea.event.GameNameEvent;
-import com.enigma.waratsea.event.LoadGameEvent;
 import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.event.NewGameEvent;
 import com.enigma.waratsea.event.ScenarioEvent;
@@ -16,6 +15,7 @@ import com.google.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -34,13 +34,21 @@ public class GameService {
               final GameRepository gameRepository) {
     events.getGameNameEvents().register(this::setGameName);
     events.getNewGameEvents().register(this::create);
-    events.getLoadGameEvents().register(this::load);
     events.getSaveGameEvents().register(this::save);
     events.getScenarioEvents().register(this::setScenario);
     events.getSideEvents().register(this::setHumanSide);
 
     this.weatherService = weatherService;
     this.gameRepository = gameRepository;
+  }
+
+  public List<Game> get() {
+    return gameRepository
+        .get()
+        .stream()
+        .map(GameMapper.INSTANCE::toModel)
+        .sorted()
+        .collect(Collectors.toList());
   }
 
   private void nextTurn() {
@@ -68,20 +76,8 @@ public class GameService {
     log.debug("Game Service received newGameEvent");
   }
 
-  private void load(final LoadGameEvent loadGameEvent) {
-     var savedGames = gameRepository
-         .get()
-         .stream()
-         .map(GameMapper.INSTANCE::toModel)
-         .collect(Collectors.toList());
-
-    savedGames.forEach(g -> log.debug("Game Service: {}", g));
-
-    log.debug("Game Service received loadGameEvent");
-  }
-
   private void save(final SaveGameEvent gameSaveEvent) {
-    game.setId(gameSaveEvent.getName());
+    game.createId(gameSaveEvent.getName());
     var gameMapper = GameMapper.INSTANCE;
     var gameEntity = gameMapper.toEntity(game);
 

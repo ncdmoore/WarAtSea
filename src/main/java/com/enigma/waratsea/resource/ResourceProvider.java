@@ -15,6 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -69,6 +70,8 @@ public class ResourceProvider {
   }
 
   private boolean isPathSubDirectory(final Path path, final String parentName) {
-    return path.getParent().endsWith(parentName);
+    return Optional.ofNullable(path.getParent())
+        .map(p -> p.endsWith(parentName))
+        .orElseThrow(() -> new ResourceException("Unable to get parent path of path: " + path));
   }
 }

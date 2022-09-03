@@ -1,12 +1,17 @@
 package com.enigma.waratsea.model;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import org.jetbrains.annotations.NotNull;
 
 @Getter
-public class Game {
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+public class Game implements Comparable<Game> {
   private final GameName gameName;
 
+  @EqualsAndHashCode.Include
+  @Setter
   private String id;
 
   private Scenario scenario;
@@ -30,7 +35,7 @@ public class Game {
     turn = setStartingTurn();
   }
 
-  public void setId(final String suffix) {
+  public void createId(final String suffix) {
     id = String.join("-", scenario.getName(), suffix);
   }
 
@@ -42,10 +47,20 @@ public class Game {
     return scenario.getWeather();
   }
 
+  @Override
+  public String toString() {
+    return id;
+  }
+
   private Turn setStartingTurn() {
     return Turn.builder()
         .timeRange(scenario.getTimeRange())
         .date(scenario.getDate())
         .build();
+  }
+
+  @Override
+  public int compareTo(@NotNull Game o) {
+    return id.compareTo(o.id);
   }
 }
