@@ -6,9 +6,9 @@ import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.GameServiceImpl;
+import com.enigma.waratsea.service.WeatherService;
 import com.enigma.watatsea.repository.mock.GameRepositoryMock;
 import com.enigma.watatsea.service.mock.GameMapperMock;
-import com.enigma.watatsea.service.mock.WeatherServiceMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -29,7 +29,7 @@ class GameServiceTest {
   @BeforeEach
   void setUp() {
     var events = new Events();
-    var weatherService = new WeatherServiceMock();
+    WeatherService weatherService = input -> Weather.builder().build();
     var gameMapper = new GameMapperMock();
     gameRepository = new GameRepositoryMock();
 
