@@ -19,6 +19,7 @@ import java.util.stream.Collectors;
 public class GameServiceImpl implements GameService {
   private final WeatherService weatherService;
   private final GameRepository gameRepository;
+  private final GameMapper gameMapper;
   private GameName gameName;
 
   @Getter
@@ -27,9 +28,11 @@ public class GameServiceImpl implements GameService {
   @Inject
   public GameServiceImpl(final Events events,
                          final WeatherService weatherService,
-                         final GameRepository gameRepository) {
+                         final GameRepository gameRepository,
+                         final GameMapper gameMapper) {
     this.weatherService = weatherService;
     this.gameRepository = gameRepository;
+    this.gameMapper = gameMapper;
 
     registerEvents(events);
   }
@@ -39,7 +42,7 @@ public class GameServiceImpl implements GameService {
     return gameRepository
         .get()
         .stream()
-        .map(GameMapper.INSTANCE::toModel)
+        .map(gameMapper::toModel)
         .sorted()
         .collect(Collectors.toList());
   }

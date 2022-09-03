@@ -7,6 +7,7 @@ import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.GameServiceImpl;
 import com.enigma.watatsea.repository.mock.GameRepositoryMock;
+import com.enigma.watatsea.service.mock.GameMapperMock;
 import com.enigma.watatsea.service.mock.WeatherServiceMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -29,26 +30,30 @@ class GameServiceTest {
   void setUp() {
     var events = new Events();
     var weatherService = new WeatherServiceMock();
+    var gameMapper = new GameMapperMock();
     gameRepository = new GameRepositoryMock();
 
-    gameService = new GameServiceImpl(events, weatherService, gameRepository);
+    gameService = new GameServiceImpl(events, weatherService, gameRepository, gameMapper);
   }
 
   @Test
   void testGet() {
-    var games = List.of(buildGameEntity());
+    var id = "id";
+    var games = List.of(buildGameEntity(id));
 
     gameRepository.setGames(games);
 
     var result = gameService.get();
 
     assertEquals(1, result.size());
+    assertEquals(id, result.get(0).getId());
+
   }
 
-  private GameEntity buildGameEntity() {
+  private GameEntity buildGameEntity(final String id) {
     var turn = Turn.builder().build();
     var weather = Weather.builder().build();
-    return new GameEntity(BOMB_ALLEY, "id", 1, AXIS, turn, weather);
+    return new GameEntity(BOMB_ALLEY, id, 1, AXIS, turn, weather);
   }
 
 }
