@@ -64,6 +64,10 @@ public class NavigationHandler {
     buildNewGameFlow();
     buildSavedGameFlow();
 
+    registerEvents(events);
+  }
+
+  private void registerEvents(final Events events) {
     events.getNewGameEvents().register(this::handleNewGame);
     events.getLoadGameEvents().register(this::handleLoadGame);
     events.getNavigateEvents().register(this::handleNavigate);

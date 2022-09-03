@@ -16,6 +16,10 @@ public class ErrorHandler {
                       final Provider<ErrorDialog> errorDialogProvider) {
     this.errorDialogProvider = errorDialogProvider;
 
+    registerEvents(events);
+  }
+
+  private void registerEvents(final Events events) {
     events.getErrorEvents().register(this::handleError);
   }
 

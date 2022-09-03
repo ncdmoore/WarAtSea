@@ -45,7 +45,7 @@ public class WeatherService {
     this.weatherStrategies = weatherStrategies;
     this.visibilityStrategies = visibilityStrategies;
 
-    events.getGameNameEvents().register(this::setGameName);
+    registerEvents(events);
   }
 
   public Weather determine(WeatherInput input) {
@@ -57,6 +57,10 @@ public class WeatherService {
         .weatherType(weatherType)
         .visibility(visibility)
         .build();
+  }
+
+  private void registerEvents(final Events events) {
+    events.getGameNameEvents().register(this::setGameName);
   }
 
   private void setGameName(final GameNameEvent gameNameEvent) {

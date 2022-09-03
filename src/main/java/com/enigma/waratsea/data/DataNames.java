@@ -32,6 +32,10 @@ public class DataNames {
     this.resourceNames = resourceNames;
     this.userHomeDirectory = System.getProperty(USER_HOME);
 
+    registerEvents(events);
+  }
+
+  private void registerEvents(final Events events) {
     events.getGameNameEvents().register(this::setSavedGameDirectory);
   }
 

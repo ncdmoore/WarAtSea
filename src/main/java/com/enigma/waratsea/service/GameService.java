@@ -32,14 +32,10 @@ public class GameService {
   GameService(final Events events,
               final WeatherService weatherService,
               final GameRepository gameRepository) {
-    events.getGameNameEvents().register(this::setGameName);
-    events.getNewGameEvents().register(this::create);
-    events.getSaveGameEvents().register(this::save);
-    events.getScenarioEvents().register(this::setScenario);
-    events.getSideEvents().register(this::setHumanSide);
-
     this.weatherService = weatherService;
     this.gameRepository = gameRepository;
+
+    registerEvents(events);
   }
 
   public List<Game> get() {
@@ -49,6 +45,14 @@ public class GameService {
         .map(GameMapper.INSTANCE::toModel)
         .sorted()
         .collect(Collectors.toList());
+  }
+
+  private void registerEvents(final Events events) {
+    events.getGameNameEvents().register(this::setGameName);
+    events.getNewGameEvents().register(this::create);
+    events.getSaveGameEvents().register(this::save);
+    events.getScenarioEvents().register(this::setScenario);
+    events.getSideEvents().register(this::setHumanSide);
   }
 
   private void nextTurn() {

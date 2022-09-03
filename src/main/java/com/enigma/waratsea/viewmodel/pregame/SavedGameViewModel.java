@@ -37,8 +37,7 @@ public class SavedGameViewModel {
     this.events = events;
     this.gameService = gameService;
 
-    events.getLoadGameEvents().register(this::handleLoadGames);
-
+    registerEvents();
     loadGames();
   }
 
@@ -48,6 +47,10 @@ public class SavedGameViewModel {
 
   public void continueOn(final Stage stage) {
     log.info("continue");
+  }
+
+  private void registerEvents() {
+    events.getLoadGameEvents().register(this::handleLoadGames);
   }
 
   private void loadGames() {

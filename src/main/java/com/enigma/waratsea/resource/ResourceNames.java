@@ -22,6 +22,10 @@ public class ResourceNames {
 
   @Inject
   ResourceNames(final Events events) {
+    registerEvents(events);
+  }
+
+  private void registerEvents(final Events events) {
     events.getGameNameEvents().register(this::handleGameSelected);
     events.getScenarioEvents().register(this::handleScenarioSelected);
   }
