@@ -35,6 +35,9 @@ public class WeatherServiceImpl implements WeatherService {
     this.weatherStrategies = weatherStrategies;
     this.visibilityStrategies = visibilityStrategies;
 
+    visibilityStrategy = defaultVisibilityStrategy;
+    weatherStrategy = defaultWeatherStrategy;
+
     registerEvents(events);
   }
 

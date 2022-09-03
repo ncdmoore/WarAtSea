@@ -1,19 +1,17 @@
 package com.enigma.watatsea.service;
 
-import com.enigma.waratsea.service.DiceService;
 import com.enigma.waratsea.service.DiceServiceImpl;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith(MockitoExtension.class)
 class DiceServiceTest {
-  private DiceService diceService;
-
-  @BeforeEach
-  void setUp() {
-    diceService = new DiceServiceImpl();
-  }
+  @InjectMocks
+  private DiceServiceImpl diceService;
 
   @Test
   void testRoll() {
