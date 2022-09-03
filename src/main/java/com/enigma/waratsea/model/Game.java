@@ -43,13 +43,18 @@ public class Game implements Comparable<Game> {
     turn = turn.next();
   }
 
-  public Weather setStartingWeather() {
-    return scenario.getWeather();
-  }
-
   @Override
   public String toString() {
     return id;
+  }
+
+  @Override
+  public int compareTo(@NotNull Game o) {
+    return id.compareTo(o.id);
+  }
+
+  private Weather setStartingWeather() {
+    return scenario.getWeather();
   }
 
   private Turn setStartingTurn() {
@@ -59,8 +64,5 @@ public class Game implements Comparable<Game> {
         .build();
   }
 
-  @Override
-  public int compareTo(@NotNull Game o) {
-    return id.compareTo(o.id);
-  }
+
 }

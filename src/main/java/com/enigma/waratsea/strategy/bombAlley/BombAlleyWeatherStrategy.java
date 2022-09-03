@@ -2,7 +2,7 @@ package com.enigma.waratsea.strategy.bombAlley;
 
 import com.enigma.waratsea.model.WeatherType;
 import com.enigma.waratsea.service.DiceService;
-import com.enigma.waratsea.service.WeatherService;
+import com.enigma.waratsea.service.WeatherInput;
 import com.enigma.waratsea.strategy.WeatherStrategy;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -39,7 +39,7 @@ public class BombAlleyWeatherStrategy implements WeatherStrategy {
   }
 
   @Override
-  public WeatherType determine(WeatherService.WeatherInput input) {
+  public WeatherType determine(final WeatherInput input) {
     var currentWeather = input.getWeather();
     var currentTurn = input.getTurn();
     var currentMonth = currentTurn.getDate().getMonth();

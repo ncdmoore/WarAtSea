@@ -3,6 +3,11 @@ package com.enigma.waratsea;
 import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.property.*;
+import com.enigma.waratsea.repository.GameRepository;
+import com.enigma.waratsea.repository.GameRepositoryImpl;
+import com.enigma.waratsea.repository.ScenarioRepository;
+import com.enigma.waratsea.repository.ScenarioRepositoryImpl;
+import com.enigma.waratsea.service.*;
 import com.enigma.waratsea.strategy.DefaultVisibilityStrategy;
 import com.enigma.waratsea.strategy.DefaultWeatherStrategy;
 import com.enigma.waratsea.strategy.VisibilityStrategy;
@@ -29,12 +34,15 @@ import static com.enigma.waratsea.model.GameName.BOMB_ALLEY;
 public class BasicModule extends AbstractModule {
   @Override
   protected void configure() {
-    bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
-
     bindProps();
+
     bindViews();
+
+    bindRepositories();
+    bindMappers();
     bindWeatherStrategies();
     bindVisibilityStrategies();
+    bindServices();
   }
 
   private void bindProps() {
@@ -52,6 +60,15 @@ public class BasicModule extends AbstractModule {
         .build(ViewFactory.class));
   }
 
+  private void bindRepositories() {
+    bind(ScenarioRepository.class).to(ScenarioRepositoryImpl.class);
+    bind(GameRepository.class).to(GameRepositoryImpl.class);
+  }
+
+  private void bindMappers() {
+    bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
+  }
+
   private void bindWeatherStrategies() {
     bind(WeatherStrategy.class).annotatedWith(Names.named("Default")).to(DefaultWeatherStrategy.class);
     MapBinder<GameName, WeatherStrategy> mapBinder = MapBinder.newMapBinder(binder(), GameName.class, WeatherStrategy.class);
@@ -63,5 +80,12 @@ public class BasicModule extends AbstractModule {
     bind(VisibilityStrategy.class).annotatedWith(Names.named("Default")).to(DefaultVisibilityStrategy.class);
     MapBinder<GameName, VisibilityStrategy> mapBinder = MapBinder.newMapBinder(binder(), GameName.class, VisibilityStrategy.class);
     mapBinder.addBinding(BOMB_ALLEY).to(BombAlleyVisibilityStrategy.class);
+  }
+
+  private void bindServices() {
+    bind(DiceService.class).to(DiceServiceImpl.class);
+    bind(ScenarioService.class).to(ScenarioServiceImpl.class);
+    bind(WeatherService.class).to(WeatherServiceImpl.class);
+    bind(GameService.class).to(GameServiceImpl.class);
   }
 }

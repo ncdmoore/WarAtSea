@@ -5,7 +5,9 @@ import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.service.WeatherInput;
 import com.enigma.waratsea.service.WeatherService;
+import com.enigma.waratsea.service.WeatherServiceImpl;
 import com.enigma.waratsea.strategy.VisibilityStrategy;
 import com.enigma.waratsea.strategy.WeatherStrategy;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,13 +24,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class WeatherServiceTest {
   private WeatherService weatherService;
 
-  private WeatherService.WeatherInput input;
+  private WeatherInput input;
 
   @BeforeEach
   void setUp() {
     var currentWeather = Weather.builder().weatherType(CLEAR).build();
     var turn = Turn.builder().timeRange(DAY_1).build();
-    input = WeatherService.WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
 
     var events = new Events();
     WeatherStrategy weatherStrategy = game -> CLEAR;
@@ -36,7 +38,7 @@ class WeatherServiceTest {
     Map<GameName, WeatherStrategy> weatherStrategyMap = Map.of(BOMB_ALLEY, weatherStrategy);
     Map<GameName, VisibilityStrategy> visibilityStrategyMap = Map.of(BOMB_ALLEY, visibilityStrategy);
 
-    weatherService = new WeatherService(
+    weatherService = new WeatherServiceImpl(
         events,
         weatherStrategy,
         visibilityStrategy,
