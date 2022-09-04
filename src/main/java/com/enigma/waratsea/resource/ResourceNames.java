@@ -8,11 +8,14 @@ import com.google.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
+import java.nio.file.Paths;
+
 @Slf4j
 @Singleton
 @Getter
 public class ResourceNames {
-  private String gameName;
+  private final String game ="game";
+  private String gamePath;
   private String scenarioName;
   private final String gameDirectory = "game";
   private final String cssDirectory = "css";
@@ -31,8 +34,8 @@ public class ResourceNames {
   }
 
   private void handleGameSelected(final GameNameEvent gameEvent) {
-    gameName = gameEvent.gameName().getValue();
-    log.debug("ResourceNames received gameNameEvent, game set to: '{}'", gameName);
+    gamePath = Paths.get(game, gameEvent.gameName().getValue()).toString();
+    log.debug("ResourceNames received gameNameEvent, gamePath set to: '{}'", gamePath);
   }
 
   private void handleScenarioSelected(final ScenarioEvent scenarioEvent) {

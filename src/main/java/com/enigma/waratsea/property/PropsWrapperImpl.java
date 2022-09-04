@@ -21,7 +21,7 @@ public class PropsWrapperImpl implements PropsWrapper {
   @Inject
   PropsWrapperImpl(final ResourceNames resourceNames, @Assisted final String name) {
     var generalPath = Paths.get(PROPERTIES_DIR, name).toString();
-    var gameSpecificPath = Paths.get(resourceNames.getGameName(), PROPERTIES_DIR, name).toString();
+    var gameSpecificPath = Paths.get(resourceNames.getGamePath(), PROPERTIES_DIR, name).toString();
 
     load(generalPath);
     load(gameSpecificPath);

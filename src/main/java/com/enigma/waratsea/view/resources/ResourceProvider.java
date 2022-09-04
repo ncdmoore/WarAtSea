@@ -19,7 +19,7 @@ public class ResourceProvider {
   private final String cssDirectory;
   private final String imageDirectory;
   private final String gameImageDirectory;
-  private final String gameName;
+  private final String gamePath;
 
   @Inject
   ResourceProvider(final ResourceNames resourceNames) {
@@ -29,7 +29,7 @@ public class ResourceProvider {
     this.scenarioDirectory = resourceNames.getScenarioDirectory();
     this.cssDirectory = resourceNames.getCssDirectory();
     this.gameImageDirectory = Paths.get(imageDirectory, gameDirectory).toString();
-    this.gameName = resourceNames.getGameName();
+    this.gamePath = resourceNames.getGamePath();
   }
 
   public String getCss(final String name) {
@@ -59,13 +59,13 @@ public class ResourceProvider {
   }
 
   private Optional<Image> getCommonImage(final String imageName) {
-    var path = Paths.get(gameName, gameImageDirectory, imageName).toString();
+    var path = Paths.get(gamePath, gameImageDirectory, imageName).toString();
     log.debug("get image: '{}'", path);
     return getImageResource(path);
   }
 
   private Optional<Image> getScenarioSpecificImage(final String scenario, final String imageName) {
-    String path = Paths.get(gameName, scenarioDirectory, scenario, imageDirectory, imageName).toString();
+    String path = Paths.get(gamePath, scenarioDirectory, scenario, imageDirectory, imageName).toString();
     log.debug("get image: {}", path);
     return getImageResource(path);
   }

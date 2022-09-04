@@ -29,7 +29,7 @@ public class ResourceProvider {
   }
 
   public InputStream getResourceInputStream(final String resourceName) {
-    var fullPath = Paths.get(resourceNames.getGameName(), resourceName).toString();
+    var fullPath = Paths.get(resourceNames.getGamePath(), resourceName).toString();
 
     return getClass()
         .getClassLoader()
@@ -37,7 +37,7 @@ public class ResourceProvider {
   }
 
   public List<Path> getSubDirectoryPaths(final String parentDirectoryName) {
-    var fullName = Paths.get(resourceNames.getGameName(), parentDirectoryName).toString();
+    var fullName = Paths.get(resourceNames.getGamePath(), parentDirectoryName).toString();
 
     try {
       return getSubDirectoryPathsFromJar(fullName);
