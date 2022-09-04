@@ -17,7 +17,7 @@ public class ResourceNames {
   private final String game ="game";
   private String gamePath;
   private String scenarioName;
-  private final String gameDirectory = "game";
+  private final String commonDirectory = "common";
   private final String cssDirectory = "css";
   private final String imageDirectory = "images";
   private final String scenarioDirectory = "scenarios";
