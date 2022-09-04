@@ -26,8 +26,10 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.model;
   exports com.enigma.waratsea.property;
   exports com.enigma.waratsea.repository;
+  exports com.enigma.waratsea.repository.impl;
   exports com.enigma.waratsea.resource;
   exports com.enigma.waratsea.service;
+  exports com.enigma.waratsea.service.impl;
   exports com.enigma.waratsea.strategy;
   exports com.enigma.waratsea.strategy.bombAlley;
   exports com.enigma.waratsea.strategy.arcticConvoy;
@@ -39,6 +41,4 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.viewmodel;
   exports com.enigma.waratsea.viewmodel.pregame;
   exports com.enigma.waratsea.viewmodel.events;
-  exports com.enigma.waratsea.repository.impl;
-  exports com.enigma.waratsea.service.impl;
 }
