@@ -40,7 +40,8 @@ public class DataNames {
   }
 
   private void setSavedGameDirectory(final GameNameEvent gameNameEvent) {
-    savedGameDirectory = Paths.get(userHomeDirectory, DATA_DIRECTORY, SAVED_GAMES).toString();
+    var gameName = gameNameEvent.gameName().getValue();
+    savedGameDirectory = Paths.get(userHomeDirectory, DATA_DIRECTORY, gameName, SAVED_GAMES).toString();
     log.debug("DataNames received game name event, savedGameDirectory set to '{}'", savedGameDirectory);
   }
 }

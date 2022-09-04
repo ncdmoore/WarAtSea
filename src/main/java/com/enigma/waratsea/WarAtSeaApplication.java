@@ -14,6 +14,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -24,6 +25,7 @@ import java.util.stream.Stream;
  */
 @Slf4j
 public class WarAtSeaApplication extends Application {
+  private static final String GAME_RESOURCE_DIRECTORY = "game";
   private static final String GAME_NAME = "game";
 
   private static final Map<String, String> GAME_PARAMETERS = new HashMap<>();
@@ -67,7 +69,8 @@ public class WarAtSeaApplication extends Application {
 
   private static void isGameValid(final String game) {
     var isValidGame = GameName.isValid(game);
-    var gameResourceUrl = WarAtSeaApplication.class.getClassLoader().getResource(game);
+    var path = Paths.get(GAME_RESOURCE_DIRECTORY, game).toString();
+    var gameResourceUrl = WarAtSeaApplication.class.getClassLoader().getResource(path);
 
     if (!isValidGame || gameResourceUrl == null) {
       throw new GameException(game);
