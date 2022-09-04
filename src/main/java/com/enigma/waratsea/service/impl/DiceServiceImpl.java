@@ -1,5 +1,6 @@
-package com.enigma.waratsea.service;
+package com.enigma.waratsea.service.impl;
 
+import com.enigma.waratsea.service.DiceService;
 import com.google.inject.Singleton;
 
 import java.util.Random;

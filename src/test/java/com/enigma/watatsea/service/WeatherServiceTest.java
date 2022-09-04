@@ -5,7 +5,7 @@ import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.service.WeatherInput;
-import com.enigma.waratsea.service.WeatherServiceImpl;
+import com.enigma.waratsea.service.impl.WeatherServiceImpl;
 import com.enigma.waratsea.strategy.DefaultVisibilityStrategy;
 import com.enigma.waratsea.strategy.DefaultWeatherStrategy;
 import com.enigma.waratsea.strategy.VisibilityStrategy;

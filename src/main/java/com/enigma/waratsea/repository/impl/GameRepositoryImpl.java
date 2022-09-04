@@ -1,10 +1,11 @@
-package com.enigma.waratsea.repository;
+package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.data.DataNames;
 import com.enigma.waratsea.data.DataProvider;
 import com.enigma.waratsea.entity.GameEntity;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.property.Props;
+import com.enigma.waratsea.repository.GameRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;

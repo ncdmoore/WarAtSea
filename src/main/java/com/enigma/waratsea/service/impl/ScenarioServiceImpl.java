@@ -1,9 +1,10 @@
-package com.enigma.waratsea.service;
+package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.exceptions.ScenarioException;
 import com.enigma.waratsea.mapper.ScenarioMapper;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.repository.ScenarioRepository;
+import com.enigma.waratsea.service.ScenarioService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

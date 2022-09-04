@@ -7,7 +7,7 @@ import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.repository.GameRepository;
-import com.enigma.waratsea.service.GameServiceImpl;
+import com.enigma.waratsea.service.impl.GameServiceImpl;
 import com.enigma.waratsea.service.WeatherService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

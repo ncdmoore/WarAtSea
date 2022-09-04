@@ -1,9 +1,11 @@
-package com.enigma.waratsea.service;
+package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.service.WeatherInput;
+import com.enigma.waratsea.service.WeatherService;
 import com.enigma.waratsea.strategy.VisibilityStrategy;
 import com.enigma.waratsea.strategy.WeatherStrategy;
 import com.google.inject.Inject;

@@ -1,8 +1,9 @@
-package com.enigma.waratsea.repository;
+package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.ScenarioEntity;
 import com.enigma.waratsea.exceptions.ScenarioException;
 import com.enigma.waratsea.property.Props;
+import com.enigma.waratsea.repository.ScenarioRepository;
 import com.enigma.waratsea.resource.ResourceNames;
 import com.enigma.waratsea.resource.ResourceProvider;
 import com.google.gson.GsonBuilder;

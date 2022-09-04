@@ -1,4 +1,4 @@
-package com.enigma.waratsea.repository;
+package com.enigma.waratsea.repository.impl;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;

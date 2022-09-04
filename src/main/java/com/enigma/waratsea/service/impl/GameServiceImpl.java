@@ -1,4 +1,4 @@
-package com.enigma.waratsea.service;
+package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.GameMapper;
@@ -6,6 +6,9 @@ import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.repository.GameRepository;
+import com.enigma.waratsea.service.GameService;
+import com.enigma.waratsea.service.WeatherInput;
+import com.enigma.waratsea.service.WeatherService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;

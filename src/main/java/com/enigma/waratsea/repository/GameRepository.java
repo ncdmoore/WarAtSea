@@ -8,5 +8,4 @@ public interface GameRepository {
   List<GameEntity> get();
 
   void save(final GameEntity game);
-
 }

@@ -1,6 +1,6 @@
 package com.enigma.watatsea.service;
 
-import com.enigma.waratsea.service.DiceServiceImpl;
+import com.enigma.waratsea.service.impl.DiceServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
