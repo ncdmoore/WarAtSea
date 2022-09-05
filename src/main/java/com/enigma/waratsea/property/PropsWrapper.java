@@ -15,6 +15,7 @@ public class PropsWrapper {
 
   private final ResourceNames resourceNames;
   private final String name;
+  private final boolean general;
 
   private Function<String, String> getStringFunc = this::initAndGetStringValue;
   private Function<String, Integer> getIntFunc = this::initAndGetIntValue;
@@ -23,6 +24,13 @@ public class PropsWrapper {
   public PropsWrapper(final ResourceNames resourceNames, final String name) {
     this.resourceNames = resourceNames;
     this.name = name;
+    this.general = true;
+  }
+
+  public PropsWrapper(final ResourceNames resourceNames, final String name, final boolean general) {
+    this.resourceNames = resourceNames;
+    this.name = name;
+    this.general = general;
   }
 
   public String getString(final String key) {
@@ -72,9 +80,11 @@ public class PropsWrapper {
       var generalPath = Paths.get(PROPERTIES_DIR, name).toString();
       var gameSpecificPath = Paths.get(gamePath, PROPERTIES_DIR, name).toString();
 
-      load(generalPath);
-      load(gameSpecificPath);
+      if (general) {
+        load(generalPath);
+      }
 
+      load(gameSpecificPath);
       setFunctions();
     }
   }

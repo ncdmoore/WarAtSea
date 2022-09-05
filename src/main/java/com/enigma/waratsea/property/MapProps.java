@@ -5,13 +5,13 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
 @Singleton
-public class ViewProps implements Props {
-  public static final String VIEW_PROPS = "view.properties";
+public class MapProps implements Props {
+  public static final String MAP_PROPS = "map.properties";
   private final PropsWrapper propsWrapper;
 
   @Inject
-  public ViewProps(final ResourceNames resourceNames) {
-    this.propsWrapper = new PropsWrapper(resourceNames, VIEW_PROPS);
+  public MapProps(final ResourceNames resourceNames) {
+    this.propsWrapper = new PropsWrapper(resourceNames, MAP_PROPS, false);
   }
 
   public String getString(final String key) {
@@ -25,5 +25,4 @@ public class ViewProps implements Props {
   public double getDouble(final String key) {
     return propsWrapper.getDouble(key);
   }
-
 }

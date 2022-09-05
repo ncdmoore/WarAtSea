@@ -4,10 +4,9 @@ import com.enigma.waratsea.resource.ResourceNames;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
-import static com.enigma.waratsea.Globals.APP_PROPS;
-
 @Singleton
 public class AppProps implements Props {
+  public static final String APP_PROPS = "app.properties";
   private final PropsWrapper propsWrapper;
 
   @Inject
