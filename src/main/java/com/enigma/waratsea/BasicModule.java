@@ -50,8 +50,6 @@ public class BasicModule extends AbstractModule {
   }
 
   private void bindProps() {
-    install(new FactoryModuleBuilder().implement(PropsWrapper.class, PropsWrapperImpl.class).build(PropsWrapperFactory.class));
-
     bind(Props.class).annotatedWith(Names.named("View")).to(ViewProps.class);
     bind(Props.class).annotatedWith(Names.named("App")).to(AppProps.class);
   }
