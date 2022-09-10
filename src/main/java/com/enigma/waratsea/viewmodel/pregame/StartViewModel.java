@@ -4,24 +4,32 @@ import com.enigma.waratsea.event.LoadGameEvent;
 import com.enigma.waratsea.event.NewGameEvent;
 import com.enigma.waratsea.exceptions.WarAtSeaException;
 import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.stage.Stage;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import static com.enigma.waratsea.viewmodel.events.NavigationType.FORWARD;
 
 @Slf4j
-@Singleton
 public class StartViewModel {
+  @Getter
+  private final BooleanProperty savedGamesExist = new SimpleBooleanProperty();
+
   private final Events events;
 
   @Inject
-  StartViewModel(final Events events) {
+  StartViewModel(final Events events,
+                 final GameService gameService) {
     this.events = events;
+
+    savedGamesExist.setValue(gameService.get().isEmpty());
   }
 
   public void newGame(final Stage stage) {

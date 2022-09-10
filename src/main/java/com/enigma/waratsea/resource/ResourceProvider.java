@@ -24,12 +24,14 @@ public class ResourceProvider {
   private final ResourceNames resourceNames;
 
   @Inject
-  ResourceProvider(final ResourceNames resourceNames) {
+  public ResourceProvider(final ResourceNames resourceNames) {
     this.resourceNames = resourceNames;
   }
 
   public InputStream getResourceInputStream(final String resourceName) {
     var fullPath = Paths.get(resourceNames.getGamePath(), resourceName).toString();
+
+    log.debug("Get resource input stream for path: '{}'", fullPath);
 
     return getClass()
         .getClassLoader()

@@ -88,10 +88,12 @@ public class StartView implements View {
   }
 
   private Node buildButtons(final Stage stage) {
+
     var newButton = buildButton("New Game");
     newButton.setOnAction(event -> startViewModel.newGame(stage));
 
     var savedButton = buildButton("Saved Game");
+    savedButton.disableProperty().bind(startViewModel.getSavedGamesExist());
     savedButton.setOnAction(event -> startViewModel.savedGame(stage));
 
     var optionsButton = buildButton("Options");

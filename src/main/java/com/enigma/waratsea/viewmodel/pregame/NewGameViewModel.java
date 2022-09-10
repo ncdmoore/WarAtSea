@@ -10,7 +10,6 @@ import com.enigma.waratsea.service.ScenarioService;
 import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Inject;
-import com.google.inject.Singleton;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -24,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 import static com.enigma.waratsea.viewmodel.events.NavigationType.BACKWARD;
 
 @Slf4j
-@Singleton
 public class NewGameViewModel {
   @Getter
   private final ListProperty<Scenario> scenariosProperty = new SimpleListProperty<>(FXCollections.emptyObservableList());
