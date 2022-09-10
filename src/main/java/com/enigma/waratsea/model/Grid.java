@@ -1,0 +1,13 @@
+package com.enigma.waratsea.model;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class Grid {
+  private final int row;
+  private final int column;
+  private final String reference;
+  private final GridType type;
+}

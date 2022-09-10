@@ -9,6 +9,7 @@ module com.enigma.waratsea {
   requires org.slf4j;
   requires org.mapstruct;
   requires org.jetbrains.annotations;
+  requires org.apache.commons.collections4;
 
   opens com.enigma.waratsea to javafx.fxml;
 

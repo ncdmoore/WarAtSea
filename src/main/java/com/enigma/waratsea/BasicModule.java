@@ -4,14 +4,13 @@ import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.property.*;
 import com.enigma.waratsea.repository.GameRepository;
+import com.enigma.waratsea.repository.MapRepository;
 import com.enigma.waratsea.repository.impl.GameRepositoryImpl;
 import com.enigma.waratsea.repository.ScenarioRepository;
+import com.enigma.waratsea.repository.impl.MapRepositoryImpl;
 import com.enigma.waratsea.repository.impl.ScenarioRepositoryImpl;
 import com.enigma.waratsea.service.*;
-import com.enigma.waratsea.service.impl.DiceServiceImpl;
-import com.enigma.waratsea.service.impl.GameServiceImpl;
-import com.enigma.waratsea.service.impl.ScenarioServiceImpl;
-import com.enigma.waratsea.service.impl.WeatherServiceImpl;
+import com.enigma.waratsea.service.impl.*;
 import com.enigma.waratsea.strategy.DefaultVisibilityStrategy;
 import com.enigma.waratsea.strategy.DefaultWeatherStrategy;
 import com.enigma.waratsea.strategy.VisibilityStrategy;
@@ -64,6 +63,7 @@ public class BasicModule extends AbstractModule {
 
   private void bindRepositories() {
     bind(ScenarioRepository.class).to(ScenarioRepositoryImpl.class);
+    bind(MapRepository.class).to(MapRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
 
@@ -87,6 +87,7 @@ public class BasicModule extends AbstractModule {
   private void bindServices() {
     bind(DiceService.class).to(DiceServiceImpl.class);
     bind(ScenarioService.class).to(ScenarioServiceImpl.class);
+    bind(MapService.class).to(MapServiceImpl.class);
     bind(WeatherService.class).to(WeatherServiceImpl.class);
     bind(GameService.class).to(GameServiceImpl.class);
   }

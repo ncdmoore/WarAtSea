@@ -20,8 +20,10 @@ public class ResourceNames {
   private final String commonDirectory = "common";
   private final String cssDirectory = "css";
   private final String imageDirectory = "images";
+  private final String mapDirectory = "map";
   private final String scenarioDirectory = "scenarios";
   private final String summaryFileName = "summary.json";
+  private final String gameMapFileName = "map.json";
 
   @Inject
   ResourceNames(final Events events) {
