@@ -43,18 +43,22 @@ public class MapServiceImpl implements MapService {
   private void buildGrids(final GameMapEntity mapEntity) {
     var rows = mapEntity.getRows();
     var columns = mapEntity.getColumns();
+    var defaultGridName = mapEntity.getDefaultGridName();
+    var defaultGridType = mapEntity.getDefaultGridType();
 
     int currentNumberOfRows = rows;
 
     for (int col = 0; col < columns; col++) {
       for (int row = 0; row < currentNumberOfRows; row++) {
         var reference = determineReference(row, col);
-        var type = mapEntity.getGrids().get(reference);
+        var type = mapEntity.getGrids().getOrDefault(reference, defaultGridType);
+        var name = mapEntity.getLocations().getOrDefault(reference, defaultGridName);
 
         var grid = Grid.builder()
             .row(row)
             .column(col)
             .reference(reference)
+            .name(name)
             .type(type)
             .build();
 

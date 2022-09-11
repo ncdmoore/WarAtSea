@@ -1,0 +1,18 @@
+{
+  "rows": 34,
+  "columns": 77,
+  "defaultGridName": "--",
+  "defaultGridType": "SEA_DEEP",
+  "locations": {
+    "Cairns": "F26",
+    "Espiritu Santo": "AM23",
+    "Gasmata": "M10",
+    "Kavieng": "N3",
+    "Lae": "H10",
+    "Madang": "F7",
+    "Port Moresby": "H14",
+    "Rabaul": "P6",
+    "Townsville": "H30",
+    "Tulagi": "AC14"
+  }
+}

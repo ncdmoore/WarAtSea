@@ -9,5 +9,6 @@ public class Grid {
   private final int row;
   private final int column;
   private final String reference;
+  private final String name;
   private final GridType type;
 }

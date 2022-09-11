@@ -15,20 +15,24 @@ public class GameMapTest {
     var row = 0;
     var column = 0;
     var reference = "A1";
+    var name = "name";
 
     var grid1 = Grid.builder()
         .row(row)
         .column(column)
         .reference(reference)
+        .name(name)
         .type(LAND)
         .build();
 
     gameMap.addGrid(grid1);
 
-    var resultByRowColumn = gameMap.getGrid(row, column);
-    var resultByReference = gameMap.getGrid(reference);
+    var resultByRowColumn = gameMap.getGridByRowColumn(row, column);
+    var resultByReference = gameMap.getGridFromReference(reference);
+    var resultByName = gameMap.getGridFromName(name);
 
     assertEquals(grid1, resultByRowColumn);
     assertEquals(grid1, resultByReference);
+    assertEquals(grid1, resultByName);
   }
 }

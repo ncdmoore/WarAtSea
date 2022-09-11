@@ -1,0 +1,28 @@
+{
+  "rows": 44,
+  "columns": 87,
+  "defaultGridName": "--",
+  "defaultGridType": "LAND",
+  "locations": {
+    "Akureyri": "G21",
+    "Altafjord": "AQ26",
+    "Arkhangelsk": "BI37",
+    "Banak": "AS26",
+    "Bardufoss": "AM28",
+    "Bodo": "AI31",
+    "Dikson": "Z8",
+    "Hvalfjordur": "C21",
+    "Kaldaharnes": "B21",
+    "Kirkenes": "AW26",
+    "Lerwick": "O42",
+    "Molde": "Z39",
+    "Murmansk": "AZ27",
+    "Narvik": "AL28",
+    "Orland": "AC39",
+    "Petsamo": "AX26",
+    "Scapa Flow": "L43",
+    "Tromso": "AN26",
+    "Trondheim": "AC40",
+    "Wick": "K44"
+  }
+}
