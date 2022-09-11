@@ -45,7 +45,6 @@ public class SavedGameViewModel {
     log.info("continue");
   }
 
-
   private void loadGames() {
     var games = gameService.get();
     savedGamesProperty.setValue(FXCollections.observableList(games));

@@ -34,17 +34,18 @@ public class NewGameViewModel {
   private final ObjectProperty<Toggle> selectedSide = new SimpleObjectProperty<>();
 
   private final Events events;
+  private final ScenarioService scenarioService;
 
   @Inject
   NewGameViewModel(final Events events,
                    final ScenarioService scenarioService) {
     this.events = events;
-
-    var scenarios = scenarioService.get();
-    scenariosProperty.setValue(FXCollections.observableList(scenarios));
+    this.scenarioService = scenarioService;
 
     selectedScenario.addListener((observable, oldValue, newValue) -> setSelectedScenario(newValue));
     selectedSide.addListener((observable, oldValue, newValue) -> setSelectedSide(newValue));
+
+    loadScenarios();
   }
 
   public void goBack(final Stage stage) {
@@ -54,6 +55,11 @@ public class NewGameViewModel {
   public void continueOn(final Stage stage) {
     log.info("continue");
     events.getSaveGameEvents().fire(new SaveGameEvent());
+  }
+
+  private void loadScenarios() {
+    var scenarios = scenarioService.get();
+    scenariosProperty.setValue(FXCollections.observableList(scenarios));
   }
 
   private void setSelectedScenario(final Scenario scenario) {
