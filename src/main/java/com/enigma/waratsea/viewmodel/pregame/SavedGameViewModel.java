@@ -1,6 +1,5 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.event.LoadGameEvent;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.service.GameService;
@@ -35,7 +34,6 @@ public class SavedGameViewModel {
     this.events = events;
     this.gameService = gameService;
 
-    registerEvents();
     loadGames();
   }
 
@@ -47,17 +45,10 @@ public class SavedGameViewModel {
     log.info("continue");
   }
 
-  private void registerEvents() {
-    events.getLoadGameEvents().register(this::handleLoadGames);
-  }
 
   private void loadGames() {
     var games = gameService.get();
     savedGamesProperty.setValue(FXCollections.observableList(games));
-  }
-
-  private void handleLoadGames(final LoadGameEvent loadGameEvent) {
-    loadGames();
   }
 
   private NavigateEvent buildBackwardNav(final Stage stage) {
