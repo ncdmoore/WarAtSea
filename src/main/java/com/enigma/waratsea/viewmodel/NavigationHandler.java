@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel;
 
+import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.LoadGameEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.event.NewGameEvent;
@@ -28,7 +29,7 @@ import static com.enigma.waratsea.viewmodel.events.NavigationType.FORWARD;
  * It is mostly used to navigate through the scenario selection and initial force deployment screens.
  */
 @Singleton
-public class NavigationHandler {
+public class NavigationHandler implements BootStrapped {
   @Data
   private static class Page {
     private boolean active = true;

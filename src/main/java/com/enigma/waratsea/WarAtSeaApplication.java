@@ -2,12 +2,9 @@ package com.enigma.waratsea;
 
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.exceptions.GameException;
-import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Events;
-import com.enigma.waratsea.service.GameService;
+import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.view.pregame.StartView;
-import com.enigma.waratsea.viewmodel.ErrorHandler;
-import com.enigma.waratsea.viewmodel.NavigationHandler;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import javafx.application.Application;
@@ -101,15 +98,8 @@ public class WarAtSeaApplication extends Application {
   }
 
   private void initGui(final Injector injector, final Stage stage) {
-    bootstrapGui(injector);
     var startView = injector.getInstance(StartView.class);
     startView.display(stage);
-  }
-
-  private void bootstrapGui(final Injector injector) {
-    injector.getInstance(NavigationHandler.class);
-    injector.getInstance(ErrorHandler.class);
-    log.debug("Bootstrap GUI classes created.");
   }
 
   private void setGameName() {
@@ -118,10 +108,8 @@ public class WarAtSeaApplication extends Application {
   }
 
   private void bootstrapGame(final Injector injector) {
-    // The classes injected here need to receive GameNameEvents.
-    // Thus, they must be created or bootstrapped here before the GameNameEvent is fired.
-    injector.getInstance(GameService.class);
-    log.debug("Bootstrap game classes created.");
+    injector.getInstance(BootStrap.class);
+    log.debug("Bootstrap game class created.");
   }
 
   private void fireGameNameEvent(final Injector injector) {

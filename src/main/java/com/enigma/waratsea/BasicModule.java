@@ -23,9 +23,12 @@ import com.enigma.waratsea.view.ViewFactory;
 import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.StartView;
+import com.enigma.waratsea.viewmodel.ErrorHandler;
+import com.enigma.waratsea.viewmodel.NavigationHandler;
 import com.google.inject.AbstractModule;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.google.inject.multibindings.MapBinder;
+import com.google.inject.multibindings.Multibinder;
 import com.google.inject.name.Names;
 
 import static com.enigma.waratsea.model.GameName.ARCTIC_CONVOY;
@@ -37,6 +40,8 @@ import static com.enigma.waratsea.model.GameName.BOMB_ALLEY;
 public class BasicModule extends AbstractModule {
   @Override
   protected void configure() {
+    bindBootStrapped();
+
     bindProps();
 
     bindViews();
@@ -46,6 +51,13 @@ public class BasicModule extends AbstractModule {
     bindWeatherStrategies();
     bindVisibilityStrategies();
     bindServices();
+  }
+
+  private void bindBootStrapped() {
+    Multibinder<BootStrapped> bootStrappedBinder = Multibinder.newSetBinder(binder(), BootStrapped.class);
+    bootStrappedBinder.addBinding().to(NavigationHandler.class);
+    bootStrappedBinder.addBinding().to(ErrorHandler.class);
+    bootStrappedBinder.addBinding().to(GameService.class);
   }
 
   private void bindProps() {

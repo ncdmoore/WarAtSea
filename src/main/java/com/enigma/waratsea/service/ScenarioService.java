@@ -6,6 +6,5 @@ import java.util.List;
 
 public interface ScenarioService {
   List<Scenario> get();
-
   Scenario get(final int id);
 }

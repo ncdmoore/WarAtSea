@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel;
 
+import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.view.ErrorDialog;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
@@ -8,7 +9,7 @@ import com.google.inject.Provider;
 import com.google.inject.Singleton;
 
 @Singleton
-public class ErrorHandler {
+public class ErrorHandler implements BootStrapped {
   private final Provider<ErrorDialog> errorDialogProvider;
 
   @Inject
