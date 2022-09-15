@@ -4,15 +4,15 @@
   "defaultGridName": "--",
   "defaultGridType": "SEA_DEEP",
   "locations": {
-    "Cairns": "F26",
-    "Espiritu Santo": "AM23",
-    "Gasmata": "M10",
-    "Kavieng": "N3",
-    "Lae": "H10",
-    "Madang": "F7",
-    "Port Moresby": "H14",
-    "Rabaul": "P6",
-    "Townsville": "H30",
-    "Tulagi": "AC14"
+    "F26": "Cairns",
+    "AM23": "Espiritu Santo",
+    "M10": "Gasmata",
+    "N3": "Kavieng",
+    "H10": "Lae",
+    "F7": "Madang",
+    "H14": "Port Moresby",
+    "P6": "Rabaul",
+    "H30": "Townsville",
+    "AC14": "Tulagi"
   }
 }
