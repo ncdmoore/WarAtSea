@@ -3,6 +3,7 @@
     <option name="MAIN_CLASS_NAME" value="com.enigma.waratsea.WarAtSeaApplication" />
     <module name="WarAtSea.main" />
     <option name="PROGRAM_PARAMETERS" value="game=arcticConvoy" />
+    <option name="VM_PARAMETERS" value="-Dlogback.configurationFile=$PROJECT_DIR$/src/logback-test.xml" />
     <extension name="coverage">
       <pattern>
         <option name="PATTERN" value="com.enigma.waratsea.*" />
