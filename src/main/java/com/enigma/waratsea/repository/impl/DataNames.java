@@ -1,4 +1,4 @@
-package com.enigma.waratsea.data;
+package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.model.Events;

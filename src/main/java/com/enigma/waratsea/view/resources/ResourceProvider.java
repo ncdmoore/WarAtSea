@@ -1,7 +1,7 @@
 package com.enigma.waratsea.view.resources;
 
 import com.enigma.waratsea.exceptions.ResourceException;
-import com.enigma.waratsea.resource.ResourceNames;
+import com.enigma.waratsea.repository.impl.ResourceNames;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import javafx.scene.image.Image;

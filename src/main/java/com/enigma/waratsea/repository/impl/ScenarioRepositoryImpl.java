@@ -4,8 +4,6 @@ import com.enigma.waratsea.entity.ScenarioEntity;
 import com.enigma.waratsea.exceptions.ScenarioException;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.repository.ScenarioRepository;
-import com.enigma.waratsea.resource.ResourceNames;
-import com.enigma.waratsea.resource.ResourceProvider;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

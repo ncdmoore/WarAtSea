@@ -1,4 +1,4 @@
-package com.enigma.waratsea.data;
+package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.exceptions.DataException;
 import com.google.inject.Inject;

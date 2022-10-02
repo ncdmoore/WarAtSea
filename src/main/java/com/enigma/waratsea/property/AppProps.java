@@ -1,6 +1,6 @@
 package com.enigma.waratsea.property;
 
-import com.enigma.waratsea.resource.ResourceNames;
+import com.enigma.waratsea.repository.impl.ResourceNames;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

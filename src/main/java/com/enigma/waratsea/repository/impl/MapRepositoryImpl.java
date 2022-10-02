@@ -3,8 +3,6 @@ package com.enigma.waratsea.repository.impl;
 import com.enigma.waratsea.entity.GameMapEntity;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.repository.MapRepository;
-import com.enigma.waratsea.resource.ResourceNames;
-import com.enigma.waratsea.resource.ResourceProvider;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

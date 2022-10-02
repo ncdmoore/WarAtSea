@@ -1,4 +1,4 @@
-package com.enigma.waratsea.resource;
+package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.exceptions.ResourceException;
 import com.google.inject.Inject;
