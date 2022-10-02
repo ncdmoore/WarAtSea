@@ -11,7 +11,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
@@ -33,7 +32,7 @@ public class DataProvider {
           .filter(Files::isDirectory)
           .filter(Files::isReadable)
           .filter(path -> isPathSubDirectory(path, directoryName))
-          .collect(Collectors.toList());
+          .toList();
     } catch (IOException e) {
       throw new DataException("Unable to get directory paths for: " + directoryPath, e);
     }

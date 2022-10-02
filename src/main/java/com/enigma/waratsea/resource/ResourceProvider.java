@@ -16,7 +16,6 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
@@ -57,7 +56,7 @@ public class ResourceProvider {
           .filter(Files::isDirectory)
           .filter(Files::isReadable)
           .filter(path -> isPathSubDirectory(path, directoryName))
-          .collect(Collectors.toList());
+          .toList();
     }
   }
 
