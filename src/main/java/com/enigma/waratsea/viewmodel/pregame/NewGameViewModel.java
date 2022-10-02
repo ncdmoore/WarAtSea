@@ -1,8 +1,8 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.event.SaveGameEvent;
-import com.enigma.waratsea.event.ScenarioEvent;
-import com.enigma.waratsea.event.SideEvent;
+import com.enigma.waratsea.event.SelectScenarioEvent;
+import com.enigma.waratsea.event.SelectSideEvent;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.Side;
@@ -64,13 +64,13 @@ public class NewGameViewModel {
 
   private void setSelectedScenario(final Scenario scenario) {
     if (scenario != null) { // can be null as listview is un-staged?
-      events.getScenarioEvents().fire(new ScenarioEvent(scenario));
+      events.getScenarioEvents().fire(new SelectScenarioEvent(scenario));
     }
   }
 
   private void setSelectedSide(final Toggle toggle) {
     var selectedSide = getSelectedSideFromToggle(toggle);
-    events.getSideEvents().fire(new SideEvent(selectedSide));
+    events.getSideEvents().fire(new SelectSideEvent(selectedSide));
   }
 
   private Side getSelectedSideFromToggle(final Toggle toggle) {

@@ -92,13 +92,13 @@ public class GameServiceImpl implements GameService {
     log.debug("Game Service received gameSaveEvent, save: '{}'", game.getId());
   }
 
-  private void setScenario(final ScenarioEvent scenarioEvent) {
-    game.setScenario(scenarioEvent.getScenario());
-    log.debug("Game Service received scenarioEvent, scenario set to: '{}'", scenarioEvent.getScenario().getTitle());
+  private void setScenario(final SelectScenarioEvent selectScenarioEvent) {
+    game.setScenario(selectScenarioEvent.getScenario());
+    log.debug("Game Service received scenarioEvent, scenario set to: '{}'", selectScenarioEvent.getScenario().getTitle());
   }
 
-  private void setHumanSide(final SideEvent sideEvent) {
-    game.setHumanSide(sideEvent.getSide());
-    log.debug("Game Service received sideEvent, side set to: '{}'", sideEvent.getSide());
+  private void setHumanSide(final SelectSideEvent selectSideEvent) {
+    game.setHumanSide(selectSideEvent.getSide());
+    log.debug("Game Service received sideEvent, side set to: '{}'", selectSideEvent.getSide());
   }
 }

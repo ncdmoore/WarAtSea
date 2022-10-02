@@ -19,6 +19,12 @@ public class DataNames {
   private final String userHomeDirectory;
 
   @Getter
+  private String newGameDataDirectory;
+
+  @Getter
+  private String savedGameDataDirectory;
+
+  @Getter
   private String savedGameDirectory;
 
   @Getter

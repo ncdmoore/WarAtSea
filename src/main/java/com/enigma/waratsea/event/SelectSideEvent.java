@@ -6,6 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class SideEvent implements Event {
+public class SelectSideEvent implements Event {
   private final Side side;
 }

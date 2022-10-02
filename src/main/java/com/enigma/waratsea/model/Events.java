@@ -13,8 +13,8 @@ public class Events {
   private final EventDispatcher<NewGameEvent> newGameEvents = new EventDispatcher<>("NewGameEvent");
   private final EventDispatcher<LoadGameEvent> loadGameEvents = new EventDispatcher<>("LoadGameEvent");
   private final EventDispatcher<SaveGameEvent> saveGameEvents = new EventDispatcher<>("SaveGameEvent");
-  private final EventDispatcher<ScenarioEvent> scenarioEvents = new EventDispatcher<>("ScenarioEvent");
-  private final EventDispatcher<SideEvent> sideEvents = new EventDispatcher<>("SideEvent");
+  private final EventDispatcher<SelectScenarioEvent> scenarioEvents = new EventDispatcher<>("ScenarioEvent");
+  private final EventDispatcher<SelectSideEvent> sideEvents = new EventDispatcher<>("SideEvent");
   private final EventDispatcher<NavigateEvent> navigateEvents = new EventDispatcher<>("NavigateEvent");
   private final EventDispatcher<ErrorEvent> ErrorEvents = new EventDispatcher<>("ErrorEvent");
 }

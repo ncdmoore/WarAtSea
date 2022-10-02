@@ -1,7 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.event.GameNameEvent;
-import com.enigma.waratsea.event.ScenarioEvent;
+import com.enigma.waratsea.event.SelectScenarioEvent;
 import com.enigma.waratsea.model.Events;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -14,7 +14,7 @@ import java.nio.file.Paths;
 @Singleton
 @Getter
 public class ResourceNames {
-  private final String game ="game";
+  private final String game = "game";
   private String gamePath;
   private String scenarioName;
   private final String commonDirectory = "common";
@@ -40,8 +40,8 @@ public class ResourceNames {
     log.debug("ResourceNames received gameNameEvent, gamePath set to: '{}'", gamePath);
   }
 
-  private void handleScenarioSelected(final ScenarioEvent scenarioEvent) {
-    scenarioName = scenarioEvent.getScenario().getName();
+  private void handleScenarioSelected(final SelectScenarioEvent selectScenarioEvent) {
+    scenarioName = selectScenarioEvent.getScenario().getName();
     log.debug("ResourceNames received scenarioEvent, scenario name: '{}'", scenarioName);
   }
 }

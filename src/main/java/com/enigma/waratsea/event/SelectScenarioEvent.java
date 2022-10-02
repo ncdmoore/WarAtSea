@@ -6,6 +6,6 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public class ScenarioEvent implements Event {
+public class SelectScenarioEvent implements Event {
   private final Scenario scenario;
 }
