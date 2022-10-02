@@ -2,7 +2,6 @@ package com.enigma.waratsea.data;
 
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.model.Events;
-import com.enigma.waratsea.resource.ResourceNames;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;
@@ -18,7 +17,6 @@ public class DataNames {
   private static final String SAVED_GAMES = "savedGames";
 
   private final String userHomeDirectory;
-  private final ResourceNames resourceNames;
 
   @Getter
   private String savedGameDirectory;
@@ -27,9 +25,7 @@ public class DataNames {
   private final String gameEntityName = "game.json";
 
   @Inject
-  public DataNames(final Events events,
-                   final ResourceNames resourceNames) {
-    this.resourceNames = resourceNames;
+  public DataNames(final Events events) {
     this.userHomeDirectory = System.getProperty(USER_HOME);
 
     registerEvents(events);
