@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.model.Events;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.service.GameService;
@@ -34,6 +35,8 @@ public class SavedGameViewModel {
     this.events = events;
     this.gameService = gameService;
 
+    selectedSavedGame.addListener(((observable, oldValue, newValue) -> setSelectedSavedGame(newValue)));
+
     loadGames();
   }
 
@@ -48,6 +51,12 @@ public class SavedGameViewModel {
   private void loadGames() {
     var games = gameService.get();
     savedGamesProperty.setValue(FXCollections.observableList(games));
+  }
+
+  private void setSelectedSavedGame(final Game game) {
+    if (game != null) {
+      events.getSelectSavedGameEvent().fire(new SelectSavedGameEvent(game));
+    }
   }
 
   private NavigateEvent buildBackwardNav(final Stage stage) {

@@ -10,18 +10,21 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Paths;
 
+import static com.enigma.waratsea.repository.impl.GlobalDirectory.GAME_DIRECTORY;
+import static com.enigma.waratsea.repository.impl.GlobalDirectory.SCENARIO_DIRECTORY;
+
 @Slf4j
 @Singleton
 @Getter
 public class ResourceNames {
-  private final String game = "game";
+  private final String game = GAME_DIRECTORY.toString();
   private String gamePath;
   private String scenarioName;
   private final String commonDirectory = "common";
   private final String cssDirectory = "css";
   private final String imageDirectory = "images";
   private final String mapDirectory = "map";
-  private final String scenarioDirectory = "scenarios";
+  private final String scenarioDirectory = SCENARIO_DIRECTORY.toString();
   private final String summaryFileName = "summary.json";
   private final String gameMapFileName = "map.json";
 
@@ -32,7 +35,7 @@ public class ResourceNames {
 
   private void registerEvents(final Events events) {
     events.getGameNameEvents().register(this::handleGameSelected);
-    events.getScenarioEvents().register(this::handleScenarioSelected);
+    events.getSelectScenarioEvent().register(this::handleScenarioSelected);
   }
 
   private void handleGameSelected(final GameNameEvent gameEvent) {

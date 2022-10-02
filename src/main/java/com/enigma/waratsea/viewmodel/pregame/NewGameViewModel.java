@@ -64,13 +64,13 @@ public class NewGameViewModel {
 
   private void setSelectedScenario(final Scenario scenario) {
     if (scenario != null) { // can be null as listview is un-staged?
-      events.getScenarioEvents().fire(new SelectScenarioEvent(scenario));
+      events.getSelectScenarioEvent().fire(new SelectScenarioEvent(scenario));
     }
   }
 
   private void setSelectedSide(final Toggle toggle) {
     var selectedSide = getSelectedSideFromToggle(toggle);
-    events.getSideEvents().fire(new SelectSideEvent(selectedSide));
+    events.getSelectSideEvent().fire(new SelectSideEvent(selectedSide));
   }
 
   private Side getSelectedSideFromToggle(final Toggle toggle) {
