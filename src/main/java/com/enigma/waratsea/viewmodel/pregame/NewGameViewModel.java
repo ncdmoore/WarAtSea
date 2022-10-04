@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.event.ConfigGameEvent;
 import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.event.SelectScenarioEvent;
 import com.enigma.waratsea.event.SelectSideEvent;
@@ -54,6 +55,7 @@ public class NewGameViewModel {
 
   public void continueOn(final Stage stage) {
     log.info("continue");
+    events.getConfigGameEvent().fire(new ConfigGameEvent());
     events.getSaveGameEvents().fire(new SaveGameEvent());
   }
 

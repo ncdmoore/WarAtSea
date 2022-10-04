@@ -2,6 +2,7 @@ package com.enigma.waratsea;
 
 import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.model.GameName;
+import com.enigma.waratsea.orchestration.ConfigGameSaga;
 import com.enigma.waratsea.property.*;
 import com.enigma.waratsea.repository.GameRepository;
 import com.enigma.waratsea.repository.MapRepository;
@@ -58,6 +59,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(NavigationHandler.class);
     bootStrappedBinder.addBinding().to(ErrorHandler.class);
     bootStrappedBinder.addBinding().to(GameService.class);
+    bootStrappedBinder.addBinding().to(ConfigGameSaga.class);
   }
 
   private void bindProps() {
