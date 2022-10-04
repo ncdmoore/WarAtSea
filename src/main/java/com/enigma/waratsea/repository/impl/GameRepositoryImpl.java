@@ -63,9 +63,9 @@ public class GameRepositoryImpl implements GameRepository {
         .collect(Collectors.toList());
   }
 
-  private GameEntity createGame(final String directoryName) {
+  private GameEntity createGame(final String savedGameName) {
     var savedGameDirectory = dataNames.getSavedGameDirectory();
-    var filePath = Paths.get(savedGameDirectory, directoryName, dataNames.getGameEntityName());
+    var filePath = Paths.get(savedGameDirectory, savedGameName, dataNames.getGameEntityName());
 
     try (var in = new FileInputStream(filePath.toString());
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
