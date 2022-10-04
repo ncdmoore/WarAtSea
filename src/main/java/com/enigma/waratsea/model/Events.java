@@ -9,13 +9,14 @@ import lombok.Getter;
 @Getter
 @Singleton
 public class Events {
-  private final EventDispatcher<GameNameEvent> gameNameEvents = new EventDispatcher<>("GameNameEvent");
-  private final EventDispatcher<NewGameEvent> newGameEvents = new EventDispatcher<>("NewGameEvent");
-  private final EventDispatcher<LoadGameEvent> loadGameEvents = new EventDispatcher<>("LoadGameEvent");
-  private final EventDispatcher<SaveGameEvent> saveGameEvents = new EventDispatcher<>("SaveGameEvent");
-  private final EventDispatcher<SelectScenarioEvent> selectScenarioEvent = new EventDispatcher<>("SelectScenarioEvent");
-  private final EventDispatcher<SelectSideEvent> selectSideEvent = new EventDispatcher<>("SelectSideEvent");
-  private final EventDispatcher<SelectSavedGameEvent> selectSavedGameEvent = new EventDispatcher<>("SelectSavedGameEvent");
-  private final EventDispatcher<NavigateEvent> navigateEvents = new EventDispatcher<>("NavigateEvent");
-  private final EventDispatcher<ErrorEvent> ErrorEvents = new EventDispatcher<>("ErrorEvent");
+  private final EventDispatcher<GameNameEvent> gameNameEvents = new EventDispatcher<>(GameNameEvent.class);
+  private final EventDispatcher<NewGameEvent> newGameEvents = new EventDispatcher<>(NewGameEvent.class);
+  private final EventDispatcher<LoadGameEvent> loadGameEvents = new EventDispatcher<>(LoadGameEvent.class);
+  private final EventDispatcher<SaveGameEvent> saveGameEvents = new EventDispatcher<>(SaveGameEvent.class);
+  private final EventDispatcher<SelectScenarioEvent> selectScenarioEvent = new EventDispatcher<>(SelectScenarioEvent.class);
+  private final EventDispatcher<SelectSideEvent> selectSideEvent = new EventDispatcher<>(SelectSideEvent.class);
+  private final EventDispatcher<ConfigGameEvent> configGameEvent = new EventDispatcher<>(ConfigGameEvent.class);
+  private final EventDispatcher<SelectSavedGameEvent> selectSavedGameEvent = new EventDispatcher<>(SelectSavedGameEvent.class);
+  private final EventDispatcher<NavigateEvent> navigateEvents = new EventDispatcher<>(NavigateEvent.class);
+  private final EventDispatcher<ErrorEvent> ErrorEvents = new EventDispatcher<>(ErrorEvent.class);
 }

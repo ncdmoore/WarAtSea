@@ -8,19 +8,19 @@ import java.util.Set;
 @Slf4j
 public class EventDispatcher<E extends Event> {
   private final Set<EventHandler<E>> handlers = new HashSet<>();
-  private final String name;
+  private final Class<?> name;
 
-  public EventDispatcher(final String name) {
+  public EventDispatcher(final Class<?> name) {
     this.name = name;
   }
 
   public void register(final EventHandler<E> handler) {
-    log.debug("Event {}: registers handler for: {}", name, handler);
+    log.debug("Event {}: registers handler for: {}", name.getSimpleName(), handler);
     handlers.add(handler);
   }
 
   public void unregister(final EventHandler<E> handler) {
-    log.debug("Event {}: unregisters handler for: {}", name, handler);
+    log.debug("Event {}: unregisters handler for: {}", name.getSimpleName(), handler);
     handlers.remove(handler);
   }
 

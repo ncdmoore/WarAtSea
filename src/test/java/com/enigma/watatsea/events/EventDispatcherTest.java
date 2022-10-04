@@ -23,7 +23,7 @@ class EventDispatcherTest {
 
   @BeforeEach
   void setUpt() {
-    eventDispatcher = new EventDispatcher<>("TestEvent");
+    eventDispatcher = new EventDispatcher<>(TestEvent.class);
   }
 
   @Test
