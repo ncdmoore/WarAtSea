@@ -3,7 +3,7 @@ package com.enigma.waratsea.repository.impl;
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.event.SelectScenarioEvent;
-import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.event.Events;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;

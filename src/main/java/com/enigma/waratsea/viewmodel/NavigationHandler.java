@@ -4,7 +4,7 @@ import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.LoadGameEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.event.NewGameEvent;
-import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
 import com.enigma.waratsea.view.pregame.NewGameView;

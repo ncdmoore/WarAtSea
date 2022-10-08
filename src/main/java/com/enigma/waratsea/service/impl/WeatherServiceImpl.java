@@ -1,7 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.GameNameEvent;
-import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.service.WeatherInput;

@@ -1,7 +1,7 @@
 package com.enigma.waratsea.viewmodel;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.view.ErrorDialog;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.google.inject.Inject;

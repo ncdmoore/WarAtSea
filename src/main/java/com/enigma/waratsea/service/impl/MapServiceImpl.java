@@ -1,6 +1,8 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.entity.GameMapEntity;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadMapEvent;
 import com.enigma.waratsea.model.GameMap;
 import com.enigma.waratsea.model.Grid;
 import com.enigma.waratsea.repository.MapRepository;
@@ -17,18 +19,27 @@ public class MapServiceImpl implements MapService {
   private static final int ALPHABET_SIZE = 26;
   private static final int ASCII_A = 65;
 
+
   private final MapRepository mapRepository;
   private GameMap gameMap;
 
   @Inject
-  public MapServiceImpl(final MapRepository mapRepository) {
+  public MapServiceImpl(final Events events,
+                        final MapRepository mapRepository) {
     this.mapRepository = mapRepository;
+
+    events.getLoadMapEvent().register(this::handleLoadMapEvent);
   }
 
   @Override
   public GameMap get() {
     return Optional.ofNullable(gameMap)
         .orElseGet(this::createMap);
+  }
+
+  private void handleLoadMapEvent(final LoadMapEvent event) {
+    log.debug("Map service loads game map.");
+    createMap();
   }
 
   private GameMap createMap() {

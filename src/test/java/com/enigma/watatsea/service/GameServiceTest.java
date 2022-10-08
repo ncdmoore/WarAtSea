@@ -2,7 +2,7 @@ package com.enigma.watatsea.service;
 
 import com.enigma.waratsea.entity.GameEntity;
 import com.enigma.waratsea.mapper.GameMapper;
-import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;

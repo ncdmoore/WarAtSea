@@ -1,6 +1,5 @@
-package com.enigma.waratsea.model;
+package com.enigma.waratsea.event;
 
-import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Singleton;
@@ -16,6 +15,7 @@ public class Events {
   private final EventDispatcher<SelectScenarioEvent> selectScenarioEvent = new EventDispatcher<>(SelectScenarioEvent.class);
   private final EventDispatcher<SelectSideEvent> selectSideEvent = new EventDispatcher<>(SelectSideEvent.class);
   private final EventDispatcher<ConfigGameEvent> configGameEvent = new EventDispatcher<>(ConfigGameEvent.class);
+  private final EventDispatcher<LoadMapEvent> loadMapEvent = new EventDispatcher<>(LoadGameEvent.class);
   private final EventDispatcher<SelectSavedGameEvent> selectSavedGameEvent = new EventDispatcher<>(SelectSavedGameEvent.class);
   private final EventDispatcher<NavigateEvent> navigateEvents = new EventDispatcher<>(NavigateEvent.class);
   private final EventDispatcher<ErrorEvent> ErrorEvents = new EventDispatcher<>(ErrorEvent.class);

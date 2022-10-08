@@ -2,7 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.GameMapper;
-import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.repository.GameRepository;

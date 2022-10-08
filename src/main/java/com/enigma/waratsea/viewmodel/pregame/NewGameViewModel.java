@@ -4,7 +4,7 @@ import com.enigma.waratsea.event.ConfigGameEvent;
 import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.event.SelectScenarioEvent;
 import com.enigma.waratsea.event.SelectSideEvent;
-import com.enigma.waratsea.model.Events;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.service.ScenarioService;

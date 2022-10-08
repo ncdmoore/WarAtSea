@@ -60,6 +60,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(ErrorHandler.class);
     bootStrappedBinder.addBinding().to(GameService.class);
     bootStrappedBinder.addBinding().to(ConfigGameSaga.class);
+    bootStrappedBinder.addBinding().to(MapService.class);
   }
 
   private void bindProps() {

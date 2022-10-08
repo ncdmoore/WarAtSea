@@ -1,14 +1,17 @@
 package com.enigma.watatsea.service;
 
 import com.enigma.waratsea.entity.GameMapEntity;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.repository.MapRepository;
 import com.enigma.waratsea.service.impl.MapServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
 import java.util.Map;
 
 import static com.enigma.waratsea.model.GridType.LAND;
@@ -23,6 +26,10 @@ class MapServiceTest {
   @Mock
   private MapRepository mapRepository;
 
+  @SuppressWarnings("unused")
+  @Spy
+  private Events events;
+
   private static final int ROWS = 20;
   private static final int COLUMNS = 30;
   private static final int NUMBER_OF_GRIDS = (ROWS * COLUMNS) - (COLUMNS / 2);
@@ -34,7 +41,7 @@ class MapServiceTest {
 
   @Test
   void testGetMap() {
-    var mapEntity = new GameMapEntity(ROWS, COLUMNS, DEFAULT_GRID_NAME, LAND, LOCATIONS);
+    var mapEntity = new GameMapEntity(ROWS, COLUMNS, DEFAULT_GRID_NAME, LAND, LOCATIONS, Collections.emptyMap());
 
     given(mapRepository.get()).willReturn(mapEntity);
 
