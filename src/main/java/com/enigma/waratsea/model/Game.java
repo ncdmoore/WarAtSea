@@ -1,9 +1,13 @@
 package com.enigma.waratsea.model;
 
+import com.enigma.waratsea.model.player.Player;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -25,6 +29,8 @@ public class Game implements Comparable<Game> {
   @Setter
   private Weather weather;
 
+  private final Map<Side, Player> players = new HashMap<>();
+
   public Game(final GameName gameName) {
     this.gameName = gameName;
   }
@@ -37,6 +43,14 @@ public class Game implements Comparable<Game> {
 
   public void createId(final String suffix) {
     id = String.join("-", scenario.getName(), suffix);
+  }
+
+  public void addPlayer(final Player player) {
+    players.put(player.getSide(), player);
+  }
+
+  public Player getHuman() {
+    return players.get(humanSide);
   }
 
   public void nextTurn() {

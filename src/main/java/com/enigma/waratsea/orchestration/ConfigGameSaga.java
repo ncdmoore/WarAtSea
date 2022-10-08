@@ -4,6 +4,7 @@ import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.ConfigGameEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
+import com.enigma.waratsea.event.LoadPlayerEvent;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -24,5 +25,6 @@ public class ConfigGameSaga implements BootStrapped {
     log.info("ConfigGameSaga: handle config game event");
 
     events.getLoadMapEvent().fire(new LoadMapEvent());
+    events.getLoadPlayerEvent().fire(new LoadPlayerEvent());
   }
 }

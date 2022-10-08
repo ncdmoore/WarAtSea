@@ -61,6 +61,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(GameService.class);
     bootStrappedBinder.addBinding().to(ConfigGameSaga.class);
     bootStrappedBinder.addBinding().to(MapService.class);
+    bootStrappedBinder.addBinding().to(PlayerService.class);
   }
 
   private void bindProps() {
@@ -105,5 +106,6 @@ public class BasicModule extends AbstractModule {
     bind(MapService.class).to(MapServiceImpl.class);
     bind(WeatherService.class).to(WeatherServiceImpl.class);
     bind(GameService.class).to(GameServiceImpl.class);
+    bind(PlayerService.class).to(PlayerServiceImpl.class);
   }
 }

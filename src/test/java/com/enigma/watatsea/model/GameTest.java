@@ -3,12 +3,15 @@ package com.enigma.watatsea.model;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.model.player.HumanPlayer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 import static com.enigma.waratsea.model.GameName.BOMB_ALLEY;
+import static com.enigma.waratsea.model.Side.ALLIES;
+import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.TimeRange.DAY_1;
 import static com.enigma.waratsea.model.TimeRange.DAY_2;
 import static com.enigma.waratsea.model.Visibility.GOOD;
@@ -33,6 +36,24 @@ class GameTest {
     assertEquals(1, game.getTurn().getNumber());
     assertEquals(scenario.getDate(), game.getTurn().getDate());
     assertEquals(scenario.getTimeRange(), game.getTurn().getTimeRange());
+  }
+
+  @Test
+  void testAddPlayers() {
+    var player = new HumanPlayer(ALLIES);
+
+    game.addPlayer(player);
+
+    assertEquals(player, game.getPlayers().get(ALLIES));
+  }
+
+  @Test
+  void testGetHumanPlayer() {
+    game.setHumanSide(AXIS);
+    var player = new HumanPlayer(AXIS);
+    game.addPlayer(player);
+
+    assertEquals(player, game.getHuman());
   }
 
   @Test

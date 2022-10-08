@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface GameService extends BootStrapped {
   List<Game> get();
+  Game getGame();
 }

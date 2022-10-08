@@ -38,7 +38,7 @@ public class MapServiceImpl implements MapService {
   }
 
   private void handleLoadMapEvent(final LoadMapEvent event) {
-    log.debug("Map service loads game map.");
+    log.debug("Map service received load map event.");
     createMap();
   }
 
