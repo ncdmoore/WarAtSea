@@ -1,0 +1,44 @@
+[
+  {
+    "name": "New Guinea",
+    "nation": "JAPANESE",
+    "min": "0",
+    "max": "0",
+    "gridReference": "C10",
+    "airfields": [
+      "Lae",
+      "Madang"
+    ],
+    "ports": [
+      "Madang",
+      "Lae"
+    ]
+  },
+  {
+    "name": "New Britain",
+    "nation": "JAPANESE",
+    "min": "0",
+    "max": "0",
+    "gridReference": "M7",
+    "airfields": [
+      "Rabaul",
+      "Gasmata"
+    ],
+    "ports": [
+      "Rabaul"
+    ]
+  },
+  {
+    "name": "New Ireland",
+    "nation": "JAPANESE",
+    "min": "0",
+    "max": "0",
+    "gridReference": "P4",
+    "airfields": [
+      "Kavieng"
+    ],
+    "ports": [
+      "Kavieng"
+    ]
+  }
+]

@@ -15,6 +15,7 @@ public abstract class GameMapper {
   public static final GameMapper INSTANCE = Mappers.getMapper(GameMapper.class);
 
   @Inject
+  @SuppressWarnings("unused")
   private ScenarioService scenarioService;
 
   abstract public GameEntity toEntity(Game game);

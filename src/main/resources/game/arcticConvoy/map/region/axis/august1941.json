@@ -1,0 +1,40 @@
+[
+  {
+    "name": "Norway",
+    "nation": "GERMAN",
+    "min": "0",
+    "max": "0",
+    "gridReference": "AO13",
+    "airfields": [
+      "Altafjord",
+      "Banak",
+      "Bardufoss",
+      "Bodo",
+      "Kirkenes",
+      "Narvik",
+      "Molde",
+      "Orland",
+      "Tromso",
+      "Trondheim"
+    ],
+    "ports": [
+      "Altafjord",
+      "Bodo",
+      "Narvik",
+      "Tromso",
+      "Trondheim"
+    ]
+  },
+  {
+    "name": "Finland",
+    "nation": "FINNISH",
+    "min": "0",
+    "max": "0",
+    "gridReference": "AO13",
+    "airfields": [
+    ],
+    "ports": [
+      "Petsamo"
+    ]
+  }
+]

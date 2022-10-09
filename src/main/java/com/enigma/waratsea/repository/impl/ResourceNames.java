@@ -20,17 +20,24 @@ public class ResourceNames {
   private final String game = GAME_DIRECTORY.toString();
   private String gamePath;
   private String scenarioName;
+  private String scenarioPath;
   private final String commonDirectory = "common";
   private final String cssDirectory = "css";
   private final String imageDirectory = "images";
   private final String mapDirectory = "map";
+  private final String regionDirectory = "region";
   private final String scenarioDirectory = SCENARIO_DIRECTORY.toString();
   private final String summaryFileName = "summary.json";
   private final String gameMapFileName = "map.json";
+  private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
 
   @Inject
   ResourceNames(final Events events) {
     registerEvents(events);
+  }
+
+  public String getScenarioSpecific(final String path) {
+    return Paths.get(scenarioPath, path).toString();
   }
 
   private void registerEvents(final Events events) {
@@ -45,6 +52,7 @@ public class ResourceNames {
 
   private void handleScenarioSelected(final SelectScenarioEvent selectScenarioEvent) {
     scenarioName = selectScenarioEvent.getScenario().getName();
+    scenarioPath = Paths.get(scenarioDirectory, scenarioName).toString();
     log.debug("ResourceNames received scenarioEvent, scenario name: '{}'", scenarioName);
   }
 }
