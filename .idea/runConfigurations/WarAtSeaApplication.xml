@@ -2,7 +2,7 @@
   <configuration default="false" name="WarAtSeaApplication" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="com.enigma.waratsea.WarAtSeaApplication" />
     <module name="WarAtSea.main" />
-    <option name="PROGRAM_PARAMETERS" value="game=coralSea" />
+    <option name="PROGRAM_PARAMETERS" value="game=bombAlley" />
     <option name="VM_PARAMETERS" value="-Dlogback.configurationFile=$PROJECT_DIR$/src/logback-test.xml" />
     <extension name="coverage">
       <pattern>

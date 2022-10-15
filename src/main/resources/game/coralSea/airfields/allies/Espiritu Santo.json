@@ -1,0 +1,11 @@
+{
+  "name"     : "Espiritu Santo",
+  "landingType": [
+    "LAND",
+    "SEAPLANE",
+    "CARRIER"
+  ],
+  "maxCapacity" : 12,
+  "antiAir"  : 6,
+  "location": "AM23"
+}

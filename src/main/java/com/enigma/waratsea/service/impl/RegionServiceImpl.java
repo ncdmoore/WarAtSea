@@ -42,6 +42,15 @@ public class RegionServiceImpl implements RegionService {
         .forEach(side -> regions.put(side, regionRepository.get(side, mapName)));
 
     //todo map to model.
+    //
+    // 1. create airfieldRepository airfieldEntity airfieldService airfield airbase
+    // 2. create portRepository portEntity portService port
+    // 3. create mappers for airfieldEntity to airfield and portEntity to port
+
+    // Example airfield flow   airfieldService.get(id) --> airfieldRepository.get(id) --> airfieldEntity to Airfield
+    // set airfield in region
+
+
 
   }
 

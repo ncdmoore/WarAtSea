@@ -1,0 +1,11 @@
+{
+  "name"     : "Lae",
+  "landingType": [
+    "LAND",
+    "SEAPLANE",
+    "CARRIER"
+  ],
+  "maxCapacity" : 16,
+  "antiAir"  : 6,
+  "location": "H10"
+}

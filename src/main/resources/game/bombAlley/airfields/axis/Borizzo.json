@@ -1,0 +1,10 @@
+{
+  "name": "Borizzo",
+  "landingType": [
+    "LAND",
+    "CARRIER"
+  ],
+  "maxCapacity": 40,
+  "antiAir": 18,
+  "location": "AH20"
+}

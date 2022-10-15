@@ -1,0 +1,11 @@
+{
+  "name": "Arkhangelsk",
+  "landingType": [
+    "LAND",
+    "CARRIER",
+    "SEAPLANE"
+  ],
+  "maxCapacity": 16,
+  "antiAir": 6,
+  "location": "BI37"
+}

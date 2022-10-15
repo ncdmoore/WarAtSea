@@ -1,0 +1,11 @@
+{
+  "name": "Heraklion",
+  "province": "Crete",
+  "landingType": [
+    "LAND",
+    "CARRIER"
+  ],
+  "maxCapacity": 16,
+  "antiAir": 2,
+  "location": "AZ23"
+}

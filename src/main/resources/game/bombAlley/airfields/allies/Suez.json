@@ -1,0 +1,11 @@
+{
+  "name": "Suez",
+  "landingType": [
+    "LAND",
+    "CARRIER",
+    "SEAPLANE"
+  ],
+  "maxCapacity": 1,
+  "antiAir": 5,
+  "location": "BK34"
+}

@@ -1,0 +1,9 @@
+{
+  "name"     : "Tulagi",
+  "landingType": [
+    "SEAPLANE"
+  ],
+  "maxCapacity" : 4,
+  "antiAir"  : 1,
+  "location": "AC14"
+}

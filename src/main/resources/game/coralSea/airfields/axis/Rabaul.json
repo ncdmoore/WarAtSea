@@ -1,0 +1,11 @@
+{
+  "name"     : "Rabaul",
+  "landingType": [
+    "LAND",
+    "SEAPLANE",
+    "CARRIER"
+  ],
+  "maxCapacity" : 30,
+  "antiAir"  : 12,
+  "location": "P6"
+}
