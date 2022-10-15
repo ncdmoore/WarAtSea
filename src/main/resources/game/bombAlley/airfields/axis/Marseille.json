@@ -1,12 +1,12 @@
 {
   "name": "Marseille",
   "province": "France",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 10,
-  "location": "W10"
+  "gridReference": "W10"
 }

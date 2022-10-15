@@ -2,5 +2,5 @@
   "name": "Scapa Flow",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "L43"
+  "gridReference": "L43"
 }

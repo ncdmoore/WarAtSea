@@ -1,10 +1,10 @@
 {
   "name": "Orland",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 60,
   "antiAir": 16,
-  "location": "AC39"
+  "gridReference": "AC39"
 }

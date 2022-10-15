@@ -2,5 +2,5 @@
   "name": "Tunis",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "AE22"
+  "gridReference": "AE22"
 }

@@ -1,10 +1,10 @@
 {
   "name": "Ajaccio",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 10,
   "antiAir": 3,
-  "location": "Z10"
+  "gridReference": "Z10"
 }

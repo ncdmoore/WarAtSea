@@ -2,5 +2,5 @@
   "name": "Algiers",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "T22"
+  "gridReference": "T22"
 }

@@ -2,5 +2,5 @@
   "name": "Taranto",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "AO15"
+  "gridReference": "AO15"
 }

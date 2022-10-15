@@ -2,5 +2,5 @@
   "name": "Oran",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "O24"
+  "gridReference": "O24"
 }

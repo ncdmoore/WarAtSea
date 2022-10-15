@@ -1,12 +1,12 @@
 {
   "name": "Malta-1940",
   "title": "Malta",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 4,
   "antiAir": 6,
-  "location": "AK24"
+  "gridReference": "AK24"
 }

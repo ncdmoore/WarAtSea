@@ -1,11 +1,11 @@
 {
   "name": "Cagliari",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 50,
   "antiAir": 20,
-  "location": "AC17"
+  "gridReference": "AC17"
 }

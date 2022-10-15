@@ -1,10 +1,10 @@
 {
   "name": "Foggia",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 30,
   "antiAir": 10,
-  "location": "AM13"
+  "gridReference": "AM13"
 }

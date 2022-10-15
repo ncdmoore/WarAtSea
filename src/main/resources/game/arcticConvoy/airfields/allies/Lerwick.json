@@ -1,10 +1,10 @@
 {
   "name": "Lerwick",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 12,
   "antiAir": 12,
-  "location": "O42"
+  "gridReference": "O42"
 }

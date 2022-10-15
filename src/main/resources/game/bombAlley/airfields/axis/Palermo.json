@@ -1,10 +1,10 @@
 {
   "name": "Palermo",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "AI20"
+  "gridReference": "AI20"
 }

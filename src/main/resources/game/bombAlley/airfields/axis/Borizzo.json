@@ -1,10 +1,10 @@
 {
   "name": "Borizzo",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 40,
   "antiAir": 18,
-  "location": "AH20"
+  "gridReference": "AH20"
 }

@@ -1,9 +1,9 @@
 {
   "name": "Altafjord",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "AQ26"
+  "gridReference": "AQ26"
 }

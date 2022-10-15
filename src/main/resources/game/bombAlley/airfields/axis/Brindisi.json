@@ -1,9 +1,9 @@
 {
   "name": "Brindisi",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "AQ15"
+  "gridReference": "AQ15"
 }

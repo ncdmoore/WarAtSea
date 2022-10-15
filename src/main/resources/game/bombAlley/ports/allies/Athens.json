@@ -2,5 +2,5 @@
   "name": "Athens",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "AX19"
+  "gridReference": "AX19"
 }

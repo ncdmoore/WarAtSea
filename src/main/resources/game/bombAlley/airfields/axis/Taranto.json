@@ -1,9 +1,9 @@
 {
   "name": "Taranto",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
   "antiAir": 15,
-  "location": "AO15"
+  "gridReference": "AO15"
 }

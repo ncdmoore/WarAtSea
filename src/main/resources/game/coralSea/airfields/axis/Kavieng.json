@@ -1,11 +1,11 @@
 {
-  "name"     : "Kavieng",
-  "landingType": [
+  "name": "Kavieng",
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
-  "maxCapacity" : 20,
-  "antiAir"  : 6,
-  "location": "N3"
+  "maxCapacity": 20,
+  "antiAir": 6,
+  "gridReference": "N3"
 }

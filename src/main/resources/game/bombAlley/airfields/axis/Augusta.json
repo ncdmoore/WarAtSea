@@ -1,11 +1,11 @@
 {
   "name": "Augusta",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 40,
   "antiAir": 20,
-  "location": "AL21"
+  "gridReference": "AL21"
 }

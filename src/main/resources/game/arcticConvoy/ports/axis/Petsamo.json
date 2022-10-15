@@ -2,5 +2,5 @@
   "name": "Petsamo",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "AX26"
+  "gridReference": "AX26"
 }

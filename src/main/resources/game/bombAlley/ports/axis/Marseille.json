@@ -2,5 +2,5 @@
   "name": "Marseille",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "W10"
+  "gridReference": "W10"
 }

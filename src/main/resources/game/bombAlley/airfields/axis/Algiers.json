@@ -1,11 +1,11 @@
 {
   "name": "Algiers",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 5,
-  "location": "T22"
+  "gridReference": "T22"
 }

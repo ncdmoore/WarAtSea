@@ -1,10 +1,10 @@
 {
   "name": "Bardufoss",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 50,
   "antiAir": 20,
-  "location": "AM28"
+  "gridReference": "AM28"
 }

@@ -1,12 +1,11 @@
 {
   "name": "Rhodes",
-  "province": "Dodecanese",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 8,
-  "location": "BE23"
+  "gridReference": "BE23"
 }

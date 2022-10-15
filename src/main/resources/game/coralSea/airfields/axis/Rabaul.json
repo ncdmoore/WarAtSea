@@ -1,11 +1,11 @@
 {
-  "name"     : "Rabaul",
-  "landingType": [
+  "name": "Rabaul",
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
-  "maxCapacity" : 30,
-  "antiAir"  : 12,
-  "location": "P6"
+  "maxCapacity": 30,
+  "antiAir": 12,
+  "gridReference": "P6"
 }

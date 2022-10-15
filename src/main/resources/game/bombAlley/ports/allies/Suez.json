@@ -2,5 +2,5 @@
   "name": "Suez",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "BK34"
+  "gridReference": "BK34"
 }

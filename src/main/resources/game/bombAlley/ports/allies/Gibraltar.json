@@ -2,5 +2,5 @@
   "name": "Gibraltar",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "H22"
+  "gridReference": "H22"
 }

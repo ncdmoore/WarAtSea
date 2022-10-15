@@ -1,11 +1,11 @@
 {
-  "name"     : "Lae",
-  "landingType": [
+  "name": "Lae",
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
-  "maxCapacity" : 16,
-  "antiAir"  : 6,
-  "location": "H10"
+  "maxCapacity": 16,
+  "antiAir": 6,
+  "gridReference": "H10"
 }

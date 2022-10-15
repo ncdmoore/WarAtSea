@@ -1,9 +1,9 @@
 {
   "name": "Hvalfjordur",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "C21"
+  "gridReference": "C21"
 }

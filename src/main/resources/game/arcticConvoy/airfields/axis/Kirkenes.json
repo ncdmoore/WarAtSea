@@ -1,10 +1,10 @@
 {
   "name": "Kirkenes",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 60,
   "antiAir": 16,
-  "location": "AW26"
+  "gridReference": "AW26"
 }

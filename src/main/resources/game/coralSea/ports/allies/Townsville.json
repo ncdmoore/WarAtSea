@@ -2,5 +2,5 @@
   "name": "Townsville",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "H30"
+  "gridReference": "H30"
 }

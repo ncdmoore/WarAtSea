@@ -1,11 +1,11 @@
 {
   "name": "Cairns",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 10,
-  "location": "F26"
+  "gridReference": "F26"
 }

@@ -2,5 +2,5 @@
   "name": "Altafjord",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "AQ26"
+  "gridReference": "AQ26"
 }

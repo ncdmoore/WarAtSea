@@ -1,11 +1,11 @@
 {
   "name": "Famagusta",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 8,
   "antiAir": 3,
-  "location": "BM25"
+  "gridReference": "BM25"
 }

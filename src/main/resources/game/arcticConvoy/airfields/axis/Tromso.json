@@ -1,9 +1,9 @@
 {
   "name": "Tromso",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "AN26"
+  "gridReference": "AN26"
 }

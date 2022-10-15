@@ -1,10 +1,10 @@
 {
   "name": "Kaldaharnes",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 10,
-  "location": "B21"
+  "gridReference": "B21"
 }

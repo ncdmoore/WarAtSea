@@ -1,10 +1,10 @@
 {
   "name": "Molde",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 50,
   "antiAir": 16,
-  "location": "Z39"
+  "gridReference": "Z39"
 }

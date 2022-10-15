@@ -1,9 +1,9 @@
 {
   "name": "Leghorn",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
   "antiAir": 15,
-  "location": "AE9"
+  "gridReference": "AE9"
 }

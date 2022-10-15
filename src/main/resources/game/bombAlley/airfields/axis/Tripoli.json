@@ -1,12 +1,11 @@
 {
   "name": "Tripoli",
-  "province": "Libya",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 12,
-  "location": "AI29"
+  "gridReference": "AI29"
 }

@@ -1,9 +1,9 @@
 {
   "name": "La Spezia",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
   "antiAir": 15,
-  "location": "AD7"
+  "gridReference": "AD7"
 }

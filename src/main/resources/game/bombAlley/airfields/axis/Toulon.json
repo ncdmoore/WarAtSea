@@ -1,12 +1,11 @@
 {
   "name": "Toulon",
-  "province": "France",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 10,
-  "location": "X9"
+  "gridReference": "X9"
 }

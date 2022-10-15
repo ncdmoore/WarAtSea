@@ -1,11 +1,11 @@
 {
   "name": "Benghazi",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 6,
-  "location": "AS30"
+  "gridReference": "AS30"
 }

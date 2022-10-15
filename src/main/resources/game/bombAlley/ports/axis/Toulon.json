@@ -2,5 +2,5 @@
   "name": "Toulon",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "X9"
+  "gridReference": "X9"
 }

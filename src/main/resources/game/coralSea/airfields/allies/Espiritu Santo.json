@@ -1,11 +1,11 @@
 {
-  "name"     : "Espiritu Santo",
-  "landingType": [
+  "name": "Espiritu Santo",
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
-  "maxCapacity" : 12,
-  "antiAir"  : 6,
-  "location": "AM23"
+  "maxCapacity": 12,
+  "antiAir": 6,
+  "gridReference": "AM23"
 }

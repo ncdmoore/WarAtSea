@@ -2,5 +2,5 @@
   "name": "Port Moresby",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "H14"
+  "gridReference": "H14"
 }

@@ -1,12 +1,12 @@
 
 {
   "name": "Malta",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 12,
-  "location": "AK24"
+  "gridReference": "AK24"
 }

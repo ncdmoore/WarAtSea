@@ -1,9 +1,9 @@
 {
   "name": "Port Said",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "BK32"
+  "gridReference": "BK32"
 }

@@ -1,10 +1,10 @@
 {
   "name": "Derna",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 8,
   "antiAir": 2,
-  "location": "AV29"
+  "gridReference": "AV29"
 }

@@ -2,5 +2,5 @@
   "name": "Benghazi",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "AS30"
+  "gridReference": "AS30"
 }

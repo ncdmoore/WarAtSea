@@ -1,10 +1,10 @@
 {
   "name": "Banak",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 40,
   "antiAir": 12,
-  "location": "AS26"
+  "gridReference": "AS26"
 }

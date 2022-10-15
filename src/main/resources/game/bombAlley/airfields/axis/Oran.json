@@ -1,12 +1,12 @@
 {
   "name": "Oran",
   "province": "Algeria",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 5,
-  "location": "O24"
+  "gridReference": "O24"
 }

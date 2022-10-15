@@ -2,5 +2,5 @@
   "name": "Messina",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "AL19"
+  "gridReference": "AL19"
 }

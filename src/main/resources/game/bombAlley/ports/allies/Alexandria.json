@@ -2,5 +2,5 @@
   "name": "Alexandria",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "BG32"
+  "gridReference": "BG32"
 }

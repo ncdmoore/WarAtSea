@@ -2,5 +2,5 @@
   "name": "Casablanca",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "D27"
+  "gridReference": "D27"
 }

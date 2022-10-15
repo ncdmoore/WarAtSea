@@ -1,10 +1,10 @@
 {
-  "name"     : "Gasmata",
-  "landingType": [
+  "name": "Gasmata",
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
-  "maxCapacity" : 12,
-  "antiAir"  : 5,
-  "location": "M10"
+  "maxCapacity": 12,
+  "antiAir": 5,
+  "gridReference": "M10"
 }

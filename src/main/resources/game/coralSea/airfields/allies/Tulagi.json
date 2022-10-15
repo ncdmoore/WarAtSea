@@ -1,9 +1,9 @@
 {
-  "name"     : "Tulagi",
-  "landingType": [
+  "name": "Tulagi",
+  "landingTypes": [
     "SEAPLANE"
   ],
-  "maxCapacity" : 4,
-  "antiAir"  : 1,
-  "location": "AC14"
+  "maxCapacity": 4,
+  "antiAir": 1,
+  "gridReference": "AC14"
 }

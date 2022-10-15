@@ -1,11 +1,11 @@
 {
   "name": "Bodo",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER",
     "SEAPLANE"
   ],
   "maxCapacity": 40,
   "antiAir": 16,
-  "location": "AI31"
+  "gridReference": "AI31"
 }

@@ -1,11 +1,11 @@
 {
   "name": "Scapa Flow",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER",
     "SEAPLANE"
   ],
   "maxCapacity": 12,
   "antiAir": 24,
-  "location": "L43"
+  "gridReference": "L43"
 }

@@ -2,5 +2,5 @@
   "name": "Hvalfjordur",
   "size": "MAJOR",
   "antiAir": 15,
-  "location": "C21"
+  "gridReference": "C21"
 }

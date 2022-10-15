@@ -1,11 +1,11 @@
 {
   "name": "Alexandria",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 8,
-  "location": "BG32"
+  "gridReference": "BG32"
 }

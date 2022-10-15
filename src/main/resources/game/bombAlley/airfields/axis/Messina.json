@@ -1,9 +1,9 @@
 {
   "name": "Messina",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "AL19"
+  "gridReference": "AL19"
 }

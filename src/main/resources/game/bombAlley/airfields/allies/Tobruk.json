@@ -1,11 +1,11 @@
 {
   "name": "Tobruk",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 10,
   "antiAir": 6,
-  "location": "AY30"
+  "gridReference": "AY30"
 }

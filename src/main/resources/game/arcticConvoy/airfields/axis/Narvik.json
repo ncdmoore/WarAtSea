@@ -1,9 +1,9 @@
 {
   "name": "Narvik",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
   "antiAir": 10,
-  "location": "AL28"
+  "gridReference": "AL28"
 }

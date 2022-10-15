@@ -1,10 +1,10 @@
 {
   "name": "Wick",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 50,
   "antiAir": 20,
-  "location": "K44"
+  "gridReference": "K44"
 }

@@ -2,5 +2,5 @@
   "name": "Madang",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "F7"
+  "gridReference": "F7"
 }

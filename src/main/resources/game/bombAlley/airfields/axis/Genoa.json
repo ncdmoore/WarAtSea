@@ -1,9 +1,9 @@
 {
   "name": "Genoa",
-  "landingType": [
+  "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
   "antiAir": 15,
-  "location": "AC7"
+  "gridReference": "AC7"
 }

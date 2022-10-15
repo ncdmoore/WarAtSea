@@ -2,5 +2,5 @@
   "name": "Akureyri",
   "size": "MINOR",
   "antiAir": 15,
-  "location": "G21"
+  "gridReference": "G21"
 }

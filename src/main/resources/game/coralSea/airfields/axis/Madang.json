@@ -1,9 +1,9 @@
 {
-  "name"     : "Madang",
-  "landingType": [
+  "name": "Madang",
+  "landingTypes": [
     "SEAPLANE"
   ],
-  "maxCapacity" : 10,
-  "antiAir"  : 10,
-  "location": "F7"
+  "maxCapacity": 10,
+  "antiAir": 10,
+  "gridReference": "F7"
 }

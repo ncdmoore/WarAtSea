@@ -2,5 +2,5 @@
   "name": "Pola",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "AJ6"
+  "gridReference": "AJ6"
 }

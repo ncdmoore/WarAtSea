@@ -1,11 +1,10 @@
 {
   "name": "Scarpanto",
-  "province": "Dodecanese",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 24,
   "antiAir": 5,
-  "location": "BC24"
+  "gridReference": "BC24"
 }

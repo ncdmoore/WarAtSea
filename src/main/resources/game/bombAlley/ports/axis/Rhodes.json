@@ -2,5 +2,5 @@
   "name": "Rhodes",
   "size": "MINOR",
   "antiAir": 10,
-  "location": "BE23"
+  "gridReference": "BE23"
 }

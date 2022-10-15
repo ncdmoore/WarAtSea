@@ -1,11 +1,10 @@
 {
   "name": "Sarzana",
-  "province": "Italy",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 10,
-  "location": "AE8"
+  "gridReference": "AE8"
 }

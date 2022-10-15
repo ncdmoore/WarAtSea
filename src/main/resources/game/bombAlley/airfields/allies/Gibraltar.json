@@ -1,11 +1,11 @@
 {
   "name": "Gibraltar",
-  "landingType": [
+  "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
   "antiAir": 15,
-  "location": "H22"
+  "gridReference": "H22"
 }
