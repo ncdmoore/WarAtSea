@@ -25,27 +25,27 @@ class AirfieldServiceTest {
   @Mock
   private AirfieldRepository airfieldRepository;
 
-  private final String airfieldId1 = "ALLIES:airfield-name-1";
-  private final String airfieldId2 = "ALLIES:airfield-name-2";
+  private static final String AIRFIELD_ID_1 = "ALLIES:airfield-name-1";
+  private static final String AIRFIELD_ID_2 = "ALLIES:airfield-name-2";
 
   @Test
   void testGetSingleAirfield() {
-    var id = new Id(airfieldId1);
+    var id = new Id(AIRFIELD_ID_1);
 
     var airfieldEntity = AirfieldEntity.builder()
-        .id(airfieldId1).
+        .id(AIRFIELD_ID_1).
         build();
 
     given(airfieldRepository.get(id)).willReturn(airfieldEntity);
 
     var result = airfieldService.get(id);
 
-    assertEquals(airfieldId1, result.getId());
+    assertEquals(AIRFIELD_ID_1, result.getId());
   }
 
   @Test
   void testGetAirfields() {
-    var airfieldIdStrings = List.of(airfieldId1, airfieldId2);
+    var airfieldIdStrings = List.of(AIRFIELD_ID_1, AIRFIELD_ID_2);
 
     var airfieldEntities = airfieldIdStrings.stream()
         .map(this::buildEntity)
@@ -65,8 +65,8 @@ class AirfieldServiceTest {
         .map(Airfield::getId)
         .toList();
 
-    assertTrue(resultIds.contains(airfieldId1));
-    assertTrue(resultIds.contains(airfieldId2));
+    assertTrue(resultIds.contains(AIRFIELD_ID_1));
+    assertTrue(resultIds.contains(AIRFIELD_ID_2));
   }
 
   private AirfieldEntity buildEntity(String id) {
