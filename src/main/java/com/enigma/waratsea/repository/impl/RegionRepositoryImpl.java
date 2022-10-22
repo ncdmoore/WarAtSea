@@ -2,7 +2,7 @@ package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.RegionEntity;
 import com.enigma.waratsea.exceptions.GameException;
-import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -37,24 +37,24 @@ public class RegionRepositoryImpl implements RegionRepository {
   }
 
   @Override
-  public List<RegionEntity> get(final Side side, final String mapName) {
-    return createRegions(side, mapName);
+  public List<RegionEntity> get(final Id mapId) {
+    return createRegions(mapId);
   }
 
-  private List<RegionEntity> createRegions(final Side side, final String mapName) {
-    try (var in = getRegionInputStream(side, mapName);
+  private List<RegionEntity> createRegions(final Id mapId) {
+    try (var in = getRegionInputStream(mapId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.info("Read regions for side: '{}', map: '{}'", side, mapName);
+      log.debug("Read regions for map: '{}'", mapId);
       return readRegions(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create regions: " + mapName + " for side: " + side);
+      throw new GameException("Unable to create regions: " + mapId);
     }
   }
 
-  private InputStream getRegionInputStream(final Side side, final String mapName) {
-    var sidePath = side.toLower();
-    var fileName = mapName + JSON_EXTENSION;
+  private InputStream getRegionInputStream(final Id mapId) {
+    var sidePath = mapId.getSide().toLower();
+    var fileName = mapId.getName() + JSON_EXTENSION;
     var regionBasePath = resourceNames.getRegionPath();
     var defaultRegionPath = Paths.get(regionBasePath, sidePath, fileName).toString();
     var scenarioSpecificRegionPath = resourceNames.getScenarioSpecific(defaultRegionPath);
@@ -69,7 +69,7 @@ public class RegionRepositoryImpl implements RegionRepository {
     Gson gson = new Gson();
     List<RegionEntity> regions = gson.fromJson(bufferedReader, collectionType);
 
-    log.info("load regions: {}", regions.stream().map(this::getRegionId).collect(Collectors.joining(",")));
+    log.debug("load regions: {}", regions.stream().map(this::getRegionId).collect(Collectors.joining(",")));
 
     return regions;
   }

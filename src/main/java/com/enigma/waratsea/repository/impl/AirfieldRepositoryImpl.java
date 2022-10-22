@@ -49,7 +49,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
     try (var in = getAirfieldInputStream(airfieldId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.info("Read airfield for airfield: '{}'", airfieldId);
+      log.debug("Read airfield for airfield: '{}'", airfieldId);
       return readAirfield(br);
     } catch (IOException e) {
       throw new GameException("Unable to create airfield: " + airfieldId);
@@ -69,7 +69,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
     Gson gson = new Gson();
     var airfield = gson.fromJson(bufferedReader, AirfieldEntity.class);
 
-    log.info("load airfield: '{}'", airfield.getId());
+    log.debug("load airfield: '{}'", airfield.getId());
 
     return airfield;
   }

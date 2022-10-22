@@ -3,10 +3,7 @@ package com.enigma.waratsea.service.impl;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
 import com.enigma.waratsea.mapper.RegionMapper;
-import com.enigma.waratsea.model.Airfield;
-import com.enigma.waratsea.model.Nation;
-import com.enigma.waratsea.model.Region;
-import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.RegionService;
@@ -15,7 +12,10 @@ import com.google.inject.Singleton;
 import javafx.util.Pair;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -55,17 +55,18 @@ public class RegionServiceImpl implements RegionService {
     var mapName = gameService.getGame().getScenario().getMap();
 
     regions = Side.stream()
-        .map(side -> createRegions(side, mapName))
+        .map(side -> new Id(side, mapName))
+        .map(this::createRegions)
         .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
   }
 
-  private Pair<Side, List<Region>> createRegions(final Side side, final String mapName) {
-    var regions = regionRepository.get(side, mapName)
+  private Pair<Side, List<Region>> createRegions(final Id mapId) {
+    var regions = regionRepository.get(mapId)
         .stream()
         .map(RegionMapper.INSTANCE::toModel)
         .toList();
 
-    return new Pair<>(side, regions);
+    return new Pair<>(mapId.getSide(), regions);
   }
 
   private void indexAllAirfields() {
