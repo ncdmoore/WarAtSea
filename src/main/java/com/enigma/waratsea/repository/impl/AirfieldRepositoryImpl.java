@@ -2,7 +2,7 @@ package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.AirfieldEntity;
 import com.enigma.waratsea.exceptions.GameException;
-import com.enigma.waratsea.model.AssetId;
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.AirfieldRepository;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
@@ -33,7 +33,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   }
 
   @Override
-  public List<AirfieldEntity> get(final List<AssetId> airfieldIds) {
+  public List<AirfieldEntity> get(final List<Id> airfieldIds) {
     return airfieldIds
         .stream()
         .map(this::createAirfield)
@@ -41,11 +41,11 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   }
 
   @Override
-  public AirfieldEntity get(final AssetId airfieldId) {
+  public AirfieldEntity get(final Id airfieldId) {
     return createAirfield(airfieldId);
   }
 
-  private AirfieldEntity createAirfield(final AssetId airfieldId) {
+  private AirfieldEntity createAirfield(final Id airfieldId) {
     try (var in = getAirfieldInputStream(airfieldId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
@@ -56,7 +56,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
     }
   }
 
-  private InputStream getAirfieldInputStream(final AssetId airfieldId) {
+  private InputStream getAirfieldInputStream(final Id airfieldId) {
     var sidePath = airfieldId.getSide().toLower();
     var fileName = airfieldId.getName() + JSON_EXTENSION;
     var airfieldBasePath = resourceNames.getAirfieldDirectory();

@@ -2,7 +2,7 @@ package com.enigma.waratsea.mapper;
 
 import com.enigma.waratsea.entity.RegionEntity;
 import com.enigma.waratsea.model.Airfield;
-import com.enigma.waratsea.model.AssetId;
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Region;
 import com.enigma.waratsea.service.AirfieldService;
 import com.google.inject.Inject;
@@ -26,7 +26,7 @@ public abstract class RegionMapper {
   List<Airfield> mapAirfields(List<String> airfieldIds) {
     var assetIds = airfieldIds
         .stream()
-        .map(AssetId::new)
+        .map(Id::new)
         .toList();
 
     return airfieldService.get(assetIds);

@@ -2,7 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.mapper.AirfieldMapper;
 import com.enigma.waratsea.model.Airfield;
-import com.enigma.waratsea.model.AssetId;
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.AirfieldRepository;
 import com.enigma.waratsea.service.AirfieldService;
 import com.google.inject.Inject;
@@ -22,14 +22,14 @@ public class AirfieldServiceImpl implements AirfieldService {
   }
 
   @Override
-  public List<Airfield> get(List<AssetId> airfieldIds) {
+  public List<Airfield> get(List<Id> airfieldIds) {
     var entities = airfieldRepository.get(airfieldIds);
 
     return AirfieldMapper.INSTANCE.toModels(entities);
   }
 
   @Override
-  public Airfield get(AssetId airfieldId) {
+  public Airfield get(Id airfieldId) {
     var entity = airfieldRepository.get(airfieldId);
 
     return AirfieldMapper.INSTANCE.toModel(entity);
