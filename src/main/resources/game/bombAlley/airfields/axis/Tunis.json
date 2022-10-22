@@ -1,11 +1,14 @@
 {
-  "name": "Tunis",
+  "id": "AXIS:Tunis",
+  "title": "Tunis",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 5,
   "antiAir": 5,
   "gridReference": "AE22"
 }

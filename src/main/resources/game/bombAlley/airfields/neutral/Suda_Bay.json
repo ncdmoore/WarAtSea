@@ -1,4 +1,5 @@
 {
+  "id": "NEUTRAL:Suba_Bay",
   "name": "Suda Bay",
   "landingTypes": [
     "LAND",
@@ -6,6 +7,8 @@
     "CARRIER"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 3,
   "antiAir": 3,
   "gridReference": "AY24"
 }

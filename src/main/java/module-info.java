@@ -15,6 +15,7 @@ module com.enigma.waratsea {
 
   opens com.enigma.waratsea.entity to com.google.gson;
   opens com.enigma.waratsea.model to com.google.gson;
+  opens com.enigma.waratsea.model.player to com.google.gson;
 
   opens com.enigma.waratsea.mapper to com.google.guice;
 
@@ -42,5 +43,4 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.viewmodel.pregame;
   exports com.enigma.waratsea.viewmodel.events;
   exports com.enigma.waratsea.model.player;
-  opens com.enigma.waratsea.model.player to com.google.gson;
 }

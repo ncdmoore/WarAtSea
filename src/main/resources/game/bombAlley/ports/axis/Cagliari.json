@@ -1,5 +1,6 @@
 {
-  "name": "Cagliari",
+  "id": "AXIS:Cagliari",
+  "title": "Cagliari",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AC17"

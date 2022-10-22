@@ -10,23 +10,24 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Paths;
 
-import static com.enigma.waratsea.repository.impl.GlobalDirectory.GAME_DIRECTORY;
-import static com.enigma.waratsea.repository.impl.GlobalDirectory.SCENARIO_DIRECTORY;
+import static com.enigma.waratsea.Constants.GAME_DIRECTORY;
+import static com.enigma.waratsea.Constants.SCENARIO_DIRECTORY;
 
 @Slf4j
 @Singleton
 @Getter
 public class ResourceNames {
-  private final String game = GAME_DIRECTORY.toString();
+  private final String game = GAME_DIRECTORY;
   private String gamePath;
   private String scenarioName;
   private String scenarioPath;
+  private final String airfieldDirectory = "airfields";
   private final String commonDirectory = "common";
   private final String cssDirectory = "css";
   private final String imageDirectory = "images";
   private final String mapDirectory = "map";
   private final String regionDirectory = "region";
-  private final String scenarioDirectory = SCENARIO_DIRECTORY.toString();
+  private final String scenarioDirectory = SCENARIO_DIRECTORY;
   private final String summaryFileName = "summary.json";
   private final String gameMapFileName = "map.json";
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();

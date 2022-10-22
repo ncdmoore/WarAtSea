@@ -1,5 +1,6 @@
 {
-  "name": "Taranto",
+  "id": "AXIS:Taranto",
+  "title": "Taranto",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AO15"

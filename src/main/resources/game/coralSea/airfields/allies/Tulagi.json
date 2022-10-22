@@ -1,9 +1,12 @@
 {
-  "name": "Tulagi",
+  "id": "ALLIES:Tulagi",
+  "title": "Tulagi",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 4,
+  "capacity": 4,
+  "maxAntiAir": 1,
   "antiAir": 1,
   "gridReference": "AC14"
 }

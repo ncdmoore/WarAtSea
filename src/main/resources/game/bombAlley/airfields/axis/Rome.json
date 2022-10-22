@@ -1,10 +1,13 @@
 {
-  "name": "Rome",
+  "id": "AXIS:Rome",
+  "title": "Rome",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 40,
+  "capacity": 40,
+  "maxAntiAir": 20,
   "antiAir": 20,
   "gridReference": "AH12"
 }

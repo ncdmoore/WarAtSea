@@ -1,11 +1,14 @@
 {
-  "name": "Grottaglie",
+  "id": "AXIS:Grottaglie",
+  "title": "Grottaglie",
   "province": "Italy",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AP14"
 }

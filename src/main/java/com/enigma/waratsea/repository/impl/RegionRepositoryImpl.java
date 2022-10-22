@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static com.enigma.waratsea.Constants.JSON_EXTENSION;
+
 @Slf4j
 @Singleton
 public class RegionRepositoryImpl implements RegionRepository {
@@ -35,24 +37,24 @@ public class RegionRepositoryImpl implements RegionRepository {
   }
 
   @Override
-  public List<RegionEntity> get(final Side side, final String mapName) {
-    return createRegions(side, mapName);
+  public List<RegionEntity> get(final Side side, final String regionName) {
+    return createRegions(side, regionName);
   }
 
-  private List<RegionEntity> createRegions(final Side side, final String mapName) {
-    try (var in = getRegionInputStream(side, mapName);
+  private List<RegionEntity> createRegions(final Side side, final String regionName) {
+    try (var in = getRegionInputStream(side, regionName);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.info("Read regions for side: '{}', map: '{}'", side, mapName);
+      log.info("Read regions for side: '{}', map: '{}'", side, regionName);
       return readRegions(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create regions: " + mapName + " for side: " + side);
+      throw new GameException("Unable to create regions: " + regionName + " for side: " + side);
     }
   }
 
-  private InputStream getRegionInputStream(final Side side, final String mapName) {
+  private InputStream getRegionInputStream(final Side side, final String regionName) {
     var sidePath = side.toLower();
-    var fileName = mapName + ".json";
+    var fileName = regionName + JSON_EXTENSION;
     var regionBasePath = resourceNames.getRegionPath();
     var defaultRegionPath = Paths.get(regionBasePath, sidePath, fileName).toString();
     var scenarioSpecificRegionPath = resourceNames.getScenarioSpecific(defaultRegionPath);

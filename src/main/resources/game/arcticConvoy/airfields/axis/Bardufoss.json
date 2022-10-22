@@ -1,10 +1,13 @@
 {
-  "name": "Bardufoss",
+  "id": "AXIS:Bardufoss",
+  "title": "Bardufoss",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 50,
+  "capacity": 50,
+  "maxAntiAir": 20,
   "antiAir": 20,
   "gridReference": "AM28"
 }

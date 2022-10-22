@@ -1,5 +1,6 @@
 {
-  "name": "Rabaul",
+  "id": "AXIS:Rabaul",
+  "title": "Rabaul",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "P6"

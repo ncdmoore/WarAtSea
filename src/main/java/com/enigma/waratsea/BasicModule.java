@@ -1,17 +1,12 @@
 package com.enigma.waratsea;
 
 import com.enigma.waratsea.mapper.GameMapper;
+import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.orchestration.ConfigGameSaga;
 import com.enigma.waratsea.property.*;
-import com.enigma.waratsea.repository.GameRepository;
-import com.enigma.waratsea.repository.MapRepository;
-import com.enigma.waratsea.repository.RegionRepository;
-import com.enigma.waratsea.repository.impl.GameRepositoryImpl;
-import com.enigma.waratsea.repository.ScenarioRepository;
-import com.enigma.waratsea.repository.impl.MapRepositoryImpl;
-import com.enigma.waratsea.repository.impl.RegionRepositoryImpl;
-import com.enigma.waratsea.repository.impl.ScenarioRepositoryImpl;
+import com.enigma.waratsea.repository.*;
+import com.enigma.waratsea.repository.impl.*;
 import com.enigma.waratsea.service.*;
 import com.enigma.waratsea.service.impl.*;
 import com.enigma.waratsea.strategy.DefaultVisibilityStrategy;
@@ -84,10 +79,12 @@ public class BasicModule extends AbstractModule {
     bind(ScenarioRepository.class).to(ScenarioRepositoryImpl.class);
     bind(MapRepository.class).to(MapRepositoryImpl.class);
     bind(RegionRepository.class).to(RegionRepositoryImpl.class);
+    bind(AirfieldRepository.class).to(AirfieldRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
 
   private void bindMappers() {
+    bind(RegionMapper.class).toInstance(RegionMapper.INSTANCE);
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
   }
 
@@ -112,5 +109,6 @@ public class BasicModule extends AbstractModule {
     bind(WeatherService.class).to(WeatherServiceImpl.class);
     bind(GameService.class).to(GameServiceImpl.class);
     bind(PlayerService.class).to(PlayerServiceImpl.class);
+    bind(AirfieldService.class).to(AirfieldServiceImpl.class);
   }
 }

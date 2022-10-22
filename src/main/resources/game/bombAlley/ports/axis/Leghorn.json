@@ -1,5 +1,6 @@
 {
-  "name": "Leghorn",
+  "id": "AXIS:Leghorn",
+  "title": "Leghorn",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AE9"

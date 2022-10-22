@@ -11,8 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.nio.file.Paths;
 
-import static com.enigma.waratsea.repository.impl.GlobalDirectory.GAME_DIRECTORY;
-import static com.enigma.waratsea.repository.impl.GlobalDirectory.SCENARIO_DIRECTORY;
+import static com.enigma.waratsea.Constants.GAME_DIRECTORY;
+import static com.enigma.waratsea.Constants.SCENARIO_DIRECTORY;
 
 @Slf4j
 @Singleton
@@ -49,10 +49,8 @@ public class DataNames {
 
   private void setSavedGameDirectory(final GameNameEvent gameNameEvent) {
     var gameName = gameNameEvent.gameName().getValue();
-    var gameDirectory = GAME_DIRECTORY.toString();
-    var scenarioDirectory = SCENARIO_DIRECTORY.toString();
     savedGameDirectory = Paths.get(userHomeDirectory, DATA_DIRECTORY, gameName, SAVED_GAMES).toString();
-    newGameDirectory = Paths.get(gameDirectory, gameName, scenarioDirectory).toString();
+    newGameDirectory = Paths.get(GAME_DIRECTORY, gameName, SCENARIO_DIRECTORY).toString();
 
     log.debug("DataNames received game name event, newGameDirectory set to '{}'", newGameDirectory);
     log.debug("DataNames received game name event, savedGameDirectory set to '{}'", savedGameDirectory);

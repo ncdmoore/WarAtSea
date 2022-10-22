@@ -1,6 +1,6 @@
-
 {
-  "name": "Malta",
+  "id": "ALLIES:Malta",
+  "title": "Malta",
   "landingTypes": [
     "LAND",
     "SEAPLANE",

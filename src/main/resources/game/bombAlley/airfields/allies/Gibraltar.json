@@ -1,5 +1,6 @@
 {
-  "name": "Gibraltar",
+  "id": "ALLIES:Gibraltar",
+  "title": "Gibraltar",
   "landingTypes": [
     "LAND",
     "SEAPLANE",

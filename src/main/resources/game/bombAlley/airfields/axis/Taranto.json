@@ -1,9 +1,12 @@
 {
-  "name": "Taranto",
+  "id": "AXIS:Taranto",
+  "title": "Taranto",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
+  "capacity": 15,
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AO15"
 }

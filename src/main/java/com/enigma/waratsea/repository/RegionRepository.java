@@ -6,5 +6,5 @@ import com.enigma.waratsea.model.Side;
 import java.util.List;
 
 public interface RegionRepository {
-  List<RegionEntity> get(final Side side, final String mapName);
+  List<RegionEntity> get(final Side side, final String regionName);
 }

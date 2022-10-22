@@ -1,5 +1,6 @@
 {
-  "name": "Arkhangelsk",
+  "id": "ALLIES:Arkhangelsk",
+  "title": "Arkhangelsk",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "BI37"

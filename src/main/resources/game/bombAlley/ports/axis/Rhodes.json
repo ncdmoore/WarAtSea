@@ -1,5 +1,6 @@
 {
-  "name": "Rhodes",
+  "id": "AXIS:Rhodes",
+  "title": "Rhodes",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "BE23"

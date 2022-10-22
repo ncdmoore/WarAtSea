@@ -1,5 +1,6 @@
 {
-  "name": "Trondheim",
+  "id": "AXIS:Trondheim",
+  "title": "Trondheim",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AC40"

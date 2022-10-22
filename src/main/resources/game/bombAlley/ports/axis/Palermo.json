@@ -1,5 +1,6 @@
 {
-  "name": "Palermo",
+  "id": "AXIS:Palermo",
+  "title": "Palermo",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AI20"

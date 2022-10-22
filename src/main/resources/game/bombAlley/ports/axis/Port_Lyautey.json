@@ -1,5 +1,6 @@
 {
-  "name": "Port Lyautey",
+  "id": "AXIS:Port_Lyautey",
+  "title": "Port Lyautey",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "F26"

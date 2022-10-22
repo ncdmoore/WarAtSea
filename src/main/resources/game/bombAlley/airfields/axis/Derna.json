@@ -1,10 +1,13 @@
 {
-  "name": "Derna",
+  "id": "AXIS:Derna",
+  "title": "Derna",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 8,
+  "capacity": 8,
+  "maxAntiAir": 2,
   "antiAir": 2,
   "gridReference": "AV29"
 }

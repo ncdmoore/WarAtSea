@@ -1,11 +1,14 @@
 {
-  "name": "Pantellaria",
+  "id": "AXIS:Pantellaria",
+  "title": "Pantellaria",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 15,
+  "capacity": 15,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AG22"
 }

@@ -1,5 +1,6 @@
 {
-  "name": "Narvik",
+  "id": "AXIS:Narvik",
+  "title": "Narvik",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AL28"

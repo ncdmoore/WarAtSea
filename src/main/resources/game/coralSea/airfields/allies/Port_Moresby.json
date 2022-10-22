@@ -1,11 +1,14 @@
 {
-  "name": "Port Moresby",
+  "id": "ALLIES:Port_Moresby",
+  "title": "Port Moresby",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 5,
   "antiAir": 5,
   "gridReference": "H14"
 }

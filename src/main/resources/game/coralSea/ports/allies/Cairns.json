@@ -1,5 +1,6 @@
 {
-  "name": "Cairns",
+  "id": "ALLIES:Cairns",
+  "title": "Cairns",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "F26"

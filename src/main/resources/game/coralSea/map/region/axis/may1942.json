@@ -6,12 +6,12 @@
     "max": "0",
     "gridReference": "C10",
     "airfields": [
-      "Lae",
-      "Madang"
+      "AXIS:Lae",
+      "AXIS:Madang"
     ],
     "ports": [
-      "Madang",
-      "Lae"
+      "AXIS:Madang",
+      "AXIS:Lae"
     ]
   },
   {
@@ -21,11 +21,11 @@
     "max": "0",
     "gridReference": "M7",
     "airfields": [
-      "Rabaul",
-      "Gasmata"
+      "AXIS:Rabaul",
+      "AXIS:Gasmata"
     ],
     "ports": [
-      "Rabaul"
+      "AXIS:Rabaul"
     ]
   },
   {
@@ -35,10 +35,10 @@
     "max": "0",
     "gridReference": "P4",
     "airfields": [
-      "Kavieng"
+      "AXIS:Kavieng"
     ],
     "ports": [
-      "Kavieng"
+      "AXIS:Kavieng"
     ]
   }
 ]

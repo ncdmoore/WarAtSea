@@ -1,10 +1,13 @@
 {
-  "name": "Lerwick",
+  "id": "ALLIES:Lerwick",
+  "title": "Lerwick",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 12,
+  "capacity": 12,
+  "MaxAntiAir": 12,
   "antiAir": 12,
   "gridReference": "O42"
 }

@@ -1,5 +1,6 @@
 {
-  "name": "Bodo",
+  "id": "AXIS:Bodo",
+  "title": "Bodo",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AI31"

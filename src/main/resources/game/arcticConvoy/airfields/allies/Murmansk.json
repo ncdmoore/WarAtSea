@@ -1,11 +1,14 @@
 {
-  "name": "Murmansk",
+  "id": "ALLIES:Murmansk",
+  "title": "Murmansk",
   "landingTypes": [
     "LAND",
     "CARRIER",
     "SEAPLANE"
   ],
   "maxCapacity": 30,
+  "capacity": 30,
+  "maxAntiAir": 16,
   "antiAir": 16,
   "gridReference": "AZ27"
 }

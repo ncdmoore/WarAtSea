@@ -1,11 +1,14 @@
 {
-  "name": "Rabaul",
+  "id": "AXIS:Rabaul",
+  "title": "Rabaul",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 30,
+  "capacity": 30,
+  "maxAntiAir": 12,
   "antiAir": 12,
   "gridReference": "P6"
 }

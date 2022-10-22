@@ -1,10 +1,13 @@
 {
-  "name": "Orland",
+  "id": "AXIS:Orland",
+  "title": "Orland",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 60,
+  "capacity": 60,
+  "maxAntiAir": 16,
   "antiAir": 16,
   "gridReference": "AC39"
 }

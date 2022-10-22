@@ -1,5 +1,6 @@
 {
-  "name": "Tromso",
+  "id": "AXIS:Tromso",
+  "title": "Tromso",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AN26"

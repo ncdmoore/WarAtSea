@@ -1,11 +1,14 @@
 {
-  "name": "Kalamata",
+  "id": "AXIS:Kalamata",
+  "title": "Kalamata",
   "province": "Greece",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 3,
   "antiAir": 3,
   "gridReference": "AW22"
 }

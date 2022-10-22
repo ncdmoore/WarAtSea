@@ -6,10 +6,10 @@
     "max": "0",
     "gridReference": "C10",
     "airfields": [
-      "Port Moresby"
+      "ALLIES:Port_Moresby"
     ],
     "ports": [
-      "Port Moresby"
+      "ALLIES:Port_Moresby"
     ]
   },
   {
@@ -19,10 +19,10 @@
     "max": "0",
     "gridReference": "C10",
     "airfields": [
-      "Port Moresby"
+      "ALLIES:Port_Moresby"
     ],
     "ports": [
-      "Port Moresby"
+      "ALLIES:Port_Moresby"
     ]
   },
   {
@@ -32,12 +32,12 @@
     "max": "0",
     "gridReference": "D32",
     "airfields": [
-      "Cairns",
-      "Townsville"
+      "ALLIES:Cairns",
+      "ALLIES:Townsville"
     ],
     "ports": [
-      "Cairns",
-      "Townsville"
+      "ALLIES:Cairns",
+      "ALLIES:Townsville"
     ]
   },
   {
@@ -47,12 +47,12 @@
     "max": "0",
     "gridReference": "D32",
     "airfields": [
-      "Cairns",
-      "Townsville"
+      "ALLIES:Cairns",
+      "ALLIES:Townsville"
     ],
     "ports": [
-      "Cairns",
-      "Townsville"
+      "ALLIES:Cairns",
+      "ALLIES:Townsville"
     ]
   },
   {
@@ -62,7 +62,7 @@
     "max": "0",
     "gridReference": "AB15",
     "airfields": [
-      "Tulagi"
+      "TALLIES:ulagi"
     ]
   },
   {
@@ -72,10 +72,10 @@
     "max": "0",
     "gridReference": "AM21",
     "airfields": [
-      "Espiritu Santo"
+      "ALLIES:Espiritu_Santo"
     ],
     "ports": [
-      "Espiritu Santo"
+      "ALLIES:Espiritu_Santo"
     ]
   }
 ]

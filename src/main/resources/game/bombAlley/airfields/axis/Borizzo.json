@@ -1,10 +1,13 @@
 {
-  "name": "Borizzo",
+  "id": "AXIS:Borizzo",
+  "title": "Borizzo",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 40,
+  "capacity": 40,
+  "maxAntiAir": 18,
   "antiAir": 18,
   "gridReference": "AH20"
 }

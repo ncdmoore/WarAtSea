@@ -1,4 +1,5 @@
 {
+  "id": "NEUTRAL:Athens",
   "name": "Athens",
   "landingTypes": [
     "LAND",
@@ -6,6 +7,8 @@
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 8,
   "antiAir": 8,
   "gridReference": "AX19"
 }

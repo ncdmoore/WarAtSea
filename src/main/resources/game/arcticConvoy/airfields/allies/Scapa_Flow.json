@@ -1,11 +1,14 @@
 {
-  "name": "Scapa Flow",
+  "id": "ALLIES:Scapa_Flow",
+  "title": "Scapa Flow",
   "landingTypes": [
     "LAND",
     "CARRIER",
     "SEAPLANE"
   ],
   "maxCapacity": 12,
+  "capacity": 12,
+  "maxAntiAir": 24,
   "antiAir": 24,
   "gridReference": "L43"
 }

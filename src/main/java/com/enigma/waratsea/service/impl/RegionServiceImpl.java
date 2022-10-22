@@ -1,19 +1,22 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.entity.RegionEntity;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
+import com.enigma.waratsea.mapper.RegionMapper;
+import com.enigma.waratsea.model.Airfield;
+import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.Region;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.RegionService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import javafx.util.Pair;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
@@ -21,7 +24,9 @@ public class RegionServiceImpl implements RegionService {
   private final RegionRepository regionRepository;
   private final GameService gameService;
 
-  private final Map<Side, List<RegionEntity>> regions = new HashMap<>();
+  private Map<Side, List<Region>> regions;
+
+  private final Map<Nation, Map<String, Region>> airfields = new HashMap<>();
 
   @Inject
   public RegionServiceImpl(final Events events,
@@ -33,25 +38,51 @@ public class RegionServiceImpl implements RegionService {
     events.getLoadMapEvent().register(this::handleLoadMapEvent);
   }
 
+  @Override
+  public Region getAirfieldRegion(Nation nation, String airfieldId) {
+    return airfields.get(nation)
+        .get(airfieldId);
+  }
+
   private void handleLoadMapEvent(final LoadMapEvent event) {
     log.info("RegionServiceImpl receives load map event.");
 
-    var mapName = gameService.getGame().getScenario().getMap();
-
-    Side.stream()
-        .forEach(side -> regions.put(side, regionRepository.get(side, mapName)));
-
-    //todo map to model.
-    //
-    // 1. create airfieldRepository airfieldEntity airfieldService airfield airbase
-    // 2. create portRepository portEntity portService port
-    // 3. create mappers for airfieldEntity to airfield and portEntity to port
-
-    // Example airfield flow   airfieldService.get(id) --> airfieldRepository.get(id) --> airfieldEntity to Airfield
-    // set airfield in region
-
-
-
+    createAllRegions();
+    indexAllAirfields();
   }
 
+  private void createAllRegions() {
+    var mapName = gameService.getGame().getScenario().getMap();
+
+    regions = Side.stream()
+        .map(side -> createRegions(side, mapName))
+        .collect(Collectors.toMap(Pair::getKey, Pair::getValue));
+  }
+
+  private Pair<Side, List<Region>> createRegions(final Side side, final String mapName) {
+    var regions = regionRepository.get(side, mapName)
+        .stream()
+        .map(RegionMapper.INSTANCE::toModel)
+        .toList();
+
+    return new Pair<>(side, regions);
+  }
+
+  private void indexAllAirfields() {
+    regions.values()
+        .stream()
+        .flatMap(Collection::stream)
+        .forEach(this::indexRegionAirfields);
+  }
+
+  private void indexRegionAirfields (final Region region) {
+    var nation = region.getNation();
+
+    airfields.computeIfAbsent(nation, n -> new HashMap<>());
+
+    region.getAirfields()
+        .stream()
+        .map(Airfield::getId)
+        .forEach(id -> airfields.get(nation).putIfAbsent(id, region));
+  }
 }

@@ -1,9 +1,12 @@
 {
-  "name": "Genoa",
+  "id": "AXIS:Genoa",
+  "title": "Genoa",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
+  "capacity": 15,
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AC7"
 }

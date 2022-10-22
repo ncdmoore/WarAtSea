@@ -1,9 +1,12 @@
 {
-  "name": "Madang",
+  "id": "AXIS:Madang",
+  "title": "Madang",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "F7"
 }

@@ -1,9 +1,12 @@
 {
-  "name": "Hvalfjordur",
+  "id": "ALLIES:Hvalfjordur",
+  "title": "Hvalfjordur",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "MaxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "C21"
 }

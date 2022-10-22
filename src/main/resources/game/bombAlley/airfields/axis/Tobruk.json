@@ -1,12 +1,15 @@
 
 {
-  "name": "Tobruk",
+  "id": "AXIS:Tobruk",
+  "title": "Tobruk",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 6,
   "antiAir": 6,
   "gridReference": "AY30"
 }

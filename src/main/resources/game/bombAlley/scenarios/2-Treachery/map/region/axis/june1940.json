@@ -5,12 +5,12 @@
     "min": "0",
     "max": "0",
     "airfields": [
-      "Algiers",
-      "Oran"
+      "AXIS:Algiers",
+      "AXIS:Oran"
     ],
     "ports": [
-      "Algiers",
-      "Oran"
+      "AXIS:Algiers",
+      "AXIS:Oran"
     ]
   },
   {
@@ -19,12 +19,12 @@
     "min": "0",
     "max": "0",
     "airfields": [
-      "Marseille",
-      "Toulon"
+      "AXIS:Marseille",
+      "AXIS:Toulon"
     ],
     "ports": [
-      "Marseille",
-      "Toulon"
+      "AXIS:Marseille",
+      "AXIS:Toulon"
     ]
   },
   {
@@ -33,12 +33,12 @@
     "min": "0",
     "max": "0",
     "airfields": [
-      "Bizerte",
-      "Tunis"
+      "AXIS:Bizerte",
+      "AXIS:Tunis"
     ],
     "ports": [
-      "Bizerte",
-      "Tunis"
+      "AXIS:Bizerte",
+      "AXIS:Tunis"
     ]
   },
   {
@@ -47,10 +47,10 @@
     "min": "0",
     "max": "0",
     "airfields": [
-      "Bastia"
+      "AXIS:Bastia"
     ],
     "ports": [
-      "Bastia"
+      "AXIS:Bastia"
     ]
   },
   {
@@ -59,12 +59,12 @@
     "min": "0",
     "max": "0",
     "airfields": [
-      "Port Lyautey",
-      "Casablanca"
+      "AXIS:Port_Lyautey",
+      "AXIS:Casablanca"
     ],
     "ports": [
-      "Port Lyautey",
-      "Casablanca"
+      "AXIS:Port_Lyautey",
+      "AXIS:Casablanca"
     ]
   }
 ]

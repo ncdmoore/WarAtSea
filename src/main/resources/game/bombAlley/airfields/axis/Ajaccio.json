@@ -1,10 +1,13 @@
 {
-  "name": "Ajaccio",
+  "id": "AXIS:Ajaccio",
+  "title": "Ajaccio",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 3,
   "antiAir": 3,
   "gridReference": "Z10"
 }

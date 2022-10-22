@@ -1,4 +1,5 @@
 {
+  "id": "AXIS:Tripoli",
   "name": "Tripoli",
   "landingTypes": [
     "LAND",
@@ -6,6 +7,8 @@
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 12,
   "antiAir": 12,
   "gridReference": "AI29"
 }

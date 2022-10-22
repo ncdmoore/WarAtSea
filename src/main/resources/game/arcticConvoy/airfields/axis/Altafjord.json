@@ -1,9 +1,12 @@
 {
-  "name": "Altafjord",
+  "id": "AXIS:Altafjord",
+  "title": "Altafjord",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "MaxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AQ26"
 }

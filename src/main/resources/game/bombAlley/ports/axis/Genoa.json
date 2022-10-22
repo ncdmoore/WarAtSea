@@ -1,5 +1,6 @@
 {
-  "name": "Genoa",
+  "id": "AXIS:Genoa",
+  "title": "Genoa",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AC7"

@@ -6,10 +6,10 @@
     "max": "4",
     "gridReference": "AK22",
     "airfields": [
-      "Malta-1940"
+      "ALLIES:Malta-1940"
     ],
     "ports": [
-      "Malta"
+      "ALLIES:Malta"
     ]
   },
   {
@@ -19,10 +19,10 @@
     "max": "8",
     "gridReference": "H20",
     "airfields": [
-      "Gibraltar"
+      "ALLIES:Gibraltar"
     ],
     "ports": [
-      "Gibraltar"
+      "ALLIES:Gibraltar"
     ]
   }
 ]

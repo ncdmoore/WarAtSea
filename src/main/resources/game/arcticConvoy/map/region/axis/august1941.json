@@ -6,23 +6,23 @@
     "max": "0",
     "gridReference": "AO13",
     "airfields": [
-      "Altafjord",
-      "Banak",
-      "Bardufoss",
-      "Bodo",
-      "Kirkenes",
-      "Narvik",
-      "Molde",
-      "Orland",
-      "Tromso",
-      "Trondheim"
+      "AXIS:Altafjord",
+      "AXIS:Banak",
+      "AXIS:Bardufoss",
+      "AXIS:Bodo",
+      "AXIS:Kirkenes",
+      "AXIS:Narvik",
+      "AXIS:Molde",
+      "AXIS:Orland",
+      "AXIS:Tromso",
+      "AXIS:Trondheim"
     ],
     "ports": [
-      "Altafjord",
-      "Bodo",
-      "Narvik",
-      "Tromso",
-      "Trondheim"
+      "AXIS:Altafjord",
+      "AXIS:Bodo",
+      "AXIS:Narvik",
+      "AXIS:Tromso",
+      "AXIS:Trondheim"
     ]
   },
   {
@@ -34,7 +34,7 @@
     "airfields": [
     ],
     "ports": [
-      "Petsamo"
+      "AXIS:Petsamo"
     ]
   }
 ]

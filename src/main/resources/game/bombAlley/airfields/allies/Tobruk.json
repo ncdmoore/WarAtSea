@@ -1,5 +1,6 @@
 {
-  "name": "Tobruk",
+  "id": "ALLIES:Tobruk",
+  "title": "Tobruk",
   "landingTypes": [
     "LAND",
     "SEAPLANE",

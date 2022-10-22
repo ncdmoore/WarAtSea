@@ -1,11 +1,14 @@
 {
-  "name": "Bizerte",
+  "id": "AXIS:Bizerte",
+  "title": "Bizerte",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 5,
   "antiAir": 5,
   "gridReference": "AC21"
 }

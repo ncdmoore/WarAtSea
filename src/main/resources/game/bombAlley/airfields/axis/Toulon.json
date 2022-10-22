@@ -1,11 +1,14 @@
 {
-  "name": "Toulon",
+  "id": "AXIS:Toulon",
+  "title": "Toulon",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "X9"
 }

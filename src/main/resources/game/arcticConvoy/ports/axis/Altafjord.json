@@ -1,5 +1,6 @@
 {
-  "name": "Altafjord",
+  "id": "AXIS:Altafjord",
+  "title": "Altafjord",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AQ26"

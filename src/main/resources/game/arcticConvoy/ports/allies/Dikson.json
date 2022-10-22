@@ -1,5 +1,6 @@
 {
-  "name": "Dikson",
+  "id": "ALLIES:Dikson",
+  "title": "Dikson",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "Z8"

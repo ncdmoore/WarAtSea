@@ -1,12 +1,14 @@
 {
-  "name": "Naples",
-  "province": "Italy",
+  "id": "AXIS:Naples",
+  "title": "Naples",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 30,
+  "capacity": 30,
+  "maxAntiAir": 20,
   "antiAir": 20,
   "gridReference": "AJ14"
 }

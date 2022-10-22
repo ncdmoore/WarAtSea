@@ -1,5 +1,6 @@
 {
-  "name": "Aboukir",
+  "id": "ALLIES:Aboukir",
+  "title": "Aboukir",
   "landingTypes": [
     "LAND",
     "CARRIER"

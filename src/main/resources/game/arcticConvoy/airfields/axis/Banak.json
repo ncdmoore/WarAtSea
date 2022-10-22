@@ -1,10 +1,13 @@
 {
-  "name": "Banak",
+  "id": "AXIS:Banak",
+  "title": "Banak",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 40,
+  "capacity": 40,
+  "maxAntiAir": 12,
   "antiAir": 12,
   "gridReference": "AS26"
 }

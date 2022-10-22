@@ -1,11 +1,14 @@
 {
-  "name": "Heraklion",
+  "id": "AXIS:Heraklion",
+  "title": "Heraklion",
   "province": "Crete",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 16,
+  "capacity": 16,
+  "maxAntiAir": 2,
   "antiAir": 2,
   "gridReference": "AZ23"
 }

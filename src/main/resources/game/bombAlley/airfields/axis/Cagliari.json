@@ -1,11 +1,14 @@
 {
-  "name": "Cagliari",
+  "id": "AXIS:Cagliari",
+  "title": "Cagliari",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 50,
+  "capacity": 50,
+  "maxAntiAir": 20,
   "antiAir": 20,
   "gridReference": "AC17"
 }

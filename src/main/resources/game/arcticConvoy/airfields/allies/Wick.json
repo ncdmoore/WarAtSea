@@ -1,10 +1,13 @@
 {
-  "name": "Wick",
+  "id": "ALLIES:Wick",
+  "title": "Wick",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 50,
+  "capacity": 50,
+  "maxAntiAir": 20,
   "antiAir": 20,
   "gridReference": "K44"
 }

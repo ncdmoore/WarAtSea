@@ -1,12 +1,14 @@
 {
-  "name": "Oran",
-  "province": "Algeria",
+  "id": "AXIS:Oran",
+  "title": "Oran",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 5,
   "antiAir": 5,
   "gridReference": "O24"
 }

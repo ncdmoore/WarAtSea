@@ -1,5 +1,6 @@
 {
-  "name": "Kavieng",
+  "id": "AXIS:Kavieng",
+  "title": "Kavieng",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "N3"

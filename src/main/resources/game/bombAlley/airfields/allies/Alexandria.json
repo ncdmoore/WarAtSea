@@ -1,5 +1,6 @@
 {
-  "name": "Alexandria",
+  "id": "ALLIES:Alexandria",
+  "title": "Alexandria",
   "landingTypes": [
     "LAND",
     "SEAPLANE",

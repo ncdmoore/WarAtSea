@@ -1,11 +1,14 @@
 {
-  "name": "Casablanca",
+  "id": "AXIS:Casablanca",
+  "title": "Casablanca",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 3,
   "antiAir": 3,
   "gridReference": "D27"
 }

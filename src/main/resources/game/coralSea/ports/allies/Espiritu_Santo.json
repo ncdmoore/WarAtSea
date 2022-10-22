@@ -1,5 +1,6 @@
 {
-  "name": "Espiritu Santo",
+  "id": "ALLIES:Espiritu_Santo",
+  "title": "Espiritu Santo",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AM23"

@@ -1,5 +1,6 @@
 {
-  "name": "Lae",
+  "id": "AXIS:Lae",
+  "title": "Lae",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "H10"

@@ -1,5 +1,6 @@
 {
-  "name": "Suda Bay",
+  "id": "ALLIES:Suda_Bay",
+  "title": "Suda Bay",
   "landingTypes": [
     "LAND",
     "SEAPLANE",

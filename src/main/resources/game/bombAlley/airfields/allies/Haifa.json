@@ -1,5 +1,6 @@
 {
-  "name": "Haifa",
+  "id": "ALLIES:Haifa",
+  "title": "Haifa",
   "landingTypes": [
     "LAND",
     "SEAPLANE",

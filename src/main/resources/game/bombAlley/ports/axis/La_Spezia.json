@@ -1,5 +1,6 @@
 {
-  "name": "La Spezia",
+  "id": "AXIS:La_Spezia",
+  "title": "La Spezia",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AD7"

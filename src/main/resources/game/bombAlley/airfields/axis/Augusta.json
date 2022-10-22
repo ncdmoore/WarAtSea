@@ -1,11 +1,14 @@
 {
-  "name": "Augusta",
+  "id": "AXIS:Augusta",
+  "title": "Augusta",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 40,
+  "capacity": 40,
+  "maxAntiAir": 20,
   "antiAir": 20,
   "gridReference": "AL21"
 }

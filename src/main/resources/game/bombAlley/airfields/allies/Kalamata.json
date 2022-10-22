@@ -1,5 +1,6 @@
 {
-  "name": "Kalamata",
+  "id": "ALLIES:Kalamata",
+  "title": "Kalamata",
   "province": "Greece",
   "landingTypes": [
     "LAND",

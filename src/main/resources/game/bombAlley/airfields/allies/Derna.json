@@ -1,5 +1,6 @@
 {
-  "name": "Derna",
+  "id": "ALLIES:Derna",
+  "title": "Derna",
   "landingTypes": [
     "LAND",
     "CARRIER"

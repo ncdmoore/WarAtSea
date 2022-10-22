@@ -1,5 +1,6 @@
 {
-  "name": "Pola",
+  "id": "AXIS:Pola",
+  "title": "Pola",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AJ6"

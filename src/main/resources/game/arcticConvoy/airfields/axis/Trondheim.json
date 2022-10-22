@@ -1,9 +1,12 @@
 {
-  "name": "Trondheim",
+  "id": "AXIS:Trondheim",
+  "title": "Trondheim",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AC40"
 }

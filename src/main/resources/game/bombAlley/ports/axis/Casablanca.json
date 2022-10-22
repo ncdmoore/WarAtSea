@@ -1,5 +1,6 @@
 {
-  "name": "Casablanca",
+  "id": "AXIS:Casablanca",
+  "title": "Casablanca",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "D27"

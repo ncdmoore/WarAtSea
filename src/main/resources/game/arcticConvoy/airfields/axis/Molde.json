@@ -1,10 +1,13 @@
 {
-  "name": "Molde",
+  "id": "AXIS:Molde",
+  "title": "Molde",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 50,
+  "capacity": 50,
+  "maxAntiAir": 16,
   "antiAir": 16,
   "gridReference": "Z39"
 }

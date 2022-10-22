@@ -1,11 +1,14 @@
 {
-  "name": "Lae",
+  "id": "AXIS:Lae",
+  "title": "Lae",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 16,
+  "capacity": 16,
+  "maxAntiAir": 6,
   "antiAir": 6,
   "gridReference": "H10"
 }

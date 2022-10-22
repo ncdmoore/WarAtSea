@@ -1,5 +1,6 @@
 {
-  "name": "Oran",
+  "id": "AXIS:Oran",
+  "title": "Oran",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "O24"

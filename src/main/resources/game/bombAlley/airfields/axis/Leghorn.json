@@ -1,9 +1,12 @@
 {
-  "name": "Leghorn",
+  "id": "AXIS:Leghorn",
+  "title": "Leghorn",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
+  "capacity": 15,
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AE9"
 }

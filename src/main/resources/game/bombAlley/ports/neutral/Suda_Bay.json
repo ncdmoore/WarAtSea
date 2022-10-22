@@ -1,5 +1,6 @@
 {
-  "name": "Suda Bay",
+  "id": "NEUTRAL:Suda_Bay",
+  "title": "Suda Bay",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AY24"

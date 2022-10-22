@@ -1,5 +1,6 @@
 {
-  "name": "Port Said",
+  "id": "ALLIES:Port_Said",
+  "title": "Port Said",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "BK32"

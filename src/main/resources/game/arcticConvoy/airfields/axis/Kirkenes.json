@@ -1,10 +1,13 @@
 {
-  "name": "Kirkenes",
+  "id": "AXIS:Kirkenes",
+  "title": "Kirkenes",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 60,
+  "capacity": 60,
+  "maxAntiAir": 16,
   "antiAir": 16,
   "gridReference": "AW26"
 }

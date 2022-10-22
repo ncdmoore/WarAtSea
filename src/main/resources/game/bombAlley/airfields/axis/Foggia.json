@@ -1,10 +1,13 @@
 {
-  "name": "Foggia",
+  "id": "AXIS:Foggia",
+  "title": "Foggia",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 30,
+  "capacity": 30,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AM13"
 }

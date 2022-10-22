@@ -1,11 +1,14 @@
 {
-  "name": "Akureyri",
+  "id": "ALLIES:Akureyri",
+  "title": "Akureyri",
   "landingTypes": [
     "LAND",
     "CARRIER",
     "SEAPLANE"
   ],
   "maxCapacity": 8,
+  "capacity": 8,
+  "maxAntiAir": 6,
   "antiAir": 6,
   "gridReference": "G21"
 }

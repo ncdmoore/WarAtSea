@@ -1,10 +1,13 @@
 {
-  "name": "Scarpanto",
+  "id": "AXIS:Scarpanto",
+  "title": "Scarpanto",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 24,
+  "capacity": 24,
+  "maxAntiAir": 5,
   "antiAir": 5,
   "gridReference": "BC24"
 }

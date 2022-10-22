@@ -1,5 +1,6 @@
 {
-  "name": "Trieste",
+  "id": "AXIS:Trieste",
+  "title": "Trieste",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AJ4"

@@ -1,11 +1,14 @@
 {
-  "name": "Benghazi",
+  "id": "AXIS:Benghazi",
+  "title": "Benghazi",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 6,
   "antiAir": 6,
   "gridReference": "AS30"
 }

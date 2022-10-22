@@ -1,10 +1,13 @@
 {
-  "name": "Gasmata",
+  "id": "AXIS:Gasmata",
+  "title": "Gasmata",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 12,
+  "capacity": 12,
+  "maxAntiAir": 5,
   "antiAir": 5,
   "gridReference": "M10"
 }

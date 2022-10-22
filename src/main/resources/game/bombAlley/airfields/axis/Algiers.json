@@ -1,11 +1,14 @@
 {
-  "name": "Algiers",
+  "id": "AXIS:Algiers",
+  "title": "Algiers",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 5,
   "antiAir": 5,
   "gridReference": "T22"
 }

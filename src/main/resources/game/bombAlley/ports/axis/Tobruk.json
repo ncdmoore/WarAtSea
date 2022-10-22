@@ -1,5 +1,6 @@
 {
-  "name": "Tobruk",
+  "id": "AXIS:Tobruk",
+  "title": "Tobruk",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AY30"

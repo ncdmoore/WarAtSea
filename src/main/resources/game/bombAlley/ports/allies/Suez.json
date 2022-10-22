@@ -1,5 +1,6 @@
 {
-  "name": "Suez",
+  "id": "ALLIES:Suez",
+  "title": "Suez",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "BK34"

@@ -1,11 +1,14 @@
 {
-  "name": "Espiritu Santo",
+  "id": "ALLIES:Espiritu_Santo",
+  "title": "Espiritu Santo",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 12,
+  "capacity": 12,
+  "maxAntiAir": 6,
   "antiAir": 6,
   "gridReference": "AM23"
 }

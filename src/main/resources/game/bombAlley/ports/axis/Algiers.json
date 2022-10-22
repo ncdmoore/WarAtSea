@@ -1,5 +1,6 @@
 {
-  "name": "Algiers",
+  "id": "AXIS:Algiers",
+  "title": "Algiers",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "T22"

@@ -1,11 +1,14 @@
 {
-  "name": "Bodo",
+  "id": "AXIS:Bodo",
+  "title": "Bodo",
   "landingTypes": [
     "LAND",
     "CARRIER",
     "SEAPLANE"
   ],
   "maxCapacity": 40,
+  "capacity": 40,
+  "maxAntiAir": 16,
   "antiAir": 16,
   "gridReference": "AI31"
 }

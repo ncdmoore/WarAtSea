@@ -1,5 +1,6 @@
 {
-  "name": "Augusta",
+  "id": "AXIS:Augusta",
+  "title": "Augusta",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AL21"

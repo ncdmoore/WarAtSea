@@ -1,9 +1,12 @@
 {
-  "name": "Narvik",
+  "id": "AXIS:Narvik",
+  "title": "Narvik",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AL28"
 }

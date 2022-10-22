@@ -1,5 +1,6 @@
 {
-  "name": "Athens",
+  "id": "AXIS:Athens",
+  "title": "Athens",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "AX19"

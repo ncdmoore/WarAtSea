@@ -1,12 +1,14 @@
 {
-  "name": "Marseille",
-  "province": "France",
+  "id": "AXIS:Marseille",
+  "title": "Marseille",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "W10"
 }

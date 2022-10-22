@@ -1,5 +1,6 @@
 {
-  "name": "Brindisi",
+  "id": "AXIS:Brindisi",
+  "title": "Brindisi",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AQ15"

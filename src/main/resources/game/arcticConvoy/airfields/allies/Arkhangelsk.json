@@ -1,11 +1,14 @@
 {
-  "name": "Arkhangelsk",
+  "id": "ALLIES:Arkhangelsk",
+  "title": "Arkhangelsk",
   "landingTypes": [
     "LAND",
     "CARRIER",
     "SEAPLANE"
   ],
   "maxCapacity": 16,
+  "capacity": 16,
+  "maxAntiAir": 6,
   "antiAir": 6,
   "gridReference": "BI37"
 }

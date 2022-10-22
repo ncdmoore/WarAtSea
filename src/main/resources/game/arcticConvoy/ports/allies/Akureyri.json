@@ -1,5 +1,6 @@
 {
-  "name": "Akureyri",
+  "id": "ALLIES:Akureyri",
+  "title": "Akureyri",
   "size": "MINOR",
   "antiAir": 15,
   "gridReference": "G21"

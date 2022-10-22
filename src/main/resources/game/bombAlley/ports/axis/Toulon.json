@@ -1,5 +1,6 @@
 {
-  "name": "Toulon",
+  "id": "AXIS:Toulon",
+  "title": "Toulon",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "X9"

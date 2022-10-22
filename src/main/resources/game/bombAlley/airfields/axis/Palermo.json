@@ -1,10 +1,13 @@
 {
-  "name": "Palermo",
+  "id": "AXIS:Palermo",
+  "title": "Palermo",
   "landingTypes": [
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AI20"
 }

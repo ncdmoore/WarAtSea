@@ -1,9 +1,12 @@
 {
-  "name": "La Spezia",
+  "id": "AXIS:La_Spezia",
+  "title": "La Spezia",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 15,
+  "capacity": 15,
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AD7"
 }

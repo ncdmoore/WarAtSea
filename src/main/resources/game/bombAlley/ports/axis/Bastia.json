@@ -1,5 +1,6 @@
 {
-  "name": "Bastia",
+  "id": "AXIS:Bastia",
+  "title": "Bastia",
   "size": "MINOR",
   "antiAir": 10,
   "gridReference": "AD11"

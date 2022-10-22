@@ -1,10 +1,13 @@
 {
-  "name": "Comiso",
+  "id": "AXIS:Comiso",
+  "title": "Comiso",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AK22"
 }

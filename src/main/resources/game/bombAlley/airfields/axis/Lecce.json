@@ -1,11 +1,14 @@
 {
-  "name": "Lecce",
+  "id": "AXIS:Lecce",
+  "title": "Lecce",
   "province": "Italy",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 20,
   "antiAir": 20,
   "gridReference": "AP15"
 }

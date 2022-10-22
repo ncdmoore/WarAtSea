@@ -1,5 +1,6 @@
 {
-  "name": "Gibraltar",
+  "id": "ALLIES:Gibraltar",
+  "title": "Gibraltar",
   "size": "MAJOR",
   "antiAir": 15,
   "gridReference": "H22"

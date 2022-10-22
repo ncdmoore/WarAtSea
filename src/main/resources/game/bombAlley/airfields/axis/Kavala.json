@@ -1,11 +1,14 @@
 {
-  "name": "Kavala",
+  "id": "AXIS:Kavala",
+  "title": "Kavala",
   "province": "Greece",
   "landingTypes": [
     "LAND",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 3,
   "antiAir": 3,
   "gridReference": "AW18"
 }

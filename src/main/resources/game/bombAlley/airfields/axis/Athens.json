@@ -1,11 +1,14 @@
 {
-  "name": "Athens",
+  "id": "AXIS:Athens",
+  "title": "Athens",
   "landingTypes": [
     "LAND",
     "SEAPLANE",
     "CARRIER"
   ],
   "maxCapacity": 20,
+  "capacity": 20,
+  "maxAntiAir": 8,
   "antiAir": 8,
   "gridReference": "AX19"
 }

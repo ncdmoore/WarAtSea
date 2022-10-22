@@ -1,9 +1,12 @@
 {
-  "name": "Brindisi",
+  "id": "AXIS:Brindisi",
+  "title": "Brindisi",
   "landingTypes": [
     "SEAPLANE"
   ],
   "maxCapacity": 10,
+  "capacity": 10,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AQ15"
 }
