@@ -37,24 +37,24 @@ public class RegionRepositoryImpl implements RegionRepository {
   }
 
   @Override
-  public List<RegionEntity> get(final Side side, final String regionName) {
-    return createRegions(side, regionName);
+  public List<RegionEntity> get(final Side side, final String mapName) {
+    return createRegions(side, mapName);
   }
 
-  private List<RegionEntity> createRegions(final Side side, final String regionName) {
-    try (var in = getRegionInputStream(side, regionName);
+  private List<RegionEntity> createRegions(final Side side, final String mapName) {
+    try (var in = getRegionInputStream(side, mapName);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.info("Read regions for side: '{}', map: '{}'", side, regionName);
+      log.info("Read regions for side: '{}', map: '{}'", side, mapName);
       return readRegions(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create regions: " + regionName + " for side: " + side);
+      throw new GameException("Unable to create regions: " + mapName + " for side: " + side);
     }
   }
 
-  private InputStream getRegionInputStream(final Side side, final String regionName) {
+  private InputStream getRegionInputStream(final Side side, final String mapName) {
     var sidePath = side.toLower();
-    var fileName = regionName + JSON_EXTENSION;
+    var fileName = mapName + JSON_EXTENSION;
     var regionBasePath = resourceNames.getRegionPath();
     var defaultRegionPath = Paths.get(regionBasePath, sidePath, fileName).toString();
     var scenarioSpecificRegionPath = resourceNames.getScenarioSpecific(defaultRegionPath);
