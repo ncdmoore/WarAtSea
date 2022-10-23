@@ -6,14 +6,12 @@ import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Region;
 import com.enigma.waratsea.service.AirfieldService;
 import com.google.inject.Inject;
-import org.mapstruct.Builder;
 import org.mapstruct.Mapper;
-import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(componentModel = "jsr330", unmappedTargetPolicy = ReportingPolicy.IGNORE, builder = @Builder(disableBuilder = true))
+@Mapper(componentModel = "jsr330")
 public abstract class RegionMapper {
   public static final RegionMapper INSTANCE = Mappers.getMapper(RegionMapper.class);
 

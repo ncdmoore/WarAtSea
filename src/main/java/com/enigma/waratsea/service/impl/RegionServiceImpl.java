@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
 public class RegionServiceImpl implements RegionService {
   private final RegionRepository regionRepository;
   private final GameService gameService;
+  private final RegionMapper regionMapper;
 
   private Map<Side, List<Region>> regions;
 
@@ -31,8 +32,10 @@ public class RegionServiceImpl implements RegionService {
   @Inject
   public RegionServiceImpl(final Events events,
                            final RegionRepository regionRepository,
+                           final RegionMapper regionMapper,
                            final GameService gameService) {
     this.regionRepository = regionRepository;
+    this.regionMapper = regionMapper;
     this.gameService = gameService;
 
     events.getLoadMapEvent().register(this::handleLoadMapEvent);
@@ -63,7 +66,7 @@ public class RegionServiceImpl implements RegionService {
   private Pair<Side, List<Region>> createRegions(final Id mapId) {
     var regions = regionRepository.get(mapId)
         .stream()
-        .map(RegionMapper.INSTANCE::toModel)
+        .map(regionMapper::toModel)
         .toList();
 
     return new Pair<>(mapId.getSide(), regions);
