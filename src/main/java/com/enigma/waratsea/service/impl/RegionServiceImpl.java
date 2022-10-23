@@ -50,12 +50,14 @@ public class RegionServiceImpl implements RegionService {
   private void handleLoadMapEvent(final LoadMapEvent event) {
     log.info("RegionServiceImpl receives load map event.");
 
-    createAllRegions();
+    getAllRegions();
     indexAllAirfields();
   }
 
-  private void createAllRegions() {
-    var mapName = gameService.getGame().getScenario().getMap();
+  private void getAllRegions() {
+    var mapName = gameService.getGame()
+        .getScenario()
+        .getMap();
 
     regions = Side.stream()
         .map(side -> new Id(side, mapName))
@@ -87,6 +89,6 @@ public class RegionServiceImpl implements RegionService {
     region.getAirfields()
         .stream()
         .map(Airfield::getId)
-        .forEach(id -> airfields.get(nation).putIfAbsent(id, region));
+        .forEach(airfieldId -> airfields.get(nation).putIfAbsent(airfieldId, region));
   }
 }

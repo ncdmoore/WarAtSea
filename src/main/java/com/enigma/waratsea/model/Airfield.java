@@ -1,10 +1,12 @@
 package com.enigma.waratsea.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
+@Builder
 public class Airfield {
   private String id;
   private String title;

@@ -6,7 +6,7 @@
     "max": "4",
     "gridReference": "AK22",
     "airfields": [
-      "ALLIES:Malta-1940"
+      "ALLIES:Malta_1940"
     ],
     "ports": [
       "ALLIES:Malta"
