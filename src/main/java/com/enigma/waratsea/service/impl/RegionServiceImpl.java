@@ -53,17 +53,17 @@ public class RegionServiceImpl implements RegionService {
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
-    log.info("RegionServiceImpl receives StartNewGameEvent - clears caches");
+    log.debug("RegionServiceImpl receives StartNewGameEvent - clears caches");
     clearCaches();
   }
 
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
-    log.info("RegionServiceImpl receives StartSavedGameEvent - clears caches");
+    log.debug("RegionServiceImpl receives StartSavedGameEvent - clears caches");
     clearCaches();
   }
 
   private void handleLoadMapEvent(final LoadMapEvent event) {
-    log.info("RegionServiceImpl receives LoadMapEvent.");
+    log.debug("RegionServiceImpl receives LoadMapEvent.");
 
     getAllRegions();
     indexAllAirfields();

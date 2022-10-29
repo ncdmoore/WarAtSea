@@ -1,6 +1,7 @@
 package com.enigma.watatsea.service;
 
 import com.enigma.waratsea.entity.AirfieldEntity;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Airfield;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.AirfieldRepository;
@@ -9,10 +10,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
+import static com.enigma.waratsea.model.Side.ALLIES;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
@@ -24,6 +27,10 @@ class AirfieldServiceTest {
 
   @Mock
   private AirfieldRepository airfieldRepository;
+
+  @SuppressWarnings("unused")
+  @Spy
+  private Events events;
 
   private static final String AIRFIELD_ID_1 = "ALLIES:airfield-name-1";
   private static final String AIRFIELD_ID_2 = "ALLIES:airfield-name-2";
@@ -47,17 +54,17 @@ class AirfieldServiceTest {
   void testGetAirfields() {
     var airfieldIdStrings = List.of(AIRFIELD_ID_1, AIRFIELD_ID_2);
 
-    var airfieldEntities = airfieldIdStrings.stream()
-        .map(this::buildEntity)
-        .toList();
+    var airfieldId1 = new Id(ALLIES, AIRFIELD_ID_1);
+    var airfieldId2 = new Id(ALLIES, AIRFIELD_ID_2);
 
-    var airfieldIds = airfieldIdStrings.stream()
-        .map(Id::new)
-        .toList();
+    var airfieldEntity1 = buildEntity(AIRFIELD_ID_1);
+    var airfieldEntity2 = buildEntity(AIRFIELD_ID_2);
 
-    given(airfieldRepository.get(airfieldIds)).willReturn(airfieldEntities);
 
-    var result = airfieldService.get(airfieldIds);
+    given(airfieldRepository.get(airfieldId1)).willReturn(airfieldEntity1);
+    given(airfieldRepository.get(airfieldId2)).willReturn(airfieldEntity2);
+
+    var result = airfieldService.get(List.of(airfieldId1, airfieldId2));
 
     assertEquals(airfieldIdStrings.size(), result.size());
 

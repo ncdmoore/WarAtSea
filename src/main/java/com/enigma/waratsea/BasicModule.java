@@ -58,6 +58,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(GameService.class);
     bootStrappedBinder.addBinding().to(ConfigGameSaga.class);
     bootStrappedBinder.addBinding().to(MapService.class);
+    bootStrappedBinder.addBinding().to(AirfieldService.class);
     bootStrappedBinder.addBinding().to(RegionService.class);
     bootStrappedBinder.addBinding().to(PlayerService.class);
   }
