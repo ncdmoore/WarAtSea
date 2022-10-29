@@ -6,15 +6,14 @@ import com.enigma.waratsea.event.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.AirfieldMapper;
 import com.enigma.waratsea.model.Airfield;
 import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.AirfieldRepository;
 import com.enigma.waratsea.service.AirfieldService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Slf4j
 @Singleton
@@ -22,6 +21,7 @@ public class AirfieldServiceImpl implements AirfieldService {
   private final AirfieldRepository airfieldRepository;
 
   private final Map<Id, Airfield> airfields = new HashMap<>();
+  private final Map<Side, Set<Airfield>> airfieldSideMap = new HashMap<>();
 
   @Inject
   public AirfieldServiceImpl(final Events events,
@@ -32,20 +32,37 @@ public class AirfieldServiceImpl implements AirfieldService {
   }
 
   @Override
-  public List<Airfield> get(List<Id> airfieldIds) {
+  public List<Airfield> get(final List<Id> airfieldIds) {
     return airfieldIds.stream()
         .map(this::get)
         .toList();
   }
 
   @Override
-  public Airfield get(Id airfieldId) {
-    return airfields.computeIfAbsent(airfieldId, this::getFromDisk);
+  public Set<Airfield> get(final Side side) {
+    return Optional.ofNullable(airfieldSideMap.get(side))
+        .orElse(Collections.emptySet());
+  }
+
+  @Override
+  public Airfield get(final Id airfieldId) {
+    return  airfields.computeIfAbsent(airfieldId, this::getAndIndex);
   }
 
   private void registerEvents(final Events events) {
     events.getStartNewGameEvents().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvents().register(this::handleStartSavedGameEvent);
+  }
+
+  private Airfield getAndIndex(Id airfieldId) {
+    var airfield = getFromDisk(airfieldId);
+
+    var side = airfieldId.getSide();
+
+    airfieldSideMap.computeIfAbsent(side, s -> new HashSet<>())
+        .add(airfield);
+
+    return airfield;
   }
 
   private Airfield getFromDisk(Id airfieldId) {
@@ -56,11 +73,16 @@ public class AirfieldServiceImpl implements AirfieldService {
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
     log.debug("AirfieldServiceImpl handle StartNewGameEvent - clear cache");
-    airfields.clear();
+    clearCaches();
   }
 
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
     log.debug("AirfieldServiceImpl handle StartSavedGameEvent - clear cache");
+    clearCaches();
+  }
+
+  private void clearCaches() {
     airfields.clear();
+    airfieldSideMap.clear();
   }
 }

@@ -15,7 +15,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
 
-import static com.enigma.waratsea.model.Side.ALLIES;
+import static com.enigma.waratsea.model.Side.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.BDDMockito.given;
@@ -60,7 +60,6 @@ class AirfieldServiceTest {
     var airfieldEntity1 = buildEntity(AIRFIELD_ID_1);
     var airfieldEntity2 = buildEntity(AIRFIELD_ID_2);
 
-
     given(airfieldRepository.get(airfieldId1)).willReturn(airfieldEntity1);
     given(airfieldRepository.get(airfieldId2)).willReturn(airfieldEntity2);
 
@@ -74,6 +73,36 @@ class AirfieldServiceTest {
 
     assertTrue(resultIds.contains(AIRFIELD_ID_1));
     assertTrue(resultIds.contains(AIRFIELD_ID_2));
+
+
+
+    assertEquals(airfieldIdStrings.size(), airfieldService.get(ALLIES).size());
+  }
+
+  @Test
+  public void testGetSidesAirfields() {
+    var airfieldIdStrings = List.of(AIRFIELD_ID_1, AIRFIELD_ID_2);
+
+    var airfieldId1 = new Id(ALLIES, AIRFIELD_ID_1);
+    var airfieldId2 = new Id(AXIS, AIRFIELD_ID_2);
+
+    var airfieldEntity1 = buildEntity(AIRFIELD_ID_1);
+    var airfieldEntity2 = buildEntity(AIRFIELD_ID_2);
+
+    given(airfieldRepository.get(airfieldId1)).willReturn(airfieldEntity1);
+    given(airfieldRepository.get(airfieldId2)).willReturn(airfieldEntity2);
+
+    var airfields = airfieldService.get(List.of(airfieldId1, airfieldId2));
+
+    assertEquals(airfieldIdStrings.size(), airfields.size());
+
+    var alliedAirfields = airfieldService.get(ALLIES);
+    var axisAirfields = airfieldService.get(AXIS);
+    var neutralAirfields = airfieldService.get(NEUTRAL);
+
+    assertEquals(1, alliedAirfields.size());
+    assertEquals(1, axisAirfields.size());
+    assertEquals(0, neutralAirfields.size());
   }
 
   private AirfieldEntity buildEntity(String id) {
