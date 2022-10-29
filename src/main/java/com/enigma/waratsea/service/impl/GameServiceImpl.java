@@ -52,7 +52,7 @@ public class GameServiceImpl implements GameService {
 
   private void registerEvents(final Events events) {
     events.getGameNameEvents().register(this::setGameName);
-    events.getNewGameEvents().register(this::create);
+    events.getStartNewGameEvents().register(this::create);
     events.getSaveGameEvents().register(this::save);
     events.getSelectScenarioEvent().register(this::setScenario);
     events.getSelectSideEvent().register(this::setHumanSide);
@@ -78,9 +78,9 @@ public class GameServiceImpl implements GameService {
     log.debug("Game Service received gameNameEvent, game set to: '{}'", gameEvent.gameName());
   }
 
-  private void create(final NewGameEvent newGameEvent) {
+  private void create(final StartNewGameEvent startNewGameEvent) {
     game = new Game(gameName);
-    log.debug("Game Service received newGameEvent");
+    log.debug("Game Service received startNewGameEvent");
   }
 
   private void save(final SaveGameEvent gameSaveEvent) {

@@ -1,7 +1,7 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.event.LoadGameEvent;
-import com.enigma.waratsea.event.NewGameEvent;
+import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.event.StartNewGameEvent;
 import com.enigma.waratsea.exceptions.WarAtSeaException;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.service.GameService;
@@ -34,7 +34,7 @@ public class StartViewModel {
 
   public void newGame(final Stage stage) {
     try {
-      events.getNewGameEvents().fire(new NewGameEvent());
+      events.getStartNewGameEvents().fire(new StartNewGameEvent());
       events.getNavigateEvents().fire(buildForwardNavigateEvent(stage));
     } catch (WarAtSeaException e) {
       events.getErrorEvents().fire(buildErrorEvent());
@@ -42,7 +42,7 @@ public class StartViewModel {
   }
 
   public void savedGame(final Stage stage) {
-    events.getLoadGameEvents().fire(new LoadGameEvent());
+    events.getStartSavedGameEvents().fire(new StartSavedGameEvent());
     events.getNavigateEvents().fire(buildForwardNavigateEvent(stage));
   }
 

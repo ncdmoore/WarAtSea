@@ -1,9 +1,9 @@
 package com.enigma.waratsea.viewmodel;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.event.LoadGameEvent;
+import com.enigma.waratsea.event.StartSavedGameEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
-import com.enigma.waratsea.event.NewGameEvent;
+import com.enigma.waratsea.event.StartNewGameEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
@@ -69,8 +69,8 @@ public class NavigationHandler implements BootStrapped {
   }
 
   private void registerEvents(final Events events) {
-    events.getNewGameEvents().register(this::handleNewGame);
-    events.getLoadGameEvents().register(this::handleLoadGame);
+    events.getStartNewGameEvents().register(this::handleStartNewGame);
+    events.getStartSavedGameEvents().register(this::handleStartSavedGame);
     events.getNavigateEvents().register(this::handleNavigate);
   }
 
@@ -122,11 +122,11 @@ public class NavigationHandler implements BootStrapped {
     savedGamePageFlow.put(SavedGameView.class, savedGamePage);
   }
 
-  private void handleNewGame(final NewGameEvent newGameEvent) {
+  private void handleStartNewGame(final StartNewGameEvent startNewGameEvent) {
     pageFlow = newGamePageFlow;
   }
 
-  private void handleLoadGame(final LoadGameEvent loadGameEvent) {
+  private void handleStartSavedGame(final StartSavedGameEvent startSavedGameEvent) {
     pageFlow = savedGamePageFlow;
   }
 }

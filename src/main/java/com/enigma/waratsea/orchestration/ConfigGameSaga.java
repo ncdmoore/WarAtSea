@@ -1,7 +1,7 @@
 package com.enigma.waratsea.orchestration;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.event.ConfigGameEvent;
+import com.enigma.waratsea.event.ConfigNewGameEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
 import com.enigma.waratsea.event.LoadPlayerEvent;
@@ -18,11 +18,11 @@ public class ConfigGameSaga implements BootStrapped {
   public ConfigGameSaga(final Events events) {
     this.events = events;
 
-    events.getConfigGameEvent().register(this::handleConfigGame);
+    events.getConfigNewGameEvent().register(this::handleConfigNewGame);
   }
 
-  private void handleConfigGame(final ConfigGameEvent event) {
-    log.info("ConfigGameSaga: handle config game event");
+  private void handleConfigNewGame(final ConfigNewGameEvent event) {
+    log.info("ConfigGameSaga: handle ConfigNewGameEvent");
 
     events.getLoadMapEvent().fire(new LoadMapEvent());
     events.getLoadPlayerEvent().fire(new LoadPlayerEvent());
