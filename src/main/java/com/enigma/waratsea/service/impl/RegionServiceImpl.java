@@ -2,6 +2,8 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
+import com.enigma.waratsea.event.StartNewGameEvent;
+import com.enigma.waratsea.event.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.repository.RegionRepository;
@@ -12,10 +14,7 @@ import com.google.inject.Singleton;
 import javafx.util.Pair;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -38,7 +37,7 @@ public class RegionServiceImpl implements RegionService {
     this.regionMapper = regionMapper;
     this.gameService = gameService;
 
-    events.getLoadMapEvent().register(this::handleLoadMapEvent);
+    registerEvents(events);
   }
 
   @Override
@@ -47,8 +46,24 @@ public class RegionServiceImpl implements RegionService {
         .get(airfieldId);
   }
 
+  private void registerEvents(final Events events) {
+    events.getStartNewGameEvents().register(this::handleStartNewGameEvent);
+    events.getStartSavedGameEvents().register(this::handleStartSavedGameEvent);
+    events.getLoadMapEvent().register(this::handleLoadMapEvent);
+  }
+
+  private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
+    log.info("RegionServiceImpl receives StartNewGameEvent - clears caches");
+    clearCaches();
+  }
+
+  private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
+    log.info("RegionServiceImpl receives StartSavedGameEvent - clears caches");
+    clearCaches();
+  }
+
   private void handleLoadMapEvent(final LoadMapEvent event) {
-    log.info("RegionServiceImpl receives load map event.");
+    log.info("RegionServiceImpl receives LoadMapEvent.");
 
     getAllRegions();
     indexAllAirfields();
@@ -90,5 +105,10 @@ public class RegionServiceImpl implements RegionService {
         .stream()
         .map(Airfield::getId)
         .forEach(airfieldId -> airfields.get(nation).putIfAbsent(airfieldId, region));
+  }
+
+  private void clearCaches() {
+    Optional.ofNullable(regions).ifPresent(Map::clear);
+    airfields.clear();
   }
 }
