@@ -1,6 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.event.StartNewGameEvent;
 import com.enigma.waratsea.event.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.AirfieldMapper;
@@ -52,6 +53,7 @@ public class AirfieldServiceImpl implements AirfieldService {
   private void registerEvents(final Events events) {
     events.getStartNewGameEvents().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvents().register(this::handleStartSavedGameEvent);
+    events.getSaveGameEvents().register(this::save);
   }
 
   private Airfield getAndIndex(Id airfieldId) {
@@ -79,6 +81,17 @@ public class AirfieldServiceImpl implements AirfieldService {
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
     log.debug("AirfieldServiceImpl handle StartSavedGameEvent - clear cache");
     clearCaches();
+  }
+
+  private void save(final SaveGameEvent saveGameEvent) {
+    var gameId = saveGameEvent.getId();
+
+    airfields.values()
+        .stream()
+        .map(AirfieldMapper.INSTANCE::toEntity)
+        .forEach(airfield -> airfieldRepository.save(gameId, airfield));
+
+    log.info("AirfieldServiceImpl received saveGameEvent save airfields for game: '{}'.", gameId);
   }
 
   private void clearCaches() {

@@ -6,9 +6,10 @@ import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.service.ScenarioService;
 import com.google.inject.Inject;
 import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "jsr330")
+@Mapper(componentModel = "jsr330", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class GameMapper {
   public static final GameMapper INSTANCE = Mappers.getMapper(GameMapper.class);
 

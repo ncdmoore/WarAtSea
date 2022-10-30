@@ -84,7 +84,7 @@ public class GameServiceImpl implements GameService {
   }
 
   private void save(final SaveGameEvent gameSaveEvent) {
-    game.createId(gameSaveEvent.getName());
+    game.setId(gameSaveEvent.getId());
     var gameMapper = GameMapper.INSTANCE;
     var gameEntity = gameMapper.toEntity(game);
 

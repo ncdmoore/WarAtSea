@@ -6,6 +6,7 @@ import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -38,7 +39,23 @@ public class DataProvider {
     }
   }
 
-  public void createDirectory(final Path directoryPath) {
+  public void createDirectoryIfNeeded(final Path directoryPath) {
+    if (!Files.isDirectory(directoryPath)) {
+      createDirectory(directoryPath);
+    }
+  }
+
+  public InputStream getDataInputStream(final String relativeDataPath) {
+    var fullPath = Paths.get(dataNames.getGameDataDirectory(), relativeDataPath).toString();
+
+    log.debug("Get data input stream for path: '{}'", fullPath);
+
+    return getClass()
+        .getClassLoader()
+        .getResourceAsStream(fullPath);
+  }
+
+  private void createDirectory(final Path directoryPath) {
     try {
       Files.createDirectories(directoryPath);
     } catch (IOException e) {

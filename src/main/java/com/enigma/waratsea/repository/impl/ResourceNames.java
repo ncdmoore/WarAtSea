@@ -21,7 +21,6 @@ public class ResourceNames {
   private String gamePath;
   private String scenarioName;
   private String scenarioPath;
-  private final String airfieldDirectory = "airfields";
   private final String commonDirectory = "common";
   private final String cssDirectory = "css";
   private final String imageDirectory = "images";

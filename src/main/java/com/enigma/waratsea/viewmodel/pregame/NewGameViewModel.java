@@ -56,7 +56,7 @@ public class NewGameViewModel {
   public void continueOn(final Stage stage) {
     log.info("continue");
     events.getConfigNewGameEvent().fire(new ConfigNewGameEvent());
-    events.getSaveGameEvents().fire(new SaveGameEvent());
+    events.getSaveGameEvents().fire(new SaveGameEvent(selectedScenario.getValue().getName()));
   }
 
   private void loadScenarios() {

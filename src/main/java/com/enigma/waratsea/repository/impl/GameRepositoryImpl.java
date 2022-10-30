@@ -51,7 +51,7 @@ public class GameRepositoryImpl implements GameRepository {
 
     log.debug("Save game to path: '{}'", directory);
 
-    dataProvider.createDirectory(directory);
+    dataProvider.createDirectoryIfNeeded(directory);
     writeGame(directory, game);
   }
 
