@@ -27,8 +27,19 @@ public class ResourceProvider {
     this.resourceNames = resourceNames;
   }
 
-  public InputStream getResourceInputStream(final String resourceName) {
-    var fullPath = Paths.get(resourceNames.getGamePath(), resourceName).toString();
+  public InputStream getResourceInputStream(final String resourcePath) {
+    var scenarioSpecificPath = resourceNames.getScenarioSpecific(resourcePath);
+
+    return Optional.ofNullable(getInputStream(scenarioSpecificPath))
+        .orElseGet(() -> getInputStream(resourcePath));
+  }
+
+  public InputStream getDefaultResourceInputStream(final String resourcePath) {
+    return getInputStream(resourcePath);
+  }
+
+  private InputStream getInputStream(final String resourcePath) {
+    var fullPath = Paths.get(resourceNames.getGamePath(), resourcePath).toString();
 
     log.debug("Get resource input stream for path: '{}'", fullPath);
 
