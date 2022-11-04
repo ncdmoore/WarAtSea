@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Hvalfjordur",
+  "id": {
+    "side": "ALLIES",
+    "name": "Hvalfjordur"
+  },
   "title": "Hvalfjordur",
   "landingTypes": [
     "SEAPLANE"

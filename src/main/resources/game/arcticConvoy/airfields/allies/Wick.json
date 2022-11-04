@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Wick",
+  "id": {
+    "side": "ALLIES",
+    "name": "Wick"
+  },
   "title": "Wick",
   "landingTypes": [
     "LAND",

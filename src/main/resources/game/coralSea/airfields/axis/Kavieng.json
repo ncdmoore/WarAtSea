@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Kavieng",
+  "id": {
+    "side": "AXIS",
+    "name": "Kavieng"
+  },
   "title": "Kavieng",
   "landingTypes": [
     "LAND",

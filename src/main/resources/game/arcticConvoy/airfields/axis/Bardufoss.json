@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Bardufoss",
+  "id": {
+    "side": "AXIS",
+    "name": "Bardufoss"
+  },
   "title": "Bardufoss",
   "landingTypes": [
     "LAND",

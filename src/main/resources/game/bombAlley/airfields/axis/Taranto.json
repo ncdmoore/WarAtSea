@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Taranto",
+  "id": {
+    "side": "AXIS",
+    "name": "Taranto"
+  },
   "title": "Taranto",
   "landingTypes": [
     "SEAPLANE"

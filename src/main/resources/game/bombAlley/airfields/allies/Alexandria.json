@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Alexandria",
+  "id": {
+    "side": "ALLIES",
+    "name": "Alexandria"
+  },
   "title": "Alexandria",
   "landingTypes": [
     "LAND",

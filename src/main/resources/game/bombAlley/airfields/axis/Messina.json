@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Messina",
+  "id": {
+    "side": "AXIS",
+    "name": "Messina"
+  },
   "title": "Messina",
   "landingTypes": [
     "SEAPLANE"

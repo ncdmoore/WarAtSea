@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Tobruk",
+  "id": {
+    "side": "ALLIES",
+    "name": "Tobruk"
+  },
   "title": "Tobruk",
   "landingTypes": [
     "LAND",

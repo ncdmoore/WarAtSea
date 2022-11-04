@@ -40,14 +40,14 @@ class AirfieldServiceTest {
     var id = new Id(AIRFIELD_ID_1);
 
     var airfieldEntity = AirfieldEntity.builder()
-        .id(AIRFIELD_ID_1).
+        .id(id).
         build();
 
     given(airfieldRepository.get(id)).willReturn(airfieldEntity);
 
     var result = airfieldService.get(id);
 
-    assertEquals(AIRFIELD_ID_1, result.getId());
+    assertEquals(id, result.getId());
   }
 
   @Test
@@ -57,8 +57,8 @@ class AirfieldServiceTest {
     var airfieldId1 = new Id(ALLIES, AIRFIELD_ID_1);
     var airfieldId2 = new Id(ALLIES, AIRFIELD_ID_2);
 
-    var airfieldEntity1 = buildEntity(AIRFIELD_ID_1);
-    var airfieldEntity2 = buildEntity(AIRFIELD_ID_2);
+    var airfieldEntity1 = buildEntity(airfieldId1);
+    var airfieldEntity2 = buildEntity(airfieldId2);
 
     given(airfieldRepository.get(airfieldId1)).willReturn(airfieldEntity1);
     given(airfieldRepository.get(airfieldId2)).willReturn(airfieldEntity2);
@@ -71,8 +71,8 @@ class AirfieldServiceTest {
         .map(Airfield::getId)
         .toList();
 
-    assertTrue(resultIds.contains(AIRFIELD_ID_1));
-    assertTrue(resultIds.contains(AIRFIELD_ID_2));
+    assertTrue(resultIds.contains(airfieldId1));
+    assertTrue(resultIds.contains(airfieldId2));
 
 
 
@@ -86,8 +86,8 @@ class AirfieldServiceTest {
     var airfieldId1 = new Id(ALLIES, AIRFIELD_ID_1);
     var airfieldId2 = new Id(AXIS, AIRFIELD_ID_2);
 
-    var airfieldEntity1 = buildEntity(AIRFIELD_ID_1);
-    var airfieldEntity2 = buildEntity(AIRFIELD_ID_2);
+    var airfieldEntity1 = buildEntity(airfieldId1);
+    var airfieldEntity2 = buildEntity(airfieldId2);
 
     given(airfieldRepository.get(airfieldId1)).willReturn(airfieldEntity1);
     given(airfieldRepository.get(airfieldId2)).willReturn(airfieldEntity2);
@@ -105,7 +105,7 @@ class AirfieldServiceTest {
     assertEquals(0, neutralAirfields.size());
   }
 
-  private AirfieldEntity buildEntity(String id) {
+  private AirfieldEntity buildEntity(Id id) {
     return AirfieldEntity.builder()
         .id(id)
         .build();

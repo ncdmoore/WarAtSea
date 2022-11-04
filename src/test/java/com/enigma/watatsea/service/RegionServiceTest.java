@@ -4,10 +4,7 @@ import com.enigma.waratsea.entity.RegionEntity;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
 import com.enigma.waratsea.mapper.RegionMapper;
-import com.enigma.waratsea.model.Airfield;
-import com.enigma.waratsea.model.Game;
-import com.enigma.waratsea.model.Region;
-import com.enigma.waratsea.model.Scenario;
+import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.impl.RegionServiceImpl;
@@ -25,6 +22,7 @@ import java.util.List;
 import static com.enigma.waratsea.model.GameName.ARCTIC_CONVOY;
 import static com.enigma.waratsea.model.Nation.BRITISH;
 import static com.enigma.waratsea.model.Nation.UNITED_STATES;
+import static com.enigma.waratsea.model.Side.ALLIES;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
@@ -83,9 +81,9 @@ class RegionServiceTest {
 
   @Test
   void testGetAirfieldRegion() {
-    var result1 = regionService.getAirfieldRegion(BRITISH, AIRFIELD_ID_1);
-    var result2 = regionService.getAirfieldRegion(BRITISH, AIRFIELD_ID_2);
-    var result3 = regionService.getAirfieldRegion(UNITED_STATES, AIRFIELD_ID_2);
+    var result1 = regionService.getAirfieldRegion(BRITISH, new Id(ALLIES, AIRFIELD_ID_1));
+    var result2 = regionService.getAirfieldRegion(BRITISH, new Id(ALLIES, AIRFIELD_ID_2));
+    var result3 = regionService.getAirfieldRegion(UNITED_STATES, new Id(ALLIES, AIRFIELD_ID_2));
 
     assertNotNull(result1);
     assertEquals(REGION_NAME_1, result1.getName());
@@ -101,19 +99,19 @@ class RegionServiceTest {
     var region1 = RegionEntity.builder()
         .name(REGION_NAME_1)
         .nation(BRITISH)
-        .airfields(List.of(AIRFIELD_ID_1))
+        .airfields(List.of("ALLIES:" + AIRFIELD_ID_1))
         .build();
 
     var region2 = RegionEntity.builder()
         .name(REGION_NAME_2)
         .nation(BRITISH)
-        .airfields(List.of(AIRFIELD_ID_2))
+        .airfields(List.of("ALLIES:" + AIRFIELD_ID_2))
         .build();
 
     var region3 = RegionEntity.builder()
         .name(REGION_NAME_2)
         .nation(UNITED_STATES)
-        .airfields(List.of(AIRFIELD_ID_2))
+        .airfields(List.of("ALLIES:" + AIRFIELD_ID_2))
         .build();
 
     return List.of(region1, region2, region3);
@@ -139,8 +137,10 @@ class RegionServiceTest {
   }
 
   private static Airfield buildAirfield(final String airfieldId) {
+    var id = new Id(airfieldId);
+
     return Airfield.builder()
-        .id(airfieldId)
+        .id(id)
         .build();
   }
 }

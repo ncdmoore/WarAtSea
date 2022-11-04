@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Bizerte",
+  "id": {
+    "side": "AXIS",
+    "name": "Bizerte"
+  },
   "title": "Bizerte",
   "landingTypes": [
     "LAND",

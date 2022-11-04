@@ -1,5 +1,8 @@
 {
-  "id": "NEUTRAL:Suba_Bay",
+  "id": {
+    "side": "NEUTRAL",
+    "name": "Suba_Bay"
+  },
   "name": "Suda Bay",
   "landingTypes": [
     "LAND",

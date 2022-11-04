@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Akureyri",
+  "id": {
+    "side": "ALLIES",
+    "name": "Akureyri"
+  },
   "title": "Akureyri",
   "landingTypes": [
     "LAND",

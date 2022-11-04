@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Kirkenes",
+  "id": {
+    "side": "AXIS",
+    "name": "Kirkenes"
+  },
   "title": "Kirkenes",
   "landingTypes": [
     "LAND",

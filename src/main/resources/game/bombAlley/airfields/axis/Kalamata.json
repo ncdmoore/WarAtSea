@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Kalamata",
+  "id": {
+    "side": "AXIS",
+    "name": "Kalamata"
+  },
   "title": "Kalamata",
   "province": "Greece",
   "landingTypes": [

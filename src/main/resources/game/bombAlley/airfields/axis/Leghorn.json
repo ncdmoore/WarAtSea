@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Leghorn",
+  "id": {
+    "side": "AXIS",
+    "name": "Leghorn"
+  },
   "title": "Leghorn",
   "landingTypes": [
     "SEAPLANE"

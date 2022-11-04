@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Orland",
+  "id": {
+    "side": "AXIS",
+    "name": "Orland"
+  },
   "title": "Orland",
   "landingTypes": [
     "LAND",

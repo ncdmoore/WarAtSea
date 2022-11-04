@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Narvik",
+  "id": {
+    "side": "AXIS",
+    "name": "Narvik"
+  },
   "title": "Narvik",
   "landingTypes": [
     "SEAPLANE"

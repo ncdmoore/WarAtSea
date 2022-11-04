@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Bodo",
+  "id": {
+    "side": "AXIS",
+    "name": "Bodo"
+  },
   "title": "Bodo",
   "landingTypes": [
     "LAND",

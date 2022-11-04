@@ -8,7 +8,7 @@ import java.util.List;
 @Data
 @Builder
 public class Airfield {
-  private String id;
+  private Id id;
   private String title;
   private List<LandingType> landingTypes;
   private int maxCapacity;

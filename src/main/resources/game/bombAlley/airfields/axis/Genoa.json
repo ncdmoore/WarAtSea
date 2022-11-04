@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Genoa",
+  "id": {
+    "side": "AXIS",
+    "name": "Genoa"
+  },
   "title": "Genoa",
   "landingTypes": [
     "SEAPLANE"

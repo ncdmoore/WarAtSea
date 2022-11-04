@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Athens",
+  "id": {
+    "side": "AXIS",
+    "name": "Athens"
+  },
   "title": "Athens",
   "landingTypes": [
     "LAND",

@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Ajaccio",
+  "id": {
+    "side": "AXIS",
+    "name": "Ajaccio"
+  },
   "title": "Ajaccio",
   "landingTypes": [
     "LAND",

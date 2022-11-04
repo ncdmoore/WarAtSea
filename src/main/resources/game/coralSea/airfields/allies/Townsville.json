@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Townsville",
+  "id": {
+    "side": "ALLIES",
+    "name": "Townsville"
+  },
   "title": "Townsville",
   "landingTypes": [
     "LAND",

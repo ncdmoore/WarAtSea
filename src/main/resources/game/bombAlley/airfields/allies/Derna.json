@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Derna",
+  "id": {
+    "side": "ALLIES",
+    "name": "Derna"
+  },
   "title": "Derna",
   "landingTypes": [
     "LAND",

@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Madang",
+  "id": {
+    "side": "AXIS",
+    "name": "Madang"
+  },
   "title": "Madang",
   "landingTypes": [
     "SEAPLANE"

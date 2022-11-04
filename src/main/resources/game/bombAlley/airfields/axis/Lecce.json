@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Lecce",
+  "id": {
+    "side": "AXIS",
+    "name": "Lecce"
+  },
   "title": "Lecce",
   "province": "Italy",
   "landingTypes": [

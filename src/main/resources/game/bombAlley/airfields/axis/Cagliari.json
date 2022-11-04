@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Cagliari",
+  "id": {
+    "side": "AXIS",
+    "name": "Cagliari"
+  },
   "title": "Cagliari",
   "landingTypes": [
     "LAND",

@@ -55,7 +55,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   }
 
   private void saveAirfield(final Path directory, final AirfieldEntity airfield) {
-    var airfieldName = new Id(airfield.getId()).getName();
+    var airfieldName = airfield.getId().getName();
     var filePath = Paths.get(directory.toString(), airfieldName + JSON_EXTENSION);
 
     try (var out = new FileOutputStream(filePath.toString());
@@ -97,7 +97,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   private Path determineDirectory(final String gameId, final AirfieldEntity airfield) {
     var savedGameDirectory = dataNames.getSavedGameDirectory();
     var airfieldDirectoryName = dataNames.getAirfieldDirectory();
-    var side = new Id(airfield.getId()).getSide().toString().toLowerCase(Locale.ROOT);
+    var side = airfield.getId().getSide().toString().toLowerCase(Locale.ROOT);
     return Paths.get(savedGameDirectory, gameId, airfieldDirectoryName, side);
   }
 }

@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Trieste",
+  "id": {
+    "side": "AXIS",
+    "name": "Trieste"
+  },
   "title": "Trieste",
   "landingTypes": [
     "LAND",

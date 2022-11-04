@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Tromso",
+  "id": {
+    "side": "AXIS",
+    "name": "Tromso"
+  },
   "title": "Tromso",
   "landingTypes": [
     "SEAPLANE"

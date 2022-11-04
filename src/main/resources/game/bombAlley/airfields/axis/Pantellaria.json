@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Pantellaria",
+  "id": {
+    "side": "AXIS",
+    "name": "Pantellaria"
+  },
   "title": "Pantellaria",
   "landingTypes": [
     "LAND",

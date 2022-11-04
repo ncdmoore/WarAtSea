@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Bastia",
+  "id": {
+    "side": "AXIS",
+    "name": "Bastia"
+  },
   "title": "Bastia",
   "landingTypes": [
     "LAND",

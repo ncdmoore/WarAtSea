@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Comiso",
+  "id": {
+    "side": "AXIS",
+    "name": "Comiso"
+  },
   "title": "Comiso",
   "landingTypes": [
     "LAND",

@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Port_Moresby",
+  "id": {
+    "side": "ALLIES",
+    "name": "Port_Moresby"
+  },
   "title": "Port Moresby",
   "landingTypes": [
     "LAND",

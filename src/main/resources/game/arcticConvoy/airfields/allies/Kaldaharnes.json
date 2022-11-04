@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Kaldaharnes",
+  "id": {
+    "side": "ALLIES",
+    "name": "Kaldaharnes"
+  },
   "title": "Kaldaharnes",
   "landingTypes": [
     "LAND",

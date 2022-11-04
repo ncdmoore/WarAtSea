@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Pola",
+  "id": {
+    "side": "AXIS",
+    "name": "Pola"
+  },
   "title": "Pola",
   "landingTypes": [
     "SEAPLANE"

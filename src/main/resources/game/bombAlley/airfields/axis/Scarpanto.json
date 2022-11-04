@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Scarpanto",
+  "id": {
+    "side": "AXIS",
+    "name": "Scarpanto"
+  },
   "title": "Scarpanto",
   "landingTypes": [
     "LAND",

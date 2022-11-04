@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Tulagi",
+  "id": {
+    "side": "ALLIES",
+    "name": "Tulagi"
+  },
   "title": "Tulagi",
   "landingTypes": [
     "SEAPLANE"

@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Murmansk",
+  "id": {
+    "side": "ALLIES",
+    "name": "Murmansk"
+  },
   "title": "Murmansk",
   "landingTypes": [
     "LAND",

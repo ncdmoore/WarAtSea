@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Durazzo",
+  "id": {
+    "side": "AXIS",
+    "name": "Durazzo"
+  },
   "title": "Durazzo",
   "landingTypes": [
     "LAND",

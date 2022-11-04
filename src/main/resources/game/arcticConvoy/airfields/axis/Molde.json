@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Molde",
+  "id": {
+    "side": "AXIS",
+    "name": "Molde"
+  },
   "title": "Molde",
   "landingTypes": [
     "LAND",

@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Heraklion",
+  "id": {
+    "side": "AXIS",
+    "name": "Heraklion"
+  },
   "title": "Heraklion",
   "province": "Crete",
   "landingTypes": [

@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Derna",
+  "id": {
+    "side": "AXIS",
+    "name": "Derna"
+  },
   "title": "Derna",
   "landingTypes": [
     "LAND",

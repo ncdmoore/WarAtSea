@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Palermo",
+  "id": {
+    "side": "AXIS",
+    "name": "Palermo"
+  },
   "title": "Palermo",
   "landingTypes": [
     "SEAPLANE",

@@ -1,5 +1,8 @@
 {
-  "id": "NEUTRAL:Athens",
+  "id": {
+    "side": "NEUTRAL",
+    "name": "Athens"
+  },
   "name": "Athens",
   "landingTypes": [
     "LAND",

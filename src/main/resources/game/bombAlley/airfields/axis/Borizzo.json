@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Borizzo",
+  "id": {
+    "side": "AXIS",
+    "name": "Borizzo"
+  },
   "title": "Borizzo",
   "landingTypes": [
     "LAND",

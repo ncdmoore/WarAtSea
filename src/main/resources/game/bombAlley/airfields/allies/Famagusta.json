@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Famagusta",
+  "id": {
+    "side": "ALLIES",
+    "name": "Famagusta"
+  },
   "title": "Famagusta",
   "landingTypes": [
     "LAND",

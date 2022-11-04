@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Lerwick",
+  "id": {
+    "side": "ALLIES",
+    "name": "Lerwick"
+  },
   "title": "Lerwick",
   "landingTypes": [
     "LAND",

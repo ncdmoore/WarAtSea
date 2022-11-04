@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Suda_Bay",
+  "id": {
+    "side": "ALLIES",
+    "name": "Suda_Bay"
+  },
   "title": "Suda Bay",
   "landingTypes": [
     "LAND",

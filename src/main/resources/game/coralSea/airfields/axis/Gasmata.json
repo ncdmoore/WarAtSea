@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Gasmata",
+  "id": {
+    "side": "AXIS",
+    "name": "Gasmata"
+  },
   "title": "Gasmata",
   "landingTypes": [
     "LAND",

@@ -26,7 +26,7 @@ public class RegionServiceImpl implements RegionService {
 
   private Map<Side, List<Region>> regions;
 
-  private final Map<Nation, Map<String, Region>> airfields = new HashMap<>();
+  private final Map<Nation, Map<Id, Region>> airfields = new HashMap<>();
 
   @Inject
   public RegionServiceImpl(final Events events,
@@ -41,7 +41,7 @@ public class RegionServiceImpl implements RegionService {
   }
 
   @Override
-  public Region getAirfieldRegion(Nation nation, String airfieldId) {
+  public Region getAirfieldRegion(Nation nation, Id airfieldId) {
     return airfields.get(nation)
         .get(airfieldId);
   }

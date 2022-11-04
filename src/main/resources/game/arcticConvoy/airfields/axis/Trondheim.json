@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Trondheim",
+  "id": {
+    "side": "AXIS",
+    "name": "Trondheim"
+  },
   "title": "Trondheim",
   "landingTypes": [
     "SEAPLANE"

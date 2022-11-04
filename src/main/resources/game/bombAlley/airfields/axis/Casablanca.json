@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Casablanca",
+  "id": {
+    "side": "AXIS",
+    "name": "Casablanca"
+  },
   "title": "Casablanca",
   "landingTypes": [
     "LAND",

@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Suez",
+  "id": {
+    "side": "ALLIES",
+    "name": "Suez"
+  },
   "title": "Suez",
   "landingTypes": [
     "LAND",

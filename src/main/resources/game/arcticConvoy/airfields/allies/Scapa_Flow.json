@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Scapa_Flow",
+  "id": {
+    "side": "ALLIES",
+    "name": "Scapa_Flow"
+  },
   "title": "Scapa Flow",
   "landingTypes": [
     "LAND",

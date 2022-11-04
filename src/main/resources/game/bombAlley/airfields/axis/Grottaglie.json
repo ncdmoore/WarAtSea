@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Grottaglie",
+  "id": {
+    "side": "AXIS",
+    "name": "Grottaglie"
+  },
   "title": "Grottaglie",
   "province": "Italy",
   "landingTypes": [

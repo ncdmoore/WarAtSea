@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Malta_1940",
+  "id": {
+    "side": "ALLIES",
+    "name": "Malta_1940"
+  },
   "title": "Malta",
   "landingTypes": [
     "LAND",

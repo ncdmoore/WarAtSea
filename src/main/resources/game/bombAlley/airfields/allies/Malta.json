@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Malta",
+  "id": {
+    "side": "ALLIES",
+    "name": "Malta"
+  },
   "title": "Malta",
   "landingTypes": [
     "LAND",

@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Toulon",
+  "id": {
+    "side": "AXIS",
+    "name": "Toulon"
+  },
   "title": "Toulon",
   "landingTypes": [
     "LAND",

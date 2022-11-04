@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Kavala",
+  "id": {
+    "side": "AXIS",
+    "name": "Kavala"
+  },
   "title": "Kavala",
   "province": "Greece",
   "landingTypes": [

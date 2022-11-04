@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Banak",
+  "id": {
+    "side": "AXIS",
+    "name": "Banak"
+  },
   "title": "Banak",
   "landingTypes": [
     "LAND",

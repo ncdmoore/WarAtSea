@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Sarzana",
+  "id": {
+    "side": "AXIS",
+    "name": "Sarzana"
+  },
   "title": "Sarzana",
   "landingTypes": [
     "LAND",

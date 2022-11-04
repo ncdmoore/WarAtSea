@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Gibraltar",
+  "id": {
+    "side": "ALLIES",
+    "name": "Gibraltar"
+  },
   "title": "Gibraltar",
   "landingTypes": [
     "LAND",

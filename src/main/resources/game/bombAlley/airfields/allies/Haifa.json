@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Haifa",
+  "id": {
+    "side": "ALLIES",
+    "name": "Haifa"
+  },
   "title": "Haifa",
   "landingTypes": [
     "LAND",

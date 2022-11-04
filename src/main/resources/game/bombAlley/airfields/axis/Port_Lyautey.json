@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Port_Lyautey",
+  "id": {
+    "side": "AXIS",
+    "name": "Port_Lyautey"
+  },
   "title": "Port Lyautey",
   "landingTypes": [
     "LAND",

@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Tripoli",
+  "id": {
+    "side": "AXIS",
+    "name": "Tripoli"
+  },
   "name": "Tripoli",
   "landingTypes": [
     "LAND",

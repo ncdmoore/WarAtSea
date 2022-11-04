@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Aboukir",
+  "id": {
+    "side": "ALLIES",
+    "name": "Aboukir"
+  },
   "title": "Aboukir",
   "landingTypes": [
     "LAND",

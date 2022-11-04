@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Naples",
+  "id": {
+    "side": "AXIS",
+    "name": "Naples"
+  },
   "title": "Naples",
   "landingTypes": [
     "LAND",

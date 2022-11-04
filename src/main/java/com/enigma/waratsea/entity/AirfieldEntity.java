@@ -1,5 +1,6 @@
 package com.enigma.waratsea.entity;
 
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.LandingType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,7 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class AirfieldEntity {
-  private String id;
+  private Id id;
   private String title;
   private List<LandingType> landingTypes;
   private int maxCapacity;

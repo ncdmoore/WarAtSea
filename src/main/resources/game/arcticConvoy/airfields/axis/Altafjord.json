@@ -1,5 +1,8 @@
 {
-  "id": "AXIS:Altafjord",
+  "id": {
+    "side": "AXIS",
+    "name": "Altafjord"
+  },
   "title": "Altafjord",
   "landingTypes": [
     "SEAPLANE"

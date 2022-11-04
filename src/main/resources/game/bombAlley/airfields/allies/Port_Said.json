@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Port_Said",
+  "id": {
+    "side": "ALLIES",
+    "name": "Port_Said"
+  },
   "title": "Port Said",
   "landingTypes": [
     "SEAPLANE"

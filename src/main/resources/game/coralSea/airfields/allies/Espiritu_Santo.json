@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Espiritu_Santo",
+  "id": {
+    "side": "ALLIES",
+    "name": "Espiritu_Santo"
+  },
   "title": "Espiritu Santo",
   "landingTypes": [
     "LAND",

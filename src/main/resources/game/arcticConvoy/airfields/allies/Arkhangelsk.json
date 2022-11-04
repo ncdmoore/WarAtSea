@@ -1,5 +1,8 @@
 {
-  "id": "ALLIES:Arkhangelsk",
+  "id": {
+    "side": "ALLIES",
+    "name": "Arkhangelsk"
+  },
   "title": "Arkhangelsk",
   "landingTypes": [
     "LAND",

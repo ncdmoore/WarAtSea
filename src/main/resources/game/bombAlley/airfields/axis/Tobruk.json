@@ -1,6 +1,9 @@
 
 {
-  "id": "AXIS:Tobruk",
+  "id": {
+    "side": "AXIS",
+    "name": "Tobruk"
+  },
   "title": "Tobruk",
   "landingTypes": [
     "LAND",
