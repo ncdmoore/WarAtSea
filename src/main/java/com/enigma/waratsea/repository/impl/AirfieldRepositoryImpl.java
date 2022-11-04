@@ -38,15 +38,9 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
 
   @Override
   public void save(final String gameId, final AirfieldEntity airfield) {
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
-    var airfieldDirectoryName = dataNames.getAirfieldDirectory();
-    var side = new Id(airfield.getId()).getSide().toString().toLowerCase(Locale.ROOT);
-    var directory = Paths.get(savedGameDirectory, gameId, airfieldDirectoryName, side);
-
-    log.debug("Save airfield: '{} to path: '{}'", airfield.getId(), directory);
-
+    var directory = determineDirectory(gameId, airfield);
     dataProvider.createDirectoryIfNeeded(directory);
-    writeAirfield(directory, airfield);
+    saveAirfield(directory, airfield);
   }
 
   private AirfieldEntity createAirfield(final Id airfieldId) {
@@ -60,6 +54,19 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
     }
   }
 
+  private void saveAirfield(final Path directory, final AirfieldEntity airfield) {
+    var airfieldName = new Id(airfield.getId()).getName();
+    var filePath = Paths.get(directory.toString(), airfieldName + JSON_EXTENSION);
+
+    try (var out = new FileOutputStream(filePath.toString());
+         var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
+      log.debug("Save airfield: '{} to path: '{}'", airfield.getId(), directory);
+      writeAirfield(writer, airfield);
+    } catch (IOException e) {
+      throw new GameException("Unable to save " + airfield.getId() + " to path: " + filePath, e);
+    }
+  }
+
   private InputStream getAirfieldInputStream(final Id airfieldId) {
     var sidePath = airfieldId.getSide().toLower();
     var fileName = airfieldId.getName() + JSON_EXTENSION;
@@ -70,7 +77,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   }
 
   private AirfieldEntity readAirfield(final BufferedReader bufferedReader) {
-    Gson gson = new Gson();
+    var gson = new Gson();
     var airfield = gson.fromJson(bufferedReader, AirfieldEntity.class);
 
     log.debug("load airfield: '{}'", airfield.getId());
@@ -78,19 +85,19 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
     return airfield;
   }
 
-  private void writeAirfield(final Path directoryPath, final AirfieldEntity airfield) {
-    var airfieldName = new Id(airfield.getId()).getName();
-    var filePath = Paths.get(directoryPath.toString(), airfieldName + JSON_EXTENSION);
+  private void writeAirfield(final OutputStreamWriter writer, final AirfieldEntity airfield) throws IOException {
+    var gson = new GsonBuilder()
+        .setPrettyPrinting()
+        .create();
 
-    try (var out = new FileOutputStream(filePath.toString());
-         var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      Gson gson = new GsonBuilder()
-          .setPrettyPrinting()
-          .create();
-      String json = gson.toJson(airfield);
-      writer.write(json);
-    } catch (IOException e) {
-      throw new GameException("Unable to save " + airfield.getId() + " to path: " + filePath, e);
-    }
+    String json = gson.toJson(airfield);
+    writer.write(json);
+  }
+
+  private Path determineDirectory(final String gameId, final AirfieldEntity airfield) {
+    var savedGameDirectory = dataNames.getSavedGameDirectory();
+    var airfieldDirectoryName = dataNames.getAirfieldDirectory();
+    var side = new Id(airfield.getId()).getSide().toString().toLowerCase(Locale.ROOT);
+    return Paths.get(savedGameDirectory, gameId, airfieldDirectoryName, side);
   }
 }
