@@ -48,11 +48,26 @@
       }
     ],
     "ports": [
-      "AXIS:Altafjord",
-      "AXIS:Bodo",
-      "AXIS:Narvik",
-      "AXIS:Tromso",
-      "AXIS:Trondheim"
+      {
+        "side": "AXIS",
+        "name": "Altafjord"
+      },
+      {
+        "side": "AXIS",
+        "name": "Bodo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Narvik"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tromso"
+      },
+      {
+        "side": "AXIS",
+        "name": "Trondheim"
+      }
     ]
   },
   {
@@ -64,7 +79,10 @@
     "airfields": [
     ],
     "ports": [
-      "AXIS:Petsamo"
+      {
+        "side": "AXIS",
+        "name": "Petsamo"
+      }
     ]
   }
 ]

@@ -19,6 +19,6 @@ public class RegionEntity {
   private String min; // in steps.
   private String max; // in steps.
   private List<Id> airfields;
-  private List<String> ports;
+  private List<Id> ports;
   private String gridReference;
 }

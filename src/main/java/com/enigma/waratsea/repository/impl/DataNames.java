@@ -32,6 +32,9 @@ public class DataNames {
   @Getter
   private final String airfieldDirectory = "airfields";
 
+  @Getter
+  private final String portDirectory = "ports";
+
   @Inject
   public DataNames(final Events events) {
     this.userHomeDirectory = System.getProperty(USER_HOME);

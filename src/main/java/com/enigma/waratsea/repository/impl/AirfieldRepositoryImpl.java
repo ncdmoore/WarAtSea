@@ -13,69 +13,62 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
-import java.nio.file.Paths;
-
-import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 
 @Slf4j
 @Singleton
 public class AirfieldRepositoryImpl implements AirfieldRepository {
-  private final DataNames dataNames;
   private final DataProvider dataProvider;
+  private final String airfieldDirectory;
 
   @Inject
   public AirfieldRepositoryImpl(final DataNames dataNames,
                                 final DataProvider dataProvider) {
-    this.dataNames = dataNames;
     this.dataProvider = dataProvider;
+    this.airfieldDirectory = dataNames.getAirfieldDirectory();
   }
 
   @Override
   public AirfieldEntity get(final Id airfieldId) {
-    return createAirfield(airfieldId);
+    return readAirfield(airfieldId);
   }
 
   @Override
   public void save(final String gameId, final AirfieldEntity airfield) {
-    var directory = determineDirectory(gameId, airfield);
-    dataProvider.createDirectoryIfNeeded(directory);
-    saveAirfield(directory, airfield);
+    var id = airfield.getId();
+    var directory = dataProvider.getSaveDirectory(gameId, id, airfieldDirectory);
+    writeAirfield(directory, airfield);
   }
 
-  private AirfieldEntity createAirfield(final Id airfieldId) {
-    try (var in = getAirfieldInputStream(airfieldId);
+  private AirfieldEntity readAirfield(final Id airfieldId) {
+    try (var in = getInputStream(airfieldId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read airfield for airfield: '{}'", airfieldId);
-      return readAirfield(br);
+      log.debug("Read airfield: '{}'", airfieldId);
+      return toEntity(br);
     } catch (IOException e) {
       throw new GameException("Unable to create airfield: " + airfieldId);
     }
   }
 
-  private void saveAirfield(final Path directory, final AirfieldEntity airfield) {
-    var airfieldName = airfield.getId().getName();
-    var filePath = Paths.get(directory.toString(), airfieldName + JSON_EXTENSION);
+  private void writeAirfield(final Path directory, final AirfieldEntity airfield) {
+    var id = airfield.getId();
+    var filePath = dataProvider.getSaveFile(directory, id);
 
     try (var out = new FileOutputStream(filePath.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save airfield: '{} to path: '{}'", airfield.getId(), directory);
-      writeAirfield(writer, airfield);
+      log.debug("Save airfield: '{}' to path: '{}'", id, directory);
+      var json = toJson(airfield);
+      writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save " + airfield.getId() + " to path: " + filePath, e);
+      throw new GameException("Unable to save " + id + " to path: " + filePath, e);
     }
   }
 
-  private InputStream getAirfieldInputStream(final Id airfieldId) {
-    var sidePath = airfieldId.getSide().toLower();
-    var fileName = airfieldId.getName() + JSON_EXTENSION;
-    var airfieldBasePath = dataNames.getAirfieldDirectory();
-    var airfieldPath = Paths.get(airfieldBasePath, sidePath, fileName).toString();
-
-    return dataProvider.getDataInputStream(airfieldPath);
+  private InputStream getInputStream(final Id airfieldId) {
+    return dataProvider.getDataInputStream(airfieldId, airfieldDirectory);
   }
 
-  private AirfieldEntity readAirfield(final BufferedReader bufferedReader) {
+  private AirfieldEntity toEntity(final BufferedReader bufferedReader) {
     var gson = new Gson();
     var airfield = gson.fromJson(bufferedReader, AirfieldEntity.class);
 
@@ -84,19 +77,11 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
     return airfield;
   }
 
-  private void writeAirfield(final OutputStreamWriter writer, final AirfieldEntity airfield) throws IOException {
+  private String toJson(final AirfieldEntity airfield) {
     var gson = new GsonBuilder()
         .setPrettyPrinting()
         .create();
 
-    String json = gson.toJson(airfield);
-    writer.write(json);
-  }
-
-  private Path determineDirectory(final String gameId, final AirfieldEntity airfield) {
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
-    var airfieldDirectoryName = dataNames.getAirfieldDirectory();
-    var side = airfield.getId().getSide().toLower();
-    return Paths.get(savedGameDirectory, gameId, airfieldDirectoryName, side);
+    return gson.toJson(airfield);
   }
 }

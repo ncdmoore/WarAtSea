@@ -20,7 +20,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Scapa_Flow"
+      {
+        "side": "ALLIES",
+        "name": "Scapa_Flow"
+      }
     ]
   },
   {
@@ -44,8 +47,14 @@
       }
     ],
     "ports": [
-      "ALLIES:Akureyri",
-      "ALLIES:Hvalfjordur"
+      {
+        "side": "ALLIES",
+        "name": "Akureyri"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hvalfjordur"
+      }
     ]
   },
   {
@@ -69,8 +78,14 @@
       }
     ],
     "ports": [
-      "ALLIES:Akureyri",
-      "ALLIES:Hvalfjordur"
+      {
+        "side": "ALLIES",
+        "name": "Akureyri"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hvalfjordur"
+      }
     ]
   },
   {
@@ -90,9 +105,18 @@
       }
     ],
     "ports": [
-      "ALLIES:Arkhangelsk",
-      "ALLIES:Dikson",
-      "ALLIES:Murmansk"
+      {
+        "side": "ALLIES",
+        "name": "Arkhangelsk"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Dikson"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Murmansk"
+      }
     ]
   }
 ]

@@ -59,6 +59,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(ConfigGameSaga.class);
     bootStrappedBinder.addBinding().to(MapService.class);
     bootStrappedBinder.addBinding().to(AirfieldService.class);
+    bootStrappedBinder.addBinding().to(PortService.class);
     bootStrappedBinder.addBinding().to(RegionService.class);
     bootStrappedBinder.addBinding().to(PlayerService.class);
   }
@@ -81,6 +82,7 @@ public class BasicModule extends AbstractModule {
     bind(MapRepository.class).to(MapRepositoryImpl.class);
     bind(RegionRepository.class).to(RegionRepositoryImpl.class);
     bind(AirfieldRepository.class).to(AirfieldRepositoryImpl.class);
+    bind(PortRepository.class).to(PortRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
 
@@ -111,5 +113,6 @@ public class BasicModule extends AbstractModule {
     bind(GameService.class).to(GameServiceImpl.class);
     bind(PlayerService.class).to(PlayerServiceImpl.class);
     bind(AirfieldService.class).to(AirfieldServiceImpl.class);
+    bind(PortService.class).to(PortServiceImpl.class);
   }
 }

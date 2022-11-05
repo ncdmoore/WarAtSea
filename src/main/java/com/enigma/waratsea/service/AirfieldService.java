@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 
 public interface AirfieldService extends BootStrapped {
-  List<Airfield> get(List<Id> airfieldId);
+  List<Airfield> get(List<Id> airfieldIds);
   Set<Airfield> get(Side side);
   Airfield get(Id airfieldId);
 }

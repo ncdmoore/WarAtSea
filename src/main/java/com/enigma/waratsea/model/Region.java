@@ -13,6 +13,6 @@ public class Region {
   private String min; // in steps.
   private String max; // in steps.
   private List<Airfield> airfields;
-  private List<String> ports;
+  private List<Port> ports;
   private String gridReference;
 }
