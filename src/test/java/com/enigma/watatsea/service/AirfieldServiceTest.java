@@ -32,12 +32,12 @@ class AirfieldServiceTest {
   @Spy
   private Events events;
 
-  private static final String AIRFIELD_ID_1 = "ALLIES:airfield-name-1";
-  private static final String AIRFIELD_ID_2 = "ALLIES:airfield-name-2";
+  private static final String AIRFIELD_ID_1 = "airfield-name-1";
+  private static final String AIRFIELD_ID_2 = "airfield-name-2";
 
   @Test
   void testGetSingleAirfield() {
-    var id = new Id(AIRFIELD_ID_1);
+    var id = new Id(ALLIES, AIRFIELD_ID_1);
 
     var airfieldEntity = AirfieldEntity.builder()
         .id(id).
@@ -73,28 +73,24 @@ class AirfieldServiceTest {
 
     assertTrue(resultIds.contains(airfieldId1));
     assertTrue(resultIds.contains(airfieldId2));
-
-
-
     assertEquals(airfieldIdStrings.size(), airfieldService.get(ALLIES).size());
   }
 
   @Test
   public void testGetSidesAirfields() {
-    var airfieldIdStrings = List.of(AIRFIELD_ID_1, AIRFIELD_ID_2);
+    var airfieldIds = List.of(
+        new Id(ALLIES, AIRFIELD_ID_1),
+        new Id(AXIS, AIRFIELD_ID_2)
+    );
 
-    var airfieldId1 = new Id(ALLIES, AIRFIELD_ID_1);
-    var airfieldId2 = new Id(AXIS, AIRFIELD_ID_2);
+    airfieldIds.forEach(id -> {
+      var airfieldEntity = buildEntity(id);
+      given(airfieldRepository.get(id)).willReturn(airfieldEntity);
+    });
 
-    var airfieldEntity1 = buildEntity(airfieldId1);
-    var airfieldEntity2 = buildEntity(airfieldId2);
+    var result = airfieldService.get(airfieldIds);
 
-    given(airfieldRepository.get(airfieldId1)).willReturn(airfieldEntity1);
-    given(airfieldRepository.get(airfieldId2)).willReturn(airfieldEntity2);
-
-    var airfields = airfieldService.get(List.of(airfieldId1, airfieldId2));
-
-    assertEquals(airfieldIdStrings.size(), airfields.size());
+    assertEquals(airfieldIds.size(), result.size());
 
     var alliedAirfields = airfieldService.get(ALLIES);
     var axisAirfields = airfieldService.get(AXIS);
