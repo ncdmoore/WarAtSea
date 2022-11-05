@@ -6,8 +6,14 @@
     "max": "0",
     "gridReference": "AW16",
     "airfields": [
-      "NEUTRAL:Athens",
-      "NEUTRAL:Suda_Bay"
+      {
+        "side": "NEUTRAL",
+        "name": "Athens"
+      },
+      {
+        "side": "NEUTRAL",
+        "name": "Suda_Bay"
+      }
     ],
     "ports": [
       "NEUTRAL:Athens",

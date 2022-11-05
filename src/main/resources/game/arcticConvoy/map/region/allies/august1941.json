@@ -6,9 +6,18 @@
     "max": "0",
     "gridReference": "AO13",
     "airfields": [
-      "ALLIES:Lerwick",
-      "ALLIES:Scapa_Flow",
-      "ALLIES:Wick"
+      {
+        "side": "ALLIES",
+        "name": "Lerwick"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Scapa_Flow"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wick"
+      }
     ],
     "ports": [
       "ALLIES:Scapa_Flow"
@@ -21,9 +30,18 @@
     "max": "0",
     "gridReference": "AO13",
     "airfields": [
-      "ALLIES:Akureyri",
-      "ALLIES:Hvalfjordur",
-      "ALLIES:Kaldaharnes"
+      {
+        "side": "ALLIES",
+        "name": "Akureyri"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hvalfjordur"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Kaldaharnes"
+      }
     ],
     "ports": [
       "ALLIES:Akureyri",
@@ -37,9 +55,18 @@
     "max": "0",
     "gridReference": "AO13",
     "airfields": [
-      "ALLIES:Akureyri",
-      "ALLIES:Hvalfjordur",
-      "ALLIES:Kaldaharnes"
+      {
+        "side": "ALLIES",
+        "name": "Akureyri"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hvalfjordur"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Kaldaharnes"
+      }
     ],
     "ports": [
       "ALLIES:Akureyri",
@@ -53,8 +80,14 @@
     "max": "0",
     "gridReference": "AO13",
     "airfields": [
-      "ALLIES:Arkhangelsk",
-      "ALLIES:Murmansk"
+      {
+        "side": "ALLIES",
+        "name": "Arkhangelsk"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Murmansk"
+      }
     ],
     "ports": [
       "ALLIES:Arkhangelsk",

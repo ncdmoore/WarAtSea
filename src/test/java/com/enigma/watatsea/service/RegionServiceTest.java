@@ -99,19 +99,19 @@ class RegionServiceTest {
     var region1 = RegionEntity.builder()
         .name(REGION_NAME_1)
         .nation(BRITISH)
-        .airfields(List.of("ALLIES:" + AIRFIELD_ID_1))
+        .airfields(List.of(new Id(ALLIES, AIRFIELD_ID_1)))
         .build();
 
     var region2 = RegionEntity.builder()
         .name(REGION_NAME_2)
         .nation(BRITISH)
-        .airfields(List.of("ALLIES:" + AIRFIELD_ID_2))
+        .airfields(List.of(new Id(ALLIES, AIRFIELD_ID_2)))
         .build();
 
     var region3 = RegionEntity.builder()
         .name(REGION_NAME_2)
         .nation(UNITED_STATES)
-        .airfields(List.of("ALLIES:" + AIRFIELD_ID_2))
+        .airfields(List.of(new Id(ALLIES, AIRFIELD_ID_2)))
         .build();
 
     return List.of(region1, region2, region3);
@@ -136,11 +136,10 @@ class RegionServiceTest {
         .build();
   }
 
-  private static Airfield buildAirfield(final String airfieldId) {
-    var id = new Id(airfieldId);
+  private static Airfield buildAirfield(final Id airfieldId) {
 
     return Airfield.builder()
-        .id(id)
+        .id(airfieldId)
         .build();
   }
 }

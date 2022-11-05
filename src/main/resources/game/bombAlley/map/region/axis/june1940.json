@@ -6,8 +6,14 @@
     "max": "0",
     "gridReference": "BD25",
     "airfields": [
-      "AXIS:Rhodes",
-      "AXIS:Scarpanto"
+      {
+        "side": "AXIS",
+        "name": "Rhodes"
+      },
+      {
+        "side": "AXIS",
+        "name": "Scarpanto"
+      }
     ],
     "ports": [
       "AXIS:Rhodes"
@@ -20,10 +26,22 @@
     "max": "0",
     "gridReference": "AN31",
     "airfields": [
-      "AXIS:Derna",
-      "AXIS:Tripoli",
-      "AXIS:Benghazi",
-      "AXIS:Tobruk"
+      {
+        "side": "AXIS",
+        "name": "Derna"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tripoli"
+      },
+      {
+        "side": "AXIS",
+        "name": "Benghazi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tobruk"
+      }
     ],
     "ports": [
       "AXIS:Tripoli",
@@ -38,7 +56,10 @@
     "max": "HALF",
     "gridReference": "AC15",
     "airfields": [
-      "AXIS:Cagliari"
+      {
+        "side": "AXIS",
+        "name": "Cagliari"
+      }
     ],
     "ports": [
       "AXIS:Cagliari"
@@ -51,11 +72,26 @@
     "max": "HALF",
     "gridReference": "AJ18",
     "airfields": [
-      "AXIS:Borizzo",
-      "AXIS:Comiso",
-      "AXIS:Augusta",
-      "AXIS:Palermo",
-      "AXIS:Messina"
+      {
+        "side": "AXIS",
+        "name": "Borizzo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Comiso"
+      },
+      {
+        "side": "AXIS",
+        "name": "Augusta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Palermo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Messina"
+      }
     ],
     "ports": [
       "AXIS:Palermo",
@@ -70,7 +106,10 @@
     "max": "0",
     "gridReference": "AG24",
     "airfields": [
-      "AXIS:Pantellaria"
+      {
+        "side": "AXIS",
+        "name": "Pantellaria"
+      }
     ],
     "ports": [
       "AXIS:Pantellaria"
@@ -83,19 +122,58 @@
     "max": "0",
     "gridReference": "AH10",
     "airfields": [
-      "AXIS:Sarzana",
-      "AXIS:Trieste",
-      "AXIS:Rome",
-      "AXIS:Naples",
-      "AXIS:Foggia",
-      "AXIS:Grottaglie",
-      "AXIS:Lecce",
-      "AXIS:Genoa",
-      "AXIS:La_Spezia",
-      "AXIS:Leghorn",
-      "AXIS:Brindisi",
-      "AXIS:Pola",
-      "AXIS:Taranto"
+      {
+        "side": "AXIS",
+        "name": "Sarzana"
+      },
+      {
+        "side": "AXIS",
+        "name": "Trieste"
+      },
+      {
+        "side": "AXIS",
+        "name": "Rome"
+      },
+      {
+        "side": "AXIS",
+        "name": "Naples"
+      },
+      {
+        "side": "AXIS",
+        "name": "Foggia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Grottaglie"
+      },
+      {
+        "side": "AXIS",
+        "name": "Lecce"
+      },
+      {
+        "side": "AXIS",
+        "name": "Genoa"
+      },
+      {
+        "side": "AXIS",
+        "name": "La_Spezia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Leghorn"
+      },
+      {
+        "side": "AXIS",
+        "name": "Brindisi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Pola"
+      },
+      {
+        "side": "AXIS",
+        "name": "Taranto"
+      }
     ],
     "ports": [
       "AXIS:Genoa",
@@ -115,7 +193,10 @@
     "max": "0",
     "gridReference": "AS12",
     "airfields": [
-      "AXIS:Durazzo"
+      {
+        "side": "AXIS",
+        "name": "Durazzo"
+      }
     ],
     "ports": [
       "AXIS:Durazzo"

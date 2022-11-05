@@ -21,13 +21,8 @@ public abstract class RegionMapper {
 
   abstract public Region toModel(RegionEntity regionEntity);
 
-  List<Airfield> mapAirfields(List<String> airfieldIds) {
-    var assetIds = airfieldIds
-        .stream()
-        .map(Id::new)
-        .toList();
-
-    return airfieldService.get(assetIds);
+  List<Airfield> mapAirfields(List<Id> airfieldIds) {
+    return airfieldService.get(airfieldIds);
   }
 
 }

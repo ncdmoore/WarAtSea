@@ -1,5 +1,6 @@
 package com.enigma.waratsea.entity;
 
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +18,7 @@ public class RegionEntity {
   private Nation nation;
   private String min; // in steps.
   private String max; // in steps.
-  private List<String> airfields;
+  private List<Id> airfields;
   private List<String> ports;
   private String gridReference;
 }

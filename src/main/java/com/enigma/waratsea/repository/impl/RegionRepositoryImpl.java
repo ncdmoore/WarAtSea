@@ -66,7 +66,7 @@ public class RegionRepositoryImpl implements RegionRepository {
     Gson gson = new Gson();
     List<RegionEntity> regions = gson.fromJson(bufferedReader, collectionType);
 
-    log.debug("load regions: {}", regions.stream().map(this::getRegionId).collect(Collectors.joining(",")));
+    log.info("load regions: {}", regions.stream().map(this::getRegionId).collect(Collectors.joining(",")));
 
     return regions;
   }

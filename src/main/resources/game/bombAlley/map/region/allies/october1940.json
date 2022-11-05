@@ -6,7 +6,10 @@
     "max": "0",
     "gridReference": "AK22",
     "airfields": [
-      "ALLIES:Malta_1940"
+      {
+        "side": "ALLIES",
+        "name": "Malta_1940"
+      }
     ],
     "ports": [
       "ALLIES:Malta"
@@ -19,7 +22,10 @@
     "max": "8",
     "gridReference": "H20",
     "airfields": [
-      "ALLIES:Gibraltar"
+      {
+        "side": "ALLIES",
+        "name": "Gibraltar"
+      }
     ],
     "ports": [
       "ALLIES:Gibraltar"
@@ -32,10 +38,22 @@
     "max": "0",
     "gridReference": "BH33",
     "airfields": [
-      "ALLIES:Alexandria",
-      "ALLIES:Suez",
-      "ALLIES:Aboukir",
-      "ALLIES:Port_Said"
+      {
+        "side": "ALLIES",
+        "name": "Alexandria"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Suez"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Aboukir"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Port_Said"
+      }
     ],
     "ports": [
       "ALLIES:Alexandria",
@@ -50,7 +68,10 @@
     "max": "0",
     "gridReference": "BM23",
     "airfields": [
-      "ALLIES:Famagusta"
+      {
+        "side": "ALLIES",
+        "name": "Famagusta"
+      }
     ],
     "ports": [
       "ALLIES:Famagusta"
@@ -63,7 +84,10 @@
     "max": "0",
     "gridReference": "BO27",
     "airfields": [
-      "ALLIES:Haifa"
+      {
+        "side": "ALLIES",
+        "name": "Haifa"
+      }
     ],
     "ports": [
       "ALLIES:Haifa"

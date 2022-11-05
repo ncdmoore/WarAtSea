@@ -14,7 +14,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Locale;
 
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 
@@ -97,7 +96,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   private Path determineDirectory(final String gameId, final AirfieldEntity airfield) {
     var savedGameDirectory = dataNames.getSavedGameDirectory();
     var airfieldDirectoryName = dataNames.getAirfieldDirectory();
-    var side = airfield.getId().getSide().toString().toLowerCase(Locale.ROOT);
+    var side = airfield.getId().getSide().toLower();
     return Paths.get(savedGameDirectory, gameId, airfieldDirectoryName, side);
   }
 }
