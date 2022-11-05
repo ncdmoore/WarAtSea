@@ -12,7 +12,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Port_Moresby"
+      {
+        "side": "ALLIES",
+        "name": "Port_Moresby"
+      }
     ]
   },
   {
@@ -28,7 +31,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Port_Moresby"
+      {
+        "side": "ALLIES",
+        "name": "Port_Moresby"
+      }
     ]
   },
   {
@@ -48,8 +54,14 @@
       }
     ],
     "ports": [
-      "ALLIES:Cairns",
-      "ALLIES:Townsville"
+      {
+        "side": "ALLIES",
+        "name": "Cairns"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Townsville"
+      }
     ]
   },
   {
@@ -69,8 +81,14 @@
       }
     ],
     "ports": [
-      "ALLIES:Cairns",
-      "ALLIES:Townsville"
+      {
+        "side": "ALLIES",
+        "name": "Cairns"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Townsville"
+      }
     ]
   },
   {
@@ -99,7 +117,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Espiritu_Santo"
+      {
+        "side": "ALLIES",
+        "name": "Espiritu_Santo"
+      }
     ]
   }
 ]

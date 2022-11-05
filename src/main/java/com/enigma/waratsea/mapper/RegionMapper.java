@@ -11,7 +11,9 @@ import com.google.inject.Inject;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 @Mapper(componentModel = "jsr330")
 public abstract class RegionMapper {
@@ -28,10 +30,14 @@ public abstract class RegionMapper {
   abstract public Region toModel(RegionEntity regionEntity);
 
   List<Airfield> mapAirfields(List<Id> airfieldIds) {
-    return airfieldService.get(airfieldIds);
+    return Optional.ofNullable(airfieldIds)
+        .map(ids -> airfieldService.get(ids))
+        .orElse(Collections.emptyList());
   }
 
   List<Port> mapPorts(List<Id> portIds) {
-    return portService.get(portIds);
+    return Optional.ofNullable(portIds)
+        .map(ids -> portService.get(ids))
+        .orElse(Collections.emptyList());
   }
 }

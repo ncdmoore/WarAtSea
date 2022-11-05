@@ -12,7 +12,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Malta"
+      {
+        "side": "ALLIES",
+        "name": "Malta"
+      }
     ]
   },
   {
@@ -28,7 +31,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Gibraltar"
+      {
+        "side": "ALLIES",
+        "name": "Gibraltar"
+      }
     ]
   }
 ]

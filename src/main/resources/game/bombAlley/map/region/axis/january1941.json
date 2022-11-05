@@ -16,7 +16,10 @@
       }
     ],
     "ports": [
-      "AXIS:Rhodes"
+      {
+        "side": "AXIS",
+        "name": "Rhodes"
+      }
     ]
   },
   {
@@ -44,9 +47,18 @@
       }
     ],
     "ports": [
-      "AXIS:Tripoli",
-      "AXIS:Benghazi",
-      "AXIS:Tobruk"
+      {
+        "side": "AXIS",
+        "name": "Tripoli"
+      },
+      {
+        "side": "AXIS",
+        "name": "Benghazi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tobruk"
+      }
     ]
   },
   {
@@ -62,7 +74,10 @@
       }
     ],
     "ports": [
-      "AXIS:Cagliari"
+      {
+        "side": "AXIS",
+        "name": "Cagliari"
+      }
     ]
   },
   {
@@ -94,9 +109,18 @@
       }
     ],
     "ports": [
-      "AXIS:Palermo",
-      "AXIS:Messina",
-      "AXIS:Augusta"
+      {
+        "side": "AXIS",
+        "name": "Augusta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Palermo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Messina"
+      }
     ]
   },
   {
@@ -112,7 +136,10 @@
       }
     ],
     "ports": [
-      "AXIS:Pantellaria"
+      {
+        "side": "AXIS",
+        "name": "Pantellaria"
+      }
     ]
   },
   {
@@ -176,14 +203,38 @@
       }
     ],
     "ports": [
-      "AXIS:Genoa",
-      "AXIS:La_Spezia",
-      "AXIS:Leghorn",
-      "AXIS:Naples",
-      "AXIS:Taranto",
-      "AXIS:Brindisi",
-      "AXIS:Pola",
-      "AXIS:Trieste"
+      {
+        "side": "AXIS",
+        "name": "Genoa"
+      },
+      {
+        "side": "AXIS",
+        "name": "La_Spezia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Leghorn"
+      },
+      {
+        "side": "AXIS",
+        "name": "Naples"
+      },
+      {
+        "side": "AXIS",
+        "name": "Taranto"
+      },
+      {
+        "side": "AXIS",
+        "name": "Brindisi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Pola"
+      },
+      {
+        "side": "AXIS",
+        "name": "Trieste"
+      }
     ]
   },
   {
@@ -199,7 +250,10 @@
       }
     ],
     "ports": [
-      "AXIS:Durazzo"
+      {
+        "side": "AXIS",
+        "name": "Durazzo"
+      }
     ]
   },
   {

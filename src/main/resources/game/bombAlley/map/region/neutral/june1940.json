@@ -16,8 +16,14 @@
       }
     ],
     "ports": [
-      "NEUTRAL:Athens",
-      "NEUTRAL:Suda_Bay"
+      {
+        "side": "NEUTRAL",
+        "name": "Athens"
+      },
+      {
+        "side": "NEUTRAL",
+        "name": "Suda_Bay"
+      }
     ]
   }
 ]

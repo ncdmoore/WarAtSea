@@ -12,7 +12,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Malta"
+      {
+        "side": "ALLIES",
+        "name": "Malta"
+      }
     ]
   },
   {
@@ -28,7 +31,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Gibraltar"
+      {
+        "side": "ALLIES",
+        "name": "Gibraltar"
+      }
     ]
   },
   {
@@ -56,9 +62,18 @@
       }
     ],
     "ports": [
-      "ALLIES:Alexandria",
-      "ALLIES:Port_Said",
-      "ALLIES:Suez"
+      {
+        "side": "ALLIES",
+        "name": "Alexandria"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Suez"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Port_Said"
+      }
     ]
   },
   {
@@ -74,7 +89,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Famagusta"
+      {
+        "side": "ALLIES",
+        "name": "Famagusta"
+      }
     ]
   },
   {
@@ -90,7 +108,10 @@
       }
     ],
     "ports": [
-      "ALLIES:Haifa"
+      {
+        "side": "ALLIES",
+        "name": "Haifa"
+      }
     ]
   },
   {
@@ -110,8 +131,14 @@
       }
     ],
     "ports": [
-      "ALLIES:Athens",
-      "ALLIES:Suda_Bay"
+      {
+        "side": "ALLIES",
+        "name": "Athens"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Suda_Bay"
+      }
     ]
   }
 ]

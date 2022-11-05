@@ -15,8 +15,14 @@
       }
     ],
     "ports": [
-      "AXIS:Algiers",
-      "AXIS:Oran"
+      {
+        "side": "AXIS",
+        "name": "Algiers"
+      },
+      {
+        "side": "AXIS",
+        "name": "Oran"
+      }
     ]
   },
   {
@@ -35,8 +41,14 @@
       }
     ],
     "ports": [
-      "AXIS:Marseille",
-      "AXIS:Toulon"
+      {
+        "side": "AXIS",
+        "name": "Marseille"
+      },
+      {
+        "side": "AXIS",
+        "name": "Toulon"
+      }
     ]
   },
   {
@@ -55,8 +67,14 @@
       }
     ],
     "ports": [
-      "AXIS:Bizerte",
-      "AXIS:Tunis"
+      {
+        "side": "AXIS",
+        "name": "Bizerte"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tunis"
+      }
     ]
   },
   {
@@ -71,7 +89,10 @@
       }
     ],
     "ports": [
-      "AXIS:Bastia"
+      {
+        "side": "AXIS",
+        "name": "Bastia"
+      }
     ]
   },
   {
@@ -90,8 +111,14 @@
       }
     ],
     "ports": [
-      "AXIS:Port_Lyautey",
-      "AXIS:Casablanca"
+      {
+        "side": "AXIS",
+        "name": "Port_Lyautey"
+      },
+      {
+        "side": "AXIS",
+        "name": "Casablanca"
+      }
     ]
   }
 ]

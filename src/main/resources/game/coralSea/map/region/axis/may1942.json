@@ -16,8 +16,14 @@
       }
     ],
     "ports": [
-      "AXIS:Madang",
-      "AXIS:Lae"
+      {
+        "side": "AXIS",
+        "name": "Lae"
+      },
+      {
+        "side": "AXIS",
+        "name": "Madang"
+      }
     ]
   },
   {
@@ -37,7 +43,10 @@
       }
     ],
     "ports": [
-      "AXIS:Rabaul"
+      {
+        "side": "AXIS",
+        "name": "Rabaul"
+      }
     ]
   },
   {
@@ -53,7 +62,10 @@
       }
     ],
     "ports": [
-      "AXIS:Kavieng"
+      {
+        "side": "AXIS",
+        "name": "Kavieng"
+      }
     ]
   }
 ]
