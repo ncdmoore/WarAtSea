@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Naples",
+  "id": {
+    "side": "AXIS",
+    "name": "Naples"
+  },
   "title": "Naples",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AJ14"
 }

@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Scapa_Flow",
+  "id": {
+    "side": "ALLIES",
+    "name": "Scapa_Flow"
+  },
   "name": "Scapa Flow",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "L43"
 }

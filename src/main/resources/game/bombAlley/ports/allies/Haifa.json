@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Haifa",
+  "id": {
+    "side": "ALLIES",
+    "name": "Haifa"
+  },
   "title": "Haifa",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "BO29"
 }

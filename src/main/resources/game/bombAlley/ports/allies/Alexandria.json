@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Alexandria",
+  "id": {
+    "side": "ALLIES",
+    "name": "Alexandria"
+  },
   "title": "Alexandria",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "BG32"
 }

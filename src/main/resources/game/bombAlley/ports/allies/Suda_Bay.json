@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Suda_Bay",
+  "id": {
+    "side": "ALLIES",
+    "name": "Suda_Bay"
+  },
   "title": "Suda Bay",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AY24"
 }

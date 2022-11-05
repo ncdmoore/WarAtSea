@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Marseille",
+  "id": {
+    "side": "AXIS",
+    "name": "Marseille"
+  },
   "title": "Marseille",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "W10"
 }

@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Benghazi",
+  "id": {
+    "side": "AXIS",
+    "name": "Benghazi"
+  },
   "title": "Benghazi",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AS30"
 }

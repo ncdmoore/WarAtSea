@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Bizerte",
+  "id": {
+    "side": "AXIS",
+    "name": "Bizerte"
+  },
   "title": "Bizerte",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AC21"
 }

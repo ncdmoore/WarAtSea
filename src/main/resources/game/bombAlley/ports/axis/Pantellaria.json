@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Pantellaria",
+  "id": {
+    "side": "AXIS",
+    "name": "Pantellaria"
+  },
   "title": "Pantellaria",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AG22"
 }

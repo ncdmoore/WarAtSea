@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Trieste",
+  "id": {
+    "side": "AXIS",
+    "name": "Trieste"
+  },
   "title": "Trieste",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AJ4"
 }

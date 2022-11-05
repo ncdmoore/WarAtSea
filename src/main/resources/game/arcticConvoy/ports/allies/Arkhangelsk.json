@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Arkhangelsk",
+  "id": {
+    "side": "ALLIES",
+    "name": "Arkhangelsk"
+  },
   "title": "Arkhangelsk",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "BI37"
 }

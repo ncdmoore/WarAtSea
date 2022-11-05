@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Casablanca",
+  "id": {
+    "side": "AXIS",
+    "name": "Casablanca"
+  },
   "title": "Casablanca",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "D27"
 }

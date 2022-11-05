@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Famagusta",
+  "id": {
+    "side": "ALLIES",
+    "name": "Famagusta"
+  },
   "title": "Famagusta",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "BM25"
 }

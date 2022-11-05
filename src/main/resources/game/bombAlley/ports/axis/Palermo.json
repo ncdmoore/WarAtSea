@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Palermo",
+  "id": {
+    "side": "AXIS",
+    "name": "Palermo"
+  },
   "title": "Palermo",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AI20"
 }

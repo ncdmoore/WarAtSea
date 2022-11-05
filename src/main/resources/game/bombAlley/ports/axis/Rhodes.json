@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Rhodes",
+  "id": {
+    "side": "AXIS",
+    "name": "Rhodes"
+  },
   "title": "Rhodes",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "BE23"
 }

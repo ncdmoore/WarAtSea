@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Tobruk",
+  "id": {
+    "side": "AXIS",
+    "name": "Tobruk"
+  },
   "title": "Tobruk",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AY30"
 }

@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Petsamo",
+  "id": {
+    "side": "AXIS",
+    "name": "Petsamo"
+  },
   "title": "Petsamo",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AX26"
 }

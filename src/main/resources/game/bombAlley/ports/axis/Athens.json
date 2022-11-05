@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Athens",
+  "id": {
+    "side": "AXIS",
+    "name": "Athens"
+  },
   "title": "Athens",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AX19"
 }

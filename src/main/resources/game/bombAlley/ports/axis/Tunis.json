@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Tunis",
+  "id": {
+    "side": "AXIS",
+    "name": "Tunis"
+  },
   "title": "Tunis",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AE22"
 }

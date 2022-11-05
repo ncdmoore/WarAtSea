@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Malta",
+  "id": {
+    "side": "ALLIES",
+    "name": "Malta"
+  },
   "title": "Malta",
   "size": "MAJOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AK24"
 }

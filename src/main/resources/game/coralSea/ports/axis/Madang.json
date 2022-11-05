@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Madang",
+  "id": {
+    "side": "AXIS",
+    "name": "Madang"
+  },
   "title": "Madang",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "F7"
 }

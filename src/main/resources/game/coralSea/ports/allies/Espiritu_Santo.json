@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Espiritu_Santo",
+  "id": {
+    "side": "ALLIES",
+    "name": "Espiritu_Santo"
+  },
   "title": "Espiritu Santo",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AM23"
 }

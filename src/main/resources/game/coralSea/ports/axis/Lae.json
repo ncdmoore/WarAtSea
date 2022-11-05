@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Lae",
+  "id": {
+    "side": "AXIS",
+    "name": "Lae"
+  },
   "title": "Lae",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "H10"
 }

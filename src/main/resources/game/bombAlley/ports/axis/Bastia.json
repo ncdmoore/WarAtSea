@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Bastia",
+  "id": {
+    "side": "AXIS",
+    "name": "Bastia"
+  },
   "title": "Bastia",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AD11"
 }

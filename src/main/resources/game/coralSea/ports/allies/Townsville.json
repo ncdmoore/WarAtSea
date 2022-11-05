@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Townsville",
+  "id": {
+    "side": "ALLIES",
+    "name": "Townsville"
+  },
   "name": "Townsville",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "H30"
 }

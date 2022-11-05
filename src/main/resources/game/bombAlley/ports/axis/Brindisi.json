@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Brindisi",
+  "id": {
+    "side": "AXIS",
+    "name": "Brindisi"
+  },
   "title": "Brindisi",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AQ15"
 }

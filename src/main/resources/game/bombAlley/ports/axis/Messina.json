@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Messina",
+  "id": {
+    "side": "AXIS",
+    "name": "Messina"
+  },
   "title": "Messina",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AL19"
 }

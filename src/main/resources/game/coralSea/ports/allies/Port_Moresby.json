@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Port_Moresby",
+  "id": {
+    "side": "ALLIES",
+    "name": "Port_Moresby"
+  },
   "name": "Port Moresby",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "H14"
 }

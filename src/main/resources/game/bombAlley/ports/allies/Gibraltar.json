@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Gibraltar",
+  "id": {
+    "side": "ALLIES",
+    "name": "Gibraltar"
+  },
   "title": "Gibraltar",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "H22"
 }

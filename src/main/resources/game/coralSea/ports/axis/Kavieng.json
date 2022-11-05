@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Kavieng",
+  "id": {
+    "side": "AXIS",
+    "name": "Kavieng"
+  },
   "title": "Kavieng",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "N3"
 }

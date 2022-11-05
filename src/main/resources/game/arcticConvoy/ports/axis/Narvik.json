@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Narvik",
+  "id": {
+    "side": "AXIS",
+    "name": "Narvik"
+  },
   "title": "Narvik",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AL28"
 }

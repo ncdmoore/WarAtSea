@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Tripoli",
+  "id": {
+    "side": "AXIS",
+    "name": "Tripoli"
+  },
   "title": "Tripoli",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AI29"
 }

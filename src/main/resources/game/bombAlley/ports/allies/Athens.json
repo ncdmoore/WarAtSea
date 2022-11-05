@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Athens",
+  "id": {
+    "side": "ALLIES",
+    "name": "Athens"
+  },
   "title": "Athens",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AX19"
 }

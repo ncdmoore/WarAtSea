@@ -1,7 +1,11 @@
 {
-  "id": "NEUTRAL:Suda_Bay",
+  "id": {
+    "side": "NEUTRAL",
+    "name": "Suba_Bay"
+  },
   "title": "Suda Bay",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AY24"
 }

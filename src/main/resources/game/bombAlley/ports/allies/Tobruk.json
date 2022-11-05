@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Tobruk",
+  "id": {
+    "side": "ALLIES",
+    "name": "Tobruk"
+  },
   "title": "Tobruk",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AY30"
 }

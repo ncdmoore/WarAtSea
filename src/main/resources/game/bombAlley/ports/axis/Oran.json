@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Oran",
+  "id": {
+    "side": "AXIS",
+    "name": "Oran"
+  },
   "title": "Oran",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "O24"
 }

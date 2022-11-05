@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Hvalfjordur",
+  "id": {
+    "side": "ALLIES",
+    "name": "Hvalfjordur"
+  },
   "title": "Hvalfjordur",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "C21"
 }

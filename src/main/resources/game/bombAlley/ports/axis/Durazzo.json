@@ -1,7 +1,11 @@
 {
-  "id": "AXIS:Durazzo",
+  "id": {
+    "side": "AXIS",
+    "name": "Durazzo"
+  },
   "title": "Durazzo",
   "size": "MINOR",
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AR13"
 }

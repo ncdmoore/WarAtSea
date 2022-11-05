@@ -1,7 +1,11 @@
 {
-  "id": "ALLIES:Murmansk",
+  "id": {
+    "side": "ALLIES",
+    "name": "Murmansk"
+  },
   "title": "Murmansk",
   "size": "MAJOR",
+  "maxAntiAir": 15,
   "antiAir": 15,
   "gridReference": "AZ27"
 }
