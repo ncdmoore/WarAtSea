@@ -57,7 +57,7 @@ public class PortServiceImpl implements PortService {
   }
 
   private Port getAndIndex(Id portId) {
-    var port = getFromDisk(portId);
+    var port = getFromRepository(portId);
 
     var side = portId.getSide();
 
@@ -67,7 +67,7 @@ public class PortServiceImpl implements PortService {
     return port;
   }
 
-  private Port getFromDisk(Id portId) {
+  private Port getFromRepository(Id portId) {
     var entity = portRepository.get(portId);
 
     return PortMapper.INSTANCE.toModel(entity);

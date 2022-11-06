@@ -19,7 +19,6 @@ public class MapServiceImpl implements MapService {
   private static final int ALPHABET_SIZE = 26;
   private static final int ASCII_A = 65;
 
-
   private final MapRepository mapRepository;
   private GameMap gameMap;
 

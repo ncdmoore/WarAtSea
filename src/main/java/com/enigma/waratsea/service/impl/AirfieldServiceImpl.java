@@ -57,7 +57,7 @@ public class AirfieldServiceImpl implements AirfieldService {
   }
 
   private Airfield getAndIndex(Id airfieldId) {
-    var airfield = getFromDisk(airfieldId);
+    var airfield = getFromRepository(airfieldId);
 
     var side = airfieldId.getSide();
 
@@ -67,7 +67,7 @@ public class AirfieldServiceImpl implements AirfieldService {
     return airfield;
   }
 
-  private Airfield getFromDisk(Id airfieldId) {
+  private Airfield getFromRepository(Id airfieldId) {
     var entity = airfieldRepository.get(airfieldId);
 
     return AirfieldMapper.INSTANCE.toModel(entity);

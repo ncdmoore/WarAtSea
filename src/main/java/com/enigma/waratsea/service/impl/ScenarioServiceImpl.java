@@ -26,7 +26,7 @@ public class ScenarioServiceImpl implements ScenarioService {
   @Override
   public List<Scenario> get() {
     scenarios = getCachedScenarios()
-        .orElseGet(this::scenariosFromDisk);
+        .orElseGet(this::getScenairosFromRepository);
 
     return scenarios;
   }
@@ -44,7 +44,7 @@ public class ScenarioServiceImpl implements ScenarioService {
     return Optional.ofNullable(scenarios);
   }
 
-  private List<Scenario> scenariosFromDisk() {
+  private List<Scenario> getScenairosFromRepository() {
     return scenarioRepository
         .get()
         .stream()
