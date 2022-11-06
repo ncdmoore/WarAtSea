@@ -54,6 +54,7 @@ public class BasicModule extends AbstractModule {
   private void bindBootStrapped() {
     Multibinder<BootStrapped> bootStrappedBinder = Multibinder.newSetBinder(binder(), BootStrapped.class);
     bootStrappedBinder.addBinding().to(NavigationHandler.class);
+    bootStrappedBinder.addBinding().to(DataProvider.class);
     bootStrappedBinder.addBinding().to(ErrorHandler.class);
     bootStrappedBinder.addBinding().to(GameService.class);
     bootStrappedBinder.addBinding().to(ConfigGameSaga.class);

@@ -1,6 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.model.Game;
+import com.enigma.waratsea.model.GameName;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;
@@ -36,38 +37,30 @@ public class DataNames {
   private final String portDirectory = "ports";
 
   @Inject
-  public DataNames(final Events events) {
+  public DataNames() {
     this.userHomeDirectory = System.getProperty(USER_HOME);
-
-    registerEvents(events);
   }
 
-  private void registerEvents(final Events events) {
-    events.getGameNameEvents().register(this::setGameDirectories);
-    events.getStartNewGameEvents().register(this::setGameDataDirectoryToNewGameDirectory);
-    events.getSelectSavedGameEvent().register(this::setGameDataDirectoryToSavedGameDirectory);
-  }
-
-  private void setGameDirectories(final GameNameEvent gameNameEvent) {
-    var gameName = gameNameEvent.gameName().getValue();
-    savedGameDirectory = Paths.get(userHomeDirectory, DATA_DIRECTORY, gameName, SAVED_GAMES).toString();
-    newGameDirectory = Paths.get(GAME_DIRECTORY, gameName).toString();
-
-    log.debug("DataNames received GameNameEvent, game name is: '{}'", gameName);
-    log.debug(" - newGameDirectory set to: '{}'", newGameDirectory);
-    log.debug(" - savedGameDirectory set to: '{}'", savedGameDirectory);
-  }
-
-  private void setGameDataDirectoryToNewGameDirectory(final StartNewGameEvent startNewGameEvent) {
+  public  void setGameDataDirectoryToNewGameDirectory() {
     gameDataDirectory = newGameDirectory;
 
-    log.debug("DataNames received StartNewGameEvent, gameDataDirectory set to '{}'", gameDataDirectory);
+    log.debug("gameDataDirectory set to '{}'", gameDataDirectory);
   }
 
-  private void setGameDataDirectoryToSavedGameDirectory(final SelectSavedGameEvent selectSavedGameEvent) {
-    var savedGame = selectSavedGameEvent.getGame().getId();
+  public void setGameDataDirectoryToSavedGameDirectory(final Game game) {
+    var savedGame = game.getId();
     gameDataDirectory = Paths.get(savedGameDirectory, savedGame).toString();
 
-    log.debug("DataNames received SelectSavedGameEvent, gameDataDirectory set to '{}'", gameDataDirectory);
+    log.debug("gameDataDirectory set to '{}'", gameDataDirectory);
+  }
+
+  public void setGameDirectories(final GameName gameName) {
+    var name = gameName.getValue();
+    savedGameDirectory = Paths.get(userHomeDirectory, DATA_DIRECTORY, name, SAVED_GAMES).toString();
+    newGameDirectory = Paths.get(GAME_DIRECTORY, name).toString();
+
+    log.debug("DataNames received GameNameEvent, game name is: '{}'", name);
+    log.debug(" - newGameDirectory set to: '{}'", newGameDirectory);
+    log.debug(" - savedGameDirectory set to: '{}'", savedGameDirectory);
   }
 }

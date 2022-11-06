@@ -1,9 +1,15 @@
 package com.enigma.waratsea.repository.impl;
 
+import com.enigma.waratsea.BootStrapped;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.SelectSavedGameEvent;
+import com.enigma.waratsea.event.StartNewGameEvent;
 import com.enigma.waratsea.exceptions.DataException;
 import com.enigma.waratsea.model.Id;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -18,12 +24,16 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 
 @Slf4j
 @Singleton
-public class DataProvider {
+public class DataProvider implements BootStrapped {
   private final DataNames dataNames;
+  private boolean isNewGame = true;
 
   @Inject
-  public DataProvider(final DataNames dataNames) {
+  public DataProvider(final Events events,
+                      final DataNames dataNames) {
     this.dataNames = dataNames;
+
+    registerEvents(events);
   }
 
   public List<Path> getSubDirectoryPaths(final String directoryName) {
@@ -50,17 +60,13 @@ public class DataProvider {
 
   public InputStream getDataInputStream(final Id id, final String baseDirectory) {
     var path = getPath(id, baseDirectory);
-    return getDataInputStream(path.toString());
-  }
-
-  public InputStream getDataInputStream(final String relativeDataPath) {
-    var fullPath = Paths.get(dataNames.getGameDataDirectory(), relativeDataPath).toString();
+    var fullPath = Paths.get(dataNames.getGameDataDirectory(), path.toString()).toString();
 
     log.debug("Get data input stream for path: '{}'", fullPath);
 
-    return getClass()
-        .getClassLoader()
-        .getResourceAsStream(fullPath);
+    return isNewGame
+        ? getResourceInputStream(fullPath)
+        : getFileInputStream(fullPath);
   }
 
   public Path getSaveDirectory(final String gameId, final Id id, final String baseDirectory) {
@@ -76,6 +82,40 @@ public class DataProvider {
   public Path getSaveFile(final Path directory, final Id id) {
     var name = id.getName();
     return Paths.get(directory.toString(), name + JSON_EXTENSION);
+  }
+
+  private void registerEvents(final Events events) {
+    events.getGameNameEvents().register(this::setGameDirectories);
+    events.getStartNewGameEvents().register(this::setGameDataDirectoryToNewGameDirectory);
+    events.getSelectSavedGameEvent().register(this::setGameDataDirectoryToSavedGameDirectory);
+  }
+
+  private void setGameDirectories(final GameNameEvent gameNameEvent) {
+    var gameName = gameNameEvent.gameName();
+    dataNames.setGameDirectories(gameName);
+  }
+
+  private void setGameDataDirectoryToNewGameDirectory(final StartNewGameEvent startNewGameEvent) {
+    isNewGame = true;
+    dataNames.setGameDataDirectoryToNewGameDirectory();
+  }
+
+  private void setGameDataDirectoryToSavedGameDirectory(final SelectSavedGameEvent selectSavedGameEvent) {
+    isNewGame = false;
+    var savedGame = selectSavedGameEvent.getGame();
+    dataNames.setGameDataDirectoryToSavedGameDirectory(savedGame);
+  }
+
+  private InputStream getResourceInputStream(final String fullPath) {
+    return getClass()
+        .getClassLoader()
+        .getResourceAsStream(fullPath);
+  }
+
+  @SneakyThrows
+  private InputStream getFileInputStream(final String fullPath) {
+    var path = Paths.get(fullPath);
+    return Files.newInputStream(path);
   }
 
   private void createDirectory(final Path directoryPath) {
