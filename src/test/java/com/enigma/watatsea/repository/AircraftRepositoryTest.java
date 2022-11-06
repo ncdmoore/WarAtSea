@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.Map;
 
+import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.LandingType.LAND;
 import static com.enigma.waratsea.model.Nation.BRITISH;
 import static com.enigma.waratsea.model.Side.ALLIES;
@@ -43,11 +44,11 @@ public class AircraftRepositoryTest {
   private ResourceProvider resourceProvider;
 
   private static final String AIRCRAFT_DIRECTORY = "aircraft";
+  private static final String AIRCRAFT_NAME = "Beaufort";
 
   @Test
   public void shouldGetAircraftEntity() {
-    var name = "Beaufort";
-    var aircraftId = new Id(ALLIES, name);
+    var aircraftId = new Id(ALLIES, AIRCRAFT_NAME);
 
     var inputStream = getAircraftInputStream();
 
@@ -57,7 +58,7 @@ public class AircraftRepositoryTest {
 
     assertNotNull(result);
     assertEquals(ALLIES, result.getId().getSide());
-    assertEquals(name, result.getId().getName());
+    assertEquals(AIRCRAFT_NAME, result.getId().getName());
     assertEquals(TORPEDO_BOMBER, result.getType());
     assertEquals(BRITISH, result.getNation());
     assertEquals(AIR_FORCE, result.getService());
@@ -74,11 +75,9 @@ public class AircraftRepositoryTest {
   }
 
   private InputStream getAircraftInputStream() {
-    var fullPath = Paths.get(  "Beaufort.json").toString();
+    var fullPath = Paths.get(  "/", AIRCRAFT_DIRECTORY, AIRCRAFT_NAME + JSON_EXTENSION).toString();
 
-    return getClass()
-        .getClassLoader()
-        .getResourceAsStream(fullPath);
+    return getClass().getResourceAsStream(fullPath);
   }
 
   private AttackEntity buildNavalAttack() {
