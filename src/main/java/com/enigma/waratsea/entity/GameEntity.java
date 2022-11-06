@@ -4,13 +4,11 @@ import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
+@Builder
 public class GameEntity {
   private GameName gameName;
   private String id;

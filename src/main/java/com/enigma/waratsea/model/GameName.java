@@ -5,8 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor
 public enum GameName {
   ARCTIC_CONVOY("arcticConvoy"),
   BOMB_ALLEY("bombAlley"),

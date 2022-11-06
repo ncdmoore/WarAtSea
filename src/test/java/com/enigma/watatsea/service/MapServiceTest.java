@@ -11,7 +11,6 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Collections;
 import java.util.Map;
 
 import static com.enigma.waratsea.model.GridType.LAND;
@@ -41,7 +40,13 @@ class MapServiceTest {
 
   @Test
   void testGetMap() {
-    var mapEntity = new GameMapEntity(ROWS, COLUMNS, DEFAULT_GRID_NAME, LAND, LOCATIONS, Collections.emptyMap());
+    var mapEntity = GameMapEntity.builder()
+        .rows(ROWS)
+        .columns(COLUMNS)
+        .defaultGridName(DEFAULT_GRID_NAME)
+        .defaultGridType(LAND)
+        .locations(LOCATIONS)
+        .build();
 
     given(mapRepository.get()).willReturn(mapEntity);
 

@@ -14,8 +14,8 @@ import static com.enigma.waratsea.Constants.GAME_DIRECTORY;
 import static com.enigma.waratsea.Constants.SCENARIO_DIRECTORY;
 
 @Slf4j
-@Singleton
 @Getter
+@Singleton
 public class ResourceNames {
   private final String game = GAME_DIRECTORY;
   private String gamePath;

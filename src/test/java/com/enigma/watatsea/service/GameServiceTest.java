@@ -1,14 +1,14 @@
 package com.enigma.watatsea.service;
 
 import com.enigma.waratsea.entity.GameEntity;
-import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.repository.GameRepository;
-import com.enigma.waratsea.service.impl.GameServiceImpl;
 import com.enigma.waratsea.service.WeatherService;
+import com.enigma.waratsea.service.impl.GameServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -61,7 +61,14 @@ class GameServiceTest {
   private GameEntity buildGameEntity(final String id) {
     var turn = Turn.builder().build();
     var weather = Weather.builder().build();
-    return new GameEntity(BOMB_ALLEY, id, 1, AXIS, turn, weather);
+    return GameEntity.builder()
+        .gameName(BOMB_ALLEY)
+        .id(id)
+        .scenario(1)
+        .humanSide(AXIS)
+        .turn(turn)
+        .weather(weather)
+        .build();
   }
 
   private Game toModel(GameEntity gameEntity) {

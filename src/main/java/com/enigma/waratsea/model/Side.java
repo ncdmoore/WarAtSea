@@ -8,8 +8,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Stream;
 
-@RequiredArgsConstructor
 @Getter
+@RequiredArgsConstructor
 public enum Side {
   ALLIES("Allies"),
   AXIS("Axis"),
