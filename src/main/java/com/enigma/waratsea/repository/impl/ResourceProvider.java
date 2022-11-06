@@ -1,5 +1,9 @@
 package com.enigma.waratsea.repository.impl;
 
+import com.enigma.waratsea.BootStrapped;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.SelectScenarioEvent;
 import com.enigma.waratsea.exceptions.ResourceException;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -19,12 +23,15 @@ import java.util.Optional;
 
 @Slf4j
 @Singleton
-public class ResourceProvider {
+public class ResourceProvider implements BootStrapped {
   private final ResourceNames resourceNames;
 
   @Inject
-  public ResourceProvider(final ResourceNames resourceNames) {
+  public ResourceProvider(final Events events,
+                          final ResourceNames resourceNames) {
     this.resourceNames = resourceNames;
+
+    registerEvents(events);
   }
 
   public InputStream getResourceInputStream(final String resourcePath) {
@@ -56,6 +63,19 @@ public class ResourceProvider {
     } catch (URISyntaxException | IOException e) {
       throw new ResourceException("Unable to get sub directory paths for directory: " + fullName, e);
     }
+  }
+
+  private void registerEvents(final Events events) {
+    events.getGameNameEvents().register(this::handleGameSelected);
+    events.getSelectScenarioEvent().register(this::handleScenarioSelected);
+  }
+
+  private void handleGameSelected(final GameNameEvent gameEvent) {
+    resourceNames.setGamePath(gameEvent.gameName());
+  }
+
+  private void handleScenarioSelected(final SelectScenarioEvent selectScenarioEvent) {
+    resourceNames.setScenario(selectScenarioEvent.getScenario());
   }
 
   private List<Path> getSubDirectoryPathsFromJar(final String directoryName) throws URISyntaxException, IOException {

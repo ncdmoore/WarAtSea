@@ -1,9 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
-import com.enigma.waratsea.event.GameNameEvent;
-import com.enigma.waratsea.event.SelectScenarioEvent;
-import com.enigma.waratsea.event.Events;
-import com.google.inject.Inject;
+import com.enigma.waratsea.model.GameName;
+import com.enigma.waratsea.model.Scenario;
 import com.google.inject.Singleton;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -31,28 +29,19 @@ public class ResourceNames {
   private final String gameMapFileName = "map.json";
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
 
-  @Inject
-  ResourceNames(final Events events) {
-    registerEvents(events);
-  }
 
   public String getScenarioSpecific(final String path) {
     return Paths.get(scenarioPath, path).toString();
   }
 
-  private void registerEvents(final Events events) {
-    events.getGameNameEvents().register(this::handleGameSelected);
-    events.getSelectScenarioEvent().register(this::handleScenarioSelected);
+  public void setGamePath(final GameName gameName) {
+    gamePath = Paths.get(game, gameName.getValue()).toString();
+    log.debug("gamePath set to: '{}'", gamePath);
   }
 
-  private void handleGameSelected(final GameNameEvent gameEvent) {
-    gamePath = Paths.get(game, gameEvent.gameName().getValue()).toString();
-    log.debug("ResourceNames received gameNameEvent, gamePath set to: '{}'", gamePath);
-  }
-
-  private void handleScenarioSelected(final SelectScenarioEvent selectScenarioEvent) {
-    scenarioName = selectScenarioEvent.getScenario().getName();
+  public void setScenario(final Scenario scenario) {
+    scenarioName = scenario.getName();
     scenarioPath = Paths.get(scenarioDirectory, scenarioName).toString();
-    log.debug("ResourceNames received scenarioEvent, scenario name: '{}'", scenarioName);
+    log.debug("scenario name: '{}'", scenarioName);
   }
 }
