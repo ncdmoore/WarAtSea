@@ -1,5 +1,6 @@
 package com.enigma.waratsea.model;
 
+import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;

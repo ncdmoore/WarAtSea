@@ -46,4 +46,5 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.viewmodel.pregame;
   exports com.enigma.waratsea.viewmodel.events;
   exports com.enigma.waratsea.model.player;
+  opens com.enigma.waratsea.model.squadron to com.google.gson;
 }

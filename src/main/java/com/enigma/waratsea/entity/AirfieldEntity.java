@@ -1,7 +1,7 @@
 package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.LandingType;
+import com.enigma.waratsea.model.aircraft.LandingType;
 import lombok.Builder;
 import lombok.Data;
 

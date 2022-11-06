@@ -1,6 +1,6 @@
 package com.enigma.waratsea.entity;
 
-import com.enigma.waratsea.model.SquadronDeploymentType;
+import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
 import com.enigma.waratsea.model.TimeRange;
 import com.enigma.waratsea.model.Weather;
 import lombok.Builder;
@@ -8,7 +8,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-import static com.enigma.waratsea.model.SquadronDeploymentType.HUMAN;
+import static com.enigma.waratsea.model.squadron.SquadronDeploymentType.HUMAN;
 import static com.enigma.waratsea.model.TimeRange.DAY_1;
 
 @Data

@@ -1,5 +1,6 @@
 package com.enigma.waratsea.model;
 
+import com.enigma.waratsea.model.aircraft.LandingType;
 import lombok.Builder;
 import lombok.Getter;
 

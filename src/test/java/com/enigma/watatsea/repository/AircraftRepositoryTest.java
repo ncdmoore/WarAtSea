@@ -4,6 +4,7 @@ import com.enigma.waratsea.entity.AttackEntity;
 import com.enigma.waratsea.entity.PerformanceEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.Frame;
+import com.enigma.waratsea.model.squadron.SquadronConfiguration;
 import com.enigma.waratsea.repository.impl.AircraftRepositoryImpl;
 import com.enigma.waratsea.repository.impl.ResourceNames;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
@@ -17,13 +18,14 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.Map;
+import java.util.Set;
 
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
-import static com.enigma.waratsea.model.LandingType.LAND;
 import static com.enigma.waratsea.model.Nation.BRITISH;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.aircraft.AircraftType.TORPEDO_BOMBER;
 import static com.enigma.waratsea.model.aircraft.AltitudeType.MEDIUM;
+import static com.enigma.waratsea.model.aircraft.LandingType.LAND;
 import static com.enigma.waratsea.model.aircraft.ServiceType.AIR_FORCE;
 import static com.enigma.waratsea.model.squadron.SquadronStrength.FULL;
 import static com.enigma.waratsea.model.squadron.SquadronStrength.HALF;
@@ -72,6 +74,7 @@ public class AircraftRepositoryTest {
     assertEquals(buildAirAttack(), result.getAir());
     assertEquals(buildPerformance(), result.getPerformance());
     assertEquals(buildFrame(), result.getFrame());
+    assertEquals(buildConfiguration(), result.getConfiguration());
   }
 
   private InputStream getAircraftInputStream() {
@@ -111,5 +114,9 @@ public class AircraftRepositoryTest {
 
   private Frame buildFrame() {
     return new Frame(2, false);
+  }
+
+  private Set<SquadronConfiguration> buildConfiguration() {
+    return Set.of(SquadronConfiguration.NONE, SquadronConfiguration.SEARCH);
   }
 }
