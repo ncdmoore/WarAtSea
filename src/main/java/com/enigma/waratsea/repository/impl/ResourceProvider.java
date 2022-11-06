@@ -5,6 +5,7 @@ import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.event.SelectScenarioEvent;
 import com.enigma.waratsea.exceptions.ResourceException;
+import com.enigma.waratsea.model.Id;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static com.enigma.waratsea.Constants.JSON_EXTENSION;
+
 @Slf4j
 @Singleton
 public class ResourceProvider implements BootStrapped {
@@ -32,6 +35,12 @@ public class ResourceProvider implements BootStrapped {
     this.resourceNames = resourceNames;
 
     registerEvents(events);
+  }
+
+  public InputStream getResourceInputStream(final Id id, final String baseDirectory) {
+    var path = getPath(id, baseDirectory);
+
+    return getResourceInputStream(path.toString());
   }
 
   public InputStream getResourceInputStream(final String resourcePath) {
@@ -105,5 +114,11 @@ public class ResourceProvider implements BootStrapped {
     return Optional.ofNullable(path.getParent())
         .map(p -> p.endsWith(parentName))
         .orElseThrow(() -> new ResourceException("Unable to get parent path of path: " + path));
+  }
+
+  private Path getPath(final Id id, final String baseDirectory) {
+    var sidePath = id.getSide().toLower();
+    var fileName = id.getName() + JSON_EXTENSION;
+    return Paths.get(baseDirectory, sidePath, fileName);
   }
 }

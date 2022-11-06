@@ -24,11 +24,11 @@ public class ResourceNames {
   private final String imageDirectory = "images";
   private final String mapDirectory = "map";
   private final String regionDirectory = "region";
+  private final String aircraftDirectory = "aircraft";
   private final String scenarioDirectory = SCENARIO_DIRECTORY;
   private final String summaryFileName = "summary.json";
   private final String gameMapFileName = "map.json";
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
-
 
   public String getScenarioSpecific(final String path) {
     return Paths.get(scenarioPath, path).toString();

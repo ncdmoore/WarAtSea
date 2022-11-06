@@ -16,11 +16,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 
 @Slf4j
 @Singleton
@@ -52,12 +49,8 @@ public class RegionRepositoryImpl implements RegionRepository {
   }
 
   private InputStream getRegionInputStream(final Id mapId) {
-    var sidePath = mapId.getSide().toLower();
-    var fileName = mapId.getName() + JSON_EXTENSION;
     var regionBasePath = resourceNames.getRegionPath();
-    var regionPath = Paths.get(regionBasePath, sidePath, fileName).toString();
-
-    return resourceProvider.getResourceInputStream(regionPath);
+    return resourceProvider.getResourceInputStream(mapId, regionBasePath);
   }
 
   private List<RegionEntity> readRegions(final BufferedReader bufferedReader) {

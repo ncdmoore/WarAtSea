@@ -10,7 +10,7 @@ import lombok.Data;
 @Data
 @Builder
 public class AircraftEntity {
-  private Id aircraftId;
+  private Id id;
   private String title;
   private AircraftType type;
   private Nation nation;
