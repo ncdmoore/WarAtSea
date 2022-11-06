@@ -16,6 +16,7 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.entity to com.google.gson;
   opens com.enigma.waratsea.model to com.google.gson;
   opens com.enigma.waratsea.model.player to com.google.gson;
+  opens com.enigma.waratsea.model.aircraft to com.google.gson;
 
   opens com.enigma.waratsea.mapper to com.google.guice;
 
@@ -26,6 +27,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.mapper;
   exports com.enigma.waratsea.model;
   exports com.enigma.waratsea.model.aircraft;
+  exports com.enigma.waratsea.model.squadron;
   exports com.enigma.waratsea.property;
   exports com.enigma.waratsea.orchestration;
   exports com.enigma.waratsea.repository;

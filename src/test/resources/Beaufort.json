@@ -1,0 +1,51 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Beaufort"
+  },
+  "title": "Beaufort",
+  "type": "TORPEDO_BOMBER",
+  "nation": "BRITISH",
+  "service": "AIR_FORCE",
+  "designation": "RAF-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 1,
+    "factor": {
+      "FULL": 4,
+      "HALF": 2
+    }
+  },
+  "navalTransport": {
+    "modifier": 1,
+    "factor": {
+      "FULL": 4,
+      "HALF": 2
+    }
+  },
+  "land": {
+    "modifier": 0,
+    "factor": {
+      "FULL": 1,
+      "HALF": 0
+    }
+  },
+  "air": {
+    "modifier": 0,
+    "factor": {
+      "FULL": 2,
+      "HALF": 1
+    },
+    "defensive": true
+  },
+  "performance": {
+    "range": 16,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  }
+}
