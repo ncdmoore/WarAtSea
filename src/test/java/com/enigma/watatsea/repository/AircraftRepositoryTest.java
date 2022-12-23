@@ -34,7 +34,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-public class AircraftRepositoryTest {
+class AircraftRepositoryTest {
   @InjectMocks
   private AircraftRepositoryImpl aircraftRepository;
 
@@ -49,7 +49,7 @@ public class AircraftRepositoryTest {
   private static final String AIRCRAFT_NAME = "Beaufort";
 
   @Test
-  public void shouldGetAircraftEntity() {
+  void shouldGetAircraftEntity() {
     var aircraftId = new Id(ALLIES, AIRCRAFT_NAME);
 
     var inputStream = getAircraftInputStream();
@@ -59,8 +59,7 @@ public class AircraftRepositoryTest {
     var result = aircraftRepository.get(aircraftId);
 
     assertNotNull(result);
-    assertEquals(ALLIES, result.getId().getSide());
-    assertEquals(AIRCRAFT_NAME, result.getId().getName());
+    assertEquals(aircraftId, result.getId());
     assertEquals(TORPEDO_BOMBER, result.getType());
     assertEquals(BRITISH, result.getNation());
     assertEquals(AIR_FORCE, result.getService());

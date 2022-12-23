@@ -10,7 +10,7 @@
   ],
   "maxCapacity": 12,
   "capacity": 12,
-  "MaxAntiAir": 12,
+  "maxAntiAir": 12,
   "antiAir": 12,
   "gridReference": "O42"
 }

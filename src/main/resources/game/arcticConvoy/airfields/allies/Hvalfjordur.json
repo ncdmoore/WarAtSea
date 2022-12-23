@@ -9,7 +9,7 @@
   ],
   "maxCapacity": 10,
   "capacity": 10,
-  "MaxAntiAir": 10,
+  "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "C21"
 }
