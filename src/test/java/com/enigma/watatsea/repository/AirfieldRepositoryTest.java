@@ -42,7 +42,7 @@ class AirfieldRepositoryTest {
   void shouldGetAirfieldEntity() {
     var airfieldId = new Id(AXIS, AIRFIELD_NAME);
 
-    var inputStream = getAirfieldInputStream();
+    var inputStream = getResourceInputStream();
 
     given(dataProvider.getDataInputStream(airfieldId, AIRFIELD_DIRECTORY)).willReturn(inputStream);
 
@@ -59,7 +59,7 @@ class AirfieldRepositoryTest {
     assertEquals(GRID_REFERENCE, result.getGridReference());
   }
 
-  private InputStream getAirfieldInputStream() {
+  private InputStream getResourceInputStream() {
     var fullPath = Paths.get(  "/", AIRFIELD_DIRECTORY, AIRFIELD_NAME + JSON_EXTENSION).toString();
 
     return getClass().getResourceAsStream(fullPath);

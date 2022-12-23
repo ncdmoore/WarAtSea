@@ -3,7 +3,7 @@
     "side": "ALLIES",
     "name": "Townsville"
   },
-  "name": "Townsville",
+  "title": "Townsville",
   "size": "MINOR",
   "maxAntiAir": 10,
   "antiAir": 10,

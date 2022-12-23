@@ -3,7 +3,7 @@
     "side": "ALLIES",
     "name": "Port_Moresby"
   },
-  "name": "Port Moresby",
+  "title": "Port Moresby",
   "size": "MINOR",
   "maxAntiAir": 10,
   "antiAir": 10,
