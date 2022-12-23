@@ -39,10 +39,10 @@ class PortRepositoryTest {
   private static final String GRID_REFERENCE = "L43";
 
   @Test
-  void shouldPortEntity() {
+  void shouldGetPortEntity() {
     var portId = new Id(ALLIES, PORT_NAME);
 
-    var inputStream = getResourceInputStream();
+    var inputStream = getInputStream();
 
     given(dataProvider.getDataInputStream(portId, PORT_DIRECTORY)).willReturn(inputStream);
 
@@ -57,7 +57,7 @@ class PortRepositoryTest {
     assertEquals(GRID_REFERENCE, result.getGridReference());
   }
 
-  private InputStream getResourceInputStream() {
+  private InputStream getInputStream() {
     var fullPath = Paths.get(  "/", PORT_DIRECTORY, PORT_NAME + JSON_EXTENSION).toString();
 
     return getClass().getResourceAsStream(fullPath);

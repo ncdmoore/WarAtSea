@@ -52,7 +52,7 @@ class AircraftRepositoryTest {
   void shouldGetAircraftEntity() {
     var aircraftId = new Id(ALLIES, AIRCRAFT_NAME);
 
-    var inputStream = getAircraftInputStream();
+    var inputStream = getInputStream();
 
     given(resourceProvider.getResourceInputStream(aircraftId, AIRCRAFT_DIRECTORY)).willReturn(inputStream);
 
@@ -76,7 +76,7 @@ class AircraftRepositoryTest {
     assertEquals(buildConfiguration(), result.getConfiguration());
   }
 
-  private InputStream getAircraftInputStream() {
+  private InputStream getInputStream() {
     var fullPath = Paths.get(  "/", AIRCRAFT_DIRECTORY, AIRCRAFT_NAME + JSON_EXTENSION).toString();
 
     return getClass().getResourceAsStream(fullPath);
