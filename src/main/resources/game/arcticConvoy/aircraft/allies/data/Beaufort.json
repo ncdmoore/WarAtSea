@@ -6,10 +6,10 @@
   "title": "Beaufort",
   "type": "TORPEDO_BOMBER",
   "nation": "BRITISH",
-  "service": "AIRFORCE",
+  "service": "AIR_FORCE",
   "designation": "RAF-",
   "altitude": "MEDIUM",
-  "takeoff": "LAND",
+  "takeOff": "LAND",
   "landing": "LAND",
   "navalWarship": {
     "modifier": 1,
@@ -47,5 +47,9 @@
   "frame": {
     "frame": 2,
     "fragile": false
-  }
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
 }

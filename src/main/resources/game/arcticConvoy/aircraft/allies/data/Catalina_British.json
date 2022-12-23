@@ -1,28 +1,28 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "Beaufort"
+    "name": "Catalina_British"
   },
-  "title": "Beaufort",
-  "type": "TORPEDO_BOMBER",
+  "title": "Catalina",
+  "type": "RECONNAISSANCE",
   "nation": "BRITISH",
-  "service": "AIR_FORCE",
-  "designation": "FAR-",
+  "service": "NAVY",
+  "designation": "NAS-",
   "altitude": "MEDIUM",
-  "takeOff": "LAND",
-  "landing": "LAND",
+  "takeOff": "SEAPLANE",
+  "landing": "SEAPLANE",
   "navalWarship": {
-    "modifier": 1,
+    "modifier": 0,
     "factor": {
-      "FULL": 4,
-      "HALF": 2
+      "FULL": 1,
+      "HALF": 0
     }
   },
   "navalTransport": {
-    "modifier": 1,
+    "modifier": 0,
     "factor": {
-      "FULL": 4,
-      "HALF": 2
+      "FULL": 1,
+      "HALF": 0
     }
   },
   "land": {
@@ -35,17 +35,16 @@
   "air": {
     "modifier": 0,
     "factor": {
-      "FULL": 2,
-      "HALF": 1
-    },
-    "defensive": true
+      "FULL": 0,
+      "HALF": 0
+    }
   },
   "performance": {
-    "range": 16,
-    "endurance": 1
+    "range": 13,
+    "endurance": 3
   },
   "frame": {
-    "frame": 2,
+    "frame": 1,
     "fragile": false
   },
   "configuration": [
