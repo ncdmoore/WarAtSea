@@ -28,9 +28,9 @@ public class ScenarioRepositoryImpl implements ScenarioRepository {
   private final ResourceProvider resourceProvider;
 
   @Inject
-  ScenarioRepositoryImpl(final @Named("App") Props props,
-                     final ResourceNames resourceNames,
-                     final ResourceProvider resourceProvider) {
+  public ScenarioRepositoryImpl(final @Named("App") Props props,
+                                final ResourceNames resourceNames,
+                                final ResourceProvider resourceProvider) {
     this.props = props;
     this.resourceNames = resourceNames;
     this.resourceProvider = resourceProvider;
