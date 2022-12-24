@@ -1,0 +1,14 @@
+{
+  "gameName": "BOMB_ALLEY",
+  "id": "1-FirstSortie-default",
+  "scenario": 1,
+  "humanSide": "ALLIES",
+  "turn": {
+    "number": 1,
+    "date": "06/11/1940"
+  },
+  "weather": {
+    "weatherType": "CLEAR",
+    "visibility": "GOOD"
+  }
+}

@@ -64,16 +64,20 @@ public class GameRepositoryImpl implements GameRepository {
   }
 
   private GameEntity createGame(final String savedGameName) {
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
-    var filePath = Paths.get(savedGameDirectory, savedGameName, dataNames.getGameEntityName());
-
-    try (var in = new FileInputStream(filePath.toString());
+    try (var in = getSavedGameInputStream(savedGameName);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       return readGame(br);
     } catch (IOException e) {
-      throw new GameException("Unable to read game: " + filePath, e);
+      throw new GameException("Unable to read game: " + savedGameName, e);
     }
+  }
+
+  private InputStream getSavedGameInputStream(final String savedGameName) throws FileNotFoundException {
+    var savedGameDirectory = dataNames.getSavedGameDirectory();
+    var savedGameFile = dataNames.getGameEntityName();
+    var filePath = Paths.get(savedGameDirectory, savedGameName, savedGameFile);
+    return dataProvider.getSavedFileInputStream(filePath);
   }
 
   private GameEntity readGame(final BufferedReader bufferedReader) {

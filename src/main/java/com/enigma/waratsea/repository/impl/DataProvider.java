@@ -12,6 +12,8 @@ import com.google.inject.Singleton;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -77,6 +79,10 @@ public class DataProvider implements BootStrapped {
     createDirectoryIfNeeded(path);
 
     return path;
+  }
+
+  public InputStream getSavedFileInputStream(final Path path) throws FileNotFoundException {
+    return new FileInputStream(path.toString());
   }
 
   public Path getSaveFile(final Path directory, final Id id) {
