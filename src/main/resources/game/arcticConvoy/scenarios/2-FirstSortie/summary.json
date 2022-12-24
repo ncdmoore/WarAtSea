@@ -1,0 +1,14 @@
+{
+  "name": "2-FirstSortie",
+  "title": "The First Sortie",
+  "id": 2,
+  "image": "firstSortie.png",
+  "date": "03/02/1942",
+  "weather": {
+    "weatherType": "RAIN",
+    "visibility": "GOOD"
+  },
+  "maxTurns": 90,
+  "description": "The German battleship Tirpitz moved from Germany to Norway in January 1942, preparing to interdict convoy traffic in the Arctic. Allied aircraft searched frantically for the battleship, but had not yet located her when a German recon plane spotted Convoy PQ12 heading toward Murmansk. The battleship headed out with a destroyer escort, but the British Home Fleet was also at sea.",
+  "map": "march1942"
+}
