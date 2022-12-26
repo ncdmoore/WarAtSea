@@ -43,7 +43,7 @@ public class ResourceProvider implements BootStrapped {
     return getResourceInputStream(path.toString());
   }
 
-  public InputStream getResourceInputStream(final String resourcePath) {
+  private InputStream getResourceInputStream(final String resourcePath) {
     var scenarioSpecificPath = gamePaths.getScenarioSpecific(resourcePath);
 
     return Optional.ofNullable(getInputStream(scenarioSpecificPath))

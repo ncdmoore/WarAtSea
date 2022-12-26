@@ -23,15 +23,15 @@ import java.util.stream.Collectors;
 @Singleton
 public class GameRepositoryImpl implements GameRepository {
   private final Props props;
-  private final GamePaths dataGamePaths;
+  private final GamePaths gamePaths;
   private final DataProvider dataProvider;
 
   @Inject
   public GameRepositoryImpl(final @Named("App") Props props,
-                        final GamePaths dataGamePaths,
+                        final GamePaths gamePaths,
                         final DataProvider dataProvider) {
     this.props = props;
-    this.dataGamePaths = dataGamePaths;
+    this.gamePaths = gamePaths;
     this.dataProvider = dataProvider;
   }
 
@@ -45,18 +45,13 @@ public class GameRepositoryImpl implements GameRepository {
 
   @Override
   public void save(final GameEntity game) {
-    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
     var gameId = game.getId();
-    var directory = Paths.get(savedGameDirectory, gameId);
-
-    log.debug("Save game to path: '{}'", directory);
-
-    dataProvider.createDirectoryIfNeeded(directory);
+    var directory = dataProvider.getSaveDirectory(gameId);
     writeGame(directory, game);
   }
 
   private List<String> getSavedGames() {
-    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
+    var savedGameDirectory = gamePaths.getSavedGameDirectory();
     return dataProvider.getSubDirectoryPaths(savedGameDirectory)
         .stream()
         .map(path -> path.getFileName().toString())
@@ -74,8 +69,8 @@ public class GameRepositoryImpl implements GameRepository {
   }
 
   private InputStream getSavedGameInputStream(final String savedGameName) throws FileNotFoundException {
-    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
-    var savedGameFile = dataGamePaths.getGameEntityName();
+    var savedGameDirectory = gamePaths.getSavedGameDirectory();
+    var savedGameFile = gamePaths.getGameEntityName();
     var filePath = Paths.get(savedGameDirectory, savedGameName, savedGameFile);
     return dataProvider.getSavedFileInputStream(filePath);
   }
@@ -94,7 +89,7 @@ public class GameRepositoryImpl implements GameRepository {
 
   private void writeGame(final Path directoryPath, final GameEntity game) {
     var dateFormat = getDateFormat();
-    var filePath = Paths.get(directoryPath.toString(), dataGamePaths.getGameEntityName());
+    var filePath = Paths.get(directoryPath.toString(), gamePaths.getGameEntityName());
 
     try (var out = new FileOutputStream(filePath.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -102,7 +97,8 @@ public class GameRepositoryImpl implements GameRepository {
           .setPrettyPrinting()
           .registerTypeAdapter(LocalDate.class, new LocalDateSerializer(dateFormat))
           .create();
-      String json = gson.toJson(game);
+      log.debug("Save game to path: '{}'", filePath);
+      var json = gson.toJson(game);
       writer.write(json);
     } catch (IOException e) {
       throw new GameException("Unable to save " + game.getId() + " to path: " + filePath, e);

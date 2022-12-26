@@ -54,12 +54,6 @@ public class DataProvider implements BootStrapped {
     }
   }
 
-  public void createDirectoryIfNeeded(final Path directoryPath) {
-    if (!Files.isDirectory(directoryPath)) {
-      createDirectory(directoryPath);
-    }
-  }
-
   public InputStream getDataInputStream(final Id id, final String baseDirectory) {
     var gameDataDirectory = gamePaths.getGameDataDirectory();
     var scenarioDirectory = gamePaths.getScenarioPath();
@@ -74,7 +68,16 @@ public class DataProvider implements BootStrapped {
         : getFileInputStream(genericFullPath);
   }
 
-  public Path getSaveDirectory(final String gameId, final Id id, final String baseDirectory) {
+  public Path getSaveDirectory(final String gameId) {
+    var savedGameDirectory = gamePaths.getSavedGameDirectory();
+    var path = Paths.get(savedGameDirectory, gameId);
+
+    createDirectoryIfNeeded(path);
+
+    return path;
+  }
+
+  public Path getSavedEntityDirectory(final String gameId, final Id id, final String baseDirectory) {
     var savedGameDirectory = gamePaths.getSavedGameDirectory();
     var side = id.getSide().toLower();
     var path = Paths.get(savedGameDirectory, gameId, baseDirectory, side);
@@ -113,6 +116,12 @@ public class DataProvider implements BootStrapped {
     isNewGame = false;
     var savedGame = selectSavedGameEvent.getGame();
     gamePaths.setGameDataDirectoryToSavedGameDirectory(savedGame);
+  }
+
+  private void createDirectoryIfNeeded(final Path directoryPath) {
+    if (!Files.isDirectory(directoryPath)) {
+      createDirectory(directoryPath);
+    }
   }
 
   private InputStream getResourceInputStream(final String scenarioSpecificPath, final String genericPath) {

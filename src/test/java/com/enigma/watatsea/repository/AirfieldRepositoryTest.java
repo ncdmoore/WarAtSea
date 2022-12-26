@@ -28,7 +28,7 @@ class AirfieldRepositoryTest {
 
   @Spy
   @SuppressWarnings("unused")
-  private GamePaths dataGamePaths;
+  private GamePaths gamePaths;
 
   @Mock
   private DataProvider dataProvider;

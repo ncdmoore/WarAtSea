@@ -21,10 +21,10 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   private final String airfieldDirectory;
 
   @Inject
-  public AirfieldRepositoryImpl(final GamePaths dataGamePaths,
+  public AirfieldRepositoryImpl(final GamePaths gamePaths,
                                 final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.airfieldDirectory = dataGamePaths.getAirfieldDirectory();
+    this.airfieldDirectory = gamePaths.getAirfieldDirectory();
   }
 
   @Override
@@ -35,7 +35,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   @Override
   public void save(final String gameId, final AirfieldEntity airfield) {
     var id = airfield.getId();
-    var directory = dataProvider.getSaveDirectory(gameId, id, airfieldDirectory);
+    var directory = dataProvider.getSavedEntityDirectory(gameId, id, airfieldDirectory);
     writeAirfield(directory, airfield);
   }
 

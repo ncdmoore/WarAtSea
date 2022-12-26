@@ -39,7 +39,7 @@ class GameRepositoryTest {
   private AppProps props;
 
   @Spy
-  private GamePaths dataGamePaths;
+  private GamePaths gamePaths;
 
   @Mock
   private DataProvider dataProvider;
@@ -52,8 +52,8 @@ class GameRepositoryTest {
   void shouldGetGameEntities() throws Exception {
     var paths = List.of(Path.of("game"));
 
-    dataGamePaths.setGameDirectories(BOMB_ALLEY);
-    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
+    gamePaths.setGameDirectories(BOMB_ALLEY);
+    var savedGameDirectory = gamePaths.getSavedGameDirectory();
 
     var inputStream = getInputStream();
 

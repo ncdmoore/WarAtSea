@@ -21,10 +21,10 @@ public class PortRepositoryImpl implements PortRepository {
   private final String portDirectory;
 
   @Inject
-  public PortRepositoryImpl(final GamePaths dataGamePaths,
+  public PortRepositoryImpl(final GamePaths gamePaths,
                             final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.portDirectory = dataGamePaths.getPortDirectory();
+    this.portDirectory = gamePaths.getPortDirectory();
   }
 
 
@@ -36,7 +36,7 @@ public class PortRepositoryImpl implements PortRepository {
   @Override
   public void save(String gameId, PortEntity port) {
     var id = port.getId();
-    var directory = dataProvider.getSaveDirectory(gameId, id, portDirectory);
+    var directory = dataProvider.getSavedEntityDirectory(gameId, id, portDirectory);
     writePort(directory, port);
   }
 
