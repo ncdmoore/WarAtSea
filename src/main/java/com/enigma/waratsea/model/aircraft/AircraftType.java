@@ -10,7 +10,7 @@ public enum AircraftType {
   BOMBER("Bomber", "Bomber", "B"),
   DIVE_BOMBER("Dive Bomber", "Dive Bomber", "DB"),
   TORPEDO_BOMBER("Torpedo Bomber", "Torp. Bomber", "TB"),
-  RECONNAISSANCE("Recon", "Recon", "R");
+  RECONNAISSANCE("Reconnaissance", "Recon", "R");
 
   private final String value;
   private final String abbreviated;
