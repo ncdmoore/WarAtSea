@@ -1,7 +1,7 @@
 package com.enigma.waratsea.view.resources;
 
 import com.enigma.waratsea.exceptions.ResourceException;
-import com.enigma.waratsea.repository.impl.ResourceNames;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import javafx.scene.image.Image;
@@ -22,14 +22,14 @@ public class ResourceProvider {
   private final String gamePath;
 
   @Inject
-  ResourceProvider(final ResourceNames resourceNames) {
-    var commonDirectory = resourceNames.getCommonDirectory();
+  ResourceProvider(final GamePaths gamePaths) {
+    var commonDirectory = gamePaths.getCommonDirectory();
 
-    this.imageDirectory = resourceNames.getImageDirectory();
-    this.scenarioDirectory = resourceNames.getScenarioDirectory();
-    this.cssDirectory = resourceNames.getCssDirectory();
+    this.imageDirectory = gamePaths.getImageDirectory();
+    this.scenarioDirectory = gamePaths.getScenarioDirectory();
+    this.cssDirectory = gamePaths.getCssDirectory();
     this.commonImageDirectory = Paths.get(imageDirectory, commonDirectory).toString();
-    this.gamePath = resourceNames.getGamePath();
+    this.gamePath = gamePaths.getGamePath();
   }
 
   public String getCss(final String name) {

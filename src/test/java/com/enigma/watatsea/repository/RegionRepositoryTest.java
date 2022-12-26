@@ -2,7 +2,7 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.impl.RegionRepositoryImpl;
-import com.enigma.waratsea.repository.impl.ResourceNames;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -28,7 +28,7 @@ class RegionRepositoryTest {
 
   @Spy
   @SuppressWarnings("unused")
-  private ResourceNames resourceNames;
+  private GamePaths gamePaths;
 
   @Mock
   private ResourceProvider resourceProvider;
@@ -46,7 +46,7 @@ class RegionRepositoryTest {
     var mapId = new Id(AXIS, MAP_NAME);
 
     var inputStream = getInputStream();
-    var regionBaseDirectory = resourceNames.getRegionPath();
+    var regionBaseDirectory = gamePaths.getRegionPath();
 
     given(resourceProvider.getResourceInputStream(mapId, regionBaseDirectory)).willReturn(inputStream);
 

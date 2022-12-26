@@ -1,7 +1,7 @@
 package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.repository.impl.MapRepositoryImpl;
-import com.enigma.waratsea.repository.impl.ResourceNames;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -26,7 +26,7 @@ class MapRepositoryTest {
 
   @Spy
   @SuppressWarnings("unused")
-  private ResourceNames resourceNames;
+  private GamePaths gamePaths;
 
   @Mock
   private ResourceProvider resourceProvider;

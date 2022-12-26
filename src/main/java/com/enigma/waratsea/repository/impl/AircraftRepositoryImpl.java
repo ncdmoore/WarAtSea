@@ -22,10 +22,10 @@ public class AircraftRepositoryImpl implements AircraftRepository {
   private final String aircraftDirectory;
 
   @Inject
-  public AircraftRepositoryImpl(final ResourceNames resourceNames,
+  public AircraftRepositoryImpl(final GamePaths gamePaths,
                                 final ResourceProvider resourceProvider) {
     this.resourceProvider = resourceProvider;
-    this.aircraftDirectory = resourceNames.getAircraftDirectory();
+    this.aircraftDirectory = gamePaths.getAircraftDirectory();
   }
 
   @Override

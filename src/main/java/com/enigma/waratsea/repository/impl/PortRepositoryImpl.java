@@ -21,10 +21,10 @@ public class PortRepositoryImpl implements PortRepository {
   private final String portDirectory;
 
   @Inject
-  public PortRepositoryImpl(final DataNames dataNames,
+  public PortRepositoryImpl(final GamePaths dataGamePaths,
                             final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.portDirectory = dataNames.getPortDirectory();
+    this.portDirectory = dataGamePaths.getPortDirectory();
   }
 
 

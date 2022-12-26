@@ -1,6 +1,6 @@
 package com.enigma.waratsea.property;
 
-import com.enigma.waratsea.repository.impl.ResourceNames;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
@@ -13,15 +13,15 @@ public class PropsWrapper {
   private static final String PROPERTIES_DIR = "properties";
   private Properties properties;
 
-  private final ResourceNames resourceNames;
+  private final GamePaths gamePaths;
   private final String name;
 
   private Function<String, String> getStringFunc = this::initAndGetStringValue;
   private Function<String, Integer> getIntFunc = this::initAndGetIntValue;
   private Function<String, Double> getDoubleFunc = this::initAndGetDoubleValue;
 
-  public PropsWrapper(final ResourceNames resourceNames, final String name) {
-    this.resourceNames = resourceNames;
+  public PropsWrapper(final GamePaths gamePaths, final String name) {
+    this.gamePaths = gamePaths;
     this.name = name;
   }
 
@@ -68,7 +68,7 @@ public class PropsWrapper {
     if (properties == null) {
       properties = new Properties();
 
-      var gamePath = resourceNames.getGamePath();
+      var gamePath = gamePaths.getGamePath();
       var generalPath = Paths.get(PROPERTIES_DIR, name).toString();
       var gameSpecificPath = Paths.get(gamePath, PROPERTIES_DIR, name).toString();
 

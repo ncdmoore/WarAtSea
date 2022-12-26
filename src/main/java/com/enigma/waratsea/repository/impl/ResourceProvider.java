@@ -27,12 +27,12 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 @Slf4j
 @Singleton
 public class ResourceProvider implements BootStrapped {
-  private final ResourceNames resourceNames;
+  private final GamePaths gamePaths;
 
   @Inject
   public ResourceProvider(final Events events,
-                          final ResourceNames resourceNames) {
-    this.resourceNames = resourceNames;
+                          final GamePaths gamePaths) {
+    this.gamePaths = gamePaths;
 
     registerEvents(events);
   }
@@ -44,7 +44,7 @@ public class ResourceProvider implements BootStrapped {
   }
 
   public InputStream getResourceInputStream(final String resourcePath) {
-    var scenarioSpecificPath = resourceNames.getScenarioSpecific(resourcePath);
+    var scenarioSpecificPath = gamePaths.getScenarioSpecific(resourcePath);
 
     return Optional.ofNullable(getInputStream(scenarioSpecificPath))
         .orElseGet(() -> getInputStream(resourcePath));
@@ -55,7 +55,7 @@ public class ResourceProvider implements BootStrapped {
   }
 
   public List<Path> getSubDirectoryPaths(final String parentDirectoryName) {
-    var fullName = Paths.get(resourceNames.getGamePath(), parentDirectoryName).toString();
+    var fullName = Paths.get(gamePaths.getGamePath(), parentDirectoryName).toString();
 
     try {
       return getSubDirectoryPathsFromJar(fullName);
@@ -65,7 +65,7 @@ public class ResourceProvider implements BootStrapped {
   }
 
   private InputStream getInputStream(final String resourcePath) {
-    var fullPath = Paths.get(resourceNames.getGamePath(), resourcePath).toString();
+    var fullPath = Paths.get(gamePaths.getGamePath(), resourcePath).toString();
 
     log.debug("Get resource input stream for path: '{}'", fullPath);
 
@@ -80,11 +80,11 @@ public class ResourceProvider implements BootStrapped {
   }
 
   private void handleGameSelected(final GameNameEvent gameEvent) {
-    resourceNames.setGamePath(gameEvent.gameName());
+    gamePaths.setGamePath(gameEvent.gameName());
   }
 
   private void handleScenarioSelected(final SelectScenarioEvent selectScenarioEvent) {
-    resourceNames.setScenario(selectScenarioEvent.getScenario());
+    gamePaths.setScenario(selectScenarioEvent.getScenario());
   }
 
   private List<Path> getSubDirectoryPathsFromJar(final String directoryName) throws URISyntaxException, IOException {

@@ -27,13 +27,13 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 @Slf4j
 @Singleton
 public class DataProvider implements BootStrapped {
-  private final DataNames dataNames;
+  private final GamePaths dataGamePaths;
   private boolean isNewGame = true;
 
   @Inject
   public DataProvider(final Events events,
-                      final DataNames dataNames) {
-    this.dataNames = dataNames;
+                      final GamePaths dataGamePaths) {
+    this.dataGamePaths = dataGamePaths;
 
     registerEvents(events);
   }
@@ -62,7 +62,7 @@ public class DataProvider implements BootStrapped {
 
   public InputStream getDataInputStream(final Id id, final String baseDirectory) {
     var path = getPath(id, baseDirectory);
-    var fullPath = Paths.get(dataNames.getGameDataDirectory(), path.toString()).toString();
+    var fullPath = Paths.get(dataGamePaths.getGameDataDirectory(), path.toString()).toString();
 
     log.debug("Get data input stream for path: '{}'", fullPath);
 
@@ -72,7 +72,7 @@ public class DataProvider implements BootStrapped {
   }
 
   public Path getSaveDirectory(final String gameId, final Id id, final String baseDirectory) {
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
+    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
     var side = id.getSide().toLower();
     var path = Paths.get(savedGameDirectory, gameId, baseDirectory, side);
 
@@ -98,18 +98,18 @@ public class DataProvider implements BootStrapped {
 
   private void setGameDirectories(final GameNameEvent gameNameEvent) {
     var gameName = gameNameEvent.gameName();
-    dataNames.setGameDirectories(gameName);
+    dataGamePaths.setGameDirectories(gameName);
   }
 
   private void setGameDataDirectoryToNewGameDirectory(final StartNewGameEvent startNewGameEvent) {
     isNewGame = true;
-    dataNames.setGameDataDirectoryToNewGameDirectory();
+    dataGamePaths.setGameDataDirectoryToNewGameDirectory();
   }
 
   private void setGameDataDirectoryToSavedGameDirectory(final SelectSavedGameEvent selectSavedGameEvent) {
     isNewGame = false;
     var savedGame = selectSavedGameEvent.getGame();
-    dataNames.setGameDataDirectoryToSavedGameDirectory(savedGame);
+    dataGamePaths.setGameDataDirectoryToSavedGameDirectory(savedGame);
   }
 
   private InputStream getResourceInputStream(final String fullPath) {

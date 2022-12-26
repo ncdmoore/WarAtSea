@@ -24,15 +24,15 @@ import java.util.stream.Collectors;
 @Singleton
 public class ScenarioRepositoryImpl implements ScenarioRepository {
   private final Props props;
-  private final ResourceNames resourceNames;
+  private final GamePaths gamePaths;
   private final ResourceProvider resourceProvider;
 
   @Inject
   public ScenarioRepositoryImpl(final @Named("App") Props props,
-                                final ResourceNames resourceNames,
+                                final GamePaths gamePaths,
                                 final ResourceProvider resourceProvider) {
     this.props = props;
-    this.resourceNames = resourceNames;
+    this.gamePaths = gamePaths;
     this.resourceProvider = resourceProvider;
   }
 
@@ -45,7 +45,7 @@ public class ScenarioRepositoryImpl implements ScenarioRepository {
   }
 
   private List<String> getScenarioNames() {
-    return resourceProvider.getSubDirectoryPaths(resourceNames.getScenarioDirectory())
+    return resourceProvider.getSubDirectoryPaths(gamePaths.getScenarioDirectory())
         .stream()
         .map(path -> path.getFileName().toString())
         .collect(Collectors.toList());
@@ -62,8 +62,8 @@ public class ScenarioRepositoryImpl implements ScenarioRepository {
   }
 
   private InputStream getScenarioInputStream(final String scenarioName) {
-    var scenarioDirectoryName = resourceNames.getScenarioDirectory();
-    var scenarioSummaryFileName = resourceNames.getSummaryFileName();
+    var scenarioDirectoryName = gamePaths.getScenarioDirectory();
+    var scenarioSummaryFileName = gamePaths.getSummaryFileName();
     var resourceName = Paths.get(scenarioDirectoryName, scenarioName, scenarioSummaryFileName).toString();
     return resourceProvider.getDefaultResourceInputStream(resourceName);
   }

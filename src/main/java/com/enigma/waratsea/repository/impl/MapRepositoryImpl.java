@@ -18,13 +18,13 @@ import java.nio.file.Paths;
 @Slf4j
 @Singleton
 public class MapRepositoryImpl implements MapRepository {
-  private final ResourceNames resourceNames;
+  private final GamePaths gamePaths;
   private final ResourceProvider resourceProvider;
 
   @Inject
-  public MapRepositoryImpl(final ResourceNames resourceNames,
+  public MapRepositoryImpl(final GamePaths gamePaths,
                            final ResourceProvider resourceProvider) {
-    this.resourceNames = resourceNames;
+    this.gamePaths = gamePaths;
     this.resourceProvider = resourceProvider;
   }
 
@@ -44,8 +44,8 @@ public class MapRepositoryImpl implements MapRepository {
   }
 
   private InputStream getMapInputStream() {
-    var mapDirectory = resourceNames.getMapDirectory();
-    var mapFileName = resourceNames.getGameMapFileName();
+    var mapDirectory = gamePaths.getMapDirectory();
+    var mapFileName = gamePaths.getGameMapFileName();
     var resourceName = Paths.get(mapDirectory, mapFileName).toString();
     return resourceProvider.getDefaultResourceInputStream(resourceName);
   }

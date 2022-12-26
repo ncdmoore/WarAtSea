@@ -21,10 +21,10 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   private final String airfieldDirectory;
 
   @Inject
-  public AirfieldRepositoryImpl(final DataNames dataNames,
+  public AirfieldRepositoryImpl(final GamePaths dataGamePaths,
                                 final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.airfieldDirectory = dataNames.getAirfieldDirectory();
+    this.airfieldDirectory = dataGamePaths.getAirfieldDirectory();
   }
 
   @Override

@@ -3,9 +3,9 @@ package com.enigma.watatsea.repository;
 import com.enigma.waratsea.model.Turn;
 import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.property.AppProps;
-import com.enigma.waratsea.repository.impl.DataNames;
 import com.enigma.waratsea.repository.impl.DataProvider;
 import com.enigma.waratsea.repository.impl.GameRepositoryImpl;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -39,7 +39,7 @@ class GameRepositoryTest {
   private AppProps props;
 
   @Spy
-  private DataNames dataNames;
+  private GamePaths dataGamePaths;
 
   @Mock
   private DataProvider dataProvider;
@@ -52,8 +52,8 @@ class GameRepositoryTest {
   void shouldGetGameEntities() throws Exception {
     var paths = List.of(Path.of("game"));
 
-    dataNames.setGameDirectories(BOMB_ALLEY);
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
+    dataGamePaths.setGameDirectories(BOMB_ALLEY);
+    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
 
     var inputStream = getInputStream();
 

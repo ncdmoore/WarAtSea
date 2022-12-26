@@ -22,13 +22,13 @@ import java.util.stream.Collectors;
 @Slf4j
 @Singleton
 public class RegionRepositoryImpl implements RegionRepository {
-  private final ResourceNames resourceNames;
+  private final GamePaths gamePaths;
   private final ResourceProvider resourceProvider;
 
   @Inject
-  public RegionRepositoryImpl(final ResourceNames resourceNames,
+  public RegionRepositoryImpl(final GamePaths gamePaths,
                               final ResourceProvider resourceProvider) {
-    this.resourceNames = resourceNames;
+    this.gamePaths = gamePaths;
     this.resourceProvider = resourceProvider;
   }
 
@@ -49,7 +49,7 @@ public class RegionRepositoryImpl implements RegionRepository {
   }
 
   private InputStream getRegionInputStream(final Id mapId) {
-    var regionBasePath = resourceNames.getRegionPath();
+    var regionBasePath = gamePaths.getRegionPath();
     return resourceProvider.getResourceInputStream(mapId, regionBasePath);
   }
 

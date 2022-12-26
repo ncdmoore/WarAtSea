@@ -1,6 +1,6 @@
 package com.enigma.waratsea.property;
 
-import com.enigma.waratsea.repository.impl.ResourceNames;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
@@ -10,8 +10,8 @@ public class ViewProps implements Props {
   private final PropsWrapper propsWrapper;
 
   @Inject
-  public ViewProps(final ResourceNames resourceNames) {
-    this.propsWrapper = new PropsWrapper(resourceNames, VIEW_PROPS);
+  public ViewProps(final GamePaths gamePaths) {
+    this.propsWrapper = new PropsWrapper(gamePaths, VIEW_PROPS);
   }
 
   public String getString(final String key) {

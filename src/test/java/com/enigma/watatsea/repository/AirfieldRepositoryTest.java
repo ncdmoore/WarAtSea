@@ -2,8 +2,8 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.impl.AirfieldRepositoryImpl;
-import com.enigma.waratsea.repository.impl.DataNames;
 import com.enigma.waratsea.repository.impl.DataProvider;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,8 +18,7 @@ import java.util.List;
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.aircraft.LandingType.SEAPLANE;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -29,7 +28,7 @@ class AirfieldRepositoryTest {
 
   @Spy
   @SuppressWarnings("unused")
-  private DataNames dataNames;
+  private GamePaths dataGamePaths;
 
   @Mock
   private DataProvider dataProvider;
@@ -57,6 +56,8 @@ class AirfieldRepositoryTest {
     assertEquals(10, result.getMaxAntiAir());
     assertEquals(10, result.getAntiAir());
     assertEquals(GRID_REFERENCE, result.getGridReference());
+    assertNotNull(result.getSquadrons());
+    assertTrue(result.getSquadrons().isEmpty());
   }
 
   private InputStream getInputStream() {

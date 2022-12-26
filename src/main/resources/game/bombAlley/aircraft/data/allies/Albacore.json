@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Albacore"
+  },
+  "title": "Albacore",
+  "type": "TORPEDO_BOMBER",
+  "nation": "BRITISH",
+  "service": "NAVY",
+  "designation": "NAS-",
+  "altitude": "LOW",
+  "takeoff": "CARRIER",
+  "landing": "CARRIER",
+  "navalWarship": {
+    "modifier": 1,
+    "full": 3,
+    "half": 2
+  },
+  "navalTransport": {
+    "modifier": 1,
+    "full": 3,
+    "half": 2
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 1
+  },
+  "air": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "performance": {
+    "range": 9,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": true
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

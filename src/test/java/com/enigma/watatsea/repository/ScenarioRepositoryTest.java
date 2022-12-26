@@ -2,7 +2,7 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.property.AppProps;
-import com.enigma.waratsea.repository.impl.ResourceNames;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
 import com.enigma.waratsea.repository.impl.ScenarioRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -35,7 +35,7 @@ class ScenarioRepositoryTest {
   private AppProps props;
 
   @Spy
-  private ResourceNames resourceNames;
+  private GamePaths gamePaths;
 
   @Mock
   private ResourceProvider resourceProvider;
@@ -48,7 +48,7 @@ class ScenarioRepositoryTest {
   void shouldGetScenarioEntities() {
     var paths = List.of(Path.of("scenario"));
 
-    var scenarioDirectory = resourceNames.getScenarioDirectory();
+    var scenarioDirectory = gamePaths.getScenarioDirectory();
 
     var inputStream = getInputStream();
 

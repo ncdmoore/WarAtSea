@@ -6,7 +6,7 @@ import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.Frame;
 import com.enigma.waratsea.model.squadron.SquadronConfiguration;
 import com.enigma.waratsea.repository.impl.AircraftRepositoryImpl;
-import com.enigma.waratsea.repository.impl.ResourceNames;
+import com.enigma.waratsea.repository.impl.GamePaths;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -40,12 +40,12 @@ class AircraftRepositoryTest {
 
   @Spy
   @SuppressWarnings("unused")
-  private ResourceNames resourceNames;
+  private GamePaths gamePaths;
 
   @Mock
   private ResourceProvider resourceProvider;
 
-  private static final String AIRCRAFT_DIRECTORY = "aircraft";
+  private static final String AIRCRAFT_DIRECTORY = Paths.get("aircraft", "data").toString();
   private static final String AIRCRAFT_NAME = "Beaufort";
 
   @Test

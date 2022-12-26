@@ -23,15 +23,15 @@ import java.util.stream.Collectors;
 @Singleton
 public class GameRepositoryImpl implements GameRepository {
   private final Props props;
-  private final DataNames dataNames;
+  private final GamePaths dataGamePaths;
   private final DataProvider dataProvider;
 
   @Inject
   public GameRepositoryImpl(final @Named("App") Props props,
-                        final DataNames dataNames,
+                        final GamePaths dataGamePaths,
                         final DataProvider dataProvider) {
     this.props = props;
-    this.dataNames = dataNames;
+    this.dataGamePaths = dataGamePaths;
     this.dataProvider = dataProvider;
   }
 
@@ -45,7 +45,7 @@ public class GameRepositoryImpl implements GameRepository {
 
   @Override
   public void save(final GameEntity game) {
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
+    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
     var gameId = game.getId();
     var directory = Paths.get(savedGameDirectory, gameId);
 
@@ -56,7 +56,7 @@ public class GameRepositoryImpl implements GameRepository {
   }
 
   private List<String> getSavedGames() {
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
+    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
     return dataProvider.getSubDirectoryPaths(savedGameDirectory)
         .stream()
         .map(path -> path.getFileName().toString())
@@ -74,8 +74,8 @@ public class GameRepositoryImpl implements GameRepository {
   }
 
   private InputStream getSavedGameInputStream(final String savedGameName) throws FileNotFoundException {
-    var savedGameDirectory = dataNames.getSavedGameDirectory();
-    var savedGameFile = dataNames.getGameEntityName();
+    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
+    var savedGameFile = dataGamePaths.getGameEntityName();
     var filePath = Paths.get(savedGameDirectory, savedGameName, savedGameFile);
     return dataProvider.getSavedFileInputStream(filePath);
   }
@@ -94,7 +94,7 @@ public class GameRepositoryImpl implements GameRepository {
 
   private void writeGame(final Path directoryPath, final GameEntity game) {
     var dateFormat = getDateFormat();
-    var filePath = Paths.get(directoryPath.toString(), dataNames.getGameEntityName());
+    var filePath = Paths.get(directoryPath.toString(), dataGamePaths.getGameEntityName());
 
     try (var out = new FileOutputStream(filePath.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
