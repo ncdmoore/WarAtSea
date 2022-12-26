@@ -27,13 +27,13 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 @Slf4j
 @Singleton
 public class DataProvider implements BootStrapped {
-  private final GamePaths dataGamePaths;
+  private final GamePaths gamePaths;
   private boolean isNewGame = true;
 
   @Inject
   public DataProvider(final Events events,
-                      final GamePaths dataGamePaths) {
-    this.dataGamePaths = dataGamePaths;
+                      final GamePaths gamePaths) {
+    this.gamePaths = gamePaths;
 
     registerEvents(events);
   }
@@ -61,18 +61,21 @@ public class DataProvider implements BootStrapped {
   }
 
   public InputStream getDataInputStream(final Id id, final String baseDirectory) {
-    var path = getPath(id, baseDirectory);
-    var fullPath = Paths.get(dataGamePaths.getGameDataDirectory(), path.toString()).toString();
+    var gameDataDirectory = gamePaths.getGameDataDirectory();
+    var scenarioDirectory = gamePaths.getScenarioPath();
 
-    log.debug("Get data input stream for path: '{}'", fullPath);
+    var path = getPath(id, baseDirectory);
+
+    var scenarioSpecificFullPath = Paths.get(gameDataDirectory, scenarioDirectory, path).toString();
+    var genericFullPath = Paths.get(gameDataDirectory, path).toString();
 
     return isNewGame
-        ? getResourceInputStream(fullPath)
-        : getFileInputStream(fullPath);
+        ? getResourceInputStream(scenarioSpecificFullPath, genericFullPath)
+        : getFileInputStream(genericFullPath);
   }
 
   public Path getSaveDirectory(final String gameId, final Id id, final String baseDirectory) {
-    var savedGameDirectory = dataGamePaths.getSavedGameDirectory();
+    var savedGameDirectory = gamePaths.getSavedGameDirectory();
     var side = id.getSide().toLower();
     var path = Paths.get(savedGameDirectory, gameId, baseDirectory, side);
 
@@ -98,18 +101,23 @@ public class DataProvider implements BootStrapped {
 
   private void setGameDirectories(final GameNameEvent gameNameEvent) {
     var gameName = gameNameEvent.gameName();
-    dataGamePaths.setGameDirectories(gameName);
+    gamePaths.setGameDirectories(gameName);
   }
 
   private void setGameDataDirectoryToNewGameDirectory(final StartNewGameEvent startNewGameEvent) {
     isNewGame = true;
-    dataGamePaths.setGameDataDirectoryToNewGameDirectory();
+    gamePaths.setGameDataDirectoryToNewGameDirectory();
   }
 
   private void setGameDataDirectoryToSavedGameDirectory(final SelectSavedGameEvent selectSavedGameEvent) {
     isNewGame = false;
     var savedGame = selectSavedGameEvent.getGame();
-    dataGamePaths.setGameDataDirectoryToSavedGameDirectory(savedGame);
+    gamePaths.setGameDataDirectoryToSavedGameDirectory(savedGame);
+  }
+
+  private InputStream getResourceInputStream(final String scenarioSpecificPath, final String genericPath) {
+    return Optional.ofNullable(getResourceInputStream(scenarioSpecificPath))
+        .orElseGet(() -> getResourceInputStream(genericPath));
   }
 
   private InputStream getResourceInputStream(final String fullPath) {
@@ -120,6 +128,8 @@ public class DataProvider implements BootStrapped {
 
   @SneakyThrows
   private InputStream getFileInputStream(final String fullPath) {
+    log.debug("Get data input stream for path: '{}'", fullPath);
+
     var path = Paths.get(fullPath);
     return Files.newInputStream(path);
   }
@@ -138,9 +148,9 @@ public class DataProvider implements BootStrapped {
         .orElseThrow(() -> new DataException("Cannot get parent directory from path: " + path));
   }
 
-  private Path getPath(final Id id, final String baseDirectory) {
+  private String getPath(final Id id, final String baseDirectory) {
     var sidePath = id.getSide().toLower();
     var fileName = id.getName() + JSON_EXTENSION;
-    return Paths.get(baseDirectory, sidePath, fileName);
+    return Paths.get(baseDirectory, sidePath, fileName).toString();
   }
 }
