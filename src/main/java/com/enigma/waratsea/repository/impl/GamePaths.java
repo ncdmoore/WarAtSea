@@ -26,6 +26,7 @@ public class GamePaths {
   private final String mapDirectory = "map";
   private final String regionDirectory = "region";
   private final String aircraftDirectory = Paths.get("aircraft", "data").toString();
+  private final String squadronDirectory = Paths.get("squadrons", "data").toString();
   private final String scenarioDirectory = "scenarios";
   private final String userHomeDirectory = System.getProperty(USER_HOME);
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();

@@ -1,0 +1,10 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Albacore-M1"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Albacore"
+  }
+}
