@@ -93,6 +93,7 @@ public class BasicModule extends AbstractModule {
     bind(PortRepository.class).to(PortRepositoryImpl.class);
     bind(AircraftRepository.class).to(AircraftRepositoryImpl.class);
     bind(SquadronRepository.class).to(SquadronRepositoryImpl.class);
+    bind(SquadronDeploymentRepository.class).to(SquadronDeploymentRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
 
@@ -128,5 +129,6 @@ public class BasicModule extends AbstractModule {
     bind(PortService.class).to(PortServiceImpl.class);
     bind(AircraftService.class).to(AircraftServiceImpl.class);
     bind(SquadronService.class).to(SquadronServiceImpl.class);
+    bind(SquadronDeploymentService.class).to(SquadronDeploymentServiceImpl.class);
   }
 }

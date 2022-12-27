@@ -38,7 +38,7 @@ public class RegionRepositoryImpl implements RegionRepository {
   }
 
   private List<RegionEntity> createRegions(final Id mapId) {
-    try (var in = getRegionInputStream(mapId);
+    try (var in = getInputStream(mapId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       log.debug("Read regions for map: '{}'", mapId);
@@ -48,7 +48,7 @@ public class RegionRepositoryImpl implements RegionRepository {
     }
   }
 
-  private InputStream getRegionInputStream(final Id mapId) {
+  private InputStream getInputStream(final Id mapId) {
     var regionBasePath = gamePaths.getRegionPath();
     return resourceProvider.getResourceInputStream(mapId, regionBasePath);
   }
