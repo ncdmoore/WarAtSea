@@ -7,5 +7,7 @@
     "side": "ALLIES",
     "name": "Albacore"
   },
-  "strength": "HALF"
+  "strength": "HALF",
+  "state": "ON_PATROL",
+  "configuration": "SEARCH"
 }
