@@ -8,6 +8,7 @@ import com.enigma.waratsea.model.squadron.Squadron;
 import java.util.Set;
 
 public interface SquadronService extends BootStrapped {
+  Set<Squadron> get(Set<Id> squadronIds);
   Set<Squadron> get(Side side);
   Squadron get(Id squadronId);
 }

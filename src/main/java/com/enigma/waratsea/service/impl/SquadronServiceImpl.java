@@ -14,6 +14,7 @@ import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
@@ -32,6 +33,13 @@ public class SquadronServiceImpl implements SquadronService {
     this.squadronMapper = squadronMapper;
 
     registerEvents(events);
+  }
+
+  @Override
+  public Set<Squadron> get(final Set<Id> squadronIds) {
+    return squadronIds.stream()
+        .map(this::get)
+        .collect(Collectors.toSet());
   }
 
   @Override

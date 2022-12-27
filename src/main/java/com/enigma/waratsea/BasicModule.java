@@ -1,11 +1,14 @@
 package com.enigma.waratsea;
 
+import com.enigma.waratsea.mapper.AirfieldMapper;
 import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.mapper.SquadronMapper;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.orchestration.ConfigGameSaga;
-import com.enigma.waratsea.property.*;
+import com.enigma.waratsea.property.AppProps;
+import com.enigma.waratsea.property.Props;
+import com.enigma.waratsea.property.ViewProps;
 import com.enigma.waratsea.repository.*;
 import com.enigma.waratsea.repository.impl.*;
 import com.enigma.waratsea.service.*;
@@ -96,6 +99,7 @@ public class BasicModule extends AbstractModule {
   private void bindMappers() {
     bind(RegionMapper.class).toInstance(RegionMapper.INSTANCE);
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
+    bind(AirfieldMapper.class).toInstance(AirfieldMapper.INSTANCE);
     bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
   }
 

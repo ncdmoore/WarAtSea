@@ -1,0 +1,14 @@
+[
+  {
+    "airbase": {
+      "side": "ALLIES",
+      "name": "Port_Moresby"
+    },
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Hudson-M1"
+      }
+    ]
+  }
+]

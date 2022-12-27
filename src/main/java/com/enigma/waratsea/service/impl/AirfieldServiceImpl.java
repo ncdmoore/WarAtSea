@@ -20,14 +20,17 @@ import java.util.*;
 @Singleton
 public class AirfieldServiceImpl implements AirfieldService {
   private final AirfieldRepository airfieldRepository;
+  private final AirfieldMapper airfieldMapper;
 
   private final Map<Id, Airfield> airfields = new HashMap<>();
   private final Map<Side, Set<Airfield>> airfieldSideMap = new HashMap<>();
 
   @Inject
   public AirfieldServiceImpl(final Events events,
-                             final AirfieldRepository airfieldRepository) {
+                             final AirfieldRepository airfieldRepository,
+                             final AirfieldMapper airfieldMapper) {
     this.airfieldRepository = airfieldRepository;
+    this.airfieldMapper = airfieldMapper;
 
     registerEvents(events);
   }
@@ -70,7 +73,7 @@ public class AirfieldServiceImpl implements AirfieldService {
   private Airfield getFromRepository(final Id airfieldId) {
     var entity = airfieldRepository.get(airfieldId);
 
-    return AirfieldMapper.INSTANCE.toModel(entity);
+    return airfieldMapper.toModel(entity);
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {

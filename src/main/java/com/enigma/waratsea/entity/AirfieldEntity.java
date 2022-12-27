@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.SortedSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -26,5 +26,5 @@ public class AirfieldEntity {
   private String gridReference;
 
   @Builder.Default
-  private SortedSet<String> squadrons = Collections.emptySortedSet();
+  private Set<Id> squadrons = Collections.emptySet();
 }
