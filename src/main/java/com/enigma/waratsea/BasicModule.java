@@ -2,6 +2,7 @@ package com.enigma.waratsea;
 
 import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.mapper.RegionMapper;
+import com.enigma.waratsea.mapper.SquadronMapper;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.orchestration.ConfigGameSaga;
 import com.enigma.waratsea.property.*;
@@ -65,6 +66,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(RegionService.class);
     bootStrappedBinder.addBinding().to(PlayerService.class);
     bootStrappedBinder.addBinding().to(AircraftService.class);
+    bootStrappedBinder.addBinding().to(SquadronService.class);
   }
 
   private void bindProps() {
@@ -87,12 +89,14 @@ public class BasicModule extends AbstractModule {
     bind(AirfieldRepository.class).to(AirfieldRepositoryImpl.class);
     bind(PortRepository.class).to(PortRepositoryImpl.class);
     bind(AircraftRepository.class).to(AircraftRepositoryImpl.class);
+    bind(SquadronRepository.class).to(SquadronRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
 
   private void bindMappers() {
     bind(RegionMapper.class).toInstance(RegionMapper.INSTANCE);
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
+    bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
   }
 
   private void bindWeatherStrategies() {
@@ -119,5 +123,6 @@ public class BasicModule extends AbstractModule {
     bind(AirfieldService.class).to(AirfieldServiceImpl.class);
     bind(PortService.class).to(PortServiceImpl.class);
     bind(AircraftService.class).to(AircraftServiceImpl.class);
+    bind(SquadronService.class).to(SquadronServiceImpl.class);
   }
 }

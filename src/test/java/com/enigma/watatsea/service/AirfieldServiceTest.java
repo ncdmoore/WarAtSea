@@ -16,8 +16,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.List;
 
 import static com.enigma.waratsea.model.Side.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -28,8 +27,8 @@ class AirfieldServiceTest {
   @Mock
   private AirfieldRepository airfieldRepository;
 
-  @SuppressWarnings("unused")
   @Spy
+  @SuppressWarnings("unused")
   private Events events;
 
   private static final String AIRFIELD_ID_1 = "airfield-name-1";
@@ -40,13 +39,14 @@ class AirfieldServiceTest {
     var id = new Id(ALLIES, AIRFIELD_ID_1);
 
     var airfieldEntity = AirfieldEntity.builder()
-        .id(id).
-        build();
+        .id(id)
+        .build();
 
     given(airfieldRepository.get(id)).willReturn(airfieldEntity);
 
     var result = airfieldService.get(id);
 
+    assertNotNull(result);
     assertEquals(id, result.getId());
   }
 

@@ -56,7 +56,7 @@ public class AirfieldServiceImpl implements AirfieldService {
     events.getSaveGameEvents().register(this::save);
   }
 
-  private Airfield getAndIndex(Id airfieldId) {
+  private Airfield getAndIndex(final Id airfieldId) {
     var airfield = getFromRepository(airfieldId);
 
     var side = airfieldId.getSide();
@@ -67,7 +67,7 @@ public class AirfieldServiceImpl implements AirfieldService {
     return airfield;
   }
 
-  private Airfield getFromRepository(Id airfieldId) {
+  private Airfield getFromRepository(final Id airfieldId) {
     var entity = airfieldRepository.get(airfieldId);
 
     return AirfieldMapper.INSTANCE.toModel(entity);

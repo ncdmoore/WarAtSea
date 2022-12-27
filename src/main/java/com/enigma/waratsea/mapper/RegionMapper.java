@@ -27,7 +27,7 @@ public abstract class RegionMapper {
   @SuppressWarnings("unused")
   private PortService portService;
 
-  abstract public Region toModel(RegionEntity regionEntity);
+  abstract public Region toModel(final RegionEntity regionEntity);
 
   List<Airfield> mapAirfields(List<Id> airfieldIds) {
     return Optional.ofNullable(airfieldIds)
