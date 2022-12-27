@@ -16,6 +16,8 @@ import java.nio.file.Paths;
 
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Side.ALLIES;
+import static com.enigma.waratsea.model.squadron.SquadronStrength.FULL;
+import static com.enigma.waratsea.model.squadron.SquadronStrength.HALF;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.BDDMockito.given;
@@ -33,14 +35,15 @@ class SquadronRepositoryTest {
   private DataProvider dataProvider;
 
   private static final String SQUADRON_DIRECTORY = Paths.get("squadrons", "data").toString();
-  private static final String SQUADRON_NAME = "Albacore-M1";
+  private static final String SQUADRON_NAME = "squadron";
+  private static final String SQUADRON_WITH_DEFAULTS_NAME = "squadronWithDefaults";
   private static final String AIRCRAFT_NAME = "Albacore";
 
   @Test
   void shouldGetSquadronEntity() {
     var squadronId = new Id(ALLIES, SQUADRON_NAME);
 
-    var inputStream = getInputStream();
+    var inputStream = getInputStream(SQUADRON_NAME);
 
     given(dataProvider.getDataInputStream(squadronId, SQUADRON_DIRECTORY)).willReturn(inputStream);
 
@@ -50,10 +53,28 @@ class SquadronRepositoryTest {
     assertEquals(squadronId, result.getId());
     assertEquals(ALLIES, result.getAircraft().getSide());
     assertEquals(AIRCRAFT_NAME, result.getAircraft().getName());
+    assertEquals(HALF, result.getStrength());
   }
 
-  private InputStream getInputStream() {
-    var fullPath = Paths.get("/", SQUADRON_DIRECTORY, SQUADRON_NAME + JSON_EXTENSION).toString();
+  @Test
+  void shouldGetSquadronWithDefaultsEntity() {
+    var squadronId = new Id(ALLIES, SQUADRON_WITH_DEFAULTS_NAME);
+
+    var inputStream = getInputStream(SQUADRON_WITH_DEFAULTS_NAME);
+
+    given(dataProvider.getDataInputStream(squadronId, SQUADRON_DIRECTORY)).willReturn(inputStream);
+
+    var result = squadronRepository.get(squadronId);
+
+    assertNotNull(result);
+    assertEquals(squadronId, result.getId());
+    assertEquals(ALLIES, result.getAircraft().getSide());
+    assertEquals(AIRCRAFT_NAME, result.getAircraft().getName());
+    assertEquals(FULL, result.getStrength());
+  }
+
+  private InputStream getInputStream(final String squadronName) {
+    var fullPath = Paths.get("/", SQUADRON_DIRECTORY, squadronName + JSON_EXTENSION).toString();
 
     return getClass().getResourceAsStream(fullPath);
   }

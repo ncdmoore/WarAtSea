@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "P39D"
+  },
+  "title": "P39D",
+  "type": "FIGHTER",
+  "nation": "UNITED_STATES",
+  "service": "AIR_FORCE",
+  "designation": "P-",
+  "altitude": "MEDIUM",
+  "takeoff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 1,
+    "full": 3,
+    "half": 2
+  },
+  "performance": {
+    "range": 11,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "DROP_TANKS"
+  ]
+}

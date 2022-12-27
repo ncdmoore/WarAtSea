@@ -1,0 +1,51 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "E7K"
+  },
+  "title": "E7K",
+  "type": "RECONNAISSANCE",
+  "nation": "JAPANESE",
+  "service": "NAVY",
+  "designation": "NAS-",
+  "altitude": "LOW",
+  "takeoff": "SEAPLANE",
+  "landing": "SEAPLANE",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0,
+    "sixth": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0,
+    "sixth": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0,
+    "sixth": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0,
+    "sixth": 0
+  },
+  "performance": {
+    "range": 6,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

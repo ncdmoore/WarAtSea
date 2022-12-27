@@ -1,0 +1,48 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "B17E"
+  },
+  "title": "B17E",
+  "type": "BOMBER",
+  "nation": "UNITED_STATES",
+  "service": "AIR_FORCE",
+  "designation": "B-",
+  "altitude": "HIGH",
+  "takeoff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": -1,
+    "full": 5,
+    "half": 3
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 5,
+    "half": 3
+  },
+  "land": {
+    "modifier": 0,
+    "full": 9,
+    "half": 5
+  },
+  "air": {
+    "modifier": 0,
+    "defensive": true,
+    "full": 3,
+    "half": 2
+  },
+  "performance": {
+    "range": 16,
+    "endurance": 2
+  },
+  "frame": {
+    "frame": 3,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

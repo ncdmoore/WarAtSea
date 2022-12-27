@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "SBD3"
+  },
+  "title": "SBD-3",
+  "type": "DIVE_BOMBER",
+  "nationality": "UNITED_STATES",
+  "service": "NAVY",
+  "designation": "VB-",
+  "altitude": "MEDIUM",
+  "takeoff": "CARRIER",
+  "landing": "CARRIER",
+  "navalWarship": {
+    "modifier": 2,
+    "full": 4,
+    "half": 2
+  },
+  "navalTransport": {
+    "modifier": 2,
+    "full": 4,
+    "half": 2
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 1,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 17,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

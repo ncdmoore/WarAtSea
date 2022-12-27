@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "B5N2"
+  },
+  "name": "B5N2",
+  "type": "TORPEDO_BOMBER",
+  "nation": "JAPANESE",
+  "service": "NAVY",
+  "designation": "NAS-",
+  "altitude": "MEDIUM",
+  "takeoff": "CARRIER",
+  "landing": "CARRIER",
+  "navalWarship": {
+    "modifier": 1,
+    "full": 5,
+    "half": 3
+  },
+  "navalTransport": {
+    "modifier": 1,
+    "full": 5,
+    "half": 3
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 19,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

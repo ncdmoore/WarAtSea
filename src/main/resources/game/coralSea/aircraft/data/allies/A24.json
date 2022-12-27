@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "A24"
+  },
+  "title": "A24",
+  "type": "DIVE_BOMBER",
+  "nation": "UNITED_STATES",
+  "service": "AIR_FORCE",
+  "designation": "B-",
+  "altitude": "MEDIUM",
+  "takeoff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 1,
+    "full": 2,
+    "half": 1
+  },
+  "navalTransport": {
+    "modifier": 1,
+    "full": 2,
+    "half": 1
+  },
+  "land": {
+    "modifier": 2,
+    "full": 2,
+    "half": 1
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 16,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

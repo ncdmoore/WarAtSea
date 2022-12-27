@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "D3A1"
+  },
+  "title": "D3A1",
+  "type": "DIVE_BOMBER",
+  "nation": "JAPANESE",
+  "service": "NAVY",
+  "designation": "NAS-",
+  "altitude": "MEDIUM",
+  "takeoff": "CARRIER",
+  "landing": "CARRIER",
+  "navalWarship": {
+    "modifier": 2,
+    "full": 4,
+    "half": 2
+  },
+  "navalTransport": {
+    "modifier": 2,
+    "full": 4,
+    "half": 2
+  },
+  "land": {
+    "modifier": 2,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 13,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

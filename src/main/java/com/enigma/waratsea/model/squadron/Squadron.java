@@ -10,4 +10,5 @@ import lombok.Getter;
 public class Squadron {
   private Id id;
   private Aircraft aircraft;
+  private SquadronStrength strength;
 }

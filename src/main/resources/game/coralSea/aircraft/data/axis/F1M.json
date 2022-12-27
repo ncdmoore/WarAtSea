@@ -1,0 +1,51 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "F1M"
+  },
+  "title": "F1M",
+  "type": "RECONNAISSANCE",
+  "nation": "JAPANESE",
+  "service": "NAVY",
+  "designation": "NAS-",
+  "altitude": "LOW",
+  "takeoff": "SEAPLANE",
+  "landing": "SEAPLANE",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0,
+    "sixth": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0,
+    "sixth": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0,
+    "sixth": 0
+  },
+  "air": {
+    "modifier": 1,
+    "full": 2,
+    "half": 0,
+    "sixth": 0
+  },
+  "performance": {
+    "range": 8,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

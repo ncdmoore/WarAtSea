@@ -1,0 +1,48 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Hudson"
+  },
+  "title": "Hudson",
+  "type": "RECONNAISSANCE",
+  "nation": "AUSTRALIAN",
+  "service": "AIR_FORCE",
+  "designation": "RAAF-",
+  "altitude": "LOW",
+  "takeoff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "defensive": true,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 8,
+    "endurance": 3
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "REDUCED_PAYLOAD"
+  ]
+}

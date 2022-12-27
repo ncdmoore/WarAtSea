@@ -1,0 +1,10 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "squadronWithDefaults"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Albacore"
+  }
+}

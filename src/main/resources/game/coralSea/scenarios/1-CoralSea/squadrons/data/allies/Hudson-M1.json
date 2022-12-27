@@ -1,10 +1,11 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "Albacore-M1"
+    "name": "Hudson-M1"
   },
   "aircraft": {
     "side": "ALLIES",
-    "name": "Albacore"
-  }
+    "name": "Hudson"
+  },
+  "strength": "HALF"
 }
