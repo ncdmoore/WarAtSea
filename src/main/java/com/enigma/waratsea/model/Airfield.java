@@ -10,7 +10,7 @@ import java.util.Set;
 
 @Getter
 @Builder
-public class Airfield {
+public class Airfield implements Airbase {
   private Id id;
   private String title;
   private List<LandingType> landingTypes;
