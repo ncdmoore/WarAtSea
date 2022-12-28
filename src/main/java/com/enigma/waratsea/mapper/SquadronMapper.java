@@ -17,8 +17,13 @@ public abstract class SquadronMapper {
   public AircraftService aircraftService;
 
   abstract public Squadron toModel(final SquadronEntity squadronEntity);
+  abstract public SquadronEntity toEntity(final Squadron squadron);
 
   Aircraft mapAircraft(Id aircraftId) {
     return aircraftService.get(aircraftId);
+  }
+
+  Id mapId(Aircraft aircraft) {
+    return aircraft.getId();
   }
 }

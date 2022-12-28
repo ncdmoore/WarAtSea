@@ -5,4 +5,5 @@ import com.enigma.waratsea.model.Id;
 
 public interface SquadronRepository {
   SquadronEntity get(Id id);
+  void save(String gameId, SquadronEntity squadron);
 }

@@ -1,6 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.event.StartNewGameEvent;
 import com.enigma.waratsea.event.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.SquadronMapper;
@@ -56,6 +57,7 @@ public class SquadronServiceImpl implements SquadronService {
   private void registerEvents(final Events events) {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSaveGameEvent().register(this::save);
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
@@ -66,6 +68,17 @@ public class SquadronServiceImpl implements SquadronService {
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
     log.debug("SquadronServiceImpl handle StartSavedGameEvent - clear cache");
     clearCaches();
+  }
+
+  private void save(final SaveGameEvent saveGameEvent) {
+    var gameId = saveGameEvent.getId();
+
+    squadrons.values()
+        .stream()
+        .map(squadronMapper::toEntity)
+        .forEach(squadron -> squadronRepository.save(gameId, squadron));
+
+    log.info("SquadronServiceImpl received saveGameEvent save squadrons for game: '{}'.", gameId);
   }
 
   private Squadron getAndIndex(final Id squadronId) {
