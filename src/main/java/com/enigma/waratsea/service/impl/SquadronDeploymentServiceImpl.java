@@ -1,7 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.LoadSquadronEvent;
+import com.enigma.waratsea.event.DeploySquadronEvent;
 import com.enigma.waratsea.mapper.SquadronDeploymentMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
@@ -47,11 +47,11 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   }
 
   private void registerEvents(final Events events) {
-    events.getLoadSquadronEvent().register(this::handleLoadSquadronEvent);
+    events.getDeploySquadronEvent().register(this::handleDeploySquadronEvent);
   }
 
-  private void handleLoadSquadronEvent(final LoadSquadronEvent loadSquadronEvent) {
-    log.info("SquadronDeploymentServiceImpl handle LoadSquadron Event");
+  private void handleDeploySquadronEvent(final DeploySquadronEvent deploySquadronEvent) {
+    log.info("SquadronDeploymentServiceImpl handle DeploySquadronEvent");
 
     Side.stream()
         .map(this::get)
