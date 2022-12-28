@@ -26,7 +26,6 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   private final SquadronService squadronService;
   private final GameService gameService;
 
-
   @Inject
   public SquadronDeploymentServiceImpl(final Events events,
                                        final SquadronDeploymentRepository squadronDeploymentRepository,
