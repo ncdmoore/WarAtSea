@@ -24,19 +24,19 @@ import java.util.stream.Collectors;
 public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepository {
   private final DataProvider dataProvider;
   private final String squadronDeploymentDirectory;
-  private final String squadronDeploymentFileName;
+  private final String squadronDeploymentName;
 
   @Inject
   public SquadronDeploymentRepositoryImpl(final GamePaths gamePaths,
                                           final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
     this.squadronDeploymentDirectory = gamePaths.getSquadronDeploymentDirectory();
-    this.squadronDeploymentFileName = gamePaths.getSquadronDeploymentFileName();
+    this.squadronDeploymentName = gamePaths.getSquadronDeploymentName();
   }
 
   @Override
   public List<SquadronDeploymentEntity> get(Side side) {
-    return readDeployment(new Id(side, squadronDeploymentFileName));
+    return readDeployment(new Id(side, squadronDeploymentName));
   }
 
   private List<SquadronDeploymentEntity> readDeployment(final Id deploymentId) {
