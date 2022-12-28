@@ -12,6 +12,10 @@
       {
         "side": "AXIS",
         "name": "G3M2-M2"
+      },
+      {
+        "side": "AXIS",
+        "name": "A6M2-M1"
       }
     ]
   },
@@ -23,7 +27,47 @@
     "squadrons": [
       {
         "side": "AXIS",
+        "name": "G4M1-M1"
+      },
+      {
+        "side": "AXIS",
+        "name": "A6M2-M2"
+      }
+    ]
+  },
+  {
+    "airbase" : {
+      "side": "AXIS",
+      "name": "Rabaul"
+    },
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "G4M1-M2"
+      },
+      {
+        "side": "AXIS",
+        "name": "H6k4-M1"
+      },
+      {
+        "side": "AXIS",
+        "name": "A6M2N-M1"
+      }
+    ]
+  },
+  {
+    "airbase" : {
+      "side": "AXIS",
+      "name": "Lae"
+    },
+    "squadrons": [
+      {
+        "side": "AXIS",
         "name": "G4M1-M3"
+      },
+      {
+        "side": "AXIS",
+        "name": "A6M2-M3"
       }
     ]
   }

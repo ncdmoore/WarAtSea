@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "B17E-M1"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "B17E"
+  },
+  "strength": "FULL"
+}

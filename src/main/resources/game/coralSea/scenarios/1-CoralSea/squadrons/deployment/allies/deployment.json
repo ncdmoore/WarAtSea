@@ -7,7 +7,15 @@
     "squadrons": [
       {
         "side": "ALLIES",
-        "name": "Hudson-M3"
+        "name": "A24-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "P39D-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hudson-M1"
       },
       {
         "side": "ALLIES",
@@ -24,6 +32,54 @@
       {
         "side": "ALLIES",
         "name": "Catalina-M2"
+      }
+    ]
+  },
+  {
+    "airbase" : {
+      "side": "ALLIES",
+      "name": "Cairns"
+    },
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "P39D-M2"
+      }
+    ]
+  },
+  {
+    "airbase" : {
+      "side": "ALLIES",
+      "name": "Townsville"
+    },
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "B17E-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "B17E-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "B17E-M3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "P39D-M3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "B25A-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "B25A-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "B26B-M1"
       }
     ]
   }
