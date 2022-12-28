@@ -22,7 +22,9 @@ public class ConfigGameSaga implements BootStrapped {
     log.info("ConfigGameSaga: handle ConfigNewGameEvent");
 
     events.getLoadMapEvent().fire(new LoadMapEvent());
-    events.getLoadSquadronEvent().fire(new LoadSquadronEvent());
     events.getLoadPlayerEvent().fire(new LoadPlayerEvent());
+
+    events.getLoadSquadronEvent().fire(new LoadSquadronEvent());
+
   }
 }

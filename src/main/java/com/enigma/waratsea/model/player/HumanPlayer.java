@@ -1,14 +1,12 @@
 package com.enigma.waratsea.model.player;
 
-import com.enigma.waratsea.model.Airbase;
-import com.enigma.waratsea.model.Airfield;
-import com.enigma.waratsea.model.Port;
-import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 @Getter
@@ -21,11 +19,15 @@ public class HumanPlayer implements Player {
   @Setter
   private Set<Port> ports;
 
-  private final Set<Airbase> airbases = new HashSet<>();
+  private final Map<Id, Airbase> airbases = new HashMap<>();
 
   public void setAirfields(final Set<Airfield> airfields) {
     this.airfields = airfields;
 
-    airbases.addAll(airfields);
+    airfields.forEach(this::addToAirbase);
+  }
+
+  private void addToAirbase(final Airbase airbase) {
+    airbases.putIfAbsent(airbase.getId(), airbase);
   }
 }

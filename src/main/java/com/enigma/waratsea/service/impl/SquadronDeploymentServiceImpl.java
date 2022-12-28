@@ -5,9 +5,9 @@ import com.enigma.waratsea.event.LoadSquadronEvent;
 import com.enigma.waratsea.mapper.SquadronDeploymentMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
-import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.squadron.SquadronDeployment;
 import com.enigma.waratsea.repository.SquadronDeploymentRepository;
+import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.SquadronDeploymentService;
 import com.enigma.waratsea.service.SquadronService;
 import com.google.inject.Inject;
@@ -24,14 +24,17 @@ import java.util.stream.Collectors;
 public class SquadronDeploymentServiceImpl implements SquadronDeploymentService {
   private final SquadronDeploymentRepository squadronDeploymentRepository;
   private final SquadronService squadronService;
+  private final GameService gameService;
 
 
   @Inject
   public SquadronDeploymentServiceImpl(final Events events,
                                        final SquadronDeploymentRepository squadronDeploymentRepository,
-                                       final SquadronService squadronService) {
+                                       final SquadronService squadronService,
+                                       final GameService gameService) {
     this.squadronDeploymentRepository = squadronDeploymentRepository;
     this.squadronService = squadronService;
+    this.gameService = gameService;
 
     registerEvents(events);
   }
@@ -50,17 +53,27 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   private void handleLoadSquadronEvent(final LoadSquadronEvent loadSquadronEvent) {
     log.info("SquadronDeploymentServiceImpl handle LoadSquadron Event");
 
-    Side.stream().map(this::get).flatMap(Collection::stream).forEach(this::deploySquadron);
+    Side.stream()
+        .map(this::get)
+        .flatMap(Collection::stream)
+        .forEach(this::deploySquadron);
   }
 
   private void deploySquadron(final SquadronDeployment deployment) {
-    log.info("airbase: '{}'", deployment.getAirbase());
-    log.info("squadrons: '{}", deployment.getSquadrons().stream().map(Id::toString).collect(Collectors.joining(",")));
+    log.debug("airbase: '{}'", deployment.getAirbase());
+    log.debug("squadrons: '{}", deployment.getSquadrons().stream().map(Id::toString).collect(Collectors.joining(",")));
 
-    var airbase = deployment.getAirbase();
+    var airbaseId = deployment.getAirbase();
+
+    var airbase = gameService.getGame()
+        .getPlayers()
+        .get(airbaseId.getSide())
+        .getAirbases()
+        .get(airbaseId);
+
     var squadronIds = new HashSet<>(deployment.getSquadrons());
-    var squadrons = squadronService.get(squadronIds);
 
-    log.info("Found squadrons: '{}'", squadrons.stream().map(Squadron::getId).map(Id::toString).collect(Collectors.joining(",")));
+    squadronService.get(squadronIds)
+        .forEach(airbase::deploySquadron);
   }
 }

@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Catalina-M2"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Catalina"
+  },
+  "strength": "HALF"
+}

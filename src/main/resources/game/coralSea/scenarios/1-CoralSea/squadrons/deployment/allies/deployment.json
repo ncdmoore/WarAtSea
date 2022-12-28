@@ -8,6 +8,22 @@
       {
         "side": "ALLIES",
         "name": "Hudson-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Catalina-M1"
+      }
+    ]
+  },
+  {
+    "airbase" : {
+      "side": "ALLIES",
+      "name": "Tulagi"
+    },
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Catalina-M2"
       }
     ]
   }

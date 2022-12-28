@@ -20,4 +20,9 @@ public class Airfield implements Airbase {
   private int antiAir;
   private String gridReference;
   private Set<Squadron> squadrons;
+
+  @Override
+  public void deploySquadron(Squadron squadron) {
+    squadrons.add(squadron);
+  }
 }
