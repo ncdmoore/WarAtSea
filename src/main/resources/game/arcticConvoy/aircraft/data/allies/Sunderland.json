@@ -9,7 +9,7 @@
   "service": "NAVY",
   "designation": "NAS-",
   "altitude": "LOW",
-  "takeoff": "SEAPLANE",
+  "takeOff": "SEAPLANE",
   "landing": "SEAPLANE",
   "navalWarship": {
     "modifier": 0,

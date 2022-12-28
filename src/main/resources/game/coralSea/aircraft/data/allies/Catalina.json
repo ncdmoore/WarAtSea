@@ -9,7 +9,7 @@
   "service": "NAVY",
   "designation": "VQ-",
   "altitude": "MEDIUM",
-  "takeoff": "SEAPLANE",
+  "takeOff": "SEAPLANE",
   "landing": "SEAPLANE",
   "navalWarship": {
     "modifier": 0,

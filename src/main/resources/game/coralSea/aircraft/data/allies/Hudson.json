@@ -9,7 +9,7 @@
   "service": "AIR_FORCE",
   "designation": "RAAF-",
   "altitude": "LOW",
-  "takeoff": "LAND",
+  "takeOff": "LAND",
   "landing": "LAND",
   "navalWarship": {
     "modifier": 0,

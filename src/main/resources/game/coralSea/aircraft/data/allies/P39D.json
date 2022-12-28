@@ -9,7 +9,7 @@
   "service": "AIR_FORCE",
   "designation": "P-",
   "altitude": "MEDIUM",
-  "takeoff": "LAND",
+  "takeOff": "LAND",
   "landing": "LAND",
   "navalWarship": {
     "modifier": 0,
