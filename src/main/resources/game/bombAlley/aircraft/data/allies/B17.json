@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "B17"
+  },
+  "title": "B-17 Fortress",
+  "type": "Bomber",
+  "nation": "British",
+  "service": "AIR_FORCE",
+  "designation": "RAF-",
+  "altitude": "HIGH",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": -1,
+    "full": 3,
+    "half": 1
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 3,
+    "half": 1
+  },
+  "land": {
+    "modifier": 0,
+    "full": 9,
+    "half": 5
+  },
+  "air": {
+    "modifier": 0,
+    "defensive": true,
+    "full": 3,
+    "half": 1
+  },
+  "performance": {
+    "range": 12,
+    "endurance": 3
+  },
+  "frame": {
+    "frame": 3,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

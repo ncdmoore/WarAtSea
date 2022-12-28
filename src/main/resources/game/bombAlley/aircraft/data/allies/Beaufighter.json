@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Beaufighter"
+  },
+  "title": "Beaufighter",
+  "type": "FIGHTER",
+  "nation": "BRITISH",
+  "service": "AIR_FORCE",
+  "designation": "RAF-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 2,
+    "half": 1
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 2,
+    "half": 1
+  },
+  "land": {
+    "modifier": 0,
+    "full": 2,
+    "half": 1
+  },
+  "air": {
+    "modifier": 1,
+    "full": 2,
+    "half": 1
+  },
+  "performance": {
+    "range": 15,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

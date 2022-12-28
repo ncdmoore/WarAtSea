@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Tomahawk"
+  },
+  "title": "Tomahawk",
+  "type": "FIGHTER",
+  "nation": "BRITISH",
+  "service": "AIR_FORCE",
+  "designation": "RAF-",
+  "altitude": "MEDIUM",
+  "takeOff": "CARRIER",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 1,
+    "full": 3,
+    "half": 1
+  },
+  "performance": {
+    "range": 8,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "DROP_TANKS",
+    "SEARCH"
+  ]
+}

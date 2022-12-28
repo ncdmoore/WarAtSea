@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "L298"
+  },
+  "title": "L298",
+  "type": "TORPEDO_BOMBER",
+  "nationality": "FRENCH",
+  "service": "NAVY",
+  "designation": "AA-",
+  "altitude": "LOW",
+  "takeOff": "SEAPLANE",
+  "landing": "SEAPLANE",
+  "navalWarship": {
+    "modifier": 1,
+    "full": 4,
+    "half": 2
+  },
+  "navalTransport": {
+    "modifier": 1,
+    "full": 4,
+    "half": 2
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 8,
+    "endurance": 2
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Maryland"
+  },
+  "title": "Maryland",
+  "type": "BOMBER",
+  "nation": "BRITISH",
+  "service": "AIR_FORCE",
+  "designation": "RAF-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "land": {
+    "modifier": 1,
+    "full": 3,
+    "half": 2
+  },
+  "air": {
+    "modifier": 0,
+    "defensive": true,
+    "full": 2,
+    "half": 1
+  },
+  "performance": {
+    "range": 15,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

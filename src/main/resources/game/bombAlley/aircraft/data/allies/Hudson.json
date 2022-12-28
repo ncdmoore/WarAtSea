@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Hudson"
+  },
+  "title": "Hudson",
+  "type": "RECONNAISSANCE",
+  "nation": "BRITISH",
+  "service": "AIR_FORCE",
+  "designation": "RAF-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "performance": {
+    "range": 8,
+    "endurance": 3
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

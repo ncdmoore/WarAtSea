@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Skua"
+  },
+  "title": "Skua",
+  "type": "DIVE_BOMBER",
+  "nation": "BRITISH",
+  "service": "NAVY",
+  "designation": "NAS-",
+  "altitude": "LOW",
+  "takeOff": "CARRIER",
+  "landing": "CARRIER",
+  "navalWarship": {
+    "modifier": 2,
+    "full": 2,
+    "half": 1
+  },
+  "navalTransport": {
+    "modifier": 2,
+    "full": 2,
+    "half": 1
+  },
+  "land": {
+    "modifier": 1,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "defensive": true,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 9,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}
