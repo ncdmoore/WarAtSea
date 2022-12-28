@@ -37,6 +37,16 @@ public class ResourceProvider implements BootStrapped {
     registerEvents(events);
   }
 
+  public List<Path> getSubDirectoryPaths(final String parentDirectoryName) {
+    var fullName = Paths.get(gamePaths.getGamePath(), parentDirectoryName).toString();
+
+    try {
+      return getSubDirectoryPathsFromJar(fullName);
+    } catch (URISyntaxException | IOException e) {
+      throw new ResourceException("Unable to get sub directory paths for directory: " + fullName, e);
+    }
+  }
+
   public InputStream getResourceInputStream(final Id id, final String baseDirectory) {
     var path = getPath(id, baseDirectory);
 
@@ -52,16 +62,6 @@ public class ResourceProvider implements BootStrapped {
 
   public InputStream getDefaultResourceInputStream(final String resourcePath) {
     return getInputStream(resourcePath);
-  }
-
-  public List<Path> getSubDirectoryPaths(final String parentDirectoryName) {
-    var fullName = Paths.get(gamePaths.getGamePath(), parentDirectoryName).toString();
-
-    try {
-      return getSubDirectoryPathsFromJar(fullName);
-    } catch (URISyntaxException | IOException e) {
-      throw new ResourceException("Unable to get sub directory paths for directory: " + fullName, e);
-    }
   }
 
   private InputStream getInputStream(final String resourcePath) {
