@@ -43,7 +43,7 @@ public class GamePaths {
   private final String summaryFileName = "summary.json";
   private final String gameMapFileName = "map.json";
   private final String gameEntityName = "game.json";
-  private final String squadronDeploymentFileName = "deployment.json";
+  private final String squadronDeploymentFileName = "deployment";
 
   public String getScenarioSpecific(final String path) {
     return Paths.get(scenarioPath, path).toString();

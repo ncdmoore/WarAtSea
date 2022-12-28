@@ -47,8 +47,8 @@ public class RegionServiceImpl implements RegionService {
   }
 
   private void registerEvents(final Events events) {
-    events.getStartNewGameEvents().register(this::handleStartNewGameEvent);
-    events.getStartSavedGameEvents().register(this::handleStartSavedGameEvent);
+    events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
+    events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getLoadMapEvent().register(this::handleLoadMapEvent);
   }
 

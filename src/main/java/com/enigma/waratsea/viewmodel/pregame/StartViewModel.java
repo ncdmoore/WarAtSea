@@ -34,16 +34,16 @@ public class StartViewModel {
 
   public void newGame(final Stage stage) {
     try {
-      events.getStartNewGameEvents().fire(new StartNewGameEvent());
-      events.getNavigateEvents().fire(buildForwardNavigateEvent(stage));
+      events.getStartNewGameEvent().fire(new StartNewGameEvent());
+      events.getNavigateEvent().fire(buildForwardNavigateEvent(stage));
     } catch (WarAtSeaException e) {
       events.getErrorEvents().fire(buildErrorEvent());
     }
   }
 
   public void savedGame(final Stage stage) {
-    events.getStartSavedGameEvents().fire(new StartSavedGameEvent());
-    events.getNavigateEvents().fire(buildForwardNavigateEvent(stage));
+    events.getStartSavedGameEvent().fire(new StartSavedGameEvent());
+    events.getNavigateEvent().fire(buildForwardNavigateEvent(stage));
   }
 
   public void options() {

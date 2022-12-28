@@ -69,9 +69,9 @@ public class NavigationHandler implements BootStrapped {
   }
 
   private void registerEvents(final Events events) {
-    events.getStartNewGameEvents().register(this::handleStartNewGame);
-    events.getStartSavedGameEvents().register(this::handleStartSavedGame);
-    events.getNavigateEvents().register(this::handleNavigate);
+    events.getStartNewGameEvent().register(this::handleStartNewGame);
+    events.getStartSavedGameEvent().register(this::handleStartSavedGame);
+    events.getNavigateEvent().register(this::handleNavigate);
   }
 
   private void handleNavigate(final NavigateEvent navigateEvent) {

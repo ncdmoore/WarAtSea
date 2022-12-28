@@ -70,6 +70,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(PlayerService.class);
     bootStrappedBinder.addBinding().to(AircraftService.class);
     bootStrappedBinder.addBinding().to(SquadronService.class);
+    bootStrappedBinder.addBinding().to(SquadronDeploymentService.class);
   }
 
   private void bindProps() {

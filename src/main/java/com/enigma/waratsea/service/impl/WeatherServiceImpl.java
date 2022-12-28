@@ -56,7 +56,7 @@ public class WeatherServiceImpl implements WeatherService {
   }
 
   private void registerEvents(final Events events) {
-    events.getGameNameEvents().register(this::setGameName);
+    events.getGameNameEvent().register(this::setGameName);
   }
 
   private void setGameName(final GameNameEvent gameNameEvent) {

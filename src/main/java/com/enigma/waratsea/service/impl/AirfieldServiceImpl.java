@@ -54,9 +54,9 @@ public class AirfieldServiceImpl implements AirfieldService {
   }
 
   private void registerEvents(final Events events) {
-    events.getStartNewGameEvents().register(this::handleStartNewGameEvent);
-    events.getStartSavedGameEvents().register(this::handleStartSavedGameEvent);
-    events.getSaveGameEvents().register(this::save);
+    events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
+    events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSaveGameEvent().register(this::save);
   }
 
   private Airfield getAndIndex(final Id airfieldId) {

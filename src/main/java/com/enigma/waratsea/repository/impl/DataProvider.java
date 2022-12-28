@@ -63,9 +63,16 @@ public class DataProvider implements BootStrapped {
     var scenarioSpecificFullPath = Paths.get(gameDataDirectory, scenarioDirectory, path).toString();
     var genericFullPath = Paths.get(gameDataDirectory, path).toString();
 
-    return isNewGame
+    var inputStream = isNewGame
         ? getResourceInputStream(scenarioSpecificFullPath, genericFullPath)
         : getFileInputStream(genericFullPath);
+
+    if (inputStream == null) {
+      log.warn("Cannot find scenario specific path: '{}'", scenarioSpecificFullPath);
+      log.warn("Cannot find generic path: '{}'", genericFullPath);
+    }
+
+    return inputStream;
   }
 
   public Path getSaveDirectory(final String gameId) {
@@ -97,8 +104,8 @@ public class DataProvider implements BootStrapped {
   }
 
   private void registerEvents(final Events events) {
-    events.getGameNameEvents().register(this::setGameDirectories);
-    events.getStartNewGameEvents().register(this::setGameDataDirectoryToNewGameDirectory);
+    events.getGameNameEvent().register(this::setGameDirectories);
+    events.getStartNewGameEvent().register(this::setGameDataDirectoryToNewGameDirectory);
     events.getSelectSavedGameEvent().register(this::setGameDataDirectoryToSavedGameDirectory);
   }
 

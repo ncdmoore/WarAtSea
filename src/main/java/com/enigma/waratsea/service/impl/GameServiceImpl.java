@@ -51,9 +51,9 @@ public class GameServiceImpl implements GameService {
   }
 
   private void registerEvents(final Events events) {
-    events.getGameNameEvents().register(this::setGameName);
-    events.getStartNewGameEvents().register(this::create);
-    events.getSaveGameEvents().register(this::save);
+    events.getGameNameEvent().register(this::setGameName);
+    events.getStartNewGameEvent().register(this::create);
+    events.getSaveGameEvent().register(this::save);
     events.getSelectScenarioEvent().register(this::setScenario);
     events.getSelectSideEvent().register(this::setHumanSide);
   }

@@ -50,13 +50,13 @@ public class NewGameViewModel {
   }
 
   public void goBack(final Stage stage) {
-    events.getNavigateEvents().fire(buildBackwardNav(stage));
+    events.getNavigateEvent().fire(buildBackwardNav(stage));
   }
 
   public void continueOn(final Stage stage) {
     log.info("continue");
     events.getConfigNewGameEvent().fire(new ConfigNewGameEvent());
-    events.getSaveGameEvents().fire(new SaveGameEvent(selectedScenario.getValue().getName()));
+    events.getSaveGameEvent().fire(new SaveGameEvent(selectedScenario.getValue().getName()));
   }
 
   private void loadScenarios() {

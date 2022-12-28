@@ -75,7 +75,7 @@ public class ResourceProvider implements BootStrapped {
   }
 
   private void registerEvents(final Events events) {
-    events.getGameNameEvents().register(this::handleGameSelected);
+    events.getGameNameEvent().register(this::handleGameSelected);
     events.getSelectScenarioEvent().register(this::handleScenarioSelected);
   }
 

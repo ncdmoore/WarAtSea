@@ -1,10 +1,7 @@
 package com.enigma.waratsea.orchestration;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.event.ConfigNewGameEvent;
-import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.LoadMapEvent;
-import com.enigma.waratsea.event.LoadPlayerEvent;
+import com.enigma.waratsea.event.*;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +22,7 @@ public class ConfigGameSaga implements BootStrapped {
     log.info("ConfigGameSaga: handle ConfigNewGameEvent");
 
     events.getLoadMapEvent().fire(new LoadMapEvent());
+    events.getLoadSquadronEvent().fire(new LoadSquadronEvent());
     events.getLoadPlayerEvent().fire(new LoadPlayerEvent());
   }
 }

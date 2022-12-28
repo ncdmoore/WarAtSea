@@ -51,9 +51,9 @@ public class PortServiceImpl implements PortService {
   }
 
   private void registerEvents(final Events events) {
-    events.getStartNewGameEvents().register(this::handleStartNewGameEvent);
-    events.getStartSavedGameEvents().register(this::handleStartSavedGameEvent);
-    events.getSaveGameEvents().register(this::save);
+    events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
+    events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSaveGameEvent().register(this::save);
   }
 
   private Port getAndIndex(Id portId) {

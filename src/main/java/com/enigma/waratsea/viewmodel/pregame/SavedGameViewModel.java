@@ -41,7 +41,7 @@ public class SavedGameViewModel {
   }
 
   public void goBack(final Stage stage) {
-    events.getNavigateEvents().fire(buildBackwardNav(stage));
+    events.getNavigateEvent().fire(buildBackwardNav(stage));
   }
 
   public void continueOn(final Stage stage) {

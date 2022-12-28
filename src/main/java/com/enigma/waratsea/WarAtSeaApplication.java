@@ -115,6 +115,6 @@ public class WarAtSeaApplication extends Application {
   private void fireGameNameEvent(final Injector injector) {
     GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
     var events = injector.getInstance(Events.class);
-    events.getGameNameEvents().fire(new GameNameEvent(currentName));
+    events.getGameNameEvent().fire(new GameNameEvent(currentName));
   }
 }
