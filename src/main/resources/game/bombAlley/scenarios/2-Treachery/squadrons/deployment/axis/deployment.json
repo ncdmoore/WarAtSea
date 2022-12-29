@@ -1,0 +1,18 @@
+[
+  {
+    "airbase": {
+      "side": "AXIS",
+      "name": "Oran"
+    },
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "D520-M1"
+      },
+      {
+        "side": "AXIS",
+        "name": "LEO451-M1"
+      }
+    ]
+  }
+]

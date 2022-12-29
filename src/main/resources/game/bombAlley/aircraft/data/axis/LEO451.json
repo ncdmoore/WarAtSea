@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "LEO451"
+  },
+  "title": "LeO451",
+  "type": "BOMBER",
+  "nation": "FRENCH",
+  "service": "AIR_FORCE",
+  "designation": "AA-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "land": {
+    "modifier": 1,
+    "full": 4,
+    "half": 2
+  },
+  "air": {
+    "modifier": 0,
+    "full": 2,
+    "half": 1
+  },
+  "performance": {
+    "range": 17,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}
