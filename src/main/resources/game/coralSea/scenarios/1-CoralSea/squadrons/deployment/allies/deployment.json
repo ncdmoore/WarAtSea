@@ -1,9 +1,11 @@
 [
   {
-    "airbase": {
-      "side": "ALLIES",
-      "name": "Port_Moresby"
-    },
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Port_Moresby"
+      }
+    ],
     "squadrons": [
       {
         "side": "ALLIES",
@@ -24,10 +26,12 @@
     ]
   },
   {
-    "airbase" : {
-      "side": "ALLIES",
-      "name": "Tulagi"
-    },
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Tulagi"
+      }
+    ],
     "squadrons": [
       {
         "side": "ALLIES",
@@ -36,10 +40,12 @@
     ]
   },
   {
-    "airbase" : {
-      "side": "ALLIES",
-      "name": "Cairns"
-    },
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Cairns"
+      }
+    ],
     "squadrons": [
       {
         "side": "ALLIES",
@@ -48,10 +54,12 @@
     ]
   },
   {
-    "airbase" : {
-      "side": "ALLIES",
-      "name": "Townsville"
-    },
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Townsville"
+      }
+    ],
     "squadrons": [
       {
         "side": "ALLIES",

@@ -1,9 +1,15 @@
 [
   {
-    "airbase": {
-      "side": "AXIS",
-      "name": "Oran"
-    },
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Oran"
+      },
+      {
+        "side": "AXIS",
+        "name": "Algiers"
+      }
+    ],
     "squadrons": [
       {
         "side": "AXIS",

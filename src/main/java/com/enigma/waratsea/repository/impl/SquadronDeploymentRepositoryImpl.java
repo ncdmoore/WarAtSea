@@ -63,10 +63,14 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
     List<SquadronDeploymentEntity> deployment = gson.fromJson(bufferedReader, collectionType);
 
     log.debug("load deployment: '{}',", deployment.stream()
-        .map(SquadronDeploymentEntity::getAirbase)
-        .map(Id::toString)
+        .map(SquadronDeploymentEntity::getAirbases)
+        .map(this::getAirbaseIdsAsString)
         .collect(Collectors.joining(",")));
 
     return deployment;
+  }
+
+  private String getAirbaseIdsAsString(final List<Id> airbaseIds) {
+    return airbaseIds.stream().map(Id::toString).collect(Collectors.joining(","));
   }
 }

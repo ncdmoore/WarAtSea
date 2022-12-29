@@ -1,9 +1,11 @@
 [
   {
-    "airbase": {
-      "side": "ALLIES",
-      "name": "Gibraltar"
-    },
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Gibraltar"
+      }
+    ],
     "squadrons": [
       {
         "side": "ALLIES",

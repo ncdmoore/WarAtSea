@@ -1,8 +1,9 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.DeploySquadronEvent;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.mapper.SquadronDeploymentMapper;
+import com.enigma.waratsea.model.Airbase;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.squadron.SquadronDeployment;
@@ -14,9 +15,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -25,6 +24,9 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   private final SquadronDeploymentRepository squadronDeploymentRepository;
   private final SquadronService squadronService;
   private final GameService gameService;
+
+  private final Random random = new Random();
+
 
   @Inject
   public SquadronDeploymentServiceImpl(final Events events,
@@ -59,20 +61,31 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   }
 
   private void deploySquadron(final SquadronDeployment deployment) {
-    log.debug("airbase: '{}'", deployment.getAirbase());
-    log.debug("squadrons: '{}", deployment.getSquadrons().stream().map(Id::toString).collect(Collectors.joining(",")));
+    var airbases = getAirbases();
 
-    var airbaseId = deployment.getAirbase();
-
-    var airbase = gameService.getGame()
-        .getPlayers()
-        .get(airbaseId.getSide())
-        .getAirbases()
-        .get(airbaseId);
-
+    var airbaseIds = deployment.getAirbases();
     var squadronIds = new HashSet<>(deployment.getSquadrons());
 
     squadronService.get(squadronIds)
-        .forEach(airbase::deploySquadron);
+        .forEach(squadron -> {
+          var airbaseId = pickAirbaseId(airbaseIds);
+          var airbase = airbases.get(airbaseId);
+          airbase.deploySquadron(squadron);
+          log.info("Deploy squadron: '{}' to airbase: '{}'", squadron.getId(), airbase.getId());
+        });
+  }
+
+  private Map<Id, Airbase> getAirbases() {
+    return gameService.getGame()
+        .getPlayers()
+        .values()
+        .stream()
+        .flatMap(player -> player.getAirbases().entrySet().stream())
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  }
+
+  private Id pickAirbaseId(final List<Id> airbaseIds) {
+    var index = random.nextInt(airbaseIds.size());
+    return airbaseIds.get(index);
   }
 }

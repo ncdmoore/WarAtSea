@@ -1,9 +1,11 @@
 [
   {
-    "airbase": {
-      "side": "AXIS",
-      "name": "Gasmata"
-    },
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Gasmata"
+      }
+    ],
     "squadrons": [
       {
         "side": "AXIS",
@@ -20,10 +22,12 @@
     ]
   },
   {
-    "airbase" : {
-      "side": "AXIS",
-      "name": "Kavieng"
-    },
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Kavieng"
+      }
+    ],
     "squadrons": [
       {
         "side": "AXIS",
@@ -36,10 +40,12 @@
     ]
   },
   {
-    "airbase" : {
-      "side": "AXIS",
-      "name": "Rabaul"
-    },
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Rabaul"
+      }
+    ],
     "squadrons": [
       {
         "side": "AXIS",
@@ -56,10 +62,12 @@
     ]
   },
   {
-    "airbase" : {
-      "side": "AXIS",
-      "name": "Lae"
-    },
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Lae"
+      }
+    ],
     "squadrons": [
       {
         "side": "AXIS",

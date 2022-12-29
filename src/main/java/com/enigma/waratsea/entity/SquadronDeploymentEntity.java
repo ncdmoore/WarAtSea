@@ -9,6 +9,6 @@ import java.util.List;
 @Data
 @Builder
 public class SquadronDeploymentEntity {
-  private Id airbase;
+  private List<Id> airbases;
   private List<Id> squadrons;
 }
