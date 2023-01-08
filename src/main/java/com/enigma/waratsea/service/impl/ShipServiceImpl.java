@@ -60,6 +60,7 @@ public class ShipServiceImpl implements ShipService {
     events.getLoadRegistryEvent().register(this::handleLoadRegistryEvent);
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getSaveGameEvent().register(this::save);
   }
 
@@ -80,6 +81,11 @@ public class ShipServiceImpl implements ShipService {
     log.debug("ShipServiceImpl handle StartSavedGameEvent");
 
     isNewGame = false;
+    clearCaches();
+  }
+
+  private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    log.debug("ShipServiceImpl handle SelectedScenarioEvent");
     clearCaches();
   }
 
@@ -156,5 +162,6 @@ public class ShipServiceImpl implements ShipService {
 
   private void clearCaches() {
     ships.clear();
+    shipClasses.clear();
   }
 }

@@ -1,9 +1,6 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.SaveGameEvent;
-import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.AirfieldMapper;
 import com.enigma.waratsea.model.Airfield;
 import com.enigma.waratsea.model.Id;
@@ -56,6 +53,7 @@ public class AirfieldServiceImpl implements AirfieldService {
   private void registerEvents(final Events events) {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getSaveGameEvent().register(this::save);
   }
 
@@ -83,6 +81,11 @@ public class AirfieldServiceImpl implements AirfieldService {
 
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
     log.debug("AirfieldServiceImpl handle StartSavedGameEvent - clear cache");
+    clearCaches();
+  }
+
+  private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    log.debug("AirfieldServiceImpl handle SelectedScenarioEvent - clear cache");
     clearCaches();
   }
 

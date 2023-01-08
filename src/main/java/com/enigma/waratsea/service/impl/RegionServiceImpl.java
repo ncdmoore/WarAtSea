@@ -1,9 +1,6 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.LoadMapEvent;
-import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.repository.RegionRepository;
@@ -49,6 +46,7 @@ public class RegionServiceImpl implements RegionService {
   private void registerEvents(final Events events) {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getLoadMapEvent().register(this::handleLoadMapEvent);
   }
 
@@ -59,6 +57,11 @@ public class RegionServiceImpl implements RegionService {
 
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
     log.debug("RegionServiceImpl receives StartSavedGameEvent - clears caches");
+    clearCaches();
+  }
+
+  private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    log.debug("RegionServiceImpl receives SelectedScenarioEvent - clears caches");
     clearCaches();
   }
 

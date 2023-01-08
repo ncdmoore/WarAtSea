@@ -1,9 +1,6 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.SaveGameEvent;
-import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.PortMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Port;
@@ -53,6 +50,7 @@ public class PortServiceImpl implements PortService {
   private void registerEvents(final Events events) {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getSaveGameEvent().register(this::save);
   }
 
@@ -80,6 +78,11 @@ public class PortServiceImpl implements PortService {
 
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
     log.debug("PortServiceImpl handle StartSavedGameEvent - clear cache");
+    clearCaches();
+  }
+
+  private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    log.debug("PortServiceImpl handle SelectScenarioEvent - clear cache");
     clearCaches();
   }
 

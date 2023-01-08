@@ -38,6 +38,7 @@ public class TaskForceServiceImpl implements TaskForceService {
   private void registerEvents(final Events events) {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getLoadTaskForcesEvent().register(this::handleLoadTaskForcesEvent);
     events.getSaveGameEvent().register(this::save);
   }
@@ -47,6 +48,10 @@ public class TaskForceServiceImpl implements TaskForceService {
   }
 
   private void handleStartSavedGameEvent(final StartSavedGameEvent startSavedGameEvent) {
+    clearCache();
+  }
+
+  private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
     clearCache();
   }
 
