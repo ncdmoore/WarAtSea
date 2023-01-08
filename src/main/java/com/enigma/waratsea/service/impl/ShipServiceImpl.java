@@ -91,7 +91,7 @@ public class ShipServiceImpl implements ShipService {
         .map(shipMapper::toEntity)
         .forEach(ship -> shipRepository.save(gameId, ship));
 
-    log.info("ShipServiceImpl receviced saveGameEvent save ships for game: '{}'.", gameId);
+    log.info("ShipServiceImpl received saveGameEvent save ships for game: '{}'.", gameId);
   }
 
   private Ship getShip(final Id shipId) {
