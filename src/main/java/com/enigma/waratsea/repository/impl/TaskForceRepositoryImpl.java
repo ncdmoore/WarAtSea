@@ -1,20 +1,21 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.TaskForceEntity;
+import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.TaskForceRepository;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -41,8 +42,10 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
   }
 
   @Override
-  public void save(final String gameId, final Set<TaskForceEntity> taskForce) {
-
+  public void save(final String gameId, final Side side, final Set<TaskForceEntity> taskForces) {
+    var id = new Id(side, taskForceFileName);
+    var directory = dataProvider.getSavedEntityDirectory(gameId, id, taskForceDirectory);
+    writeTaskForces(directory, side, taskForces);
   }
 
   private List<TaskForceEntity> readTaskForces(final Id taskForceId) {
@@ -54,6 +57,20 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
     } catch (Exception e) {
       log.warn("Unable to read task forces: '{}'", taskForceId);
       return Collections.emptyList();
+    }
+  }
+
+  private void writeTaskForces(final Path directory, final Side side, final Set<TaskForceEntity> taskForces) {
+    var id = new Id(side, taskForceFileName);
+    var filePath = dataProvider.getSaveFile(directory, id);
+
+    try (var out = new FileOutputStream(filePath.toString());
+         var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
+      log.debug("Save task forces: '{}' to path: '{}'", id, directory);
+      var json = toJson(taskForces);
+      writer.write(json);
+    } catch (IOException e) {
+      throw new GameException("Unable to save " + id + " to path: " +filePath, e);
     }
   }
 
@@ -73,5 +90,13 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
         .collect(Collectors.joining(",")));
 
     return taskForces;
+  }
+
+  private String toJson(final Set<TaskForceEntity> taskForces) {
+    var gson = new GsonBuilder()
+        .setPrettyPrinting()
+        .create();
+
+    return gson.toJson(taskForces);
   }
 }

@@ -60,10 +60,8 @@ public class TaskForceServiceImpl implements TaskForceService {
   private void save(final SaveGameEvent saveGameEvent) {
     var gameId = saveGameEvent.getId();
 
-    taskForceSideMap.values()
-        .stream()
-        .map(taskForceMapper::modelsToEntities)
-        .forEach(taskforces -> taskForceRepository.save(gameId, taskforces));
+    taskForceSideMap.keySet()
+        .forEach(side -> saveSide(gameId, side));
   }
 
   private Set<TaskForce> getFromRepository(final Side side) {
@@ -71,6 +69,12 @@ public class TaskForceServiceImpl implements TaskForceService {
     var models = taskForceMapper.entitiesToModels(entities);
 
     return new HashSet<>(models);
+  }
+
+  private void saveSide(final String gameId, final Side side) {
+    var taskForces = taskForceSideMap.get(side);
+    var entities = taskForceMapper.modelsToEntities(taskForces);
+    taskForceRepository.save(gameId, side, entities);
   }
 
   private void clearCache() {
