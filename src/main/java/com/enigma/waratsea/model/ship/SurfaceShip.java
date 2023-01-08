@@ -4,18 +4,12 @@ import com.enigma.waratsea.model.Id;
 import lombok.Builder;
 import lombok.Getter;
 
+@Getter
 @Builder
 public class SurfaceShip implements Ship {
-  @Getter
   private Id id;
-
-  @Getter
   private ShipType type;
-
-  @Getter
   private String title;
-
-  @Getter
   private final boolean airbase = false;
 
   @Override

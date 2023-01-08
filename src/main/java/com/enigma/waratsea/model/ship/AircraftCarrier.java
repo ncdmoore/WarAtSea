@@ -11,22 +11,13 @@ import lombok.Getter;
 import java.util.Set;
 
 @Builder
+@Getter
 public class AircraftCarrier implements Ship, Airbase {
-  @Getter
   private Id id;
-
-  @Getter
   private ShipType type;
-
-  @Getter
   private String title;
-
-  @Getter
   private Nation nation;
-
-  @Getter
   private final boolean airbase = true;
-
   private FlightDeck flightDeck;
   private Gun secondary;
   private Gun tertiary;
@@ -48,6 +39,6 @@ public class AircraftCarrier implements Ship, Airbase {
 
   @Override
   public void deploySquadron(Squadron squadron) {
-
+    squadrons.add(squadron);
   }
 }

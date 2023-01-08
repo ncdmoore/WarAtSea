@@ -30,6 +30,11 @@ public abstract class ShipMapper {
 
   abstract public AircraftCarrier toAircraftCarrier(final AircraftCarrierEntity aircraftCarrierEntity);
 
+  @SubclassMapping(source = AircraftCarrier.class, target = AircraftCarrierEntity.class)
+  abstract public ShipEntity toEntity(final Ship ship);
+
+  abstract public AircraftCarrierEntity toAircraftCarrierEntity(final AircraftCarrier aircraftCarrier);
+
   Set<Squadron> mapSquadrons(final Set<Id> squadronIds) {
     return Optional.ofNullable(squadronIds)
         .map(ids -> squadronService.get(squadronIds))

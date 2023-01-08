@@ -1,9 +1,6 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.LoadRegistryEvent;
-import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.ShipMapper;
 import com.enigma.waratsea.mapper.ShipRegistryMapper;
 import com.enigma.waratsea.model.Id;
@@ -63,6 +60,7 @@ public class ShipServiceImpl implements ShipService {
     events.getLoadRegistryEvent().register(this::handleLoadRegistryEvent);
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
+    events.getSaveGameEvent().register(this::save);
   }
 
   private void handleLoadRegistryEvent(final LoadRegistryEvent event) {
@@ -83,6 +81,17 @@ public class ShipServiceImpl implements ShipService {
 
     isNewGame = false;
     clearCaches();
+  }
+
+  private void save(final SaveGameEvent saveGameEvent) {
+    var gameId = saveGameEvent.getId();
+
+    ships.values()
+        .stream()
+        .map(shipMapper::toEntity)
+        .forEach(ship -> shipRepository.save(gameId, ship));
+
+    log.info("ShipServiceImpl receviced saveGameEvent save ships for game: '{}'.", gameId);
   }
 
   private Ship getShip(final Id shipId) {

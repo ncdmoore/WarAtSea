@@ -8,4 +8,5 @@ public interface FlightDeckMapper {
   FlightDeckMapper INSTANCE = Mappers.getMapper(FlightDeckMapper.class);
 
   FlightDeck toModel(FlightDeckEntity flightDeckEntity);
+  FlightDeckEntity toEntity(FlightDeck flightDeck);
 }

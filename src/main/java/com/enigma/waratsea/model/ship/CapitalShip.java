@@ -6,19 +6,16 @@ import com.enigma.waratsea.model.squadron.Squadron;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.Set;
+
+@Getter
 @Builder
 public class CapitalShip implements Ship, Airbase {
-  @Getter
   private Id id;
-
-  @Getter
   private ShipType type;
-
-  @Getter
   private String title;
-
-  @Getter
   private final boolean airbase = true;
+  private Set<Squadron> squadrons;
 
   @Override
   public Ship commission(final Id id, final String title) {
@@ -29,6 +26,6 @@ public class CapitalShip implements Ship, Airbase {
 
   @Override
   public void deploySquadron(Squadron squadron) {
-
+    squadrons.add(squadron);
   }
 }
