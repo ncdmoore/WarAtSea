@@ -57,7 +57,7 @@ public class PortRepositoryImpl implements PortRepository {
 
     try (var out = new FileOutputStream(filePath.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.info("Save port: '{}' to path: '{}'", id, directory);
+      log.debug("Save port: '{}' to path: '{}'", id, directory);
       var json = toJson(port);
       writer.write(json);
     } catch (IOException e) {
