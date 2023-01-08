@@ -45,7 +45,7 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
   public void save(final String gameId, final Side side, final Set<TaskForceEntity> taskForces) {
     var id = new Id(side, taskForceFileName);
     var directory = dataProvider.getSavedEntityDirectory(gameId, id, taskForceDirectory);
-    writeTaskForces(directory, side, taskForces);
+    writeTaskForces(directory, id, taskForces);
   }
 
   private List<TaskForceEntity> readTaskForces(final Id taskForceId) {
@@ -60,8 +60,7 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
     }
   }
 
-  private void writeTaskForces(final Path directory, final Side side, final Set<TaskForceEntity> taskForces) {
-    var id = new Id(side, taskForceFileName);
+  private void writeTaskForces(final Path directory, final Id id, final Set<TaskForceEntity> taskForces) {
     var filePath = dataProvider.getSaveFile(directory, id);
 
     try (var out = new FileOutputStream(filePath.toString());
