@@ -1,9 +1,6 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.LoadTaskForcesEvent;
-import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.TaskForceMapper;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.taskForce.TaskForce;
@@ -42,6 +39,7 @@ public class TaskForceServiceImpl implements TaskForceService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getLoadTaskForcesEvent().register(this::handleLoadTaskForcesEvent);
+    events.getSaveGameEvent().register(this::save);
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
@@ -57,6 +55,15 @@ public class TaskForceServiceImpl implements TaskForceService {
 
     Side.stream()
         .forEach(this::get);
+  }
+
+  private void save(final SaveGameEvent saveGameEvent) {
+    var gameId = saveGameEvent.getId();
+
+    taskForceSideMap.values()
+        .stream()
+        .map(taskForceMapper::modelsToEntities)
+        .forEach(taskforces -> taskForceRepository.save(gameId, taskforces));
   }
 
   private Set<TaskForce> getFromRepository(final Side side) {

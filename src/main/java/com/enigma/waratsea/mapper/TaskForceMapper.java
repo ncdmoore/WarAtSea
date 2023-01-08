@@ -23,6 +23,7 @@ public abstract class TaskForceMapper {
   public ShipService shipService;
 
   abstract public List<TaskForce> entitiesToModels(List<TaskForceEntity> entities);
+  abstract public Set<TaskForceEntity> modelsToEntities(Set<TaskForce> models);
 
   abstract public TaskForce toModel(final TaskForceEntity taskForceEntity);
   abstract public TaskForceEntity toEntity(final TaskForce taskForce);

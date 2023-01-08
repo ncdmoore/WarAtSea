@@ -17,6 +17,7 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -38,6 +39,12 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
   public List<TaskForceEntity> get(Side side) {
     return readTaskForces(new Id(side, taskForceFileName));
   }
+
+  @Override
+  public void save(final String gameId, final Set<TaskForceEntity> taskForce) {
+
+  }
+
   private List<TaskForceEntity> readTaskForces(final Id taskForceId) {
     try (var in = getInputStream(taskForceId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
