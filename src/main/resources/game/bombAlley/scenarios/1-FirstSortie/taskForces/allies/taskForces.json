@@ -7,6 +7,10 @@
     "ships": [
       {
         "side": "ALLIES",
+        "name": "Warspite"
+      },
+      {
+        "side": "ALLIES",
         "name": "Eagle"
       },
       {

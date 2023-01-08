@@ -1,6 +1,7 @@
 package com.enigma.waratsea.model.ship;
 
 import com.enigma.waratsea.entity.ship.AircraftCarrierEntity;
+import com.enigma.waratsea.entity.ship.CapitalShipEntity;
 import com.enigma.waratsea.entity.ship.ShipEntity;
 import com.enigma.waratsea.entity.ship.SurfaceShipEntity;
 import lombok.Getter;
@@ -15,10 +16,10 @@ public enum ShipType {
   AIRCRAFT_CARRIER("Aircraft Carrier", AircraftCarrierEntity.class),
   LIGHT_CARRIER("Light Carrier", AircraftCarrierEntity.class),
   SEAPLANE_CARRIER("Seaplane Carrier", AircraftCarrierEntity.class),
-  BATTLECRUISER("Battlecruiser", AircraftCarrierEntity.class),
-  BATTLESHIP("Battleship", AircraftCarrierEntity.class),
-  HEAVY_CRUISER("Heavy Cruiser", AircraftCarrierEntity.class),
-  LIGHT_CRUISER("Light Cruiser", AircraftCarrierEntity.class),
+  BATTLECRUISER("Battlecruiser", CapitalShipEntity.class),
+  BATTLESHIP("Battleship", CapitalShipEntity.class),
+  HEAVY_CRUISER("Heavy Cruiser", CapitalShipEntity.class),
+  LIGHT_CRUISER("Light Cruiser", CapitalShipEntity.class),
   DESTROYER("Destroyer", SurfaceShipEntity.class),
   DESTROYER_ESCORT("Destroyer Escort", SurfaceShipEntity.class),
   FLAK_SHIP("Flak Ship", SurfaceShipEntity.class),

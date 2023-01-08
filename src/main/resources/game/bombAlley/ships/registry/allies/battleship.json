@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Warspite"
+    },
+    "title": "BB02 Warspite",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Warspite"
+    }
+  }
+]
