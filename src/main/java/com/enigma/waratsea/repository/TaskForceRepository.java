@@ -8,6 +8,5 @@ import java.util.Set;
 
 public interface TaskForceRepository {
   List<TaskForceEntity> get(Side side);
-
   void save(String gameId, Side side, Set<TaskForceEntity> taskForces);
 }

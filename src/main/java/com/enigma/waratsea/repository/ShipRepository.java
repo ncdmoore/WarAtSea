@@ -10,8 +10,6 @@ import java.util.List;
 
 public interface ShipRepository {
   ShipEntity get(Id shipId, ShipType shipType);
-
   List<ShipRegistryEntity> getRegistry(Side side, ShipType shipType);
-
   void save(String gameId, ShipEntity shipEntity);
 }
