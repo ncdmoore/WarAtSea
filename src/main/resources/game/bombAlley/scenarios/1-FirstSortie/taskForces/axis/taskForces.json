@@ -1,0 +1,14 @@
+[
+  {
+    "id": "TF4",
+    "title": "Emergency Force",
+    "location": "Taranto",
+    "state": "RESERVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Conte_di_Cavour"
+      }
+    ]
+  }
+]
