@@ -1,6 +1,6 @@
 package com.enigma.waratsea.repository.impl;
 
-import com.enigma.waratsea.entity.AircraftEntity;
+import com.enigma.waratsea.entity.aircraft.AircraftEntity;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.AircraftRepository;
@@ -50,6 +50,7 @@ public class AircraftRepositoryImpl implements AircraftRepository {
 
   private AircraftEntity toEntity(final BufferedReader bufferedReader) {
     var gson = new Gson();
+
     var aircraft = gson.fromJson(bufferedReader, AircraftEntity.class);
 
     log.debug("load airfield: '{}'", aircraft.getId());

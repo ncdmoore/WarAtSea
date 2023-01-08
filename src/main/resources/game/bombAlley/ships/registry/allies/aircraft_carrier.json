@@ -1,0 +1,24 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Furious"
+    },
+    "title": "CV01 Furious",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Furious"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ark_Royal"
+    },
+    "title": "CV04 Ark Royal",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Ark_Royal"
+    }
+  }
+]

@@ -1,4 +1,4 @@
-package com.enigma.waratsea.entity;
+package com.enigma.waratsea.entity.squadron;
 
 import com.enigma.waratsea.model.Id;
 import lombok.Builder;

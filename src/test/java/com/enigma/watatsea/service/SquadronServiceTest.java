@@ -1,6 +1,6 @@
 package com.enigma.watatsea.service;
 
-import com.enigma.waratsea.entity.SquadronEntity;
+import com.enigma.waratsea.entity.squadron.SquadronEntity;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.mapper.SquadronMapper;
 import com.enigma.waratsea.model.Id;

@@ -1,6 +1,6 @@
 package com.enigma.waratsea.repository.impl;
 
-import com.enigma.waratsea.entity.SquadronDeploymentEntity;
+import com.enigma.waratsea.entity.squadron.SquadronDeploymentEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.SquadronDeploymentRepository;
@@ -17,26 +17,25 @@ import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
 public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepository {
   private final DataProvider dataProvider;
   private final String squadronDeploymentDirectory;
-  private final String squadronDeploymentName;
+  private final String squadronDeploymentFileName;
 
   @Inject
   public SquadronDeploymentRepositoryImpl(final GamePaths gamePaths,
                                           final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
     this.squadronDeploymentDirectory = gamePaths.getSquadronDeploymentDirectory();
-    this.squadronDeploymentName = gamePaths.getSquadronDeploymentName();
+    this.squadronDeploymentFileName = gamePaths.getSquadronDeploymentFileName();
   }
 
   @Override
   public List<SquadronDeploymentEntity> get(Side side) {
-    return readDeployment(new Id(side, squadronDeploymentName));
+    return readDeployment(new Id(side, squadronDeploymentFileName));
   }
 
   private List<SquadronDeploymentEntity> readDeployment(final Id deploymentId) {
@@ -60,17 +59,6 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
     }.getType();
 
     var gson = new Gson();
-    List<SquadronDeploymentEntity> deployment = gson.fromJson(bufferedReader, collectionType);
-
-    log.debug("load deployment: '{}',", deployment.stream()
-        .map(SquadronDeploymentEntity::getAirbases)
-        .map(this::getAirbaseIdsAsString)
-        .collect(Collectors.joining(",")));
-
-    return deployment;
-  }
-
-  private String getAirbaseIdsAsString(final List<Id> airbaseIds) {
-    return airbaseIds.stream().map(Id::toString).collect(Collectors.joining(","));
+    return gson.fromJson(bufferedReader, collectionType);
   }
 }

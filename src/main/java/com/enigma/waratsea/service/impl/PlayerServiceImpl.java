@@ -1,14 +1,11 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.LoadPlayerEvent;
+import com.enigma.waratsea.event.CreatePlayerEvent;
 import com.enigma.waratsea.model.player.ComputerPlayer;
 import com.enigma.waratsea.model.player.HumanPlayer;
 import com.enigma.waratsea.model.player.Player;
-import com.enigma.waratsea.service.AirfieldService;
-import com.enigma.waratsea.service.GameService;
-import com.enigma.waratsea.service.PlayerService;
-import com.enigma.waratsea.service.PortService;
+import com.enigma.waratsea.service.*;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -23,20 +20,23 @@ public class PlayerServiceImpl implements PlayerService {
   private final GameService gameService;
   private final AirfieldService airfieldService;
   private final PortService portService;
+  private final TaskForceService taskForceService;
 
   @Inject
   public PlayerServiceImpl(final Events events,
                            final GameService gameService,
                            final AirfieldService airfieldService,
-                           final PortService portService) {
+                           final PortService portService,
+                           final TaskForceService taskForceService) {
     this.gameService = gameService;
     this.airfieldService = airfieldService;
     this.portService = portService;
+    this.taskForceService = taskForceService;
 
-    events.getLoadPlayerEvent().register(this::handleLoadPlayerEvent);
+    events.getCreatePlayerEvent().register(this::handleCreatePlayerEvent);
   }
 
-  private void handleLoadPlayerEvent(final LoadPlayerEvent event) {
+  private void handleCreatePlayerEvent(final CreatePlayerEvent event) {
     log.info("Player service received load player event");
 
     createPlayers();
@@ -58,6 +58,7 @@ public class PlayerServiceImpl implements PlayerService {
   private void configurePlayer(Player player) {
     addAirfields(player);
     addPorts(player);
+    addTaskForces(player);
     addToGame(player);
   }
 
@@ -71,6 +72,12 @@ public class PlayerServiceImpl implements PlayerService {
     var side = player.getSide();
     var ports = portService.get(side);
     player.setPorts(ports);
+  }
+
+  private void addTaskForces(final Player player) {
+    var side = player.getSide();
+    var taskForces = taskForceService.get(side);
+    player.setTaskForces(taskForces);
   }
 
   private void addToGame(final Player player) {

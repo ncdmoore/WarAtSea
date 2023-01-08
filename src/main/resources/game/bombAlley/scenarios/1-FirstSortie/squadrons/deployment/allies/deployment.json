@@ -1,0 +1,24 @@
+[
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Eagle"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SeaGladiator-M1"
+      }
+    ]
+  }
+]

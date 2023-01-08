@@ -1,4 +1,4 @@
-package com.enigma.waratsea.entity;
+package com.enigma.waratsea.entity.aircraft;
 
 import com.enigma.waratsea.model.squadron.SquadronStrength;
 import lombok.AllArgsConstructor;

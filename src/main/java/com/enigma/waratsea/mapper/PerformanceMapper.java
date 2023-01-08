@@ -1,6 +1,6 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.PerformanceEntity;
+import com.enigma.waratsea.entity.aircraft.PerformanceEntity;
 import com.enigma.waratsea.model.aircraft.Performance;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;

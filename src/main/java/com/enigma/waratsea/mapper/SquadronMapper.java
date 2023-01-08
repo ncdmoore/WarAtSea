@@ -1,6 +1,6 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.SquadronEntity;
+import com.enigma.waratsea.entity.squadron.SquadronEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.Aircraft;
 import com.enigma.waratsea.model.squadron.Squadron;

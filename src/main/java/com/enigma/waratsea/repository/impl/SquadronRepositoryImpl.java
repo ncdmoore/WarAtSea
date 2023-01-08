@@ -1,6 +1,6 @@
 package com.enigma.waratsea.repository.impl;
 
-import com.enigma.waratsea.entity.SquadronEntity;
+import com.enigma.waratsea.entity.squadron.SquadronEntity;
 import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.SquadronRepository;

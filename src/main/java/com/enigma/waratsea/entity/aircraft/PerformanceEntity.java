@@ -1,4 +1,4 @@
-package com.enigma.waratsea.entity;
+package com.enigma.waratsea.entity.aircraft;
 
 import lombok.Builder;
 import lombok.Data;

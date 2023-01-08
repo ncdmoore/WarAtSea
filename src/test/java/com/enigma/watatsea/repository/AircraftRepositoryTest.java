@@ -1,7 +1,7 @@
 package com.enigma.watatsea.repository;
 
-import com.enigma.waratsea.entity.AttackEntity;
-import com.enigma.waratsea.entity.PerformanceEntity;
+import com.enigma.waratsea.entity.aircraft.AttackEntity;
+import com.enigma.waratsea.entity.aircraft.PerformanceEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.Frame;
 import com.enigma.waratsea.model.squadron.SquadronConfiguration;

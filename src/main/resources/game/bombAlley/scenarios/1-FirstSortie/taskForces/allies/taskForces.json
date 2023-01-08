@@ -1,0 +1,14 @@
+[
+  {
+    "id": "TF1",
+    "title": "Alexandria Force",
+    "location": "Alexandria",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Eagle"
+      }
+    ]
+  }
+]

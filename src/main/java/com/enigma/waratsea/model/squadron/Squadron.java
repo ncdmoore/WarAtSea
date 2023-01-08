@@ -12,4 +12,5 @@ public class Squadron {
   private Aircraft aircraft;
   private SquadronStrength strength;
   private SquadronState state;
+  private SquadronConfiguration configuration;
 }

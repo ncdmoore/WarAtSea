@@ -1,6 +1,6 @@
 package com.enigma.watatsea.service;
 
-import com.enigma.waratsea.entity.AircraftEntity;
+import com.enigma.waratsea.entity.aircraft.AircraftEntity;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.AircraftRepository;

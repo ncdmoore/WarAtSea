@@ -2,6 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.DeploySquadronEvent;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.mapper.SquadronDeploymentMapper;
 import com.enigma.waratsea.model.Airbase;
 import com.enigma.waratsea.model.Id;
@@ -54,14 +55,16 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   private void handleDeploySquadronEvent(final DeploySquadronEvent deploySquadronEvent) {
     log.info("SquadronDeploymentServiceImpl handle DeploySquadronEvent");
 
+    var airbases = getAirbases();
+
     Side.stream()
         .map(this::get)
         .flatMap(Collection::stream)
-        .forEach(this::deploySquadron);
+        .forEach(deployment -> deploySquadrons(deployment, airbases));
   }
 
-  private void deploySquadron(final SquadronDeployment deployment) {
-    var airbases = getAirbases();
+  private void deploySquadrons(final SquadronDeployment deployment, final Map<Id, Airbase> airbases) {
+    validateDeployment(deployment, airbases);
 
     var airbaseIds = deployment.getAirbases();
     var squadronIds = new HashSet<>(deployment.getSquadrons());
@@ -73,6 +76,21 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
           airbase.deploySquadron(squadron);
           log.info("Deploy squadron: '{}' to airbase: '{}'", squadron.getId(), airbase.getId());
         });
+  }
+
+  private void validateDeployment(final SquadronDeployment deployment, final Map<Id, Airbase> airbases) {
+    var invalidIds = deployment.getAirbases()
+        .stream()
+        .filter(id -> !airbases.containsKey(id))
+        .toList();
+
+    if (!invalidIds.isEmpty()) {
+      var invalidIdString = invalidIds.stream()
+          .map(Id::toString)
+          .collect(Collectors.joining(","));
+
+      throw new GameException("Deployment is not valid " + invalidIdString);
+    }
   }
 
   private Map<Id, Airbase> getAirbases() {

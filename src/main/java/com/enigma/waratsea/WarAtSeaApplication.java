@@ -1,8 +1,8 @@
 package com.enigma.waratsea;
 
-import com.enigma.waratsea.event.GameNameEvent;
-import com.enigma.waratsea.exceptions.GameException;
+import com.enigma.waratsea.event.ConfigApplicationEvent;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.exceptions.GameException;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Guice;
@@ -94,7 +94,7 @@ public class WarAtSeaApplication extends Application {
   private void initGame(final Injector injector) {
     setGameName();
     bootstrapGame(injector);
-    fireGameNameEvent(injector);
+    fireConfigApplicationEvent(injector);
   }
 
   private void initGui(final Injector injector, final Stage stage) {
@@ -112,9 +112,9 @@ public class WarAtSeaApplication extends Application {
     log.debug("Bootstrap game class created.");
   }
 
-  private void fireGameNameEvent(final Injector injector) {
+  private void fireConfigApplicationEvent(final Injector injector) {
     GameName currentName = GameName.convert(GAME_PARAMETERS.get(GAME_NAME));
     var events = injector.getInstance(Events.class);
-    events.getGameNameEvent().fire(new GameNameEvent(currentName));
+    events.getConfigApplicationEvent().fire(new ConfigApplicationEvent(currentName));
   }
 }

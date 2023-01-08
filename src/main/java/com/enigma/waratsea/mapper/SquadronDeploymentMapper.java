@@ -1,6 +1,6 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.SquadronDeploymentEntity;
+import com.enigma.waratsea.entity.squadron.SquadronDeploymentEntity;
 import com.enigma.waratsea.model.squadron.SquadronDeployment;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

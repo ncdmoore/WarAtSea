@@ -29,6 +29,9 @@ public class GamePaths {
   private final String squadronDirectory = Paths.get("squadrons", "data").toString();
   private final String squadronDeploymentDirectory = Paths.get("squadrons", "deployment").toString();
   private final String scenarioDirectory = "scenarios";
+  private final String shipRegistryDirectory = Paths.get("ships", "registry").toString();
+  private final String shipDirectory = Paths.get("ships", "data").toString();
+  private final String taskForceDirectory = "taskForces";
   private final String userHomeDirectory = System.getProperty(USER_HOME);
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
 
@@ -44,7 +47,8 @@ public class GamePaths {
   private final String gameMapFileName = "map.json";
   private final String gameEntityName = "game.json";
 
-  private final String squadronDeploymentName = "deployment";
+  private final String squadronDeploymentFileName = "deployment";
+  private final String taskForceFileName = "taskForces";
 
   public String getScenarioSpecific(final String path) {
     return Paths.get(scenarioPath, path).toString();

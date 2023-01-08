@@ -1,4 +1,4 @@
-package com.enigma.waratsea.entity;
+package com.enigma.waratsea.entity.aircraft;
 
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;

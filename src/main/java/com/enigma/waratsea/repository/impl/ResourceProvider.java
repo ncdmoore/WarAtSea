@@ -53,15 +53,21 @@ public class ResourceProvider implements BootStrapped {
     return getResourceInputStream(path.toString());
   }
 
+  public InputStream getDefaultResourceInputStream(final Id id, final String baseDirectory) {
+    var path = getPath(id, baseDirectory);
+
+    return getInputStream(path.toString());
+  }
+
+  public InputStream getDefaultResourceInputStream(final String resourcePath) {
+    return getInputStream(resourcePath);
+  }
+
   private InputStream getResourceInputStream(final String resourcePath) {
     var scenarioSpecificPath = gamePaths.getScenarioSpecific(resourcePath);
 
     return Optional.ofNullable(getInputStream(scenarioSpecificPath))
         .orElseGet(() -> getInputStream(resourcePath));
-  }
-
-  public InputStream getDefaultResourceInputStream(final String resourcePath) {
-    return getInputStream(resourcePath);
   }
 
   private InputStream getInputStream(final String resourcePath) {

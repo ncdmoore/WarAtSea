@@ -1,10 +1,8 @@
 package com.enigma.waratsea;
 
-import com.enigma.waratsea.mapper.AirfieldMapper;
-import com.enigma.waratsea.mapper.GameMapper;
-import com.enigma.waratsea.mapper.RegionMapper;
-import com.enigma.waratsea.mapper.SquadronMapper;
+import com.enigma.waratsea.mapper.*;
 import com.enigma.waratsea.model.GameName;
+import com.enigma.waratsea.orchestration.ConfigApplicationSaga;
 import com.enigma.waratsea.orchestration.ConfigGameSaga;
 import com.enigma.waratsea.property.AppProps;
 import com.enigma.waratsea.property.Props;
@@ -57,12 +55,13 @@ public class BasicModule extends AbstractModule {
 
   private void bindBootStrapped() {
     Multibinder<BootStrapped> bootStrappedBinder = Multibinder.newSetBinder(binder(), BootStrapped.class);
+    bootStrappedBinder.addBinding().to(ConfigApplicationSaga.class);
+    bootStrappedBinder.addBinding().to(ConfigGameSaga.class);
     bootStrappedBinder.addBinding().to(NavigationHandler.class);
     bootStrappedBinder.addBinding().to(ResourceProvider.class);
     bootStrappedBinder.addBinding().to(DataProvider.class);
     bootStrappedBinder.addBinding().to(ErrorHandler.class);
     bootStrappedBinder.addBinding().to(GameService.class);
-    bootStrappedBinder.addBinding().to(ConfigGameSaga.class);
     bootStrappedBinder.addBinding().to(MapService.class);
     bootStrappedBinder.addBinding().to(AirfieldService.class);
     bootStrappedBinder.addBinding().to(PortService.class);
@@ -71,6 +70,8 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(AircraftService.class);
     bootStrappedBinder.addBinding().to(SquadronService.class);
     bootStrappedBinder.addBinding().to(SquadronDeploymentService.class);
+    bootStrappedBinder.addBinding().to(ShipService.class);
+    bootStrappedBinder.addBinding().to(TaskForceService.class);
   }
 
   private void bindProps() {
@@ -95,6 +96,8 @@ public class BasicModule extends AbstractModule {
     bind(AircraftRepository.class).to(AircraftRepositoryImpl.class);
     bind(SquadronRepository.class).to(SquadronRepositoryImpl.class);
     bind(SquadronDeploymentRepository.class).to(SquadronDeploymentRepositoryImpl.class);
+    bind(ShipRepository.class).to(ShipRepositoryImpl.class);
+    bind(TaskForceRepository.class).to(TaskForceRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
 
@@ -103,6 +106,8 @@ public class BasicModule extends AbstractModule {
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
     bind(AirfieldMapper.class).toInstance(AirfieldMapper.INSTANCE);
     bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
+    bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);
+    bind(TaskForceMapper.class).toInstance(TaskForceMapper.INSTANCE);
   }
 
   private void bindWeatherStrategies() {
@@ -131,5 +136,7 @@ public class BasicModule extends AbstractModule {
     bind(AircraftService.class).to(AircraftServiceImpl.class);
     bind(SquadronService.class).to(SquadronServiceImpl.class);
     bind(SquadronDeploymentService.class).to(SquadronDeploymentServiceImpl.class);
+    bind(ShipService.class).to(ShipServiceImpl.class);
+    bind(TaskForceService.class).to(TaskForceServiceImpl.class);
   }
 }
