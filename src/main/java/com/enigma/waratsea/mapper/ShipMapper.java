@@ -2,9 +2,11 @@ package com.enigma.waratsea.mapper;
 
 import com.enigma.waratsea.entity.ship.AircraftCarrierEntity;
 import com.enigma.waratsea.entity.ship.ShipEntity;
+import com.enigma.waratsea.entity.ship.SurfaceShipEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.ship.AircraftCarrier;
 import com.enigma.waratsea.model.ship.Ship;
+import com.enigma.waratsea.model.ship.SurfaceShip;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.service.SquadronService;
 import com.google.inject.Inject;
@@ -26,14 +28,18 @@ public abstract class ShipMapper {
   public SquadronService squadronService;
 
   @SubclassMapping(source = AircraftCarrierEntity.class, target = AircraftCarrier.class)
+  @SubclassMapping(source = SurfaceShipEntity.class, target = SurfaceShip.class)
   abstract public Ship toModel(final ShipEntity shipEntity);
 
   abstract public AircraftCarrier toAircraftCarrier(final AircraftCarrierEntity aircraftCarrierEntity);
+  abstract public SurfaceShip toSurfaceShip(final SurfaceShipEntity surfaceShipEntity);
 
   @SubclassMapping(source = AircraftCarrier.class, target = AircraftCarrierEntity.class)
+  @SubclassMapping(source = SurfaceShip.class, target = SurfaceShipEntity.class)
   abstract public ShipEntity toEntity(final Ship ship);
 
   abstract public AircraftCarrierEntity toAircraftCarrierEntity(final AircraftCarrier aircraftCarrier);
+  abstract public SurfaceShipEntity toSurfaceShipEntity(final SurfaceShip surfaceShip);
 
   Set<Squadron> mapSquadrons(final Set<Id> squadronIds) {
     return Optional.ofNullable(squadronIds)

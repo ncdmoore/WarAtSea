@@ -8,6 +8,14 @@
       {
         "side": "ALLIES",
         "name": "Eagle"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Stuart"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Dainty"
       }
     ]
   }

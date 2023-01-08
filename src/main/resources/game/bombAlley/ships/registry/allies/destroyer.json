@@ -1,0 +1,24 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Stuart"
+    },
+    "title": "DD01 Stuart",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Scott_Class_Australian"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Dainty"
+    },
+    "title": "DD35 Dainty",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "D_Class"
+    }
+  }
+]

@@ -2,6 +2,7 @@ package com.enigma.waratsea.model.ship;
 
 import com.enigma.waratsea.entity.ship.AircraftCarrierEntity;
 import com.enigma.waratsea.entity.ship.ShipEntity;
+import com.enigma.waratsea.entity.ship.SurfaceShipEntity;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
@@ -18,17 +19,17 @@ public enum ShipType {
   BATTLESHIP("Battleship", AircraftCarrierEntity.class),
   HEAVY_CRUISER("Heavy Cruiser", AircraftCarrierEntity.class),
   LIGHT_CRUISER("Light Cruiser", AircraftCarrierEntity.class),
-  DESTROYER("Destroyer", AircraftCarrierEntity.class),
-  DESTROYER_ESCORT("Destroyer Escort", AircraftCarrierEntity.class),
-  FLAK_SHIP("Flak Ship", AircraftCarrierEntity.class),
-  MINE_LAYER("Mine Layer", AircraftCarrierEntity.class),
-  MINE_SWEEPER("Mine Sweeper", AircraftCarrierEntity.class),
-  MTB("MTB", AircraftCarrierEntity.class),
-  OILER("Oiler", AircraftCarrierEntity.class),
-  SLOOP("Sloop", AircraftCarrierEntity.class),
-  TRANSPORT("Transport", AircraftCarrierEntity.class),
-  SUBMARINE("Submarine", AircraftCarrierEntity.class),
-  VIRTUAL("Virtual", AircraftCarrierEntity.class);
+  DESTROYER("Destroyer", SurfaceShipEntity.class),
+  DESTROYER_ESCORT("Destroyer Escort", SurfaceShipEntity.class),
+  FLAK_SHIP("Flak Ship", SurfaceShipEntity.class),
+  MINE_LAYER("Mine Layer", SurfaceShipEntity.class),
+  MINE_SWEEPER("Mine Sweeper", SurfaceShipEntity.class),
+  MTB("MTB", SurfaceShipEntity.class),
+  OILER("Oiler", SurfaceShipEntity.class),
+  SLOOP("Sloop", SurfaceShipEntity.class),
+  TRANSPORT("Transport", SurfaceShipEntity.class),
+  SUBMARINE("Submarine", SurfaceShipEntity.class),
+  VIRTUAL("Virtual", SurfaceShipEntity.class);
 
   private final String value;
 
