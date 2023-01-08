@@ -8,12 +8,8 @@ import java.util.Set;
 
 public interface Player {
   Side getSide();
-
   Map<Id, Airbase> getAirbases();
-
   void setAirfields(Set<Airfield> airfields);
-
   void setPorts(Set<Port> ports);
-
   void setTaskForces(Set<TaskForce> taskForces);
 }

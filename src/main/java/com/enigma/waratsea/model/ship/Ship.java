@@ -6,7 +6,6 @@ public interface Ship {
   Id getId();
   ShipType getType();
   String getTitle();
-
   Ship commission(Id id, String title);
   boolean isAirbase();
 }
