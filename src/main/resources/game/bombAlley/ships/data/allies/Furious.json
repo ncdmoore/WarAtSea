@@ -4,7 +4,7 @@
     "name": "Furious"
   },
   "type": "AIRCRAFT_CARRIER",
-  "title": "Furious",
+  "shipClass": "Furious",
   "nation": "BRITISH",
   "flightDeck":
   {

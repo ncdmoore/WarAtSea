@@ -4,7 +4,7 @@
     "name": "Eagle"
   },
   "type": "AIRCRAFT_CARRIER",
-  "title": "Eagle",
+  "shipClass": "Eagle",
   "nation": "BRITISH",
   "flightDeck":
   {

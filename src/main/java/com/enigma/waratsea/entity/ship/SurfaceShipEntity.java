@@ -16,6 +16,7 @@ public class SurfaceShipEntity implements ShipEntity {
   private Id id;
   private ShipType type;
   private String title;
+  private String shipClass;
   private Nation nation;
   private GunEntity primary;
   private GunEntity secondary;

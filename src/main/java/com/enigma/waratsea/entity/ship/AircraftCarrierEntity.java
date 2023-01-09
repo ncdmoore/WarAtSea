@@ -20,6 +20,7 @@ public class AircraftCarrierEntity implements ShipEntity {
   private Id id;
   private ShipType type;
   private String title;
+  private String shipClass;
   private Nation nation;
   private FlightDeckEntity flightDeck;
   private GunEntity secondary;

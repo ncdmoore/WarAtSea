@@ -4,7 +4,7 @@
     "name": "Warspite"
   },
   "type": "BATTLESHIP",
-  "title": "Queen Elizabeth",
+  "shipClass": "Queen Elizabeth",
   "nation": "BRITISH",
   "primary": {
     "armour": "HEAVY",

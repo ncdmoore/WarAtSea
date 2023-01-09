@@ -4,7 +4,7 @@
     "name": "Scott_Class_Australian"
   },
   "type": "DESTROYER",
-  "title": "Scott Class",
+  "shipClass": "Scott Class",
   "nation": "AUSTRALIAN",
   "tertiary":
   {

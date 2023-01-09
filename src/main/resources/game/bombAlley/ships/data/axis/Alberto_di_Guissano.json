@@ -1,0 +1,61 @@
+{
+  "id" : {
+    "side": "AXIS",
+    "name": "Alberto_di_Guissano"
+  },
+  "type": "CRUISER",
+  "shipClass": "Alberto di Guissano",
+  "nation": "ITALIAN",
+  "secondary":
+  {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "torpedo": {
+    "maxHealth": 1,
+    "health": 1,
+    "maxNumber": 1,
+    "number": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 4,
+    "health": 4,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 168,
+    "level": 168
+  },
+  "movement": {
+    "maxEven": 4,
+    "even": 4,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "capacity": 3
+  },
+  "squadronsData": {
+    "squadrons": [
+      {
+        "model": "RO43",
+        "strength": "sixth"
+      }
+    ]
+  },
+  "victoryPoints": 19
+}

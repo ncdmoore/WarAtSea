@@ -4,7 +4,7 @@
     "name": "D_Class"
   },
   "type": "DESTROYER",
-  "title": "D Class",
+  "shipClass": "D Class",
   "nation": "BRITISH",
   "tertiary":
   {

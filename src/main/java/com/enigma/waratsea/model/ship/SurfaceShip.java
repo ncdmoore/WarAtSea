@@ -11,6 +11,7 @@ public class SurfaceShip implements Ship {
   private Id id;
   private ShipType type;
   private String title;
+  private String shipClass;
   private final boolean airbase = false;
   private Nation nation;
   private Gun primary;

@@ -16,6 +16,7 @@ public class CapitalShip implements Ship, Airbase {
   private Id id;
   private ShipType type;
   private String title;
+  private String shipClass;
   private final boolean airbase = true;
   private Nation nation;
   private Gun primary;

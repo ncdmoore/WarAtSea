@@ -4,7 +4,7 @@
     "name": "Conte_di_Cavour"
   },
   "type": "BATTLESHIP",
-  "title": "Conte di Cavour",
+  "shipClass": "Conte di Cavour",
   "nation": "ITALIAN",
   "primary":
   {

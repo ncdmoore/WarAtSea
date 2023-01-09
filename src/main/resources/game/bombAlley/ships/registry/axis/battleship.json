@@ -9,5 +9,16 @@
       "side": "AXIS",
       "name": "Conte_di_Cavour"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Giulio_Cesare"
+    },
+    "title": "BB02 Giulio Cesare",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Conte_di_Cavour"
+    }
   }
 ]

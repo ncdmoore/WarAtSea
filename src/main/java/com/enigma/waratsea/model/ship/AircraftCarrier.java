@@ -16,6 +16,7 @@ public class AircraftCarrier implements Ship, Airbase {
   private Id id;
   private ShipType type;
   private String title;
+  private String shipClass;
   private Nation nation;
   private final boolean airbase = true;
   private FlightDeck flightDeck;
