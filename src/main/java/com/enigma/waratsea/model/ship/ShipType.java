@@ -20,6 +20,7 @@ public enum ShipType {
   BATTLESHIP("Battleship", CapitalShipEntity.class),
   HEAVY_CRUISER("Heavy Cruiser", CapitalShipEntity.class),
   LIGHT_CRUISER("Light Cruiser", CapitalShipEntity.class),
+  ARMOURED_CRUISER("Armoured Cruiser", SurfaceShipEntity.class),
   DESTROYER("Destroyer", SurfaceShipEntity.class),
   DESTROYER_ESCORT("Destroyer Escort", SurfaceShipEntity.class),
   FLAK_SHIP("Flak Ship", SurfaceShipEntity.class),

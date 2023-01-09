@@ -2,12 +2,45 @@
   {
     "id": {
       "side": "AXIS",
+      "name": "Alberto_di_Guissano"
+    },
+    "title": "CL01 Alberto di Guissano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Alberto_di_Guissano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
       "name": "Alberico_da_Barbiano"
     },
     "title": "CL02 Alberico da Barbiano",
     "shipClassId": {
       "side": "AXIS",
       "name": "Alberto_di_Guissano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Luigi_Cadorna"
+    },
+    "title": "CL05 Luigi Cadorna",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Luigi_Cadorna"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Armando_Diaz"
+    },
+    "title": "CL06 Armando Diaz",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Luigi_Cadorna"
     }
   }
 ]

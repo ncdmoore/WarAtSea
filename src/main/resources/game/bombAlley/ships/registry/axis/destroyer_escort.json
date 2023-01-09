@@ -1,0 +1,134 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Cesare_Battisti"
+    },
+    "title": "DE01 Cesare Battisti",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sauro"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Daniele_Manin"
+    },
+    "title": "DE02 Daniele Manin",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sauro"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Francesco_Nullo"
+    },
+    "title": "DE03 Francesco Nullo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sauro"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sauro"
+    },
+    "title": "DE04 Nazario Sauro",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sauro"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pilo"
+    },
+    "title": "DE05 Rosolino Pilo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Giuseppe_Cesare_Abba"
+    },
+    "title": "DE06 Giuseppe Cesare Abba",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Giuseppe_Dezza"
+    },
+    "title": "DE07 Giuseppe Dezza",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Giuseppe_Missori"
+    },
+    "title": "DE08 Giuseppe Missori",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Antonio_Mosto"
+    },
+    "title": "DE09 Antonio Mosto",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ippolito_Nievo"
+    },
+    "title": "DE10 Ippolito Nievo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Fratelli_Cairoli"
+    },
+    "title": "DE11 Fratelli Cairoli",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Simone_Schiaffino"
+    },
+    "title": "DE12 Simone Schiaffino",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Pilo"
+    }
+  }
+]

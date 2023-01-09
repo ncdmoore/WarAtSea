@@ -1,0 +1,62 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Trento"
+  },
+  "type": "HEAVY_CRUISER",
+  "shipClass": "Trento",
+  "nation": "ITALIAN",
+  "secondary":
+  {
+    "armour": "LIGHT",
+    "maxHealth": 5,
+    "health": 5
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
+  },
+  "torpedo":
+  {
+    "maxHealth": 2,
+    "health": 2,
+    "maxNumber": 1,
+    "number": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 6,
+    "health": 6,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 312,
+    "level": 312
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "capacity": 3
+  },
+  "squadronsData": {
+    "squadrons": [
+      {
+        "model": "RO43",
+        "strength": "sixth"
+      }
+    ]
+  },
+  "victoryPoints": 27
+}

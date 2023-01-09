@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Trento"
+    },
+    "title": "CA01 Trento",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Trento"
+    }
+  }
+]

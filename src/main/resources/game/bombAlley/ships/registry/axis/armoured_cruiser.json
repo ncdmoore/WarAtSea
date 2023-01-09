@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "San_Giorgio"
+    },
+    "title": "CD01 San Giorgio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "San_Giorgio"
+    }
+  }
+]

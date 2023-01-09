@@ -1,0 +1,101 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Da_Noli"
+    },
+    "title": "DD02 Da Noli",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pancaldo"
+    },
+    "title": "DD06 Pancaldo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pigafetta"
+    },
+    "title": "DD08 Pigafetta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Vivaldi"
+    },
+    "title": "DD11 Vivaldi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Zeno"
+    },
+    "title": "DD12 Zeno",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Freccia"
+    },
+    "title": "DD13 Saetta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Freccia"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Dardo"
+    },
+    "title": "DD14 Dardo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Freccia"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Saetta"
+    },
+    "title": "DD15 Saetta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Freccia"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Strale"
+    },
+    "title": "DD16 Strale",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Freccia"
+    }
+  }
+]

@@ -1,5 +1,45 @@
 [
   {
+    "name": "TF1",
+    "title": "Tobruk Force",
+    "location": "Tobruk",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "San_Giorgio"
+      },
+      {
+        "side": "AXIS",
+        "name": "Cesare_Battisti"
+      },
+      {
+        "side": "AXIS",
+        "name": "Daniele_Manin"
+      },
+      {
+        "side": "AXIS",
+        "name": "Francesco_Nullo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Sauro"
+      }
+    ]
+  },
+  {
+    "name": "TF2",
+    "title": "Messina Force",
+    "location": "Messina",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Trento"
+      }
+    ]
+  },
+  {
     "id": "TF4",
     "title": "Emergency Force",
     "location": "Taranto",
@@ -16,6 +56,54 @@
       {
         "side": "AXIS",
         "name": "Alberico_da_Barbiano"
+      },
+      {
+        "side": "AXIS",
+        "name": "Armando_Diaz"
+      },
+      {
+        "side": "AXIS",
+        "name": "Alberto_di_Guissano"
+      },
+      {
+        "side": "AXIS",
+        "name": "Saetta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Luigi_Cadorna"
+      },
+      {
+        "side": "AXIS",
+        "name": "Strale"
+      },
+      {
+        "side": "AXIS",
+        "name": "Freccia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Da_Noli"
+      },
+      {
+        "side": "AXIS",
+        "name": "Dardo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Pigafetta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Vivaldi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Pancaldo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Zeno"
       }
     ]
   }
