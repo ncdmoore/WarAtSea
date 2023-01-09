@@ -36,6 +36,78 @@
       {
         "side": "AXIS",
         "name": "Trento"
+      },
+      {
+        "side": "AXIS",
+        "name": "Bolzano"
+      },
+      {
+        "side": "AXIS",
+        "name": "Pola"
+      },
+      {
+        "side": "AXIS",
+        "name": "Camicia_Nera"
+      },
+      {
+        "side": "AXIS",
+        "name": "Geniere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Carabiniere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Ascari"
+      },
+      {
+        "side": "AXIS",
+        "name": "Artigliere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Aviere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Lanciere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Corazziere"
+      }
+    ]
+  },
+  {
+    "name": "TF3",
+    "title": "Reaction Force",
+    "location": "Taranto",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Zara"
+      },
+      {
+        "side": "AXIS",
+        "name": "Fiume"
+      },
+      {
+        "side": "AXIS",
+        "name": "Duca_degli_Abruzzi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Gorizia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Giuseppe_Garibaldi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Folgore"
       }
     ]
   },

@@ -9,5 +9,60 @@
       "side": "AXIS",
       "name": "Trento"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Zara"
+    },
+    "title": "CA03 Zara",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Zara"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pola"
+    },
+    "title": "CA04 Pola",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Zara"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Fiume"
+    },
+    "title": "CA05 Fiume",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Zara"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Gorizia"
+    },
+    "title": "CA06 Gorizia",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Zara"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Bolzano"
+    },
+    "title": "CA07 Bolzano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Trento"
+    }
   }
 ]

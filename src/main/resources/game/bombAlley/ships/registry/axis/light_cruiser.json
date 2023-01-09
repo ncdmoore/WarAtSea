@@ -24,6 +24,28 @@
   {
     "id": {
       "side": "AXIS",
+      "name": "Bande_Nere"
+    },
+    "title": "CL03 Bande Nere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Alberto_di_Guissano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Colleoni"
+    },
+    "title": "CL04 Colleoni",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Alberto_di_Guissano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
       "name": "Luigi_Cadorna"
     },
     "title": "CL05 Luigi Cadorna",
@@ -41,6 +63,94 @@
     "shipClassId": {
       "side": "AXIS",
       "name": "Luigi_Cadorna"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Montecuccoli"
+    },
+    "title": "CL07 Raimondo Montecuccoli",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Montecuccoli"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Muzio_Attendolo"
+    },
+    "title": "CL08 Muzio Attendolo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Montecuccoli"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Duca_Aosta"
+    },
+    "title": "CL09 Duca Aosta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Condottieri"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Eugenio_di_Savoia"
+    },
+    "title": "CL10 Eugenio_di_Savoia",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Condottieri"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Duca_degli_Abruzzi"
+    },
+    "title": "CL11 Duca degli Abruzzi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Duca_degli_Abruzzi"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Giuseppe_Garibaldi"
+    },
+    "title": "CL12 Giuseppe Garibaldi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Duca_degli_Abruzzi"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Attilio_Regolo"
+    },
+    "title": "CL13 Attilio Regolo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Capitani_Romani"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Scipione_Africano"
+    },
+    "title": "CL22 Scipione Africano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Capitani_Romani"
     }
   }
 ]

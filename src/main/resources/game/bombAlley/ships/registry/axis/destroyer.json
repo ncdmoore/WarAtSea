@@ -13,6 +13,28 @@
   {
     "id": {
       "side": "AXIS",
+      "name": "Da_Recco"
+    },
+    "title": "DD03 Da Recco",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Da_Verrazzano"
+    },
+    "title": "DD04 Da Verrazzano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
       "name": "Pancaldo"
     },
     "title": "DD06 Pancaldo",
@@ -96,6 +118,347 @@
     "shipClassId": {
       "side": "AXIS",
       "name": "Freccia"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Baleno"
+    },
+    "title": "DD17 Baleno",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Folgore"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Folgore"
+    },
+    "title": "DD18 Folgore",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Folgore"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Lampo"
+    },
+    "title": "DD19 Lampo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Folgore"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Fulmine"
+    },
+    "title": "DD20 Fulmine",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Folgore"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Maestrale"
+    },
+    "title": "DD21 Maestrale",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Maestrale"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Scirocco"
+    },
+    "title": "DD22 Scirocco",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Maestrale"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Grecale"
+    },
+    "title": "DD23 Grecale",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Maestrale"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Libeccio"
+    },
+    "title": "DD24 Libeccio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Maestrale"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    },
+    "title": "DD29 Camicia Nera",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Aviere"
+    },
+    "title": "DD30 Aviere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Artigliere"
+    },
+    "title": "DD31 Artigliere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Geniere"
+    },
+    "title": "DD32 Geniere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Granatiere"
+    },
+    "title": "DD33 Granatiere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Corazziere"
+    },
+    "title": "DD34 Corazziere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Bersagliere"
+    },
+    "title": "DD35 Bersagliere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Carabiniere"
+    },
+    "title": "DD36 Carabiniere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ascari"
+    },
+    "title": "DD37 Ascari",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Fuciliere"
+    },
+    "title": "DD38 Fuciliere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Alpino"
+    },
+    "title": "DD39 Alpino",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Lanciere"
+    },
+    "title": "DD40 Lanciere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Legionario"
+    },
+    "title": "DD41 Legionario",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Velite"
+    },
+    "title": "DD42 Velite",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Squadrista"
+    },
+    "title": "DD43 Squadrista",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Mitragliere"
+    },
+    "title": "DD44 Mitragliere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Corsaro"
+    },
+    "title": "DD45 Corsaro",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Bombardiere"
+    },
+    "title": "DD46 Bombardiere",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Camicia_Nera"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Premuda"
+    },
+    "title": "DD47 Premuda",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Premuda"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Lubiana"
+    },
+    "title": "DD48 Lubiana",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Lubiana"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sebenico"
+    },
+    "title": "DD49 Sebenico",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Lubiana"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Mirabello"
+    },
+    "title": "DD50 Mirabello",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mirabello"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Riboty"
+    },
+    "title": "DD51 Riboty",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mirabello"
     }
   }
 ]
