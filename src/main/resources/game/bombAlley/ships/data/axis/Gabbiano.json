@@ -1,0 +1,42 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Gabbiano"
+  },
+  "type": "DESTROYER_ESCORT",
+  "shipClass": "Gabbiano",
+  "nation": "ITALIAN",
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "torpedo":
+  {
+    "maxHealth": 1,
+    "health": 1,
+    "maxNumber": 1,
+    "number": 1
+  },
+  "asw": {
+    "capable": true
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 1,
+    "health": 1,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 96,
+    "level": 96
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "victoryPoints": 3
+}
