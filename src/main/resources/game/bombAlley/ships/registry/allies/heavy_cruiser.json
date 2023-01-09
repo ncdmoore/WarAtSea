@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Duquesne"
+    },
+    "title": "CA01 Duquesne",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Duquesne"
+    }
+  }
+]

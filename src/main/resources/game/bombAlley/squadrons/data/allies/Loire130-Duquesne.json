@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Loire130-Duquesne"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Loire130"
+  },
+  "strength": "SIXTH"
+}
