@@ -46,9 +46,42 @@
   {
     "id": {
       "side": "AXIS",
+      "name": "Pessagno"
+    },
+    "title": "DD07 Pessagno",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
       "name": "Pigafetta"
     },
     "title": "DD08 Pigafetta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Tarigo"
+    },
+    "title": "DD09 Tarigo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Usodimare"
+    },
+    "title": "DD10 Usodimare",
     "shipClassId": {
       "side": "AXIS",
       "name": "Navigatori"
