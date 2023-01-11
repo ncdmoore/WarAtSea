@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum LandingType {
   CARRIER("Carrier"),
-  FLOATPLANE("Float-plane"),
+  FLOAT_PLANE("Float-plane"),
   LAND("Land"),
   SEAPLANE("Sea-plane");
 

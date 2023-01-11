@@ -17,7 +17,6 @@ public class CapitalShip implements Ship, Airbase {
   private ShipType type;
   private String title;
   private String shipClass;
-  private final boolean airbase = true;
   private Nation nation;
   private Gun primary;
   private Gun secondary;
@@ -28,6 +27,7 @@ public class CapitalShip implements Ship, Airbase {
   private Fuel fuel;
   private Movement movement;
   private Set<LandingType> landingType;
+  private Catapult catapult;
   private int victoryPoints;
   private Set<Squadron> squadrons;
 
@@ -36,6 +36,11 @@ public class CapitalShip implements Ship, Airbase {
     this.id = id;
     this.title = title;
     return this;
+  }
+
+  @Override
+  public boolean isAirbase() {
+    return catapult != null && catapult.getCapacity() > 0;
   }
 
   @Override

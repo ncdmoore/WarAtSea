@@ -41,6 +41,14 @@
   "cargo": {
     "capacity": 3
   },
+  "catapult" : {
+    "capacity": 1,
+    "maxHealth": 1,
+    "health": 1
+  },
+  "landingType":[
+    "FLOAT_PLANE"
+  ],
   "squadrons": [
     {
       "side": "ALLIES",
