@@ -5,6 +5,29 @@
       "name": "Trento"
     },
     "title": "CA01 Trento",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Trento"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Trento"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Trieste"
+    },
+    "title": "CA02 Trieste",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Trieste"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Trento"
@@ -16,6 +39,12 @@
       "name": "Zara"
     },
     "title": "CA03 Zara",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Zara"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Zara"
@@ -27,6 +56,12 @@
       "name": "Pola"
     },
     "title": "CA04 Pola",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Pola"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Zara"
@@ -38,6 +73,12 @@
       "name": "Fiume"
     },
     "title": "CA05 Fiume",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Fiume"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Zara"
@@ -49,6 +90,12 @@
       "name": "Gorizia"
     },
     "title": "CA06 Gorizia",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Gorizia"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Zara"
@@ -60,6 +107,12 @@
       "name": "Bolzano"
     },
     "title": "CA07 Bolzano",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Bolzano"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Trento"

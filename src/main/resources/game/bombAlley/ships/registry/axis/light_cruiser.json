@@ -224,5 +224,38 @@
       "side": "AXIS",
       "name": "Capitani_Romani"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Etna"
+    },
+    "title": "CL25 Etna",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Etna"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Vesuvio"
+    },
+    "title": "CL26 Vesuvio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Etna"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Taranto"
+    },
+    "title": "CL27 Taranto",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Taranto"
+    }
   }
 ]
