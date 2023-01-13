@@ -20,5 +20,95 @@
       "side": "AXIS",
       "name": "Conte_di_Cavour"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Andrea_Doria"
+    },
+    "title": "BB03 Andrea Doria",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Andrea_Doria"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Calo_Dullio"
+    },
+    "title": "BB04 Calo Dullio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Andrea_Doria"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Littorio"
+    },
+    "title": "BB05 Littorio",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Littorio"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Littorio"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Vittorio_Veneto"
+    },
+    "title": "BB06 Vittorio Veneto",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Vittorio_Veneto"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Littorio"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Roma"
+    },
+    "title": "BB07 Roma",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Roma"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Littorio"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Impero"
+    },
+    "title": "BB08 Impero",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Impero"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Littorio"
+    }
   }
 ]

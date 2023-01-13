@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Aquila"
+  },
+  "type": "AIRCRAFT_CARRIER",
+  "shipClass": "Aquila",
+  "nation": "ITALIAN",
+  "flightDeck":
+  {
+    "armour": "NONE",
+    "capacityList": [0, 3, 5, 9, 11],
+    "health": 5
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 9,
+    "health": 9
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 10,
+    "health": 10,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 384,
+    "level": 384
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "landingType": [
+    "CARRIER"
+  ],
+  "victoryPoints": 118
+}

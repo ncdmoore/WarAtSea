@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Aquila"
+    },
+    "title": "CV01 Aquila",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Aquila"
+    }
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "RO43-Littorio"
+  },
+  "aircraft": {
+    "side": "AXIS",
+    "name": "RO43"
+  },
+  "strength": "SIXTH"
+}

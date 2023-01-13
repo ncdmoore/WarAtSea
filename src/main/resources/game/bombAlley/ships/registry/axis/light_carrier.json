@@ -1,0 +1,14 @@
+
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sparviero"
+    },
+    "title": "CVE01 Sparviero",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sparviero"
+    }
+  }
+]
