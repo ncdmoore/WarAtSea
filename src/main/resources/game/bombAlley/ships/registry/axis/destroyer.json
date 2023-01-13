@@ -2,6 +2,17 @@
   {
     "id": {
       "side": "AXIS",
+      "name": "Da_Mosto"
+    },
+    "title": "DD02 Da Mosto",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
       "name": "Da_Noli"
     },
     "title": "DD02 Da Noli",
@@ -27,6 +38,17 @@
       "name": "Da_Verrazzano"
     },
     "title": "DD04 Da Verrazzano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Navigatori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Da_Malocello"
+    },
+    "title": "DD05 Da Malocello",
     "shipClassId": {
       "side": "AXIS",
       "name": "Navigatori"
@@ -239,6 +261,17 @@
     "shipClassId": {
       "side": "AXIS",
       "name": "Maestrale"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Oriani"
+    },
+    "title": "DD25 Oriani",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Oriani"
     }
   },
   {
