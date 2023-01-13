@@ -1,7 +1,7 @@
 {
   "id" : {
     "side": "AXIS",
-    "name": "Conte_di_Cavour"
+    "name": "Lugi_Cadorna"
   },
   "type": "CRUISER",
   "shipClass": "Luigi Cadorna",
@@ -49,13 +49,13 @@
   "cargo": {
     "capacity": 3
   },
-  "squadronsData": {
-    "squadrons": [
-      {
-        "model": "RO43",
-        "strength": "sixth"
-      }
-    ]
+  "catapult": {
+    "capacity": 1,
+    "maxHealth": 1,
+    "health": 1
   },
+  "landingType": [
+    "FLOAT_PLANE"
+  ],
   "victoryPoints": 19
 }

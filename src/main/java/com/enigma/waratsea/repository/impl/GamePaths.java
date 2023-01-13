@@ -50,10 +50,6 @@ public class GamePaths {
   private final String squadronDeploymentFileName = "deployment";
   private final String taskForceFileName = "taskForces";
 
-  public String getScenarioSpecific(final String path) {
-    return Paths.get(scenarioPath, path).toString();
-  }
-
   public void setGamePath(final GameName gameName) {
     gamePath = Paths.get(gameDirectory, gameName.getValue()).toString();
     log.debug("gamePath set to: '{}'", gamePath);
@@ -82,6 +78,7 @@ public class GamePaths {
     var name = gameName.getValue();
     savedGameDirectory = Paths.get(userHomeDirectory, DATA_DIRECTORY, name, SAVED_GAMES).toString();
     newGameDirectory = Paths.get(gameDirectory, name).toString();
+    gameDataDirectory = newGameDirectory; // assume new game at boot time.
 
     log.debug("DataNames received GameNameEvent, game name is: '{}'", name);
     log.debug(" - newGameDirectory set to: '{}'", newGameDirectory);

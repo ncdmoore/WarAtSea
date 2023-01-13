@@ -49,11 +49,5 @@
   "landingType":[
     "FLOAT_PLANE"
   ],
-  "squadrons": [
-    {
-      "side": "ALLIES",
-      "name": "Loire130-Duquesne"
-    }
-  ],
   "victoryPoints": 27
 }

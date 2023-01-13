@@ -6,20 +6,17 @@
   "type": "LIGHT_CRUISER",
   "shipClass": "Capitani Romani",
   "nation": "ITALIAN",
-  "tertiary":
-  {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 4,
     "health": 4
   },
-  "antiAir":
-  {
+  "antiAir": {
     "armour": "NONE",
     "maxHealth": 2,
     "health": 2
   },
-  "torpedo":
-  {
+  "torpedo": {
     "maxHealth": 2,
     "health": 2,
     "maxNumber": 1,
@@ -27,7 +24,7 @@
   },
   "hull": {
     "armour": "NONE",
-    "maxHealth" : 3,
+    "maxHealth": 3,
     "deck": false
   },
   "fuel": {
@@ -42,6 +39,11 @@
   },
   "cargo": {
     "capacity": 3
+  },
+  "catapult": {
+    "capacity": 0,
+    "maxHealth": 0,
+    "health": 0
   },
   "victoryPoints": 13
 }

@@ -5,6 +5,12 @@
       "name": "Duquesne"
     },
     "title": "CA01 Duquesne",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Loire130-Duquesne"
+      }
+    ],
     "shipClassId": {
       "side": "ALLIES",
       "name": "Duquesne"

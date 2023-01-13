@@ -106,6 +106,7 @@ public class BasicModule extends AbstractModule {
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
     bind(AirfieldMapper.class).toInstance(AirfieldMapper.INSTANCE);
     bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
+    bind(ShipRegistryMapper.class).toInstance(ShipRegistryMapper.INSTANCE);
     bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);
     bind(TaskForceMapper.class).toInstance(TaskForceMapper.INSTANCE);
   }

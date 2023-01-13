@@ -40,5 +40,10 @@
     "maxOdd": 3,
     "odd": 3
   },
+  "catapult": {
+    "capacity": 0,
+    "maxHealth": 0,
+    "health": 0
+  },
   "victoryPoints": 71
 }

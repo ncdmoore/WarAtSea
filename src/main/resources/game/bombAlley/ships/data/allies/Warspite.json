@@ -1,5 +1,5 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
     "name": "Warspite"
   },
@@ -11,28 +11,24 @@
     "maxHealth": 10,
     "health": 10
   },
-  "secondary":
-  {
+  "secondary": {
     "armour": "LIGHT",
     "maxHealth": 3,
     "health": 3
   },
-  "tertiary":
-  {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
-  "antiAir":
-  {
+  "antiAir": {
     "armour": "NONE",
     "maxHealth": 4,
     "health": 4
   },
-
   "hull": {
     "armour": "HEAVY",
-    "maxHealth" : 14,
+    "maxHealth": 14,
     "health": 14,
     "deck": true
   },
@@ -46,7 +42,7 @@
     "maxOdd": 2,
     "odd": 2
   },
-  "catapult" : {
+  "catapult": {
     "capacity": 0,
     "maxHealth": 0,
     "health": 0

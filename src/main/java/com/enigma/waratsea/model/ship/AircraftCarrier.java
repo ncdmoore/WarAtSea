@@ -32,9 +32,10 @@ public class AircraftCarrier implements Ship, Airbase {
   private Set<Squadron> squadrons;
 
   @Override
-  public Ship commission(final Id id, final String title) {
-    this.id = id;
-    this.title = title;
+  public Ship commission(final ShipRegistry shipRegistry) {
+    id = shipRegistry.getId();
+    title = shipRegistry.getTitle();
+    squadrons = shipRegistry.getSquadrons();
     return this;
   }
 

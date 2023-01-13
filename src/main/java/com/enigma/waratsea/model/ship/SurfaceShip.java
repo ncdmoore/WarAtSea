@@ -27,9 +27,9 @@ public class SurfaceShip implements Ship {
   private int victoryPoints;
 
   @Override
-  public Ship commission(final Id id, final String title) {
-    this.id = id;
-    this.title = title;
+  public Ship commission(final ShipRegistry shipRegistry) {
+    id = shipRegistry.getId();
+    title = shipRegistry.getTitle();
     return this;
   }
 }

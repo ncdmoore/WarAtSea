@@ -5,6 +5,12 @@
       "name": "Alberto_di_Guissano"
     },
     "title": "CL01 Alberto di Guissano",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Alberto_di_Guissano"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Alberto_di_Guissano"
@@ -16,6 +22,12 @@
       "name": "Alberico_da_Barbiano"
     },
     "title": "CL02 Alberico da Barbiano",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Alberico_da_Barbiano"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Alberto_di_Guissano"
@@ -27,6 +39,12 @@
       "name": "Bande_Nere"
     },
     "title": "CL03 Bande Nere",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Bande_Nere"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Alberto_di_Guissano"
@@ -38,6 +56,12 @@
       "name": "Colleoni"
     },
     "title": "CL04 Colleoni",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Colleoni"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Alberto_di_Guissano"
@@ -49,6 +73,12 @@
       "name": "Luigi_Cadorna"
     },
     "title": "CL05 Luigi Cadorna",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Luigi_Cadorna"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Luigi_Cadorna"
@@ -60,6 +90,12 @@
       "name": "Armando_Diaz"
     },
     "title": "CL06 Armando Diaz",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Armando_Diaz"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Luigi_Cadorna"
@@ -71,6 +107,12 @@
       "name": "Montecuccoli"
     },
     "title": "CL07 Raimondo Montecuccoli",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Montecuccoli"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Montecuccoli"
@@ -82,6 +124,12 @@
       "name": "Muzio_Attendolo"
     },
     "title": "CL08 Muzio Attendolo",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Muzio_Attendolo"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Montecuccoli"
@@ -93,6 +141,12 @@
       "name": "Duca_Aosta"
     },
     "title": "CL09 Duca Aosta",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Duca_Aosta"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Condottieri"
@@ -104,6 +158,12 @@
       "name": "Eugenio_di_Savoia"
     },
     "title": "CL10 Eugenio_di_Savoia",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Eugenio_di_Savoia"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Condottieri"
@@ -115,6 +175,12 @@
       "name": "Duca_degli_Abruzzi"
     },
     "title": "CL11 Duca degli Abruzzi",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Duca_degli_Abruzzi"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Duca_degli_Abruzzi"
@@ -126,6 +192,12 @@
       "name": "Giuseppe_Garibaldi"
     },
     "title": "CL12 Giuseppe Garibaldi",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "RO43-Giuseppe_Garibaldi"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Duca_degli_Abruzzi"

@@ -60,8 +60,10 @@ public class DataProvider implements BootStrapped {
 
     var path = getPath(id, baseDirectory);
 
-    var scenarioSpecificFullPath = Paths.get(gameDataDirectory, scenarioDirectory, path).toString();
     var genericFullPath = Paths.get(gameDataDirectory, path).toString();
+    var scenarioSpecificFullPath = Optional.ofNullable(scenarioDirectory)
+        .map(sd -> Paths.get(gameDataDirectory, sd, path).toString())
+        .orElse(genericFullPath);
 
     var inputStream = isNewGame
         ? getResourceInputStream(scenarioSpecificFullPath, genericFullPath)

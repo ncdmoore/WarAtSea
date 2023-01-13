@@ -124,9 +124,8 @@ public class ShipServiceImpl implements ShipService {
 
   private Ship buildShip(final Id shipId, final Ship shipClass) {
     var shipRegistry = registry.get(shipId.getSide()).get(shipId);
-    var title = shipRegistry.getTitle();
     var newShip = copyShip(shipClass);
-    return newShip.commission(shipId, title);
+    return newShip.commission(shipRegistry);
   }
 
   private Map<Id, ShipRegistry> getShipRegistryForSide(final Side side) {
