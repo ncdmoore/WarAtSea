@@ -1,0 +1,167 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM01"
+    },
+    "title": "SM01",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM02"
+    },
+    "title": "SM02",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM03"
+    },
+    "title": "SM03",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM04"
+    },
+    "title": "SM04",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM05"
+    },
+    "title": "SM05",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM06"
+    },
+    "title": "SM06",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM07"
+    },
+    "title": "SM07",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM08"
+    },
+    "title": "SM08",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM09"
+    },
+    "title": "SM09",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM10"
+    },
+    "title": "SM10",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM11"
+    },
+    "title": "SM11",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM12"
+    },
+    "title": "SM12",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM13"
+    },
+    "title": "SM13",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM14"
+    },
+    "title": "SM14",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "SM15"
+    },
+    "title": "SM15",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_Sub"
+    }
+  }
+]

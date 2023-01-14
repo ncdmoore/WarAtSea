@@ -1,0 +1,35 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Large_Transport"
+  },
+  "type": "TRANSPORT",
+  "shipClass": "Large_Transport",
+  "nation": "ITALIAN",
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 3,
+    "health": 3,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 240,
+    "level": 240
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "cargo": {
+    "capacity": 9
+  },
+  "victoryPoints": 0
+}

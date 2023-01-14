@@ -1,0 +1,35 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  },
+  "type": "TRANSPORT",
+  "shipClass": "Small_Transport",
+  "nation": "ITALIAN",
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 2,
+    "health": 2,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 216,
+    "level": 216
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "cargo": {
+    "capacity": 6
+  },
+  "victoryPoints": 0
+}

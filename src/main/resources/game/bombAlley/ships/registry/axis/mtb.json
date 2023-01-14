@@ -1,0 +1,134 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB01"
+    },
+    "title": "MTB01",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB02"
+    },
+    "title": "MTB02",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB03"
+    },
+    "title": "MTB03",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB04"
+    },
+    "title": "MTB04",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB05"
+    },
+    "title": "MTB05",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB06"
+    },
+    "title": "MTB06",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB07"
+    },
+    "title": "MTB07",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB08"
+    },
+    "title": "MTB08",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB09"
+    },
+    "title": "MTB09",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB10"
+    },
+    "title": "MTB10",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB11"
+    },
+    "title": "MTB11",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "MTB12"
+    },
+    "title": "MTB12",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Italian_MTB"
+    }
+  }
+]

@@ -1,0 +1,662 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL01"
+    },
+    "title": "TL01",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL02"
+    },
+    "title": "TL02",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL03"
+    },
+    "title": "TL03",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL04"
+    },
+    "title": "TL04",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL05"
+    },
+    "title": "TL05",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL06"
+    },
+    "title": "TL06",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL07"
+    },
+    "title": "TL07",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL08"
+    },
+    "title": "TL08",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL09"
+    },
+    "title": "TL09",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL10"
+    },
+    "title": "TL10",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL11"
+    },
+    "title": "TL11",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TL12"
+    },
+    "title": "TL12",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Large_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TS01"
+    },
+    "title": "TS01",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Small_Transport"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TS02"
+    },
+    "title": "TS02",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Small_Transport"
+    }
+  },{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS03"
+  },
+  "title": "TS03",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS04"
+  },
+  "title": "TS04",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS05"
+  },
+  "title": "TS05",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS06"
+  },
+  "title": "TS06",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS07"
+  },
+  "title": "TS07",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS08"
+  },
+  "title": "TS08",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS09"
+  },
+  "title": "TS09",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS10"
+  },
+  "title": "TS10",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS11"
+  },
+  "title": "TS11",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS12"
+  },
+  "title": "TS12",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS13"
+  },
+  "title": "TS13",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS14"
+  },
+  "title": "TS14",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS15"
+  },
+  "title": "TS15",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS16"
+  },
+  "title": "TS16",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS17"
+  },
+  "title": "TS17",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS18"
+  },
+  "title": "TS18",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS19"
+  },
+  "title": "TS19",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS20"
+  },
+  "title": "TS20",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS21"
+  },
+  "title": "TS21",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS22"
+  },
+  "title": "TS22",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS23"
+  },
+  "title": "TS23",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS24"
+  },
+  "title": "TS24",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS25"
+  },
+  "title": "TS25",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS26"
+  },
+  "title": "TS26",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS27"
+  },
+  "title": "TS27",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS28"
+  },
+  "title": "TS28",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS29"
+  },
+  "title": "TS29",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS30"
+  },
+  "title": "TS30",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS31"
+  },
+  "title": "TS31",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS32"
+  },
+  "title": "TS32",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS33"
+  },
+  "title": "TS33",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS34"
+  },
+  "title": "TS34",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS35"
+  },
+  "title": "TS35",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS36"
+  },
+  "title": "TS36",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS37"
+  },
+  "title": "TS37",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS38"
+  },
+  "title": "TS38",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS39"
+  },
+  "title": "TS39",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS40"
+  },
+  "title": "TS40",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS41"
+  },
+  "title": "TS41",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS42"
+  },
+  "title": "TS42",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS43"
+  },
+  "title": "TS43",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS44"
+  },
+  "title": "TS44",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS45"
+  },
+  "title": "TS45",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS46"
+  },
+  "title": "TS46",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS47"
+  },
+  "title": "TS47",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "TS48"
+  },
+  "title": "TS48",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Small_Transport"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]

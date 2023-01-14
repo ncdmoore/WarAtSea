@@ -1,10 +1,10 @@
 {
   "id": {
     "side": "AXIS",
-    "name": "Gabbiano"
+    "name": "Small_Transport"
   },
-  "type": "CORVETTE",
-  "shipClass": "Gabbiano",
+  "type": "TRANSPORT",
+  "shipClass": "Small_Transport",
   "nation": "ITALIAN",
   "antiAir":
   {
@@ -12,23 +12,15 @@
     "maxHealth": 1,
     "health": 1
   },
-  "torpedo":
-  {
-    "maxHealth": 1,
-    "health": 1,
-    "maxNumber": 1,
-    "number": 1
-  },
-  "asw": true,
   "hull": {
     "armour": "NONE",
-    "maxHealth" : 1,
-    "health": 1,
+    "maxHealth" : 2,
+    "health": 2,
     "deck": false
   },
   "fuel": {
-    "capacity": 96,
-    "level": 96
+    "capacity": 216,
+    "level": 216
   },
   "movement": {
     "maxEven": 2,
@@ -36,5 +28,8 @@
     "maxOdd": 2,
     "odd": 2
   },
-  "victoryPoints": 3
+  "cargo": {
+    "capacity": 6
+  },
+  "victoryPoints": 0
 }

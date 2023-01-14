@@ -130,5 +130,632 @@
       "side": "AXIS",
       "name": "Pilo"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sirtori"
+    },
+    "title": "DE13 Giuseppe Sirtori",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sirtori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Giovanni_Acerbi"
+    },
+    "title": "DE14 Giovanni Acerbi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sirtori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Vincenzo_Giordano_Orsini"
+    },
+    "title": "DE15 Vincenzo Giordano Orsini",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sirtori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Francesco_Stocco"
+    },
+    "title": "DE16 Francesco Stocco",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sirtori"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Airone"
+    },
+    "title": "DE17 Airone",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Alcione"
+    },
+    "title": "DE18 Alcione",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Aldebaran"
+    },
+    "title": "DE19 Aldebaran",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Altair"
+    },
+    "title": "DE20 Altair",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Andromeda"
+    },
+    "title": "DE21 Andromeda",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Antares"
+    },
+    "title": "DE22 Antares",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Aretusa"
+    },
+    "title": "DE23 Aretusa",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ariel"
+    },
+    "title": "DE24 Ariel",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Astore"
+    },
+    "title": "DE25 Astore",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Calipso"
+    },
+    "title": "DE26 Calipso",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Calliope"
+    },
+    "title": "DE27 Calliope",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Canopo"
+    },
+    "title": "DE28 Canopo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Cassiopea"
+    },
+    "title": "DE29 Cassiopea",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Castore"
+    },
+    "title": "DE30 Castore",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Centauro"
+    },
+    "title": "DE31 Centauro",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Cigno"
+    },
+    "title": "DE32 Cigno",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Circe"
+    },
+    "title": "DE33 Circe",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Climene"
+    },
+    "title": "DE34 Climene",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Clio"
+    },
+    "title": "DE35 Clio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Libra"
+    },
+    "title": "DE36 Libra",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Lince"
+    },
+    "title": "DE37 Lince",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Lira"
+    },
+    "title": "DE38 Lira",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "lupo"
+    },
+    "title": "DE39 Lupo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Lupo"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pallade"
+    },
+    "title": "DE40 Pallade",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Partenope"
+    },
+    "title": "DE41 Partenope",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Perseo"
+    },
+    "title": "DE42 Perseo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pleiadi"
+    },
+    "title": "DE43 Pleiadi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Polluce"
+    },
+    "title": "DE44 Polluce",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sagittario"
+    },
+    "title": "DE45 Sagittario",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sirio"
+    },
+    "title": "DE46 Sirio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Spica"
+    },
+    "title": "DE47 Spica",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Vega"
+    },
+    "title": "DE48 Vega",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Spica"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pegaso"
+    },
+    "title": "DE49 Pegaso",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Orsa"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Procione"
+    },
+    "title": "DE50 Procione",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Orsa"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Orione"
+    },
+    "title": "DE51 Orione",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Orsa"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Orsa"
+    },
+    "title": "DE52 Orsa",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Orsa"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Francesco_Crispi"
+    },
+    "title": "DE53 Francesco Crispi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sella"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Quintino_Sella"
+    },
+    "title": "DE54 Quintino Sella",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Sella"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Alabarda"
+    },
+    "title": "DE55 Alabarda",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ariete"
+    },
+    "title": "DE56 Ariete",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Arturo"
+    },
+    "title": "DE57 Arturo",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Auriga"
+    },
+    "title": "DE58 Auriga",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Balestra"
+    },
+    "title": "DE59 Balestra",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Daga"
+    },
+    "title": "DE60 Daga",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Dragone"
+    },
+    "title": "DE61 Dragone",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Eridano"
+    },
+    "title": "DE62 Eridano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Fionda"
+    },
+    "title": "DE63 Fionda",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Gladio"
+    },
+    "title": "DE64 Gladio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Lancia"
+    },
+    "title": "DE65 Lancia",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pugnale"
+    },
+    "title": "DE66 Pugnale",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Rigel"
+    },
+    "title": "DE67 Rigel",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Spada"
+    },
+    "title": "DE68 Spada",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Stella_Polare"
+    },
+    "title": "DE69 Stella Polare",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ariete"
+    }
   }
 ]

@@ -1,0 +1,26 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Italian_Sub"
+  },
+  "type": "SUBMARINE",
+  "shipClass": "Adua",
+  "nation": "ITALIAN",
+  "torpedo": {
+    "maxHealth": 1,
+    "health": 1,
+    "maxNumber": 5,
+    "number": 5
+  },
+  "movement": {
+    "maxEven": 1,
+    "even": 1,
+    "maxOdd": 0,
+    "odd": 0
+  },
+  "fuel": {
+    "capacity": 432,
+    "level": 452
+  },
+  "victoryPoints": 4
+}

@@ -1,10 +1,10 @@
 {
   "id": {
     "side": "AXIS",
-    "name": "Oriani"
+    "name": "Orsa"
   },
-  "type": "DESTROYER",
-  "shipClass": "Oriani",
+  "type": "DESTROYER_ESCORT",
+  "shipClass": "Orsa",
   "nation": "ITALIAN",
   "tertiary":
   {
@@ -27,8 +27,8 @@
   "asw": true,
   "hull": {
     "armour": "NONE",
-    "maxHealth" : 2,
-    "health": 2,
+    "maxHealth" : 1,
+    "health": 1,
     "deck": false
   },
   "fuel": {
@@ -36,13 +36,10 @@
     "level": 144
   },
   "movement": {
-    "maxEven": 4,
-    "even": 4,
-    "maxOdd": 3,
-    "odd": 3
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 1,
+    "odd": 1
   },
-  "cargo": {
-    "capacity": 1
-  },
-  "victoryPoints": 6
+  "victoryPoints": 3
 }

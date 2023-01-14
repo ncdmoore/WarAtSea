@@ -1,0 +1,321 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Antilope"
+    },
+    "title": "K01 Antilope",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ape"
+    },
+    "title": "K02 Ape",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Artemide"
+    },
+    "title": "K03 Artemide",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Baionetta"
+    },
+    "title": "K04 Baionetta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Berenice"
+    },
+    "title": "K05 Berenice",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Camoscio"
+    },
+    "title": "K06 Camoscio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Chimera"
+    },
+    "title": "K07 Chimera",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Cicogna"
+    },
+    "title": "K08 Cicogna",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Cormorano"
+    },
+    "title": "K09 Cormorano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Danaide"
+    },
+    "title": "K10 Danaide",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Driade"
+    },
+    "title": "K11 Driade",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Euterpe"
+    },
+    "title": "K12 Euterpe",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Fenice"
+    },
+    "title": "K13 Fenice",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Flora"
+    },
+    "title": "K14 Flora",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Folaga"
+    },
+    "title": "K15 Folaga",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    },
+    "title": "K16 Gabbiano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Gazzella"
+    },
+    "title": "K17 Gazzella",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Gru"
+    },
+    "title": "K18 Gru",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ibis"
+    },
+    "title": "K19 Ibis",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Minerva"
+    },
+    "title": "K20 Minerva",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pellicano"
+    },
+    "title": "K21 Pellicano",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Persefone"
+    },
+    "title": "K22 Persefone",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Pomona"
+    },
+    "title": "K23 Pomona",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Procellaria"
+    },
+    "title": "K24 Procellaria",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Scimitarra"
+    },
+    "title": "K25 Scimitarra",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sfinge"
+    },
+    "title": "K26 Sfinge",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sibilla"
+    },
+    "title": "K27 Sibilla",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Urania"
+    },
+    "title": "K28 Urania",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Vespa"
+    },
+    "title": "K29 Vespa",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Gabbiano"
+    }
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T1"
+    },
+    "title": "T1",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T2"
+    },
+    "title": "T2",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T3"
+    },
+    "title": "T3",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T4"
+    },
+    "title": "T4",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T5"
+    },
+    "title": "T5",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T6"
+    },
+    "title": "T6",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T7"
+    },
+    "title": "T7",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T8"
+    },
+    "title": "T8",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "T9"
+    },
+    "title": "T9",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "T_Sub"
+    }
+  }
+]

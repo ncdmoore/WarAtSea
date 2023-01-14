@@ -23,6 +23,7 @@ public enum ShipType {
   ARMOURED_CRUISER("Armoured Cruiser", SurfaceShipEntity.class),
   DESTROYER("Destroyer", SurfaceShipEntity.class),
   DESTROYER_ESCORT("Destroyer Escort", SurfaceShipEntity.class),
+  CORVETTE("Corvette", SurfaceShipEntity.class),
   FLAK_SHIP("Flak Ship", SurfaceShipEntity.class),
   MINE_LAYER("Mine Layer", SurfaceShipEntity.class),
   MINE_SWEEPER("Mine Sweeper", SurfaceShipEntity.class),
