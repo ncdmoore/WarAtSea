@@ -5,6 +5,12 @@
       "name": "Dunkerque"
     },
     "title": "BC01  Dunkerque",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "Loire130-Dunkerque"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Dunkerque"
@@ -16,6 +22,12 @@
       "name": "Strasbourg"
     },
     "title": "BC02  Strasbourg",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "Loire130-Strasbourg"
+      }
+    ],
     "shipClassId": {
       "side": "AXIS",
       "name": "Strasbourg"

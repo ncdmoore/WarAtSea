@@ -1,0 +1,54 @@
+[
+  {
+    "id": "TF1",
+    "title": "Oran Force",
+    "location": "Oran",
+    "state": "RESERVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Bretagne"
+      },
+      {
+        "side": "AXIS",
+        "name": "Provence"
+      },
+      {
+        "side": "AXIS",
+        "name": "Dunkerque"
+      },
+      {
+        "side": "AXIS",
+        "name": "Strasbourg"
+      },
+      {
+        "side": "AXIS",
+        "name": "Commandant_Teste"
+      },
+      {
+        "side": "AXIS",
+        "name": "Lynx"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tigre"
+      },
+      {
+        "side": "AXIS",
+        "name": "Kersaint"
+      },
+      {
+        "side": "AXIS",
+        "name": "Le_Terrible"
+      },
+      {
+        "side": "AXIS",
+        "name": "Mogador"
+      },
+      {
+        "side": "AXIS",
+        "name": "Volta"
+      }
+    ]
+  }
+]

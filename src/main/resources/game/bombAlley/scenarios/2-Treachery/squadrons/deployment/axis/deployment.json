@@ -20,5 +20,19 @@
         "name": "LEO451-M1"
       }
     ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Commandant_Teste"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "L298-M1"
+      }
+    ]
   }
 ]

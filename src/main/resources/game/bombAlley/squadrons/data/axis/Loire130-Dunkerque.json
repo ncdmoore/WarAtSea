@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Loire130-Dunkerque"
+  },
+  "aircraft": {
+    "side": "AXIS",
+    "name": "Loire130"
+  },
+  "strength": "SIXTH"
+}
