@@ -277,6 +277,39 @@
   {
     "id": {
       "side": "AXIS",
+      "name": "Gioberti"
+    },
+    "title": "DD26 Gioberti",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Oriani"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Carducci"
+    },
+    "title": "DD27 Carducci",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Oriani"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Alfieri"
+    },
+    "title": "DD28 Alfieri",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Oriani"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
       "name": "Camicia_Nera"
     },
     "title": "DD29 Camicia Nera",
