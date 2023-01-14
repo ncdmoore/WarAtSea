@@ -110,5 +110,27 @@
       "side": "AXIS",
       "name": "Littorio"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Bretagne"
+    },
+    "title": "BB03 Bretagne",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Bretagne"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Provence"
+    },
+    "title": "BB04 Provence",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Bretagne"
+    }
   }
 ]

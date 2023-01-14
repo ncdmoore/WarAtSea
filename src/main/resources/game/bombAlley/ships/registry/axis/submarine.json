@@ -163,5 +163,27 @@
       "side": "AXIS",
       "name": "Italian_Sub"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "R1"
+    },
+    "title": "R1",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "R_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "R2"
+    },
+    "title": "R2",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "R_Sub"
+    }
   }
 ]

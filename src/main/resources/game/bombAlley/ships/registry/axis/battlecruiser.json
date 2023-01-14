@@ -1,25 +1,24 @@
-
 [
   {
     "id": {
       "side": "AXIS",
-      "name": "Miraglia"
+      "name": "Dunkerque"
     },
-    "title": "CVS01 Miraglia",
+    "title": "BC01  Dunkerque",
     "shipClassId": {
       "side": "AXIS",
-      "name": "Miraglia"
+      "name": "Dunkerque"
     }
   },
   {
     "id": {
       "side": "AXIS",
-      "name": "Commandant_Teste"
+      "name": "Strasbourg"
     },
-    "title": "CVS01 Commandant Teste",
+    "title": "BC02  Strasbourg",
     "shipClassId": {
       "side": "AXIS",
-      "name": "Commandant_Teste"
+      "name": "Strasbourg"
     }
   }
 ]

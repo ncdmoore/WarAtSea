@@ -559,5 +559,93 @@
       "side": "AXIS",
       "name": "Mirabello"
     }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Lynx"
+    },
+    "title": "DD03 Lynx",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Chacal"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Tigre"
+    },
+    "title": "DD04 Tigre",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Chacal"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Kersaint"
+    },
+    "title": "DD22 Kersaint",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Vauquelin"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Le_Malin"
+    },
+    "title": "DD26 Le Malin",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Le_Fantasque"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Le_Terrible"
+    },
+    "title": "DD27 Le Terrible",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Le_Fantasque"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "L_Audacieux"
+    },
+    "title": "DD27 L' Audacieux",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Le_Fantasque"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Mogador"
+    },
+    "title": "DD31 Mogador",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mogador"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Volta"
+    },
+    "title": "DD32 Volta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mogador"
+    }
   }
 ]

@@ -1,0 +1,42 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Commandant_Teste"
+  },
+  "type": "SEAPLANE_CARRIER",
+  "shipClass": "Commandant Teste",
+  "nation": "FRENCH",
+  "flightDeck":
+  {
+    "armour": "NONE",
+    "capacityList": [0, 3, 5],
+    "health": 3
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 5,
+    "health": 5,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 384,
+    "level": 384
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "landingType": [
+    "FLOAT_PLANE",
+    "SEAPLANE"
+  ],
+  "victoryPoints": 27
+}
