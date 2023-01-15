@@ -1,0 +1,46 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "AO03"
+    },
+    "title": "AO03",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Oiler"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "AO04"
+    },
+    "title": "AO04",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Oiler"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "AO05"
+    },
+    "title": "AO05",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Oiler"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "AO06"
+    },
+    "title": "AO06",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Oiler"
+    }
+  }
+]

@@ -16,5 +16,35 @@
         "name": "Sunderland-M1"
       }
     ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Ark_Royal"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Fulmar-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Skua-M1"
+      }
+    ]
   }
 ]

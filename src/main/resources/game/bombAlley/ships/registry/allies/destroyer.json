@@ -13,12 +13,100 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Keppel"
+    },
+    "title": "DD02 Keppel",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Thornycroft"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Active"
+    },
+    "title": "DD15 Active",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "A_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Dainty"
     },
     "title": "DD35 Dainty",
     "shipClassId": {
       "side": "ALLIES",
-      "name": "D_Class"
+      "name": "D_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Escort"
+    },
+    "title": "DD48 Escort",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "E_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Faulknor"
+    },
+    "title": "DD53 Faulknor",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Fearless"
+    },
+    "title": "DD54 Fearless",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Forester"
+    },
+    "title": "DD56 Forester",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Foresight"
+    },
+    "title": "DD57 Foresight",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Foxhound"
+    },
+    "title": "DD59 Foxhound",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
     }
   }
 ]

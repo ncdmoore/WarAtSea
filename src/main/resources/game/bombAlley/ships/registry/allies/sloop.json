@@ -2,34 +2,34 @@
   {
     "id": {
       "side": "ALLIES",
-      "name": "Warspite"
+      "name": "Enchantress"
     },
-    "title": "BB02 Warspite",
+    "title": "SL01 Enchantress",
     "shipClassId": {
       "side": "ALLIES",
-      "name": "Warspite"
+      "name": "Bittern"
     }
   },
   {
     "id": {
       "side": "ALLIES",
-      "name": "Valiant"
+      "name": "Stork"
     },
-    "title": "BB03 Valiant",
+    "title": "SL02 Stork",
     "shipClassId": {
       "side": "ALLIES",
-      "name": "Queen_Elizabeth"
+      "name": "Bittern"
     }
   },
   {
     "id": {
       "side": "ALLIES",
-      "name": "Resolution"
+      "name": "Bittern"
     },
-    "title": "BB07 Resolution",
+    "title": "SL03 Bittern",
     "shipClassId": {
       "side": "ALLIES",
-      "name": "Royal_Sovereign"
+      "name": "Bittern"
     }
   }
 ]

@@ -1,0 +1,41 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Abdiel"
+  },
+  "type": "MINE_LAYER",
+  "shipClass": "Abdiel",
+  "nation": "BRITISH",
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "torpedo": {
+    "maxHealth": 2,
+    "health": 2,
+    "maxNumber": 1,
+    "number": 1
+  },
+  "movement": {
+    "maxEven": 4,
+    "even": 4,
+    "maxOdd": 4,
+    "odd": 4
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 192
+  },
+  "victoryPoints": 6
+}

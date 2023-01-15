@@ -1,0 +1,46 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Abdiel"
+    },
+    "title": "ML02 Abdiel",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Abdiel"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Latona"
+    },
+    "title": "ML05 Latona",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Abdiel"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Manxman"
+    },
+    "title": "ML06 Manxman",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Abdiel"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Welshman"
+    },
+    "title": "ML07 Welshman",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Abdiel"
+    }
+  }
+]

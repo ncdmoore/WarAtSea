@@ -1,0 +1,24 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Enterprise"
+    },
+    "title": "CL23 Enterprise",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Emerald"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Arethusa"
+    },
+    "title": "CL29 Arethusa",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Arethusa"
+    }
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Queen_Elizabeth"
+  },
+  "type": "BATTLESHIP",
+  "shipClass": "Queen Elizabeth",
+  "nation": "BRITISH",
+  "primary": {
+    "armour": "HEAVY",
+    "maxHealth": 10,
+    "health": 10
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 4,
+    "health": 4
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 5,
+    "health": 5
+  },
+  "hull": {
+    "armour": "HEAVY",
+    "maxHealth" : 14,
+    "health": 14,
+    "deck": true
+  },
+  "fuel": {
+    "capacity": 336,
+    "level": 336
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "catapult": {
+    "capacity": 0,
+    "maxHealth": 0,
+    "health": 0
+  },
+  "victoryPoints": 87
+}

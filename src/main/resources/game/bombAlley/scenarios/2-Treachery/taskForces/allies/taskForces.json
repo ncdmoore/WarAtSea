@@ -1,0 +1,66 @@
+[
+  {
+    "id": "TF1",
+    "title": "Gibraltar Force",
+    "location": "Gibraltar",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Valiant"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Resolution"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hood"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Ark_Royal"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Enterprise"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Arethusa"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Keppel"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Active"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Escort"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Faulknor"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Fearless"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Forester"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Foresight"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Foxhound"
+      }
+    ]
+  }
+]

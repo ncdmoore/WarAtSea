@@ -1,0 +1,167 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    },
+    "title": "MS01 Halcyon",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Harrier"
+    },
+    "title": "MS02 Harrier",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hussar"
+    },
+    "title": "MS03 Hussar",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Speedwell"
+    },
+    "title": "MS04 Speedwell",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Niger"
+    },
+    "title": "MS05 Niger",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Salamander"
+    },
+    "title": "MS06 Salamander",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Franklin"
+    },
+    "title": "MS07 Franklin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gleaner"
+    },
+    "title": "MS08 Gleaner",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hazard"
+    },
+    "title": "MS09 Hazard",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hebe"
+    },
+    "title": "MS10 Hebe",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Jason"
+    },
+    "title": "MS11 Jason",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Leda"
+    },
+    "title": "MS12 Leda",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Seagull"
+    },
+    "title": "MS13 Seagull",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Sharpshooter"
+    },
+    "title": "MS14 Sharpshooter",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bramble"
+    },
+    "title": "MS15 Bramble",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Halcyon"
+    }
+  }
+]

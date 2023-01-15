@@ -1,18 +1,12 @@
 {
   "id" : {
     "side": "ALLIES",
-    "name": "D_Class"
+    "name": "E_Class_Destroyer"
   },
   "type": "DESTROYER",
-  "shipClass": "D Class",
+  "shipClass": "E Class",
   "nation": "BRITISH",
   "tertiary":
-  {
-    "armour": "NONE",
-    "maxHealth": 1,
-    "health": 1
-  },
-  "antiAir":
   {
     "armour": "NONE",
     "maxHealth": 1,
@@ -33,7 +27,7 @@
   },
   "fuel": {
     "capacity": 168,
-    "level": 168
+    "number": 168
   },
   "movement": {
     "maxEven": 4,
@@ -44,5 +38,5 @@
   "cargo": {
     "capacity": 1
   },
-  "victoryPoints": 6
+  "victoryPoints": 5
 }

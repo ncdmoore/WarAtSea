@@ -1,0 +1,32 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Oiler"
+  },
+  "type": "OILER",
+  "shipClass": "Oiler",
+  "nation": "BRITISH",
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth" : 2,
+    "health": 2,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 720,
+    "level": 720
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "victoryPoints": 0
+}
