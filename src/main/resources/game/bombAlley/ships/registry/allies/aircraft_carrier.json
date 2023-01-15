@@ -20,5 +20,49 @@
       "side": "ALLIES",
       "name": "Ark_Royal"
     }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Illustrious"
+    },
+    "title": "CV05 Illustrious",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Illustrious"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Victorious"
+    },
+    "title": "CV06 Victorious",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Illustrious"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Formidable"
+    },
+    "title": "CV07 Formidable",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Illustrious"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Indomitable"
+    },
+    "title": "CV08 Indomitable",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Indomitable"
+    }
   }
 ]

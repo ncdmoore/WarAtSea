@@ -2,6 +2,28 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Renown"
+    },
+    "title": "BC01 Renown",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Hood"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Repulse"
+    },
+    "title": "BC02 Repulse",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Hood"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Hood"
     },
     "title": "BC03 Hood",

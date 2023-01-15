@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Seafox-York"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Seafox"
+  },
+  "strength": "SIXTH"
+}

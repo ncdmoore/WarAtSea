@@ -1,0 +1,61 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "York"
+  },
+  "type": "HEAVY_CRUISER",
+  "shipClass": "York",
+  "nation": "BRITISH",
+  "secondary":
+  {
+    "armour": "NONE",
+    "maxHealth": 4,
+    "health": 4
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "torpedo": {
+    "maxHealth": 1,
+    "health": 1,
+    "maxNumber": 1,
+    "number": 1
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth" : 5,
+    "health": 5,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 264,
+    "level": 264
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "capacity": 3
+  },
+  "catapult": {
+    "capacity": 1,
+    "maxHealth": 1,
+    "health": 1
+  },
+  "landingType":[
+    "FLOAT_PLANE"
+  ],
+  "victoryPoints": 22
+}

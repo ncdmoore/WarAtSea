@@ -2,6 +2,17 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Queen_Elizabeth"
+    },
+    "title": "BB01 Queen Elizabeth",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Queen_Elizabeth"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Warspite"
     },
     "title": "BB02 Warspite",
@@ -24,12 +35,100 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Barham"
+    },
+    "title": "BB04 Barham",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Barham"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Malaya"
+    },
+    "title": "BB05 Malaya",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Malaya"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Resolution"
     },
     "title": "BB07 Resolution",
     "shipClassId": {
       "side": "ALLIES",
       "name": "Royal_Sovereign"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Royal_Sovereign"
+    },
+    "title": "BB08 Royal Sovereign",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Royal_Sovereign"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ramillies"
+    },
+    "title": "BB10 Ramillies",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Royal_Sovereign"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Nelson"
+    },
+    "title": "BB11 Nelson",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Nelson"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Rodney"
+    },
+    "title": "BB12 Rodney",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Nelson"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Prince_of_Wales"
+    },
+    "title": "BB13 Prince of Wales",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "King_George_V"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Centurion"
+    },
+    "title": "AG01 Centurion",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "King_George_V_1911"
     }
   }
 ]

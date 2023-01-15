@@ -1,0 +1,47 @@
+{
+  "id" : {
+    "side": "ALLIES",
+    "name": "Illustrious"
+  },
+  "type": "AIRCRAFT_CARRIER",
+  "shipClass": "Illustrious",
+  "nation": "BRITISH",
+  "flightDeck":
+  {
+    "armour": "LIGHT",
+    "capacityList": [0, 3, 4, 6],
+    "health": 4
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 6,
+    "health": 6
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth" : 10,
+    "health": 10,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 384,
+    "level": 384
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "landingType": [
+    "CARRIER"
+  ],
+  "victoryPoints": 73
+}

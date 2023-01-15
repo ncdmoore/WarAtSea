@@ -2,6 +2,51 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Berwick"
+    },
+    "title": "CA01 Berwick",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Walrus-Berwick"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "County"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kent"
+    },
+    "title": "CA05 Kent",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Kent"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "York"
+    },
+    "title": "CA12 York",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Seafox-York"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "York"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Duquesne"
     },
     "title": "CA01 Duquesne",

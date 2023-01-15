@@ -2,6 +2,127 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Caledon_39"
+    },
+    "title": "CL01 Caledon",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Caledon_39"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Caledon_43"
+    },
+    "title": "CL01 Caledon",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Caledon_43"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Calypso"
+    },
+    "title": "CL02 Calypso",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Caledon_43"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Coventry"
+    },
+    "title": "CL06 Coventry",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "C_Class_Cruiser"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Cairo"
+    },
+    "title": "CL09 Cairo",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "C_Class_Cruiser"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Calcutta"
+    },
+    "title": "CL10 Calcutta",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "C_Class_Cruiser"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Carlisle"
+    },
+    "title": "CL11 Carlisle",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "C_Class_Cruiser"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Capetown"
+    },
+    "title": "CL12 Capetown",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Capetown"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Delhi_39"
+    },
+    "title": "CL16 Delhi",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Danae_39"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Delhi_42"
+    },
+    "title": "CL16 Delhi",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Danae_42"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Despatch"
+    },
+    "title": "CL17 Despatch",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Danae_39"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Enterprise"
     },
     "title": "CL23 Enterprise",
