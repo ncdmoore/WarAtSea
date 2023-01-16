@@ -31,7 +31,7 @@ public class GamePaths {
   private final String scenarioDirectory = "scenarios";
   private final String shipRegistryDirectory = Paths.get("ships", "registry").toString();
   private final String shipDirectory = Paths.get("ships", "data").toString();
-  private final String taskForceDirectory = "taskForces";
+  private final String taskForceDirectory = Paths.get("taskForces", "data").toString();
   private final String userHomeDirectory = System.getProperty(USER_HOME);
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
 
