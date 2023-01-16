@@ -60,6 +60,42 @@
       {
         "side": "ALLIES",
         "name": "Foxhound"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Vansittart"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Venomous"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Verity"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Volunteer"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wanderer"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Whitehall"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wren"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Veteran"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Whitshed"
       }
     ]
   }
