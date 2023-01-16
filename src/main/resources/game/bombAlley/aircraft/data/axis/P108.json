@@ -1,0 +1,49 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "P108"
+  },
+  "title": "P.108",
+  "type": "ITALIAN_BOMBER",
+  "nation": "ITALIAN",
+  "service": "AIR_FORCE",
+  "designation": "RA-",
+  "altitude": "HIGH",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 2,
+    "half": 1,
+    "finalModifier": 0.33
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 2,
+    "half": 1,
+    "finalModifier": 1.0
+  },
+  "land": {
+    "modifier": 1,
+    "full": 8,
+    "half": 4
+  },
+  "air": {
+    "modifier": 0,
+    "full": 5,
+    "half": 3
+  },
+  "performance": {
+    "range": 9,
+    "endurance": 3
+  },
+  "frame": {
+    "frame": 3,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH",
+    "LEAN_ENGINE"
+  ]
+}

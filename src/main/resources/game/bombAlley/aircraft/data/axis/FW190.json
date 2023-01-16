@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "FW190"
+  },
+  "title": "FW190",
+  "type": "FIGHTER",
+  "nation": "GERMAN",
+  "service": "AIR_FORCE",
+  "designation": "JG-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "air": {
+    "modifier": 1,
+    "full": 5,
+    "half": 3
+  },
+  "performance": {
+    "range": 8,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "DROP_TANKS",
+    "SEARCH"
+  ]
+}

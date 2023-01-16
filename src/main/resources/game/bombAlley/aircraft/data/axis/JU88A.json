@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "JU88A"
+  },
+  "title": "Ju88a",
+  "type": "BOMBER",
+  "nation": "GERMAN",
+  "service": "AIR_FORCE",
+  "designation": "KG-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "land": {
+    "modifier": 1,
+    "full": 4,
+    "half": 2
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 1
+  },
+  "performance": {
+    "range": 10,
+    "endurance": 2
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

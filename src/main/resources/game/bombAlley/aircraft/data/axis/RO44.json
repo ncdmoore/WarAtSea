@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "RO44"
+  },
+  "title": "Ro.44",
+  "type": "RECONNAISSANCE",
+  "nation": "ITALIAN",
+  "service": "AIR_FORCE",
+  "designation": "RA-",
+  "altitude": "LOW",
+  "takeOff": "SEAPLANE",
+  "landing": "SEAPLANE",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "land": {
+    "modifier": 0,
+    "full": 0,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 11,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

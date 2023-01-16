@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "SM85"
+  },
+  "title": "SM.85",
+  "type": "DIVE_BOMBER",
+  "nation": "ITALIAN",
+  "service": "AIR_FORCE",
+  "designation": "RA-",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 2,
+    "full": 2,
+    "half": 1
+  },
+  "navalTransport": {
+    "modifier": 2,
+    "full": 2,
+    "half": 1
+  },
+  "land": {
+    "modifier": 2,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 6,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

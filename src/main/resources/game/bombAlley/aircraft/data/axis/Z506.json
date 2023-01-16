@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Z506"
+  },
+  "title": "Z506",
+  "type": "RECONNAISSANCE",
+  "nation": "ITALIAN",
+  "service": "AIR_FORCE",
+  "designation": "RA-",
+  "altitude": "MEDIUM",
+  "takeOff": "SEAPLANE",
+  "landing": "SEAPLANE",
+  "navalWarship": {
+    "modifier": 1,
+    "full": 2,
+    "half": 1
+  },
+  "navalTransport": {
+    "modifier": 1,
+    "full": 2,
+    "half": 1
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 1
+  },
+  "performance": {
+    "range": 9,
+    "endurance": 2
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}
