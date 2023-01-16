@@ -1,10 +1,10 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "F_Class_Destroyer"
+    "name": "G_Class_Destroyer"
   },
   "type": "DESTROYER",
-  "shipClass": "F Class",
+  "shipClass": "G Class",
   "nation": "BRITISH",
   "tertiary": {
     "armour": "NONE",
@@ -13,7 +13,7 @@
   },
   "torpedo": {
     "maxHealth": 2,
-    "health": 1,
+    "health": 2,
     "maxNumber": 1,
     "number": 1
   },
@@ -25,8 +25,8 @@
     "deck": false
   },
   "fuel": {
-    "capacity": 168,
-    "level": 168
+    "capacity": 144,
+    "level": 144
   },
   "movement": {
     "maxEven": 4,

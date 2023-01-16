@@ -24,12 +24,67 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Douglas"
+    },
+    "title": "DD06 Douglas",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Scott_Class"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Malcolm"
+    },
+    "title": "DD08 Malcolm",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Scott_Class"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Active"
     },
     "title": "DD15 Active",
     "shipClassId": {
       "side": "ALLIES",
       "name": "A_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Antelope"
+    },
+    "title": "DD16 Antelope",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "A_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Arrow"
+    },
+    "title": "DD18 Arrow",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "A_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Duncan"
+    },
+    "title": "DD34 Duncan",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "D_Class_Destroyer"
     }
   },
   {
@@ -52,6 +107,61 @@
     "shipClassId": {
       "side": "ALLIES",
       "name": "D_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Defender"
+    },
+    "title": "DD38 Defender",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "D_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Diamond"
+    },
+    "title": "DD40 Diamond",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "D_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Echo"
+    },
+    "title": "DD43 Echo",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "E_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Encounter"
+    },
+    "title": "DD46 Encounter",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "E_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Escapade"
+    },
+    "title": "DD47 Escapade",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "E_Class_Destroyer"
     }
   },
   {
@@ -90,6 +200,17 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Firedrake"
+    },
+    "title": "DD55 Firedrake",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Forester"
     },
     "title": "DD56 Forester",
@@ -112,6 +233,17 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Fortune"
+    },
+    "title": "DD58 Fortune",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Foxhound"
     },
     "title": "DD59 Foxhound",
@@ -123,9 +255,64 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Fury"
+    },
+    "title": "DD60 Fury",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gallant"
+    },
+    "title": "DD61 Gallant",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "G_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Greyhound"
+    },
+    "title": "DD67 Greyhound",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "G_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Griffin"
+    },
+    "title": "DD68 Griffin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "G_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Hasty"
     },
     "title": "DD69 Hasty",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Havock"
+    },
+    "title": "DD70 Havock",
     "shipClassId": {
       "side": "ALLIES",
       "name": "H_Class_Destroyer"
@@ -167,6 +354,204 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Hotspur"
+    },
+    "title": "DD74 Hotspur",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hyperion"
+    },
+    "title": "DD76 Hyperion",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Icarus"
+    },
+    "title": "DD77 Icarus",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ilex"
+    },
+    "title": "DD78 Ilex",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Imperial"
+    },
+    "title": "DD80 Imperial",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Intrepid"
+    },
+    "title": "DD82 Intrepid",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Isis"
+    },
+    "title": "DD83 Isis",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Harvester"
+    },
+    "title": "DD85 Harvester",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Havelock"
+    },
+    "title": "DD87 Havelock",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hesperus"
+    },
+    "title": "DD88 Hesperus",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Inglefield"
+    },
+    "title": "DD93 Inglefield",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Inconstant"
+    },
+    "title": "DD94 Inconstant",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ithuriel"
+    },
+    "title": "DD95 Ithuriel",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "I_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ashanti"
+    },
+    "title": "DD97 Ashanti",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bedouin"
+    },
+    "title": "DD98 Bedouin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Cossack"
+    },
+    "title": "DD99 Cossack",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Eskimo"
+    },
+    "title": "DD100 Eskimo",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Maori"
+    },
+    "title": "DD102 Maori",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Mohawk"
     },
     "title": "DD105 Mohawk",
@@ -184,6 +569,402 @@
     "shipClassId": {
       "side": "ALLIES",
       "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Sikh"
+    },
+    "title": "DD108 Sikh",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Tartar"
+    },
+    "title": "DD110 Tartar",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Zulu"
+    },
+    "title": "DD111 Zulu",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Jackal"
+    },
+    "title": "DD112 Jackal",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Jaguar"
+    },
+    "title": "DD113 Jaguar",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Janus"
+    },
+    "title": "DD114 Janus",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Javelin"
+    },
+    "title": "DD115 Javelin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Jersey"
+    },
+    "title": "DD116 Jersey",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Jervis"
+    },
+    "title": "DD117 Jervis",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Juno"
+    },
+    "title": "DD118 Juno",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Jupiter"
+    },
+    "title": "DD119 Jupiter",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "J_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kandahar"
+    },
+    "title": "DD120 Kandahar",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "K_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kashmir"
+    },
+    "title": "DD121 Kashmir",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "K_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kelly"
+    },
+    "title": "DD122 Kelly",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "K_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kelvin"
+    },
+    "title": "DD123 Kelvin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "K_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kimberly"
+    },
+    "title": "DD125 Kimberly",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "K_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kingston"
+    },
+    "title": "DD126 Kingston",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "K_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kipling"
+    },
+    "title": "DD127 Kipling",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "K_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Laforey"
+    },
+    "title": "DD130 Laforey",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gurkha"
+    },
+    "title": "DD131 Gurkha",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Lance"
+    },
+    "title": "DD133 Lance",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Legion"
+    },
+    "title": "DD134 Legion",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Lightning"
+    },
+    "title": "DD135 Lightning",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Lively"
+    },
+    "title": "DD136 Lively",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Lookout"
+    },
+    "title": "DD137 Lookout",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Marne"
+    },
+    "title": "DD139 Marne",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "M_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Matchless"
+    },
+    "title": "DD141 Matchless",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "M_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Onslow"
+    },
+    "title": "DD149 Onslow",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "O_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Oribi"
+    },
+    "title": "DD151 Oribi",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "O_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Pakenham"
+    },
+    "title": "DD153 Pakenham",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "P_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Paladin"
+    },
+    "title": "DD154 Paladin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "P_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Partridge"
+    },
+    "title": "DD156 Partridge",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "P_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Pathfinder"
+    },
+    "title": "DD157 Pathfinder",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "P_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Penn"
+    },
+    "title": "DD158 Penn",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "P_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Quentin"
+    },
+    "title": "DD165 Quentin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Q_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Anthony"
+    },
+    "title": "DD177 Anthony",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "A_Class_Destroyer"
     }
   },
   {

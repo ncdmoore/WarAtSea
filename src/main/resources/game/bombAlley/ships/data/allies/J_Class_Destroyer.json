@@ -1,27 +1,33 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "F_Class_Destroyer"
+    "name": "J_Class_Destroyer"
   },
   "type": "DESTROYER",
-  "shipClass": "F Class",
+  "shipClass": "J Class",
   "nation": "BRITISH",
-  "tertiary": {
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "antiAir":
+  {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
   "torpedo": {
     "maxHealth": 2,
-    "health": 1,
-    "maxNumber": 1,
-    "number": 1
+    "health": 2,
+    "maxNumber": 1
   },
   "asw": true,
   "hull": {
     "armour": "NONE",
-    "maxHealth": 1,
-    "health": 1,
+    "maxHealth" : 2,
+    "health": 2,
     "deck": false
   },
   "fuel": {
@@ -37,5 +43,5 @@
   "cargo": {
     "capacity": 1
   },
-  "victoryPoints": 5
+  "victoryPoints": 8
 }

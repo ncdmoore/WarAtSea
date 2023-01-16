@@ -1,12 +1,17 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "F_Class_Destroyer"
+    "name": "L_Class_Destroyer"
   },
   "type": "DESTROYER",
-  "shipClass": "F Class",
-  "nation": "BRITISH",
+  "shipClass": "L Class",
+  "nationality": "BRITISH",
   "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "antiAir": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
@@ -20,13 +25,12 @@
   "asw": true,
   "hull": {
     "armour": "NONE",
-    "maxHealth": 1,
-    "health": 1,
+    "maxHealth": 2,
     "deck": false
   },
   "fuel": {
-    "capacity": 168,
-    "level": 168
+    "capacity": 216,
+    "level": 216
   },
   "movement": {
     "maxEven": 4,
@@ -37,5 +41,5 @@
   "cargo": {
     "capacity": 1
   },
-  "victoryPoints": 5
+  "victoryPoints": 8
 }

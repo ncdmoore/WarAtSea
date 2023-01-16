@@ -1,13 +1,12 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
     "name": "E_Class_Destroyer"
   },
   "type": "DESTROYER",
   "shipClass": "E Class",
   "nation": "BRITISH",
-  "tertiary":
-  {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
@@ -21,7 +20,7 @@
   "asw": true,
   "hull": {
     "armour": "NONE",
-    "maxHealth" : 1,
+    "maxHealth": 1,
     "health": 1,
     "deck": false
   },

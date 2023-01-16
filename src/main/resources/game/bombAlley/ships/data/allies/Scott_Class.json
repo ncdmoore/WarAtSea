@@ -1,18 +1,23 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "F_Class_Destroyer"
+    "name": "Scott_Class"
   },
   "type": "DESTROYER",
-  "shipClass": "F Class",
+  "shipClass": "Scott Class",
   "nation": "BRITISH",
   "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
   "torpedo": {
-    "maxHealth": 2,
+    "maxHealth": 1,
     "health": 1,
     "maxNumber": 1,
     "number": 1
@@ -25,12 +30,12 @@
     "deck": false
   },
   "fuel": {
-    "capacity": 168,
-    "level": 168
+    "capacity": 144,
+    "level": 144
   },
   "movement": {
-    "maxEven": 4,
-    "even": 4,
+    "maxEven": 3,
+    "even": 3,
     "maxOdd": 3,
     "odd": 3
   },
