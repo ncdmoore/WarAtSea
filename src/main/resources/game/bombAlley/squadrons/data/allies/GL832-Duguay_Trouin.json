@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "GL832-Duguay_Trouin"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "GL832"
+  },
+  "strength": "SIXTH"
+}

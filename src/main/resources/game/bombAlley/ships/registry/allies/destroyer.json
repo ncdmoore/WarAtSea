@@ -46,6 +46,17 @@
   {
     "id": {
       "side": "ALLIES",
+      "name": "Decoy"
+    },
+    "title": "DD37 Decoy",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "D_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
       "name": "Escort"
     },
     "title": "DD48 Escort",
@@ -107,6 +118,105 @@
     "shipClassId": {
       "side": "ALLIES",
       "name": "F_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hasty"
+    },
+    "title": "DD69 Hasty",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hereward"
+    },
+    "title": "DD71 Hereward",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hero"
+    },
+    "title": "DD72 Hero",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hostile"
+    },
+    "title": "DD73 Hostile",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "H_Class_Destroyer"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Mohawk"
+    },
+    "title": "DD105 Mohawk",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Nubian"
+    },
+    "title": "DD106 Nubian",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tribal"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Le_Fortune"
+    },
+    "title": "DD49 Le Fortune",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Adroit"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Forbin"
+    },
+    "title": "DD53 Forbin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Adroit"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Basque"
+    },
+    "title": "DD56 Basque",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "L_Adroit"
     }
   }
 ]

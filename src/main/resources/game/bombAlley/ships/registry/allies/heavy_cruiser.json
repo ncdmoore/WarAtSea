@@ -60,5 +60,39 @@
       "side": "ALLIES",
       "name": "Duquesne"
     }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Tourville"
+    },
+    "title": "CA02 Tourville",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Loire130-Tourville"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Duquesne"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Suffren"
+    },
+    "title": "CA03 Suffren",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Loire130-Suffren"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Suffren"
+    }
   }
 ]

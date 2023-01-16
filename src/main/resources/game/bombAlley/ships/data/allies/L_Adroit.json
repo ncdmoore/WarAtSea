@@ -1,48 +1,46 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "D_Class_Destroyer"
+    "name": "L_Adroit"
   },
   "type": "DESTROYER",
-  "shipClass": "D Class",
-  "nation": "BRITISH",
-  "tertiary":
-  {
+  "shipClass": "L Adroit",
+  "nation": "FRENCH",
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
-  "antiAir":
-  {
+  "antiAir": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
   "torpedo": {
-    "maxHealth": 2,
-    "health": 2,
+    "maxHealth": 1,
+    "health": 1,
     "maxNumber": 1,
     "number": 1
   },
   "asw": true,
   "hull": {
     "armour": "NONE",
-    "maxHealth" : 1,
+    "maxHealth": 1,
     "health": 1,
     "deck": false
   },
   "fuel": {
-    "capacity": 168,
-    "level": 168
+    "capacity": 144,
+    "level": 144
   },
   "movement": {
-    "maxEven": 4,
-    "even": 4,
+    "maxEven": 3,
+    "even": 3,
     "maxOdd": 3,
     "odd": 3
   },
   "cargo": {
     "capacity": 1
   },
-  "victoryPoints": 6
+  "victoryPoints": 4
 }

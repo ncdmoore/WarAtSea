@@ -450,5 +450,22 @@
       "side": "ALLIES",
       "name": "Nigeria"
     }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Duguay_Trouin"
+    },
+    "title": "CL01 Duguay Trouin",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "GL832-Duguay_Trouin"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Duguay_Trouin"
+    }
   }
 ]

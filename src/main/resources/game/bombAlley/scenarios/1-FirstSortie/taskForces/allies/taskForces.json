@@ -11,7 +11,35 @@
       },
       {
         "side": "ALLIES",
+        "name": "Malaya"
+      },
+      {
+        "side": "ALLIES",
         "name": "Eagle"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Orion"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Neptune"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Gloucester"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Liverpool"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Caledon_39"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Calypso"
       },
       {
         "side": "ALLIES",
@@ -23,7 +51,59 @@
       },
       {
         "side": "ALLIES",
+        "name": "Decoy"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hasty"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Nubian"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hero"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Mohawk"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hereward"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hostile"
+      },
+      {
+        "side": "ALLIES",
         "name": "Duquesne"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Tourville"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Suffren"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Duguay_Trouin"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Basque"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Le_Fortune"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Forbin"
       }
     ]
   }
