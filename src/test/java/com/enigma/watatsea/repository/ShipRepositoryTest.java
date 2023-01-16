@@ -24,7 +24,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-public class ShipRepositoryTest {
+class ShipRepositoryTest {
   @InjectMocks
   private ShipRepositoryImpl shipRepository;
 
