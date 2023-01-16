@@ -1,7 +1,7 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.SavedGameView;
@@ -17,6 +17,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import static com.enigma.waratsea.viewmodel.events.NavigationType.BACKWARD;
+import static com.enigma.waratsea.viewmodel.events.NavigationType.FORWARD;
 
 @Slf4j
 public class SavedGameViewModel {
@@ -45,7 +46,7 @@ public class SavedGameViewModel {
   }
 
   public void continueOn(final Stage stage) {
-    log.info("continue");
+    events.getNavigateEvent().fire(buildForwardNav(stage));
   }
 
   private void loadGames() {
@@ -57,6 +58,15 @@ public class SavedGameViewModel {
     if (game != null) {
       events.getSelectSavedGameEvent().fire(new SelectSavedGameEvent(game));
     }
+  }
+
+  private NavigateEvent buildForwardNav(final Stage stage) {
+    return NavigateEvent
+        .builder()
+        .clazz(SavedGameView.class)
+        .stage(stage)
+        .type(FORWARD)
+        .build();
   }
 
   private NavigateEvent buildBackwardNav(final Stage stage) {

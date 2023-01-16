@@ -21,6 +21,7 @@ import com.enigma.waratsea.strategy.bombAlley.BombAlleyWeatherStrategy;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
 import com.enigma.waratsea.view.pregame.NewGameView;
+import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.ErrorHandler;
@@ -84,6 +85,7 @@ public class BasicModule extends AbstractModule {
         .implement(View.class, Names.named("Start"), StartView.class)
         .implement(View.class, Names.named("NewGame"), NewGameView.class)
         .implement(View.class, Names.named("SavedGame"), SavedGameView.class)
+        .implement(View.class, Names.named("OrderOfBattleSummary"), OrderOfBattleSummaryView.class)
         .build(ViewFactory.class));
   }
 

@@ -2,6 +2,7 @@ package com.enigma.waratsea.viewmodel;
 
 import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.event.StartNewGameEvent;
 import com.enigma.waratsea.event.Events;
@@ -105,21 +106,27 @@ public class NavigationHandler implements BootStrapped {
   private void buildNewGameFlow() {
     Page startPage = new Page(viewFactory::buildStart);
     Page newGamePage = new Page(viewFactory::buildNewGame);
+    Page oobPage = new Page(viewFactory::buildOrderOfBattleSummary);
 
     startPage.setNext(newGamePage);
+    newGamePage.setNext(oobPage);
 
     newGamePageFlow.put(StartView.class, startPage);
     newGamePageFlow.put(NewGameView.class, newGamePage);
+    newGamePageFlow.put(OrderOfBattleSummaryView.class, oobPage);
   }
 
   private void buildSavedGameFlow() {
     Page startPage = new Page(viewFactory::buildStart);
     Page savedGamePage = new Page(viewFactory::buildSavedGame);
+    Page oobPage = new Page(viewFactory::buildOrderOfBattleSummary);
 
     startPage.setNext(savedGamePage);
+    savedGamePage.setNext(oobPage);
 
     savedGamePageFlow.put(StartView.class, startPage);
     savedGamePageFlow.put(SavedGameView.class, savedGamePage);
+    savedGamePageFlow.put(OrderOfBattleSummaryView.class, oobPage);
   }
 
   private void handleStartNewGame(final StartNewGameEvent startNewGameEvent) {
