@@ -1,26 +1,32 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
-    "name": "Emerald"
+    "name": "Leander"
   },
   "type": "LIGHT_CRUISER",
-  "shipClass": "Emerald",
+  "shipClass": "Leander",
   "nation": "BRITISH",
   "secondary":
   {
-    "armour": "LIGHT",
-    "maxHealth": 2,
-    "health": 2
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
   },
-  "antiAir":
+  "tertiary":
   {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
-  "torpedo": {
+  "antiAir":
+  {
+    "armour": "NONE",
     "maxHealth": 3,
-    "health": 3,
+    "health": 3
+  },
+  "torpedo": {
+    "maxHealth": 2,
+    "health": 2,
     "maxNumber": 1,
     "number": 1
   },
@@ -31,8 +37,8 @@
     "deck": false
   },
   "fuel": {
-    "capacity": 240,
-    "level": 240
+    "capacity": 264,
+    "level": 264
   },
   "movement": {
     "maxEven": 3,
@@ -48,5 +54,5 @@
     "maxHealth": 0,
     "health": 0
   },
-  "victoryPoints": 15
+  "victoryPoints": 21
 }

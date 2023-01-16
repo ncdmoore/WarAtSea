@@ -1,32 +1,35 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
-    "name": "Emerald"
+    "name": "Crown_Colony"
   },
   "type": "LIGHT_CRUISER",
-  "shipClass": "Emerald",
+  "shipClass": "Crown Colony",
   "nation": "BRITISH",
-  "secondary":
-  {
-    "armour": "LIGHT",
-    "maxHealth": 2,
-    "health": 2
+  "secondary": {
+    "armour": "NONE",
+    "maxHealth": 4,
+    "health": 4
   },
-  "antiAir":
-  {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
   "torpedo": {
-    "maxHealth": 3,
-    "health": 3,
+    "maxHealth": 1,
+    "health": 1,
     "maxNumber": 1,
     "number": 1
   },
   "hull": {
     "armour": "LIGHT",
-    "maxHealth" : 4,
+    "maxHealth": 4,
     "health": 4,
     "deck": false
   },
@@ -48,5 +51,5 @@
     "maxHealth": 0,
     "health": 0
   },
-  "victoryPoints": 15
+  "victoryPoints": 22
 }

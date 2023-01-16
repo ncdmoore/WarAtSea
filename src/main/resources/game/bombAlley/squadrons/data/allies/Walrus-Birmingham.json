@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Walrus-Birmingham"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Walrus"
+  },
+  "strength": "SIXTH"
+}

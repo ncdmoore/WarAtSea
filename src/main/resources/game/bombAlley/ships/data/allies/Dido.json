@@ -1,38 +1,39 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
-    "name": "Emerald"
+    "name": "Dido"
   },
   "type": "LIGHT_CRUISER",
-  "shipClass": "Emerald",
+  "shipClass": "Dido",
   "nation": "BRITISH",
-  "secondary":
+  "tertiary":
   {
-    "armour": "LIGHT",
-    "maxHealth": 2,
-    "health": 2
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
   },
   "antiAir":
   {
     "armour": "NONE",
-    "maxHealth": 1,
-    "health": 1
-  },
-  "torpedo": {
     "maxHealth": 3,
-    "health": 3,
+    "health": 3
+  },
+  "torpedo":
+  {
+    "maxHealth": 1,
+    "health": 1,
     "maxNumber": 1,
     "number": 1
   },
   "hull": {
     "armour": "LIGHT",
-    "maxHealth" : 4,
-    "health": 4,
+    "maxHealth" : 3,
+    "health": 3,
     "deck": false
   },
   "fuel": {
-    "capacity": 240,
-    "level": 240
+    "capacity": 216,
+    "level": 216
   },
   "movement": {
     "maxEven": 3,
@@ -43,10 +44,10 @@
   "cargo": {
     "capacity": 3
   },
-  "catapult": {
+  "catapult" : {
     "capacity": 0,
     "maxHealth": 0,
     "health": 0
   },
-  "victoryPoints": 15
+  "victoryPoints": 12
 }
