@@ -1,4 +1,4 @@
-package com.enigma.waratsea.exceptions;
+package com.enigma.waratsea.exception;
 
 public abstract class WarAtSeaException extends RuntimeException {
   public WarAtSeaException(final String message) {

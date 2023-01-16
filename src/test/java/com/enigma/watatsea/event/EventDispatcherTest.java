@@ -1,4 +1,4 @@
-package com.enigma.watatsea.events;
+package com.enigma.watatsea.event;
 
 import com.enigma.waratsea.event.EventDispatcher;
 import com.enigma.waratsea.event.EventHandler;

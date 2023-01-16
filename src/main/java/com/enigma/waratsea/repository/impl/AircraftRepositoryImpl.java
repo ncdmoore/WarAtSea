@@ -1,7 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.aircraft.AircraftEntity;
-import com.enigma.waratsea.exceptions.GameException;
+import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.AircraftRepository;
 import com.google.gson.Gson;

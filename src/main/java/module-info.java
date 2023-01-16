@@ -24,7 +24,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea;
   exports com.enigma.waratsea.entity;
   exports com.enigma.waratsea.event;
-  exports com.enigma.waratsea.exceptions;
+  exports com.enigma.waratsea.exception;
   exports com.enigma.waratsea.mapper;
   exports com.enigma.waratsea.model;
   exports com.enigma.waratsea.model.aircraft;

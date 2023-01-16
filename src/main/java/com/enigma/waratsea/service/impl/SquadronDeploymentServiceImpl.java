@@ -2,7 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.DeploySquadronEvent;
 import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.exceptions.GameException;
+import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.mapper.SquadronDeploymentMapper;
 import com.enigma.waratsea.model.Airbase;
 import com.enigma.waratsea.model.Id;

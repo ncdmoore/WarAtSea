@@ -2,7 +2,7 @@ package com.enigma.waratsea;
 
 import com.enigma.waratsea.event.ConfigApplicationEvent;
 import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.exceptions.GameException;
+import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.google.inject.Guice;

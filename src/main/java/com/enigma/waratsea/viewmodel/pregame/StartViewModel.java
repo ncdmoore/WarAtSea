@@ -2,7 +2,7 @@ package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.event.StartSavedGameEvent;
 import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.exceptions.WarAtSeaException;
+import com.enigma.waratsea.exception.WarAtSeaException;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;

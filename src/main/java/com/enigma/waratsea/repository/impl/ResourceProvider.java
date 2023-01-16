@@ -4,7 +4,7 @@ import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.event.SelectScenarioEvent;
-import com.enigma.waratsea.exceptions.ResourceException;
+import com.enigma.waratsea.exception.ResourceException;
 import com.enigma.waratsea.model.Id;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

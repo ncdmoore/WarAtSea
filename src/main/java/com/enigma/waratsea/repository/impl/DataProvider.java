@@ -5,7 +5,7 @@ import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.exceptions.DataException;
+import com.enigma.waratsea.exception.DataException;
 import com.enigma.waratsea.model.Id;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

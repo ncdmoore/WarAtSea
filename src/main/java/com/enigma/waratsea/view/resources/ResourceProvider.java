@@ -1,6 +1,6 @@
 package com.enigma.waratsea.view.resources;
 
-import com.enigma.waratsea.exceptions.ResourceException;
+import com.enigma.waratsea.exception.ResourceException;
 import com.enigma.waratsea.repository.impl.GamePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;

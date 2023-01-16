@@ -1,4 +1,4 @@
-package com.enigma.waratsea.exceptions;
+package com.enigma.waratsea.exception;
 
 import lombok.extern.slf4j.Slf4j;
 
