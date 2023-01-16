@@ -8,6 +8,7 @@ import com.enigma.waratsea.model.squadron.Squadron;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Getter
@@ -35,6 +36,10 @@ public class CapitalShip implements Ship, Airbase {
   public Ship commission(final ShipRegistry shipRegistry) {
     id = shipRegistry.getId();
     title = shipRegistry.getTitle();
+
+    nation = Optional.ofNullable(shipRegistry.getNation())
+        .orElse(nation);
+
     squadrons = shipRegistry.getSquadrons();
     return this;
   }

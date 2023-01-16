@@ -5,6 +5,8 @@ import com.enigma.waratsea.model.Nation;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.Optional;
+
 @Getter
 @Builder
 public class SurfaceShip implements Ship {
@@ -30,6 +32,10 @@ public class SurfaceShip implements Ship {
   public Ship commission(final ShipRegistry shipRegistry) {
     id = shipRegistry.getId();
     title = shipRegistry.getTitle();
+
+    nation = Optional.ofNullable(shipRegistry.getNation())
+        .orElse(nation);
+
     return this;
   }
 }

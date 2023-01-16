@@ -5,9 +5,10 @@
       "name": "Stuart"
     },
     "title": "DD01 Stuart",
+    "nation": "AUSTRALIAN",
     "shipClassId": {
       "side": "ALLIES",
-      "name": "Scott_Class_Australian"
+      "name": "Scott_Class"
     }
   },
   {
