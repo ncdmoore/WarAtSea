@@ -62,5 +62,4 @@ class SquadronDeploymentRepositoryTest {
 
     return getClass().getResourceAsStream(fullPath);
   }
-
 }
