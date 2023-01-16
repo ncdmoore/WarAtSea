@@ -1,0 +1,14 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ship"
+    },
+    "title": "DD01 Ship",
+    "nation": "AUSTRALIAN",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Scott_Class"
+    }
+  }
+]
