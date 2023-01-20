@@ -10,6 +10,8 @@ import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.pregame.OrderOfBattleSummaryViewModel;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -23,6 +25,7 @@ import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -137,6 +140,33 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private Node buildTaskForceDetails(final ListView<TaskForce> taskForces) {
+    var descriptionPane = buildDescription(taskForces);
+    var summariesPane = buildSummaries(taskForces);
+
+    var vBox = new VBox(descriptionPane, summariesPane);
+    vBox.setId("details-main-vbox");
+
+    return vBox;
+  }
+
+  private Node buildDescription(final ListView<TaskForce> taskForces) {
+    var stateLabel = new Text("State:");
+    var stateValue = new Text();
+
+    var selectedTaskForce = taskForces.getSelectionModel()
+        .selectedItemProperty();
+
+    bindState(stateValue, selectedTaskForce);
+
+    var gridPane = new GridPane();
+    gridPane.add(stateLabel, 0, 0);
+    gridPane.add(stateValue, 1, 0);
+    gridPane.setId("details-grid");
+
+    return gridPane;
+  }
+
+  private Node buildSummaries(final ListView<TaskForce> taskForces) {
     var shipSummaryGrid = new GridPane();
     var squadronSummaryGrid = new GridPane();
 
@@ -228,5 +258,12 @@ public class OrderOfBattleSummaryView implements View {
     if (row[0] == 0) {
       gridPane.add(new Text("No squadrons"), 0 , 0);
     }
+  }
+
+  private void bindState(final Text stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+    stateValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedTaskForce.getValue())
+            .map(taskForce -> taskForce.getState().getValue())
+            .orElse(""), selectedTaskForce));
   }
 }
