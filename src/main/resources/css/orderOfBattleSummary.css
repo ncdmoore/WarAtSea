@@ -9,6 +9,11 @@
     -fx-border-width: 2;
 }
 
+.details-grid {
+    -fx-alignment: top-left;
+    -fx-hgap: 30;
+}
+
 #title {
     -fx-font: bold 16pt "Lucida Grande";
     -fx-text-fill: navy;
@@ -36,7 +41,7 @@
 }
 
 #summary-hbox {
-    -fx-spacing: 40;
+    -fx-spacing: 30;
 }
 
 #details-main-vbox {
@@ -51,6 +56,8 @@
 #main-pane-hbox {
     -fx-alignment: top-center;
     -fx-spacing: 10;
+        -fx-padding: /* top: */ 5 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
+
 }
 
 #main-bottom-line {

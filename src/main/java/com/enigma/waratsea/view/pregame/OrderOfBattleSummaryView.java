@@ -77,9 +77,12 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private Node buildMain() {
+    var side = orderOfBattleSummaryViewModel.getSide().getValue().toLower();
+
     var topHorizontalLine = new Separator();
 
-    var instructionLabel = new Label("Royal Navy and Royal Air force OOB :");
+    var instructionString = props.getString( side + ".oob.title");
+    var instructionLabel = new Label(instructionString);
     instructionLabel.getStyleClass().add("instruction");
 
     var leftFlag = new ImageView();
@@ -113,6 +116,7 @@ public class OrderOfBattleSummaryView implements View {
     var airTab = new Tab("Air");
 
     tabPane.getTabs().addAll(navalTab, airTab);
+    tabPane.setMinWidth(650);
 
     return tabPane;
   }
@@ -168,7 +172,7 @@ public class OrderOfBattleSummaryView implements View {
     var gridPane = new GridPane();
     gridPane.add(stateLabel, 0, 0);
     gridPane.add(stateValue, 1, 0);
-    gridPane.setId("details-grid");
+    gridPane.getStyleClass().add("details-grid");
 
     return gridPane;
   }
@@ -195,7 +199,7 @@ public class OrderOfBattleSummaryView implements View {
     var summaryLabel = new Label("Ship Summary");
     var horizontalLine = new Separator();
 
-    gridPane.setId("details-grid");
+    gridPane.getStyleClass().add("details-grid");
 
     var vBox = new VBox(summaryLabel, horizontalLine, gridPane);
     vBox.setId("details-grid-vbox");
@@ -207,7 +211,7 @@ public class OrderOfBattleSummaryView implements View {
     var summaryLabel = new Label("Squadron Summary");
     var horizontalLine = new Separator();
 
-    gridPane.setId("details-grid");
+    gridPane.getStyleClass().add("details-grid");
 
     var vBox = new VBox(summaryLabel, horizontalLine, gridPane);
     vBox.setId("details-grid-vbox");
@@ -254,7 +258,7 @@ public class OrderOfBattleSummaryView implements View {
 
     int[] row = {0}; // The array hack to allow counter in forEach
     summary.forEach(entry -> {
-          var typeText = new Text(entry.getKey().getValue());
+          var typeText = new Text(entry.getKey().getValue() + ":");
           var countText = new Text(entry.getValue() + "");
           gridPane.add(typeText, 0, row[0]);
           gridPane.add(countText, 1, row[0]);

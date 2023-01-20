@@ -3,6 +3,7 @@ package com.enigma.waratsea.viewmodel.pregame;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.model.Game;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.service.GameService;
@@ -39,6 +40,9 @@ public class OrderOfBattleSummaryViewModel {
   @Getter
   private final ListProperty<TaskForce> taskForces = new SimpleListProperty<>(FXCollections.emptyObservableList());
 
+  @Getter
+  private final ObjectProperty<Side> side = new SimpleObjectProperty<>();
+
   @Inject
   public OrderOfBattleSummaryViewModel(final Events events,
                                        final @Named("View") Props props,
@@ -50,6 +54,7 @@ public class OrderOfBattleSummaryViewModel {
     this.gameService = gameService;
 
     var game = gameService.getGame();
+    setSide(game);
     setFlag(game);
     setTaskForceImage(game);
     setTaskForces(game);
@@ -67,6 +72,10 @@ public class OrderOfBattleSummaryViewModel {
         .getName();
 
     events.getSaveGameEvent().fire(new SaveGameEvent(selectedScenarioName));
+  }
+
+  private void setSide(final Game game) {
+    side.setValue(game.getHumanSide());
   }
 
   private void setFlag(final Game game) {
