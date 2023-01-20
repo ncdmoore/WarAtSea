@@ -53,6 +53,10 @@
     -fx-spacing: 10;
 }
 
+#main-bottom-line {
+    -fx-padding: /* top: */ 10 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
+}
+
 #main-pane {
     -fx-border-width: 1px;
     -fx-padding: /* top: */ 20 /* right: */ 20 /* bottom: */ 0 /* left: */ 20;

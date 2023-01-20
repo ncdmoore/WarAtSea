@@ -77,19 +77,26 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private Node buildMain() {
-    var horizontalLine = new Separator();
+    var topHorizontalLine = new Separator();
+
     var instructionLabel = new Label("Royal Navy and Royal Air force OOB :");
     instructionLabel.getStyleClass().add("instruction");
 
-    var flag = new ImageView();
-    flag.imageProperty().bind(orderOfBattleSummaryViewModel.getFlag());
+    var leftFlag = new ImageView();
+    leftFlag.imageProperty().bind(orderOfBattleSummaryViewModel.getFlag());
 
     var tabPane = buildOobTabs();
 
-    var hBox = new HBox(flag, tabPane);
+    var rightFlag = new ImageView();
+    rightFlag.imageProperty().bind(orderOfBattleSummaryViewModel.getFlag());
+
+    var hBox = new HBox(leftFlag, tabPane, rightFlag);
     hBox.setId("main-pane-hbox");
 
-    var vBox = new VBox(horizontalLine, instructionLabel, hBox);
+    var bottomHorizontalLine = new Separator();
+    bottomHorizontalLine.setId("main-bottom-line");
+
+    var vBox = new VBox(topHorizontalLine, instructionLabel, hBox, bottomHorizontalLine);
     vBox.setId("main-pane");
 
     return vBox;
