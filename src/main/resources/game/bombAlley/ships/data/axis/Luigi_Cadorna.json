@@ -1,9 +1,9 @@
 {
   "id" : {
     "side": "AXIS",
-    "name": "Lugi_Cadorna"
+    "name": "Luigi_Cadorna"
   },
-  "type": "CRUISER",
+  "type": "LIGHT_CRUISER",
   "shipClass": "Luigi Cadorna",
   "nation": "ITALIAN",
   "secondary":

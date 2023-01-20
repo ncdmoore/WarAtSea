@@ -70,6 +70,7 @@ public class ShipServiceImpl implements ShipService {
     Side.stream()
         .forEach(side -> registry.computeIfAbsent(side, this::getShipRegistryForSide));
   }
+
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
     log.debug("ShipServiceImpl handle StartNewGameEvent");
 
@@ -86,6 +87,7 @@ public class ShipServiceImpl implements ShipService {
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
     log.debug("ShipServiceImpl handle SelectedScenarioEvent");
+
     clearCaches();
   }
 
@@ -123,7 +125,8 @@ public class ShipServiceImpl implements ShipService {
   }
 
   private Ship buildShip(final Id shipId, final Ship shipClass) {
-    var shipRegistry = registry.get(shipId.getSide()).get(shipId);
+    var side = shipId.getSide();
+    var shipRegistry = registry.get(side).get(shipId);
     var newShip = copyShip(shipClass);
     return newShip.commission(shipRegistry);
   }

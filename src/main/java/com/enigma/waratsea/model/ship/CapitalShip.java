@@ -40,7 +40,7 @@ public class CapitalShip implements Ship, Airbase {
     nation = Optional.ofNullable(shipRegistry.getNation())
         .orElse(nation);
 
-    squadrons = shipRegistry.getSquadrons();
+    shipRegistry.getSquadrons().forEach(this::deploySquadron);
     return this;
   }
 

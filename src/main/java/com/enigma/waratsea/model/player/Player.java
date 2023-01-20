@@ -11,5 +11,6 @@ public interface Player {
   Map<Id, Airbase> getAirbases();
   void setAirfields(Set<Airfield> airfields);
   void setPorts(Set<Port> ports);
+  Set<TaskForce> getTaskForces();
   void setTaskForces(Set<TaskForce> taskForces);
 }

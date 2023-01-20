@@ -1,0 +1,61 @@
+@import "colors.css"
+@import "common.css"
+
+.root {
+    -fx-background: -fx-var-background-color;
+}
+
+.separator .line {
+    -fx-border-width: 2;
+}
+
+#title {
+    -fx-font: bold 16pt "Lucida Grande";
+    -fx-text-fill: navy;
+    -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 20 /* left: */ 0;
+}
+
+#title-pane {
+    -fx-border-width: 1px;
+    -fx-border-color: -fx-var-background-color;
+    -fx-background-color: linear-gradient(from 0% 0% to 100% 100%, gray 0%, lightblue 100%);
+    -fx-alignment: top-center;
+}
+
+#list-pane {
+    -fx-spacing: 8;
+}
+
+#details-grid {
+    -fx-alignment: top-left;
+    -fx-hgap: 30;
+}
+
+#details-grid-vbox {
+    -fx-spacing: 5;
+}
+
+#summary-hbox {
+    -fx-spacing: 40;
+}
+
+#task-force-pane-hbox {
+    -fx-spacing: 50;
+    -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
+}
+
+#main-pane-hbox {
+    -fx-alignment: top-center;
+    -fx-spacing: 10;
+}
+
+#main-pane {
+    -fx-border-width: 1px;
+    -fx-padding: /* top: */ 20 /* right: */ 20 /* bottom: */ 0 /* left: */ 20;
+}
+
+#push-buttons-pane {
+    -fx-alignment: center;
+    -fx-spacing: 50;
+    -fx-padding: /* top: */ 0 /* right: */ 0 /* bottom: */ 20 /* left: */ 0;
+}

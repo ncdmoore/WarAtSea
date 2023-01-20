@@ -3,8 +3,8 @@
     "side": "AXIS",
     "name": "Strasbourg"
   },
-  "type": "BATTLESHIP",
-  "shipClass": "Strasbourg",
+  "type": "BATTLECRUISER",
+  "shipClass": "Dunkerque",
   "nation": "FRENCH",
   "primary": {
     "armour": "HEAVY",
