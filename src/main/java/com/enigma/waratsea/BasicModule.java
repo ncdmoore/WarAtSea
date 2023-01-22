@@ -73,6 +73,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(SquadronDeploymentService.class);
     bootStrappedBinder.addBinding().to(ShipService.class);
     bootStrappedBinder.addBinding().to(TaskForceService.class);
+    bootStrappedBinder.addBinding().to(MissionService.class);
   }
 
   private void bindProps() {
@@ -100,6 +101,7 @@ public class BasicModule extends AbstractModule {
     bind(SquadronDeploymentRepository.class).to(SquadronDeploymentRepositoryImpl.class);
     bind(ShipRepository.class).to(ShipRepositoryImpl.class);
     bind(TaskForceRepository.class).to(TaskForceRepositoryImpl.class);
+    bind(MissionRepository.class).to(MissionRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
 
@@ -111,6 +113,7 @@ public class BasicModule extends AbstractModule {
     bind(ShipRegistryMapper.class).toInstance(ShipRegistryMapper.INSTANCE);
     bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);
     bind(TaskForceMapper.class).toInstance(TaskForceMapper.INSTANCE);
+    bind(MissionMapper.class).toInstance(MissionMapper.INSTANCE);
   }
 
   private void bindWeatherStrategies() {
@@ -132,7 +135,6 @@ public class BasicModule extends AbstractModule {
     bind(MapService.class).to(MapServiceImpl.class);
     bind(RegionService.class).to(RegionServiceImpl.class);
     bind(WeatherService.class).to(WeatherServiceImpl.class);
-    bind(GameService.class).to(GameServiceImpl.class);
     bind(PlayerService.class).to(PlayerServiceImpl.class);
     bind(AirfieldService.class).to(AirfieldServiceImpl.class);
     bind(PortService.class).to(PortServiceImpl.class);
@@ -141,5 +143,8 @@ public class BasicModule extends AbstractModule {
     bind(SquadronDeploymentService.class).to(SquadronDeploymentServiceImpl.class);
     bind(ShipService.class).to(ShipServiceImpl.class);
     bind(TaskForceService.class).to(TaskForceServiceImpl.class);
+    bind(MissionService.class).to(MissionServiceImpl.class);
+    bind(GameService.class).to(GameServiceImpl.class);
+
   }
 }

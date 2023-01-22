@@ -28,6 +28,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.mapper;
   exports com.enigma.waratsea.model;
   exports com.enigma.waratsea.model.aircraft;
+  exports com.enigma.waratsea.model.mission;
   exports com.enigma.waratsea.model.squadron;
   exports com.enigma.waratsea.model.ship;
   exports com.enigma.waratsea.model.taskForce;
@@ -56,4 +57,8 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.entity.squadron;
   opens com.enigma.waratsea.entity.aircraft to com.google.gson;
   exports com.enigma.waratsea.entity.aircraft;
+  exports com.enigma.waratsea.entity.gson;
+  opens com.enigma.waratsea.entity.gson to com.google.gson;
+  exports com.enigma.waratsea.entity.mission;
+  opens com.enigma.waratsea.entity.mission to com.google.gson;
 }

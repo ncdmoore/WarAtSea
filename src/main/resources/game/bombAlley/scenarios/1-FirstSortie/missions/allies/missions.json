@@ -1,0 +1,29 @@
+[
+  {
+    "id": "Mission-1",
+    "priority": 1,
+    "type": "BombardmentEntity",
+    "description": "Bombard Tobruk",
+    "taskForces": [
+      "TF1"
+    ]
+  },
+  {
+    "id": "Mission-2",
+    "priority": 1,
+    "type": "BombardmentEntity",
+    "description": "Bombard Rhodes",
+    "taskForces": [
+      "TF1"
+    ]
+  },
+  {
+    "id": "Mission-3",
+    "priority": 1,
+    "type": "BombardmentEntity",
+    "description": "Bombard Scarpanto",
+    "taskForces": [
+      "TF1"
+    ]
+  }
+]
