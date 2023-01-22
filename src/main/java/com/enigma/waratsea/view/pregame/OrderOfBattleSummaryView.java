@@ -1,5 +1,6 @@
 package com.enigma.waratsea.view.pregame;
 
+import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Type;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.mission.Mission;
@@ -123,6 +124,7 @@ public class OrderOfBattleSummaryView implements View {
 
     var airTab = new Tab("Air Force Order of Battle");
 
+    airTab.setContent(buildAirForceTab());
     airTab.setGraphic(aircraftImage);
 
     tabPane.getTabs().addAll(navalTab, airTab);
@@ -145,6 +147,17 @@ public class OrderOfBattleSummaryView implements View {
     return taskForceHBox;
   }
 
+  private Node buildAirForceTab() {
+    ListView<Nation> nations = new ListView<>();
+
+    var nationsList = buildNationsList(nations);
+
+    var airForceHBox = new HBox(nationsList);
+    airForceHBox.setId("task-force-pane-hbox");
+
+    return airForceHBox;
+  }
+
   private Node buildTaskForceList(final ListView<TaskForce> taskForces) {
     var taskForceImage = new ImageView();
 
@@ -155,6 +168,17 @@ public class OrderOfBattleSummaryView implements View {
     taskForces.setMaxHeight(props.getInt("pregame.scenario.list.height"));
 
     var listPane = new VBox(taskForceImage, taskForces);
+    listPane.setId("list-pane");
+
+    return listPane;
+  }
+
+  private Node buildNationsList(final ListView<Nation> nations) {
+    var airForceImage = new ImageView();
+
+    airForceImage.imageProperty().bind(orderOfBattleSummaryViewModel.getAirForceImage());
+
+    var listPane = new VBox(airForceImage);
     listPane.setId("list-pane");
 
     return listPane;

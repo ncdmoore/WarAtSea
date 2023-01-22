@@ -38,6 +38,9 @@ public class OrderOfBattleSummaryViewModel {
   private final ObjectProperty<Image> taskForceImage = new SimpleObjectProperty<>();
 
   @Getter
+  private final ObjectProperty<Image> airForceImage = new SimpleObjectProperty<>();
+
+  @Getter
   private final ListProperty<TaskForce> taskForces = new SimpleListProperty<>(FXCollections.emptyObservableList());
 
   @Getter
@@ -57,6 +60,7 @@ public class OrderOfBattleSummaryViewModel {
     setSide(game);
     setFlag(game);
     setTaskForceImage(game);
+    setAirForceImage(game);
     setTaskForces(game);
   }
 
@@ -94,6 +98,15 @@ public class OrderOfBattleSummaryViewModel {
     var imageName = props.getString(propertyName);
     var image = resourceProvider.getImage(scenario, imageName);
     taskForceImage.setValue(image);
+  }
+
+  private void setAirForceImage(final Game game) {
+    var side = game.getHumanSide();
+    var scenario = game.getScenario().getName();
+    var propertyName = side.toLower() + ".air.force.squadrons.image";
+    var imageName = props.getString(propertyName);
+    var image = resourceProvider.getImage(scenario, imageName);
+    airForceImage.setValue(image);
   }
 
   private void setTaskForces(final Game game) {
