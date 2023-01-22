@@ -31,9 +31,10 @@
     -fx-spacing: 8;
 }
 
-#details-grid {
+#missions-grid {
     -fx-alignment: top-left;
     -fx-hgap: 30;
+    -fx-vgap: 30;
 }
 
 #details-grid-vbox {

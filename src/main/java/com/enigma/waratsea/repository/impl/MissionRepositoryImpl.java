@@ -1,8 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.gson.RuntimeTypeAdapterFactory;
-import com.enigma.waratsea.entity.mission.BombardmentEntity;
-import com.enigma.waratsea.entity.mission.MissionEntity;
+import com.enigma.waratsea.entity.mission.*;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.MissionRepository;
@@ -38,17 +37,17 @@ public class MissionRepositoryImpl implements MissionRepository {
 
   @Override
   public List<MissionEntity> get(Side side) {
-    return readTMissions(new Id(side, missionFileName));
+    return readMissions(new Id(side, missionFileName));
   }
 
-  private List<MissionEntity> readTMissions(final Id missionId) {
+  private List<MissionEntity> readMissions(final Id missionId) {
     try (var in = getInputStream(missionId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       log.debug("Read missions: '{}'", missionId);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read missions: '{}'", missionId, e);
+      log.warn("Unable to read missions: '{}'", missionId);
       return Collections.emptyList();
     }
   }
@@ -61,8 +60,12 @@ public class MissionRepositoryImpl implements MissionRepository {
     var type = new TypeToken<ArrayList<MissionEntity>>() {
     }.getType();
 
-    RuntimeTypeAdapterFactory<MissionEntity> adapter = RuntimeTypeAdapterFactory.of(MissionEntity.class, "type")
-        .registerSubtype(BombardmentEntity.class);
+    RuntimeTypeAdapterFactory<MissionEntity> adapter = RuntimeTypeAdapterFactory
+        .of(MissionEntity.class, "type")
+        .registerSubtype(BombardmentEntity.class)
+        .registerSubtype(FerryShipsEntity.class)
+        .registerSubtype(InterceptEntity.class)
+        .registerSubtype(PatrolEntity.class);
 
     var gson = new GsonBuilder().registerTypeAdapterFactory(adapter).create();
 

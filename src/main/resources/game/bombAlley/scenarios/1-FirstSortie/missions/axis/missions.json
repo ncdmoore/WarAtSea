@@ -1,0 +1,50 @@
+[
+  {
+    "id": "Mission-1",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol near Tobruk.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF1"
+      }
+    ]
+  },
+  {
+    "id": "Mission-2",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol around Sicily.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF2"
+      }
+    ]
+  },
+  {
+    "id": "Mission-3",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol near Taranto.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF3"
+      }
+    ]
+  },
+  {
+    "id": "Mission-4",
+    "priority": 1,
+    "type": "InterceptEntity",
+    "description": "Intercept any spotted enemy task force.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF4"
+      }
+    ]
+  }
+]

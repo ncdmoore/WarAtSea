@@ -1,10 +1,8 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.mission.BombardmentEntity;
-import com.enigma.waratsea.entity.mission.MissionEntity;
+import com.enigma.waratsea.entity.mission.*;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.mission.Bombardment;
-import com.enigma.waratsea.model.mission.Mission;
+import com.enigma.waratsea.model.mission.*;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.service.TaskForceService;
 import com.google.inject.Inject;
@@ -30,11 +28,17 @@ public abstract class MissionMapper {
   abstract public Set<MissionEntity> modelsToEntities(final Set<Mission> models);
 
   @SubclassMapping(source = BombardmentEntity.class, target = Bombardment.class)
+  @SubclassMapping(source = FerryShipsEntity.class, target = FerryShips.class)
+  @SubclassMapping(source = InterceptEntity.class, target = Intercept.class)
+  @SubclassMapping(source = PatrolEntity.class, target = Patrol.class)
   abstract public Mission toModel(final MissionEntity missionEntity);
 
   abstract public Bombardment toBombardment(final BombardmentEntity bombardmentEntity);
 
   @SubclassMapping(source = Bombardment.class, target = BombardmentEntity.class)
+  @SubclassMapping(source = FerryShips.class, target = FerryShipsEntity.class)
+  @SubclassMapping(source = Intercept.class, target = InterceptEntity.class)
+  @SubclassMapping(source = Patrol.class, target = PatrolEntity.class)
   abstract public MissionEntity toEntity(final Mission ship);
 
   abstract public BombardmentEntity toBombardmentEntity(final Bombardment bombardment);

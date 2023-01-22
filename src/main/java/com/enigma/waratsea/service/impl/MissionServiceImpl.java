@@ -58,7 +58,7 @@ public class MissionServiceImpl implements MissionService {
   private void handleLoadMissionsEvent(final LoadMissionsEvent loadMissionsEvent) {
     log.info("MissionServiceImpl handle LoadMissionsEvent");
 
-    get(Side.ALLIES);
+    Side.stream().forEach(this::get);
   }
 
   private Set<Mission> getFromRepository(final Side side) {

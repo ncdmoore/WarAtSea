@@ -2,11 +2,11 @@
   {
     "id": "Mission-1",
     "priority": 1,
-    "type": "BombardmentEntity",
-    "description": "Bombard Oran.",
+    "type": "FerryShipsEntity",
+    "description": "Ferry Ships to Toulon or Marseille.",
     "taskForces": [
       {
-        "side": "ALLIES",
+        "side": "AXIS",
         "name": "TF1"
       }
     ]

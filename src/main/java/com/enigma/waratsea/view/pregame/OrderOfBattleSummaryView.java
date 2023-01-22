@@ -2,6 +2,7 @@ package com.enigma.waratsea.view.pregame;
 
 import com.enigma.waratsea.model.Type;
 import com.enigma.waratsea.model.aircraft.AircraftType;
+import com.enigma.waratsea.model.mission.Mission;
 import com.enigma.waratsea.model.ship.ShipType;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
@@ -12,6 +13,7 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyObjectProperty;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -26,6 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Slf4j
@@ -81,7 +84,7 @@ public class OrderOfBattleSummaryView implements View {
 
     var topHorizontalLine = new Separator();
 
-    var instructionString = props.getString( side + ".oob.title");
+    var instructionString = props.getString(side + ".oob.title");
     var instructionLabel = new Label(instructionString);
     instructionLabel.getStyleClass().add("instruction");
 
@@ -164,15 +167,22 @@ public class OrderOfBattleSummaryView implements View {
     var stateLabel = new Text("State:");
     var stateValue = new Text();
 
+    var missionsLabel = new Text("Missions:");
+    var missionsValue = new Text();
+
     var selectedTaskForce = taskForces.getSelectionModel()
         .selectedItemProperty();
 
     bindState(stateValue, selectedTaskForce);
+    bindMissions(missionsValue, selectedTaskForce);
 
     var gridPane = new GridPane();
     gridPane.add(stateLabel, 0, 0);
     gridPane.add(stateValue, 1, 0);
-    gridPane.getStyleClass().add("details-grid");
+    gridPane.add(missionsLabel, 0, 1);
+    gridPane.add(missionsValue, 1, 1);
+    GridPane.setValignment(missionsLabel, VPos.TOP);
+    gridPane.setId("missions-grid");
 
     return gridPane;
   }
@@ -267,7 +277,7 @@ public class OrderOfBattleSummaryView implements View {
     );
 
     if (row[0] == 0) {
-      gridPane.add(new Text("No squadrons"), 0 , 0);
+      gridPane.add(new Text("No squadrons"), 0, 0);
     }
   }
 
@@ -275,6 +285,16 @@ public class OrderOfBattleSummaryView implements View {
     stateValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedTaskForce.getValue())
             .map(taskForce -> taskForce.getState().getValue())
+            .orElse(""), selectedTaskForce));
+  }
+
+  private void bindMissions(final Text missionsValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+    missionsValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedTaskForce.getValue())
+            .map(taskForce -> taskForce.getMissions()
+                .stream()
+                .map(Mission::getDescription)
+                .collect(Collectors.joining("\n")))
             .orElse(""), selectedTaskForce));
   }
 }

@@ -3,7 +3,7 @@
     "id": "Mission-1",
     "priority": 1,
     "type": "BombardmentEntity",
-    "description": "Bombard Tobruk",
+    "description": "Bombard Tobruk.",
     "taskForces": [
       {
         "side": "ALLIES",
@@ -15,7 +15,7 @@
     "id": "Mission-2",
     "priority": 1,
     "type": "BombardmentEntity",
-    "description": "Bombard Rhodes",
+    "description": "Bombard Rhodes.",
     "taskForces": [
       {
         "side": "ALLIES",
@@ -27,7 +27,7 @@
     "id": "Mission-3",
     "priority": 1,
     "type": "BombardmentEntity",
-    "description": "Bombard Scarpanto",
+    "description": "Bombard Scarpanto.",
     "taskForces": [
       {
         "side": "ALLIES",
