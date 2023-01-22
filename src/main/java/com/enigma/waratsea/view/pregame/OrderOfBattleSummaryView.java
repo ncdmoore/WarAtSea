@@ -113,11 +113,17 @@ public class OrderOfBattleSummaryView implements View {
     var tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-    var navalTab = new Tab("Naval");
+    var anchorImage = resourceProvider.getAppImageView(props.getString("anchor.small.image"));
+    var aircraftImage = resourceProvider.getAppImageView(props.getString("aircraft.small.image"));
+
+    var navalTab = new Tab("Naval Order of Battle");
 
     navalTab.setContent(buildNavalTab());
+    navalTab.setGraphic(anchorImage);
 
-    var airTab = new Tab("Air");
+    var airTab = new Tab("Air Force Order of Battle");
+
+    airTab.setGraphic(aircraftImage);
 
     tabPane.getTabs().addAll(navalTab, airTab);
     tabPane.setMinWidth(650);

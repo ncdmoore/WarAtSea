@@ -45,12 +45,17 @@ public class ResourceProvider {
 
   public Image getImage(final String scenario, final String imageName) {
     return getScenarioSpecificImage(scenario, imageName)
-        .or(() -> getCommonImage(imageName))
+        .or(() -> getGameCommonImage(imageName))
         .orElseThrow(() -> new ResourceException("Unable to get image: " + imageName));
   }
 
   public Image getGameImage(final String imageName) {
-    return getCommonImage(imageName)
+    return getGameCommonImage(imageName)
+        .orElseThrow(() -> new ResourceException(imageName));
+  }
+
+  public Image getAppImage(final String imageName) {
+    return getAppCommonImage(imageName)
         .orElseThrow(() -> new ResourceException(imageName));
   }
 
@@ -58,9 +63,18 @@ public class ResourceProvider {
     return new ImageView(getGameImage(imageName));
   }
 
-  private Optional<Image> getCommonImage(final String imageName) {
+  public ImageView getAppImageView(final String imageName) {
+    return new ImageView(getAppImage(imageName));
+  }
+  private Optional<Image> getAppCommonImage(final String imageName) {
+    var path = Paths.get(commonImageDirectory, imageName).toString();
+    log.info("get image: '{}'", path);
+    return getImageResource(path);
+  }
+
+  private Optional<Image> getGameCommonImage(final String imageName) {
     var path = Paths.get(gamePath, commonImageDirectory, imageName).toString();
-    log.debug("get image: '{}'", path);
+    log.info("get image: '{}'", path);
     return getImageResource(path);
   }
 
