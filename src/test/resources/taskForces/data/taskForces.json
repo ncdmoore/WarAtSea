@@ -1,6 +1,9 @@
 [
   {
-    "id": "TF1",
+    "id": {
+      "side": "AXIS",
+      "name": "TF1"
+    },
     "title": "Tobruk Force",
     "location": "Tobruk",
     "state": "ACTIVE",
@@ -28,7 +31,10 @@
     ]
   },
   {
-    "id": "TF2",
+    "id": {
+      "side": "AXIS",
+      "name": "TF2"
+    },
     "title": "Messina Force",
     "location": "Messina",
     "state": "ACTIVE",
@@ -80,7 +86,10 @@
     ]
   },
   {
-    "id": "TF3",
+    "id": {
+      "side": "AXIS",
+      "name": "TF3"
+    },
     "title": "Reaction Force",
     "location": "Taranto",
     "state": "ACTIVE",
@@ -140,7 +149,10 @@
     ]
   },
   {
-    "id": "TF4",
+    "id": {
+      "side": "AXIS",
+      "name": "TF4"
+    },
     "title": "Emergency Force",
     "location": "Taranto",
     "state": "RESERVE",

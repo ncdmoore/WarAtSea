@@ -35,11 +35,19 @@ class TaskForceRepositoryTest {
 
   private static final String TASK_FORCE_DIRECTORY = Paths.get("taskForces", "data").toString();
 
-  private static final List<String> TASK_FORCE_IDS = List.of("TF1", "TF2", "TF3", "TF4");
-  private static final List<String> TASK_FORCE_TITLES = List.of("Tobruk Force", "Messina Force", "Reaction Force", "Emergency Force");
+  private static final List<Id> TASK_FORCE_IDS = List.of(
+      new Id(AXIS, "TF1"),
+      new Id(AXIS, "TF2"),
+      new Id(AXIS, "TF3"),
+      new Id(AXIS, "TF4")
+  );
+
+  private static final List<String> TASK_FORCE_TITLES = List.of(
+      "Tobruk Force", "Messina Force", "Reaction Force", "Emergency Force");
 
   private static final String TASK_FORCE_ONE_LOCATION = "Tobruk";
-  private static final List<String> TASK_FORCE_ONE_SHIP_NAMES = List.of("San_Giorgio", "Cesare_Battisti", "Daniele_Manin", "Francesco_Nullo", "Sauro");
+  private static final List<String> TASK_FORCE_ONE_SHIP_NAMES = List.of(
+      "San_Giorgio", "Cesare_Battisti", "Daniele_Manin", "Francesco_Nullo", "Sauro");
 
   @Test
   void shouldGetTaskForce() {

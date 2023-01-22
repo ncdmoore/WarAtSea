@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Mission-1",
+    "priority": 1,
+    "type": "BombardmentEntity",
+    "description": "Bombard Oran",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF1"
+      }
+    ]
+  }
+]
