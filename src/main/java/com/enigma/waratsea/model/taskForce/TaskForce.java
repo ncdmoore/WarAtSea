@@ -15,6 +15,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static com.enigma.waratsea.model.taskForce.TaskForceState.RESERVE;
+
 @Builder
 @Getter
 public class TaskForce implements Comparable<TaskForce> {
@@ -50,6 +52,10 @@ public class TaskForce implements Comparable<TaskForce> {
 
   public void addMission(final Mission mission) {
     missions.add(mission);
+  }
+
+  public boolean isReserved() {
+    return state == RESERVE;
   }
 
   @Override

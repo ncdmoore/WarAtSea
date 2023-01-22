@@ -22,6 +22,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
@@ -165,7 +166,7 @@ public class OrderOfBattleSummaryView implements View {
 
   private Node buildDescription(final ListView<TaskForce> taskForces) {
     var stateLabel = new Text("State:");
-    var stateValue = new Text();
+    var stateValue = new Label();
 
     var missionsLabel = new Text("Missions:");
     var missionsValue = new Text();
@@ -174,6 +175,7 @@ public class OrderOfBattleSummaryView implements View {
         .selectedItemProperty();
 
     bindState(stateValue, selectedTaskForce);
+    bindStateColor(stateValue, selectedTaskForce);
     bindMissions(missionsValue, selectedTaskForce);
 
     var gridPane = new GridPane();
@@ -281,11 +283,19 @@ public class OrderOfBattleSummaryView implements View {
     }
   }
 
-  private void bindState(final Text stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+  private void bindState(final Label stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
     stateValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedTaskForce.getValue())
             .map(taskForce -> taskForce.getState().getValue())
             .orElse(""), selectedTaskForce));
+  }
+
+  private void bindStateColor(final Label stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+    stateValue.textFillProperty().bind(Bindings.createObjectBinding(() ->
+        Optional.ofNullable(selectedTaskForce.getValue())
+            .filter(TaskForce::isReserved)
+            .map(taskForce -> Color.RED)
+            .orElse(Color.GREEN), selectedTaskForce));
   }
 
   private void bindMissions(final Text missionsValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
