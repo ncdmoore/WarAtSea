@@ -17,7 +17,7 @@ import static com.enigma.waratsea.model.taskForce.TaskForceState.ACTIVE;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TaskForceEntity {
-  private String id;
+  private Id id;
   private String title;
   private String location;
 

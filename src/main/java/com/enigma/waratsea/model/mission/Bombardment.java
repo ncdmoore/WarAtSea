@@ -1,5 +1,6 @@
 package com.enigma.waratsea.model.mission;
 
+import com.enigma.waratsea.model.taskForce.TaskForce;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -11,5 +12,5 @@ public class Bombardment implements Mission {
   private String id;
   private int priority;
   private String description;
-  private Set<String> taskForces;
+  private Set<TaskForce> taskForces;
 }

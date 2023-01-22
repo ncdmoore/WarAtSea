@@ -10,10 +10,7 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Slf4j
 @Singleton
@@ -66,9 +63,16 @@ public class MissionServiceImpl implements MissionService {
 
   private Set<Mission> getFromRepository(final Side side) {
     var entities = missionRepository.get(side);
-    var models = missionMapper.entitiesToModels(entities);
+    var missions = missionMapper.entitiesToModels(entities);
 
-    return new HashSet<>(models);
+    setTaskForceMissions(missions);
+
+    return new HashSet<>(missions);
+  }
+
+  private void setTaskForceMissions(final List<Mission> missions) {
+    missions.forEach(mission -> mission.getTaskForces()
+        .forEach(taskForce -> taskForce.addMission(mission)));
   }
 
   private void clearCache() {

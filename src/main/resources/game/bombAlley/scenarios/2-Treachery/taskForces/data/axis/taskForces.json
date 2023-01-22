@@ -1,6 +1,9 @@
 [
   {
-    "id": "TF1",
+    "id": {
+      "side": "AXIS",
+      "name": "TF1"
+    },
     "title": "Oran Force",
     "location": "Oran",
     "state": "RESERVE",

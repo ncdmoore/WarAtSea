@@ -2,6 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.TaskForceMapper;
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.repository.TaskForceRepository;
@@ -10,7 +11,11 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
@@ -19,6 +24,7 @@ public class TaskForceServiceImpl implements TaskForceService {
   private final TaskForceMapper taskForceMapper;
 
   private final Map<Side, Set<TaskForce>> taskForceSideMap = new HashMap<>();
+  private final Map<Id, TaskForce> taskForceMap = new HashMap<>();
 
   @Inject
   public TaskForceServiceImpl(final Events events,
@@ -33,6 +39,13 @@ public class TaskForceServiceImpl implements TaskForceService {
   @Override
   public Set<TaskForce> get(Side side) {
    return taskForceSideMap.computeIfAbsent(side, this::getFromRepository);
+  }
+
+  @Override
+  public Set<TaskForce> get(Set<Id> taskForceIds) {
+    return taskForceIds.stream()
+        .map(taskForceMap::get)
+        .collect(Collectors.toSet());
   }
 
   private void registerEvents(final Events events) {
@@ -73,6 +86,8 @@ public class TaskForceServiceImpl implements TaskForceService {
     var entities = taskForceRepository.get(side);
     var models = taskForceMapper.entitiesToModels(entities);
 
+    models.forEach(this::addToTaskForceMap);
+
     return new HashSet<>(models);
   }
 
@@ -82,7 +97,13 @@ public class TaskForceServiceImpl implements TaskForceService {
     taskForceRepository.save(gameId, side, entities);
   }
 
+  private void addToTaskForceMap(final TaskForce taskForce) {
+    var id = taskForce.getId();
+    taskForceMap.putIfAbsent(id, taskForce);
+  }
+
   private void clearCache() {
     taskForceSideMap.clear();
+    taskForceMap.clear();
   }
 }

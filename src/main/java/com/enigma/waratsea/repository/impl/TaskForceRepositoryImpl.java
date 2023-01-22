@@ -69,7 +69,7 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
       var json = toJson(taskForces);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save " + id + " to path: " +filePath, e);
+      throw new GameException("Unable to save " + id + " to path: " + filePath, e);
     }
   }
 
@@ -86,6 +86,7 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
 
     log.debug("load task forces: '{}',", taskForces.stream()
         .map(TaskForceEntity::getId)
+        .map(Id::toString)
         .collect(Collectors.joining(",")));
 
     return taskForces;

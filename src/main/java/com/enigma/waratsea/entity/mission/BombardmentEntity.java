@@ -1,5 +1,6 @@
 package com.enigma.waratsea.entity.mission;
 
+import com.enigma.waratsea.model.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ public class BombardmentEntity extends MissionEntity {
   private String id;
   private int priority;
   private String description;
-  private Set<String> taskForces;
+  private Set<Id> taskForces;
 
   public BombardmentEntity() {
     type = "BombardmentEntity";

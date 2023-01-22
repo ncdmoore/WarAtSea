@@ -1,6 +1,9 @@
 [
   {
-    "id": "TF1",
+    "id": {
+      "side": "ALLIES",
+      "name": "TF1"
+    },
     "title": "Gibraltar Force",
     "location": "Gibraltar",
     "state": "ACTIVE",

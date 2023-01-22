@@ -53,7 +53,7 @@ public abstract class ShipMapper {
         .orElse(Collections.emptySet());
   }
 
-  Set<Id> mapId(final Set<Squadron> squadrons) {
+  Set<Id> mapIds(final Set<Squadron> squadrons) {
     if (squadrons == null) {
       return Collections.emptySet();
     }

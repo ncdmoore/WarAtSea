@@ -5,7 +5,10 @@
     "type": "BombardmentEntity",
     "description": "Bombard Tobruk",
     "taskForces": [
-      "TF1"
+      {
+        "side": "ALLIES",
+        "name": "TF1"
+      }
     ]
   },
   {
@@ -14,7 +17,10 @@
     "type": "BombardmentEntity",
     "description": "Bombard Rhodes",
     "taskForces": [
-      "TF1"
+      {
+        "side": "ALLIES",
+        "name": "TF1"
+      }
     ]
   },
   {
@@ -23,7 +29,10 @@
     "type": "BombardmentEntity",
     "description": "Bombard Scarpanto",
     "taskForces": [
-      "TF1"
+      {
+        "side": "ALLIES",
+        "name": "TF1"
+      }
     ]
   }
 ]
