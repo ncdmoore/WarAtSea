@@ -18,6 +18,7 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.Set;
 
 import static com.enigma.waratsea.model.GameName.ARCTIC_CONVOY;
 import static com.enigma.waratsea.model.Nation.BRITISH;
@@ -80,7 +81,7 @@ class RegionServiceTest {
   }
 
   @Test
-  void testGetAirfieldRegion() {
+  void shouldGetAirfieldRegion() {
     var result1 = regionService.getAirfieldRegion(BRITISH, new Id(ALLIES, AIRFIELD_ID_1));
     var result2 = regionService.getAirfieldRegion(BRITISH, new Id(ALLIES, AIRFIELD_ID_2));
     var result3 = regionService.getAirfieldRegion(UNITED_STATES, new Id(ALLIES, AIRFIELD_ID_2));
@@ -93,6 +94,14 @@ class RegionServiceTest {
 
     assertNotNull(result3);
     assertEquals(REGION_NAME_2, result3.getName());
+  }
+
+  @Test
+  void shouldGetNations() {
+    var result = regionService.getNations(ALLIES);
+
+    assertNotNull(result);
+    assertEquals(Set.of(BRITISH, UNITED_STATES), result);
   }
 
   private static List<RegionEntity> buildRegionEntities() {

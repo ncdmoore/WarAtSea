@@ -22,7 +22,7 @@ public class RegionServiceImpl implements RegionService {
   private final RegionMapper regionMapper;
 
   private Map<Side, List<Region>> regions;
-
+  private final Map<Side, Set<Nation>> nations = new HashMap<>();
   private final Map<Nation, Map<Id, Region>> airfields = new HashMap<>();
 
   @Inject
@@ -41,6 +41,11 @@ public class RegionServiceImpl implements RegionService {
   public Region getAirfieldRegion(Nation nation, Id airfieldId) {
     return airfields.get(nation)
         .get(airfieldId);
+  }
+
+  @Override
+  public Set<Nation> getNations(Side side) {
+    return nations.get(side);
   }
 
   private void registerEvents(final Events events) {
@@ -69,6 +74,7 @@ public class RegionServiceImpl implements RegionService {
     log.debug("RegionServiceImpl receives LoadMapEvent.");
 
     getAllRegions();
+    getAllNations();
     indexAllAirfields();
   }
 
@@ -84,12 +90,13 @@ public class RegionServiceImpl implements RegionService {
   }
 
   private Pair<Side, List<Region>> createRegions(final Id mapId) {
+    var side = mapId.getSide();
     var regions = regionRepository.get(mapId)
         .stream()
         .map(regionMapper::toModel)
         .toList();
 
-    return new Pair<>(mapId.getSide(), regions);
+    return new Pair<>(side, regions);
   }
 
   private void indexAllAirfields() {
@@ -108,6 +115,18 @@ public class RegionServiceImpl implements RegionService {
         .stream()
         .map(Airfield::getId)
         .forEach(airfieldId -> airfields.get(nation).putIfAbsent(airfieldId, region));
+  }
+
+  private void getAllNations() {
+    Side.stream()
+        .forEach(side -> nations.computeIfAbsent(side, this::getNationsForSide));
+  }
+
+  private Set<Nation> getNationsForSide(final Side side) {
+    return regions.get(side)
+        .stream()
+        .map(Region::getNation)
+        .collect(Collectors.toSet());
   }
 
   private void clearCaches() {
