@@ -51,7 +51,7 @@ public class NewGameViewModel {
   }
 
   public void continueOn(final Stage stage) {
-    events.getConfigNewGameEvent().fire(new ConfigNewGameEvent());
+    events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(selectedScenario.get()));
     events.getNavigateEvent().fire(buildForwardNav(stage));
   }
 

@@ -19,7 +19,8 @@ public class ConfigGameSaga implements BootStrapped {
   }
 
   private void handleConfigNewGame(final ConfigNewGameEvent event) {
-    log.info("ConfigGameSaga: handle ConfigNewGameEvent");
+    var scenario = event.getScenario();
+    log.info("ConfigGameSaga: handle ConfigNewGameEvent for scenario: '{}'", scenario);
 
     events.getLoadMapEvent().fire(new LoadMapEvent());
     events.getLoadTaskForcesEvent().fire(new LoadTaskForcesEvent());
