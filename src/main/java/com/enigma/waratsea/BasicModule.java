@@ -99,6 +99,7 @@ public class BasicModule extends AbstractModule {
     bind(AircraftRepository.class).to(AircraftRepositoryImpl.class);
     bind(SquadronRepository.class).to(SquadronRepositoryImpl.class);
     bind(SquadronDeploymentRepository.class).to(SquadronDeploymentRepositoryImpl.class);
+    bind(SquadronAllotmentRepository.class).to(SquadronAllotmentRepositoryImpl.class);
     bind(ShipRepository.class).to(ShipRepositoryImpl.class);
     bind(TaskForceRepository.class).to(TaskForceRepositoryImpl.class);
     bind(MissionRepository.class).to(MissionRepositoryImpl.class);

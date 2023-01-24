@@ -1,0 +1,94 @@
+{
+  "nation": "BRITISH",
+  "bombers": {
+    "dice": 1,
+    "factor": 4,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Blenheim"
+            },
+            "number": 8
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Wellington"
+            },
+            "number": 8
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 1,
+    "factor": 3,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Gladiator"
+            },
+            "number": 6
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Hurricane-1"
+            },
+            "number": 10
+          }
+        ]
+      }
+    ]
+  },
+  "recon": {
+    "dice": 1,
+    "factor": 1,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Sunderland"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Hudson"
+            },
+            "number": 2
+          }
+        ]
+      }
+    ]
+  }
+}
+
