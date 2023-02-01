@@ -11,6 +11,8 @@ import lombok.Getter;
 import java.util.Optional;
 import java.util.Set;
 
+import static com.enigma.waratsea.model.squadron.SquadronState.READY;
+
 @Getter
 @Builder
 public class CapitalShip implements Ship, Airbase {
@@ -33,14 +35,14 @@ public class CapitalShip implements Ship, Airbase {
   private Set<Squadron> squadrons;
 
   @Override
-  public Ship commission(final ShipRegistry shipRegistry) {
-    id = shipRegistry.getId();
-    title = shipRegistry.getTitle();
+  public Ship commission(final Commission commission) {
+    id = commission.getId();
+    title = commission.getTitle();
 
-    nation = Optional.ofNullable(shipRegistry.getNation())
+    nation = Optional.ofNullable(commission.getNation())
         .orElse(nation);
 
-    shipRegistry.getSquadrons().forEach(this::deploySquadron);
+    commission.getSquadrons().forEach(this::deploySquadron);
     return this;
   }
 
@@ -52,5 +54,6 @@ public class CapitalShip implements Ship, Airbase {
   @Override
   public void deploySquadron(Squadron squadron) {
     squadrons.add(squadron);
+    squadron.setState(READY);
   }
 }

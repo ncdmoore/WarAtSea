@@ -41,14 +41,21 @@ public class SquadronServiceImpl implements SquadronService {
   }
 
   @Override
-  public Set<Squadron> get(Side side) {
+  public Set<Squadron> get(final Side side) {
     return Optional.ofNullable(squadronSideMap.get(side))
         .orElse(Collections.emptySet());
   }
 
   @Override
-  public Squadron get(Id squadronId) {
+  public Squadron get(final Id squadronId) {
     return squadrons.computeIfAbsent(squadronId, this::getAndIndex);
+  }
+
+  @Override
+  public void add(final Side side, final Set<Squadron> newSquadrons) {
+    newSquadrons.forEach(squadron -> squadrons.put(squadron.getId(), squadron));
+
+    squadronSideMap.get(side).addAll(newSquadrons);
   }
 
   private void registerEvents(final Events events) {

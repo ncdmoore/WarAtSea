@@ -29,11 +29,11 @@ public class SurfaceShip implements Ship {
   private int victoryPoints;
 
   @Override
-  public Ship commission(final ShipRegistry shipRegistry) {
-    id = shipRegistry.getId();
-    title = shipRegistry.getTitle();
+  public Ship commission(final Commission commission) {
+    id = commission.getId();
+    title = commission.getTitle();
 
-    nation = Optional.ofNullable(shipRegistry.getNation())
+    nation = Optional.ofNullable(commission.getNation())
         .orElse(nation);
 
     return this;

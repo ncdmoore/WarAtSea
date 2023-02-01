@@ -2,6 +2,8 @@ package com.enigma.waratsea.orchestration;
 
 import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.model.Scenario;
+import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -26,8 +28,16 @@ public class ConfigGameSaga implements BootStrapped {
     events.getLoadTaskForcesEvent().fire(new LoadTaskForcesEvent());
     events.getCreatePlayerEvent().fire(new CreatePlayerEvent());
 
+    determineSquadronAllotment(scenario);
+
     events.getDeploySquadronEvent().fire(new DeploySquadronEvent());
 
     events.getLoadMissionsEvent().fire(new LoadMissionsEvent());
+  }
+
+  private void determineSquadronAllotment(final Scenario scenario) {
+    if (scenario.getSquadron() != SquadronDeploymentType.FIXED) {
+      events.getAllotSquadronEvent().fire(new AllotSquadronEvent(scenario));
+    }
   }
 }

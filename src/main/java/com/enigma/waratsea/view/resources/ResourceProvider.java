@@ -68,13 +68,13 @@ public class ResourceProvider {
   }
   private Optional<Image> getAppCommonImage(final String imageName) {
     var path = Paths.get(commonImageDirectory, imageName).toString();
-    log.info("get image: '{}'", path);
+    log.debug("get image: '{}'", path);
     return getImageResource(path);
   }
 
   private Optional<Image> getGameCommonImage(final String imageName) {
     var path = Paths.get(gamePath, commonImageDirectory, imageName).toString();
-    log.info("get image: '{}'", path);
+    log.debug("get image: '{}'", path);
     return getImageResource(path);
   }
 

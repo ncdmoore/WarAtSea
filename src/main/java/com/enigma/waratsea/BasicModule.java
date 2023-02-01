@@ -70,6 +70,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(PlayerService.class);
     bootStrappedBinder.addBinding().to(AircraftService.class);
     bootStrappedBinder.addBinding().to(SquadronService.class);
+    bootStrappedBinder.addBinding().to(SquadronAllotmentService.class);
     bootStrappedBinder.addBinding().to(SquadronDeploymentService.class);
     bootStrappedBinder.addBinding().to(ShipService.class);
     bootStrappedBinder.addBinding().to(TaskForceService.class);
@@ -110,6 +111,7 @@ public class BasicModule extends AbstractModule {
     bind(RegionMapper.class).toInstance(RegionMapper.INSTANCE);
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
     bind(AirfieldMapper.class).toInstance(AirfieldMapper.INSTANCE);
+    bind(AllotmentMapper.class).toInstance(AllotmentMapper.INSTANCE);
     bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
     bind(ShipRegistryMapper.class).toInstance(ShipRegistryMapper.INSTANCE);
     bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);
@@ -141,6 +143,7 @@ public class BasicModule extends AbstractModule {
     bind(PortService.class).to(PortServiceImpl.class);
     bind(AircraftService.class).to(AircraftServiceImpl.class);
     bind(SquadronService.class).to(SquadronServiceImpl.class);
+    bind(SquadronAllotmentService.class).to(SquadronAllotmentServiceImpl.class);
     bind(SquadronDeploymentService.class).to(SquadronDeploymentServiceImpl.class);
     bind(ShipService.class).to(ShipServiceImpl.class);
     bind(TaskForceService.class).to(TaskForceServiceImpl.class);

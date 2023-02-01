@@ -1,6 +1,7 @@
 package com.enigma.waratsea.model.squadron;
 
 public enum SquadronState {
+  CREATED,
   READY,
   QUEUED_FOR_PATROL,
   QUEUED_FOR_MISSION,

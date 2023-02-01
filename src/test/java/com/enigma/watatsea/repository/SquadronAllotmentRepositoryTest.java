@@ -17,8 +17,7 @@ import java.nio.file.Paths;
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Nation.BRITISH;
 import static com.enigma.waratsea.model.Side.ALLIES;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
@@ -48,16 +47,19 @@ public class SquadronAllotmentRepositoryTest {
 
     var result = squadronAllotmentRepository.get(TIME_FRAME, allotmentId);
 
-    assertNotNull(result);
-    assertEquals(BRITISH, result.getNation());
+    assertTrue(result.isPresent());
 
-    assertNotNull(result.getBombers());
-    assertEquals(1, result.getBombers().getDice());
-    assertEquals(4, result.getBombers().getFactor());
-    assertNotNull(result.getBombers().getGroups());
-    assertEquals(2, result.getBombers().getGroups().size());
+    var allotmentEntity = result.get();
 
-    var group1 = result.getBombers().getGroups().get(0);
+    assertEquals(BRITISH, allotmentEntity.getNation());
+
+    assertNotNull(allotmentEntity.getBombers());
+    assertEquals(1, allotmentEntity.getBombers().getDice());
+    assertEquals(4, allotmentEntity.getBombers().getFactor());
+    assertNotNull(allotmentEntity.getBombers().getGroups());
+    assertEquals(2, allotmentEntity.getBombers().getGroups().size());
+
+    var group1 = allotmentEntity.getBombers().getGroups().get(0);
 
     assertEquals(1, group1.getPriority());
     assertEquals(2, group1.getSelectSize());
@@ -67,7 +69,7 @@ public class SquadronAllotmentRepositoryTest {
     assertEquals(new Id(ALLIES, "Blenheim"), aircraft1.getId());
     assertEquals(8, aircraft1.getNumber());
 
-    var group2 = result.getBombers().getGroups().get(1);
+    var group2 = allotmentEntity.getBombers().getGroups().get(1);
 
     assertEquals(2, group2.getPriority());
     assertEquals(1, group2.getSelectSize());
@@ -77,8 +79,8 @@ public class SquadronAllotmentRepositoryTest {
     assertEquals(new Id(ALLIES, "Wellington"), aircraft2.getId());
     assertEquals(8, aircraft2.getNumber());
 
-    assertNotNull(result.getFighters());
-    assertNotNull(result.getRecon());
+    assertNotNull(allotmentEntity.getFighters());
+    assertNotNull(allotmentEntity.getRecon());
   }
 
   private InputStream getInputStream() {

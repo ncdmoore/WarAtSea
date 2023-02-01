@@ -8,7 +8,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 
-import static com.enigma.waratsea.model.squadron.SquadronDeploymentType.HUMAN;
+import static com.enigma.waratsea.model.squadron.SquadronDeploymentType.VARIABLE;
 import static com.enigma.waratsea.model.TimeRange.DAY_1;
 
 @Data
@@ -27,10 +27,10 @@ public class ScenarioEntity {
   private TimeRange timeRange = DAY_1;
 
   private String map;
-  private String objectives;
+  private String timeFrame;
 
   @Builder.Default
-  private SquadronDeploymentType squadron = HUMAN;
+  private SquadronDeploymentType squadron = VARIABLE;
   private boolean minefieldForHumanSide;
   private boolean flotillasForHumanSide;
 }

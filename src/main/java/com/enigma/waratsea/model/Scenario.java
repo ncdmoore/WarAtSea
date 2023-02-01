@@ -21,7 +21,7 @@ public class Scenario implements Comparable<Scenario> {
   private int maxTurns;
   private TimeRange timeRange;
   private String map;
-  private String objectives;
+  private String timeFrame;
   private SquadronDeploymentType squadron;
   private boolean minefieldForHumanSide;
   private boolean flotillasForHumanSide;

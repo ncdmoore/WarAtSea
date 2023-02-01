@@ -18,8 +18,7 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.squadron.SquadronConfiguration.NONE;
 import static com.enigma.waratsea.model.squadron.SquadronConfiguration.SEARCH;
-import static com.enigma.waratsea.model.squadron.SquadronState.ON_PATROL;
-import static com.enigma.waratsea.model.squadron.SquadronState.READY;
+import static com.enigma.waratsea.model.squadron.SquadronState.*;
 import static com.enigma.waratsea.model.squadron.SquadronStrength.FULL;
 import static com.enigma.waratsea.model.squadron.SquadronStrength.HALF;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -77,7 +76,7 @@ class SquadronRepositoryTest {
     assertEquals(ALLIES, result.getAircraft().getSide());
     assertEquals(AIRCRAFT_NAME, result.getAircraft().getName());
     assertEquals(FULL, result.getStrength());
-    assertEquals(READY, result.getState());
+    assertEquals(CREATED, result.getState());
     assertEquals(NONE, result.getConfiguration());
   }
 

@@ -5,11 +5,13 @@ import com.enigma.waratsea.mapper.ShipMapper;
 import com.enigma.waratsea.mapper.ShipRegistryMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.ship.Commission;
 import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.model.ship.ShipRegistry;
 import com.enigma.waratsea.model.ship.ShipType;
 import com.enigma.waratsea.repository.ShipRepository;
 import com.enigma.waratsea.service.ShipService;
+import com.enigma.waratsea.service.SquadronService;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -26,6 +28,7 @@ import java.util.stream.Stream;
 public class ShipServiceImpl implements ShipService {
   private final ShipRepository shipRepository;
   private final ShipMapper shipMapper;
+  private final SquadronService squadronService;
 
   private final Map<Side, Map<Id, ShipRegistry>> registry = new HashMap<>();
 
@@ -37,9 +40,11 @@ public class ShipServiceImpl implements ShipService {
   @Inject
   public ShipServiceImpl(final Events events,
                          final ShipRepository shipRepository,
-                         final ShipMapper shipMapper) {
+                         final ShipMapper shipMapper,
+                         final SquadronService squadronService) {
     this.shipRepository = shipRepository;
     this.shipMapper = shipMapper;
+    this.squadronService = squadronService;
 
     registerEvents(events);
   }
@@ -128,7 +133,7 @@ public class ShipServiceImpl implements ShipService {
     var side = shipId.getSide();
     var shipRegistry = registry.get(side).get(shipId);
     var newShip = copyShip(shipClass);
-    return newShip.commission(shipRegistry);
+    return newShip.commission(buildCommission(shipRegistry));
   }
 
   private Map<Id, ShipRegistry> getShipRegistryForSide(final Side side) {
@@ -160,6 +165,15 @@ public class ShipServiceImpl implements ShipService {
     var gson = new Gson();
     var json = gson.toJson(ship);
     return gson.fromJson(json, ship.getClass());
+  }
+
+  private Commission buildCommission(final ShipRegistry shipRegistry) {
+    return Commission.builder()
+        .id(shipRegistry.getId())
+        .title(shipRegistry.getTitle())
+        .nation(shipRegistry.getNation())
+        .squadrons(squadronService.get(shipRegistry.getSquadrons()))
+        .build();
   }
 
   private void clearCaches() {

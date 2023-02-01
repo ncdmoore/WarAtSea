@@ -18,4 +18,8 @@ public enum Nation {
 
   private final String value;
   private final String shipPrefix;
+
+  public String toLower() {
+    return value.toLowerCase();
+  }
 }

@@ -1,0 +1,163 @@
+{
+  "nation": "ITALIAN",
+  "bombers": {
+    "dice": 4,
+    "factor": 8,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "SM79_2"
+            },
+            "number": 18
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "SM81"
+            },
+            "number": 8
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "BR20"
+            },
+            "number": 6
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "Z1007"
+            },
+            "number": 6
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "CA313"
+            },
+            "number": 2
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "CA309"
+            },
+            "number": 2
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "SM85"
+            },
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 2,
+    "factor": 8,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "CR42"
+            },
+            "number": 12
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "MC200"
+            },
+            "number": 6
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "CR32"
+            },
+            "number": 6
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "G50"
+            },
+            "number": 8
+          }
+        ]
+      }
+    ]
+  },
+  "recon": {
+    "dice": 1,
+    "factor": 4,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "Z501"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "Z506"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "RO37"
+            },
+            "number": 2
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "RO44"
+            },
+            "number": 2
+          }
+        ]
+      }
+    ]
+  }
+}
+

@@ -28,7 +28,6 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
 
   private final Random random = new Random();
 
-
   @Inject
   public SquadronDeploymentServiceImpl(final Events events,
                                        final SquadronDeploymentRepository squadronDeploymentRepository,
