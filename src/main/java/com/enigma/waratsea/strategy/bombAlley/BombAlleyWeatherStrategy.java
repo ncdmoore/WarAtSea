@@ -43,7 +43,7 @@ public class BombAlleyWeatherStrategy implements WeatherStrategy {
     var currentWeather = input.getWeather();
     var currentTurn = input.getTurn();
     var currentMonth = currentTurn.getDate().getMonth();
-    var die = diceService.roll();
+    var die = diceService.get().roll();
 
     return weatherFunctions
         .get(die)

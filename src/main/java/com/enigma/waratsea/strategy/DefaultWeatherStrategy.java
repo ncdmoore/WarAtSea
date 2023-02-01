@@ -30,7 +30,7 @@ public class DefaultWeatherStrategy implements WeatherStrategy {
   @Override
   public WeatherType determine(final WeatherInput input) {
     var currentWeather = input.getWeather();
-    var die = diceService.roll();
+    var die = diceService.get().roll();
 
     return weatherFunctions
         .get(die)

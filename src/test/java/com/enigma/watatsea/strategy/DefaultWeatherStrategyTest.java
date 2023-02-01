@@ -5,6 +5,7 @@ import com.enigma.waratsea.model.Weather;
 import com.enigma.waratsea.service.DiceService;
 import com.enigma.waratsea.service.WeatherInput;
 import com.enigma.waratsea.strategy.DefaultWeatherStrategy;
+import com.enigma.watatsea.mock.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -29,7 +30,7 @@ class DefaultWeatherStrategyTest {
     var turn = Turn.builder().build();
     var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
 
-    given(diceService.roll()).willReturn(1);
+    given(diceService.get()).willReturn(new Die1());
 
     var newWeather = defaultWeatherStrategy.determine(input);
 
@@ -42,7 +43,7 @@ class DefaultWeatherStrategyTest {
     var turn = Turn.builder().build();
     var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
 
-    given(diceService.roll()).willReturn(2);
+    given(diceService.get()).willReturn(new Die2());
 
     var newWeather = defaultWeatherStrategy.determine(input);
 
@@ -55,7 +56,7 @@ class DefaultWeatherStrategyTest {
     var turn = Turn.builder().build();
     var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
 
-    given(diceService.roll()).willReturn(3);
+    given(diceService.get()).willReturn(new Die3());
 
     var newWeather = defaultWeatherStrategy.determine(input);
 
@@ -68,7 +69,7 @@ class DefaultWeatherStrategyTest {
     var turn = Turn.builder().build();
     var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
 
-    given(diceService.roll()).willReturn(4);
+    given(diceService.get()).willReturn(new Die4());
 
     var newWeather = defaultWeatherStrategy.determine(input);
 
@@ -81,7 +82,7 @@ class DefaultWeatherStrategyTest {
     var turn = Turn.builder().build();
     var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
 
-    given(diceService.roll()).willReturn(5);
+    given(diceService.get()).willReturn(new Die5());
 
     var newWeather = defaultWeatherStrategy.determine(input);
 
@@ -94,7 +95,7 @@ class DefaultWeatherStrategyTest {
     var turn = Turn.builder().build();
     var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
 
-    given(diceService.roll()).willReturn(6);
+    given(diceService.get()).willReturn(new Die6());
 
     var newWeather = defaultWeatherStrategy.determine(input);
 

@@ -66,7 +66,7 @@ public class ArcticConvoyWeatherStrategy implements WeatherStrategy {
 
   @Override
   public WeatherType determine(final WeatherInput input) {
-    var die = diceService.roll();
+    var die = diceService.get().roll();
     return null;
   }
 

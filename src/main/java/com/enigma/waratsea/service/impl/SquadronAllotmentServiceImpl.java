@@ -88,7 +88,7 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
 
   private void createSquadrons(final Side side, final AllotmentEntity allotmentEntity) {
     var allotment = allotmentMapper.toModel(allotmentEntity);
-    var die = diceService.get(6);
+    var die = diceService.get();
 
     var squadrons = allotment.get(die)
         .stream()

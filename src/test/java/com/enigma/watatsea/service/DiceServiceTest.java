@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @ExtendWith(MockitoExtension.class)
 class DiceServiceTest {
@@ -14,10 +14,9 @@ class DiceServiceTest {
   private DiceServiceImpl diceService;
 
   @Test
-  void testRoll() {
-    var result = diceService.roll();
+  void testGet() {
+    var result = diceService.get();
 
-    assertTrue(result <= 6);
-    assertTrue(result >= 1);
+    assertNotNull(result);
   }
 }
