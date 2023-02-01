@@ -24,20 +24,37 @@ public class ConfigGameSaga implements BootStrapped {
     var scenario = event.getScenario();
     log.info("ConfigGameSaga: handle ConfigNewGameEvent for scenario: '{}'", scenario);
 
-    events.getLoadMapEvent().fire(new LoadMapEvent());
-    events.getLoadTaskForcesEvent().fire(new LoadTaskForcesEvent());
-    events.getCreatePlayerEvent().fire(new CreatePlayerEvent());
-
+    loadMap();
+    loadTaskForces();
+    createPlayers();
     determineSquadronAllotment(scenario);
+    deploySquadrons();
+    loadMissions();
+  }
 
-    events.getDeploySquadronEvent().fire(new DeploySquadronEvent());
+  private void loadMap() {
+    events.getLoadMapEvent().fire(new LoadMapEvent());
+  }
 
-    events.getLoadMissionsEvent().fire(new LoadMissionsEvent());
+  private void loadTaskForces() {
+    events.getLoadTaskForcesEvent().fire(new LoadTaskForcesEvent());
+  }
+
+  private void createPlayers() {
+    events.getCreatePlayerEvent().fire(new CreatePlayerEvent());
   }
 
   private void determineSquadronAllotment(final Scenario scenario) {
     if (scenario.getSquadron() != SquadronDeploymentType.FIXED) {
       events.getAllotSquadronEvent().fire(new AllotSquadronEvent(scenario));
     }
+  }
+
+  private void deploySquadrons() {
+    events.getDeploySquadronEvent().fire(new DeploySquadronEvent());
+  }
+
+  private void loadMissions() {
+    events.getLoadMissionsEvent().fire(new LoadMissionsEvent());
   }
 }
