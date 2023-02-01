@@ -26,8 +26,8 @@ public class ConfigGameSaga implements BootStrapped {
 
     loadMap();
     loadTaskForces();
-    createPlayers();
     determineSquadronAllotment(scenario);
+    createPlayers();
     deploySquadrons();
     loadMissions();
   }

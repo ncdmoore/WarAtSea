@@ -8,7 +8,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Slf4j
@@ -45,10 +44,6 @@ public class SquadronTypeAllotment {
     while (numberNeeded > 0) {
       var selected = groups.get(groupIndex)
           .selectAircraft(numberNeeded);
-
-      log.debug("Selected aircraft: '{}'", selected.stream()
-          .map(Id::toString)
-          .collect(Collectors.joining(",")));
 
       aircraft.addAll(selected);
       numberNeeded -= selected.size();

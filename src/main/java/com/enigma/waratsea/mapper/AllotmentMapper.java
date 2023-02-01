@@ -32,6 +32,7 @@ public abstract class AllotmentMapper {
   List<GroupAllotment> mapGroupAllotments(List<GroupAllotmentEntity> groups) {
     return groups.stream()
         .map(this::mapGroupAllotment)
+        .sorted()
         .toList();
   }
 

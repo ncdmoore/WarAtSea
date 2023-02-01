@@ -34,7 +34,7 @@ public class AircraftRepositoryImpl implements AircraftRepository {
   }
 
   private AircraftEntity readAircraft(final Id aircraftId) {
-    log.info("Read aircraft: '{}'", aircraftId);
+    log.debug("Read aircraft: '{}'", aircraftId);
 
     try (var in = getInputStream(aircraftId);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);

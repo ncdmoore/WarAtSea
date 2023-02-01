@@ -4,16 +4,16 @@ import com.enigma.waratsea.model.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @Slf4j
 @Getter
 @Builder
-public class GroupAllotment {
+public class GroupAllotment implements Comparable<GroupAllotment> {
   private static Random random = new Random();
 
   private int priority;
@@ -29,13 +29,23 @@ public class GroupAllotment {
         .toList();
   }
 
+  @Override
+  public int compareTo(@NotNull GroupAllotment o) {
+    if (priority == o.priority) {
+      return 0;
+    } else if (priority < o.priority) {
+      return -1;
+    }
+    return 1;
+  }
+
   private Id getAircraftId(final int count) {
     var index = random.nextInt(aircraft.size());
 
-    log.debug("Remove index: '{}' from aircraft: '{}'", index, aircraft.stream()
-        .map(Id::toString)
-        .collect(Collectors.joining(",")));
+    var aircraftId = aircraft.remove(index);
 
-    return aircraft.remove(index);
+    log.info("Select aircraft: '{}'", aircraftId);
+
+    return aircraftId;
   }
 }
