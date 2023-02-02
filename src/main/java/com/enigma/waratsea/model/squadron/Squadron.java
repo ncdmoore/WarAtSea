@@ -14,6 +14,9 @@ public class Squadron {
   private SquadronStrength strength;
 
   @Setter
+  private DeploymentState deploymentState;
+
+  @Setter
   private SquadronState state;
 
   private SquadronConfiguration configuration;

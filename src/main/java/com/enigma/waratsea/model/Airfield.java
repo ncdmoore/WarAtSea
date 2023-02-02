@@ -8,6 +8,7 @@ import lombok.Getter;
 import java.util.List;
 import java.util.Set;
 
+import static com.enigma.waratsea.model.squadron.DeploymentState.AT_AIRFIELD;
 import static com.enigma.waratsea.model.squadron.SquadronState.READY;
 
 @Getter
@@ -26,6 +27,7 @@ public class Airfield implements Airbase {
   @Override
   public void deploySquadron(Squadron squadron) {
     squadrons.add(squadron);
+    squadron.setDeploymentState(AT_AIRFIELD);
     squadron.setState(READY);
   }
 }

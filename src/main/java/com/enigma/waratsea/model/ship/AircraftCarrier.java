@@ -11,6 +11,7 @@ import lombok.Getter;
 import java.util.Optional;
 import java.util.Set;
 
+import static com.enigma.waratsea.model.squadron.DeploymentState.ON_SHIP;
 import static com.enigma.waratsea.model.squadron.SquadronState.READY;
 
 @Builder
@@ -51,6 +52,7 @@ public class AircraftCarrier implements Ship, Airbase {
   @Override
   public void deploySquadron(Squadron squadron) {
     squadrons.add(squadron);
+    squadron.setDeploymentState(ON_SHIP);
     squadron.setState(READY);
   }
 }
