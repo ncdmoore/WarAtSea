@@ -1,6 +1,7 @@
 package com.enigma.waratsea.model.player;
 
 import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 
 import java.util.Map;
@@ -13,4 +14,5 @@ public interface Player {
   void setPorts(Set<Port> ports);
   Set<TaskForce> getTaskForces();
   void setTaskForces(Set<TaskForce> taskForces);
+  void setSquadrons(Set<Squadron> squadrons);
 }

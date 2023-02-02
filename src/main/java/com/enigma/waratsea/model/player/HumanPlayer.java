@@ -1,6 +1,7 @@
 package com.enigma.waratsea.model.player;
 
 import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -21,6 +22,9 @@ public class HumanPlayer implements Player {
   private Set<Port> ports;
 
   private Set<TaskForce> taskForces;
+
+  @Setter
+  private Set<Squadron> squadrons;
 
   private final Map<Id, Airbase> airbases = new HashMap<>();
 

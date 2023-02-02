@@ -21,17 +21,20 @@ public class PlayerServiceImpl implements PlayerService {
   private final AirfieldService airfieldService;
   private final PortService portService;
   private final TaskForceService taskForceService;
+  private final SquadronService squadronService;
 
   @Inject
   public PlayerServiceImpl(final Events events,
                            final GameService gameService,
                            final AirfieldService airfieldService,
                            final PortService portService,
-                           final TaskForceService taskForceService) {
+                           final TaskForceService taskForceService,
+                           final SquadronService squadronService) {
     this.gameService = gameService;
     this.airfieldService = airfieldService;
     this.portService = portService;
     this.taskForceService = taskForceService;
+    this.squadronService = squadronService;
 
     events.getCreatePlayerEvent().register(this::handleCreatePlayerEvent);
   }
@@ -59,6 +62,7 @@ public class PlayerServiceImpl implements PlayerService {
     addAirfields(player);
     addPorts(player);
     addTaskForces(player);
+    addSquadrons(player);
     addToGame(player);
   }
 
@@ -78,6 +82,12 @@ public class PlayerServiceImpl implements PlayerService {
     var side = player.getSide();
     var taskForces = taskForceService.get(side);
     player.setTaskForces(taskForces);
+  }
+
+  private void addSquadrons(final Player player) {
+    var side = player.getSide();
+    var squadrons = squadronService.get(side);
+    player.setSquadrons(squadrons);
   }
 
   private void addToGame(final Player player) {
