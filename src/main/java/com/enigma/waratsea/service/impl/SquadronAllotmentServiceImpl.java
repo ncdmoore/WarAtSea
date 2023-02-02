@@ -22,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.HashMap;
 import java.util.Map;
 
+import static com.enigma.waratsea.model.squadron.DeploymentState.NOT_DEPLOYED;
 import static com.enigma.waratsea.model.squadron.SquadronConfiguration.NONE;
 import static com.enigma.waratsea.model.squadron.SquadronState.CREATED;
 import static com.enigma.waratsea.model.squadron.SquadronStrength.FULL;
@@ -102,6 +103,7 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
     var entity = SquadronEntity.builder()
         .id(buildSquadronId(aircraftId))
         .aircraft(aircraftId)
+        .deploymentState(NOT_DEPLOYED)
         .state(CREATED)
         .configuration(NONE)
         .strength(FULL)
