@@ -36,12 +36,12 @@ public class AirbaseServiceImpl implements AirbaseService {
         .map(airfield -> (Airbase) airfield)
         .collect(Collectors.toSet());
 
-    var ships = taskForceService.get(side)
+    var shipsThatAreAirbases = taskForceService.get(side)
         .stream()
         .flatMap(taskForce -> taskForce.getAirbases().stream())
         .collect(Collectors.toSet());
 
-    airbases.addAll(ships);
+    airbases.addAll(shipsThatAreAirbases);
 
     return airbases.stream();
   }
