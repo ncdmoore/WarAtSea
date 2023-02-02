@@ -16,6 +16,9 @@ import java.util.Set;
 public class HumanPlayer implements Player {
   private final Side side;
 
+  @Setter
+  private Set<Nation> nations;
+
   private Set<Airfield> airfields;
 
   @Setter

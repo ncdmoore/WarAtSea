@@ -155,6 +155,8 @@ public class OrderOfBattleSummaryView implements View {
     var airForceHBox = new HBox(nationsList);
     airForceHBox.setId("task-force-pane-hbox");
 
+    nations.getSelectionModel().selectFirst();
+
     return airForceHBox;
   }
 
@@ -177,8 +179,12 @@ public class OrderOfBattleSummaryView implements View {
     var airForceImage = new ImageView();
 
     airForceImage.imageProperty().bind(orderOfBattleSummaryViewModel.getAirForceImage());
+    nations.itemsProperty().bind(orderOfBattleSummaryViewModel.getNations());
 
-    var listPane = new VBox(airForceImage);
+    nations.setMaxWidth(props.getInt("pregame.scenario.list.width"));
+    nations.setMaxHeight(props.getInt("pregame.scenario.list.height"));
+
+    var listPane = new VBox(airForceImage, nations);
     listPane.setId("list-pane");
 
     return listPane;

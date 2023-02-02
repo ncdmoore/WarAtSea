@@ -1,7 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.CreatePlayerEvent;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.player.ComputerPlayer;
 import com.enigma.waratsea.model.player.HumanPlayer;
 import com.enigma.waratsea.model.player.Player;
@@ -18,6 +18,7 @@ import static com.enigma.waratsea.model.Side.NEUTRAL;
 @Singleton
 public class PlayerServiceImpl implements PlayerService {
   private final GameService gameService;
+  private final RegionService regionService;
   private final AirfieldService airfieldService;
   private final PortService portService;
   private final TaskForceService taskForceService;
@@ -26,11 +27,13 @@ public class PlayerServiceImpl implements PlayerService {
   @Inject
   public PlayerServiceImpl(final Events events,
                            final GameService gameService,
+                           final RegionService regionService,
                            final AirfieldService airfieldService,
                            final PortService portService,
                            final TaskForceService taskForceService,
                            final SquadronService squadronService) {
     this.gameService = gameService;
+    this.regionService = regionService;
     this.airfieldService = airfieldService;
     this.portService = portService;
     this.taskForceService = taskForceService;
@@ -59,11 +62,18 @@ public class PlayerServiceImpl implements PlayerService {
   }
 
   private void configurePlayer(Player player) {
+    addNations(player);
     addAirfields(player);
     addPorts(player);
     addTaskForces(player);
     addSquadrons(player);
     addToGame(player);
+  }
+
+  private void addNations(final Player player) {
+    var side = player.getSide();
+    var nations = regionService.getNations(side);
+    player.setNations(nations);
   }
 
   private void addAirfields(final Player player) {

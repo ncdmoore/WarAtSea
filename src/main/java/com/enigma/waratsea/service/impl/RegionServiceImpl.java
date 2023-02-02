@@ -132,5 +132,6 @@ public class RegionServiceImpl implements RegionService {
   private void clearCaches() {
     Optional.ofNullable(regions).ifPresent(Map::clear);
     airfields.clear();
+    nations.clear();
   }
 }

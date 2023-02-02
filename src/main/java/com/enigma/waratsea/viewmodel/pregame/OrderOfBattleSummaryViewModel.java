@@ -3,6 +3,7 @@ package com.enigma.waratsea.viewmodel.pregame;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.model.Game;
+import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
@@ -44,6 +45,9 @@ public class OrderOfBattleSummaryViewModel {
   private final ListProperty<TaskForce> taskForces = new SimpleListProperty<>(FXCollections.emptyObservableList());
 
   @Getter
+  private final ListProperty<Nation> nations = new SimpleListProperty<>(FXCollections.emptyObservableList());
+
+  @Getter
   private final ObjectProperty<Side> side = new SimpleObjectProperty<>();
 
   @Inject
@@ -57,11 +61,13 @@ public class OrderOfBattleSummaryViewModel {
     this.gameService = gameService;
 
     var game = gameService.getGame();
+
     setSide(game);
     setFlag(game);
     setTaskForceImage(game);
     setAirForceImage(game);
     setTaskForces(game);
+    setNations(game);
   }
 
   public void goBack(final Stage stage) {
@@ -119,6 +125,17 @@ public class OrderOfBattleSummaryViewModel {
         .toList();
 
     taskForces.setValue(FXCollections.observableList(playerTaskForces));
+  }
+
+  private void setNations(final Game game) {
+    var side = game.getHumanSide();
+    var player = game.getPlayers().get(side);
+
+    var playerNations = player.getNations()
+        .stream()
+        .toList();
+
+    nations.setValue(FXCollections.observableList(playerNations));
   }
 
   private NavigateEvent buildBackwardNav(final Stage stage) {

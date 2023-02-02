@@ -2,6 +2,7 @@ package com.enigma.waratsea.model;
 
 import lombok.RequiredArgsConstructor;
 
+
 @RequiredArgsConstructor
 public enum Nation {
   AUSTRALIAN("Australian", "HMAS"),
@@ -18,6 +19,11 @@ public enum Nation {
 
   private final String value;
   private final String shipPrefix;
+
+  @Override
+  public String toString() {
+    return value;
+  }
 
   public String toLower() {
     return value.toLowerCase();
