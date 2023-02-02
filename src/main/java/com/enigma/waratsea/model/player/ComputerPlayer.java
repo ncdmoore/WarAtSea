@@ -10,6 +10,7 @@ import lombok.Setter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Getter
 @RequiredArgsConstructor
@@ -30,6 +31,13 @@ public class ComputerPlayer implements Player {
   private Set<Squadron> squadrons;
 
   private final Map<Id, Airbase> airbases = new HashMap<>();
+
+  @Override
+  public Set<Squadron> getSquadrons(final Nation nation) {
+    return squadrons.stream()
+        .filter(squadron -> squadron.ofNation(nation))
+        .collect(Collectors.toSet());
+  }
 
   @Override
   public void setAirfields(final Set<Airfield> airfields) {

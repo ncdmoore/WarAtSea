@@ -9,7 +9,7 @@ import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.squadron.SquadronDeployment;
 import com.enigma.waratsea.repository.SquadronDeploymentRepository;
-import com.enigma.waratsea.service.GameService;
+import com.enigma.waratsea.service.AirbaseService;
 import com.enigma.waratsea.service.SquadronDeploymentService;
 import com.enigma.waratsea.service.SquadronService;
 import com.google.inject.Inject;
@@ -23,19 +23,19 @@ import java.util.stream.Collectors;
 @Singleton
 public class SquadronDeploymentServiceImpl implements SquadronDeploymentService {
   private final SquadronDeploymentRepository squadronDeploymentRepository;
+  private final AirbaseService airbaseService;
   private final SquadronService squadronService;
-  private final GameService gameService;
 
   private final Random random = new Random();
 
   @Inject
   public SquadronDeploymentServiceImpl(final Events events,
                                        final SquadronDeploymentRepository squadronDeploymentRepository,
-                                       final SquadronService squadronService,
-                                       final GameService gameService) {
+                                       final AirbaseService airbaseService,
+                                       final SquadronService squadronService) {
     this.squadronDeploymentRepository = squadronDeploymentRepository;
+    this.airbaseService = airbaseService;
     this.squadronService = squadronService;
-    this.gameService = gameService;
 
     registerEvents(events);
   }
@@ -54,7 +54,7 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   private void handleDeploySquadronEvent(final DeploySquadronEvent deploySquadronEvent) {
     log.info("SquadronDeploymentServiceImpl handle DeploySquadronEvent");
 
-    var airbases = getAirbases();
+    var airbases = airbaseService.get();
 
     Side.stream()
         .map(this::get)
@@ -90,15 +90,6 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
 
       throw new GameException("Deployment is not valid " + invalidIdString);
     }
-  }
-
-  private Map<Id, Airbase> getAirbases() {
-    return gameService.getGame()
-        .getPlayers()
-        .values()
-        .stream()
-        .flatMap(player -> player.getAirbases().entrySet().stream())
-        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
   }
 
   private Id pickAirbaseId(final List<Id> airbaseIds) {

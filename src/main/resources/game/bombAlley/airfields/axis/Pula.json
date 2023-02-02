@@ -1,10 +1,14 @@
 {
   "id": {
     "side": "AXIS",
-    "name": "Pola"
+    "name": "Pula"
   },
   "title": "Pola",
-  "size": "MINOR",
+  "landingTypes": [
+    "SEAPLANE"
+  ],
+  "maxCapacity": 10,
+  "capacity": 10,
   "maxAntiAir": 10,
   "antiAir": 10,
   "gridReference": "AJ6"

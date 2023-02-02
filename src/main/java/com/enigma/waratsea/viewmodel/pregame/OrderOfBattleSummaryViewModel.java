@@ -5,6 +5,7 @@ import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.player.Player;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.service.GameService;
@@ -50,6 +51,9 @@ public class OrderOfBattleSummaryViewModel {
   @Getter
   private final ObjectProperty<Side> side = new SimpleObjectProperty<>();
 
+  @Getter
+  private final ObjectProperty<Player> player = new SimpleObjectProperty<>();
+
   @Inject
   public OrderOfBattleSummaryViewModel(final Events events,
                                        final @Named("View") Props props,
@@ -63,6 +67,7 @@ public class OrderOfBattleSummaryViewModel {
     var game = gameService.getGame();
 
     setSide(game);
+    setPlayer(game);
     setFlag(game);
     setTaskForceImage(game);
     setAirForceImage(game);
@@ -86,6 +91,11 @@ public class OrderOfBattleSummaryViewModel {
 
   private void setSide(final Game game) {
     side.setValue(game.getHumanSide());
+  }
+
+  private void setPlayer(final Game game) {
+    var humanPlayer = game.getHuman();
+    player.setValue(humanPlayer);
   }
 
   private void setFlag(final Game game) {
@@ -116,8 +126,7 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   private void setTaskForces(final Game game) {
-    var side = game.getHumanSide();
-    var player = game.getPlayers().get(side);
+    var player = game.getHuman();
 
     var playerTaskForces = player.getTaskForces()
         .stream()
@@ -128,8 +137,7 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   private void setNations(final Game game) {
-    var side = game.getHumanSide();
-    var player = game.getPlayers().get(side);
+    var player = game.getHuman();
 
     var playerNations = player.getNations()
         .stream()

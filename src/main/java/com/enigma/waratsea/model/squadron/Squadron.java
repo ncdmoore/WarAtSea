@@ -1,6 +1,7 @@
 package com.enigma.waratsea.model.squadron;
 
 import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.aircraft.Aircraft;
 import lombok.Builder;
 import lombok.Getter;
@@ -20,4 +21,8 @@ public class Squadron {
   private SquadronState state;
 
   private SquadronConfiguration configuration;
+
+  public boolean ofNation(final Nation nation) {
+    return aircraft.getNation() == nation;
+  }
 }

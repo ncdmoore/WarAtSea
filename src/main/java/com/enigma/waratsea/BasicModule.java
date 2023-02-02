@@ -140,6 +140,7 @@ public class BasicModule extends AbstractModule {
     bind(WeatherService.class).to(WeatherServiceImpl.class);
     bind(PlayerService.class).to(PlayerServiceImpl.class);
     bind(AirfieldService.class).to(AirfieldServiceImpl.class);
+    bind(AirbaseService.class).to(AirbaseServiceImpl.class);
     bind(PortService.class).to(PortServiceImpl.class);
     bind(AircraftService.class).to(AircraftServiceImpl.class);
     bind(SquadronService.class).to(SquadronServiceImpl.class);

@@ -23,5 +23,6 @@ public interface Player {
   void setTaskForces(Set<TaskForce> taskForces);
 
   Set<Squadron> getSquadrons();
+  Set<Squadron> getSquadrons(Nation nation);
   void setSquadrons(Set<Squadron> squadrons);
 }

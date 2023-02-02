@@ -33,6 +33,8 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static com.enigma.waratsea.model.squadron.DeploymentState.ON_SHIP;
+
 @Slf4j
 public class OrderOfBattleSummaryView implements View {
   private static final String CSS_FILE = "orderOfBattleSummary.css";
@@ -151,8 +153,9 @@ public class OrderOfBattleSummaryView implements View {
     ListView<Nation> nations = new ListView<>();
 
     var nationsList = buildNationsList(nations);
+    var squadronDetails = buildSquadronDetails(nations);
 
-    var airForceHBox = new HBox(nationsList);
+    var airForceHBox = new HBox(nationsList, squadronDetails);
     airForceHBox.setId("task-force-pane-hbox");
 
     nations.getSelectionModel().selectFirst();
@@ -200,6 +203,15 @@ public class OrderOfBattleSummaryView implements View {
     return vBox;
   }
 
+  private Node buildSquadronDetails(final ListView<Nation> nation) {
+    var summariesPane = buildSquadronSummaries(nation);
+
+    var vBox = new VBox(summariesPane);
+    vBox.setId("details-main-vbox");
+
+    return vBox;
+  }
+
   private Node buildDescription(final ListView<TaskForce> taskForces) {
     var stateLabel = new Text("State:");
     var stateValue = new Label();
@@ -225,6 +237,7 @@ public class OrderOfBattleSummaryView implements View {
     return gridPane;
   }
 
+
   private Node buildSummaries(final ListView<TaskForce> taskForces) {
     var shipSummaryGrid = new GridPane();
     var squadronSummaryGrid = new GridPane();
@@ -241,6 +254,23 @@ public class OrderOfBattleSummaryView implements View {
             handleTaskForceSelected(newlySelectedTaskForce, shipSummaryGrid, squadronSummaryGrid));
 
     return hBox;
+  }
+
+  private Node buildSquadronSummaries(final ListView<Nation> nation) {
+    var summaryLabel = new Label("Squadron Summary");
+    var horizontalLine = new Separator();
+    var gridPane = new GridPane();
+
+    gridPane.getStyleClass().add("details-grid");
+
+    var vBox = new VBox(summaryLabel, horizontalLine, gridPane);
+    vBox.setId("details-grid-vbox");
+
+    nation.getSelectionModel()
+        .selectedItemProperty()
+        .addListener((observable, oldValue, newlySelectedNation) -> handleNationSelected(newlySelectedNation, gridPane));
+
+    return vBox;
   }
 
   private Node buildShipSummary(final GridPane gridPane) {
@@ -287,6 +317,12 @@ public class OrderOfBattleSummaryView implements View {
     displaySummary(squadronSummary, squadronGrid);
   }
 
+  private void handleNationSelected(final Nation nation, final GridPane squadronGrid) {
+    var squadronSummary = getSquadronSummary(nation);
+
+    displaySummary(squadronSummary, squadronGrid);
+  }
+
   private Stream<Map.Entry<ShipType, Integer>> getShipSummary(final TaskForce taskForce) {
     return taskForce.getShipSummary()
         .entrySet()
@@ -296,6 +332,19 @@ public class OrderOfBattleSummaryView implements View {
 
   private Stream<Map.Entry<AircraftType, Integer>> getSquadronSummary(final TaskForce taskForce) {
     return taskForce.getSquadronSummary()
+        .entrySet()
+        .stream()
+        .sorted(Map.Entry.comparingByKey());
+  }
+
+  private Stream<Map.Entry<AircraftType, Integer>> getSquadronSummary(final Nation nation) {
+    return orderOfBattleSummaryViewModel.getPlayer()
+        .getValue()
+        .getSquadrons(nation)
+        .stream()
+        .filter(s ->  s.getDeploymentState() != ON_SHIP)
+        .collect(Collectors.groupingBy(squadron -> squadron.getAircraft().getType(),
+            Collectors.summingInt(s -> 1)))
         .entrySet()
         .stream()
         .sorted(Map.Entry.comparingByKey());
