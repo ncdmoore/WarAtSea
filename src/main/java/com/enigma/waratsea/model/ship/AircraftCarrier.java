@@ -14,8 +14,8 @@ import java.util.Set;
 import static com.enigma.waratsea.model.squadron.DeploymentState.ON_SHIP;
 import static com.enigma.waratsea.model.squadron.SquadronState.READY;
 
-@Builder
 @Getter
+@Builder
 public class AircraftCarrier implements Ship, Airbase {
   private Id id;
   private ShipType type;

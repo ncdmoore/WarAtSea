@@ -1,9 +1,6 @@
 package com.enigma.waratsea.model.ship;
 
-import com.enigma.waratsea.entity.ship.AircraftCarrierEntity;
-import com.enigma.waratsea.entity.ship.CapitalShipEntity;
-import com.enigma.waratsea.entity.ship.ShipEntity;
-import com.enigma.waratsea.entity.ship.SurfaceShipEntity;
+import com.enigma.waratsea.entity.ship.*;
 import com.enigma.waratsea.model.Type;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +29,7 @@ public enum ShipType implements Type {
   TRANSPORT("Transport", SurfaceShipEntity.class),
   FLAK_SHIP("Flak Ship", SurfaceShipEntity.class),
   MTB("MTB", SurfaceShipEntity.class),
-  SUBMARINE("Submarine", SurfaceShipEntity.class),
+  SUBMARINE("Submarine", SubmarineEntity.class),
   VIRTUAL("Virtual", SurfaceShipEntity.class);
 
   private final String value;
