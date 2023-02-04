@@ -1,6 +1,6 @@
 package com.enigma.waratsea.strategy.arcticConvoy;
 
-import com.enigma.waratsea.model.WeatherType;
+import com.enigma.waratsea.model.weather.WeatherType;
 import com.enigma.waratsea.service.DiceService;
 import com.enigma.waratsea.service.WeatherInput;
 import com.enigma.waratsea.strategy.WeatherStrategy;
@@ -11,7 +11,7 @@ import java.time.Month;
 import java.util.Map;
 import java.util.Set;
 
-import static com.enigma.waratsea.model.WeatherType.*;
+import static com.enigma.waratsea.model.weather.WeatherType.*;
 
 @Singleton
 public class ArcticConvoyWeatherStrategy implements WeatherStrategy {

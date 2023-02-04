@@ -1,11 +1,11 @@
-package com.enigma.waratsea.model;
+package com.enigma.waratsea.model.turn;
 
 import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDate;
 
-import static com.enigma.waratsea.model.TimeRange.NIGHT_2;
+import static com.enigma.waratsea.model.turn.TimeRange.NIGHT_2;
 
 @Data
 @Builder

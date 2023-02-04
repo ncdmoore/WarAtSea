@@ -1,6 +1,8 @@
 package com.enigma.waratsea.model;
 
 import com.enigma.waratsea.model.player.Player;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.weather.Weather;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,16 +1,16 @@
 package com.enigma.watatsea.model;
 
-import com.enigma.waratsea.model.Turn;
+import com.enigma.waratsea.model.turn.Turn;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-import static com.enigma.waratsea.model.TimeRange.DAY_1;
-import static com.enigma.waratsea.model.TimeRange.DAY_2;
-import static com.enigma.waratsea.model.TimeRange.DAY_3;
-import static com.enigma.waratsea.model.TimeRange.NIGHT_1;
-import static com.enigma.waratsea.model.TimeRange.NIGHT_2;
-import static com.enigma.waratsea.model.TimeRange.TWILIGHT;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_1;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_2;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_3;
+import static com.enigma.waratsea.model.turn.TimeRange.NIGHT_1;
+import static com.enigma.waratsea.model.turn.TimeRange.NIGHT_2;
+import static com.enigma.waratsea.model.turn.TimeRange.TWILIGHT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TurnTest {

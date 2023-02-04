@@ -1,4 +1,4 @@
-package com.enigma.waratsea.model;
+package com.enigma.waratsea.model.weather;
 
 import lombok.RequiredArgsConstructor;
 

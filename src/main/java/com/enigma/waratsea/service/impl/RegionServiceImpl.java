@@ -3,6 +3,7 @@ package com.enigma.waratsea.service.impl;
 import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.map.Region;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.RegionService;

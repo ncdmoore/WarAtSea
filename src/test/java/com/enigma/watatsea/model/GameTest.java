@@ -2,7 +2,7 @@ package com.enigma.watatsea.model;
 
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Scenario;
-import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.model.player.HumanPlayer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,10 +12,10 @@ import java.time.LocalDate;
 import static com.enigma.waratsea.model.GameName.BOMB_ALLEY;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
-import static com.enigma.waratsea.model.TimeRange.DAY_1;
-import static com.enigma.waratsea.model.TimeRange.DAY_2;
-import static com.enigma.waratsea.model.Visibility.GOOD;
-import static com.enigma.waratsea.model.WeatherType.CLEAR;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_1;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_2;
+import static com.enigma.waratsea.model.weather.Visibility.GOOD;
+import static com.enigma.waratsea.model.weather.WeatherType.CLEAR;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GameTest {

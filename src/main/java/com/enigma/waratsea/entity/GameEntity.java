@@ -2,8 +2,8 @@ package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.Side;
-import com.enigma.waratsea.model.Turn;
-import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.weather.Weather;
 import lombok.Builder;
 import lombok.Data;
 

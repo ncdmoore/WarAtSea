@@ -1,7 +1,7 @@
 package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.PortSize;
+import com.enigma.waratsea.model.port.PortSize;
 import lombok.Builder;
 import lombok.Data;
 

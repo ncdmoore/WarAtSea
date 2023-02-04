@@ -1,10 +1,10 @@
 package com.enigma.watatsea.model;
 
-import com.enigma.waratsea.model.GameMap;
-import com.enigma.waratsea.model.Grid;
+import com.enigma.waratsea.model.map.GameMap;
+import com.enigma.waratsea.model.map.Grid;
 import org.junit.jupiter.api.Test;
 
-import static com.enigma.waratsea.model.GridType.LAND;
+import static com.enigma.waratsea.model.map.GridType.LAND;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GameMapTest {

@@ -1,7 +1,7 @@
 package com.enigma.watatsea.strategy;
 
-import com.enigma.waratsea.model.Turn;
-import com.enigma.waratsea.model.TimeRange;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.turn.TimeRange;
 import com.enigma.waratsea.strategy.DefaultVisibilityStrategy;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -9,8 +9,8 @@ import org.junit.jupiter.params.provider.EnumSource;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static com.enigma.waratsea.model.Visibility.GOOD;
-import static com.enigma.waratsea.model.Visibility.BAD;
+import static com.enigma.waratsea.model.weather.Visibility.GOOD;
+import static com.enigma.waratsea.model.weather.Visibility.BAD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)

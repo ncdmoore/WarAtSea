@@ -1,7 +1,7 @@
 package com.enigma.watatsea.strategy.bombAlley;
 
-import com.enigma.waratsea.model.Turn;
-import com.enigma.waratsea.model.TimeRange;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.turn.TimeRange;
 import com.enigma.waratsea.strategy.bombAlley.BombAlleyVisibilityStrategy;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -12,9 +12,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 
-import static com.enigma.waratsea.model.TimeRange.TWILIGHT;
-import static com.enigma.waratsea.model.Visibility.BAD;
-import static com.enigma.waratsea.model.Visibility.GOOD;
+import static com.enigma.waratsea.model.turn.TimeRange.TWILIGHT;
+import static com.enigma.waratsea.model.weather.Visibility.BAD;
+import static com.enigma.waratsea.model.weather.Visibility.GOOD;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)

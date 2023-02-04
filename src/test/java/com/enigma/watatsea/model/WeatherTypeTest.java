@@ -2,7 +2,7 @@ package com.enigma.watatsea.model;
 
 import org.junit.jupiter.api.Test;
 
-import static com.enigma.waratsea.model.WeatherType.*;
+import static com.enigma.waratsea.model.weather.WeatherType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WeatherTypeTest {

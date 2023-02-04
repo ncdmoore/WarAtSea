@@ -3,7 +3,7 @@ package com.enigma.watatsea.service;
 import com.enigma.waratsea.entity.PortEntity;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.Port;
+import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.repository.PortRepository;
 import com.enigma.waratsea.service.impl.PortServiceImpl;
 import org.junit.jupiter.api.Test;

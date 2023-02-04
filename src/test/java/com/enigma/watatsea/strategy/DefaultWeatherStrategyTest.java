@@ -1,7 +1,7 @@
 package com.enigma.watatsea.strategy;
 
-import com.enigma.waratsea.model.Turn;
-import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.service.DiceService;
 import com.enigma.waratsea.service.WeatherInput;
 import com.enigma.waratsea.strategy.DefaultWeatherStrategy;
@@ -12,7 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static com.enigma.waratsea.model.WeatherType.*;
+import static com.enigma.waratsea.model.weather.WeatherType.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 

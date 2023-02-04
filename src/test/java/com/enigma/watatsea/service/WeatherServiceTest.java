@@ -2,8 +2,8 @@ package com.enigma.watatsea.service;
 
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.GameName;
-import com.enigma.waratsea.model.Turn;
-import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.service.WeatherInput;
 import com.enigma.waratsea.service.impl.WeatherServiceImpl;
 import com.enigma.waratsea.strategy.DefaultVisibilityStrategy;
@@ -19,9 +19,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Map;
 
-import static com.enigma.waratsea.model.TimeRange.DAY_1;
-import static com.enigma.waratsea.model.Visibility.GOOD;
-import static com.enigma.waratsea.model.WeatherType.CLEAR;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_1;
+import static com.enigma.waratsea.model.weather.Visibility.GOOD;
+import static com.enigma.waratsea.model.weather.WeatherType.CLEAR;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 

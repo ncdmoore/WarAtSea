@@ -1,7 +1,7 @@
 package com.enigma.watatsea.model;
 
-import com.enigma.waratsea.model.Die;
-import com.enigma.waratsea.model.Die6;
+import com.enigma.waratsea.model.die.Die;
+import com.enigma.waratsea.model.die.Die6;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;

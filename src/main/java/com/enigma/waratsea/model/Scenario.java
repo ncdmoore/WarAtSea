@@ -1,6 +1,8 @@
 package com.enigma.waratsea.model;
 
 import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
+import com.enigma.waratsea.model.turn.TimeRange;
+import com.enigma.waratsea.model.weather.Weather;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;

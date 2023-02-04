@@ -1,6 +1,6 @@
 package com.enigma.watatsea.mock;
 
-import com.enigma.waratsea.model.Die;
+import com.enigma.waratsea.model.die.Die;
 
 public class Die3 implements Die {
   @Override

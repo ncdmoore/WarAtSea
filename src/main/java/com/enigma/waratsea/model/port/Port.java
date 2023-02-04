@@ -1,5 +1,6 @@
-package com.enigma.waratsea.model;
+package com.enigma.waratsea.model.port;
 
+import com.enigma.waratsea.model.Id;
 import lombok.Builder;
 import lombok.Data;
 

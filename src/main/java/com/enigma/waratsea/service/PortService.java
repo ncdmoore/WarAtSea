@@ -2,7 +2,7 @@ package com.enigma.waratsea.service;
 
 import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.Port;
+import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.Side;
 
 import java.util.List;

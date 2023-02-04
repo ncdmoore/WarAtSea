@@ -1,6 +1,6 @@
 package com.enigma.waratsea.model.squadron;
 
-import com.enigma.waratsea.model.Die;
+import com.enigma.waratsea.model.die.Die;
 import com.enigma.waratsea.model.Id;
 import lombok.Builder;
 import lombok.Getter;

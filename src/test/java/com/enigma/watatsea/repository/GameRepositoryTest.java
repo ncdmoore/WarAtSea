@@ -1,7 +1,7 @@
 package com.enigma.watatsea.repository;
 
-import com.enigma.waratsea.model.Turn;
-import com.enigma.waratsea.model.Weather;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.property.AppProps;
 import com.enigma.waratsea.repository.impl.DataProvider;
 import com.enigma.waratsea.repository.impl.GameRepositoryImpl;
@@ -22,8 +22,8 @@ import java.util.List;
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.GameName.BOMB_ALLEY;
 import static com.enigma.waratsea.model.Side.ALLIES;
-import static com.enigma.waratsea.model.Visibility.GOOD;
-import static com.enigma.waratsea.model.WeatherType.CLEAR;
+import static com.enigma.waratsea.model.weather.Visibility.GOOD;
+import static com.enigma.waratsea.model.weather.WeatherType.CLEAR;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;

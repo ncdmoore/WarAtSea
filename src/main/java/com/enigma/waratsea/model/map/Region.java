@@ -1,5 +1,8 @@
-package com.enigma.waratsea.model;
+package com.enigma.waratsea.model.map;
 
+import com.enigma.waratsea.model.Airfield;
+import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.port.Port;
 import lombok.Builder;
 import lombok.Data;
 

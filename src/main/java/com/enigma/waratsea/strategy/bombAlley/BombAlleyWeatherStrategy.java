@@ -1,6 +1,6 @@
 package com.enigma.waratsea.strategy.bombAlley;
 
-import com.enigma.waratsea.model.WeatherType;
+import com.enigma.waratsea.model.weather.WeatherType;
 import com.enigma.waratsea.service.DiceService;
 import com.enigma.waratsea.service.WeatherInput;
 import com.enigma.waratsea.strategy.WeatherStrategy;

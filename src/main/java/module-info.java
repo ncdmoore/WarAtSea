@@ -61,4 +61,14 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.entity.gson to com.google.gson;
   exports com.enigma.waratsea.entity.mission;
   opens com.enigma.waratsea.entity.mission to com.google.gson;
+  exports com.enigma.waratsea.model.map;
+  opens com.enigma.waratsea.model.map to com.google.gson;
+  exports com.enigma.waratsea.model.weather;
+  opens com.enigma.waratsea.model.weather to com.google.gson;
+  exports com.enigma.waratsea.model.port;
+  opens com.enigma.waratsea.model.port to com.google.gson;
+  exports com.enigma.waratsea.model.die;
+  opens com.enigma.waratsea.model.die to com.google.gson;
+  exports com.enigma.waratsea.model.turn;
+  opens com.enigma.waratsea.model.turn to com.google.gson;
 }

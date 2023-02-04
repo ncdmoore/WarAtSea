@@ -1,6 +1,6 @@
 package com.enigma.waratsea.entity;
 
-import com.enigma.waratsea.model.GridType;
+import com.enigma.waratsea.model.map.GridType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

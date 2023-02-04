@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
-import static com.enigma.waratsea.model.GridType.LAND;
+import static com.enigma.waratsea.model.map.GridType.LAND;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.BDDMockito.given;

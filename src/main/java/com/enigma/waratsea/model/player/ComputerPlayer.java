@@ -1,6 +1,7 @@
 package com.enigma.waratsea.model.player;
 
 import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import lombok.Getter;

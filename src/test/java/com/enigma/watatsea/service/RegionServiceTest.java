@@ -5,6 +5,7 @@ import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
 import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.map.Region;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.impl.RegionServiceImpl;

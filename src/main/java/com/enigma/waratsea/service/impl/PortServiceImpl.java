@@ -3,7 +3,7 @@ package com.enigma.waratsea.service.impl;
 import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.PortMapper;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.Port;
+import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.PortRepository;
 import com.enigma.waratsea.service.PortService;

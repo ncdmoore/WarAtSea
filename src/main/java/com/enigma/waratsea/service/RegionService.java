@@ -3,7 +3,7 @@ package com.enigma.waratsea.service;
 import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
-import com.enigma.waratsea.model.Region;
+import com.enigma.waratsea.model.map.Region;
 import com.enigma.waratsea.model.Side;
 
 import java.util.Set;

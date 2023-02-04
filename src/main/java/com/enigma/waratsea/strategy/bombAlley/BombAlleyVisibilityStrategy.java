@@ -1,8 +1,8 @@
 package com.enigma.waratsea.strategy.bombAlley;
 
-import com.enigma.waratsea.model.Turn;
-import com.enigma.waratsea.model.TimeRange;
-import com.enigma.waratsea.model.Visibility;
+import com.enigma.waratsea.model.turn.Turn;
+import com.enigma.waratsea.model.turn.TimeRange;
+import com.enigma.waratsea.model.weather.Visibility;
 import com.enigma.waratsea.strategy.VisibilityStrategy;
 import com.google.inject.Singleton;
 
@@ -11,10 +11,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 
-import static com.enigma.waratsea.model.TimeRange.*;
-import static com.enigma.waratsea.model.TimeRange.NIGHT_2;
-import static com.enigma.waratsea.model.Visibility.GOOD;
-import static com.enigma.waratsea.model.Visibility.BAD;
+import static com.enigma.waratsea.model.turn.TimeRange.*;
+import static com.enigma.waratsea.model.turn.TimeRange.NIGHT_2;
+import static com.enigma.waratsea.model.weather.Visibility.GOOD;
+import static com.enigma.waratsea.model.weather.Visibility.BAD;
 
 @Singleton
 public class BombAlleyVisibilityStrategy implements VisibilityStrategy {

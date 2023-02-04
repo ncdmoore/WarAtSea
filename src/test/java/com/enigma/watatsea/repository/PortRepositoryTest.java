@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
-import static com.enigma.waratsea.model.PortSize.MAJOR;
+import static com.enigma.waratsea.model.port.PortSize.MAJOR;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;

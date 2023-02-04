@@ -1,4 +1,4 @@
-package com.enigma.waratsea.model;
+package com.enigma.waratsea.model.turn;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
