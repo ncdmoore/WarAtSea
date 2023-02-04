@@ -40,7 +40,7 @@ public class MissionServiceImpl implements MissionService {
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getLoadMissionsEvent().register(this::handleLoadMissionsEvent);
-    //events.getSaveGameEvent().register(this::save);
+    events.getSaveGameEvent().register(this::save);
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
@@ -61,6 +61,13 @@ public class MissionServiceImpl implements MissionService {
     Side.stream().forEach(this::get);
   }
 
+  private void save(final SaveGameEvent saveGameEvent) {
+    var gameId = saveGameEvent.getId();
+
+    missionSideMap.keySet()
+        .forEach(side -> saveSide(gameId, side));
+  }
+
   private Set<Mission> getFromRepository(final Side side) {
     var entities = missionRepository.get(side);
     var missions = missionMapper.entitiesToModels(entities);
@@ -68,6 +75,12 @@ public class MissionServiceImpl implements MissionService {
     setTaskForceMissions(missions);
 
     return new HashSet<>(missions);
+  }
+
+  private void saveSide(final String gameId, final Side side) {
+    var missions = missionSideMap.get(side);
+    var entities = missionMapper.modelsToEntities(missions);
+    missionRepository.save(gameId, side, entities);
   }
 
   private void setTaskForceMissions(final List<Mission> missions) {
