@@ -1,0 +1,121 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Chester"
+    },
+    "title": "CA27 Chester",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "OS2U-Chester"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Northampton"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Chicago"
+    },
+    "title": "CA29 Chicago",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "OS2U-Chicago"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Northampton"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "New_Orleans"
+    },
+    "title": "CA32 New Orleans",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "OS2U-New_Orleans"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "New_Orleans"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Portland"
+    },
+    "title": "CA33 Portland",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "OS2U-Portland"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Portland"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Astoria"
+    },
+    "title": "CA34 Astoria",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "OS2U-Astoria"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Astoria"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Minneapolis"
+    },
+    "title": "CA36 Minneapolis",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "OS2U-Minneapolis"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "New_Orleans"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Australia"
+    },
+    "title": "CA01 Australia",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Walrus-Australia"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "County"
+    }
+  }
+]

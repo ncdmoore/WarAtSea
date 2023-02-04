@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Shoho"
+    },
+    "title": "CVL01 Shoho",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Shoho"
+    }
+  }
+]

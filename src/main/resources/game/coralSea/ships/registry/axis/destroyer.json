@@ -1,0 +1,156 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Oite"
+    },
+    "title": "DD11 Oite",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Kamikaze"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Asanagi"
+    },
+    "title": "DD15 Asanagi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Kamikaze"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Mutsuki"
+    },
+    "title": "DD19 Mutsuki",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mutsuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Yayoi"
+    },
+    "title": "DD23 Yayoi",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mutsuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Kikutzuki"
+    },
+    "title": "DD31 Kikutzuki",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mutsuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Mochizuki"
+    },
+    "title": "DD33 Mochizuki",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mutsuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Yuzuki"
+    },
+    "title": "DD34 Yuzuki",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Mutsuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Akebono"
+    },
+    "title": "DD52 Akebono",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Fubuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Sazanami"
+    },
+    "title": "DD53 Sazanami",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Fubuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ushio"
+    },
+    "title": "DD54 Ushio",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Fubuki"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ariake"
+    },
+    "title": "DD62 Ariake",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Hatsuharu"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Yugure"
+    },
+    "title": "DD64 Yugure",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Hatsuharu"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Shiratsuyu"
+    },
+    "title": "DD65 Shiratsuyu",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Shiratsuyu"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Shigure"
+    },
+    "title": "DD66 Shigure",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Shiratsuyu"
+    }
+  }
+]

@@ -1,0 +1,52 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Portland"
+  },
+  "type": "HEAVY_CRUISER",
+  "shipClass": "Portland",
+  "nation": "UNITED_STATES",
+  "secondary": {
+    "armour": "LIGHT",
+    "maxHealth": 6,
+    "health": 6
+  },
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth": 6,
+    "health": 6,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 336,
+    "level": 336
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "capacity": 3
+  },
+  "catapult": {
+    "capacity": 1,
+    "maxHealth": 1,
+    "health": 1
+  },
+  "landingType": [
+    "FLOAT_PLANE"
+  ],
+  "victoryPoints": 28
+}

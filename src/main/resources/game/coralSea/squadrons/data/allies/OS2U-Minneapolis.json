@@ -1,0 +1,12 @@
+
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "OS2U-Minneapolis"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "OS2U"
+  },
+  "strength": "SIXTH"
+}

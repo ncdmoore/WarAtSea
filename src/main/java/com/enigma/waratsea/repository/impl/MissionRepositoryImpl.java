@@ -86,6 +86,7 @@ public class MissionRepositoryImpl implements MissionRepository {
         .registerSubtype(BombardmentEntity.class)
         .registerSubtype(FerryShipsEntity.class)
         .registerSubtype(InterceptEntity.class)
+        .registerSubtype(InvasionEntity.class)
         .registerSubtype(PatrolEntity.class);
 
     var gson = new GsonBuilder().registerTypeAdapterFactory(adapter).create();

@@ -1,0 +1,161 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF1"
+    },
+    "title": "Yorktown Force",
+    "location": "Espiritu_Santo",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Yorktown"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Chester"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Portland"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Astoria"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Anderson"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hammann"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Russell"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Morris"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF2"
+    },
+    "title": "Lexington Force",
+    "location": "Z20",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Lexington"
+      },
+      {
+        "side": "ALLIES",
+        "name": "New_Orleans"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Minneapolis"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Farragut"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Dewey"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Aylwin"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Dewey"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Phelps"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF3"
+    },
+    "title": "Support Force",
+    "location": "V28",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Worden"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Sims"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Tippecanoe"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Neosho"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF4"
+    },
+    "title": "Scout Force",
+    "location": "BB31",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Tangier"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF5"
+    },
+    "title": "Reserve Force",
+    "location": "BB20",
+    "state": "RESERVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Chicago"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Australia"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hobart"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Perkins"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Walke"
+      }
+    ]
+  }
+]

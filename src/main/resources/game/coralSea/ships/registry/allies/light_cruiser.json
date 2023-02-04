@@ -1,0 +1,14 @@
+
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hobart"
+    },
+    "title": "CL02 Hobart",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Leander"
+    }
+  }
+]

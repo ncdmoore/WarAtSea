@@ -1,0 +1,43 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Shoho"
+  },
+  "type": "LIGHT_CARRIER",
+  "shipClass": "Shoho",
+  "nation": "JAPANESE",
+  "flightDeck": {
+    "armour": "NONE",
+    "capacityList": [
+      0,
+      2,
+      5
+    ],
+    "health": 3
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 4,
+    "health": 4,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 243,
+    "level": 243
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "landingType": [
+    "CARRIER"
+  ],
+  "victoryPoints": 120
+}

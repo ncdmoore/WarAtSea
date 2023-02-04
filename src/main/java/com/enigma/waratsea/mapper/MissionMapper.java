@@ -30,6 +30,7 @@ public abstract class MissionMapper {
   @SubclassMapping(source = BombardmentEntity.class, target = Bombardment.class)
   @SubclassMapping(source = FerryShipsEntity.class, target = FerryShips.class)
   @SubclassMapping(source = InterceptEntity.class, target = Intercept.class)
+  @SubclassMapping(source = InvasionEntity.class, target = Invasion.class)
   @SubclassMapping(source = PatrolEntity.class, target = Patrol.class)
   abstract public Mission toModel(final MissionEntity missionEntity);
 
@@ -38,6 +39,7 @@ public abstract class MissionMapper {
   @SubclassMapping(source = Bombardment.class, target = BombardmentEntity.class)
   @SubclassMapping(source = FerryShips.class, target = FerryShipsEntity.class)
   @SubclassMapping(source = Intercept.class, target = InterceptEntity.class)
+  @SubclassMapping(source = Invasion.class, target = InvasionEntity.class)
   @SubclassMapping(source = Patrol.class, target = PatrolEntity.class)
   abstract public MissionEntity toEntity(final Mission ship);
 

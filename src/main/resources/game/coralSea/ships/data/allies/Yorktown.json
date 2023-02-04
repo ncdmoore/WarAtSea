@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Yorktown"
+  },
+  "type": "AIRCRAFT_CARRIER",
+  "shipClass": "Yorktown",
+  "nation": "UNITED_STATES",
+  "flightDeck": {
+    "armour": "NONE",
+    "capacityList": [
+      0,
+      0,
+      4,
+      8,
+      11,
+      15
+    ],
+    "health": 6
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 4,
+    "health": 4
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 7,
+    "health": 7,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 384,
+    "level": 384
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "landingType": [
+    "CARRIER"
+  ],
+  "victoryPoints": 143
+}

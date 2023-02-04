@@ -1,0 +1,34 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Patoka"
+  },
+  "type": "OILER",
+  "shipClass": "Patoka",
+  "nation": "UNITED_STATES",
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 720,
+    "level": 720
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 1,
+    "odd": 1
+  },
+  "cargo": {
+    "capacity": 1
+  },
+  "victoryPoints": 20
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Kako"
+    },
+    "title": "CA01 Kako",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E7K-Kako"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Furutaka"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Furutaka"
+    },
+    "title": "CA02 Furutaka",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E7K-Furutaka"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Furutaka"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Kinugasa"
+    },
+    "title": "CA03 Kinugasa",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E8N-Kinugasa"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Aoba"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Aoba"
+    },
+    "title": "CA04 Aoba",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E8N-Aoba"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Aoba"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Myoko"
+    },
+    "title": "CA05 Myoko",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E13A-Myoko"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Myoko"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Haguro"
+    },
+    "title": "CA06 Haguro",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E13A-Haguro"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Myoko"
+    }
+  }
+]

@@ -108,6 +108,12 @@ public class ShipServiceImpl implements ShipService {
   }
 
   private Ship getShip(final Id shipId) {
+    var ship = getShipRegistry(shipId);
+
+    if (ship == null) {
+      log.warn("Unable to get ship register for '{}'", shipId);
+    }
+
     var shipType = getShipRegistry(shipId).getShipType();
 
     return isNewGame

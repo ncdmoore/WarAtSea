@@ -1,0 +1,261 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "TF1"
+    },
+    "title": "Support Force",
+    "location": "M1",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Shoho"
+      },
+      {
+        "side": "AXIS",
+        "name": "Kako"
+      },
+      {
+        "side": "AXIS",
+        "name": "Furutaka"
+      },
+      {
+        "side": "AXIS",
+        "name": "Kinugasa"
+      },
+      {
+        "side": "AXIS",
+        "name": "Aoba"
+      },
+      {
+        "side": "AXIS",
+        "name": "Sazanami"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "TF2"
+    },
+    "title": "Tulagi Invasion Force",
+    "location": "G1",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Kikutzuki"
+      },
+      {
+        "side": "AXIS",
+        "name": "Yuzuki"
+      },
+      {
+        "side": "AXIS",
+        "name": "Okinoshima"
+      },
+      {
+        "side": "AXIS",
+        "name": "Sazanami"
+      },
+      {
+        "side": "AXIS",
+        "name": "Sazanami"
+      },
+      {
+        "side": "AXIS",
+        "name": "Sazanami"
+      },
+      {
+        "side": "AXIS",
+        "name": "W_1"
+      },
+      {
+        "side": "AXIS",
+        "name": "W_2"
+      },
+      {
+        "side": "AXIS",
+        "name": "W_3"
+      },
+      {
+        "side": "AXIS",
+        "name": "W_4"
+      },
+      {
+        "side": "AXIS",
+        "name": "W_5"
+      },
+      {
+        "side": "AXIS",
+        "name": "W_6"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL01"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL02"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "TF3"
+    },
+    "title": "Moresby Invasion Force",
+    "location": "Rabaul",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Yubari"
+      },
+      {
+        "side": "AXIS",
+        "name": "Oite"
+      },
+      {
+        "side": "AXIS",
+        "name": "Yubari"
+      },
+      {
+        "side": "AXIS",
+        "name": "Asanagi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Mutsuki"
+      },
+      {
+        "side": "AXIS",
+        "name": "Yayoi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Mochizuki"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tsugaru"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL03"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL04"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL05"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL06"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL07"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL08"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL09"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL11"
+      },
+      {
+        "side": "AXIS",
+        "name": "TL12"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "TF4"
+    },
+    "title": "Scout Force",
+    "location": "V19",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Tenryu"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tatsuta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Kamikawa_Maru"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "TF5"
+    },
+    "title": "Reserve Force",
+    "location": "M1",
+    "state": "RESERVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Shokaku"
+      },
+      {
+        "side": "AXIS",
+        "name": "Zuikaku"
+      },
+      {
+        "side": "AXIS",
+        "name": "Myoko"
+      },
+      {
+        "side": "AXIS",
+        "name": "Haguro"
+      },
+      {
+        "side": "AXIS",
+        "name": "Akebono"
+      },
+      {
+        "side": "AXIS",
+        "name": "Ushio"
+      },
+      {
+        "side": "AXIS",
+        "name": "Ariake"
+      },
+      {
+        "side": "AXIS",
+        "name": "Yugure"
+      },
+      {
+        "side": "AXIS",
+        "name": "Shiratsuyu"
+      },
+      {
+        "side": "AXIS",
+        "name": "Shigure"
+      },
+      {
+        "side": "AXIS",
+        "name": "Toho_Maru"
+      }
+    ]
+  }
+]

@@ -1,7 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.SubmarineFlotillaEntity;
-import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.SubmarineFlotillaRepository;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -23,7 +23,7 @@ public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaReposit
   }
 
   @Override
-  public List<SubmarineFlotillaEntity> get(Id id) {
+  public List<SubmarineFlotillaEntity> get(final Side side) {
     return null;
   }
 }

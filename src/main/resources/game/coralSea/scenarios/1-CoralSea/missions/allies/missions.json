@@ -1,0 +1,38 @@
+[
+  {
+    "id": "Mission-1",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol Coral Sea.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TF2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TF3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TF4"
+      }
+    ]
+  },
+  {
+    "id": "Mission-2",
+    "priority": 1,
+    "type": "InterceptEntity",
+    "description": "Intercept any spotted enemy task force.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF5"
+      }
+    ]
+  }
+]

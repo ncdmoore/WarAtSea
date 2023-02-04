@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Toho_Maru"
+    },
+    "title": "AO1 Toho Maru",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Toho_Maru"
+    }
+  }
+]

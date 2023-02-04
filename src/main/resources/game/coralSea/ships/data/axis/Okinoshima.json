@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Okinoshima"
+  },
+  "type": "MINE_LAYER",
+  "shipClass": "Okinoshima",
+  "nation": "JAPANESE",
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 264,
+    "level": 264
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "cargo": {
+    "capacity": 1
+  },
+  "catapult": {
+    "capacity": 1,
+    "maxHealth": 1,
+    "health": 1
+  },
+  "landingType": [
+    "FLOAT_PLANE"
+  ],
+  "victoryPoints": 6
+}

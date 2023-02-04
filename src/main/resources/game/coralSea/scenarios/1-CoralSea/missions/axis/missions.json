@@ -1,0 +1,54 @@
+[
+  {
+    "id": "Mission-1",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol Coral Sea.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF1"
+      },
+      {
+        "side": "AXIS",
+        "name": "TF4"
+      }
+    ]
+  },
+  {
+    "id": "Mission-2",
+    "priority": 1,
+    "type": "InvasionEntity",
+    "description": "Invade Tulagi.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF2"
+      }
+    ]
+  },
+  {
+    "id": "Mission-3",
+    "priority": 1,
+    "type": "InvasionEntity",
+    "description": "Invade Port Moresby.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF3"
+      }
+    ]
+  },
+  {
+    "id": "Mission-4",
+    "priority": 1,
+    "type": "InterceptEntity",
+    "description": "Intercept any spotted enemy task force.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF5"
+      }
+    ]
+  }
+]

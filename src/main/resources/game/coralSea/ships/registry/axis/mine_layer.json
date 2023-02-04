@@ -1,0 +1,36 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Okinoshima"
+    },
+    "title": "ML09 Okinoshima",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E7K-Okinoshima"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Okinoshima"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Tsugaru"
+    },
+    "title": "ML10 Tsugaru",
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E7K-Tsugaru"
+      }
+    ],
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Tsugaru"
+    }
+  }
+]

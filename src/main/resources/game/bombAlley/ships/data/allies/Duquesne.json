@@ -41,12 +41,12 @@
   "cargo": {
     "capacity": 3
   },
-  "catapult" : {
+  "catapult": {
     "capacity": 1,
     "maxHealth": 1,
     "health": 1
   },
-  "landingType":[
+  "landingType": [
     "FLOAT_PLANE"
   ],
   "victoryPoints": 27

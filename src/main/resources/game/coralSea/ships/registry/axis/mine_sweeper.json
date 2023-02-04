@@ -1,0 +1,68 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "W_1"
+    },
+    "title": "MS01 W-1",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "W"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "W_2"
+    },
+    "title": "MS02 W-2",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "W"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "W_3"
+    },
+    "title": "MS03 W-3",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "W"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "W_4"
+    },
+    "title": "MS04 W-4",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "W"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "W_5"
+    },
+    "title": "MS05 W-5",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "W"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "W_6"
+    },
+    "title": "MS06 W-6",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "W"
+    }
+  }
+]

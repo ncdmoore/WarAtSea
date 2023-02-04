@@ -1,31 +1,31 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
     "name": "Eagle"
   },
   "type": "AIRCRAFT_CARRIER",
   "shipClass": "Eagle",
   "nation": "BRITISH",
-  "flightDeck":
-  {
+  "flightDeck": {
     "armour": "NONE",
-    "capacity": [0, 2, 4],
+    "capacity": [
+      0,
+      2,
+      4
+    ],
     "health": 3
   },
-  "secondary":
-  {
+  "secondary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
-  "antiAir":
-  {
+  "antiAir": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
-  "torpedo":
-  {
+  "torpedo": {
     "maxHealth": 1,
     "health": 1,
     "maxNumber": 1,
@@ -33,7 +33,7 @@
   },
   "hull": {
     "armour": "LIGHT",
-    "maxHealth" : 7,
+    "maxHealth": 7,
     "health": 7,
     "deck": false
   },

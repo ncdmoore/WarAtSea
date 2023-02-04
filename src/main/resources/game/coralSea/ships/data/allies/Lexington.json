@@ -1,0 +1,51 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Lexington"
+  },
+  "type": "AIRCRAFT_CARRIER",
+  "shipClass": "Lexington",
+  "nation": "UNITED_STATES",
+  "flightDeck": {
+    "armour": "NONE",
+    "capacityList": [
+      0,
+      0,
+      3,
+      7,
+      10,
+      13
+    ],
+    "health": 6
+  },
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 4,
+    "health": 4
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth": 10,
+    "health": 10,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 312,
+    "level": 312
+  },
+  "movement": {
+    "maxEven": 4,
+    "even": 4,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "landingType": [
+    "CARRIER"
+  ],
+  "victoryPoints": 130
+}

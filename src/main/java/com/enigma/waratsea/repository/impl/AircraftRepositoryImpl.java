@@ -36,14 +36,14 @@ public class AircraftRepositoryImpl implements AircraftRepository {
   }
 
   private AircraftEntity readAircraft(final FilePath filePath) {
-    log.debug("Read aircraft: '{}'", filePath);
+    log.info("Read aircraft: '{}'", filePath);
 
     try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       return toEntity(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create aircraft: " + filePath);
+      throw new GameException("Unable to create aircraft: " + filePath, e);
     }
   }
 

@@ -1,0 +1,58 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Aoba"
+  },
+  "type": "HEAVY_CRUISER",
+  "shipClass": "Aoba",
+  "nation": "JAPANESE",
+  "secondary": {
+    "armour": "NONE",
+    "maxHealth": 4,
+    "health": 4
+  },
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "torpedo": {
+    "maxHealth": 3,
+    "health": 3,
+    "maxNumber": 2,
+    "number": 2
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth": 5,
+    "health": 5,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 264,
+    "level": 264
+  },
+  "movement": {
+    "maxEven": 4,
+    "even": 4,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "capacity": 3
+  },
+  "catapult": {
+    "capacity": 1,
+    "maxHealth": 1,
+    "health": 1
+  },
+  "landingType": [
+    "FLOAT_PLANE"
+  ],
+  "victoryPoints": 26
+}

@@ -1,0 +1,145 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Farragut"
+    },
+    "title": "DD348 Farragut",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Farragut"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Dewey"
+    },
+    "title": "DD349 Dewey",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Farragut"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Worden"
+    },
+    "title": "DD352 Worden",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Farragut"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Monaghan"
+    },
+    "title": "DD354 Monaghan",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Farragut"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Aylwin"
+    },
+    "title": "DD355 Aylwin",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Farragut"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Phelps"
+    },
+    "title": "DD360 Phelps",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Porter"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Perkins"
+    },
+    "title": "DD377 Perkins",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Mahan"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Sims"
+    },
+    "title": "DD409 Sims",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Sims"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Anderson"
+    },
+    "title": "DD411 Anderson",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Sims"
+    }
+  },{
+  "id": {
+    "side": "ALLIES",
+    "name": "Hammann"
+  },
+  "title": "DD412 Hammann",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Sims"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "Russell"
+  },
+  "title": "DD414 Russell",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Sims"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "Walke"
+  },
+  "title": "DD416 Walke",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Sims"
+  }
+},{
+  "id": {
+    "side": "ALLIES",
+    "name": "Morris"
+  },
+  "title": "DD417 Morris",
+  "shipClassId": {
+    "side": "ALLIES",
+    "name": "Sims"
+  }
+}
+
+
+
+
+]

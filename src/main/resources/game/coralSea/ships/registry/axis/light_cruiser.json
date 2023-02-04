@@ -1,0 +1,35 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Tenryu"
+    },
+    "title": "CL01 Tenryu",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Tenryu"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Tatsuta"
+    },
+    "title": "CL02 Tatsuta",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Tenryu"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Yubari"
+    },
+    "title": "CL17 Yubari",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Yubari"
+    }
+  }
+]

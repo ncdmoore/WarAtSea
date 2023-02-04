@@ -90,5 +90,87 @@
         "name": "B26B-M1"
       }
     ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Lexington"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "F4F3-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "F4F3-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SBD3-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SBD3-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SBD3-M3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TBD-M1"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Yorktown"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "F4F3-M3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "F4F3-M4"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SBD3-M4"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SBD3-M5"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SBD3-M6"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TBD-M2"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Tangier"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Catalina-M3"
+      }
+    ]
   }
 ]

@@ -1,0 +1,55 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Leander"
+  },
+  "type": "LIGHT_CRUISER",
+  "shipClass": "Leander",
+  "nation": "AUSTRALIAN",
+  "secondary": {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
+  },
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
+  },
+  "torpedo": {
+    "maxHealth": 2,
+    "health": 2,
+    "maxNumber": 1,
+    "number": 1
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth": 4,
+    "health": 4,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 264,
+    "level": 264
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "capacity": 3
+  },
+  "catapult": {
+    "capacity": 0,
+    "maxHealth": 0,
+    "health": 0
+  },
+  "victoryPoints": 21
+}

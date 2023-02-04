@@ -1,0 +1,41 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Kamikaze"
+  },
+  "type": "DESTROYER",
+  "shipClass": "Kamikaze",
+  "nation": "JAPANESE",
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "torpedo": {
+    "maxHealth": 1,
+    "health": 1,
+    "maxNumber": 1,
+    "number": 1
+  },
+  "asw": true,
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 120,
+    "level": 120
+  },
+  "movement": {
+    "maxEven": 4,
+    "even": 4,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "capacity": 1
+  },
+  "victoryPoints": 4
+}
