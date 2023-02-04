@@ -6,7 +6,6 @@ import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.event.StartNewGameEvent;
 import com.enigma.waratsea.exception.DataException;
-import com.enigma.waratsea.model.Id;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.SneakyThrows;
@@ -58,29 +57,6 @@ public class DataProvider implements BootStrapped {
     var gameDataDirectory = gamePaths.getGameDataDirectory();
     var scenarioDirectory = gamePaths.getScenarioPath();
     var path = filePath.getPath();
-
-    var genericFullPath = Paths.get(gameDataDirectory, path).toString();
-    var scenarioSpecificFullPath = Optional.ofNullable(scenarioDirectory)
-        .map(sd -> Paths.get(gameDataDirectory, sd, path).toString())
-        .orElse(genericFullPath);
-
-    var inputStream = isNewGame
-        ? getResourceInputStream(scenarioSpecificFullPath, genericFullPath)
-        : getFileInputStream(genericFullPath);
-
-    if (inputStream == null) {
-      log.warn("Cannot find scenario specific path: '{}'", scenarioSpecificFullPath);
-      log.warn("Cannot find generic path: '{}'", genericFullPath);
-    }
-
-    return inputStream;
-  }
-
-  public InputStream getDataInputStream(final Id id, final String baseDirectory) {
-    var gameDataDirectory = gamePaths.getGameDataDirectory();
-    var scenarioDirectory = gamePaths.getScenarioPath();
-
-    var path = getPath(id, baseDirectory);
 
     var genericFullPath = Paths.get(gameDataDirectory, path).toString();
     var scenarioSpecificFullPath = Optional.ofNullable(scenarioDirectory)
@@ -190,9 +166,4 @@ public class DataProvider implements BootStrapped {
         .orElseThrow(() -> new DataException("Cannot get parent directory from path: " + path));
   }
 
-  private String getPath(final Id id, final String baseDirectory) {
-    var sidePath = id.getSide().toLower();
-    var fileName = id.getName() + JSON_EXTENSION;
-    return Paths.get(baseDirectory, sidePath, fileName).toString();
-  }
 }
