@@ -46,7 +46,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
       log.debug("Read airfield: '{}'", airfieldId);
       return toEntity(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create airfield: " + airfieldId);
+      throw new GameException("Unable to create airfield: " + airfieldId, e);
     }
   }
 

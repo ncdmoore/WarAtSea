@@ -1,0 +1,38 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Flotilla-1"
+    },
+    "subs": [
+      {
+        "side": "AXIS",
+        "name": "SM01"
+      },
+      {
+        "side": "AXIS",
+        "name": "SM02"
+      },
+      {
+        "side": "AXIS",
+        "name": "SM03"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Flotilla-2"
+    },
+    "subs": [
+      {
+        "side": "AXIS",
+        "name": "SM03"
+      },
+      {
+        "side": "AXIS",
+        "name": "SM04"
+      }
+    ]
+  }
+]

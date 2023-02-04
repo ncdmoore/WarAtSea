@@ -3,6 +3,7 @@ package com.enigma.waratsea.repository.impl;
 import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.event.SelectScenarioEvent;
 import com.enigma.waratsea.exception.ResourceException;
 import com.enigma.waratsea.model.Id;
@@ -86,6 +87,7 @@ public class ResourceProvider implements BootStrapped {
   private void registerEvents(final Events events) {
     events.getGameNameEvent().register(this::handleGameSelected);
     events.getSelectScenarioEvent().register(this::handleScenarioSelected);
+    events.getSelectSavedGameEvent().register(this::handleSavedGameSelected);
   }
 
   private void handleGameSelected(final GameNameEvent gameEvent) {
@@ -94,6 +96,10 @@ public class ResourceProvider implements BootStrapped {
 
   private void handleScenarioSelected(final SelectScenarioEvent selectScenarioEvent) {
     gamePaths.setScenario(selectScenarioEvent.getScenario());
+  }
+
+  private void handleSavedGameSelected(final SelectSavedGameEvent selectSavedGameEvent) {
+    gamePaths.setScenario(selectSavedGameEvent.getGame().getScenario());
   }
 
   private List<Path> getSubDirectoryPathsFromJar(final String directoryName) throws URISyntaxException, IOException {

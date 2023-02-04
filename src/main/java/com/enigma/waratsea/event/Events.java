@@ -17,6 +17,7 @@ public class Events {
   private final EventDispatcher<SelectScenarioEvent> selectScenarioEvent = new EventDispatcher<>(SelectScenarioEvent.class);
   private final EventDispatcher<SelectSideEvent> selectSideEvent = new EventDispatcher<>(SelectSideEvent.class);
   private final EventDispatcher<ConfigNewGameEvent> configNewGameEvent = new EventDispatcher<>(ConfigNewGameEvent.class);
+  private final EventDispatcher<ConfigSavedGameEvent> configSavedGameEvent = new EventDispatcher<>(ConfigSavedGameEvent.class);
   private final EventDispatcher<LoadMapEvent> loadMapEvent = new EventDispatcher<>(LoadMapEvent.class);
   private final EventDispatcher<AllotSquadronEvent> allotSquadronEvent = new EventDispatcher<>(AllotSquadronEvent.class);
   private final EventDispatcher<DeploySquadronEvent> deploySquadronEvent = new EventDispatcher<>(DeploySquadronEvent.class);

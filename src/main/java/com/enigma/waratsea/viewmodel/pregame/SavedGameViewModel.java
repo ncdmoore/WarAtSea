@@ -1,5 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
+import com.enigma.waratsea.event.ConfigSavedGameEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.model.Game;
@@ -46,6 +47,7 @@ public class SavedGameViewModel {
   }
 
   public void continueOn(final Stage stage) {
+    events.getConfigSavedGameEvent().fire(new ConfigSavedGameEvent(selectedSavedGame.get()));
     events.getNavigateEvent().fire(buildForwardNav(stage));
   }
 

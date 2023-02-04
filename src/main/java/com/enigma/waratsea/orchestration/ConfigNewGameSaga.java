@@ -10,11 +10,11 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Singleton
-public class ConfigGameSaga implements BootStrapped {
+public class ConfigNewGameSaga implements BootStrapped {
   private final Events events;
 
   @Inject
-  public ConfigGameSaga(final Events events) {
+  public ConfigNewGameSaga(final Events events) {
     this.events = events;
 
     events.getConfigNewGameEvent().register(this::handleConfigNewGame);
@@ -22,7 +22,7 @@ public class ConfigGameSaga implements BootStrapped {
 
   private void handleConfigNewGame(final ConfigNewGameEvent event) {
     var scenario = event.getScenario();
-    log.info("ConfigGameSaga: handle ConfigNewGameEvent for scenario: '{}'", scenario);
+    log.info("ConfigNewGameSaga: handle ConfigNewGameEvent for scenario: '{}'", scenario);
 
     loadMap();
     loadTaskForces();
@@ -40,10 +40,6 @@ public class ConfigGameSaga implements BootStrapped {
     events.getLoadTaskForcesEvent().fire(new LoadTaskForcesEvent());
   }
 
-  private void createPlayers() {
-    events.getCreatePlayerEvent().fire(new CreatePlayerEvent());
-  }
-
   private void determineSquadronAllotment(final Scenario scenario) {
     if (scenario.getSquadron() != SquadronDeploymentType.FIXED) {
       events.getAllotSquadronEvent().fire(new AllotSquadronEvent(scenario));
@@ -56,5 +52,9 @@ public class ConfigGameSaga implements BootStrapped {
 
   private void loadMissions() {
     events.getLoadMissionsEvent().fire(new LoadMissionsEvent());
+  }
+
+  private void createPlayers() {
+    events.getCreatePlayerEvent().fire(new CreatePlayerEvent());
   }
 }
