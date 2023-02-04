@@ -46,6 +46,7 @@ class ShipRepositoryTest {
   @Test
   void shouldGetShipRegistry() {
     var filePath = FilePath.builder()
+        .baseDirectory(gamePaths.getShipRegistryDirectory())
         .side(ALLIES)
         .fileName(DESTROYER.toLower())
         .build();
