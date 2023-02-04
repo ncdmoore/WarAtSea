@@ -11,5 +11,4 @@ public interface PortMapper {
 
   Port toModel(PortEntity portEntity);
   PortEntity toEntity(Port port);
-
 }

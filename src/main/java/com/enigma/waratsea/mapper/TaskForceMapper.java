@@ -23,9 +23,11 @@ public abstract class TaskForceMapper {
   public ShipService shipService;
 
   abstract public List<TaskForce> entitiesToModels(List<TaskForceEntity> entities);
+
   abstract public Set<TaskForceEntity> modelsToEntities(Set<TaskForce> models);
 
   abstract public TaskForce toModel(final TaskForceEntity taskForceEntity);
+
   abstract public TaskForceEntity toEntity(final TaskForce taskForce);
 
   Set<Ship> mapShips(final Set<Id> shipIds) {
@@ -35,10 +37,12 @@ public abstract class TaskForceMapper {
   }
 
   Set<Id> mapIds(final Set<Ship> ships) {
-    if (ships == null) {
-      return Collections.emptySet();
-    }
+    return Optional.ofNullable(ships)
+        .map(this::getShipIds)
+        .orElse(Collections.emptySet());
+  }
 
+  private Set<Id> getShipIds(final Set<Ship> ships) {
     return ships.stream()
         .map(Ship::getId)
         .collect(Collectors.toSet());

@@ -54,10 +54,13 @@ public abstract class ShipMapper {
   }
 
   Set<Id> mapIds(final Set<Squadron> squadrons) {
-    if (squadrons == null) {
-      return Collections.emptySet();
-    }
+    return Optional.ofNullable(squadrons)
+        .map(this::getSquadronIds)
+        .orElse(Collections.emptySet());
 
+  }
+
+  private Set<Id> getSquadronIds(final Set<Squadron> squadrons) {
     return squadrons.stream()
         .map(Squadron::getId)
         .collect(Collectors.toSet());

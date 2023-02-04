@@ -50,10 +50,12 @@ public abstract class MissionMapper {
   }
 
   Set<Id> mapIds(final Set<TaskForce> taskForces) {
-    if (taskForces == null) {
-      return Collections.emptySet();
-    }
+    return Optional.ofNullable(taskForces)
+        .map(this::getTaskForceIds)
+        .orElse(Collections.emptySet());
+  }
 
+  private Set<Id> getTaskForceIds(final Set<TaskForce> taskForces) {
     return taskForces.stream()
         .map(TaskForce::getId)
         .collect(Collectors.toSet());
