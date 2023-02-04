@@ -17,7 +17,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
@@ -41,66 +40,68 @@ public class ShipRepositoryImpl implements ShipRepository {
 
   @Override
   public ShipEntity get(final Id shipId, final ShipType shipType) {
-    return readShip(shipId, shipType);
+    var filePath = getFilePath(shipId);
+
+    return readShip(filePath, shipType);
   }
 
   @Override
   public List<ShipRegistryEntity> getRegistry(final Side side, final ShipType shipType) {
-    var registryId = new Id(side, shipType.toLower());
-    return readRegistry(registryId);
+    var filePath = getFilePath(side, shipType);
+
+    return readRegistry(filePath);
   }
 
   @Override
   public void save(final String gameId, final ShipEntity ship) {
-    var id = ship.getId();
-    var directory = dataProvider.getSavedEntityDirectory(gameId, id, shipDirectory);
-    writeShip(directory, ship);
+    var filePath = getFilePath(ship);
+
+    writeShip(gameId, filePath, ship);
   }
 
-  private ShipEntity readShip(final Id shipId, final ShipType shipType) {
-    try (var in = getShipInputStream(shipId, shipDirectory);
+  private ShipEntity readShip(final FilePath filePath, final ShipType shipType) {
+    try (var in = getShipInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read ship: '{}'", shipId);
+      log.debug("Read ship: '{}'", filePath);
       return toEntity(br, shipType);
     } catch (IOException e) {
-     throw new GameException("Unable to load ship: " + shipId);
+     throw new GameException("Unable to load ship: " + filePath, e);
     }
   }
 
-  private void writeShip(final Path directory, final ShipEntity ship) {
-    var id = ship.getId();
-    var filePath = dataProvider.getSaveFile(directory, id);
+  private void writeShip(final String gameId, final FilePath filePath, ShipEntity ship) {
+    var path = dataProvider.getSaveFile(gameId, filePath);
 
-    try (var out = new FileOutputStream(filePath.toString());
+    try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.info("Save ship: '{}' to path: '{}'", id, directory);
+      log.info("Save ship to path: '{}'", path);
       var json = toJson(ship);
       writer.write(json);
 
     } catch (IOException e) {
-      throw new GameException("Unable to save " + id + " to path: " + filePath, e);
+      throw new GameException("Unable to save ship to path: " + path, e);
     }
   }
 
-  private List<ShipRegistryEntity> readRegistry(final Id registryId) {
-    try (var in = getRegistryInputStream(registryId, shipRegistryDirectory);
+  private List<ShipRegistryEntity> readRegistry(final FilePath filePath) {
+    try (var in = getRegistryInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read ship registry: '{}'", registryId);
+      log.debug("Read ship registry: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read ship registry: '{}'", registryId);
+      log.warn("Unable to read ship registry: '{}'", filePath);
       return Collections.emptyList();
     }
   }
 
-  private InputStream getRegistryInputStream(final Id id, final String baseDirectory) {
-    return resourceProvider.getDefaultResourceInputStream(id, baseDirectory);
+  private InputStream getRegistryInputStream(final FilePath filePath) {
+    return resourceProvider.getDefaultResourceInputStream(filePath);
   }
 
-  private InputStream getShipInputStream(final Id id, final String baseDirectory) {
-    return dataProvider.getDataInputStream(id, baseDirectory);
+  private InputStream getShipInputStream(final FilePath filePath) {
+    return dataProvider.getDataInputStream(filePath);
   }
 
   private ShipEntity toEntity(final BufferedReader bufferedReader, final ShipType shipType) {
@@ -122,5 +123,29 @@ public class ShipRepositoryImpl implements ShipRepository {
         .create();
 
     return gson.toJson(ship);
+  }
+
+  private FilePath getFilePath(final Id shipId) {
+    return FilePath.builder()
+        .baseDirectory(shipDirectory)
+        .side(shipId.getSide())
+        .fileName(shipId.getName())
+        .build();
+  }
+
+  private FilePath getFilePath(final ShipEntity ship) {
+    return FilePath.builder()
+        .baseDirectory(shipDirectory)
+        .side(ship.getId().getSide())
+        .fileName(ship.getId().getName())
+        .build();
+  }
+
+  private FilePath getFilePath(final Side side, final ShipType shipType) {
+    return FilePath.builder()
+        .baseDirectory(shipRegistryDirectory)
+        .side(side)
+        .fileName(shipType.toLower())
+        .build();
   }
 }

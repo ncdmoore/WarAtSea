@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 
 @Slf4j
 @Singleton
@@ -29,43 +28,44 @@ public class SquadronRepositoryImpl implements SquadronRepository {
 
   @Override
   public SquadronEntity get(final Id squadronId) {
-    return readSquadron(squadronId);
+    var filePath = getFilePath(squadronId);
+
+    return readSquadron(filePath);
   }
 
   @Override
   public void save(final String gameId, final SquadronEntity squadron) {
-    var id = squadron.getId();
-    var directory = dataProvider.getSavedEntityDirectory(gameId, id, squadronDirectory);
-    writeSquadron(directory, squadron);
+    var filePath = getFilePath(squadron);
+
+    writeSquadron(gameId, filePath, squadron);
   }
 
-  private SquadronEntity readSquadron(final Id squadronId) {
-    try (var in = getInputStream(squadronId);
+  private SquadronEntity readSquadron(final FilePath filePath) {
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read squadron: '{}'", squadronId);
+      log.debug("Read squadron: '{}'", filePath);
       return toEntity(br);
     } catch (IOException e) {
-      throw new GameException("unable to create squadron: " + squadronId);
+      throw new GameException("unable to create squadron: " + filePath, e);
     }
   }
 
-  private void writeSquadron(final Path directory, final SquadronEntity squadron) {
-    var id = squadron.getId();
-    var filePath = dataProvider.getSaveFile(directory, id);
+  private void writeSquadron(final String gameId, final FilePath filePath, final SquadronEntity squadron) {
+    var path = dataProvider.getSaveFile(gameId, filePath);
 
-    try (var out = new FileOutputStream(filePath.toString());
+    try (var out = new FileOutputStream(path.toString());
     var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save squadron: '{}' to path: '{}'", id, directory);
+      log.debug("Save squadron to path: '{}'", path);
       var json = toJson(squadron);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save " + id + " to path: " + filePath, e);
+      throw new GameException("Unable to save squadron to path: " + path, e);
     }
   }
 
-  private InputStream getInputStream(final Id squadronId) {
-    return dataProvider.getDataInputStream(squadronId, squadronDirectory);
+  private InputStream getInputStream(final FilePath filePath) {
+    return dataProvider.getDataInputStream(filePath);
   }
 
   private SquadronEntity toEntity(final BufferedReader bufferedReader) {
@@ -83,5 +83,21 @@ public class SquadronRepositoryImpl implements SquadronRepository {
         .create();
 
     return gson.toJson(squadron);
+  }
+
+  private FilePath getFilePath(final Id squadronId) {
+    return FilePath.builder()
+        .baseDirectory(squadronDirectory)
+        .side(squadronId.getSide())
+        .fileName(squadronId.getName())
+        .build();
+  }
+
+  private FilePath getFilePath(final SquadronEntity squadron) {
+    return FilePath.builder()
+        .baseDirectory(squadronDirectory)
+        .side(squadron.getId().getSide())
+        .fileName(squadron.getId().getName())
+        .build();
   }
 }

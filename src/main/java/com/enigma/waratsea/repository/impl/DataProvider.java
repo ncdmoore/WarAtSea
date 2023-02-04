@@ -54,6 +54,28 @@ public class DataProvider implements BootStrapped {
     }
   }
 
+  public InputStream getDataInputStream(final FilePath filePath) {
+    var gameDataDirectory = gamePaths.getGameDataDirectory();
+    var scenarioDirectory = gamePaths.getScenarioPath();
+    var path = filePath.getPath();
+
+    var genericFullPath = Paths.get(gameDataDirectory, path).toString();
+    var scenarioSpecificFullPath = Optional.ofNullable(scenarioDirectory)
+        .map(sd -> Paths.get(gameDataDirectory, sd, path).toString())
+        .orElse(genericFullPath);
+
+    var inputStream = isNewGame
+        ? getResourceInputStream(scenarioSpecificFullPath, genericFullPath)
+        : getFileInputStream(genericFullPath);
+
+    if (inputStream == null) {
+      log.warn("Cannot find scenario specific path: '{}'", scenarioSpecificFullPath);
+      log.warn("Cannot find generic path: '{}'", genericFullPath);
+    }
+
+    return inputStream;
+  }
+
   public InputStream getDataInputStream(final Id id, final String baseDirectory) {
     var gameDataDirectory = gamePaths.getGameDataDirectory();
     var scenarioDirectory = gamePaths.getScenarioPath();
@@ -86,9 +108,10 @@ public class DataProvider implements BootStrapped {
     return path;
   }
 
-  public Path getSavedEntityDirectory(final String gameId, final Id id, final String baseDirectory) {
+  public Path getSavedEntityDirectory(final String gameId, final FilePath filePath) {
     var savedGameDirectory = gamePaths.getSavedGameDirectory();
-    var side = id.getSide().toLower();
+    var side = filePath.getSide().toLower();
+    var baseDirectory = filePath.getBaseDirectory();
     var path = Paths.get(savedGameDirectory, gameId, baseDirectory, side);
 
     createDirectoryIfNeeded(path);
@@ -100,9 +123,10 @@ public class DataProvider implements BootStrapped {
     return new FileInputStream(path.toString());
   }
 
-  public Path getSaveFile(final Path directory, final Id id) {
-    var name = id.getName();
-    return Paths.get(directory.toString(), name + JSON_EXTENSION);
+  public Path getSaveFile(final String gameId, final FilePath filePath) {
+    var path = getSavedEntityDirectory(gameId, filePath);
+    var name = filePath.getFileName();
+    return Paths.get(path.toString(), name + JSON_EXTENSION);
   }
 
   private void registerEvents(final Events events) {

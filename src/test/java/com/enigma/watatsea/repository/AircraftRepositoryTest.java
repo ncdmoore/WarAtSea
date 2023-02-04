@@ -31,6 +31,7 @@ import static com.enigma.waratsea.model.squadron.SquadronStrength.FULL;
 import static com.enigma.waratsea.model.squadron.SquadronStrength.HALF;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -54,7 +55,7 @@ class AircraftRepositoryTest {
 
     var inputStream = getInputStream();
 
-    given(resourceProvider.getResourceInputStream(aircraftId, AIRCRAFT_DIRECTORY)).willReturn(inputStream);
+    given(resourceProvider.getResourceInputStream(any())).willReturn(inputStream);
 
     var result = aircraftRepository.get(aircraftId);
 

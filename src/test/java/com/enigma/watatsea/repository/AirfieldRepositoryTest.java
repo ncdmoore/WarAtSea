@@ -19,6 +19,7 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.aircraft.LandingType.SEAPLANE;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -43,7 +44,7 @@ class AirfieldRepositoryTest {
 
     var inputStream = getInputStream();
 
-    given(dataProvider.getDataInputStream(airfieldId, AIRFIELD_DIRECTORY)).willReturn(inputStream);
+    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
 
     var result = airfieldRepository.get(airfieldId);
 

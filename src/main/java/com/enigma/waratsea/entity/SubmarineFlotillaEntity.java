@@ -1,4 +1,4 @@
-package com.enigma.waratsea.entity.flotilla;
+package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.Id;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class SubmarineFlotillaEntity extends FlotillaEntity {
+public class SubmarineFlotillaEntity {
   private String id;
   private Set<Id> subs;
 }

@@ -17,6 +17,7 @@ import java.nio.file.Paths;
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,11 +36,9 @@ class SquadronDeploymentRepositoryTest {
 
   @Test
   void shouldGetSquadronDeployment() {
-    var deploymentId = new Id(ALLIES, gamePaths.getSquadronDeploymentFileName());
-
     var inputStream = getInputStream();
 
-    given(dataProvider.getDataInputStream(deploymentId, gamePaths.getSquadronDeploymentDirectory())).willReturn(inputStream);
+    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
 
     var result = squadronDeploymentRepository.get(ALLIES);
 

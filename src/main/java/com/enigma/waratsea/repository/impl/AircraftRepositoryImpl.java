@@ -30,23 +30,25 @@ public class AircraftRepositoryImpl implements AircraftRepository {
 
   @Override
   public AircraftEntity get(Id aircraftId) {
-    return readAircraft(aircraftId);
+    var filePath = getFilePath(aircraftId);
+
+    return readAircraft(filePath);
   }
 
-  private AircraftEntity readAircraft(final Id aircraftId) {
-    log.debug("Read aircraft: '{}'", aircraftId);
+  private AircraftEntity readAircraft(final FilePath filePath) {
+    log.debug("Read aircraft: '{}'", filePath);
 
-    try (var in = getInputStream(aircraftId);
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       return toEntity(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create aircraft: " + aircraftId);
+      throw new GameException("Unable to create aircraft: " + filePath);
     }
   }
 
-  private InputStream getInputStream(final Id aircraftId) {
-    return resourceProvider.getResourceInputStream(aircraftId, aircraftDirectory);
+  private InputStream getInputStream(final FilePath filePath) {
+    return resourceProvider.getResourceInputStream(filePath);
   }
 
   private AircraftEntity toEntity(final BufferedReader bufferedReader) {
@@ -57,5 +59,13 @@ public class AircraftRepositoryImpl implements AircraftRepository {
     log.debug("load airfield: '{}'", aircraft.getId());
 
     return aircraft;
+  }
+
+  private FilePath getFilePath(final Id airfieldId) {
+    return FilePath.builder()
+        .baseDirectory(aircraftDirectory)
+        .side(airfieldId.getSide())
+        .fileName(airfieldId.getName())
+        .build();
   }
 }

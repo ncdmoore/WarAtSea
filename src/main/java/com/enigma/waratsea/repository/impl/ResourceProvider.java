@@ -6,7 +6,6 @@ import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.event.SelectSavedGameEvent;
 import com.enigma.waratsea.event.SelectScenarioEvent;
 import com.enigma.waratsea.exception.ResourceException;
-import com.enigma.waratsea.model.Id;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -22,8 +21,6 @@ import java.nio.file.Paths;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-
-import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 
 @Slf4j
 @Singleton
@@ -48,16 +45,16 @@ public class ResourceProvider implements BootStrapped {
     }
   }
 
-  public InputStream getResourceInputStream(final Id id, final String baseDirectory) {
-    var path = getPath(id, baseDirectory);
+  public InputStream getResourceInputStream(final FilePath filePath) {
+    var path = filePath.getPath();
 
-    return getResourceInputStream(path.toString());
+    return getResourceInputStream(path);
   }
 
-  public InputStream getDefaultResourceInputStream(final Id id, final String baseDirectory) {
-    var path = getPath(id, baseDirectory);
+  public InputStream getDefaultResourceInputStream(final FilePath filePath) {
+    var path = filePath.getPath();
 
-    return getInputStream(path.toString());
+    return getInputStream(path);
   }
 
   public InputStream getDefaultResourceInputStream(final String resourcePath) {
@@ -129,11 +126,5 @@ public class ResourceProvider implements BootStrapped {
     return Optional.ofNullable(path.getParent())
         .map(p -> p.endsWith(parentName))
         .orElseThrow(() -> new ResourceException("Unable to get parent path of path: " + path));
-  }
-
-  private Path getPath(final Id id, final String baseDirectory) {
-    var sidePath = id.getSide().toLower();
-    var fileName = id.getName() + JSON_EXTENSION;
-    return Paths.get(baseDirectory, sidePath, fileName);
   }
 }

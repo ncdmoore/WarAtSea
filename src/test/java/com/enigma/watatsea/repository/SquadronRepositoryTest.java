@@ -23,6 +23,7 @@ import static com.enigma.waratsea.model.squadron.SquadronStrength.FULL;
 import static com.enigma.waratsea.model.squadron.SquadronStrength.HALF;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -48,7 +49,7 @@ class SquadronRepositoryTest {
 
     var inputStream = getInputStream(SQUADRON_NAME);
 
-    given(dataProvider.getDataInputStream(squadronId, SQUADRON_DIRECTORY)).willReturn(inputStream);
+    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
 
     var result = squadronRepository.get(squadronId);
 
@@ -67,7 +68,7 @@ class SquadronRepositoryTest {
 
     var inputStream = getInputStream(SQUADRON_WITH_DEFAULTS_NAME);
 
-    given(dataProvider.getDataInputStream(squadronId, SQUADRON_DIRECTORY)).willReturn(inputStream);
+    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
 
     var result = squadronRepository.get(squadronId);
 

@@ -15,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -38,43 +37,45 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
 
   @Override
   public List<TaskForceEntity> get(Side side) {
-    return readTaskForces(new Id(side, taskForceFileName));
+    var filePath = getFilePath(side);
+
+    return readTaskForces(filePath);
   }
 
   @Override
   public void save(final String gameId, final Side side, final Set<TaskForceEntity> taskForces) {
-    var id = new Id(side, taskForceFileName);
-    var directory = dataProvider.getSavedEntityDirectory(gameId, id, taskForceDirectory);
-    writeTaskForces(directory, id, taskForces);
+    var filePath = getFilePath(side);
+
+    writeTaskForces(gameId, filePath, taskForces);
   }
 
-  private List<TaskForceEntity> readTaskForces(final Id taskForceId) {
-    try (var in = getInputStream(taskForceId);
+  private List<TaskForceEntity> readTaskForces(final FilePath filePath) {
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read Task forces: '{}'", taskForceId);
+      log.debug("Read Task forces: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read task forces: '{}'", taskForceId);
+      log.warn("Unable to read task forces: '{}'", filePath);
       return Collections.emptyList();
     }
   }
 
-  private void writeTaskForces(final Path directory, final Id id, final Set<TaskForceEntity> taskForces) {
-    var filePath = dataProvider.getSaveFile(directory, id);
+  private void writeTaskForces(final String gameId, final FilePath filePath, final Set<TaskForceEntity> taskForces) {
+    var path = dataProvider.getSaveFile(gameId, filePath);
 
-    try (var out = new FileOutputStream(filePath.toString());
+    try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save task forces: '{}' to path: '{}'", id, directory);
+      log.debug("Save task forces to path: '{}'", path);
       var json = toJson(taskForces);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save " + id + " to path: " + filePath, e);
+      throw new GameException("Unable to save task forces to path: " + path, e);
     }
   }
 
-  private InputStream getInputStream(final Id taskForceId) {
-    return dataProvider.getDataInputStream(taskForceId, taskForceDirectory);
+  private InputStream getInputStream(final FilePath filePath) {
+    return dataProvider.getDataInputStream(filePath);
   }
 
   private List<TaskForceEntity> toEntities(final BufferedReader bufferedReader) {
@@ -98,5 +99,13 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
         .create();
 
     return gson.toJson(taskForces);
+  }
+
+  private FilePath getFilePath(final Side side) {
+    return FilePath.builder()
+        .baseDirectory(taskForceDirectory)
+        .side(side)
+        .fileName(taskForceFileName)
+        .build();
   }
 }

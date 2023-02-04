@@ -4,6 +4,7 @@
       "side": "ALLIES",
       "name": "Flotilla-1"
     },
+    "type": "SubmarineFlotillaEntity",
     "subs": [
       {
         "side": "ALLIES",

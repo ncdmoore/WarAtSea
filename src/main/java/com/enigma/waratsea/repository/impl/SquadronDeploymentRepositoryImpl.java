@@ -1,7 +1,6 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.squadron.SquadronDeploymentEntity;
-import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.SquadronDeploymentRepository;
 import com.google.gson.Gson;
@@ -35,23 +34,25 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
 
   @Override
   public List<SquadronDeploymentEntity> get(Side side) {
-    return readDeployment(new Id(side, squadronDeploymentFileName));
+    var filePath = getFilePath(side);
+
+    return readDeployment(filePath);
   }
 
-  private List<SquadronDeploymentEntity> readDeployment(final Id deploymentId) {
-    try (var in = getInputStream(deploymentId);
+  private List<SquadronDeploymentEntity> readDeployment(final FilePath filePath) {
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read squadron deployment: '{}'", deploymentId);
+      log.debug("Read squadron deployment: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read deployment: '{}'", deploymentId);
+      log.warn("Unable to read deployment: '{}'", filePath);
       return Collections.emptyList();
     }
   }
 
-  private InputStream getInputStream(final Id deploymentId) {
-    return dataProvider.getDataInputStream(deploymentId, squadronDeploymentDirectory);
+  private InputStream getInputStream(final FilePath filePath) {
+    return dataProvider.getDataInputStream(filePath);
   }
 
   private List<SquadronDeploymentEntity> toEntities(final BufferedReader bufferedReader) {
@@ -60,5 +61,13 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
 
     var gson = new Gson();
     return gson.fromJson(bufferedReader, collectionType);
+  }
+
+  private FilePath getFilePath(final Side side) {
+    return FilePath.builder()
+        .baseDirectory(squadronDeploymentDirectory)
+        .side(side)
+        .fileName(squadronDeploymentFileName)
+        .build();
   }
 }

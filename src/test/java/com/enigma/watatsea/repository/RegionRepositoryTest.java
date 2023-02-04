@@ -19,6 +19,7 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Nation.ITALIAN;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -46,9 +47,8 @@ class RegionRepositoryTest {
     var mapId = new Id(AXIS, MAP_NAME);
 
     var inputStream = getInputStream();
-    var regionBaseDirectory = gamePaths.getRegionPath();
 
-    given(resourceProvider.getResourceInputStream(mapId, regionBaseDirectory)).willReturn(inputStream);
+    given(resourceProvider.getResourceInputStream(any())).willReturn(inputStream);
 
     var result = regionRepository.get(mapId);
 

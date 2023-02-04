@@ -19,6 +19,7 @@ import static com.enigma.waratsea.model.port.PortSize.MAJOR;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -44,7 +45,7 @@ class PortRepositoryTest {
 
     var inputStream = getInputStream();
 
-    given(dataProvider.getDataInputStream(portId, PORT_DIRECTORY)).willReturn(inputStream);
+    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
 
     var result = portRepository.get(portId);
 

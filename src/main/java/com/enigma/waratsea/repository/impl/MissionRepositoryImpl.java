@@ -3,7 +3,6 @@ package com.enigma.waratsea.repository.impl;
 import com.enigma.waratsea.entity.gson.RuntimeTypeAdapterFactory;
 import com.enigma.waratsea.entity.mission.*;
 import com.enigma.waratsea.exception.GameException;
-import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.MissionRepository;
 import com.google.gson.GsonBuilder;
@@ -14,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -38,43 +36,45 @@ public class MissionRepositoryImpl implements MissionRepository {
 
   @Override
   public List<MissionEntity> get(Side side) {
-    return readMissions(new Id(side, missionFileName));
+    var filePath = getFilePath(side);
+
+    return readMissions(filePath);
   }
 
   @Override
   public void save(String gameId, Side side, Set<MissionEntity> missions) {
-    var id = new Id(side, missionFileName);
-    var directory = dataProvider.getSavedEntityDirectory(gameId, id, missionDirectory);
-    writeMissions(directory, id, missions);
+    var filePath = getFilePath(side);
+
+    writeMissions(gameId, filePath, missions);
   }
 
-  private List<MissionEntity> readMissions(final Id missionId) {
-    try (var in = getInputStream(missionId);
+  private List<MissionEntity> readMissions(final FilePath filePath) {
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read missions: '{}'", missionId);
+      log.debug("Read missions: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read missions: '{}'", missionId);
+      log.warn("Unable to read missions: '{}'", filePath);
       return Collections.emptyList();
     }
   }
 
-  private void writeMissions(final Path directory, final Id id, final Set<MissionEntity> missions) {
-    var filePath = dataProvider.getSaveFile(directory, id);
+  private void writeMissions(final String gameId, final FilePath filePath, final Set<MissionEntity> missions) {
+    var path = dataProvider.getSaveFile(gameId, filePath);
 
-    try (var out = new FileOutputStream(filePath.toString());
+    try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save missions: '{}' to path: '{}'", id, directory);
+      log.debug("Save missions to path: '{}'", path);
       var json = toJson(missions);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save " + id + " to path: " + filePath, e);
+      throw new GameException("Unable to save missions to path: " + path, e);
     }
   }
 
-  private InputStream getInputStream(final Id missionId) {
-    return dataProvider.getDataInputStream(missionId, missionDirectory);
+  private InputStream getInputStream(final FilePath filePath) {
+    return dataProvider.getDataInputStream(filePath);
   }
 
   private List<MissionEntity> toEntities(final BufferedReader bufferedReader) {
@@ -105,5 +105,13 @@ public class MissionRepositoryImpl implements MissionRepository {
         .create();
 
     return gson.toJson(missions);
+  }
+
+  private FilePath getFilePath(final Side side) {
+    return FilePath.builder()
+        .baseDirectory(missionDirectory)
+        .side(side)
+        .fileName(missionFileName)
+        .build();
   }
 }

@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 
 @Slf4j
 @Singleton
@@ -30,43 +29,44 @@ public class PortRepositoryImpl implements PortRepository {
 
   @Override
   public PortEntity get(Id portId) {
-    return readPort(portId);
+    var filePath = getFilePath(portId);
+
+    return readPort(filePath);
   }
 
   @Override
   public void save(String gameId, PortEntity port) {
-    var id = port.getId();
-    var directory = dataProvider.getSavedEntityDirectory(gameId, id, portDirectory);
-    writePort(directory, port);
+    var filePath = getFilePath(port);
+
+    writePort(gameId, filePath, port);
   }
 
-  private PortEntity readPort(final Id portId) {
-    try (var in = getInputStream(portId);
+  private PortEntity readPort(final FilePath filePath) {
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read port: '{}'", portId);
+      log.debug("Read port: '{}'", filePath);
       return toEntity(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create port: " + portId);
+      throw new GameException("Unable to create port: " + filePath);
     }
   }
 
-  private void writePort(final Path directory, final PortEntity port) {
-    var id = port.getId();
-    var filePath = dataProvider.getSaveFile(directory, id);
+  private void writePort(final String gameId, final FilePath filePath, final PortEntity port) {
+    var path = dataProvider.getSaveFile(gameId, filePath);
 
-    try (var out = new FileOutputStream(filePath.toString());
+    try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save port: '{}' to path: '{}'", id, directory);
+      log.debug("Save port to path: '{}'", path);
       var json = toJson(port);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save " + id + " to path: " + filePath, e);
+      throw new GameException("Unable to save port to path: " + path, e);
     }
   }
 
-  private InputStream getInputStream(final Id portId) {
-    return dataProvider.getDataInputStream(portId, portDirectory);
+  private InputStream getInputStream(final FilePath filePath) {
+    return dataProvider.getDataInputStream(filePath);
   }
 
   private PortEntity toEntity(final BufferedReader bufferedReader) {
@@ -84,5 +84,21 @@ public class PortRepositoryImpl implements PortRepository {
         .create();
 
     return gson.toJson(port);
+  }
+
+  private FilePath getFilePath(final Id portId) {
+    return FilePath.builder()
+        .baseDirectory(portDirectory)
+        .side(portId.getSide())
+        .fileName(portId.getName())
+        .build();
+  }
+
+  private FilePath getFilePath(final PortEntity port) {
+    return FilePath.builder()
+        .baseDirectory(portDirectory)
+        .side(port.getId().getSide())
+        .fileName(port.getId().getName())
+        .build();
   }
 }

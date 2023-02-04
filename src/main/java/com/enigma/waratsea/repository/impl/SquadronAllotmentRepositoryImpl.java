@@ -30,26 +30,26 @@ public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentReposit
 
   @Override
   public Optional<AllotmentEntity> get(final String timeFrame, final Id allotmentId) {
-    return readAllotment(timeFrame, allotmentId);
+    var filePath = getFilePath(timeFrame, allotmentId);
+
+    return readAllotment(filePath);
   }
 
-  private Optional<AllotmentEntity> readAllotment(final String timeFrame, final Id allotmentId) {
-    log.info("Read squadron allotment: '{}' '{}'", timeFrame, allotmentId);
+  private Optional<AllotmentEntity> readAllotment(final FilePath filePath) {
+    log.info("Read squadron allotment: '{}'", filePath);
 
-    try (var in = getInputStream(timeFrame, allotmentId);
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       return Optional.of(toEntities(br));
     } catch (Exception e) {
-      log.warn("Unable to squadron load allotment: " + allotmentId);
+      log.warn("Unable to squadron load allotment: " + filePath);
       return Optional.empty();
     }
   }
 
-  private InputStream getInputStream(final String timeFrame, final Id AllotmentId) {
-    var baseDirectory = Paths.get(squadronAllotmentDirectory, timeFrame).toString();
-
-    return resourceProvider.getResourceInputStream(AllotmentId, baseDirectory);
+  private InputStream getInputStream(final FilePath filePath) {
+    return resourceProvider.getResourceInputStream(filePath);
   }
 
   private AllotmentEntity toEntities(final BufferedReader bufferedReader) {
@@ -57,4 +57,13 @@ public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentReposit
     return gson.fromJson(bufferedReader, AllotmentEntity.class);
   }
 
+  private FilePath getFilePath(final String timeFrame, final Id allotmentId) {
+    var baseDirectory = Paths.get(squadronAllotmentDirectory, timeFrame).toString();
+
+    return FilePath.builder()
+        .baseDirectory(baseDirectory)
+        .side(allotmentId.getSide())
+        .fileName(allotmentId.getName())
+        .build();
+  }
 }

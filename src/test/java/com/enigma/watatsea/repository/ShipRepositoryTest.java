@@ -1,10 +1,7 @@
 package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.repository.impl.DataProvider;
-import com.enigma.waratsea.repository.impl.GamePaths;
-import com.enigma.waratsea.repository.impl.ResourceProvider;
-import com.enigma.waratsea.repository.impl.ShipRepositoryImpl;
+import com.enigma.waratsea.repository.impl.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,6 +18,7 @@ import static com.enigma.waratsea.model.Nation.AUSTRALIAN;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.ship.ShipType.DESTROYER;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -47,11 +45,15 @@ class ShipRepositoryTest {
 
   @Test
   void shouldGetShipRegistry() {
-    var registryId = new Id(ALLIES, DESTROYER.toLower());
+    var filePath = FilePath.builder()
+        .side(ALLIES)
+        .fileName(DESTROYER.toLower())
+        .build();
 
     var inputStream = getRegistryInputStream();
 
-    given(resourceProvider.getDefaultResourceInputStream(registryId, REGISTRY_DIRECTORY)).willReturn(inputStream);
+
+    given(resourceProvider.getDefaultResourceInputStream(filePath)).willReturn(inputStream);
 
     var result = shipRepository.getRegistry(ALLIES, DESTROYER);
 
@@ -73,7 +75,7 @@ class ShipRepositoryTest {
 
     var inputStream = getShipInputStream();
 
-    given(dataProvider.getDataInputStream(shipId, SHIP_DIRECTORY)).willReturn(inputStream);
+    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
 
     var result = shipRepository.get(shipId, DESTROYER);
 

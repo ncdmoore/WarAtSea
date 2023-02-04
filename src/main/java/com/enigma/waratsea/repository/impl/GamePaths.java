@@ -35,8 +35,9 @@ public class GamePaths {
   private final String taskForceDirectory = Paths.get("taskForces", "data").toString();
   private final String missionDirectory = "missions";
   private final String missionFileName = "missions";
-  private final String userHomeDirectory = System.getProperty(USER_HOME);
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
+
+  private final String userHomeDirectory = System.getProperty(USER_HOME);
 
   private String gameDataDirectory;
   private String savedGameDirectory;

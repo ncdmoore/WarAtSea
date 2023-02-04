@@ -34,23 +34,24 @@ public class RegionRepositoryImpl implements RegionRepository {
 
   @Override
   public List<RegionEntity> get(final Id mapId) {
-    return createRegions(mapId);
+    var filePath = getFilePath(mapId);
+
+    return createRegions(filePath);
   }
 
-  private List<RegionEntity> createRegions(final Id mapId) {
-    try (var in = getInputStream(mapId);
+  private List<RegionEntity> createRegions(final FilePath filePath) {
+    try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read regions for map: '{}'", mapId);
+      log.debug("Read regions for map: '{}'", filePath);
       return readRegions(br);
     } catch (IOException e) {
-      throw new GameException("Unable to create regions: " + mapId);
+      throw new GameException("Unable to create regions: " + filePath);
     }
   }
 
-  private InputStream getInputStream(final Id mapId) {
-    var regionBasePath = gamePaths.getRegionPath();
-    return resourceProvider.getResourceInputStream(mapId, regionBasePath);
+  private InputStream getInputStream(final FilePath filePath) {
+    return resourceProvider.getResourceInputStream(filePath);
   }
 
   private List<RegionEntity> readRegions(final BufferedReader bufferedReader) {
@@ -66,5 +67,15 @@ public class RegionRepositoryImpl implements RegionRepository {
 
   private String getRegionId(final RegionEntity regionEntity) {
     return regionEntity.getName() + ":" + regionEntity.getNation();
+  }
+
+  private FilePath getFilePath(final Id mapId) {
+    var regionDirectory = gamePaths.getRegionPath();
+
+    return FilePath.builder()
+        .baseDirectory(regionDirectory)
+        .side(mapId.getSide())
+        .fileName(mapId.getName())
+        .build();
   }
 }

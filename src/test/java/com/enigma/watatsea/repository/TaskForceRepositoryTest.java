@@ -20,6 +20,7 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
@@ -51,11 +52,9 @@ class TaskForceRepositoryTest {
 
   @Test
   void shouldGetTaskForce() {
-    var taskForceId = new Id(AXIS, gamePaths.getTaskForceFileName());
-
     var inputStream = getInputStream();
 
-    given(dataProvider.getDataInputStream(taskForceId, gamePaths.getTaskForceDirectory())).willReturn(inputStream);
+    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
 
     var result = taskForceRepository.get(AXIS);
 
