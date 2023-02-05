@@ -1,12 +1,11 @@
-package com.enigma.waratsea.model.taskForce;
+package com.enigma.waratsea.model;
 
-import com.enigma.waratsea.model.Type;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum TaskForceState implements Type {
+public enum AssetState implements Type {
   ACTIVE("Active"),
   RESERVE("Reserve");
 

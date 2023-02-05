@@ -23,6 +23,9 @@ public interface Player {
   Set<TaskForce> getTaskForces();
   void setTaskForces(Set<TaskForce> taskForces);
 
+  Set<SubmarineFlotilla> getSubmarineFlotillas();
+  void setSubmarineFlotillas(Set<SubmarineFlotilla> flotillas);
+
   Set<Squadron> getSquadrons();
   Set<Squadron> getSquadrons(Nation nation);
   void setSquadrons(Set<Squadron> squadrons);

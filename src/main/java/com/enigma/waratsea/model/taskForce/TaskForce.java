@@ -2,6 +2,7 @@ package com.enigma.waratsea.model.taskForce;
 
 import com.enigma.waratsea.model.Airbase;
 import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.AssetState;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.mission.Mission;
 import com.enigma.waratsea.model.ship.Ship;
@@ -15,7 +16,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.enigma.waratsea.model.taskForce.TaskForceState.RESERVE;
+import static com.enigma.waratsea.model.AssetState.RESERVE;
 
 @Builder
 @Getter
@@ -23,7 +24,7 @@ public class TaskForce implements Comparable<TaskForce> {
   private Id id;
   private String title;
   private String location;
-  private TaskForceState state;
+  private AssetState state;
 
   @Builder.Default
   private Set<Mission> missions = new HashSet<>();

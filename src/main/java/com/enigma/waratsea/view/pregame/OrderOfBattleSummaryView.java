@@ -1,6 +1,7 @@
 package com.enigma.waratsea.view.pregame;
 
 import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.SubmarineFlotilla;
 import com.enigma.waratsea.model.Type;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.mission.Mission;
@@ -116,26 +117,32 @@ public class OrderOfBattleSummaryView implements View {
     var tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-    var anchorImage = resourceProvider.getAppImageView(props.getString("anchor.small.image"));
-    var aircraftImage = resourceProvider.getAppImageView(props.getString("aircraft.small.image"));
+    var taskForceIcon = resourceProvider.getAppImageView(props.getString("anchor.small.image"));
+    var subIcon = resourceProvider.getAppImageView(props.getString("anchor.small.image"));
+    var aircraftIcon = resourceProvider.getAppImageView(props.getString("aircraft.small.image"));
 
-    var navalTab = new Tab("Naval Order of Battle");
+    var taskForceTab = new Tab("Task Forces");
 
-    navalTab.setContent(buildNavalTab());
-    navalTab.setGraphic(anchorImage);
+    taskForceTab.setContent(buildTaskForcesTab());
+    taskForceTab.setGraphic(taskForceIcon);
 
-    var airTab = new Tab("Air Force Order of Battle");
+    var subFlotillaTab = new Tab("Submarine Flotillas");
+
+    subFlotillaTab.setContent(buildSubFlotillaTab());
+    subFlotillaTab.setGraphic(subIcon);
+
+    var airTab = new Tab("Land Based Squadrons");
 
     airTab.setContent(buildAirForceTab());
-    airTab.setGraphic(aircraftImage);
+    airTab.setGraphic(aircraftIcon);
 
-    tabPane.getTabs().addAll(navalTab, airTab);
+    tabPane.getTabs().addAll(taskForceTab, subFlotillaTab, airTab);
     tabPane.setMinWidth(650);
 
     return tabPane;
   }
 
-  private Node buildNavalTab() {
+  private Node buildTaskForcesTab() {
     ListView<TaskForce> taskForces = new ListView<>();
 
     var taskForceList = buildTaskForceList(taskForces);
@@ -145,6 +152,20 @@ public class OrderOfBattleSummaryView implements View {
     taskForceHBox.setId("task-force-pane-hbox");
 
     taskForces.getSelectionModel().selectFirst();
+
+    return taskForceHBox;
+  }
+
+  private Node buildSubFlotillaTab() {
+    ListView<SubmarineFlotilla> submarineFlotillas = new ListView<>();
+
+    var subFlotillaList = buildSubFlotillaList(submarineFlotillas);
+    var subFlotillaDetails = buildSubFlotillaDetails(submarineFlotillas);
+
+    var taskForceHBox = new HBox(subFlotillaList, subFlotillaDetails);
+    taskForceHBox.setId("task-force-pane-hbox");
+
+    submarineFlotillas.getSelectionModel().selectFirst();
 
     return taskForceHBox;
   }
@@ -178,6 +199,21 @@ public class OrderOfBattleSummaryView implements View {
     return listPane;
   }
 
+  private Node buildSubFlotillaList(final ListView<SubmarineFlotilla> submarineFlotillas) {
+    var submarineFlotillaImage = new ImageView();
+
+    submarineFlotillaImage.imageProperty().bind(orderOfBattleSummaryViewModel.getSubmarineFlotillaImage());
+    submarineFlotillas.itemsProperty().bind(orderOfBattleSummaryViewModel.getSubmarineFlotillas());
+
+    submarineFlotillas.setMaxWidth(props.getInt("pregame.scenario.list.width"));
+    submarineFlotillas.setMaxHeight(props.getInt("pregame.scenario.list.height"));
+
+    var listPane = new VBox(submarineFlotillaImage, submarineFlotillas);
+    listPane.setId("list-pane");
+
+    return listPane;
+  }
+
   private Node buildNationsList(final ListView<Nation> nations) {
     var airForceImage = new ImageView();
 
@@ -203,6 +239,15 @@ public class OrderOfBattleSummaryView implements View {
     return vBox;
   }
 
+  private Node buildSubFlotillaDetails(final ListView<SubmarineFlotilla> flotillas) {
+    var descriptionPane = buildSubFlotillaDescription(flotillas);
+
+    var vBox = new VBox(descriptionPane);
+    vBox.setId("details-main-vbox");
+
+    return vBox;
+  }
+
   private Node buildSquadronDetails(final ListView<Nation> nation) {
     var summariesPane = buildSquadronSummaries(nation);
 
@@ -213,6 +258,9 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private Node buildDescription(final ListView<TaskForce> taskForces) {
+    var nameLabel = new Text("Name:");
+    var nameValue = new Text();
+
     var stateLabel = new Text("State:");
     var stateValue = new Label();
 
@@ -222,21 +270,53 @@ public class OrderOfBattleSummaryView implements View {
     var selectedTaskForce = taskForces.getSelectionModel()
         .selectedItemProperty();
 
-    bindState(stateValue, selectedTaskForce);
-    bindStateColor(stateValue, selectedTaskForce);
-    bindMissions(missionsValue, selectedTaskForce);
+    bindTaskForceState(nameValue, selectedTaskForce);
+    bindTaskForceState(stateValue, selectedTaskForce);
+    bindTaskForceStateColor(stateValue, selectedTaskForce);
+    bindTaskForceMissions(missionsValue, selectedTaskForce);
 
     var gridPane = new GridPane();
-    gridPane.add(stateLabel, 0, 0);
-    gridPane.add(stateValue, 1, 0);
-    gridPane.add(missionsLabel, 0, 1);
-    gridPane.add(missionsValue, 1, 1);
+    gridPane.add(nameLabel, 0, 0);
+    gridPane.add(nameValue, 1, 0);
+    gridPane.add(stateLabel, 0, 1);
+    gridPane.add(stateValue, 1, 1);
+    gridPane.add(missionsLabel, 0, 2);
+    gridPane.add(missionsValue, 1, 2);
     GridPane.setValignment(missionsLabel, VPos.TOP);
     gridPane.setId("missions-grid");
 
     return gridPane;
   }
 
+  private Node buildSubFlotillaDescription(final ListView<SubmarineFlotilla> flotillas) {
+    var nameLabel = new Text("Name:");
+    var nameValue = new Text();
+
+    var stateLabel = new Text("State:");
+    var stateValue = new Label();
+
+    var subsLabel = new Text("Submarines:");
+    var subsValue = new Text();
+
+    var selectedFlotilla = flotillas.getSelectionModel()
+        .selectedItemProperty();
+
+    bindFlotillaName(nameValue, selectedFlotilla);
+    bindSubFlotillaState(stateValue, selectedFlotilla);
+    bindSubFlotillaStateColor(stateValue, selectedFlotilla);
+    bindSubFlotillaCount(subsValue, selectedFlotilla);
+
+    var gridPane = new GridPane();
+    gridPane.add(nameLabel, 0, 0);
+    gridPane.add(nameValue, 1, 0);
+    gridPane.add(stateLabel, 0, 1);
+    gridPane.add(stateValue, 1, 1);
+    gridPane.add(subsLabel, 0, 2);
+    gridPane.add(subsValue, 1, 2);
+    gridPane.setId("missions-grid");
+
+    return gridPane;
+  }
 
   private Node buildSummaries(final ListView<TaskForce> taskForces) {
     var shipSummaryGrid = new GridPane();
@@ -368,14 +448,21 @@ public class OrderOfBattleSummaryView implements View {
     }
   }
 
-  private void bindState(final Label stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+  private void bindTaskForceState(final Text nameValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+    nameValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedTaskForce.getValue())
+            .map(TaskForce::getTitle)
+            .orElse(""), selectedTaskForce));
+  }
+
+  private void bindTaskForceState(final Label stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
     stateValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedTaskForce.getValue())
             .map(taskForce -> taskForce.getState().getValue())
             .orElse(""), selectedTaskForce));
   }
 
-  private void bindStateColor(final Label stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+  private void bindTaskForceStateColor(final Label stateValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
     stateValue.textFillProperty().bind(Bindings.createObjectBinding(() ->
         Optional.ofNullable(selectedTaskForce.getValue())
             .filter(TaskForce::isReserved)
@@ -383,7 +470,7 @@ public class OrderOfBattleSummaryView implements View {
             .orElse(Color.GREEN), selectedTaskForce));
   }
 
-  private void bindMissions(final Text missionsValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+  private void bindTaskForceMissions(final Text missionsValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
     missionsValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedTaskForce.getValue())
             .map(taskForce -> taskForce.getMissions()
@@ -391,5 +478,33 @@ public class OrderOfBattleSummaryView implements View {
                 .map(Mission::getDescription)
                 .collect(Collectors.joining("\n")))
             .orElse(""), selectedTaskForce));
+  }
+
+  private void bindFlotillaName(final Text nameValue, final ReadOnlyObjectProperty<SubmarineFlotilla> selectedFlotilla) {
+    nameValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .map(flotilla -> flotilla.getId().getName())
+            .orElse(""), selectedFlotilla));
+  }
+
+  private void bindSubFlotillaState(final Label stateValue, final ReadOnlyObjectProperty<SubmarineFlotilla> selectedFlotilla) {
+    stateValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .map(submarineFlotilla -> submarineFlotilla.getState().getValue())
+            .orElse(""), selectedFlotilla));
+  }
+
+  private void bindSubFlotillaStateColor(final Label stateValue, final ReadOnlyObjectProperty<SubmarineFlotilla> selectedFlotilla) {
+    stateValue.textFillProperty().bind(Bindings.createObjectBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .filter(SubmarineFlotilla::isReserved)
+            .map(taskForce -> Color.RED)
+            .orElse(Color.GREEN), selectedFlotilla));
+  }
+  private void bindSubFlotillaCount(final Text subsValue, final ReadOnlyObjectProperty<SubmarineFlotilla> selectedFlotilla) {
+    subsValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .map(flotilla -> flotilla.getSubs().size() + "")
+            .orElse(""), selectedFlotilla));
   }
 }

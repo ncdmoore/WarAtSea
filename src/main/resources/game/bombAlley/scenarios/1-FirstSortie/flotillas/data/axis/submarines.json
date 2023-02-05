@@ -4,6 +4,7 @@
       "side": "AXIS",
       "name": "Flotilla-1"
     },
+    "state": "ACTIVE",
     "subs": [
       {
         "side": "AXIS",
@@ -24,6 +25,7 @@
       "side": "AXIS",
       "name": "Flotilla-2"
     },
+    "state": "ACTIVE",
     "subs": [
       {
         "side": "AXIS",

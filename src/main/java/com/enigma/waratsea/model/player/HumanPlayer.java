@@ -29,6 +29,9 @@ public class HumanPlayer implements Player {
   private Set<TaskForce> taskForces;
 
   @Setter
+  private Set<SubmarineFlotilla> submarineFlotillas;
+
+  @Setter
   private Set<Squadron> squadrons;
 
   private final Map<Id, Airbase> airbases = new HashMap<>();

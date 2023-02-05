@@ -5,6 +5,7 @@ import com.enigma.waratsea.event.SaveGameEvent;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.SubmarineFlotilla;
 import com.enigma.waratsea.model.player.Player;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
@@ -40,10 +41,16 @@ public class OrderOfBattleSummaryViewModel {
   private final ObjectProperty<Image> taskForceImage = new SimpleObjectProperty<>();
 
   @Getter
+  private final ObjectProperty<Image> submarineFlotillaImage = new SimpleObjectProperty<>();
+
+  @Getter
   private final ObjectProperty<Image> airForceImage = new SimpleObjectProperty<>();
 
   @Getter
   private final ListProperty<TaskForce> taskForces = new SimpleListProperty<>(FXCollections.emptyObservableList());
+
+  @Getter
+  private final ListProperty<SubmarineFlotilla> submarineFlotillas = new SimpleListProperty<>(FXCollections.emptyObservableList());
 
   @Getter
   private final ListProperty<Nation> nations = new SimpleListProperty<>(FXCollections.emptyObservableList());
@@ -70,8 +77,10 @@ public class OrderOfBattleSummaryViewModel {
     setPlayer(game);
     setFlag(game);
     setTaskForceImage(game);
+    setSubmarineFlotillaImage(game);
     setAirForceImage(game);
     setTaskForces(game);
+    setSubmarineFlotillas(game);
     setNations(game);
   }
 
@@ -116,6 +125,15 @@ public class OrderOfBattleSummaryViewModel {
     taskForceImage.setValue(image);
   }
 
+  private void setSubmarineFlotillaImage(final Game game) {
+    var side = game.getHumanSide();
+    var scenario = game.getScenario().getName();
+    var propertyName = side.toLower() + ".submarine.flotilla.image";
+    var imageName = props.getString(propertyName);
+    var image = resourceProvider.getImage(scenario, imageName);
+    submarineFlotillaImage.setValue(image);
+  }
+
   private void setAirForceImage(final Game game) {
     var side = game.getHumanSide();
     var scenario = game.getScenario().getName();
@@ -134,6 +152,17 @@ public class OrderOfBattleSummaryViewModel {
         .toList();
 
     taskForces.setValue(FXCollections.observableList(playerTaskForces));
+  }
+
+  private void setSubmarineFlotillas(final Game game) {
+    var player = game.getHuman();
+
+    var playerSubFlotillas = player.getSubmarineFlotillas()
+        .stream()
+        .sorted()
+        .toList();
+
+    submarineFlotillas.setValue(FXCollections.observableList(playerSubFlotillas));
   }
 
   private void setNations(final Game game) {

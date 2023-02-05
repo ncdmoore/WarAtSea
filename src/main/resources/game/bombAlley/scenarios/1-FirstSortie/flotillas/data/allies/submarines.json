@@ -4,6 +4,7 @@
       "side": "ALLIES",
       "name": "Flotilla-1"
     },
+    "state": "ACTIVE",
     "subs": [
       {
         "side": "ALLIES",
@@ -20,6 +21,7 @@
       "side": "ALLIES",
       "name": "Flotilla-2"
     },
+    "state": "ACTIVE",
     "subs": [
       {
         "side": "ALLIES",
