@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "A6M2-M6"
+  },
+  "aircraft": {
+    "side": "AXIS",
+    "name": "A6M2"
+  },
+  "strength": "HALF"
+}

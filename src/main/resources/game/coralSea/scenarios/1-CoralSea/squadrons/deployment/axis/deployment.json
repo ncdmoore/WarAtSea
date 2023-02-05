@@ -78,5 +78,113 @@
         "name": "A6M2-M3"
       }
     ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Shoho"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "A5M4-M1"
+      },
+      {
+        "side": "AXIS",
+        "name": "A6M2-M4"
+      },
+      {
+        "side": "AXIS",
+        "name": "B5N2-M1"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Shokaku"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "A6M2-M5"
+      },
+      {
+        "side": "AXIS",
+        "name": "A6M2-M6"
+      },
+      {
+        "side": "AXIS",
+        "name": "B5N2-M2"
+      },
+      {
+        "side": "AXIS",
+        "name": "B5N2-M3"
+      },
+      {
+        "side": "AXIS",
+        "name": "D3A1-M1"
+      },
+      {
+        "side": "AXIS",
+        "name": "D3A1-M2"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Zuikaku"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "A6M2-M7"
+      },
+      {
+        "side": "AXIS",
+        "name": "A6M2-M8"
+      },
+      {
+        "side": "AXIS",
+        "name": "B5N2-M4"
+      },
+      {
+        "side": "AXIS",
+        "name": "B5N2-M5"
+      },
+      {
+        "side": "AXIS",
+        "name": "D3A1-M3"
+      },
+      {
+        "side": "AXIS",
+        "name": "D3A1-M4"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "AXIS",
+        "name": "Kamikawa_Maru"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "AXIS",
+        "name": "E13A-M1"
+      },
+      {
+        "side": "AXIS",
+        "name": "F1M-M1"
+      }
+    ]
   }
 ]
