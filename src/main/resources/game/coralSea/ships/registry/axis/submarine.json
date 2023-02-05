@@ -1,0 +1,156 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_1"
+    },
+    "title": "I-1",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_2"
+    },
+    "title": "I-2",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_3"
+    },
+    "title": "I-3",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_4"
+    },
+    "title": "I-4",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_5"
+    },
+    "title": "I-5",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_6"
+    },
+    "title": "I-6",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_7"
+    },
+    "title": "I-7",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_8"
+    },
+    "title": "I-8",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_9"
+    },
+    "title": "I-9",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "I_10"
+    },
+    "title": "I-10",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "I_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ro_1"
+    },
+    "title": "Ro-1",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ro_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ro_2"
+    },
+    "title": "Ro-2",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ro_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ro_3"
+    },
+    "title": "Ro-3",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ro_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Ro_4"
+    },
+    "title": "Ro-4",
+    "shipClassId": {
+      "side": "AXIS",
+      "name": "Ro_Class_Sub"
+    }
+  }
+]

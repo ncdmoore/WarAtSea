@@ -1,0 +1,26 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "Ro_Class_Sub"
+  },
+  "type": "SUBMARINE",
+  "shipClass": "Ro Type",
+  "nation": "JAPANESE",
+  "torpedo": {
+    "maxHealth": 1,
+    "health": 1,
+    "maxNumber": 3,
+    "number": 3
+  },
+  "movement": {
+    "maxEven": 1,
+    "even": 1,
+    "maxOdd": 0,
+    "odd": 0
+  },
+  "fuel": {
+    "capacity": 432,
+    "level": 432
+  },
+  "victoryPoints": 4
+}

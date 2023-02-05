@@ -1,0 +1,134 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_1"
+    },
+    "title": "Gato-1",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_2"
+    },
+    "title": "Gato-2",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_3"
+    },
+    "title": "Gato-3",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_4"
+    },
+    "title": "Gato-4",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_5"
+    },
+    "title": "Gato-5",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_6"
+    },
+    "title": "Gato-6",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_7"
+    },
+    "title": "Gato-7",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Gato_8"
+    },
+    "title": "Gato-8",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Gato"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S_1"
+    },
+    "title": "S-1",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S_2"
+    },
+    "title": "S-2",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S_3"
+    },
+    "title": "S-3",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Class_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S_4"
+    },
+    "title": "S-4",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Class_Sub"
+    }
+  }
+]
