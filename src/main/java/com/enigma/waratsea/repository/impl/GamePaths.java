@@ -33,6 +33,7 @@ public class GamePaths {
   private final String shipRegistryDirectory = Paths.get("ships", "registry").toString();
   private final String shipDirectory = Paths.get("ships", "data").toString();
   private final String taskForceDirectory = Paths.get("taskForces", "data").toString();
+  private final String flotillaDirectory = Paths.get("flotillas", "data").toString();
   private final String missionDirectory = "missions";
   private final String missionFileName = "missions";
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
@@ -53,6 +54,7 @@ public class GamePaths {
 
   private final String squadronDeploymentFileName = "deployment";
   private final String taskForceFileName = "taskForces";
+  private final String submarineFileName = "submarines";
 
   public void setGamePath(final GameName gameName) {
     gamePath = Paths.get(gameDirectory, gameName.getValue()).toString();

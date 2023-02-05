@@ -9,6 +9,6 @@ import java.util.Set;
 @Getter
 @Setter
 public class SubmarineFlotillaEntity {
-  private String id;
+  private Id id;
   private Set<Id> subs;
 }

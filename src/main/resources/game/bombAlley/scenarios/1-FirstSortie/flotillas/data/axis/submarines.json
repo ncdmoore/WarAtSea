@@ -4,7 +4,6 @@
       "side": "AXIS",
       "name": "Flotilla-1"
     },
-    "type": "SubmarineFlotillaEntity",
     "subs": [
       {
         "side": "AXIS",
