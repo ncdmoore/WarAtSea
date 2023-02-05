@@ -5,7 +5,7 @@
   },
   "type": "DESTROYER",
   "shipClass": "L Class",
-  "nationality": "BRITISH",
+  "nation": "BRITISH",
   "tertiary": {
     "armour": "NONE",
     "maxHealth": 2,

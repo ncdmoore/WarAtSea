@@ -5,7 +5,7 @@
   },
   "title": "SBD-3",
   "type": "DIVE_BOMBER",
-  "nationality": "UNITED_STATES",
+  "nation": "UNITED_STATES",
   "service": "NAVY",
   "designation": "VB-",
   "altitude": "MEDIUM",

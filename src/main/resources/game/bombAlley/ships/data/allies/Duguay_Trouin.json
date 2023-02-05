@@ -5,7 +5,7 @@
   },
   "type": "LIGHT_CRUISER",
   "shipClass": "Duguay Trouin",
-  "nationality": "FRENCH",
+  "nation": "FRENCH",
   "secondary":
   {
     "armour": "NONE",

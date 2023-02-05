@@ -232,8 +232,8 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private Node buildTaskForceDetails(final ListView<TaskForce> taskForces) {
-    var descriptionPane = buildDescription(taskForces);
-    var summariesPane = buildSummaries(taskForces);
+    var descriptionPane = buildTaskForceDescription(taskForces);
+    var summariesPane = buildTaskForceSummaries(taskForces);
 
     var vBox = new VBox(descriptionPane, summariesPane);
     vBox.setId("details-main-vbox");
@@ -260,7 +260,7 @@ public class OrderOfBattleSummaryView implements View {
     return vBox;
   }
 
-  private Node buildDescription(final ListView<TaskForce> taskForces) {
+  private Node buildTaskForceDescription(final ListView<TaskForce> taskForces) {
     var nameLabel = new Text("Name:");
     var nameValue = new Text();
 
@@ -338,7 +338,7 @@ public class OrderOfBattleSummaryView implements View {
     return gridPane;
   }
 
-  private Node buildSummaries(final ListView<TaskForce> taskForces) {
+  private Node buildTaskForceSummaries(final ListView<TaskForce> taskForces) {
     var shipSummaryGrid = new GridPane();
     var squadronSummaryGrid = new GridPane();
 

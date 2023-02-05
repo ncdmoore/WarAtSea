@@ -5,7 +5,7 @@
   },
   "type": "LIGHT_CRUISER",
   "shipClass": "Southampton",
-  "nationality": "BRITISH",
+  "nation": "BRITISH",
   "secondary":
   {
     "armour": "NONE",
