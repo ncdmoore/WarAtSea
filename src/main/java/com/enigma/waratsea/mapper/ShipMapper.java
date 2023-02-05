@@ -1,14 +1,8 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.ship.AircraftCarrierEntity;
-import com.enigma.waratsea.entity.ship.CapitalShipEntity;
-import com.enigma.waratsea.entity.ship.ShipEntity;
-import com.enigma.waratsea.entity.ship.SurfaceShipEntity;
+import com.enigma.waratsea.entity.ship.*;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.ship.AircraftCarrier;
-import com.enigma.waratsea.model.ship.CapitalShip;
-import com.enigma.waratsea.model.ship.Ship;
-import com.enigma.waratsea.model.ship.SurfaceShip;
+import com.enigma.waratsea.model.ship.*;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.service.SquadronService;
 import com.google.inject.Inject;
@@ -32,6 +26,7 @@ public abstract class ShipMapper {
   @SubclassMapping(source = AircraftCarrierEntity.class, target = AircraftCarrier.class)
   @SubclassMapping(source = CapitalShipEntity.class, target = CapitalShip.class)
   @SubclassMapping(source = SurfaceShipEntity.class, target = SurfaceShip.class)
+  @SubclassMapping(source = SubmarineEntity.class, target = Submarine.class)
   abstract public Ship toModel(final ShipEntity shipEntity);
 
   abstract public AircraftCarrier toAircraftCarrier(final AircraftCarrierEntity aircraftCarrierEntity);
@@ -41,6 +36,7 @@ public abstract class ShipMapper {
   @SubclassMapping(source = AircraftCarrier.class, target = AircraftCarrierEntity.class)
   @SubclassMapping(source = CapitalShip.class, target = CapitalShipEntity.class)
   @SubclassMapping(source = SurfaceShip.class, target = SurfaceShipEntity.class)
+  @SubclassMapping(source = Submarine.class, target = SubmarineEntity.class)
   abstract public ShipEntity toEntity(final Ship ship);
 
   abstract public AircraftCarrierEntity toAircraftCarrierEntity(final AircraftCarrier aircraftCarrier);
