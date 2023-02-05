@@ -1,0 +1,398 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF1"
+    },
+    "title": "Excess Convoy",
+    "location": "Gibraltar",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Bonaventure"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hasty"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hereward"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Jaguar"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL01"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL02"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL03"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL04"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF2"
+    },
+    "title": "Covering Force",
+    "location": "Gibraltar",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Malaya"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Renown"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Ark_Royal"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Sheffield"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Faulknor"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Firedrake"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Forester"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Foresight"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Fortune"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Fury"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF3"
+    },
+    "title": "Fast Convoy",
+    "location": "Athens",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Southampton"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Gloucester"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Ilex"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Janus"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF4"
+    },
+    "title": "Alexandria Force",
+    "location": "Alexandria",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Warspite"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Valiant"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Illustrious"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Dainty"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Gallant"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Greyhound"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Griffin"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Mohawk"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Nubian"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Jervis"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Juno"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF5"
+    },
+    "title": "Convoy MW.5",
+    "location": "Alexandria",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Calcutta"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Defender"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Diamond"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Abelia"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Acanthus"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Alisma"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Amaranthus"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Anchusa"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Anemone"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Arabis"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Arbutus"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Armeria"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Arrowhead"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Asphodel"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Aster"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL05"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL06"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF6"
+    },
+    "title": "Emergency Force",
+    "location": "Alexandria",
+    "state": "RESERVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Barham"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Eagle"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Vansittart"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Venomous"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Verity"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Volunteer"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wanderer"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Whitehall"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF7"
+    },
+    "title": "Suda Bay Force",
+    "location": "Suda_Bay",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "York"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Ajax"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Orion"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Perth"
+      },
+      {
+        "side": "ALLIES",
+        "name": "AO03"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wren"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Veteran"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Whitshed"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wild_Swan"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Witherington"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wivern"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Wolverine"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Worcester"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Vanessa"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Vanoc"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Vanquisher"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Velox"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF8"
+    },
+    "title": "Malta Force",
+    "location": "Malta",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Sydney"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Stuart"
+      }
+    ]
+  }
+]

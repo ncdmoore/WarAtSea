@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Fulmar-M3"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Fulmar"
+  },
+  "strength": "HALF"
+}

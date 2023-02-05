@@ -155,7 +155,7 @@
       },
       {
         "side": "AXIS",
-        "name": "Trieste"
+        "name": "Trieste_A"
       },
       {
         "side": "AXIS",
@@ -233,7 +233,7 @@
       },
       {
         "side": "AXIS",
-        "name": "Trieste"
+        "name": "Trieste_P"
       }
     ]
   },

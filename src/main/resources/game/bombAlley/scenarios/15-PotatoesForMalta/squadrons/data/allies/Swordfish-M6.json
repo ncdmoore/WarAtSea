@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Swordfish-M6"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "Swordfish"
+  },
+  "strength": "HALF"
+}

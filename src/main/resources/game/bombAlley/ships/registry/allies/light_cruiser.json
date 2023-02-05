@@ -467,5 +467,41 @@
       "side": "ALLIES",
       "name": "Duguay_Trouin"
     }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Perth"
+    },
+    "title": "CL01 Perth",
+    "nation": "AUSTRALIAN",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Leander"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Hobart"
+    },
+    "title": "CL02 Hobart",
+    "nation": "AUSTRALIAN",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Leander"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Sydney"
+    },
+    "title": "CL03 Sydney",
+    "nation": "AUSTRALIAN",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Leander"
+    }
   }
 ]

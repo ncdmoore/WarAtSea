@@ -1,0 +1,80 @@
+[
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Ark_Royal"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Fulmar-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Fulmar-M2"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Illustrious"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M4"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M5"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M6"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Fulmar-M3"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Eagle"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M7"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Swordfish-M8"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SeaGladiator-M1"
+      }
+    ]
+  }
+]

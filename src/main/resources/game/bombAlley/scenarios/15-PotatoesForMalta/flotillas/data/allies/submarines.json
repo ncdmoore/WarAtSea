@@ -1,0 +1,40 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Flotilla-1"
+    },
+    "state": "ACTIVE",
+    "subs": [
+      {
+        "side": "ALLIES",
+        "name": "T1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "T2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "T3"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Flotilla-2"
+    },
+    "state": "ACTIVE",
+    "subs": [
+      {
+        "side": "ALLIES",
+        "name": "T4"
+      },
+      {
+        "side": "ALLIES",
+        "name": "T5"
+      }
+    ]
+  }
+]

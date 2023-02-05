@@ -1,0 +1,11 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "SeaGladiator-M1"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "SeaGladiator"
+  },
+  "strength": "HALF"
+}

@@ -1,0 +1,196 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "TF1"
+    },
+    "title": "Naples Force",
+    "location": "Naples",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Giulio_Cesare"
+      },
+      {
+        "side": "AXIS",
+        "name": "Vittorio_Veneto"
+      },
+      {
+        "side": "AXIS",
+        "name": "Trento"
+      },
+      {
+        "side": "AXIS",
+        "name": "Trieste"
+      },
+      {
+        "side": "AXIS",
+        "name": "Fiume"
+      },
+      {
+        "side": "AXIS",
+        "name": "Gorizia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Bolzano"
+      },
+      {
+        "side": "AXIS",
+        "name": "Montecuccoli"
+      },
+      {
+        "side": "AXIS",
+        "name": "Duca_Aosta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Eugenio_di_Savoia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Da_Recco"
+      },
+      {
+        "side": "AXIS",
+        "name": "Pessagno"
+      },
+      {
+        "side": "AXIS",
+        "name": "Pigafetta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Freccia"
+      },
+      {
+        "side": "AXIS",
+        "name": "Dardo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Saetta"
+      },
+      {
+        "side": "AXIS",
+        "name": "Oriani"
+      },
+      {
+        "side": "AXIS",
+        "name": "Gioberti"
+      },
+      {
+        "side": "AXIS",
+        "name": "Carducci"
+      },
+      {
+        "side": "AXIS",
+        "name": "Alfieri"
+      },
+      {
+        "side": "AXIS",
+        "name": "Granatiere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Corazziere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Bersagliere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Carabiniere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Ascari"
+      },
+      {
+        "side": "AXIS",
+        "name": "Fuciliere"
+      },
+      {
+        "side": "AXIS",
+        "name": "Alpino"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "TF2"
+    },
+    "title": "Pantellaria Force",
+    "location": "Pantellaria",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "AXIS",
+        "name": "Da_Noli"
+      },
+      {
+        "side": "AXIS",
+        "name": "Da_Malocello"
+      },
+      {
+        "side": "AXIS",
+        "name": "Tarigo"
+      },
+      {
+        "side": "AXIS",
+        "name": "Vivaldi"
+      },
+      {
+        "side": "AXIS",
+        "name": "Airone"
+      },
+      {
+        "side": "AXIS",
+        "name": "Alcione"
+      },
+      {
+        "side": "AXIS",
+        "name": "Aldebaran"
+      },
+      {
+        "side": "AXIS",
+        "name": "Altair"
+      },
+      {
+        "side": "AXIS",
+        "name": "Andromeda"
+      },
+      {
+        "side": "AXIS",
+        "name": "Antares"
+      },
+      {
+        "side": "AXIS",
+        "name": "Aretusa"
+      },
+      {
+        "side": "AXIS",
+        "name": "Ariel"
+      },
+      {
+        "side": "AXIS",
+        "name": "Astore"
+      },
+      {
+        "side": "AXIS",
+        "name": "Calipso"
+      },
+      {
+        "side": "AXIS",
+        "name": "Calliope"
+      },
+      {
+        "side": "AXIS",
+        "name": "Canopo"
+      }
+    ]
+  }
+]
