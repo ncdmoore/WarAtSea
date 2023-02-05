@@ -85,7 +85,9 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private Node buildMain() {
-    var side = orderOfBattleSummaryViewModel.getSide().getValue().toLower();
+    var side = orderOfBattleSummaryViewModel.getSide()
+        .getValue()
+        .toLower();
 
     var topHorizontalLine = new Separator();
 
