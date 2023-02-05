@@ -251,9 +251,10 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private Node buildSquadronDetails(final ListView<Nation> nation) {
+    var descriptionPane = buildSquadronDescription(nation);
     var summariesPane = buildSquadronSummaries(nation);
 
-    var vBox = new VBox(summariesPane);
+    var vBox = new VBox(descriptionPane, summariesPane);
     vBox.setId("details-main-vbox");
 
     return vBox;
@@ -285,6 +286,23 @@ public class OrderOfBattleSummaryView implements View {
     gridPane.add(missionsLabel, 0, 2);
     gridPane.add(missionsValue, 1, 2);
     GridPane.setValignment(missionsLabel, VPos.TOP);
+    gridPane.setId("missions-grid");
+
+    return gridPane;
+  }
+
+  private Node buildSquadronDescription(final ListView<Nation> nations) {
+    var nationLabel = new Text("Nation:");
+    var nationValue = new Text();
+
+    var nation = nations.getSelectionModel()
+        .selectedItemProperty();
+
+    bindNation(nationValue, nation);
+
+    var gridPane = new GridPane();
+    gridPane.add(nationLabel, 0, 0);
+    gridPane.add(nationValue, 1, 0);
     gridPane.setId("missions-grid");
 
     return gridPane;
@@ -503,10 +521,18 @@ public class OrderOfBattleSummaryView implements View {
             .map(taskForce -> Color.RED)
             .orElse(Color.GREEN), selectedFlotilla));
   }
+
   private void bindSubFlotillaCount(final Text subsValue, final ReadOnlyObjectProperty<SubmarineFlotilla> selectedFlotilla) {
     subsValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedFlotilla.getValue())
             .map(flotilla -> flotilla.getSubs().size() + "")
             .orElse(""), selectedFlotilla));
+  }
+
+  private void bindNation(final Text nationValue, final ReadOnlyObjectProperty<Nation> selectedNation) {
+    nationValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedNation.getValue())
+            .map(Nation::toString)
+            .orElse(""), selectedNation));
   }
 }
