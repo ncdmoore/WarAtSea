@@ -1,0 +1,169 @@
+{
+  "nation": "BRITISH",
+  "bombers": {
+    "dice": 4,
+    "factor": 8,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Blenheim"
+            },
+            "number": 8
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Wellington"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Baltimore"
+            },
+            "number": 4
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Maryland"
+            },
+            "number": 4
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Beaufort"
+            },
+            "number": 2
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Fortress"
+            },
+            "number": 1
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Mitchell"
+            },
+            "number": 1
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 4,
+    "factor": 10,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Hurricane_2"
+            },
+            "number": 10
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Tomahawk"
+            },
+            "number": 8
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Spitfire"
+            },
+            "number": 4
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Kittyhawk"
+            },
+            "number": 6
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Beaufighter"
+            },
+            "number": 2
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Spitfire_V"
+            },
+            "number": 2
+          }
+        ]
+      }
+    ]
+  },
+  "recon": {
+    "dice": 2,
+    "factor": 3,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Sunderland"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Catalina"
+            },
+            "number": 3
+          }
+        ]
+      }
+    ]
+  }
+}
+

@@ -85,4 +85,26 @@ class GroupAllotmentTest {
 
     result.forEach(aircraftId -> assertTrue(initialAllotment.contains(aircraftId)));
   }
+
+  @Test
+  void shouldGetZeroAircraftIds() {
+    var selectSize = 2;
+    var numberNeeded = 4;
+
+    var groupAllotment = GroupAllotment.builder()
+        .aircraft(aircraft)
+        .priority(1)
+        .selectSize(selectSize)
+        .build();
+
+    groupAllotment.selectAircraft(numberNeeded);
+    groupAllotment.selectAircraft(numberNeeded);
+    var remaining = groupAllotment.getAircraft().size();
+
+    var result = groupAllotment.selectAircraft(numberNeeded);
+
+    assertNotNull(result);
+    assertEquals(remaining, result.size());
+    assertEquals(0, result.size());
+  }
 }

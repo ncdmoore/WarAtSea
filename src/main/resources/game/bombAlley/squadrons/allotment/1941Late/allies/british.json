@@ -1,0 +1,121 @@
+{
+  "nation": "BRITISH",
+  "bombers": {
+    "dice": 3,
+    "factor": 3,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Blenheim"
+            },
+            "number": 8
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Wellington"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Maryland"
+            },
+            "number": 4
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Baltimore"
+            },
+            "number": 4
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 4,
+    "factor": 6,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Hurricane_2"
+            },
+            "number": 10
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Kittyhawk"
+            },
+            "number": 6
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Beaufighter"
+            },
+            "number": 2
+          }
+        ]
+      }
+    ]
+  },
+  "recon": {
+    "dice": 1,
+    "factor": 2,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Sunderland"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Hudson"
+            },
+            "number": 2
+          }
+        ]
+      }
+    ]
+  }
+}
+

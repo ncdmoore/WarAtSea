@@ -1,0 +1,108 @@
+{
+  "nation": "GERMAN",
+  "bombers": {
+    "dice": 3,
+    "factor": 3,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "JU88A"
+            },
+            "number": 10
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "JU87D"
+            },
+            "number": 6
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "HE111H"
+            },
+            "number": 6
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "JU87R"
+            },
+            "number": 6
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 2,
+    "factor": 4,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "BF109E"
+            },
+            "number": 8
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "BF110D"
+            },
+            "number": 5
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "BF109G"
+            },
+            "number": 8
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "FW190"
+            },
+            "number": 4
+          }
+        ]
+      }
+    ]
+  },
+  "recon": {
+    "dice": 0,
+    "factor": 0,
+    "groups": [
+    ]
+  }
+}
+
