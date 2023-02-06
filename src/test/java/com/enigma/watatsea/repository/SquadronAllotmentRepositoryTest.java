@@ -36,7 +36,6 @@ public class SquadronAllotmentRepositoryTest {
   private static final String ALLOTMENT_FILE_NAME = "allotment";
   private static final String TIME_FRAME = "1940";
 
-
   @Test
   void shouldGetSquadronAllotment() {
     var allotmentId = new Id(ALLIES, gamePaths.getSquadronAllotmentDirectory());

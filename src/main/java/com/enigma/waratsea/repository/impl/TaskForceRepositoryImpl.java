@@ -53,7 +53,7 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
     try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read Task forces: '{}'", filePath);
+      log.debug("Read task forces: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
       log.warn("Unable to read task forces: '{}'", filePath);

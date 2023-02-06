@@ -38,6 +38,8 @@ public class GamePaths {
   private final String missionFileName = "missions";
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
 
+  private final String squadronAllotmentModDirectory = Paths.get("options, allotment").toString();
+
   private final String userHomeDirectory = System.getProperty(USER_HOME);
 
   private String gameDataDirectory;

@@ -1,8 +1,8 @@
 package com.enigma.waratsea.model.taskForce;
 
 import com.enigma.waratsea.model.Airbase;
-import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.AssetState;
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.mission.Mission;
 import com.enigma.waratsea.model.ship.Ship;
@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
 
 import static com.enigma.waratsea.model.AssetState.RESERVE;
 
-@Builder
 @Getter
+@Builder
 public class TaskForce implements Comparable<TaskForce> {
   private Id id;
   private String title;

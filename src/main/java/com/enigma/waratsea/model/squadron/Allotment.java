@@ -1,8 +1,9 @@
 package com.enigma.waratsea.model.squadron;
 
-import com.enigma.waratsea.model.die.Die;
+import com.enigma.waratsea.dto.AllotmentModificationDto;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.die.Die;
 import lombok.Builder;
 import lombok.Getter;
 
@@ -21,5 +22,14 @@ public class Allotment {
     return Stream.of(bombers, fighters, recon)
         .flatMap(squadronType -> squadronType.get(die).stream())
         .toList();
+  }
+
+  public void adjust(final AllotmentModificationDto dto) {
+    var allotmentType = dto.getType();
+    switch (allotmentType) {
+      case BOMBER -> bombers.adjust(dto);
+      case FIGHTER -> fighters.adjust(dto);
+      case RECONNAISSANCE -> recon.adjust(dto);
+    }
   }
 }

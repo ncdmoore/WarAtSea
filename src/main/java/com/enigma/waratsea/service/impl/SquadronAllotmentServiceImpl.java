@@ -1,5 +1,6 @@
 package com.enigma.waratsea.service.impl;
 
+import com.enigma.waratsea.dto.AllotmentModificationDto;
 import com.enigma.waratsea.entity.squadron.SquadronEntity;
 import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.AllotmentMapper;
@@ -57,10 +58,20 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
     registerEvents(events);
   }
 
+  @Override
   public Optional<Allotment> get(final Scenario scenario, final Id allotmentId) {
     var allotment = allotments.computeIfAbsent(allotmentId, id -> getFromRepository(scenario, id));
 
     return Optional.ofNullable(allotment);
+  }
+
+  @Override
+  public void update(final AllotmentModificationDto dto) {
+    var scenario = dto.getScenario();
+    var allotmentId = dto.getAllotmentId();
+
+    get(scenario, allotmentId)
+        .ifPresent(allotment -> allotment.adjust(dto));
   }
 
   private void registerEvents(final Events events) {

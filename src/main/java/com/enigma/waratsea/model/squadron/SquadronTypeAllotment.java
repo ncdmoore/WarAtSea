@@ -1,5 +1,6 @@
 package com.enigma.waratsea.model.squadron;
 
+import com.enigma.waratsea.dto.AllotmentModificationDto;
 import com.enigma.waratsea.model.die.Die;
 import com.enigma.waratsea.model.Id;
 import lombok.Builder;
@@ -22,6 +23,11 @@ public class SquadronTypeAllotment {
     var numberToSelect = calculateNumberToSelect(die);
 
     return selectAircraft(numberToSelect);
+  }
+
+  public void adjust(final AllotmentModificationDto dto) {
+    dice+= dto.getDice();
+    factor+= dto.getFactor();
   }
 
   private int calculateNumberToSelect(final Die die) {
