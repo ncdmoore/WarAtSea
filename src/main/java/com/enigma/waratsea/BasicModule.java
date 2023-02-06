@@ -73,6 +73,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(AircraftService.class);
     bootStrappedBinder.addBinding().to(SquadronService.class);
     bootStrappedBinder.addBinding().to(SquadronAllotmentService.class);
+    bootStrappedBinder.addBinding().to(SquadronAllotmentModService.class);
     bootStrappedBinder.addBinding().to(SquadronDeploymentService.class);
     bootStrappedBinder.addBinding().to(ShipService.class);
     bootStrappedBinder.addBinding().to(TaskForceService.class);
@@ -151,6 +152,7 @@ public class BasicModule extends AbstractModule {
     bind(AircraftService.class).to(AircraftServiceImpl.class);
     bind(SquadronService.class).to(SquadronServiceImpl.class);
     bind(SquadronAllotmentService.class).to(SquadronAllotmentServiceImpl.class);
+    bind(SquadronAllotmentModService.class).to(SquadronAllotmentModServiceImpl.class);
     bind(SquadronDeploymentService.class).to(SquadronDeploymentServiceImpl.class);
     bind(ShipService.class).to(ShipServiceImpl.class);
     bind(TaskForceService.class).to(TaskForceServiceImpl.class);
