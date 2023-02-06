@@ -26,7 +26,6 @@ public class Scenario implements Comparable<Scenario> {
   private String timeFrame;
   private SquadronDeploymentType squadron;
   private boolean minefieldForHumanSide;
-  private boolean flotillasForHumanSide;
 
   @Override
   public String toString() {

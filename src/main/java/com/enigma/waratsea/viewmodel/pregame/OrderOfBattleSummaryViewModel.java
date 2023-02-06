@@ -170,6 +170,7 @@ public class OrderOfBattleSummaryViewModel {
 
     var playerNations = player.getNations()
         .stream()
+        .sorted()
         .toList();
 
     nations.setValue(FXCollections.observableList(playerNations));

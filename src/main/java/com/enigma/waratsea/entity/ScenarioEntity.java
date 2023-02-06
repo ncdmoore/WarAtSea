@@ -32,5 +32,4 @@ public class ScenarioEntity {
   @Builder.Default
   private SquadronDeploymentType squadron = VARIABLE;
   private boolean minefieldForHumanSide;
-  private boolean flotillasForHumanSide;
 }
