@@ -72,33 +72,43 @@ public class ScenarioSquadronOptionsView implements View {
     var instructionLabel = new Label("Select Squadron Options:");
     instructionLabel.getStyleClass().add("instruction");
 
-    var allNationsVBoxPane = new VBox();
-    allNationsVBoxPane.setId("all-nations-vbox-pane");
+    var tabPane = new TabPane();
+    tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
+    tabPane.setMinWidth(650);
 
-    // HBox hack to center nation options.
-    var allNationsHBoxPane = new HBox(allNationsVBoxPane);
-    allNationsHBoxPane.setId("all-nations-hbox-pane");
+    var hBox = new HBox(tabPane);
+    hBox.setId("all-nations-hbox-pane");
 
     scenarioSquadronOptionsViewModel.getOptions()
         .entrySet()
         .stream()
-        .map(this::buildNationPane)
-        .forEach(nationOption -> allNationsVBoxPane.getChildren().add(nationOption));
+        .map(this::buildNationTab)
+        .forEach(nationTab -> tabPane.getTabs().add(nationTab));
 
-    var mainPane = new VBox(horizontalLine, instructionLabel, allNationsHBoxPane);
+    var mainPane = new VBox(horizontalLine, instructionLabel, hBox);
     mainPane.setId("main-pane");
 
     return mainPane;
   }
 
-  private Node buildNationPane (final Map.Entry<NationId, Set<AllotmentModification>> entry) {
+  private Tab buildNationTab(final Map.Entry<NationId, Set<AllotmentModification>> entry) {
+    var nationId = entry.getKey();
+    var nation = nationId.getNation();
+    var nationTab = new Tab(nation.toString());
+
     var imagePane = buildNationImage(entry);
     var optionsPane = buildNationOptions(entry);
 
     var hBox = new HBox(imagePane, optionsPane);
     hBox.setId("nation-hbox");
 
-    return hBox;
+    var roundelImageName = nation.toLower() + ".roundel.small.image";
+    var roundelImage = resourceProvider.getGameImageView(props.getString(roundelImageName));
+
+    nationTab.setContent(hBox);
+    nationTab.setGraphic(roundelImage);
+
+    return nationTab;
   }
 
   private Node buildNationImage(final Map.Entry<NationId, Set<AllotmentModification>> entry) {
