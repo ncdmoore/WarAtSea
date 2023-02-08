@@ -1,18 +1,25 @@
 package com.enigma.waratsea.entity;
 
+import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
 import com.enigma.waratsea.model.turn.TimeRange;
 import com.enigma.waratsea.model.weather.Weather;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.Set;
 
 import static com.enigma.waratsea.model.squadron.SquadronDeploymentType.VARIABLE;
 import static com.enigma.waratsea.model.turn.TimeRange.DAY_1;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ScenarioEntity {
   private Integer id;
   private String name;
@@ -31,5 +38,7 @@ public class ScenarioEntity {
 
   @Builder.Default
   private SquadronDeploymentType squadron = VARIABLE;
-  private boolean minefieldForHumanSide;
+
+  @Builder.Default
+  private Set<NationId> nationsWithAllotmentOptions = Collections.emptySet();
 }

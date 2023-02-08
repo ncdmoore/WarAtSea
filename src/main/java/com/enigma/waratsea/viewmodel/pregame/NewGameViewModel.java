@@ -51,7 +51,15 @@ public class NewGameViewModel {
   }
 
   public void continueOn(final Stage stage) {
-    events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(selectedScenario.get()));
+    var scenario = selectedScenario.get();
+    var side = getSelectedSideFromToggle(selectedSide.get());
+
+    events.getScenarioOptionsEvent().fire(new ScenarioHasOptionsEvent(scenario, side));
+
+    if (!scenario.hasOptions(side)) {
+      events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(scenario));
+    }
+
     events.getNavigateEvent().fire(buildForwardNav(stage));
   }
 
@@ -63,6 +71,7 @@ public class NewGameViewModel {
   private void setSelectedScenario(final Scenario scenario) {
     if (scenario != null) { // can be null as listview is un-staged?
       events.getSelectScenarioEvent().fire(new SelectScenarioEvent(scenario));
+      events.getLoadScenarioOptionsEvent().fire(new LoadScenarioOptionsEvent(scenario));
     }
   }
 

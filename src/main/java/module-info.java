@@ -33,6 +33,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.model.die;
   exports com.enigma.waratsea.model.map;
   exports com.enigma.waratsea.model.mission;
+  exports com.enigma.waratsea.model.option;
   exports com.enigma.waratsea.model.player;
   exports com.enigma.waratsea.model.port;
   exports com.enigma.waratsea.model.squadron;

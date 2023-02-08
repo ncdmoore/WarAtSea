@@ -53,6 +53,7 @@ public class RegionServiceImpl implements RegionService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
+    events.getClearEvent().register(this::handleClearEvent);
     events.getLoadMapEvent().register(this::handleLoadMapEvent);
   }
 
@@ -68,6 +69,11 @@ public class RegionServiceImpl implements RegionService {
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
     log.debug("RegionServiceImpl receives SelectedScenarioEvent - clears caches");
+    clearCaches();
+  }
+
+  private void handleClearEvent(final ClearEvent clearEvent) {
+    log.debug("RegionServiceImpl receives ClearEvent - clears caches");
     clearCaches();
   }
 

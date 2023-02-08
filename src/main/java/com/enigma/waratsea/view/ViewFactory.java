@@ -12,6 +12,9 @@ public interface ViewFactory {
     @Named("SavedGame")
     View buildSavedGame();
 
+    @Named("ScenarioSquadronOptions")
+    View buildScenarioSquadronOptions();
+
     @Named("OrderOfBattleSummary")
     View buildOrderOfBattleSummary();
 }

@@ -5,6 +5,7 @@ import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.orchestration.ConfigApplicationSaga;
 import com.enigma.waratsea.orchestration.ConfigNewGameSaga;
 import com.enigma.waratsea.orchestration.ConfigSavedGameSaga;
+import com.enigma.waratsea.orchestration.ConfigScenarioOptionsSaga;
 import com.enigma.waratsea.property.AppProps;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.property.ViewProps;
@@ -21,10 +22,7 @@ import com.enigma.waratsea.strategy.bombAlley.BombAlleyVisibilityStrategy;
 import com.enigma.waratsea.strategy.bombAlley.BombAlleyWeatherStrategy;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
-import com.enigma.waratsea.view.pregame.NewGameView;
-import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
-import com.enigma.waratsea.view.pregame.SavedGameView;
-import com.enigma.waratsea.view.pregame.StartView;
+import com.enigma.waratsea.view.pregame.*;
 import com.enigma.waratsea.viewmodel.ErrorHandler;
 import com.enigma.waratsea.viewmodel.NavigationHandler;
 import com.google.inject.AbstractModule;
@@ -60,6 +58,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(ConfigApplicationSaga.class);
     bootStrappedBinder.addBinding().to(ConfigNewGameSaga.class);
     bootStrappedBinder.addBinding().to(ConfigSavedGameSaga.class);
+    bootStrappedBinder.addBinding().to(ConfigScenarioOptionsSaga.class);
     bootStrappedBinder.addBinding().to(NavigationHandler.class);
     bootStrappedBinder.addBinding().to(ResourceProvider.class);
     bootStrappedBinder.addBinding().to(DataProvider.class);
@@ -91,6 +90,7 @@ public class BasicModule extends AbstractModule {
         .implement(View.class, Names.named("Start"), StartView.class)
         .implement(View.class, Names.named("NewGame"), NewGameView.class)
         .implement(View.class, Names.named("SavedGame"), SavedGameView.class)
+        .implement(View.class, Names.named("ScenarioSquadronOptions"), ScenarioSquadronOptionsView.class)
         .implement(View.class, Names.named("OrderOfBattleSummary"), OrderOfBattleSummaryView.class)
         .build(ViewFactory.class));
   }
@@ -118,6 +118,7 @@ public class BasicModule extends AbstractModule {
     bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
     bind(AirfieldMapper.class).toInstance(AirfieldMapper.INSTANCE);
     bind(AllotmentMapper.class).toInstance(AllotmentMapper.INSTANCE);
+    bind(AllotmentModificationMapper.class).toInstance(AllotmentModificationMapper.INSTANCE);
     bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
     bind(ShipRegistryMapper.class).toInstance(ShipRegistryMapper.INSTANCE);
     bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);

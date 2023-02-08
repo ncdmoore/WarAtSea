@@ -1,9 +1,6 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.SelectScenarioEvent;
-import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.event.StartSavedGameEvent;
+import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.AircraftMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.Aircraft;
@@ -40,6 +37,7 @@ public class AircraftServiceImpl implements AircraftService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
+    events.getClearEvent().register(this::handleClearEvent);
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
@@ -51,6 +49,10 @@ public class AircraftServiceImpl implements AircraftService {
   }
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    clearCache();
+  }
+
+  private void handleClearEvent(final ClearEvent clearEvent) {
     clearCache();
   }
 

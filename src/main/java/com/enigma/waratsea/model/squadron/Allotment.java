@@ -2,7 +2,7 @@ package com.enigma.waratsea.model.squadron;
 
 import com.enigma.waratsea.dto.AllotmentModificationDto;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.model.die.Die;
 import lombok.Builder;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 @Getter
 @Builder
 public class Allotment {
-  private Nation nation;
+  private NationId id;
   private SquadronTypeAllotment bombers;
   private SquadronTypeAllotment fighters;
   private SquadronTypeAllotment recon;

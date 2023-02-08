@@ -11,6 +11,11 @@
   "maxTurns": 96,
   "description": "Once again, the British launched a set of operations designed this time to move convoy traffic between Gibraltar, Malta, Egypt and Greece. Troops, ammunition, aircraft and seed potatoes formed the key elements. While the Italian fleet had not yet recovered from the Taranto raid, a new Axis element had entered the theater. This time, the British would have to dodge many squadrons of German bombers.",
   "map": "january1941",
-  "timeFrame": "1941Early"
-
+  "timeFrame": "1941Early",
+  "nationsWithAllotmentOptions": [
+    {
+      "side": "AXIS",
+      "nation": "GERMAN"
+    }
+  ]
 }

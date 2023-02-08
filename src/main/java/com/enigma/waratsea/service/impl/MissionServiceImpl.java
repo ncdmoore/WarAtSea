@@ -40,6 +40,7 @@ public class MissionServiceImpl implements MissionService {
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getLoadMissionsEvent().register(this::handleLoadMissionsEvent);
+    events.getClearEvent().register(this::handleClearEvent);
     events.getSaveGameEvent().register(this::save);
   }
 
@@ -52,6 +53,10 @@ public class MissionServiceImpl implements MissionService {
   }
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    clearCache();
+  }
+
+  private void handleClearEvent(final ClearEvent clearEvent) {
     clearCache();
   }
 

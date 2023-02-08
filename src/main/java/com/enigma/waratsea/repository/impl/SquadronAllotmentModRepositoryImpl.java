@@ -1,8 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.option.AllotmentModificationEntity;
-import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.option.OptionId;
+import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.repository.SquadronAllotmentModRepository;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -33,7 +32,7 @@ public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModR
   }
 
   @Override
-  public List<AllotmentModificationEntity> get(Id modificationId) {
+  public List<AllotmentModificationEntity> get(final NationId modificationId) {
     var filePath = getFilePath(modificationId);
 
     return readAllotmentModifications(filePath);
@@ -46,7 +45,7 @@ public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModR
       log.debug("Read allotment modification: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read allotment modification: '{}'", filePath);
+      log.warn("Unable to read allotment modification: '{}'", filePath, e);
       return Collections.emptyList();
     }
   }
@@ -64,17 +63,17 @@ public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModR
 
     log.debug("load allotment modifications: '{}',", allotmentModifications.stream()
         .map(AllotmentModificationEntity::getId)
-        .map(OptionId::toString)
+        .map(String::valueOf)
         .collect(Collectors.joining(",")));
 
     return allotmentModifications;
   }
 
-  private FilePath getFilePath(final Id modificationId) {
+  private FilePath getFilePath(final NationId modificationId) {
     return FilePath.builder()
         .baseDirectory(squadronAllotmentModDirectory)
         .side(modificationId.getSide())
-        .fileName(modificationId.getName())
+        .fileName(modificationId.getNation().toLower())
         .build();
   }
 }

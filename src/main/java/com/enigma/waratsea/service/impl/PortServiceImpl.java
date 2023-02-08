@@ -51,6 +51,7 @@ public class PortServiceImpl implements PortService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
+    events.getClearEvent().register(this::handleClearEvent);
     events.getSaveGameEvent().register(this::save);
   }
 
@@ -83,6 +84,11 @@ public class PortServiceImpl implements PortService {
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
     log.debug("PortServiceImpl handle SelectScenarioEvent - clear cache");
+    clearCaches();
+  }
+
+  private void handleClearEvent(final ClearEvent clearEvent) {
+    log.debug("PortServiceImpl handle ClearEvent - clear cache");
     clearCaches();
   }
 

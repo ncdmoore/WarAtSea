@@ -1,5 +1,8 @@
 {
-  "nation": "BRITISH",
+  "id": {
+    "side": "ALLIES",
+    "nation": "BRITISH"
+  },
   "bombers": {
     "dice": 1,
     "factor": 4,

@@ -54,6 +54,7 @@ public class AirfieldServiceImpl implements AirfieldService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
+    events.getClearEvent().register(this::handleClearEvent);
     events.getSaveGameEvent().register(this::save);
   }
 
@@ -86,6 +87,11 @@ public class AirfieldServiceImpl implements AirfieldService {
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
     log.debug("AirfieldServiceImpl handle SelectedScenarioEvent - clear cache");
+    clearCaches();
+  }
+
+  private void handleClearEvent(final ClearEvent clearEvent) {
+    log.debug("AirfieldServiceImpl handle ClearEvent - clear cache");
     clearCaches();
   }
 

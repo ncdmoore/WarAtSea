@@ -1,5 +1,8 @@
 {
-  "nation": "GERMAN",
+  "id": {
+    "side": "AXIS",
+    "nation": "GERMAN"
+  },
   "bombers": {
     "dice": 2,
     "factor": 4,

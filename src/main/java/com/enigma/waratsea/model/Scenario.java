@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
 import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -25,7 +26,16 @@ public class Scenario implements Comparable<Scenario> {
   private String map;
   private String timeFrame;
   private SquadronDeploymentType squadron;
-  private boolean minefieldForHumanSide;
+  private Set<NationId> nationsWithAllotmentOptions;
+
+  public boolean hasOptions(final Side side) {
+    var sideWithOptions = nationsWithAllotmentOptions.stream()
+        .findAny()
+        .map(NationId::getSide)
+        .orElse(null);
+
+    return side == sideWithOptions;
+  }
 
   @Override
   public String toString() {

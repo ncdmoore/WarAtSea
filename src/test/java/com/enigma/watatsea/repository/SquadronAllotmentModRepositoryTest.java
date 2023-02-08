@@ -1,8 +1,7 @@
 package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.entity.option.AllotmentModificationEntity;
-import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.option.OptionId;
+import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.model.squadron.AllotmentType;
 import com.enigma.waratsea.repository.impl.GamePaths;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
@@ -21,7 +20,6 @@ import java.util.List;
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 import static com.enigma.waratsea.model.Nation.GERMAN;
 import static com.enigma.waratsea.model.Side.AXIS;
-import static com.enigma.waratsea.model.option.OptionType.ALLOTMENT;
 import static com.enigma.waratsea.model.squadron.AllotmentType.BOMBER;
 import static com.enigma.waratsea.model.squadron.AllotmentType.FIGHTER;
 import static org.junit.jupiter.api.Assertions.*;
@@ -43,13 +41,13 @@ public class SquadronAllotmentModRepositoryTest {
   private static final String MODIFICATION_DIRECTORY = Paths.get("options", "allotment").toString();
   private static final String MODIFICATION_FILE_NAME = "allotmentModification";
 
-  private static final OptionId option1 = new OptionId(ALLOTMENT, "option-1");
-  private static final OptionId option2 = new OptionId(ALLOTMENT, "option-2");
-  private static final OptionId option3 = new OptionId(ALLOTMENT, "option-3");
+  private static final int option1 = 1;
+  private static final int option2 = 2;
+  private static final int option3 = 3;
 
-  private static final Id allotmentId = new Id(AXIS, GERMAN.name());
+  private static final NationId allotmentId = new NationId(AXIS, GERMAN);
 
-  private static final List<OptionId> modIds = List.of(
+  private static final List<Integer> modIds = List.of(
       option1,
       option2,
       option3
@@ -63,7 +61,7 @@ public class SquadronAllotmentModRepositoryTest {
 
   @Test
   void shouldGetAllotmentModifications() {
-    var modificationId = new Id(AXIS, GERMAN.toLower());
+    var modificationId = new NationId(AXIS, GERMAN);
 
     var inputStream = getInputStream();
 
@@ -84,9 +82,9 @@ public class SquadronAllotmentModRepositoryTest {
     verifyModifications(result);
   }
 
-  private void verifyModification(final List<AllotmentModificationEntity> mods, final OptionId optionId, final AllotmentType type) {
+  private void verifyModification(final List<AllotmentModificationEntity> mods, final int optionId, final AllotmentType type) {
     var modification = mods.stream()
-        .filter(mod -> optionId.equals(mod.getId()))
+        .filter(mod -> optionId == mod.getId())
         .findAny()
         .orElseThrow();
 
@@ -99,7 +97,7 @@ public class SquadronAllotmentModRepositoryTest {
 
   private void verifyModifications(final List<AllotmentModificationEntity> mods) {
     var modification = mods.stream()
-        .filter(mod -> option3.equals(mod.getId()))
+        .filter(mod -> option3 == mod.getId())
         .findAny()
         .orElseThrow();
 

@@ -53,6 +53,7 @@ public class SubmarineFlotillaServiceImpl implements SubmarineFlotillaService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
+    events.getClearEvent().register(this::handleClearEvent);
     events.getLoadTaskForcesEvent().register(this::handleLoadTaskForcesEvent);
     events.getSaveGameEvent().register(this::save);
   }
@@ -66,6 +67,10 @@ public class SubmarineFlotillaServiceImpl implements SubmarineFlotillaService {
   }
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    clearCache();
+  }
+
+  private void handleClearEvent(final ClearEvent clearEvent) {
     clearCache();
   }
 

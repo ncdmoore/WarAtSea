@@ -1,15 +1,12 @@
 [
   {
-    "id": {
-      "name": "option-1",
-      "type": "ALLOTMENT"
-    },
+    "id": 1,
     "text": "Add 1-6 fighter squadrons",
     "modifications": [
       {
         "allotmentId": {
           "side": "AXIS",
-          "name": "GERMAN"
+          "nation": "GERMAN"
         },
         "type": "FIGHTER",
         "dice": 2,
@@ -18,16 +15,13 @@
     ]
   },
   {
-    "id": {
-      "name": "option-2",
-      "type": "ALLOTMENT"
-    },
+    "id": 2,
     "text": "Add 1-6 bomber squadrons",
     "modifications": [
       {
         "allotmentId": {
           "side": "AXIS",
-          "name": "GERMAN"
+          "nation": "GERMAN"
         },
         "type": "BOMBER",
         "dice": 2,
@@ -36,16 +30,13 @@
     ]
   },
   {
-    "id": {
-      "name": "option-3",
-      "type": "ALLOTMENT"
-    },
+    "id": 3,
     "text": "Add 1-3 fighter squadrons and 1-3 bomber squadrons",
     "modifications": [
       {
         "allotmentId": {
           "side": "AXIS",
-          "name": "GERMAN"
+          "nation": "GERMAN"
         },
         "type": "FIGHTER",
         "dice": 1,
@@ -54,7 +45,7 @@
       {
         "allotmentId": {
           "side": "AXIS",
-          "name": "GERMAN"
+          "nation": "GERMAN"
         },
         "type": "BOMBER",
         "dice": 1,

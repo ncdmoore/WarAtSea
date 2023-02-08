@@ -27,47 +27,33 @@
     -fx-alignment: top-center;
 }
 
-#list-pane {
-    -fx-spacing: 8;
+#main-pane {
+   -fx-border-width: 1px;
+   -fx-padding: /* top: */ 20 /* right: */ 20 /* bottom: */ 0 /* left: */ 20;
 }
 
-#missions-grid {
-    -fx-alignment: top-left;
-    -fx-hgap: 30;
-    -fx-vgap: 30;
-}
-
-#details-grid-vbox {
-    -fx-spacing: 5;
-}
-
-#summary-hbox {
-    -fx-spacing: 30;
-}
-
-#details-main-vbox {
-    -fx-spacing: 30;
-}
-
-#task-force-pane-hbox {
-    -fx-spacing: 50;
-    -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
-}
-
-#main-pane-hbox {
+#all-nations-hbox-pane {
     -fx-alignment: top-center;
     -fx-spacing: 10;
-    -fx-padding: /* top: */ 5 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
-
+    -fx-padding: /* top: */ 5 /* right: */ 0 /* bottom: */ 0 /* left: */ 20;
 }
 
-#main-bottom-line {
-    -fx-padding: /* top: */ 10 /* right: */ 0 /* bottom: */ 0 /* left: */ 0;
+#all-nations-vbox-pane {
+    -fx-spacing: 30;
 }
 
-#main-pane {
-    -fx-border-width: 1px;
-    -fx-padding: /* top: */ 20 /* right: */ 20 /* bottom: */ 0 /* left: */ 20;
+#nation-hbox {
+    -fx-spacing: 30;
+}
+
+#radio-button-vbox {
+    -fx-spacing: 10;
+    -fx-padding: /* top: */ 5 /* right: */ 0 /* bottom: */ 0 /* left: */ 30;
+}
+
+#radio-button-grid {
+    -fx-hgap: 30;
+    -fx-vgap: 10;
 }
 
 #push-buttons-pane {

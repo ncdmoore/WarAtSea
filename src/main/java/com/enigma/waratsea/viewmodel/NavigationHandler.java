@@ -1,16 +1,11 @@
 package com.enigma.waratsea.viewmodel;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.event.StartSavedGameEvent;
-import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
+import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.view.pregame.*;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
-import com.enigma.waratsea.event.StartNewGameEvent;
-import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
-import com.enigma.waratsea.view.pregame.NewGameView;
-import com.enigma.waratsea.view.pregame.SavedGameView;
-import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.events.NavigationType;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -73,6 +68,7 @@ public class NavigationHandler implements BootStrapped {
     events.getStartNewGameEvent().register(this::handleStartNewGame);
     events.getStartSavedGameEvent().register(this::handleStartSavedGame);
     events.getNavigateEvent().register(this::handleNavigate);
+    events.getScenarioOptionsEvent().register(this::handleScenarioOptions);
   }
 
   private void handleNavigate(final NavigateEvent navigateEvent) {
@@ -81,6 +77,13 @@ public class NavigationHandler implements BootStrapped {
     var stage = navigateEvent.getStage();
 
     navigationFunctions.get(type).accept(currentPage, stage);
+  }
+
+  private void handleScenarioOptions(final ScenarioHasOptionsEvent scenarioHasOptionsEvent) {
+    var scenario = scenarioHasOptionsEvent.getScenario();
+    var side = scenarioHasOptionsEvent.getSide();
+
+    newGamePageFlow.get(ScenarioSquadronOptionsView.class).active = scenario.hasOptions(side);
   }
 
   private void goNext(final Class<?> currentPage, final Stage stage) {
@@ -106,13 +109,17 @@ public class NavigationHandler implements BootStrapped {
   private void buildNewGameFlow() {
     Page startPage = new Page(viewFactory::buildStart);
     Page newGamePage = new Page(viewFactory::buildNewGame);
+    Page optionsPage = new Page(viewFactory::buildScenarioSquadronOptions);
     Page oobPage = new Page(viewFactory::buildOrderOfBattleSummary);
 
     startPage.setNext(newGamePage);
-    newGamePage.setNext(oobPage);
+    newGamePage.setNext(optionsPage);
+    optionsPage.setNext(oobPage);
+    optionsPage.active = false;
 
     newGamePageFlow.put(StartView.class, startPage);
     newGamePageFlow.put(NewGameView.class, newGamePage);
+    newGamePageFlow.put(ScenarioSquadronOptionsView.class, optionsPage);
     newGamePageFlow.put(OrderOfBattleSummaryView.class, oobPage);
   }
 

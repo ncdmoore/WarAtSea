@@ -22,12 +22,25 @@ public class SquadronTypeAllotment {
   public List<Id> get(final Die die) {
     var numberToSelect = calculateNumberToSelect(die);
 
+    log.info("Total number of squadrons to select: '{}', based on dice: '{}', factor: '{}'",
+        numberToSelect, dice, factor);
+
+    var totalInGroups = getGroupsTotal();
+
+    if (numberToSelect > totalInGroups) {
+      log.warn("Number to select is greater than total number of aircraft in all groups, " +
+          "setting number to select to total in all groups.");
+      numberToSelect = totalInGroups;
+    }
+
     return selectAircraft(numberToSelect);
   }
 
   public void adjust(final AllotmentModificationDto dto) {
     dice+= dto.getDice();
     factor+= dto.getFactor();
+
+    log.info("Adjust squadron type: {}, dice: {}, factor: {}", dto.getType(), dto.getDice(), dto.getFactor());
   }
 
   private int calculateNumberToSelect(final Die die) {
@@ -66,5 +79,11 @@ public class SquadronTypeAllotment {
 
   private int roundUpToEven(final int value) {
      return (value % 2 == 0) ? value : value + 1;
+  }
+
+  private int getGroupsTotal() {
+    return groups.stream()
+        .map(groupAllotment -> groupAllotment.getAircraft().size())
+        .reduce(0, Integer::sum);
   }
 }

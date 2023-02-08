@@ -5,10 +5,7 @@ import com.enigma.waratsea.entity.squadron.SquadronEntity;
 import com.enigma.waratsea.event.*;
 import com.enigma.waratsea.mapper.AllotmentMapper;
 import com.enigma.waratsea.mapper.SquadronMapper;
-import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.Nation;
-import com.enigma.waratsea.model.Scenario;
-import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.model.squadron.Allotment;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.repository.SquadronAllotmentRepository;
@@ -36,7 +33,7 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
   private final DiceService diceService;
   private final SquadronService squadronService;
 
-  private final Map<Id, Allotment> allotments = new HashMap<>();
+  private final Map<NationId, Allotment> allotments = new HashMap<>();
 
   private final Map<String, Integer> counts = new HashMap<>();
 
@@ -59,7 +56,7 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
   }
 
   @Override
-  public Optional<Allotment> get(final Scenario scenario, final Id allotmentId) {
+  public Optional<Allotment> get(final Scenario scenario, final NationId allotmentId) {
     var allotment = allotments.computeIfAbsent(allotmentId, id -> getFromRepository(scenario, id));
 
     return Optional.ofNullable(allotment);
@@ -78,6 +75,7 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
+    events.getClearEvent().register(this::handleClearEvent);
     events.getAllotSquadronEvent().register(this::handleAllotSquadronEvent);
   }
 
@@ -90,6 +88,10 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
   }
 
   private void handleScenarioSelectedEvent(final SelectScenarioEvent selectScenarioEvent) {
+    clearCache();
+  }
+
+  private void handleClearEvent(final ClearEvent clearEvent) {
     clearCache();
   }
 
@@ -112,13 +114,13 @@ public class SquadronAllotmentServiceImpl implements SquadronAllotmentService {
   private void doAllotmentForNation(final Side side, final Nation nation, final Scenario scenario) {
     log.info("Perform allotment for side: {}, nation: {}", side, nation);
 
-    var allotmentId = new Id(side, nation.toLower());
+    var allotmentId = new NationId(side, nation);
 
     get(scenario, allotmentId)
         .ifPresent(allotment -> createSquadrons(side, allotment));
   }
 
-  private Allotment getFromRepository(final Scenario scenario, final Id allotmentId) {
+  private Allotment getFromRepository(final Scenario scenario, final NationId allotmentId) {
     var timeFrame = scenario.getTimeFrame();
 
     return squadronAllotmentRepository.get(timeFrame, allotmentId)

@@ -1,7 +1,7 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.squadron.AllotmentEntity;
-import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.repository.SquadronAllotmentRepository;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
@@ -29,7 +29,7 @@ public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentReposit
   }
 
   @Override
-  public Optional<AllotmentEntity> get(final String timeFrame, final Id allotmentId) {
+  public Optional<AllotmentEntity> get(final String timeFrame, final NationId allotmentId) {
     var filePath = getFilePath(timeFrame, allotmentId);
 
     return readAllotment(filePath);
@@ -57,13 +57,13 @@ public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentReposit
     return gson.fromJson(bufferedReader, AllotmentEntity.class);
   }
 
-  private FilePath getFilePath(final String timeFrame, final Id allotmentId) {
+  private FilePath getFilePath(final String timeFrame, final NationId allotmentId) {
     var baseDirectory = Paths.get(squadronAllotmentDirectory, timeFrame).toString();
 
     return FilePath.builder()
         .baseDirectory(baseDirectory)
         .side(allotmentId.getSide())
-        .fileName(allotmentId.getName())
+        .fileName(allotmentId.getNation().toLower())
         .build();
   }
 }

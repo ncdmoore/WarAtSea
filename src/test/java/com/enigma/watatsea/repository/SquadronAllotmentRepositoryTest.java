@@ -1,6 +1,7 @@
 package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.repository.impl.GamePaths;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
 import com.enigma.waratsea.repository.impl.SquadronAllotmentRepositoryImpl;
@@ -27,6 +28,7 @@ public class SquadronAllotmentRepositoryTest {
   private SquadronAllotmentRepositoryImpl squadronAllotmentRepository;
 
   @Spy
+  @SuppressWarnings("unused")
   private GamePaths gamePaths;
 
   @Mock
@@ -38,7 +40,7 @@ public class SquadronAllotmentRepositoryTest {
 
   @Test
   void shouldGetSquadronAllotment() {
-    var allotmentId = new Id(ALLIES, gamePaths.getSquadronAllotmentDirectory());
+    var allotmentId = new NationId(ALLIES, BRITISH);
 
     var inputStream = getInputStream();
 
@@ -50,7 +52,7 @@ public class SquadronAllotmentRepositoryTest {
 
     var allotmentEntity = result.get();
 
-    assertEquals(BRITISH, allotmentEntity.getNation());
+    assertEquals(BRITISH, allotmentEntity.getId().getNation());
 
     assertNotNull(allotmentEntity.getBombers());
     assertEquals(1, allotmentEntity.getBombers().getDice());
