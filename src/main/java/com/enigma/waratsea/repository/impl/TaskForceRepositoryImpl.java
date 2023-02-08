@@ -24,15 +24,13 @@ import java.util.stream.Collectors;
 @Singleton
 public class TaskForceRepositoryImpl implements TaskForceRepository {
   private final DataProvider dataProvider;
-  private final String taskForceDirectory;
-  private final String taskForceFileName;
+  private final GamePaths gamePaths;
 
   @Inject
   public TaskForceRepositoryImpl(final GamePaths gamePaths,
                                  final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.taskForceDirectory = gamePaths.getTaskForceDirectory();
-    this.taskForceFileName = gamePaths.getTaskForceFileName();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -102,6 +100,9 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
   }
 
   private FilePath getFilePath(final Side side) {
+    var taskForceDirectory = gamePaths.getTaskForceDirectory();
+    var taskForceFileName = gamePaths.getTaskForceFileName();
+
     return FilePath.builder()
         .baseDirectory(taskForceDirectory)
         .side(side)

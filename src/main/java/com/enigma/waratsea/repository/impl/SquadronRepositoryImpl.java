@@ -17,13 +17,13 @@ import java.nio.charset.StandardCharsets;
 @Singleton
 public class SquadronRepositoryImpl implements SquadronRepository {
   private final DataProvider dataProvider;
-  private final String squadronDirectory;
+  private final GamePaths gamePaths;
 
   @Inject
   public SquadronRepositoryImpl(final GamePaths gamePaths,
                                 final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.squadronDirectory = gamePaths.getSquadronDirectory();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -86,6 +86,8 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   private FilePath getFilePath(final Id squadronId) {
+    var squadronDirectory = gamePaths.getSquadronDirectory();
+
     return FilePath.builder()
         .baseDirectory(squadronDirectory)
         .side(squadronId.getSide())
@@ -94,6 +96,8 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   private FilePath getFilePath(final SquadronEntity squadron) {
+    var squadronDirectory = gamePaths.getSquadronDirectory();
+
     return FilePath.builder()
         .baseDirectory(squadronDirectory)
         .side(squadron.getId().getSide())

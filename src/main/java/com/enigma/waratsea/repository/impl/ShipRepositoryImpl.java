@@ -25,8 +25,7 @@ import java.util.List;
 public class ShipRepositoryImpl implements ShipRepository {
   private final ResourceProvider resourceProvider;
   private final DataProvider dataProvider;
-  private final String shipRegistryDirectory;
-  private final String shipDirectory;
+  private final GamePaths gamePaths;
 
   @Inject
   public ShipRepositoryImpl(final GamePaths gamePaths,
@@ -34,8 +33,7 @@ public class ShipRepositoryImpl implements ShipRepository {
                             final DataProvider dataProvider) {
     this.resourceProvider = resourceProvider;
     this.dataProvider = dataProvider;
-    this.shipRegistryDirectory = gamePaths.getShipRegistryDirectory();
-    this.shipDirectory = gamePaths.getShipDirectory();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -126,6 +124,8 @@ public class ShipRepositoryImpl implements ShipRepository {
   }
 
   private FilePath getFilePath(final Id shipId) {
+    var shipDirectory = gamePaths.getShipDirectory();
+
     return FilePath.builder()
         .baseDirectory(shipDirectory)
         .side(shipId.getSide())
@@ -134,6 +134,8 @@ public class ShipRepositoryImpl implements ShipRepository {
   }
 
   private FilePath getFilePath(final ShipEntity ship) {
+    var shipDirectory = gamePaths.getShipDirectory();
+
     return FilePath.builder()
         .baseDirectory(shipDirectory)
         .side(ship.getId().getSide())
@@ -142,6 +144,8 @@ public class ShipRepositoryImpl implements ShipRepository {
   }
 
   private FilePath getFilePath(final Side side, final ShipType shipType) {
+    var shipRegistryDirectory = gamePaths.getShipRegistryDirectory();
+
     return FilePath.builder()
         .baseDirectory(shipRegistryDirectory)
         .side(side)

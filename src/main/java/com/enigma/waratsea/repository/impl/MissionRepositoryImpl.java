@@ -23,15 +23,13 @@ import java.util.stream.Collectors;
 @Singleton
 public class MissionRepositoryImpl implements MissionRepository {
   private final DataProvider dataProvider;
-  private final String missionDirectory;
-  private final String missionFileName;
+  private final GamePaths gamePaths;
 
   @Inject
   public MissionRepositoryImpl(final GamePaths gamePaths,
                                final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.missionDirectory = gamePaths.getMissionDirectory();
-    this.missionFileName = gamePaths.getMissionFileName();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -109,6 +107,9 @@ public class MissionRepositoryImpl implements MissionRepository {
   }
 
   private FilePath getFilePath(final Side side) {
+    var missionDirectory = gamePaths.getMissionDirectory();
+    var missionFileName = gamePaths.getMissionFileName();
+
     return FilePath.builder()
         .baseDirectory(missionDirectory)
         .side(side)

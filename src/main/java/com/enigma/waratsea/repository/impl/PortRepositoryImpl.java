@@ -17,15 +17,14 @@ import java.nio.charset.StandardCharsets;
 @Singleton
 public class PortRepositoryImpl implements PortRepository {
   private final DataProvider dataProvider;
-  private final String portDirectory;
+  private final GamePaths gamePaths;
 
   @Inject
   public PortRepositoryImpl(final GamePaths gamePaths,
                             final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.portDirectory = gamePaths.getPortDirectory();
+    this.gamePaths = gamePaths;
   }
-
 
   @Override
   public PortEntity get(Id portId) {
@@ -87,6 +86,8 @@ public class PortRepositoryImpl implements PortRepository {
   }
 
   private FilePath getFilePath(final Id portId) {
+    var portDirectory = gamePaths.getPortDirectory();
+
     return FilePath.builder()
         .baseDirectory(portDirectory)
         .side(portId.getSide())
@@ -95,6 +96,8 @@ public class PortRepositoryImpl implements PortRepository {
   }
 
   private FilePath getFilePath(final PortEntity port) {
+    var portDirectory = gamePaths.getPortDirectory();
+
     return FilePath.builder()
         .baseDirectory(portDirectory)
         .side(port.getId().getSide())

@@ -17,13 +17,13 @@ import java.nio.charset.StandardCharsets;
 @Singleton
 public class AirfieldRepositoryImpl implements AirfieldRepository {
   private final DataProvider dataProvider;
-  private final String airfieldDirectory;
+  private final GamePaths gamePaths;
 
   @Inject
   public AirfieldRepositoryImpl(final GamePaths gamePaths,
                                 final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.airfieldDirectory = gamePaths.getAirfieldDirectory();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -86,6 +86,8 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   }
 
   private FilePath getFilePath(final Id airfieldId) {
+    var airfieldDirectory = gamePaths.getAirfieldDirectory();
+
     return FilePath.builder()
         .baseDirectory(airfieldDirectory)
         .side(airfieldId.getSide())
@@ -94,6 +96,8 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
   }
 
   private FilePath getFilePath(final AirfieldEntity airfield) {
+    var airfieldDirectory = gamePaths.getAirfieldDirectory();
+
     return FilePath.builder()
         .baseDirectory(airfieldDirectory)
         .side(airfield.getId().getSide())

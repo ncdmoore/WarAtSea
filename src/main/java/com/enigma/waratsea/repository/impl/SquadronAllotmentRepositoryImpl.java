@@ -19,13 +19,13 @@ import java.util.Optional;
 @Singleton
 public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentRepository {
   private final ResourceProvider resourceProvider;
-  private final String squadronAllotmentDirectory;
+  private final GamePaths gamePaths;
 
   @Inject
   public SquadronAllotmentRepositoryImpl(final GamePaths gamePaths,
                                          final ResourceProvider resourceProvider) {
     this.resourceProvider = resourceProvider;
-    this.squadronAllotmentDirectory = gamePaths.getSquadronAllotmentDirectory();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -58,6 +58,7 @@ public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentReposit
   }
 
   private FilePath getFilePath(final String timeFrame, final NationId allotmentId) {
+    var squadronAllotmentDirectory = gamePaths.getSquadronAllotmentDirectory();
     var baseDirectory = Paths.get(squadronAllotmentDirectory, timeFrame).toString();
 
     return FilePath.builder()

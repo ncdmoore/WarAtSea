@@ -21,15 +21,13 @@ import java.util.List;
 @Singleton
 public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepository {
   private final DataProvider dataProvider;
-  private final String squadronDeploymentDirectory;
-  private final String squadronDeploymentFileName;
+  private final GamePaths gamePaths;
 
   @Inject
   public SquadronDeploymentRepositoryImpl(final GamePaths gamePaths,
                                           final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.squadronDeploymentDirectory = gamePaths.getSquadronDeploymentDirectory();
-    this.squadronDeploymentFileName = gamePaths.getSquadronDeploymentFileName();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -64,6 +62,9 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
   }
 
   private FilePath getFilePath(final Side side) {
+    var squadronDeploymentDirectory = gamePaths.getSquadronDeploymentDirectory();
+    var squadronDeploymentFileName = gamePaths.getSquadronDeploymentFileName();
+
     return FilePath.builder()
         .baseDirectory(squadronDeploymentDirectory)
         .side(side)

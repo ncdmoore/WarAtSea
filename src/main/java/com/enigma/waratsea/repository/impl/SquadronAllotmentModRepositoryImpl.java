@@ -22,13 +22,13 @@ import java.util.stream.Collectors;
 @Singleton
 public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModRepository {
   private final ResourceProvider resourceProvider;
-  private final String squadronAllotmentModDirectory;
+  private final GamePaths gamePaths;
 
   @Inject
   public SquadronAllotmentModRepositoryImpl(final GamePaths gamePaths,
                                             final ResourceProvider resourceProvider) {
     this.resourceProvider = resourceProvider;
-    this.squadronAllotmentModDirectory = gamePaths.getSquadronAllotmentModDirectory();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -70,6 +70,8 @@ public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModR
   }
 
   private FilePath getFilePath(final NationId modificationId) {
+    var squadronAllotmentModDirectory = gamePaths.getSquadronAllotmentModDirectory();
+
     return FilePath.builder()
         .baseDirectory(squadronAllotmentModDirectory)
         .side(modificationId.getSide())

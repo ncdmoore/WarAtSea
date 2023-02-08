@@ -24,15 +24,13 @@ import java.util.stream.Collectors;
 @Singleton
 public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaRepository {
   private final DataProvider dataProvider;
-  private final String flotillaDirectory;
-  private final String submarineFileName;
+  private final GamePaths gamePaths;
 
   @Inject
   public SubmarineFlotillaRepositoryImpl(final GamePaths gamePaths,
                                          final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
-    this.flotillaDirectory = gamePaths.getFlotillaDirectory();
-    this.submarineFileName = gamePaths.getSubmarineFileName();
+    this.gamePaths = gamePaths;
   }
 
   @Override
@@ -102,6 +100,9 @@ public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaReposit
   }
 
   private FilePath getFilePath(final Side side) {
+    var flotillaDirectory = gamePaths.getFlotillaDirectory();
+    var submarineFileName = gamePaths.getSubmarineFileName();
+
     return FilePath.builder()
         .baseDirectory(flotillaDirectory)
         .side(side)
