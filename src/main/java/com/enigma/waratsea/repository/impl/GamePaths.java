@@ -29,6 +29,7 @@ public class GamePaths {
   private final String squadronDirectory = Paths.get("squadrons", "data").toString();
   private final String squadronAllotmentDirectory = Paths.get("squadrons", "allotment").toString();
   private final String squadronDeploymentDirectory = Paths.get("squadrons", "deployment").toString();
+  private final String squadronManifestFileName = "manifest";
   private final String scenarioDirectory = "scenarios";
   private final String shipRegistryDirectory = Paths.get("ships", "registry").toString();
   private final String shipDirectory = Paths.get("ships", "data").toString();

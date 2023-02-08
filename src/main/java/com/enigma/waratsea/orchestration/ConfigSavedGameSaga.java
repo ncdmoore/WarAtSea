@@ -24,6 +24,7 @@ public class ConfigSavedGameSaga implements BootStrapped {
 
     loadMap();
     loadTaskForces();
+    loadSquadrons();
     loadMissions();
     createPlayers();
   }
@@ -34,6 +35,10 @@ public class ConfigSavedGameSaga implements BootStrapped {
 
   private void loadTaskForces() {
     events.getLoadTaskForcesEvent().fire(new LoadTaskForcesEvent());
+  }
+
+  private void loadSquadrons() {
+    events.getLoadSquadronsEvent().fire(new LoadSquadronsEvent());
   }
 
   private void loadMissions() {

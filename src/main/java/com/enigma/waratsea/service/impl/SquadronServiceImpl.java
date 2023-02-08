@@ -63,6 +63,7 @@ public class SquadronServiceImpl implements SquadronService {
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getClearEvent().register(this::handleClearEvent);
+    events.getLoadSquadronsEvent().register(this::handleLoadSquadronsEvent);
     events.getSaveGameEvent().register(this::save);
   }
 
@@ -86,15 +87,22 @@ public class SquadronServiceImpl implements SquadronService {
     clearCaches();
   }
 
+  private void handleLoadSquadronsEvent(final LoadSquadronsEvent loadSquadronsEvent) {
+    Side.stream()
+        .forEach(this::loadSquadronsForSide);
+  }
+
+  private void loadSquadronsForSide(final Side side) {
+    squadronRepository.getManifest(side)
+        .forEach(this::get);
+  }
+
   private void save(final SaveGameEvent saveGameEvent) {
     var gameId = saveGameEvent.getId();
-
-    squadrons.values()
-        .stream()
-        .map(squadronMapper::toEntity)
-        .forEach(squadron -> squadronRepository.save(gameId, squadron));
-
     log.info("SquadronServiceImpl received saveGameEvent save squadrons for game: '{}'.", gameId);
+
+    saveSquadrons(gameId);
+    saveManifest(gameId);
   }
 
   private Squadron getAndIndex(final Id squadronId) {
@@ -112,6 +120,30 @@ public class SquadronServiceImpl implements SquadronService {
     var entity = squadronRepository.get(squadronId);
 
     return squadronMapper.toModel(entity);
+  }
+
+  private void saveSquadrons(final String gameId) {
+    squadrons.values()
+        .stream()
+        .map(squadronMapper::toEntity)
+        .forEach(squadron -> squadronRepository.save(gameId, squadron));
+  }
+
+  private void saveManifest(final String gameId) {
+    Side.stream()
+        .forEach(side -> saveSquadronManifestForSide(gameId, side));
+  }
+
+  private void saveSquadronManifestForSide(final String gameId, final Side side) {
+    var squadrons = getSquadronIdsForSide(side);
+    squadronRepository.saveManifest(gameId, side, squadrons);
+  }
+
+  private Set<Id> getSquadronIdsForSide(final Side side) {
+    return squadrons.values().stream()
+        .map(Squadron::getId)
+        .filter(id -> id.getSide() == side)
+        .collect(Collectors.toSet());
   }
 
   private void clearCaches() {
