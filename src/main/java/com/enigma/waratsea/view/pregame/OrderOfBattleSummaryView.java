@@ -139,7 +139,7 @@ public class OrderOfBattleSummaryView implements View {
     airTab.setGraphic(aircraftIcon);
 
     tabPane.getTabs().addAll(taskForceTab, subFlotillaTab, airTab);
-    tabPane.setMinWidth(650);
+    tabPane.setMinWidth(props.getInt("pregame.tab.min.width"));
 
     return tabPane;
   }

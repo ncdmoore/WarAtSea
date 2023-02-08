@@ -74,7 +74,7 @@ public class ScenarioSquadronOptionsView implements View {
 
     var tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-    tabPane.setMinWidth(650);
+    tabPane.setMinWidth(props.getInt("pregame.tab.min.width"));
 
     var hBox = new HBox(tabPane);
     hBox.setId("all-nations-hbox-pane");
