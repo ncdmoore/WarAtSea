@@ -1,0 +1,67 @@
+[
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Flotilla-1"
+    },
+    "title": "Palermo Flotilla",
+    "state": "ACTIVE",
+    "location": "Palermo",
+    "boats": [
+      {
+        "side": "AXIS",
+        "name": "MTB01"
+      },
+      {
+        "side": "AXIS",
+        "name": "MTB02"
+      },
+      {
+        "side": "AXIS",
+        "name": "MTB03"
+      },
+      {
+        "side": "AXIS",
+        "name": "MTB04"
+      },
+      {
+        "side": "AXIS",
+        "name": "MTB05"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Flotilla-2"
+    },
+    "title": "Brindisi Flotilla",
+    "state": "ACTIVE",
+    "location": "Brindisi",
+    "boats": [
+      {
+        "side": "AXIS",
+        "name": "MTB06"
+      },
+      {
+        "side": "AXIS",
+        "name": "MTB07"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "AXIS",
+      "name": "Flotilla-3"
+    },
+    "title": "Pantellaria Flotilla",
+    "state": "ACTIVE",
+    "location": "Pantellaria",
+    "boats": [
+      {
+        "side": "AXIS",
+        "name": "MTB08"
+      }
+    ]
+  }
+]

@@ -1,10 +1,10 @@
 package com.enigma.waratsea.repository.impl;
 
-import com.enigma.waratsea.entity.SubmarineFlotillaEntity;
+import com.enigma.waratsea.entity.MtbFlotillaEntity;
 import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
-import com.enigma.waratsea.repository.SubmarineFlotillaRepository;
+import com.enigma.waratsea.repository.MtbFlotillaRepository;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -22,53 +22,53 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
-public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaRepository {
+public class MtbFlotillaRepositoryImpl implements MtbFlotillaRepository {
   private final DataProvider dataProvider;
   private final GamePaths gamePaths;
 
   @Inject
-  public SubmarineFlotillaRepositoryImpl(final GamePaths gamePaths,
-                                         final DataProvider dataProvider) {
+  public MtbFlotillaRepositoryImpl(final GamePaths gamePaths,
+                                   final DataProvider dataProvider) {
     this.dataProvider = dataProvider;
     this.gamePaths = gamePaths;
   }
 
   @Override
-  public List<SubmarineFlotillaEntity> get(final Side side) {
+  public List<MtbFlotillaEntity> get(final Side side) {
     var filePath = getFilePath(side);
 
-    return readSubmarineFlotillas(filePath);
+    return readMtbFlotillas(filePath);
   }
 
   @Override
-  public void save(String gameId, Side side, Set<SubmarineFlotillaEntity> flotillas) {
+  public void save(String gameId, Side side, Set<MtbFlotillaEntity> flotillas) {
     var filePath = getFilePath(side);
 
-    writeSubmarineFlotillas(gameId, filePath, flotillas);
+    writeMtbFlotillas(gameId, filePath, flotillas);
   }
 
-  private List<SubmarineFlotillaEntity> readSubmarineFlotillas(final FilePath filePath) {
+  private List<MtbFlotillaEntity> readMtbFlotillas(final FilePath filePath) {
     try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
-      log.debug("Read submarine flotillas: '{}'", filePath);
+      log.debug("Read MTB flotillas: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read submarine flotilla: '{}'", filePath);
+      log.warn("Unable to read MTB flotilla: '{}'", filePath);
       return Collections.emptyList();
     }
   }
 
-  private void writeSubmarineFlotillas(final String gameId, final FilePath filePath, final Set<SubmarineFlotillaEntity> flotillas) {
+  private void writeMtbFlotillas(final String gameId, final FilePath filePath, final Set<MtbFlotillaEntity> flotillas) {
     var path = dataProvider.getSaveFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save submarine flotillas to path: '{}'", path);
+      log.debug("Save MTB flotillas to path: '{}'", path);
       var json = toJson(flotillas);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save submarine flotilla to path: " + path, e);
+      throw new GameException("Unable to save MTB flotilla to path: " + path, e);
     }
   }
 
@@ -76,22 +76,22 @@ public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaReposit
     return dataProvider.getDataInputStream(filePath);
   }
 
-  private List<SubmarineFlotillaEntity> toEntities(final BufferedReader bufferedReader) {
-    Type collectionType = new TypeToken<List<SubmarineFlotillaEntity>>() {
+  private List<MtbFlotillaEntity> toEntities(final BufferedReader bufferedReader) {
+    Type collectionType = new TypeToken<List<MtbFlotillaEntity>>() {
     }.getType();
 
     var gson = new Gson();
-    List<SubmarineFlotillaEntity> submarineFlotillas = gson.fromJson(bufferedReader, collectionType);
+    List<MtbFlotillaEntity> mtbFlotillas = gson.fromJson(bufferedReader, collectionType);
 
-    log.debug("load submarine flotillas: '{}',", submarineFlotillas.stream()
-        .map(SubmarineFlotillaEntity::getId)
+    log.debug("load MTB flotillas: '{}',", mtbFlotillas.stream()
+        .map(MtbFlotillaEntity::getId)
         .map(Id::toString)
         .collect(Collectors.joining(",")));
 
-    return submarineFlotillas;
+    return mtbFlotillas;
   }
 
-  private String toJson(final Set<SubmarineFlotillaEntity> flotillas) {
+  private String toJson(final Set<MtbFlotillaEntity> flotillas) {
     var gson = new GsonBuilder()
         .setPrettyPrinting()
         .create();
@@ -101,12 +101,12 @@ public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaReposit
 
   private FilePath getFilePath(final Side side) {
     var flotillaDirectory = gamePaths.getFlotillaDirectory();
-    var submarineFileName = gamePaths.getSubmarineFileName();
+    var mtbFileName = gamePaths.getMtbFileName();
 
     return FilePath.builder()
         .baseDirectory(flotillaDirectory)
         .side(side)
-        .fileName(submarineFileName)
+        .fileName(mtbFileName)
         .build();
   }
 }

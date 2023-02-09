@@ -77,6 +77,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(ShipService.class);
     bootStrappedBinder.addBinding().to(TaskForceService.class);
     bootStrappedBinder.addBinding().to(SubmarineFlotillaService.class);
+    bootStrappedBinder.addBinding().to(MtbFlotillaService.class);
     bootStrappedBinder.addBinding().to(MissionService.class);
   }
 
@@ -109,6 +110,7 @@ public class BasicModule extends AbstractModule {
     bind(ShipRepository.class).to(ShipRepositoryImpl.class);
     bind(TaskForceRepository.class).to(TaskForceRepositoryImpl.class);
     bind(SubmarineFlotillaRepository.class).to(SubmarineFlotillaRepositoryImpl.class);
+    bind(MtbFlotillaRepository.class).to(MtbFlotillaRepositoryImpl.class);
     bind(MissionRepository.class).to(MissionRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
   }
@@ -124,6 +126,7 @@ public class BasicModule extends AbstractModule {
     bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);
     bind(TaskForceMapper.class).toInstance(TaskForceMapper.INSTANCE);
     bind(SubmarineFlotillaMapper.class).toInstance(SubmarineFlotillaMapper.INSTANCE);
+    bind(MtbFlotillaMapper.class).toInstance(MtbFlotillaMapper.INSTANCE);
     bind(MissionMapper.class).toInstance(MissionMapper.INSTANCE);
   }
 
@@ -158,6 +161,7 @@ public class BasicModule extends AbstractModule {
     bind(ShipService.class).to(ShipServiceImpl.class);
     bind(TaskForceService.class).to(TaskForceServiceImpl.class);
     bind(SubmarineFlotillaService.class).to(SubmarineFlotillaServiceImpl.class);
+    bind(MtbFlotillaService.class).to(MtbFlotillaServiceImpl.class);
     bind(MissionService.class).to(MissionServiceImpl.class);
     bind(GameService.class).to(GameServiceImpl.class);
   }

@@ -26,6 +26,10 @@ public interface Player {
   Set<SubmarineFlotilla> getSubmarineFlotillas();
   void setSubmarineFlotillas(Set<SubmarineFlotilla> flotillas);
 
+  Set<MtbFlotilla> getMtbFlotillas();
+  void setMtbFlotillas(Set<MtbFlotilla> flotillas);
+
+
   Set<Squadron> getSquadrons();
   Set<Squadron> getSquadrons(Nation nation);
   void setSquadrons(Set<Squadron> squadrons);

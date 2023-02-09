@@ -2,10 +2,7 @@ package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.SaveGameEvent;
-import com.enigma.waratsea.model.Game;
-import com.enigma.waratsea.model.Nation;
-import com.enigma.waratsea.model.Side;
-import com.enigma.waratsea.model.SubmarineFlotilla;
+import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.model.player.Player;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
@@ -15,10 +12,7 @@ import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -44,6 +38,15 @@ public class OrderOfBattleSummaryViewModel {
   private final ObjectProperty<Image> submarineFlotillaImage = new SimpleObjectProperty<>();
 
   @Getter
+  private final BooleanProperty submarineNotPresent = new SimpleBooleanProperty();
+
+  @Getter
+  private final ObjectProperty<Image> mtbFlotillaImage = new SimpleObjectProperty<>();
+
+  @Getter
+  private final BooleanProperty mtbNotPresent = new SimpleBooleanProperty();
+
+  @Getter
   private final ObjectProperty<Image> airForceImage = new SimpleObjectProperty<>();
 
   @Getter
@@ -51,6 +54,9 @@ public class OrderOfBattleSummaryViewModel {
 
   @Getter
   private final ListProperty<SubmarineFlotilla> submarineFlotillas = new SimpleListProperty<>(FXCollections.emptyObservableList());
+
+  @Getter
+  private final ListProperty<MtbFlotilla> mtbFlotillas = new SimpleListProperty<>(FXCollections.emptyObservableList());
 
   @Getter
   private final ListProperty<Nation> nations = new SimpleListProperty<>(FXCollections.emptyObservableList());
@@ -78,9 +84,11 @@ public class OrderOfBattleSummaryViewModel {
     setFlag(game);
     setTaskForceImage(game);
     setSubmarineFlotillaImage(game);
+    setMtbFlotillaImage(game);
     setAirForceImage(game);
     setTaskForces(game);
     setSubmarineFlotillas(game);
+    setMtbFlotillas(game);
     setNations(game);
   }
 
@@ -134,6 +142,15 @@ public class OrderOfBattleSummaryViewModel {
     submarineFlotillaImage.setValue(image);
   }
 
+  private void setMtbFlotillaImage(final Game game) {
+    var side = game.getHumanSide();
+    var scenario = game.getScenario().getName();
+    var propertyName = side.toLower() + ".mtb.flotilla.image";
+    var imageName = props.getString(propertyName);
+    var image = resourceProvider.getImage(scenario, imageName);
+    mtbFlotillaImage.setValue(image);
+  }
+
   private void setAirForceImage(final Game game) {
     var side = game.getHumanSide();
     var scenario = game.getScenario().getName();
@@ -163,6 +180,19 @@ public class OrderOfBattleSummaryViewModel {
         .toList();
 
     submarineFlotillas.setValue(FXCollections.observableList(playerSubFlotillas));
+    submarineNotPresent.setValue(playerSubFlotillas.isEmpty());
+  }
+
+  private void setMtbFlotillas(final Game game) {
+    var player = game.getHuman();
+
+    var playerMtbFlotillas = player.getMtbFlotillas()
+        .stream()
+        .sorted()
+        .toList();
+
+    mtbFlotillas.setValue(FXCollections.observableList(playerMtbFlotillas));
+    mtbNotPresent.setValue(playerMtbFlotillas.isEmpty());
   }
 
   private void setNations(final Game game) {

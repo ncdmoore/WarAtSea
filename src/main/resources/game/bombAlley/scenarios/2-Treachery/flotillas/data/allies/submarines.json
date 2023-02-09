@@ -1,0 +1,19 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Flotilla-1"
+    },
+    "state": "ACTIVE",
+    "subs": [
+      {
+        "side": "ALLIES",
+        "name": "T1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "T2"
+      }
+    ]
+  }
+]

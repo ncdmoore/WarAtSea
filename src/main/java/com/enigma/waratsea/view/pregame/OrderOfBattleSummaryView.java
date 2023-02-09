@@ -1,5 +1,6 @@
 package com.enigma.waratsea.view.pregame;
 
+import com.enigma.waratsea.model.MtbFlotilla;
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.SubmarineFlotilla;
 import com.enigma.waratsea.model.Type;
@@ -121,6 +122,7 @@ public class OrderOfBattleSummaryView implements View {
 
     var taskForceIcon = resourceProvider.getAppImageView(props.getString("anchor.small.image"));
     var subIcon = resourceProvider.getAppImageView(props.getString("anchor.small.image"));
+    var mtbIcon = resourceProvider.getAppImageView(props.getString("anchor.small.image"));
     var aircraftIcon = resourceProvider.getAppImageView(props.getString("aircraft.small.image"));
 
     var taskForceTab = new Tab("Task Forces");
@@ -132,13 +134,20 @@ public class OrderOfBattleSummaryView implements View {
 
     subFlotillaTab.setContent(buildSubFlotillaTab());
     subFlotillaTab.setGraphic(subIcon);
+    subFlotillaTab.disableProperty().bind(orderOfBattleSummaryViewModel.getSubmarineNotPresent());
+
+    var mtbFlotillaTab = new Tab("MTB Flotillas");
+
+    mtbFlotillaTab.setContent(buildMtbFlotillaTab());
+    mtbFlotillaTab.setGraphic(mtbIcon);
+    mtbFlotillaTab.disableProperty().bind(orderOfBattleSummaryViewModel.getMtbNotPresent());
 
     var airTab = new Tab("Land Based Squadrons");
 
     airTab.setContent(buildAirForceTab());
     airTab.setGraphic(aircraftIcon);
 
-    tabPane.getTabs().addAll(taskForceTab, subFlotillaTab, airTab);
+    tabPane.getTabs().addAll(taskForceTab, subFlotillaTab, mtbFlotillaTab, airTab);
     tabPane.setMinWidth(props.getInt("pregame.tab.min.width"));
 
     return tabPane;
@@ -168,6 +177,20 @@ public class OrderOfBattleSummaryView implements View {
     taskForceHBox.setId("task-force-pane-hbox");
 
     submarineFlotillas.getSelectionModel().selectFirst();
+
+    return taskForceHBox;
+  }
+
+  private Node buildMtbFlotillaTab() {
+    ListView<MtbFlotilla> mtbFlotillas = new ListView<>();
+
+    var mtbFlotillaList = buildMtbFlotillaList(mtbFlotillas);
+    var mtbFlotillaDetails = buildMtbFlotillaDetails(mtbFlotillas);
+
+    var taskForceHBox = new HBox(mtbFlotillaList, mtbFlotillaDetails);
+    taskForceHBox.setId("task-force-pane-hbox");
+
+    mtbFlotillas.getSelectionModel().selectFirst();
 
     return taskForceHBox;
   }
@@ -216,6 +239,21 @@ public class OrderOfBattleSummaryView implements View {
     return listPane;
   }
 
+  private Node buildMtbFlotillaList(final ListView<MtbFlotilla> mtbFlotillas) {
+    var submarineFlotillaImage = new ImageView();
+
+    submarineFlotillaImage.imageProperty().bind(orderOfBattleSummaryViewModel.getMtbFlotillaImage());
+    mtbFlotillas.itemsProperty().bind(orderOfBattleSummaryViewModel.getMtbFlotillas());
+
+    mtbFlotillas.setMaxWidth(props.getInt("pregame.scenario.list.width"));
+    mtbFlotillas.setMaxHeight(props.getInt("pregame.scenario.list.height"));
+
+    var listPane = new VBox(submarineFlotillaImage, mtbFlotillas);
+    listPane.setId("list-pane");
+
+    return listPane;
+  }
+
   private Node buildNationsList(final ListView<Nation> nations) {
     var airForceImage = new ImageView();
 
@@ -243,6 +281,15 @@ public class OrderOfBattleSummaryView implements View {
 
   private Node buildSubFlotillaDetails(final ListView<SubmarineFlotilla> flotillas) {
     var descriptionPane = buildSubFlotillaDescription(flotillas);
+
+    var vBox = new VBox(descriptionPane);
+    vBox.setId("details-main-vbox");
+
+    return vBox;
+  }
+
+  private Node buildMtbFlotillaDetails(final ListView<MtbFlotilla> flotillas) {
+    var descriptionPane = buildMtbFlotillaDescription(flotillas);
 
     var vBox = new VBox(descriptionPane);
     vBox.setId("details-main-vbox");
@@ -321,10 +368,40 @@ public class OrderOfBattleSummaryView implements View {
     var selectedFlotilla = flotillas.getSelectionModel()
         .selectedItemProperty();
 
-    bindFlotillaName(nameValue, selectedFlotilla);
+    bindSubFlotillaName(nameValue, selectedFlotilla);
     bindSubFlotillaState(stateValue, selectedFlotilla);
     bindSubFlotillaStateColor(stateValue, selectedFlotilla);
     bindSubFlotillaCount(subsValue, selectedFlotilla);
+
+    var gridPane = new GridPane();
+    gridPane.add(nameLabel, 0, 0);
+    gridPane.add(nameValue, 1, 0);
+    gridPane.add(stateLabel, 0, 1);
+    gridPane.add(stateValue, 1, 1);
+    gridPane.add(subsLabel, 0, 2);
+    gridPane.add(subsValue, 1, 2);
+    gridPane.setId("missions-grid");
+
+    return gridPane;
+  }
+
+  private Node buildMtbFlotillaDescription(final ListView<MtbFlotilla> flotillas) {
+    var nameLabel = new Text("Name:");
+    var nameValue = new Text();
+
+    var stateLabel = new Text("State:");
+    var stateValue = new Label();
+
+    var subsLabel = new Text("Boats:");
+    var subsValue = new Text();
+
+    var selectedFlotilla = flotillas.getSelectionModel()
+        .selectedItemProperty();
+
+    bindMtbFlotillaName(nameValue, selectedFlotilla);
+    bindMtbFlotillaState(stateValue, selectedFlotilla);
+    bindMtbFlotillaStateColor(stateValue, selectedFlotilla);
+    bindMtbFlotillaCount(subsValue, selectedFlotilla);
 
     var gridPane = new GridPane();
     gridPane.add(nameLabel, 0, 0);
@@ -500,7 +577,7 @@ public class OrderOfBattleSummaryView implements View {
             .orElse(""), selectedTaskForce));
   }
 
-  private void bindFlotillaName(final Text nameValue, final ReadOnlyObjectProperty<SubmarineFlotilla> selectedFlotilla) {
+  private void bindSubFlotillaName(final Text nameValue, final ReadOnlyObjectProperty<SubmarineFlotilla> selectedFlotilla) {
     nameValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedFlotilla.getValue())
             .map(flotilla -> flotilla.getId().getName())
@@ -534,5 +611,34 @@ public class OrderOfBattleSummaryView implements View {
         Optional.ofNullable(selectedNation.getValue())
             .map(Nation::toString)
             .orElse(""), selectedNation));
+  }
+
+  private void bindMtbFlotillaName(final Text nameValue, final ReadOnlyObjectProperty<MtbFlotilla> selectedFlotilla) {
+    nameValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .map(flotilla -> flotilla.getId().getName())
+            .orElse(""), selectedFlotilla));
+  }
+
+  private void bindMtbFlotillaState(final Label stateValue, final ReadOnlyObjectProperty<MtbFlotilla> selectedFlotilla) {
+    stateValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .map(submarineFlotilla -> submarineFlotilla.getState().getValue())
+            .orElse(""), selectedFlotilla));
+  }
+
+  private void bindMtbFlotillaStateColor(final Label stateValue, final ReadOnlyObjectProperty<MtbFlotilla> selectedFlotilla) {
+    stateValue.textFillProperty().bind(Bindings.createObjectBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .filter(MtbFlotilla::isReserved)
+            .map(taskForce -> Color.RED)
+            .orElse(Color.GREEN), selectedFlotilla));
+  }
+
+  private void bindMtbFlotillaCount(final Text subsValue, final ReadOnlyObjectProperty<MtbFlotilla> selectedFlotilla) {
+    subsValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedFlotilla.getValue())
+            .map(flotilla -> flotilla.getBoats().size() + "")
+            .orElse(""), selectedFlotilla));
   }
 }

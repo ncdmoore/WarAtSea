@@ -58,6 +58,7 @@ public class GamePaths {
   private final String squadronDeploymentFileName = "deployment";
   private final String taskForceFileName = "taskForces";
   private final String submarineFileName = "submarines";
+  private final String mtbFileName = "mtbs";
 
   public void setGamePath(final GameName gameName) {
     gamePath = Paths.get(gameDirectory, gameName.getValue()).toString();

@@ -27,6 +27,7 @@ public abstract class ShipMapper {
   @SubclassMapping(source = CapitalShipEntity.class, target = CapitalShip.class)
   @SubclassMapping(source = SurfaceShipEntity.class, target = SurfaceShip.class)
   @SubclassMapping(source = SubmarineEntity.class, target = Submarine.class)
+  @SubclassMapping(source = MotorTorpedoBoatEntity.class, target = MotorTorpedoBoat.class)
   abstract public Ship toModel(final ShipEntity shipEntity);
 
   abstract public AircraftCarrier toAircraftCarrier(final AircraftCarrierEntity aircraftCarrierEntity);
@@ -37,6 +38,7 @@ public abstract class ShipMapper {
   @SubclassMapping(source = CapitalShip.class, target = CapitalShipEntity.class)
   @SubclassMapping(source = SurfaceShip.class, target = SurfaceShipEntity.class)
   @SubclassMapping(source = Submarine.class, target = SubmarineEntity.class)
+  @SubclassMapping(source = MotorTorpedoBoat.class, target = MotorTorpedoBoatEntity.class)
   abstract public ShipEntity toEntity(final Ship ship);
 
   abstract public AircraftCarrierEntity toAircraftCarrierEntity(final AircraftCarrier aircraftCarrier);

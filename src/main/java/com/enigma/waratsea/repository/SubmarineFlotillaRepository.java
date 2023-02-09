@@ -9,5 +9,4 @@ import java.util.Set;
 public interface SubmarineFlotillaRepository {
   List<SubmarineFlotillaEntity> get(Side side);
   void save(String gameId, Side side, Set<SubmarineFlotillaEntity> flotillas);
-
 }

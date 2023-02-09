@@ -1,12 +1,12 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.*;
-import com.enigma.waratsea.mapper.SubmarineFlotillaMapper;
+import com.enigma.waratsea.mapper.MtbFlotillaMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
-import com.enigma.waratsea.model.SubmarineFlotilla;
-import com.enigma.waratsea.repository.SubmarineFlotillaRepository;
-import com.enigma.waratsea.service.SubmarineFlotillaService;
+import com.enigma.waratsea.model.MtbFlotilla;
+import com.enigma.waratsea.repository.MtbFlotillaRepository;
+import com.enigma.waratsea.service.MtbFlotillaService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -19,31 +19,31 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
-public class SubmarineFlotillaServiceImpl implements SubmarineFlotillaService {
-  private final SubmarineFlotillaRepository submarineFlotillaRepository;
-  private final SubmarineFlotillaMapper submarineFlotillaMapper;
+public class MtbFlotillaServiceImpl implements MtbFlotillaService {
+  private final MtbFlotillaRepository MtbFlotillaRepository;
+  private final MtbFlotillaMapper MtbFlotillaMapper;
 
-  private final Map<Side, Set<SubmarineFlotilla>> flotillaSideMap = new HashMap<>();
-  private final Map<Id, SubmarineFlotilla> flotillaMap = new HashMap<>();
+  private final Map<Side, Set<MtbFlotilla>> flotillaSideMap = new HashMap<>();
+  private final Map<Id, MtbFlotilla> flotillaMap = new HashMap<>();
 
 
   @Inject
-  public SubmarineFlotillaServiceImpl(final Events events,
-                                      final SubmarineFlotillaRepository submarineFlotillaRepository,
-                                      final SubmarineFlotillaMapper submarineFlotillaMapper) {
-    this.submarineFlotillaRepository = submarineFlotillaRepository;
-    this.submarineFlotillaMapper = submarineFlotillaMapper;
+  public MtbFlotillaServiceImpl(final Events events,
+                                final MtbFlotillaRepository MtbFlotillaRepository,
+                                final MtbFlotillaMapper MtbFlotillaMapper) {
+    this.MtbFlotillaRepository = MtbFlotillaRepository;
+    this.MtbFlotillaMapper = MtbFlotillaMapper;
 
     registerEvents(events);
   }
 
   @Override
-  public Set<SubmarineFlotilla> get(Side side) {
+  public Set<MtbFlotilla> get(Side side) {
     return flotillaSideMap.computeIfAbsent(side, this::getFromRepository);
   }
 
   @Override
-  public Set<SubmarineFlotilla> get(Set<Id> flotillaIds) {
+  public Set<MtbFlotilla> get(Set<Id> flotillaIds) {
     return flotillaIds.stream()
         .map(flotillaMap::get)
         .collect(Collectors.toSet());
@@ -75,7 +75,7 @@ public class SubmarineFlotillaServiceImpl implements SubmarineFlotillaService {
   }
 
   private void handleLoadTaskForcesEvent(final LoadTaskForcesEvent loadTaskForcesEvent) {
-    log.info("SubmarineFlotillaImpl handle LoadTaskForcesEvent");
+    log.info("MtbFlotillaImpl handle LoadTaskForcesEvent");
 
     Side.stream()
         .forEach(this::get);
@@ -88,9 +88,9 @@ public class SubmarineFlotillaServiceImpl implements SubmarineFlotillaService {
         .forEach(side -> saveSide(gameId, side));
   }
 
-  private Set<SubmarineFlotilla> getFromRepository(final Side side) {
-    var entities = submarineFlotillaRepository.get(side);
-    var models = submarineFlotillaMapper.entitiesToModels(entities);
+  private Set<MtbFlotilla> getFromRepository(final Side side) {
+    var entities = MtbFlotillaRepository.get(side);
+    var models = MtbFlotillaMapper.entitiesToModels(entities);
 
     models.forEach(this::addToFlotillaMap);
 
@@ -99,13 +99,13 @@ public class SubmarineFlotillaServiceImpl implements SubmarineFlotillaService {
 
   private void saveSide(final String gameId, final Side side) {
     var taskForces = flotillaSideMap.get(side);
-    var entities = submarineFlotillaMapper.modelsToEntities(taskForces);
-    submarineFlotillaRepository.save(gameId, side, entities);
+    var entities = MtbFlotillaMapper.modelsToEntities(taskForces);
+    MtbFlotillaRepository.save(gameId, side, entities);
   }
 
-  private void addToFlotillaMap(final SubmarineFlotilla submarineFlotilla) {
-    var id = submarineFlotilla.getId();
-    flotillaMap.putIfAbsent(id, submarineFlotilla);
+  private void addToFlotillaMap(final MtbFlotilla MtbFlotilla) {
+    var id = MtbFlotilla.getId();
+    flotillaMap.putIfAbsent(id, MtbFlotilla);
   }
 
   private void clearCache() {

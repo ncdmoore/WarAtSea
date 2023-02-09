@@ -32,6 +32,9 @@ public class ComputerPlayer implements Player {
   private Set<SubmarineFlotilla> submarineFlotillas;
 
   @Setter
+  private Set<MtbFlotilla> mtbFlotillas;
+
+  @Setter
   private Set<Squadron> squadrons;
 
   private final Map<Id, Airbase> airbases = new HashMap<>();
