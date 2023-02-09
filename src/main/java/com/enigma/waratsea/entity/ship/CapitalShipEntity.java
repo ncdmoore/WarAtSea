@@ -32,6 +32,7 @@ public class CapitalShipEntity implements ShipEntity {
   private MovementEntity movement;
   private Set<LandingType> landingType;
   private CatapultEntity catapult;
+  private CargoEntity cargo;
   private int victoryPoints;
 
   @Builder.Default

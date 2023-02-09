@@ -41,8 +41,8 @@
     "odd": 2
   },
   "cargo": {
-    "capacity": 3,
-    "level": 3
+    "maxCapacity": 3,
+    "capacity": 3
   },
   "catapult": {
     "capacity": 0,

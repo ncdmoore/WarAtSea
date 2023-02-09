@@ -32,9 +32,6 @@
     "maxOdd": 2,
     "odd": 2
   },
-  "cargo": {
-    "capacity": 1
-  },
   "catapult": {
     "capacity": 1,
     "maxHealth": 1,

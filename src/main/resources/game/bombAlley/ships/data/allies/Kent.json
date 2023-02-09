@@ -52,6 +52,7 @@
     "health": 0
   },
   "cargo": {
+    "maxCapacity": 3,
     "capacity": 3
   },
   "victoryPoints": 29

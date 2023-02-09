@@ -40,6 +40,7 @@
     "maxOdd": 3
   },
   "cargo": {
+    "maxCapacity": 3,
     "capacity": 3
   },
   "catapult": {

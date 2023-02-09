@@ -22,8 +22,5 @@
     "maxOdd": 1,
     "odd": 1
   },
-  "cargo": {
-    "capacity": 1
-  },
   "victoryPoints": 20
 }

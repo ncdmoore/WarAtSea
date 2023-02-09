@@ -40,6 +40,7 @@
     "odd": 3
   },
   "cargo": {
+    "maxCapacity": 1,
     "capacity": 1
   },
   "victoryPoints": 9

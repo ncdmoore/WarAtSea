@@ -32,6 +32,7 @@ public class CapitalShip implements Ship, Airbase {
   private Movement movement;
   private Set<LandingType> landingType;
   private Catapult catapult;
+  private Cargo cargo;
   private int victoryPoints;
   private Set<Squadron> squadrons;
 
