@@ -29,6 +29,7 @@ public class ConfigNewGameSaga implements BootStrapped {
     determineSquadronAllotment(scenario);
     deploySquadrons();
     loadMissions();
+    loadCargo();
     createPlayers();
   }
 
@@ -52,6 +53,10 @@ public class ConfigNewGameSaga implements BootStrapped {
 
   private void loadMissions() {
     events.getLoadMissionsEvent().fire(new LoadMissionsEvent());
+  }
+
+  private void loadCargo() {
+    events.getLoadCargoEvent().fire(new LoadCargoEvent());
   }
 
   private void createPlayers() {

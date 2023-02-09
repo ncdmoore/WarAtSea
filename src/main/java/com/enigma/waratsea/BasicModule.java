@@ -75,6 +75,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(SquadronAllotmentModService.class);
     bootStrappedBinder.addBinding().to(SquadronDeploymentService.class);
     bootStrappedBinder.addBinding().to(ShipService.class);
+    bootStrappedBinder.addBinding().to(ManifestService.class);
     bootStrappedBinder.addBinding().to(TaskForceService.class);
     bootStrappedBinder.addBinding().to(SubmarineFlotillaService.class);
     bootStrappedBinder.addBinding().to(MtbFlotillaService.class);
@@ -108,6 +109,7 @@ public class BasicModule extends AbstractModule {
     bind(SquadronAllotmentRepository.class).to(SquadronAllotmentRepositoryImpl.class);
     bind(SquadronAllotmentModRepository.class).to(SquadronAllotmentModRepositoryImpl.class);
     bind(ShipRepository.class).to(ShipRepositoryImpl.class);
+    bind(ManifestRepository.class).to(ManifestRepositoryImpl.class);
     bind(TaskForceRepository.class).to(TaskForceRepositoryImpl.class);
     bind(SubmarineFlotillaRepository.class).to(SubmarineFlotillaRepositoryImpl.class);
     bind(MtbFlotillaRepository.class).to(MtbFlotillaRepositoryImpl.class);
@@ -124,6 +126,7 @@ public class BasicModule extends AbstractModule {
     bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
     bind(ShipRegistryMapper.class).toInstance(ShipRegistryMapper.INSTANCE);
     bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);
+    bind(ManifestMapper.class).toInstance(ManifestMapper.INSTANCE);
     bind(TaskForceMapper.class).toInstance(TaskForceMapper.INSTANCE);
     bind(SubmarineFlotillaMapper.class).toInstance(SubmarineFlotillaMapper.INSTANCE);
     bind(MtbFlotillaMapper.class).toInstance(MtbFlotillaMapper.INSTANCE);
@@ -159,6 +162,7 @@ public class BasicModule extends AbstractModule {
     bind(SquadronAllotmentModService.class).to(SquadronAllotmentModServiceImpl.class);
     bind(SquadronDeploymentService.class).to(SquadronDeploymentServiceImpl.class);
     bind(ShipService.class).to(ShipServiceImpl.class);
+    bind(ManifestService.class).to(ManifestServiceImpl.class);
     bind(TaskForceService.class).to(TaskForceServiceImpl.class);
     bind(SubmarineFlotillaService.class).to(SubmarineFlotillaServiceImpl.class);
     bind(MtbFlotillaService.class).to(MtbFlotillaServiceImpl.class);

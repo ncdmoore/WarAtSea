@@ -41,7 +41,7 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   }
 
   @Override
-  public List<SquadronDeployment> get(Side side) {
+  public List<SquadronDeployment> get(final Side side) {
     var entities = squadronDeploymentRepository.get(side);
 
     return SquadronDeploymentMapper.INSTANCE.entitiesToModels(entities);
@@ -52,7 +52,7 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
   }
 
   private void handleDeploySquadronEvent(final DeploySquadronEvent deploySquadronEvent) {
-    log.info("SquadronDeploymentServiceImpl handle DeploySquadronEvent");
+    log.info("Handle DeploySquadronEvent");
 
     var airbases = airbaseService.get();
 

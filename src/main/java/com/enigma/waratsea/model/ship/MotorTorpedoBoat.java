@@ -1,5 +1,6 @@
 package com.enigma.waratsea.model.ship;
 
+import com.enigma.waratsea.dto.CargoDto;
 import com.enigma.waratsea.entity.ship.FuelEntity;
 import com.enigma.waratsea.entity.ship.MovementEntity;
 import com.enigma.waratsea.entity.ship.TorpedoEntity;
@@ -33,5 +34,9 @@ public class MotorTorpedoBoat implements Ship {
         .orElse(nation);
 
     return this;
+  }
+
+  @Override
+  public void loadCargo(final CargoDto cargoDto) {
   }
 }
