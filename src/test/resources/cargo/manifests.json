@@ -1,0 +1,69 @@
+[
+  {
+    "id": "cargo-1",
+    "originPort": "Gibraltar",
+    "destinationPorts": [
+      "Malta"
+    ],
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "TL01"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL02"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL03"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL04"
+      }
+    ]
+  },
+  {
+    "id": "cargo-2",
+    "originPort": "Athens",
+    "destinationPorts": [
+      "Malta"
+    ],
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Southampton"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Gloucester"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Ilex"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Janus"
+      }
+    ]
+  },
+  {
+    "id": "cargo-3",
+    "originPort": "Alexandria",
+    "destinationPorts": [
+      "Malta"
+    ],
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "TL05"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TL06"
+      }
+    ]
+  }
+]
