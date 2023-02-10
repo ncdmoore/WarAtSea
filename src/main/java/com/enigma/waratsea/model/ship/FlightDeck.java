@@ -11,4 +11,8 @@ public class FlightDeck {
 
   // The current flight deck health. The health is an index into the capacity list
   private int health;
+
+  public boolean isOperational() {
+    return capacity.get(health) > 0;
+  }
 }

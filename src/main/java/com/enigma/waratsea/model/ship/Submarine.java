@@ -36,11 +36,6 @@ public class Submarine implements Ship {
   }
 
   @Override
-  public boolean isAirbase() {
-    return false;
-  }
-
-  @Override
   public void loadCargo(final CargoDto cargoDto) {
   }
 }

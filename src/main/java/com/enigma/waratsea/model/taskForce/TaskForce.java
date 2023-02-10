@@ -32,7 +32,7 @@ public class TaskForce implements Comparable<TaskForce> {
 
   public Set<Airbase> getAirbases() {
     return ships.stream()
-        .filter(Ship::isAirbase)
+        .filter(this::isAirbase)
         .map(ship -> (Airbase) ship)
         .collect(Collectors.toSet());
   }
@@ -67,5 +67,9 @@ public class TaskForce implements Comparable<TaskForce> {
   @Override
   public int compareTo(@NotNull TaskForce o) {
     return id.compareTo(o.id);
+  }
+
+  private boolean isAirbase(final Ship ship) {
+    return ship instanceof Airbase;
   }
 }

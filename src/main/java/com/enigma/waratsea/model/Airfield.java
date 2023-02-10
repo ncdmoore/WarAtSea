@@ -30,4 +30,9 @@ public class Airfield implements Airbase {
     squadron.setDeploymentState(AT_AIRFIELD);
     squadron.setState(READY);
   }
+
+  @Override
+  public boolean isOperational() {
+    return capacity > 0;
+  }
 }

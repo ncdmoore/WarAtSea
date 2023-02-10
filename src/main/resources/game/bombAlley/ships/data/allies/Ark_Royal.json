@@ -1,32 +1,34 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
     "name": "Ark_Royal"
   },
   "type": "AIRCRAFT_CARRIER",
   "shipClass": "Ark Royal",
   "nation": "BRITISH",
-  "flightDeck":
-  {
+  "flightDeck": {
     "armour": "NONE",
-    "capacity": [0, 3, 5, 9],
+    "capacity": [
+      0,
+      3,
+      5,
+      9
+    ],
     "health": 4
   },
-  "tertiary":
-  {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 2,
     "health": 2
   },
-  "antiAir":
-  {
+  "antiAir": {
     "armour": "NONE",
     "maxHealth": 5,
     "health": 5
   },
   "hull": {
     "armour": "LIGHT",
-    "maxHealth" : 10,
+    "maxHealth": 10,
     "health": 10,
     "deck": false
   },
@@ -40,7 +42,7 @@
     "maxOdd": 3,
     "odd": 3
   },
-  "landingType":[
+  "landingType": [
     "CARRIER"
   ],
   "victoryPoints": 98

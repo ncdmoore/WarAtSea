@@ -8,4 +8,6 @@ public interface Airbase {
   Id getId();
   Set<Squadron> getSquadrons();
   void deploySquadron(Squadron squadron);
+
+  boolean isOperational();
 }

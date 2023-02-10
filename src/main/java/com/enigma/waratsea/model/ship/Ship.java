@@ -10,7 +10,5 @@ public interface Ship {
 
   Ship commission(Commission commission);
 
-  boolean isAirbase();
-
   void loadCargo(CargoDto cargo);
 }

@@ -23,7 +23,6 @@ public class AircraftCarrier implements Ship, Airbase {
   private String title;
   private String shipClass;
   private Nation nation;
-  private final boolean airbase = true;
   private FlightDeck flightDeck;
   private Gun secondary;
   private Gun tertiary;
@@ -59,5 +58,10 @@ public class AircraftCarrier implements Ship, Airbase {
 
   @Override
   public void loadCargo(final CargoDto cargoDto) {
+  }
+
+  @Override
+  public boolean isOperational() {
+    return flightDeck.isOperational();
   }
 }

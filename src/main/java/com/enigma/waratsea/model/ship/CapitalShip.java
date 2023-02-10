@@ -50,7 +50,7 @@ public class CapitalShip implements Ship, Airbase {
   }
 
   @Override
-  public boolean isAirbase() {
+  public boolean isOperational() {
     return catapult != null && catapult.getCapacity() > 0;
   }
 
