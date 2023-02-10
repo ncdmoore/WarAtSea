@@ -1,6 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.mapper.ShipMapper;
 import com.enigma.waratsea.mapper.ShipRegistryMapper;
 import com.enigma.waratsea.model.Id;
@@ -19,6 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -115,13 +117,10 @@ public class ShipServiceImpl implements ShipService {
   }
 
   private Ship getShip(final Id shipId) {
-    var ship = getShipRegistry(shipId);
+    var shipRegistry = Optional.ofNullable(getShipRegistry(shipId))
+        .orElseThrow(() -> new GameException("Unable to get ship registry for " + shipId));
 
-    if (ship == null) {
-      log.warn("Unable to get ship register for '{}'", shipId);
-    }
-
-    var shipType = getShipRegistry(shipId).getShipType();
+    var shipType = shipRegistry.getShipType();
 
     return isNewGame
         ? getFromShipClass(shipId, shipType)
