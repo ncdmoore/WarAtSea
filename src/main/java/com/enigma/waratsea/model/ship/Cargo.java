@@ -1,11 +1,13 @@
 package com.enigma.waratsea.model.ship;
 
 import com.enigma.waratsea.dto.CargoDto;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.util.Set;
 
-@Data
+@Getter
+@Builder
 public class Cargo {
   private int maxCapacity;
   private int capacity;

@@ -2,11 +2,11 @@ package com.enigma.waratsea.model.victory;
 
 import com.enigma.waratsea.event.matcher.ShipCombatMatcher;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
+@Builder
 public class ShipSunkVictory implements Victory {
   private String id;
   private String description;
