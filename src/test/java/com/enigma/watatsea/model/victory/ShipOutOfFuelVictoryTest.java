@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipOutOfFuelVictoryTest {
   private ShipOutOfFuelVictory victoryCondition;
-  
+
   @BeforeEach
   void setUp() {
     var shipMatcher = ShipMatcher.builder()
