@@ -38,7 +38,6 @@ class ShipOutOfFuelVictoryTest {
         .build();
   }
 
-
   @Test
   void shouldIncreaseVictoryPoints() {
     var shipVictoryPoints = 10;
