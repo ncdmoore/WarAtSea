@@ -31,7 +31,7 @@ public abstract class VictoryMapper {
   abstract public Set<Victory> entitiesToModels(final List<VictoryEntity> entities);
   abstract public Set<VictoryEntity> modelsToEntities(final Set<Victory> models);
 
-  @SubclassMapping(source = ShipBombardmentVictoryEntity.class, target = BombardmentVictory.class)
+  @SubclassMapping(source = ShipBombardmentVictoryEntity.class, target = ShipBombardmentVictory.class)
   @SubclassMapping(source = ShipCargoLostVictoryEntity.class, target = ShipCargoLostVictory.class)
   @SubclassMapping(source = ShipDamagedVictoryEntity.class, target = ShipDamagedVictory.class)
   @SubclassMapping(source = ShipOutOfFuelVictoryEntity.class, target = ShipOutOfFuelVictory.class)
@@ -42,7 +42,7 @@ public abstract class VictoryMapper {
   abstract public ShipMatcher toShipMatcher(final ShipMatcherEntity shipMatcherEntity);
   abstract public SquadronMatcher toSquadronMatcher(final SquadronMatcherEntity squadronMatcherEntity);
 
-  @SubclassMapping(source = BombardmentVictory.class, target = ShipBombardmentVictoryEntity.class)
+  @SubclassMapping(source = ShipBombardmentVictory.class, target = ShipBombardmentVictoryEntity.class)
   @SubclassMapping(source = ShipCargoLostVictory.class, target = ShipCargoLostVictoryEntity.class)
   @SubclassMapping(source = ShipDamagedVictory.class, target = ShipDamagedVictoryEntity.class)
   @SubclassMapping(source = ShipOutOfFuelVictory.class, target = ShipOutOfFuelVictoryEntity.class)

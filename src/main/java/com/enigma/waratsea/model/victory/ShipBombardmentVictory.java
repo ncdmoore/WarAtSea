@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Getter
 @Builder
-public class BombardmentVictory implements Victory {
+public class ShipBombardmentVictory implements Victory {
   private String id;
   private String description;
   private int points;
