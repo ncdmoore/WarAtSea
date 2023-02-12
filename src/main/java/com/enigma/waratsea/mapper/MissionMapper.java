@@ -34,16 +34,12 @@ public abstract class MissionMapper {
   @SubclassMapping(source = PatrolEntity.class, target = Patrol.class)
   abstract public Mission toModel(final MissionEntity missionEntity);
 
-  abstract public Bombardment toBombardment(final BombardmentEntity bombardmentEntity);
-
   @SubclassMapping(source = Bombardment.class, target = BombardmentEntity.class)
   @SubclassMapping(source = FerryShips.class, target = FerryShipsEntity.class)
   @SubclassMapping(source = Intercept.class, target = InterceptEntity.class)
   @SubclassMapping(source = Invasion.class, target = InvasionEntity.class)
   @SubclassMapping(source = Patrol.class, target = PatrolEntity.class)
-  abstract public MissionEntity toEntity(final Mission ship);
-
-  abstract public BombardmentEntity toBombardmentEntity(final Bombardment bombardment);
+  abstract public MissionEntity toEntity(final Mission mission);
 
   Set<TaskForce> mapTaskForces(final Set<Id> taskForceIds) {
     return Optional.ofNullable(taskForceIds)

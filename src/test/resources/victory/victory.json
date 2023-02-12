@@ -1,0 +1,157 @@
+[
+  {
+    "id": "ship-cargo-lost",
+    "type": "ShipCargoLostVictoryEntity",
+    "description": "2 Ship's cargo level of victory points awarded for every enemy ship sunk with cargo, transport or warship.",
+    "factor": 2,
+    "matcher": {
+      "ship": {
+        "side": "ALLIES"
+      },
+      "actions": [
+        "SHIP_SUNK"
+      ]
+    }
+  },
+  {
+    "id": "ship-sunk",
+    "type": "ShipSunkVictoryEntity",
+    "description": "Ship's victory points awarded for every enemy ship sunk.",
+    "matcher": {
+      "ship": {
+        "side": "ALLIES"
+      },
+      "actions": [
+        "SHIP_SUNK"
+      ]
+    }
+  },
+  {
+    "id": "ship-out-of-fuel",
+    "type": "ShipOutOfFuelVictoryEntity",
+    "description": "1/2 Ship's victory points awarded for every enemy that runs out of fuel.",
+    "matcher": {
+      "ship": {
+        "side": "ALLIES"
+      },
+      "actions": [
+        "OUT_OF_FUEL"
+      ]
+    }
+  },
+  {
+    "id": "capital-ship-hull-damaged",
+    "type": "ShipDamagedVictoryEntity",
+    "description": "3 victory points awarded for every enemy capital ship hull damaged.",
+    "points": 3,
+    "matcher": {
+      "ship": {
+        "side": "ALLIES",
+        "types": [
+          "BATTLESHIP",
+          "BATTLECRUISER",
+          "AIRCRAFT_CARRIER"
+        ]
+      },
+      "actions": [
+        "SHIP_HULL_DAMAGED"
+      ]
+    }
+  },
+  {
+    "id": "non-capital-ship-hull-damaged",
+    "type": "ShipDamagedVictoryEntity",
+    "description": "1 victory point awarded for every enemy non-capital ship hull damaged.",
+    "points": 1,
+    "matcher": {
+      "ship": {
+        "side": "ALLIES",
+        "types": [
+          "LIGHT_CARRIER",
+          "SEAPLANE_CARRIER",
+          "HEAVY_CRUISER",
+          "LIGHT_CRUISER",
+          "ARMOURED_CRUISER",
+          "DESTROYER",
+          "DESTROYER_ESCORT",
+          "CORVETTE",
+          "MINE_LAYER",
+          "MINE_SWEEPER",
+          "SLOOP",
+          "OILER",
+          "TRANSPORT",
+          "FLAK_SHIP"
+        ]
+      },
+      "actions": [
+        "SHIP_HULL_DAMAGED"
+      ]
+    }
+  },
+  {
+    "id": "primary-gun-damaged",
+    "type": "ShipDamagedVictoryEntity",
+    "description": "3 victory point awarded for every enemy ship primary gun damaged.",
+    "points": 3,
+    "matcher": {
+      "ship": {
+        "side": "ALLIES"
+      },
+      "actions": [
+        "SHIP_PRIMARY_DAMAGED"
+      ]
+    }
+  },
+  {
+    "id": "battleship-bombardment",
+    "type": "ShipBombardmentVictoryEntity",
+    "description": "5 victory points awarded for every battleship that conducts shore bombardment.",
+    "points": 5,
+    "matcher": {
+      "ship": {
+        "side": "AXIS",
+        "types": [
+          "BATTLESHIP",
+          "BATTLECRUISER"
+        ]
+      },
+      "actions": [
+        "AIRFIELD_ATTACKED",
+        "PORT_ATTACKED"
+      ]
+    }
+  },
+  {
+    "id": "heavy-cruiser-bombardment",
+    "type": "ShipBombardmentVictoryEntity",
+    "description": "1 victory points awarded for every heavy cruiser that conducts shore bombardment.",
+    "points": 1,
+    "matcher": {
+      "ship": {
+        "side": "AXIS",
+        "types": [
+          "HEAVY_CRUISER"
+        ]
+      },
+      "actions": [
+        "AIRFIELD_ATTACKED",
+        "PORT_ATTACKED"
+      ]
+    }
+  },
+  {
+    "id": "squadron-step-destroyed",
+    "type": "SquadronStepDestroyedVictoryEntity",
+    "description": "6 victory points awarded for every enemy squadron step destroyed.",
+    "points": 6,
+    "matcher": {
+      "squadron": {
+        "side": "ALLIES"
+      },
+      "actions": [
+        "SQUADRON_DAMAGED",
+        "SQUADRON_DESTROYED"
+      ]
+    }
+  }
+]

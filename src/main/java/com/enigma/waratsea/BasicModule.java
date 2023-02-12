@@ -80,6 +80,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(SubmarineFlotillaService.class);
     bootStrappedBinder.addBinding().to(MtbFlotillaService.class);
     bootStrappedBinder.addBinding().to(MissionService.class);
+    bootStrappedBinder.addBinding().to(VictoryService.class);
   }
 
   private void bindProps() {
@@ -115,6 +116,7 @@ public class BasicModule extends AbstractModule {
     bind(MtbFlotillaRepository.class).to(MtbFlotillaRepositoryImpl.class);
     bind(MissionRepository.class).to(MissionRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
+    bind(VictoryRepository.class).to(VictoryRepositoryImpl.class);
   }
 
   private void bindMappers() {
@@ -131,6 +133,7 @@ public class BasicModule extends AbstractModule {
     bind(SubmarineFlotillaMapper.class).toInstance(SubmarineFlotillaMapper.INSTANCE);
     bind(MtbFlotillaMapper.class).toInstance(MtbFlotillaMapper.INSTANCE);
     bind(MissionMapper.class).toInstance(MissionMapper.INSTANCE);
+    bind(VictoryMapper.class).toInstance(VictoryMapper.INSTANCE);
   }
 
   private void bindWeatherStrategies() {
@@ -168,5 +171,6 @@ public class BasicModule extends AbstractModule {
     bind(MtbFlotillaService.class).to(MtbFlotillaServiceImpl.class);
     bind(MissionService.class).to(MissionServiceImpl.class);
     bind(GameService.class).to(GameServiceImpl.class);
+    bind(VictoryService.class).to(VictoryServiceImpl.class);
   }
 }

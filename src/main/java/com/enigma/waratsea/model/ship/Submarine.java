@@ -1,9 +1,5 @@
 package com.enigma.waratsea.model.ship;
 
-import com.enigma.waratsea.dto.CargoDto;
-import com.enigma.waratsea.entity.ship.FuelEntity;
-import com.enigma.waratsea.entity.ship.MovementEntity;
-import com.enigma.waratsea.entity.ship.TorpedoEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
 import lombok.Builder;
@@ -19,9 +15,9 @@ public class Submarine implements Ship {
   private String title;
   private String shipClass;
   private Nation nation;
-  private TorpedoEntity torpedo;
-  private MovementEntity movement;
-  private FuelEntity fuel;
+  private Torpedo torpedo;
+  private Movement movement;
+  private Fuel fuel;
   private int victoryPoints;
 
   @Override
@@ -36,6 +32,7 @@ public class Submarine implements Ship {
   }
 
   @Override
-  public void loadCargo(final CargoDto cargoDto) {
+  public Optional<Cargo> retrieveCargo() {
+    return Optional.empty();
   }
 }

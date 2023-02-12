@@ -37,12 +37,12 @@ public class TaskForceServiceImpl implements TaskForceService {
   }
 
   @Override
-  public Set<TaskForce> get(Side side) {
+  public Set<TaskForce> get(final Side side) {
    return taskForceSideMap.computeIfAbsent(side, this::getFromRepository);
   }
 
   @Override
-  public Set<TaskForce> get(Set<Id> taskForceIds) {
+  public Set<TaskForce> get(final Set<Id> taskForceIds) {
     return taskForceIds.stream()
         .map(taskForceMap::get)
         .collect(Collectors.toSet());

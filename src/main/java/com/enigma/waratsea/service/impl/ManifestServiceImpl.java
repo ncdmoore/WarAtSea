@@ -6,6 +6,7 @@ import com.enigma.waratsea.event.LoadCargoEvent;
 import com.enigma.waratsea.mapper.ManifestMapper;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.cargo.Manifest;
+import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.repository.ManifestRepository;
 import com.enigma.waratsea.service.ManifestService;
 import com.google.inject.Inject;
@@ -13,6 +14,7 @@ import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Singleton
@@ -55,8 +57,13 @@ public class ManifestServiceImpl implements ManifestService {
   private void loadManifest(final Manifest manifest) {
     var originPort = manifest.getOriginPort();
     var destinationPorts = manifest.getDestinationPorts();
-    var cargo = new CargoDto(originPort, destinationPorts);
+    var cargoDto = new CargoDto(originPort, destinationPorts);
 
-    manifest.getShips().forEach(ship -> ship.loadCargo(cargo));
+    manifest.getShips()
+        .stream()
+        .map(Ship::retrieveCargo)
+        .filter(Optional::isPresent)
+        .map(Optional::get)
+        .forEach(cargo -> cargo.load(cargoDto));
   }
 }

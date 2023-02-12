@@ -1,6 +1,5 @@
 package com.enigma.waratsea.model.ship;
 
-import com.enigma.waratsea.dto.CargoDto;
 import com.enigma.waratsea.model.Airbase;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
@@ -57,7 +56,8 @@ public class AircraftCarrier implements Ship, Airbase {
   }
 
   @Override
-  public void loadCargo(final CargoDto cargoDto) {
+  public Optional<Cargo> retrieveCargo() {
+    return Optional.empty();
   }
 
   @Override

@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.List;
+import java.util.Set;
 
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -52,7 +52,7 @@ public class PortServiceTest {
 
   @Test
   void testGetPorts() {
-    var portIds = List.of(
+    var portIds = Set.of(
         new Id(ALLIES, PORT_ID_1),
         new Id(ALLIES, PORT_ID_2)
     );

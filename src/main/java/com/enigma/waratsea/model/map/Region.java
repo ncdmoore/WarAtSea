@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -16,6 +17,6 @@ public class Region {
   private String min; // in steps.
   private String max; // in steps.
   private List<Airfield> airfields;
-  private List<Port> ports;
+  private Set<Port> ports;
   private String gridReference;
 }

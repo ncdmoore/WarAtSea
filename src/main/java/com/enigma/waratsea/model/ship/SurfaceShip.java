@@ -1,6 +1,5 @@
 package com.enigma.waratsea.model.ship;
 
-import com.enigma.waratsea.dto.CargoDto;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
 import lombok.Builder;
@@ -40,7 +39,7 @@ public class SurfaceShip implements Ship {
   }
 
   @Override
-  public void loadCargo(final CargoDto cargoDto) {
-    cargo.load(cargoDto);
+  public Optional<Cargo> retrieveCargo() {
+    return Optional.of(cargo);
   }
 }

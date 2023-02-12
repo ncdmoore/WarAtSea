@@ -12,6 +12,7 @@ import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
@@ -30,20 +31,20 @@ public class PortServiceImpl implements PortService {
   }
 
   @Override
-  public List<Port> get(List<Id> portIds) {
+  public Set<Port> get(final Set<Id> portIds) {
     return portIds.stream()
         .map(this::get)
-        .toList();
+        .collect(Collectors.toSet());
   }
 
   @Override
-  public Set<Port> get(Side side) {
+  public Set<Port> get(final Side side) {
     return Optional.ofNullable(portSideMap.get(side))
         .orElse(Collections.emptySet());
   }
 
   @Override
-  public Port get(Id portId) {
+  public Port get(final Id portId) {
     return ports.computeIfAbsent(portId, this::getAndIndex);
   }
 

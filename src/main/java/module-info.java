@@ -25,6 +25,10 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.dto;
   exports com.enigma.waratsea.entity;
   exports com.enigma.waratsea.event;
+  exports com.enigma.waratsea.event.action;
+  exports com.enigma.waratsea.event.ship;
+  exports com.enigma.waratsea.event.matcher;
+  exports com.enigma.waratsea.event.squadron;
   exports com.enigma.waratsea.exception;
   exports com.enigma.waratsea.mapper;
 
@@ -41,6 +45,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.model.ship;
   exports com.enigma.waratsea.model.taskForce;
   exports com.enigma.waratsea.model.turn;
+  exports com.enigma.waratsea.model.victory;
   exports com.enigma.waratsea.model.weather;
 
   exports com.enigma.waratsea.property;
@@ -64,18 +69,22 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.entity.aircraft;
   exports com.enigma.waratsea.entity.cargo;
   exports com.enigma.waratsea.entity.gson;
+  exports com.enigma.waratsea.entity.matcher;
   exports com.enigma.waratsea.entity.mission;
   exports com.enigma.waratsea.entity.option;
   exports com.enigma.waratsea.entity.ship;
   exports com.enigma.waratsea.entity.squadron;
+  exports com.enigma.waratsea.entity.victory;
 
   opens com.enigma.waratsea.entity.aircraft to com.google.gson;
   opens com.enigma.waratsea.entity.cargo to com.google.gson;
   opens com.enigma.waratsea.entity.gson to com.google.gson;
+  opens com.enigma.waratsea.entity.matcher to com.google.gson;
   opens com.enigma.waratsea.entity.mission to com.google.gson;
   opens com.enigma.waratsea.entity.option to com.google.gson;
   opens com.enigma.waratsea.entity.ship to com.google.gson;
   opens com.enigma.waratsea.entity.squadron to com.google.gson;
+  opens com.enigma.waratsea.entity.victory to com.google.gson;
 
   opens com.enigma.waratsea.model.die to com.google.gson;
   opens com.enigma.waratsea.model.map to com.google.gson;

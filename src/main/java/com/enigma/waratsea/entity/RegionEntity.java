@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Builder
@@ -15,6 +16,6 @@ public class RegionEntity {
   private String min; // in steps.
   private String max; // in steps.
   private List<Id> airfields;
-  private List<Id> ports;
+  private Set<Id> ports;
   private String gridReference;
 }
