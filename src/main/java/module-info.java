@@ -26,6 +26,8 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.entity;
   exports com.enigma.waratsea.event;
   exports com.enigma.waratsea.event.action;
+  exports com.enigma.waratsea.event.airfield;
+  exports com.enigma.waratsea.event.port;
   exports com.enigma.waratsea.event.ship;
   exports com.enigma.waratsea.event.matcher;
   exports com.enigma.waratsea.event.squadron;
@@ -75,6 +77,8 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.entity.ship;
   exports com.enigma.waratsea.entity.squadron;
   exports com.enigma.waratsea.entity.victory;
+
+  opens com.enigma.waratsea.event.matcher to com.google.gson;
 
   opens com.enigma.waratsea.entity.aircraft to com.google.gson;
   opens com.enigma.waratsea.entity.cargo to com.google.gson;

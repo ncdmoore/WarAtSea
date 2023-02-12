@@ -120,17 +120,17 @@ class VictoryRepositoryTest {
     var battleshipMatcher = battleshipBombardment.getMatcher();
 
     assertEquals(5, battleshipBombardment.getPoints());
-    assertTrue(battleshipMatcher.getShip().getTypes().contains(BATTLECRUISER));
-    assertSame(battleshipMatcher.getShip().getSide(), AXIS);
     assertTrue(battleshipMatcher.getActions().contains(AIRFIELD_ATTACKED));
+    assertSame(battleshipMatcher.getBase().getSide(), ALLIES);
+    assertTrue(battleshipMatcher.getEnemy().getTypes().contains("BATTLECRUISER"));
 
     var cruiserBombardment = (ShipBombardmentVictoryEntity) victoryConditions.get(HEAVY_CRUISER_BOMBARDMENT_ID);
     var cruiserMatcher = cruiserBombardment.getMatcher();
 
     assertEquals(1, cruiserBombardment.getPoints());
-    assertTrue(cruiserMatcher.getShip().getTypes().contains(HEAVY_CRUISER));
-    assertSame(cruiserMatcher.getShip().getSide(), AXIS);
     assertTrue(cruiserMatcher.getActions().contains(PORT_ATTACKED));
+    assertSame(cruiserMatcher.getBase().getSide(), ALLIES);
+    assertTrue(cruiserMatcher.getEnemy().getTypes().contains("HEAVY_CRUISER"));
 
     var squadronStepDestroyed = (SquadronStepDestroyedVictoryEntity) victoryConditions.get(SQUADRON_STEP_DESTROYED_ID);
     var stepDestroyedMatcher = squadronStepDestroyed.getMatcher();

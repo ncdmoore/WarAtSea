@@ -1,10 +1,12 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.event.matcher.ShipCombatMatcher;
-import com.enigma.waratsea.event.matcher.ShipMatcher;
-import com.enigma.waratsea.event.ship.ShipCombatEvent;
+import com.enigma.waratsea.event.airfield.AirfieldCombatEvent;
+import com.enigma.waratsea.event.matcher.BaseCombatMatcher;
+import com.enigma.waratsea.event.matcher.BaseMatcher;
+import com.enigma.waratsea.event.matcher.EnemyMatcher;
+import com.enigma.waratsea.model.Airfield;
+import com.enigma.waratsea.model.Enemy;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.ship.SurfaceShip;
 import com.enigma.waratsea.model.victory.ShipBombardmentVictory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,14 +26,19 @@ class ShipBombardmentVictoryTest {
 
   @BeforeEach
   void setUp() {
-    var shipMatcher = ShipMatcher.builder()
-        .types(Set.of(BATTLESHIP))
+
+    var baseMatcher = BaseMatcher.builder()
         .side(ALLIES)
         .build();
 
-    var victoryMatcher = ShipCombatMatcher.builder()
-        .ship(shipMatcher)
+    var enemyMatcher = EnemyMatcher.builder()
+        .types(Set.of(BATTLESHIP.name()))
+        .build();
+
+    var victoryMatcher = BaseCombatMatcher.builder()
+        .base(baseMatcher)
         .actions(Set.of(AIRFIELD_ATTACKED))
+        .enemy(enemyMatcher)
         .build();
 
     victoryCondition = ShipBombardmentVictory.builder()
@@ -45,18 +52,24 @@ class ShipBombardmentVictoryTest {
 
   @Test
   void shouldIncreaseVictoryPoints() {
-    var id = new Id(ALLIES, "battleship");
+    var airfieldId = new Id(ALLIES, "airfield");
 
-    var ship = SurfaceShip.builder()
-        .id(id)
-        .type(BATTLESHIP)
+    var airfield = Airfield.builder()
+        .id(airfieldId)
         .build();
 
-    var event = new ShipCombatEvent(ship, AIRFIELD_ATTACKED);
+    var enemyId = new Id(AXIS, "battleship");
+
+    var enemy = Enemy.builder()
+        .type("BATTLESHIP")
+        .id(enemyId)
+        .build();
+
+    var event = new AirfieldCombatEvent(airfield, AIRFIELD_ATTACKED, enemy);
 
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleShipEvent(event);
+    victoryCondition.handleAirfieldEvent(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -66,18 +79,24 @@ class ShipBombardmentVictoryTest {
 
   @Test
   void shouldNotIncreaseVictoryPoints() {
-    var id = new Id(AXIS, "battleship");
+    var id = new Id(AXIS, "airfield");
 
-    var ship = SurfaceShip.builder()
+    var airfield = Airfield.builder()
         .id(id)
-        .type(BATTLESHIP)
         .build();
 
-    var event = new ShipCombatEvent(ship, AIRFIELD_ATTACKED);
+    var enemyId = new Id(AXIS, "battleship");
+
+    var enemy = Enemy.builder()
+        .type("BATTLESHIP")
+        .id(enemyId)
+        .build();
+
+    var event = new AirfieldCombatEvent(airfield, AIRFIELD_ATTACKED, enemy);
 
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleShipEvent(event);
+    victoryCondition.handleAirfieldEvent(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 

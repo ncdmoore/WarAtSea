@@ -108,17 +108,20 @@
     "description": "5 victory points awarded for every battleship that conducts shore bombardment.",
     "points": 5,
     "matcher": {
-      "ship": {
+      "base": {
+        "side": "ALLIES"
+      },
+      "actions": [
+        "AIRFIELD_ATTACKED",
+        "PORT_ATTACKED"
+      ],
+      "enemy": {
         "side": "AXIS",
         "types": [
           "BATTLESHIP",
           "BATTLECRUISER"
         ]
-      },
-      "actions": [
-        "AIRFIELD_ATTACKED",
-        "PORT_ATTACKED"
-      ]
+      }
     }
   },
   {
@@ -127,16 +130,19 @@
     "description": "1 victory points awarded for every heavy cruiser that conducts shore bombardment.",
     "points": 1,
     "matcher": {
-      "ship": {
-        "side": "AXIS",
-        "types": [
-          "HEAVY_CRUISER"
-        ]
+      "base": {
+        "side": "ALLIES"
       },
       "actions": [
         "AIRFIELD_ATTACKED",
         "PORT_ATTACKED"
-      ]
+      ],
+      "enemy": {
+        "side": "AXIS",
+        "types": [
+          "HEAVY_CRUISER"
+        ]
+      }
     }
   },
   {

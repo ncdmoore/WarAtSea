@@ -1,6 +1,6 @@
 package com.enigma.waratsea.entity.victory;
 
-import com.enigma.waratsea.entity.matcher.ShipCombatMatcherEntity;
+import com.enigma.waratsea.entity.matcher.BaseCombatMatcherEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +10,8 @@ public class ShipBombardmentVictoryEntity extends VictoryEntity {
   private String id;
   private String description;
   private int points;
-  private ShipCombatMatcherEntity matcher;
+  private BaseCombatMatcherEntity matcher;
+
   private int totalPoints;
 
   public ShipBombardmentVictoryEntity() {
