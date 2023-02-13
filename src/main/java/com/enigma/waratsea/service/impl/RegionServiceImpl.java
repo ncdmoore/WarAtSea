@@ -1,6 +1,9 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.user.SelectScenarioEvent;
+import com.enigma.waratsea.event.user.StartNewGameEvent;
+import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.model.map.Region;

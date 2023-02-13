@@ -97,4 +97,5 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.model.squadron to com.google.gson;
   opens com.enigma.waratsea.model.turn to com.google.gson;
   opens com.enigma.waratsea.model.weather to com.google.gson;
+  exports com.enigma.waratsea.event.user;
 }

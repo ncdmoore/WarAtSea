@@ -2,6 +2,9 @@ package com.enigma.waratsea.viewmodel;
 
 import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.user.ScenarioHasOptionsEvent;
+import com.enigma.waratsea.event.user.StartNewGameEvent;
+import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.view.pregame.*;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.view.View;

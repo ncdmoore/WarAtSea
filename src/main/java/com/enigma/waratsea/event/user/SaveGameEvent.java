@@ -1,5 +1,6 @@
-package com.enigma.waratsea.event;
+package com.enigma.waratsea.event.user;
 
+import com.enigma.waratsea.event.Event;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 

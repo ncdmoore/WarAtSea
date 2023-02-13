@@ -1,7 +1,7 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.SaveGameEvent;
+import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.model.*;
 import com.enigma.waratsea.model.player.Player;
 import com.enigma.waratsea.model.taskForce.TaskForce;

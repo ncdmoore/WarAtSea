@@ -1,5 +1,6 @@
 package com.enigma.waratsea.event;
 
+import com.enigma.waratsea.event.user.*;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Singleton;

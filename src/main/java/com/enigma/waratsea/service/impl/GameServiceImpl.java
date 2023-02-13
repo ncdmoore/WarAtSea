@@ -1,6 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.user.*;
 import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Game;
