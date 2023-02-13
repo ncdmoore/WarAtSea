@@ -20,7 +20,8 @@ import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipBombardmentVictoryTest {
-  private ShipBombardmentVictory victoryCondition;
+  private ShipBombardmentVictory victoryConditionNoRequiredOccurrences;
+  private ShipBombardmentVictory victoryConditionRequiredOccurrences;
 
   private static final int POINTS_AWARDED = 5;
 
@@ -41,14 +42,21 @@ class ShipBombardmentVictoryTest {
         .enemy(enemyMatcher)
         .build();
 
-    victoryCondition = ShipBombardmentVictory.builder()
+    victoryConditionNoRequiredOccurrences = ShipBombardmentVictory.builder()
         .id("bombardment")
         .description("description")
         .points(POINTS_AWARDED)
         .matcher(victoryMatcher)
         .build();
-  }
 
+    victoryConditionRequiredOccurrences = ShipBombardmentVictory.builder()
+        .id("bombardment")
+        .description("description")
+        .points(POINTS_AWARDED)
+        .requiredOccurrences(2)
+        .matcher(victoryMatcher)
+        .build();
+  }
 
   @Test
   void shouldIncreaseVictoryPoints() {
@@ -61,17 +69,17 @@ class ShipBombardmentVictoryTest {
     var enemyId = new Id(AXIS, "battleship");
 
     var enemy = Enemy.builder()
-        .type("BATTLESHIP")
+        .type(BATTLESHIP.name())
         .id(enemyId)
         .build();
 
     var event = new AirfieldCombatEvent(airfield, AIRFIELD_ATTACKED, enemy);
 
-    var prePoints = victoryCondition.getTotalPoints();
+    var prePoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
-    victoryCondition.handleAirfieldEvent(event);
+    victoryConditionNoRequiredOccurrences.handleAirfieldEvent(event);
 
-    var postPoints = victoryCondition.getTotalPoints();
+    var postPoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
     assertEquals(0, prePoints);
     assertEquals(prePoints + POINTS_AWARDED, postPoints);
@@ -88,17 +96,72 @@ class ShipBombardmentVictoryTest {
     var enemyId = new Id(AXIS, "battleship");
 
     var enemy = Enemy.builder()
-        .type("BATTLESHIP")
+        .type(BATTLESHIP.name())
         .id(enemyId)
         .build();
 
     var event = new AirfieldCombatEvent(airfield, AIRFIELD_ATTACKED, enemy);
 
-    var prePoints = victoryCondition.getTotalPoints();
+    var prePoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
-    victoryCondition.handleAirfieldEvent(event);
+    victoryConditionNoRequiredOccurrences.handleAirfieldEvent(event);
 
-    var postPoints = victoryCondition.getTotalPoints();
+    var postPoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
+
+    assertEquals(0, prePoints);
+    assertEquals(0, postPoints);
+  }
+
+  @Test
+  void shouldIncreaseVictoryPointsRequiredOccurrencesSatisfied() {
+    var id = new Id(ALLIES, "airfield");
+
+    var airfield = Airfield.builder()
+        .id(id)
+        .build();
+
+    var enemyId = new Id(AXIS, "battleship");
+
+    var enemy = Enemy.builder()
+        .type(BATTLESHIP.name())
+        .id(enemyId)
+        .build();
+
+    var event = new AirfieldCombatEvent(airfield, AIRFIELD_ATTACKED, enemy);
+
+    var prePoints = victoryConditionRequiredOccurrences.getTotalPoints();
+
+    victoryConditionRequiredOccurrences.handleAirfieldEvent(event);   // First occurrence.
+    victoryConditionRequiredOccurrences.handleAirfieldEvent(event);   // Second occurrence.
+
+    var postPoints = victoryConditionRequiredOccurrences.getTotalPoints();
+
+    assertEquals(0, prePoints);
+    assertEquals(prePoints + POINTS_AWARDED, postPoints);
+  }
+
+  @Test
+  void shouldNotIncreaseVictoryPointsRequiredOccurrencesNotSatisfied() {
+    var id = new Id(ALLIES, "airfield");
+
+    var airfield = Airfield.builder()
+        .id(id)
+        .build();
+
+    var enemyId = new Id(AXIS, "battleship");
+
+    var enemy = Enemy.builder()
+        .type(BATTLESHIP.name())
+        .id(enemyId)
+        .build();
+
+    var event = new AirfieldCombatEvent(airfield, AIRFIELD_ATTACKED, enemy);
+
+    var prePoints = victoryConditionRequiredOccurrences.getTotalPoints();
+
+    victoryConditionRequiredOccurrences.handleAirfieldEvent(event);
+
+    var postPoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
     assertEquals(0, prePoints);
     assertEquals(0, postPoints);
