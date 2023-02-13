@@ -7,6 +7,7 @@ import com.enigma.waratsea.model.ship.Ship;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.Collections;
 import java.util.Set;
 
 @Getter
@@ -14,8 +15,12 @@ import java.util.Set;
 public class ShipCargoMatcher {
   private ShipMatcher ship;
   private Set<CargoAction> actions;
-  private Port originPort;
-  private Set<Port> destinationPorts;
+
+  @Builder.Default
+  private Set<Port> originPorts = Collections.emptySet();
+
+  @Builder.Default
+  private Set<Port> destinationPorts = Collections.emptySet();
 
   public boolean match(final ShipCargoEvent event) {
     var candidateShip = event.getShip();
@@ -38,7 +43,7 @@ public class ShipCargoMatcher {
   }
 
   private boolean matchOriginPort(final Port candidateOriginPort) {
-    return originPort == null || originPort.equals(candidateOriginPort);
+    return originPorts.isEmpty() || originPorts.contains(candidateOriginPort);
   }
 
   private boolean matchDestinationPort(final Port candidateDestinationPort) {

@@ -1,0 +1,216 @@
+[
+  {
+    "id": "ship-cargo-lost",
+    "type": "ShipCargoLostVictoryEntity",
+    "description": "2 Ship's cargo level of victory points awarded for every enemy ship sunk with cargo, transport or warship.",
+    "factor": 2,
+    "matcher": {
+      "ship": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "SHIP_SUNK"
+      ]
+    }
+  },
+  {
+    "id": "ship-sunk",
+    "type": "ShipSunkVictoryEntity",
+    "description": "Ship's victory points awarded for every enemy ship sunk.",
+    "matcher": {
+      "ship": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "SHIP_SUNK"
+      ]
+    }
+  },
+  {
+    "id": "ship-out-of-fuel",
+    "type": "ShipOutOfFuelVictoryEntity",
+    "description": "1/2 Ship's victory points awarded for every enemy that runs out of fuel.",
+    "matcher": {
+      "ship": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "OUT_OF_FUEL"
+      ]
+    }
+  },
+  {
+    "id": "capital-ship-hull-damaged",
+    "type": "ShipDamagedVictoryEntity",
+    "description": "3 victory points awarded for every enemy capital ship hull damaged.",
+    "points": 3,
+    "matcher": {
+      "ship": {
+        "side": "AXIS",
+        "types": [
+          "BATTLESHIP",
+          "BATTLECRUISER",
+          "AIRCRAFT_CARRIER"
+        ]
+      },
+      "actions": [
+        "SHIP_HULL_DAMAGED"
+      ]
+    }
+  },
+  {
+    "id": "non-capital-ship-hull-damaged",
+    "type": "ShipDamagedVictoryEntity",
+    "description": "1 victory point awarded for every enemy non-capital ship hull damaged.",
+    "points": 1,
+    "matcher": {
+      "ship": {
+        "side": "AXIS",
+        "types": [
+          "LIGHT_CARRIER",
+          "SEAPLANE_CARRIER",
+          "HEAVY_CRUISER",
+          "LIGHT_CRUISER",
+          "ARMOURED_CRUISER",
+          "DESTROYER",
+          "DESTROYER_ESCORT",
+          "CORVETTE",
+          "MINE_LAYER",
+          "MINE_SWEEPER",
+          "SLOOP",
+          "OILER",
+          "TRANSPORT",
+          "FLAK_SHIP"
+        ]
+      },
+      "actions": [
+        "SHIP_HULL_DAMAGED"
+      ]
+    }
+  },
+  {
+    "id": "primary-gun-damaged",
+    "type": "ShipDamagedVictoryEntity",
+    "description": "3 victory point awarded for every enemy ship primary gun damaged.",
+    "points": 3,
+    "matcher": {
+      "ship": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "SHIP_PRIMARY_DAMAGED"
+      ]
+    }
+  },
+  {
+    "id": "battleship-bombardment",
+    "type": "ShipBombardmentVictoryEntity",
+    "description": "5 victory points awarded for every battleship that conducts shore bombardment.",
+    "points": 5,
+    "matcher": {
+      "base": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "AIRFIELD_ATTACKED",
+        "PORT_ATTACKED"
+      ],
+      "enemy": {
+        "side": "ALLIES",
+        "types": [
+          "BATTLESHIP",
+          "BATTLECRUISER"
+        ]
+      }
+    }
+  },
+  {
+    "id": "heavy-cruiser-bombardment",
+    "type": "ShipBombardmentVictoryEntity",
+    "description": "1 victory points awarded for every heavy cruiser that conducts shore bombardment.",
+    "points": 1,
+    "matcher": {
+      "base": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "AIRFIELD_ATTACKED",
+        "PORT_ATTACKED"
+      ],
+      "enemy": {
+        "side": "ALLIES",
+        "types": [
+          "HEAVY_CRUISER"
+        ]
+      }
+    }
+  },
+  {
+    "id": "squadron-step-destroyed",
+    "type": "SquadronStepDestroyedVictoryEntity",
+    "description": "6 victory points awarded for every enemy squadron step destroyed.",
+    "points": 6,
+    "matcher": {
+      "squadron": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "SQUADRON_DAMAGED",
+        "SQUADRON_DESTROYED"
+      ]
+    }
+  },
+  {
+    "id": "unload-transport-cargo-at-malta",
+    "type": "ShipCargoUnloadedVictoryEntity",
+    "description": "4 times the ship's cargo capacity is awarded.",
+    "factor": 4,
+    "matcher": {
+      "ship": {
+        "side": "ALLIES",
+        "types": [
+          "TRANSPORT"
+        ]
+      },
+      "actions": [
+        "CARGO_UNLOADED"
+      ],
+     "destinationPorts": [
+       {
+         "side": "ALLIES",
+         "name": "Malta"
+       }
+     ]
+    }
+  },
+  {
+    "id": "unload-cruiser-cargo-at-malta",
+    "type": "ShipCargoUnloadedVictoryEntity",
+    "description": "8 victory points are awarded.",
+    "points": 8,
+    "matcher": {
+      "ship": {
+        "side": "ALLIES",
+        "types": [
+          "LIGHT_CRUISER",
+          "DESTROYER"
+        ],
+        "names": [
+          "Southampton",
+          "Gloucester",
+          "Ilex",
+          "Janus"
+        ]
+      },
+      "actions": [
+        "CARGO_UNLOADED"
+      ],
+      "destinationPorts": [
+        {
+          "side": "ALLIES",
+          "name": "Malta"
+        }
+      ]
+    }
+  }
+]

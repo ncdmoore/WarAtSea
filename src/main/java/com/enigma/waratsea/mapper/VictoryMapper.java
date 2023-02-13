@@ -37,6 +37,7 @@ public abstract class VictoryMapper {
 
   @SubclassMapping(source = ShipBombardmentVictoryEntity.class, target = ShipBombardmentVictory.class)
   @SubclassMapping(source = ShipCargoLostVictoryEntity.class, target = ShipCargoLostVictory.class)
+  @SubclassMapping(source = ShipCargoUnloadedVictoryEntity.class, target = ShipCargoUnloadedVictory.class)
   @SubclassMapping(source = ShipDamagedVictoryEntity.class, target = ShipDamagedVictory.class)
   @SubclassMapping(source = ShipOutOfFuelVictoryEntity.class, target = ShipOutOfFuelVictory.class)
   @SubclassMapping(source = ShipSunkVictoryEntity.class, target = ShipSunkVictory.class)
@@ -50,6 +51,7 @@ public abstract class VictoryMapper {
 
   @SubclassMapping(source = ShipBombardmentVictory.class, target = ShipBombardmentVictoryEntity.class)
   @SubclassMapping(source = ShipCargoLostVictory.class, target = ShipCargoLostVictoryEntity.class)
+  @SubclassMapping(source = ShipCargoUnloadedVictory.class, target = ShipCargoUnloadedVictoryEntity.class)
   @SubclassMapping(source = ShipDamagedVictory.class, target = ShipDamagedVictoryEntity.class)
   @SubclassMapping(source = ShipOutOfFuelVictory.class, target = ShipOutOfFuelVictoryEntity.class)
   @SubclassMapping(source = ShipSunkVictory.class, target = ShipSunkVictoryEntity.class)

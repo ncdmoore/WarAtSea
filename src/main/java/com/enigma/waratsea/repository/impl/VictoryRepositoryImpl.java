@@ -83,6 +83,7 @@ public class VictoryRepositoryImpl implements VictoryRepository {
         .of(VictoryEntity.class, "type")
         .registerSubtype(ShipBombardmentVictoryEntity.class)
         .registerSubtype(ShipCargoLostVictoryEntity.class)
+        .registerSubtype(ShipCargoUnloadedVictoryEntity.class)
         .registerSubtype(ShipDamagedVictoryEntity.class)
         .registerSubtype(ShipOutOfFuelVictoryEntity.class)
         .registerSubtype(ShipSunkVictoryEntity.class)

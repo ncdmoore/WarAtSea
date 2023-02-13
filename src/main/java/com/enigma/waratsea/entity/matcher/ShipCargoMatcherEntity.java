@@ -12,6 +12,6 @@ import java.util.Set;
 public class ShipCargoMatcherEntity {
   private ShipMatcherEntity ship;
   private Set<CargoAction> actions;
-  private Id originPort;
+  private Set<Id> originPorts;
   private Set<Id> destinationPorts;
 }
