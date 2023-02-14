@@ -1,5 +1,6 @@
 package com.enigma.waratsea.event;
 
+import com.enigma.waratsea.event.ship.ShipCargoEvent;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
 import com.enigma.waratsea.event.user.*;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
@@ -38,6 +39,7 @@ public class Events {
   private final EventDispatcher<ErrorEvent> errorEvents = new EventDispatcher<>(ErrorEvent.class);
 
 
-
   private final EventDispatcher<ShipCombatEvent> shipCombatEvent = new EventDispatcher<>(ShipCombatEvent.class);
+  private final EventDispatcher<ShipCargoEvent> shipCargoEvent = new EventDispatcher<>(ShipCargoEvent.class);
+
 }

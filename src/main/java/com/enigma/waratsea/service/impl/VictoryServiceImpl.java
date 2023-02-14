@@ -2,6 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.dto.VictoryDto;
 import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ship.ShipCargoEvent;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
@@ -56,6 +57,7 @@ public class VictoryServiceImpl implements VictoryService {
 
   private void registerVictoryEvents(final Events events) {
     events.getShipCombatEvent().register(this::handleShipCombatEvent);
+    events.getShipCargoEvent().register(this::handleShipCargoEvent);
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
@@ -79,6 +81,14 @@ public class VictoryServiceImpl implements VictoryService {
 
     Side.stream()
         .forEach(this::get);
+  }
+
+  private void handleShipCargoEvent(final ShipCargoEvent shipCargoEvent) {
+    var dto = VictoryDto.builder()
+        .shipCargoEvent(shipCargoEvent)
+        .build();
+
+    updateVictory(dto);
   }
 
   private void handleShipCombatEvent(final ShipCombatEvent shipCombatEvent) {
