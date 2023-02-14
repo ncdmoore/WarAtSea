@@ -1,5 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
+import com.enigma.waratsea.dto.VictoryDto;
 import com.enigma.waratsea.event.matcher.SquadronCombatMatcher;
 import com.enigma.waratsea.event.matcher.SquadronMatcher;
 import com.enigma.waratsea.event.squadron.SquadronCombatEvent;
@@ -42,7 +43,6 @@ class SquadronStepDestroyedVictoryTest {
         .build();
   }
 
-
   @Test
   void shouldIncreaseVictoryPoints() {
     var id = new Id(ALLIES, "bomber");
@@ -58,9 +58,13 @@ class SquadronStepDestroyedVictoryTest {
 
     var event = new SquadronCombatEvent(squadron, SQUADRON_DAMAGED);
 
+    var dto = VictoryDto.builder()
+        .squadronCombatEvent(event)
+        .build();
+
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleSquadronEvent(event);
+    victoryCondition.handleEvent(dto);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -83,9 +87,13 @@ class SquadronStepDestroyedVictoryTest {
 
     var event = new SquadronCombatEvent(squadron, SQUADRON_ATTACKED);
 
+    var dto = VictoryDto.builder()
+        .squadronCombatEvent(event)
+        .build();
+
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleSquadronEvent(event);
+    victoryCondition.handleEvent(dto);
 
     var postPoints = victoryCondition.getTotalPoints();
 

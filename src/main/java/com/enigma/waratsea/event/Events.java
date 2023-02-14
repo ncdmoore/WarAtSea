@@ -1,5 +1,6 @@
 package com.enigma.waratsea.event;
 
+import com.enigma.waratsea.event.ship.ShipCombatEvent;
 import com.enigma.waratsea.event.user.*;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
@@ -34,5 +35,9 @@ public class Events {
   private final EventDispatcher<CreatePlayerEvent> createPlayerEvent = new EventDispatcher<>(CreatePlayerEvent.class);
   private final EventDispatcher<SelectSavedGameEvent> selectSavedGameEvent = new EventDispatcher<>(SelectSavedGameEvent.class);
   private final EventDispatcher<NavigateEvent> navigateEvent = new EventDispatcher<>(NavigateEvent.class);
-  private final EventDispatcher<ErrorEvent> ErrorEvents = new EventDispatcher<>(ErrorEvent.class);
+  private final EventDispatcher<ErrorEvent> errorEvents = new EventDispatcher<>(ErrorEvent.class);
+
+
+
+  private final EventDispatcher<ShipCombatEvent> shipCombatEvent = new EventDispatcher<>(ShipCombatEvent.class);
 }

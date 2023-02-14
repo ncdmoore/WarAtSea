@@ -1,5 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
+import com.enigma.waratsea.dto.VictoryDto;
 import com.enigma.waratsea.event.matcher.ShipCargoMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipCargoEvent;
@@ -81,9 +82,13 @@ class ShipCargoUnloadedVictoryTest {
 
     var event = new ShipCargoEvent(ship, CARGO_UNLOADED, originPort, destPort);
 
+    var dto = VictoryDto.builder()
+        .shipCargoEvent(event)
+        .build();
+
     var prePoints = victoryConditionBasicPoints.getTotalPoints();
 
-    victoryConditionBasicPoints.handleShipCargoEvent(event);
+    victoryConditionBasicPoints.handleEvent(dto);
 
     var postPoints = victoryConditionBasicPoints.getTotalPoints();
 
@@ -121,9 +126,13 @@ class ShipCargoUnloadedVictoryTest {
 
     var event = new ShipCargoEvent(ship, CARGO_UNLOADED, originPort, destPort);
 
+    var dto = VictoryDto.builder()
+        .shipCargoEvent(event)
+        .build();
+
     var prePoints = victoryConditionFactor.getTotalPoints();
 
-    victoryConditionFactor.handleShipCargoEvent(event);
+    victoryConditionFactor.handleEvent(dto);
 
     var postPoints = victoryConditionFactor.getTotalPoints();
 

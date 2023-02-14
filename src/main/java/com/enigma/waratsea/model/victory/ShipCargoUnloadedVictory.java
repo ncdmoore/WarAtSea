@@ -1,10 +1,13 @@
 package com.enigma.waratsea.model.victory;
 
+import com.enigma.waratsea.dto.VictoryDto;
 import com.enigma.waratsea.event.matcher.ShipCargoMatcher;
 import com.enigma.waratsea.event.ship.ShipCargoEvent;
 import com.enigma.waratsea.model.ship.Cargo;
 import lombok.Builder;
 import lombok.Getter;
+
+import java.util.Optional;
 
 @Getter
 @Builder
@@ -16,6 +19,14 @@ public class ShipCargoUnloadedVictory implements Victory {
   private ShipCargoMatcher matcher;
 
   private int totalPoints;
+
+  @Override
+  public void handleEvent(VictoryDto victoryDto) {
+    var shipCargoEvent = victoryDto.getShipCargoEvent();
+
+    Optional.ofNullable(shipCargoEvent)
+        .ifPresent(this::handleShipCargoEvent);
+  }
 
   public void handleShipCargoEvent(final ShipCargoEvent event) {
     if (matcher.match(event)) {

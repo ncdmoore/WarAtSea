@@ -1,5 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
+import com.enigma.waratsea.dto.VictoryDto;
 import com.enigma.waratsea.event.matcher.ShipCombatMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
@@ -57,9 +58,13 @@ public class ShipCargoLostVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_SUNK);
 
+    var dto = VictoryDto.builder()
+        .shipCombatEvent(event)
+        .build();
+
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleShipEvent(event);
+    victoryCondition.handleEvent(dto);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -88,9 +93,13 @@ public class ShipCargoLostVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_SUNK);
 
+    var dto = VictoryDto.builder()
+        .shipCombatEvent(event)
+        .build();
+
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleShipEvent(event);
+    victoryCondition.handleEvent(dto);
 
     var postPoints = victoryCondition.getTotalPoints();
 

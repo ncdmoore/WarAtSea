@@ -1,5 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
+import com.enigma.waratsea.dto.VictoryDto;
 import com.enigma.waratsea.event.airfield.AirfieldCombatEvent;
 import com.enigma.waratsea.event.matcher.BaseCombatMatcher;
 import com.enigma.waratsea.event.matcher.BaseMatcher;
@@ -77,7 +78,11 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
-    victoryConditionNoRequiredOccurrences.handleAirfieldEvent(event);
+    var dto = VictoryDto.builder()
+        .airfieldCombatEvent(event)
+        .build();
+
+    victoryConditionNoRequiredOccurrences.handleEvent(dto);
 
     var postPoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
@@ -104,7 +109,11 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
-    victoryConditionNoRequiredOccurrences.handleAirfieldEvent(event);
+    var dto = VictoryDto.builder()
+        .airfieldCombatEvent(event)
+        .build();
+
+    victoryConditionNoRequiredOccurrences.handleEvent(dto);
 
     var postPoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
@@ -131,8 +140,12 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
-    victoryConditionRequiredOccurrences.handleAirfieldEvent(event);   // First occurrence.
-    victoryConditionRequiredOccurrences.handleAirfieldEvent(event);   // Second occurrence.
+    var dto = VictoryDto.builder()
+        .airfieldCombatEvent(event)
+        .build();
+
+    victoryConditionRequiredOccurrences.handleEvent(dto);   // First occurrence.
+    victoryConditionRequiredOccurrences.handleEvent(dto);   // Second occurrence.
 
     var postPoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
@@ -159,7 +172,11 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
-    victoryConditionRequiredOccurrences.handleAirfieldEvent(event);
+    var dto = VictoryDto.builder()
+        .airfieldCombatEvent(event)
+        .build();
+
+    victoryConditionRequiredOccurrences.handleEvent(dto);
 
     var postPoints = victoryConditionRequiredOccurrences.getTotalPoints();
 

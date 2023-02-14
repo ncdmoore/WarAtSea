@@ -1,5 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
+import com.enigma.waratsea.dto.VictoryDto;
 import com.enigma.waratsea.event.matcher.ShipFuelMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipFuelEvent;
@@ -52,9 +53,13 @@ class ShipOutOfFuelVictoryTest {
 
     var event = new ShipFuelEvent(ship, OUT_OF_FUEL);
 
+    var dto = VictoryDto.builder()
+        .shipFuelEvent(event)
+        .build();
+
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleShipEvent(event);
+    victoryCondition.handleEvent(dto);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -73,9 +78,13 @@ class ShipOutOfFuelVictoryTest {
 
     var event = new ShipFuelEvent(ship, OUT_OF_FUEL);
 
+    var dto = VictoryDto.builder()
+        .shipFuelEvent(event)
+        .build();
+
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleShipEvent(event);
+    victoryCondition.handleEvent(dto);
 
     var postPoints = victoryCondition.getTotalPoints();
 
