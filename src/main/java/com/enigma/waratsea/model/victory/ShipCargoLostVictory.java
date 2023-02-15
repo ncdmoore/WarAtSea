@@ -1,13 +1,11 @@
 package com.enigma.waratsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.ShipCombatMatcher;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
 import com.enigma.waratsea.model.ship.Cargo;
 import lombok.Builder;
 import lombok.Getter;
-
-import java.util.Optional;
 
 @Getter
 @Builder
@@ -20,11 +18,8 @@ public class ShipCargoLostVictory implements Victory {
   private int totalPoints;
 
   @Override
-  public void handleEvent(VictoryDto victoryDto) {
-    var shipCombatEvent = victoryDto.getShipCombatEvent();
-
-    Optional.ofNullable(shipCombatEvent)
-        .ifPresent(this::handleShipEvent);
+  public void registerEvents(final Events events) {
+    events.getShipCombatEvent().register(this::handleShipEvent);
   }
 
   private void handleShipEvent(final ShipCombatEvent event) {

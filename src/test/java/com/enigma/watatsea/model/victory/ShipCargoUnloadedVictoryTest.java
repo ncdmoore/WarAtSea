@@ -1,6 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.ShipCargoMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipCargoEvent;
@@ -20,6 +20,7 @@ import static com.enigma.waratsea.model.ship.ShipType.HEAVY_CRUISER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipCargoUnloadedVictoryTest {
+  private Events events;
   private ShipCargoUnloadedVictory victoryConditionBasicPoints;
   private ShipCargoUnloadedVictory victoryConditionFactor;
 
@@ -28,6 +29,8 @@ class ShipCargoUnloadedVictoryTest {
 
   @BeforeEach
   void setUp() {
+    events = new Events();
+
     var shipMatcher = ShipMatcher.builder()
         .side(AXIS)
         .build();
@@ -50,6 +53,9 @@ class ShipCargoUnloadedVictoryTest {
         .factor(FACTOR)
         .matcher(victoryMatcher)
         .build();
+
+    victoryConditionBasicPoints.registerEvents(events);
+    victoryConditionFactor.registerEvents(events);
   }
 
   @Test
@@ -80,15 +86,11 @@ class ShipCargoUnloadedVictoryTest {
         .id(destinationPortId)
         .build();
 
-    var event = new ShipCargoEvent(ship, CARGO_UNLOADED, originPort, destPort);
-
-    var dto = VictoryDto.builder()
-        .shipCargoEvent(event)
-        .build();
+    var event = new ShipCargoEvent(ship, CARGO_UNLOADED, 3, originPort, destPort);
 
     var prePoints = victoryConditionBasicPoints.getTotalPoints();
 
-    victoryConditionBasicPoints.handleEvent(dto);
+    events.getShipCargoEvent().fire(event);
 
     var postPoints = victoryConditionBasicPoints.getTotalPoints();
 
@@ -124,15 +126,11 @@ class ShipCargoUnloadedVictoryTest {
         .id(destinationPortId)
         .build();
 
-    var event = new ShipCargoEvent(ship, CARGO_UNLOADED, originPort, destPort);
-
-    var dto = VictoryDto.builder()
-        .shipCargoEvent(event)
-        .build();
+    var event = new ShipCargoEvent(ship, CARGO_UNLOADED, 3, originPort, destPort);
 
     var prePoints = victoryConditionFactor.getTotalPoints();
 
-    victoryConditionFactor.handleEvent(dto);
+    events.getShipCargoEvent().fire(event);
 
     var postPoints = victoryConditionFactor.getTotalPoints();
 

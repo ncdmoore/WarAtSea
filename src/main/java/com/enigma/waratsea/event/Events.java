@@ -1,7 +1,11 @@
 package com.enigma.waratsea.event;
 
+import com.enigma.waratsea.event.airfield.AirfieldCombatEvent;
+import com.enigma.waratsea.event.port.PortCombatEvent;
 import com.enigma.waratsea.event.ship.ShipCargoEvent;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
+import com.enigma.waratsea.event.ship.ShipFuelEvent;
+import com.enigma.waratsea.event.squadron.SquadronCombatEvent;
 import com.enigma.waratsea.event.user.*;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
@@ -41,5 +45,10 @@ public class Events {
 
   private final EventDispatcher<ShipCombatEvent> shipCombatEvent = new EventDispatcher<>(ShipCombatEvent.class);
   private final EventDispatcher<ShipCargoEvent> shipCargoEvent = new EventDispatcher<>(ShipCargoEvent.class);
+  private final EventDispatcher<ShipFuelEvent> shipFuelEvent = new EventDispatcher<>(ShipFuelEvent.class);
 
+  private final EventDispatcher<SquadronCombatEvent> squadronCombatEvent = new EventDispatcher<>(SquadronCombatEvent.class);
+
+  private final EventDispatcher<AirfieldCombatEvent> airfieldCombatEvent = new EventDispatcher<>(AirfieldCombatEvent.class);
+  private final EventDispatcher<PortCombatEvent> portCombatEvent = new EventDispatcher<>(PortCombatEvent.class);
 }

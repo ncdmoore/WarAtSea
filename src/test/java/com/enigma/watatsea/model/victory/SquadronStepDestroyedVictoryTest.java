@@ -1,6 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.SquadronCombatMatcher;
 import com.enigma.waratsea.event.matcher.SquadronMatcher;
 import com.enigma.waratsea.event.squadron.SquadronCombatEvent;
@@ -20,12 +20,15 @@ import static com.enigma.waratsea.model.aircraft.AircraftType.BOMBER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SquadronStepDestroyedVictoryTest {
+  private Events events;
   private SquadronStepDestroyedVictory victoryCondition;
 
   private static final int POINTS_AWARDED = 6;
 
   @BeforeEach
   void setUp() {
+    events = new Events();
+
     var squadronMatcher = SquadronMatcher.builder()
         .side(ALLIES)
         .build();
@@ -41,6 +44,8 @@ class SquadronStepDestroyedVictoryTest {
         .points(POINTS_AWARDED)
         .matcher(victoryMatcher)
         .build();
+
+    victoryCondition.registerEvents(events);
   }
 
   @Test
@@ -58,13 +63,9 @@ class SquadronStepDestroyedVictoryTest {
 
     var event = new SquadronCombatEvent(squadron, SQUADRON_DAMAGED);
 
-    var dto = VictoryDto.builder()
-        .squadronCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getSquadronCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -87,13 +88,9 @@ class SquadronStepDestroyedVictoryTest {
 
     var event = new SquadronCombatEvent(squadron, SQUADRON_ATTACKED);
 
-    var dto = VictoryDto.builder()
-        .squadronCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getSquadronCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 

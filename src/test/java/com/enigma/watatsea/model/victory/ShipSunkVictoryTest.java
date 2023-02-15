@@ -1,6 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.ShipCombatMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
@@ -19,10 +19,14 @@ import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipSunkVictoryTest {
+  private Events events;
+
   private ShipSunkVictory victoryCondition;
 
   @BeforeEach
   void setUp() {
+    events = new Events();
+
     var shipMatcher = ShipMatcher.builder()
         .types(Set.of(BATTLESHIP))
         .side(ALLIES)
@@ -38,6 +42,8 @@ class ShipSunkVictoryTest {
         .description("description")
         .matcher(victoryMatcher)
         .build();
+
+    victoryCondition.registerEvents(events);
   }
 
   @Test
@@ -54,13 +60,9 @@ class ShipSunkVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_SUNK);
 
-    var dto = VictoryDto.builder()
-        .shipCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -82,13 +84,9 @@ class ShipSunkVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_SUNK);
 
-    var dto = VictoryDto.builder()
-        .shipCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 

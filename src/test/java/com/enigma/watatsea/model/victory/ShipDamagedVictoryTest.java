@@ -1,6 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.ShipCombatMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
@@ -19,12 +19,15 @@ import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipDamagedVictoryTest {
+  private Events events;
   private ShipDamagedVictory victoryCondition;
 
   private static final int POINTS_AWARDED = 5;
 
   @BeforeEach
   void setUp() {
+    events = new Events();
+
     var shipMatcher = ShipMatcher.builder()
         .types(Set.of(BATTLESHIP))
         .side(ALLIES)
@@ -41,8 +44,9 @@ class ShipDamagedVictoryTest {
         .points(POINTS_AWARDED)
         .matcher(victoryMatcher)
         .build();
-  }
 
+    victoryCondition.registerEvents(events);
+  }
 
   @Test
   void shouldIncreaseVictoryPoints() {
@@ -55,13 +59,9 @@ class ShipDamagedVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_HULL_DAMAGED);
 
-    var dto = VictoryDto.builder()
-        .shipCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -80,13 +80,9 @@ class ShipDamagedVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_HULL_DAMAGED);
 
-    var dto = VictoryDto.builder()
-        .shipCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 

@@ -1,6 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.airfield.AirfieldCombatEvent;
 import com.enigma.waratsea.event.matcher.BaseCombatMatcher;
 import com.enigma.waratsea.event.matcher.BaseMatcher;
@@ -21,6 +21,7 @@ import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipBombardmentVictoryTest {
+  private Events events;
   private ShipBombardmentVictory victoryConditionNoRequiredOccurrences;
   private ShipBombardmentVictory victoryConditionRequiredOccurrences;
 
@@ -28,6 +29,7 @@ class ShipBombardmentVictoryTest {
 
   @BeforeEach
   void setUp() {
+    events = new Events();
 
     var baseMatcher = BaseMatcher.builder()
         .side(ALLIES)
@@ -57,6 +59,9 @@ class ShipBombardmentVictoryTest {
         .requiredOccurrences(2)
         .matcher(victoryMatcher)
         .build();
+
+    victoryConditionNoRequiredOccurrences.registerEvents(events);
+    victoryConditionRequiredOccurrences.registerEvents(events);
   }
 
   @Test
@@ -78,11 +83,7 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
-    var dto = VictoryDto.builder()
-        .airfieldCombatEvent(event)
-        .build();
-
-    victoryConditionNoRequiredOccurrences.handleEvent(dto);
+    bombardAirfield(event);
 
     var postPoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
@@ -109,11 +110,7 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
-    var dto = VictoryDto.builder()
-        .airfieldCombatEvent(event)
-        .build();
-
-    victoryConditionNoRequiredOccurrences.handleEvent(dto);
+    bombardAirfield(event);
 
     var postPoints = victoryConditionNoRequiredOccurrences.getTotalPoints();
 
@@ -140,12 +137,8 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
-    var dto = VictoryDto.builder()
-        .airfieldCombatEvent(event)
-        .build();
-
-    victoryConditionRequiredOccurrences.handleEvent(dto);   // First occurrence.
-    victoryConditionRequiredOccurrences.handleEvent(dto);   // Second occurrence.
+    bombardAirfield(event); // 1st bombardment
+    bombardAirfield(event); // 2nd bombardment
 
     var postPoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
@@ -172,15 +165,16 @@ class ShipBombardmentVictoryTest {
 
     var prePoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
-    var dto = VictoryDto.builder()
-        .airfieldCombatEvent(event)
-        .build();
-
-    victoryConditionRequiredOccurrences.handleEvent(dto);
+    bombardAirfield(event);
 
     var postPoints = victoryConditionRequiredOccurrences.getTotalPoints();
 
     assertEquals(0, prePoints);
     assertEquals(0, postPoints);
+  }
+
+  private void bombardAirfield(final AirfieldCombatEvent event) {
+    events.getAirfieldCombatEvent().fire(event);
+
   }
 }

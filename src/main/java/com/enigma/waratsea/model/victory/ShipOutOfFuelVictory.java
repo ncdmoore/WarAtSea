@@ -1,12 +1,10 @@
 package com.enigma.waratsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
-import com.enigma.waratsea.event.ship.ShipFuelEvent;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.ShipFuelMatcher;
+import com.enigma.waratsea.event.ship.ShipFuelEvent;
 import lombok.Builder;
 import lombok.Getter;
-
-import java.util.Optional;
 
 @Getter
 @Builder public class ShipOutOfFuelVictory implements Victory {
@@ -17,11 +15,8 @@ import java.util.Optional;
   private int totalPoints;
 
   @Override
-  public void handleEvent(VictoryDto victoryDto) {
-    var shipFuelEvent = victoryDto.getShipFuelEvent();
-
-    Optional.ofNullable(shipFuelEvent)
-        .ifPresent(this::handleShipEvent);
+  public void registerEvents(final Events events) {
+    events.getShipFuelEvent().register(this::handleShipEvent);
   }
 
   private void handleShipEvent(final ShipFuelEvent event) {

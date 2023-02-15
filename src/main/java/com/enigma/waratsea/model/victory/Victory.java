@@ -1,7 +1,7 @@
 package com.enigma.waratsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 
 public interface Victory {
-  void handleEvent(VictoryDto victoryDto);
+  void registerEvents(Events events);
 }

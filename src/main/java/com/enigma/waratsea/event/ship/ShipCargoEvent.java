@@ -10,6 +10,7 @@ import lombok.Data;
 public class ShipCargoEvent implements Event {
   private final Ship ship;
   private final CargoAction action;
+  private final int cargoLevel;
   private final Port originPort;
   private final Port destinationPort;
 }

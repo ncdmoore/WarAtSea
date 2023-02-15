@@ -1,6 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.ShipCombatMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
@@ -15,14 +15,18 @@ import java.util.Set;
 
 import static com.enigma.waratsea.event.action.CombatAction.SHIP_SUNK;
 import static com.enigma.waratsea.model.Side.AXIS;
-import static com.enigma.waratsea.model.ship.ShipType.*;
+import static com.enigma.waratsea.model.ship.ShipType.DESTROYER;
+import static com.enigma.waratsea.model.ship.ShipType.HEAVY_CRUISER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ShipCargoLostVictoryTest {
+  private Events events;
   private ShipCargoLostVictory victoryCondition;
 
   @BeforeEach
   void setUp() {
+    events = new Events();
+
     var shipMatcher = ShipMatcher.builder()
         .side(AXIS)
         .build();
@@ -37,6 +41,8 @@ public class ShipCargoLostVictoryTest {
         .description("description")
         .matcher(victoryMatcher)
         .build();
+
+    victoryCondition.registerEvents(events);
   }
 
   @Test
@@ -58,13 +64,9 @@ public class ShipCargoLostVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_SUNK);
 
-    var dto = VictoryDto.builder()
-        .shipCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -93,13 +95,9 @@ public class ShipCargoLostVictoryTest {
 
     var event = new ShipCombatEvent(ship, SHIP_SUNK);
 
-    var dto = VictoryDto.builder()
-        .shipCombatEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipCombatEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 

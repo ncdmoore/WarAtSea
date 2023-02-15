@@ -1,9 +1,8 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.dto.VictoryDto;
-import com.enigma.waratsea.event.*;
-import com.enigma.waratsea.event.ship.ShipCargoEvent;
-import com.enigma.waratsea.event.ship.ShipCombatEvent;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
@@ -17,11 +16,15 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 
 @Slf4j
 @Singleton
 public class VictoryServiceImpl implements VictoryService {
+  private final Events events;
   private final VictoryRepository victoryRepository;
   private final VictoryMapper victoryMapper;
 
@@ -31,6 +34,7 @@ public class VictoryServiceImpl implements VictoryService {
   public VictoryServiceImpl(final Events events,
                             final VictoryRepository victoryRepository,
                             final VictoryMapper victoryMapper) {
+    this.events = events;
     this.victoryRepository = victoryRepository;
     this.victoryMapper = victoryMapper;
 
@@ -42,22 +46,12 @@ public class VictoryServiceImpl implements VictoryService {
   }
 
   private void registerEvents(final Events events) {
-    registerUserEvents(events);
-    registerVictoryEvents(events);
-  }
-
-  private void registerUserEvents(final Events events) {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
     events.getClearEvent().register(this::handleClearEvent);
     events.getLoadTaskForcesEvent().register(this::handleLoadAssetsEvent);
     events.getSaveGameEvent().register(this::save);
-  }
-
-  private void registerVictoryEvents(final Events events) {
-    events.getShipCombatEvent().register(this::handleShipCombatEvent);
-    events.getShipCargoEvent().register(this::handleShipCargoEvent);
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {
@@ -83,22 +77,6 @@ public class VictoryServiceImpl implements VictoryService {
         .forEach(this::get);
   }
 
-  private void handleShipCargoEvent(final ShipCargoEvent shipCargoEvent) {
-    var dto = VictoryDto.builder()
-        .shipCargoEvent(shipCargoEvent)
-        .build();
-
-    updateVictory(dto);
-  }
-
-  private void handleShipCombatEvent(final ShipCombatEvent shipCombatEvent) {
-    var dto = VictoryDto.builder()
-        .shipCombatEvent(shipCombatEvent)
-        .build();
-
-    updateVictory(dto);
-  }
-
   private void save(final SaveGameEvent saveGameEvent) {
     var gameId = saveGameEvent.getId();
 
@@ -106,14 +84,14 @@ public class VictoryServiceImpl implements VictoryService {
         .forEach(side -> saveSide(gameId, side));
   }
 
-
   private Set<Victory> getFromRepository(final Side side) {
     var entities = victoryRepository.get(side);
     var models = victoryMapper.entitiesToModels(entities);
 
+    models.forEach(this::registerVictoryEvents);
+
     return new HashSet<>(models);
   }
-
 
   private void saveSide(final String gameId, final Side side) {
     var victories = victorySideMap.get(side);
@@ -121,11 +99,8 @@ public class VictoryServiceImpl implements VictoryService {
     victoryRepository.save(gameId, side, entities);
   }
 
-  private void updateVictory(final VictoryDto dto) {
-    victorySideMap.values()
-        .stream()
-        .flatMap(Collection::stream)
-        .forEach(victory -> victory.handleEvent(dto));
+  private void registerVictoryEvents(final Victory victory) {
+    victory.registerEvents(events);
   }
 
   private void clearCache() {

@@ -1,6 +1,6 @@
 package com.enigma.watatsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.ShipFuelMatcher;
 import com.enigma.waratsea.event.matcher.ShipMatcher;
 import com.enigma.waratsea.event.ship.ShipFuelEvent;
@@ -18,10 +18,13 @@ import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class ShipOutOfFuelVictoryTest {
+  private Events events;
   private ShipOutOfFuelVictory victoryCondition;
 
   @BeforeEach
   void setUp() {
+    events = new Events();
+
     var shipMatcher = ShipMatcher.builder()
         .types(Set.of(BATTLESHIP))
         .side(ALLIES)
@@ -37,6 +40,8 @@ class ShipOutOfFuelVictoryTest {
         .description("description")
         .matcher(victoryMatcher)
         .build();
+
+    victoryCondition.registerEvents(events);
   }
 
   @Test
@@ -53,13 +58,9 @@ class ShipOutOfFuelVictoryTest {
 
     var event = new ShipFuelEvent(ship, OUT_OF_FUEL);
 
-    var dto = VictoryDto.builder()
-        .shipFuelEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipFuelEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 
@@ -78,13 +79,9 @@ class ShipOutOfFuelVictoryTest {
 
     var event = new ShipFuelEvent(ship, OUT_OF_FUEL);
 
-    var dto = VictoryDto.builder()
-        .shipFuelEvent(event)
-        .build();
-
     var prePoints = victoryCondition.getTotalPoints();
 
-    victoryCondition.handleEvent(dto);
+    events.getShipFuelEvent().fire(event);
 
     var postPoints = victoryCondition.getTotalPoints();
 

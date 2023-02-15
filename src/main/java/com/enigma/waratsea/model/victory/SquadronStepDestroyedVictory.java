@@ -1,12 +1,10 @@
 package com.enigma.waratsea.model.victory;
 
-import com.enigma.waratsea.dto.VictoryDto;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.matcher.SquadronCombatMatcher;
 import com.enigma.waratsea.event.squadron.SquadronCombatEvent;
 import lombok.Builder;
 import lombok.Getter;
-
-import java.util.Optional;
 
 @Getter
 @Builder
@@ -19,11 +17,8 @@ public class SquadronStepDestroyedVictory implements Victory {
   private int totalPoints;
 
   @Override
-  public void handleEvent(VictoryDto victoryDto) {
-    var squadronCombatEvent = victoryDto.getSquadronCombatEvent();
-
-    Optional.ofNullable(squadronCombatEvent)
-        .ifPresent(this::handleSquadronEvent);
+  public void registerEvents(final Events events) {
+    events.getSquadronCombatEvent().register(this::handleSquadronEvent);
   }
 
   public void handleSquadronEvent(final SquadronCombatEvent event) {
