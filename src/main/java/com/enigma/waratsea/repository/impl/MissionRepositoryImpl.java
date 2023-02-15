@@ -82,10 +82,12 @@ public class MissionRepositoryImpl implements MissionRepository {
     RuntimeTypeAdapterFactory<MissionEntity> adapter = RuntimeTypeAdapterFactory
         .of(MissionEntity.class, "type")
         .registerSubtype(BombardmentEntity.class)
+        .registerSubtype(EscortEntity.class)
         .registerSubtype(FerryShipsEntity.class)
         .registerSubtype(InterceptEntity.class)
         .registerSubtype(InvasionEntity.class)
-        .registerSubtype(PatrolEntity.class);
+        .registerSubtype(PatrolEntity.class)
+        .registerSubtype(TransportEntity.class);
 
     var gson = new GsonBuilder().registerTypeAdapterFactory(adapter).create();
 

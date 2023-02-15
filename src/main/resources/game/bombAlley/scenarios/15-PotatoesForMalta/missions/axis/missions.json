@@ -1,0 +1,26 @@
+[
+  {
+    "id": "Mission-1",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol near Naples.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF1"
+      }
+    ]
+  },
+  {
+    "id": "Mission-2",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol around Pantellaria.",
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF2"
+      }
+    ]
+  }
+]
