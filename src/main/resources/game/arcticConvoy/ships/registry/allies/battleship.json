@@ -1,0 +1,90 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Queen_Elizabeth"
+    },
+    "title": "BB01 Queen Elizabeth",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Queen_Elizabeth"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ramillies"
+    },
+    "title": "BB10 Ramillies",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Royal_Sovereign"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Nelson"
+    },
+    "title": "BB11 Nelson",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Nelson"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Rodney"
+    },
+    "title": "BB12 Rodney",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Nelson"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "King_George_V"
+    },
+    "title": "BB13 King George V",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "King_George_V"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Duke_of_York"
+    },
+    "title": "BB15 Duke of York",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Duke_of_York"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Anson"
+    },
+    "title": "BB16 Anson",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Duke_of_York"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Howe"
+    },
+    "title": "BB17 Howe",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Howe"
+    }
+  }
+]

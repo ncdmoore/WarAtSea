@@ -1,0 +1,54 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Royal_Sovereign"
+  },
+  "type": "BATTLESHIP",
+  "shipClass": "Royal Sovereign",
+  "nation": "BRITISH",
+  "primary": {
+    "armour": "HEAVY",
+    "maxHealth": 10,
+    "health": 10
+  },
+  "secondary":
+  {
+    "armour": "LIGHT",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "hull": {
+    "armour": "HEAVY",
+    "maxHealth" : 12,
+    "health": 12,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 288,
+    "level": 288
+  },
+  "movement": {
+    "maxEven": 2,
+    "even": 2,
+    "maxOdd": 1,
+    "odd": 1
+  },
+  "catapult": {
+    "capacity": 0,
+    "maxHealth": 0,
+    "health": 0
+  },
+  "victoryPoints": 63
+}

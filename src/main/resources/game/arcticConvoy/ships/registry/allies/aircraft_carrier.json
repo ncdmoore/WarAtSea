@@ -1,0 +1,35 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Furious"
+    },
+    "title": "CV01 Furious",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Furious"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Victorious"
+    },
+    "title": "CV06 Victorious",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Illustrious"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Formidable"
+    },
+    "title": "CV07 Formidable",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Illustrious"
+    }
+  }
+]

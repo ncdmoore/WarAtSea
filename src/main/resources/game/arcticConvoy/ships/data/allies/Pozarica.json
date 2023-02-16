@@ -1,0 +1,36 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Pozarica"
+  },
+  "type": "ANTI_AIRCRAFT",
+  "shipClass": "Pozarica",
+  "nation": "BRITISH",
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
+  },
+  "movement": {
+    "maxEven": 1,
+    "even": 1,
+    "maxOdd": 1,
+    "odd": 1
+  },
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 264,
+    "level": 264
+  },
+  "victoryPoints": 5
+}

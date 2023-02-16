@@ -1,0 +1,47 @@
+{
+  "id" : {
+    "side": "ALLIES",
+    "name": "Furious"
+  },
+  "type": "AIRCRAFT_CARRIER",
+  "shipClass": "Furious",
+  "nation": "BRITISH",
+  "flightDeck":
+  {
+    "armour": "NONE",
+    "capacity": [0, 3, 6],
+    "health": 3
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth" : 9,
+    "health": 9,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 384,
+    "level": 384
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "landingType": [
+    "CARRIER"
+  ],
+  "victoryPoints": 61
+}

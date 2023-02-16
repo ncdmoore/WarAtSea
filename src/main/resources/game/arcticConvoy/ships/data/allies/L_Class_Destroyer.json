@@ -1,10 +1,10 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "Abdiel"
+    "name": "L_Class_Destroyer"
   },
-  "type": "MINE_LAYER",
-  "shipClass": "Abdiel",
+  "type": "DESTROYER",
+  "shipClass": "L Class",
   "nation": "BRITISH",
   "tertiary": {
     "armour": "NONE",
@@ -18,25 +18,29 @@
   },
   "torpedo": {
     "maxHealth": 2,
-    "health": 2,
+    "health": 1,
     "maxNumber": 1,
     "number": 1
+  },
+  "asw": true,
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 216,
+    "level": 216
   },
   "movement": {
     "maxEven": 4,
     "even": 4,
-    "maxOdd": 4,
-    "odd": 4
+    "maxOdd": 3,
+    "odd": 3
   },
-  "hull": {
-    "armour": "NONE",
-    "maxHealth": 2,
-    "health": 2,
-    "deck": false
+  "cargo": {
+    "maxCapacity": 1,
+    "capacity": 1
   },
-  "fuel": {
-    "capacity": 192,
-    "level": 192
-  },
-  "victoryPoints": 6
+  "victoryPoints": 8
 }

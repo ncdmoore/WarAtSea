@@ -1,0 +1,45 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "C_Class_Cruiser"
+  },
+  "type": "LIGHT_CRUISER",
+  "shipClass": "C Class Cruiser",
+  "nation": "BRITISH",
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
+  "hull": {
+    "armour": "LIGHT",
+    "maxHealth": 3,
+    "health": 3,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 240,
+    "level": 240
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "cargo": {
+    "maxCapacity": 3,
+    "capacity": 3
+  },
+  "catapult": {
+    "capacity": 0,
+    "maxHealth": 0,
+    "health": 0
+  },
+  "victoryPoints": 6
+}

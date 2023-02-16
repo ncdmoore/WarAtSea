@@ -1,0 +1,222 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Curacoa"
+    },
+    "title": "CL08 Curacoa",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "C_Class_Cruiser"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Cairo"
+    },
+    "title": "CL09 Cairo",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "C_Class_Cruiser"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Arethusa"
+    },
+    "title": "CL29 Arethusa",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Arethusa"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Aurora"
+    },
+    "title": "CL30 Aurora",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Arethusa"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Glasgow"
+    },
+    "title": "CL34 Glasgow",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Southampton"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Sheffield"
+    },
+    "title": "CL36 Sheffield",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Southampton"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Liverpool"
+    },
+    "title": "CL39 Liverpool",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Town"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Belfast"
+    },
+    "title": "CL41 Belfast",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Town"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Edinburgh"
+    },
+    "title": "CL42 Edinburgh",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Town"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Argonaut"
+    },
+    "title": "CL43 Argonaut",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Argonaut"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Dido"
+    },
+    "title": "CL47 Dido",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Dido"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Scylla"
+    },
+    "title": "CL52 Scylla",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Dido"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Sirius"
+    },
+    "title": "CL53 Sirius",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Cleopatra"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bermuda"
+    },
+    "title": "CL54 Bermuda",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Crown_Colony"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Jamaica"
+    },
+    "title": "CL58 Jamaica",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Crown_Colony"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kenya"
+    },
+    "title": "CL59 Kenya",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Crown_Colony"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Nigeria"
+    },
+    "title": "CL62 Nigeria",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Crown_Colony"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bellona"
+    },
+    "title": "CL65 Bellona",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Dido"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Black_Prince"
+    },
+    "title": "CL66 Black Prince",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Dido"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Diadem"
+    },
+    "title": "CL67 Diadem",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Dido"
+    }
+  }
+]

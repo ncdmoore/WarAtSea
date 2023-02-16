@@ -1,15 +1,15 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "Abdiel"
+    "name": "Ca_Class_Destroyer"
   },
-  "type": "MINE_LAYER",
-  "shipClass": "Abdiel",
+  "type": "DESTROYER",
+  "shipClass": "Ca Class",
   "nation": "BRITISH",
   "tertiary": {
     "armour": "NONE",
-    "maxHealth": 2,
-    "health": 2
+    "maxHealth": 1,
+    "health": 1
   },
   "antiAir": {
     "armour": "NONE",
@@ -22,12 +22,7 @@
     "maxNumber": 1,
     "number": 1
   },
-  "movement": {
-    "maxEven": 4,
-    "even": 4,
-    "maxOdd": 4,
-    "odd": 4
-  },
+  "asw": true,
   "hull": {
     "armour": "NONE",
     "maxHealth": 2,
@@ -35,8 +30,18 @@
     "deck": false
   },
   "fuel": {
-    "capacity": 192,
-    "level": 192
+    "capacity": 168,
+    "level": 168
   },
-  "victoryPoints": 6
+  "movement": {
+    "maxEven": 4,
+    "even": 4,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "cargo": {
+    "maxCapacity": 1,
+    "capacity": 1
+  },
+  "victoryPoints": 7
 }

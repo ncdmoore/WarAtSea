@@ -1,0 +1,46 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Alynbank"
+    },
+    "title": "AA01 Alynbank",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Alynbank"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Pozarica"
+    },
+    "title": "AA02 Pozarica",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Pozarica"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Palomares"
+    },
+    "title": "AA03 Palomares",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Pozarica"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ulster_Queen"
+    },
+    "title": "AA04 Ulster Queen",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Pozarica"
+    }
+  }
+]

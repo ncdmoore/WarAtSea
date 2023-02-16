@@ -1,0 +1,24 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Adventure"
+    },
+    "title": "ML01 Adventure",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Adventure"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Apollo"
+    },
+    "title": "ML03 Apollo",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Abdiel"
+    }
+  }
+]

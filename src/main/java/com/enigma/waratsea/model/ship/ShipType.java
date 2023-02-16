@@ -13,6 +13,7 @@ import java.util.stream.Stream;
 public enum ShipType implements Type {
   AIRCRAFT_CARRIER("Aircraft Carrier", AircraftCarrierEntity.class),
   LIGHT_CARRIER("Light Carrier", AircraftCarrierEntity.class),
+  ESCORT_CARRIER("Escort Carrier", AircraftCarrierEntity.class),
   SEAPLANE_CARRIER("Seaplane Carrier", AircraftCarrierEntity.class),
   BATTLESHIP("Battleship", CapitalShipEntity.class),
   BATTLECRUISER("Battlecruiser", CapitalShipEntity.class),
@@ -27,6 +28,7 @@ public enum ShipType implements Type {
   SLOOP("Sloop", SurfaceShipEntity.class),
   OILER("Oiler", SurfaceShipEntity.class),
   TRANSPORT("Transport", SurfaceShipEntity.class),
+  ANTI_AIRCRAFT("Anti-Aircraft", SurfaceShipEntity.class),
   FLAK_SHIP("Flak Ship", SurfaceShipEntity.class),
   MTB("MTB", SurfaceShipEntity.class),
   SUBMARINE("Submarine", SubmarineEntity.class),

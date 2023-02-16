@@ -1,40 +1,33 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "Eagle"
+    "name": "Attacker"
   },
-  "type": "LIGHT_CARRIER",
-  "shipClass": "Eagle",
+  "type": "ESCORT_CARRIER",
+  "shipClass": "Attacker",
   "nation": "BRITISH",
   "flightDeck": {
     "armour": "NONE",
     "capacity": [
       0,
-      2,
-      4
+      3
     ],
-    "health": 3
+    "health": 2
   },
-  "secondary": {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
   "antiAir": {
     "armour": "NONE",
-    "maxHealth": 1,
-    "health": 1
-  },
-  "torpedo": {
-    "maxHealth": 1,
-    "health": 1,
-    "maxNumber": 1,
-    "number": 1
+    "maxHealth": 3,
+    "health": 3
   },
   "hull": {
-    "armour": "LIGHT",
-    "maxHealth": 7,
-    "health": 7,
+    "armour": "NONE",
+    "maxHealth": 3,
+    "health": 3,
     "deck": false
   },
   "fuel": {
@@ -50,5 +43,5 @@
   "landingType": [
     "CARRIER"
   ],
-  "victoryPoints": 44
+  "victoryPoints": 30
 }

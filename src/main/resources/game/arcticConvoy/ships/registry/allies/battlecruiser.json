@@ -1,0 +1,13 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Renown"
+    },
+    "title": "BC01 Renown",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Hood"
+    }
+  }
+]

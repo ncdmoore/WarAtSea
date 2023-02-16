@@ -1,32 +1,38 @@
 {
-  "id" : {
+  "id": {
     "side": "ALLIES",
-    "name": "Argus"
+    "name": "Avenger"
   },
-  "type": "LIGHT_CARRIER",
-  "shipClass": "Argus",
+  "type": "ESCORT_CARRIER",
+  "shipClass": "Avenger",
   "nation": "BRITISH",
-  "flightDeck":
-  {
+  "flightDeck": {
     "armour": "NONE",
-    "capacity": [0, 3],
+    "capacity": [
+      0,
+      2
+    ],
     "health": 2
   },
-  "antiAir":
-  {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
+  "antiAir": {
+    "armour": "NONE",
+    "maxHealth": 2,
+    "health": 2
+  },
   "hull": {
     "armour": "NONE",
-    "maxHealth" : 5,
-    "health": 5,
+    "maxHealth": 3,
+    "health": 3,
     "deck": false
   },
   "fuel": {
-    "capacity": 312,
-    "level": 312
+    "capacity": 384,
+    "level": 384
   },
   "movement": {
     "maxEven": 2,
@@ -37,5 +43,5 @@
   "landingType": [
     "CARRIER"
   ],
-  "victoryPoints": 24
+  "victoryPoints": 19
 }

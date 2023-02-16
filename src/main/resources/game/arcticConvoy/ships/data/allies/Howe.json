@@ -1,0 +1,49 @@
+{
+  "id" : {
+    "side": "ALLIES",
+    "name": "King_George_V"
+  },
+  "type": "BATTLESHIP",
+  "shipClass": "King George V",
+  "nation": "BRITISH",
+  "primary":
+  {
+    "armour": "HEAVY",
+    "maxHealth": 9,
+    "health": 9
+  },
+  "tertiary":
+  {
+    "armour": "NONE",
+    "maxHealth": 5,
+    "health": 5
+  },
+  "antiAir":
+  {
+    "armour": "NONE",
+    "maxHealth": 5,
+    "health": 5
+  },
+  "hull": {
+    "armour": "HEAVY",
+    "maxHealth" : 15,
+    "health": 15,
+    "deck": true
+  },
+  "fuel": {
+    "capacity": 384,
+    "level": 384
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 2,
+    "odd": 2
+  },
+  "catapult": {
+    "capacity": 0,
+    "maxHealth": 0,
+    "health": 0
+  },
+  "victoryPoints": 91
+}

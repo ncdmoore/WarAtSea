@@ -1,0 +1,167 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Activity"
+    },
+    "title": "CVE02 Activity",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Activity"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Vindex"
+    },
+    "title": "CVE04 Vindex",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Nairana"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Nairana"
+    },
+    "title": "CVE05 Nairana",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Nairana"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Campania"
+    },
+    "title": "CVE06 Campania",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Campania"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Avenger"
+    },
+    "title": "CVE08 Avenger",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Avenger"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Dasher"
+    },
+    "title": "CVE10 Dasher",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Avenger"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Chaser"
+    },
+    "title": "CVE13 Chaser",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Attacker"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Fencer"
+    },
+    "title": "CVE14 Fencer",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Attacker"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Pursuer"
+    },
+    "title": "CVE16 Pursuer",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Attacker"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Searcher"
+    },
+    "title": "CVE18 Searcher",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Bogue"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Striker"
+    },
+    "title": "CVE20 Striker",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Attacker"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Tracker"
+    },
+    "title": "CVE21 Tracker",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Attacker"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Emperor"
+    },
+    "title": "CVE26 Emperor",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Bogue"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Nabob"
+    },
+    "title": "CVE29 Nabob",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Bogue"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Premier"
+    },
+    "title": "CVE31 Premier",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Bogue"
+    }
+  }
+]

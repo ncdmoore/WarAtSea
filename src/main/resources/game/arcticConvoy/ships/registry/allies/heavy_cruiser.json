@@ -1,0 +1,108 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Berwick"
+    },
+    "title": "CA01 Berwick",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Walrus-Berwick"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "County"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Suffolk"
+    },
+    "title": "CA02 Suffolk",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Walrus-Suffolk"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "County"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Cumberland"
+    },
+    "title": "CA04 Cumberland",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Kent"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Kent"
+    },
+    "title": "CA05 Kent",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Kent"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "London"
+    },
+    "title": "CA06 London",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Kent"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Devonshire"
+    },
+    "title": "CA07 Devonshire",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Kent"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Shropshire"
+    },
+    "title": "CA08 Shropshire",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Kent"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Norfolk"
+    },
+    "title": "CA11 Norfolk",
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Walrus-Norfolk"
+      }
+    ],
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "County"
+    }
+  }
+]
