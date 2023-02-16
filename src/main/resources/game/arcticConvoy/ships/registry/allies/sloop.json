@@ -1,0 +1,35 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Enchantress"
+    },
+    "title": "SL01 Enchantress",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Bittern"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Stork"
+    },
+    "title": "SL02 Stork",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Bittern"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bittern"
+    },
+    "title": "SL03 Bittern",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Bittern"
+    }
+  }
+]

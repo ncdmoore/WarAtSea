@@ -1,0 +1,266 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Abelia"
+    },
+    "title": "K01 Abelia",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Acanthus"
+    },
+    "title": "K02 Acanthus",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Alisma"
+    },
+    "title": "K03 Alisma",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Amaranthus"
+    },
+    "title": "K04 Amaranthus",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Anchusa"
+    },
+    "title": "K05 Anchusa",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Anemone"
+    },
+    "title": "K06 Anemone",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Arabis"
+    },
+    "title": "K07 Arabis",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Arbutus"
+    },
+    "title": "K08 Arbutus",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Armeria"
+    },
+    "title": "K09 Armeria",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Arrowhead"
+    },
+    "title": "K10 Arrowhead",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Asphodel"
+    },
+    "title": "K11 Asphodel",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Aster"
+    },
+    "title": "K12 Aster",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Aubrietia"
+    },
+    "title": "K13 Aubrietia",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Auricula"
+    },
+    "title": "K14 Auricula",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Azalea"
+    },
+    "title": "K15 Azalea",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Balsam"
+    },
+    "title": "K16 Balsam",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Begonia"
+    },
+    "title": "K17 Begonia",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bellwort"
+    },
+    "title": "K18 Bellwort",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bergamot"
+    },
+    "title": "K19 Bergamot",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bittersweet"
+    },
+    "title": "K20 Bittersweet",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bluebell"
+    },
+    "title": "K21 Bluebell",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Borage"
+    },
+    "title": "K22 Borage",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bryony"
+    },
+    "title": "K23 Bryony",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Burdock"
+    },
+    "title": "K24 Burdock",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Flower"
+    }
+  }
+]

@@ -1,0 +1,32 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Flower"
+  },
+  "type": "CORVETTE",
+  "shipClass": "Flower",
+  "nation": "BRITISH",
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "asw": true,
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 144,
+    "level": 144
+  },
+  "movement": {
+    "maxEven": 1,
+    "even": 1,
+    "maxOdd": 1,
+    "odd": 1
+  },
+  "victoryPoints": 2
+}

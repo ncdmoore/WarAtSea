@@ -1,0 +1,32 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "Hunt"
+  },
+  "type": "DESTROYER_ESCORT",
+  "shipClass": "Hunt Class",
+  "nation": "BRITISH",
+  "tertiary": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1
+  },
+  "asw": true,
+  "hull": {
+    "armour": "NONE",
+    "maxHealth": 1,
+    "health": 1,
+    "deck": false
+  },
+  "fuel": {
+    "capacity": 144,
+    "level": 144
+  },
+  "movement": {
+    "maxEven": 3,
+    "even": 3,
+    "maxOdd": 3,
+    "odd": 3
+  },
+  "victoryPoints": 3
+}
