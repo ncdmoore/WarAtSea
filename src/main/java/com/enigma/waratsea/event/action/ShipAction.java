@@ -21,7 +21,7 @@ public enum ShipAction {
   SHIP_OUT_OF_FUEL("Ship out-of-fuel"),
   SHIP_SUNK("Ship sunk"),
 
-  SHIP_SPOTTED("Ship mpotted"),
+  SHIP_SPOTTED("Ship spotted"),
   SHIP_LAID_MINEFIELD("Ship laid minefield"),
   SHIP_CLEARED_MINEFIELD("Ship cleared minefield"),
 
