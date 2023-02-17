@@ -1,0 +1,82 @@
+[
+  {
+    "id": "Mission-1",
+    "priority": 1,
+    "type": "TransportEntity",
+    "description": "Transport cargo to Malta.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TF3"
+      },
+      {
+        "side": "ALLIES",
+        "name": "TF5"
+      }
+    ]
+  },
+  {
+    "id": "Mission-2",
+    "priority": 1,
+    "type": "EscortEntity",
+    "description": "Escort Excess Convoy.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF2"
+      }
+    ]
+  },
+  {
+    "id": "Mission-3",
+    "priority": 1,
+    "type": "EscortEntity",
+    "description": "Escort Convoy MW.5.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF4"
+      }
+    ]
+  },
+  {
+    "id": "Mission-4",
+    "priority": 1,
+    "type": "InterceptEntity",
+    "description": "Intercept any enemy task force.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF6"
+      }
+    ]
+  },
+  {
+    "id": "Mission-5",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol around Suda Bay.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF7"
+      }
+    ]
+  },
+  {
+    "id": "Mission-6",
+    "priority": 1,
+    "type": "PatrolEntity",
+    "description": "Patrol around Malta.",
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF8"
+      }
+    ]
+  }
+]
