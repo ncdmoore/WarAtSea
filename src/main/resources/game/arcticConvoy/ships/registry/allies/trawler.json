@@ -1,0 +1,101 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Acacia"
+    },
+    "title": "T02 Acacia",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Almond"
+    },
+    "title": "T38 Almond",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Ash"
+    },
+    "title": "T39 Ash",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Bay"
+    },
+    "title": "T77 Bay",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Birch"
+    },
+    "title": "T93 Birch",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Blackthorn"
+    },
+    "title": "T100 Blackthorn",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Chestnut"
+    },
+    "title": "T101 Chestnut",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Deodar"
+    },
+    "title": "T124 Deodar",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Elm"
+    },
+    "title": "T105 Elm",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Tree"
+    }
+  }
+]

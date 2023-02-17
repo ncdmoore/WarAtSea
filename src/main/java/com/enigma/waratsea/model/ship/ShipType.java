@@ -26,6 +26,7 @@ public enum ShipType implements Type {
   MINE_LAYER("Mine Layer", SurfaceShipEntity.class),
   MINE_SWEEPER("Mine Sweeper", SurfaceShipEntity.class),
   SLOOP("Sloop", SurfaceShipEntity.class),
+  TRAWLER("Trawler", SurfaceShipEntity.class),
   OILER("Oiler", SurfaceShipEntity.class),
   TRANSPORT("Transport", SurfaceShipEntity.class),
   ANTI_AIRCRAFT("Anti-Aircraft", SurfaceShipEntity.class),
