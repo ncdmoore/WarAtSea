@@ -18,7 +18,7 @@ public enum ShipAction {
   SHIP_TORPEDO_DAMAGED("Ship's torpedo damaged"),
   SHIP_MOVEMENT_REDUCED("Ship's movement reduced"),
   SHIP_DEAD_IN_WATER("Ship dead-in-water"),
-  SHIP_OUT_OF_FUEL("Ship out of fuel"),
+  SHIP_OUT_OF_FUEL("Ship out-of-fuel"),
   SHIP_SUNK("Ship sunk"),
 
   SHIP_SPOTTED("Ship mpotted"),
