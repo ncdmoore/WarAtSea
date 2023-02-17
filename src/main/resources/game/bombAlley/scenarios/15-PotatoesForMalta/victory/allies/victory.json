@@ -173,7 +173,7 @@
         ]
       },
       "actions": [
-        "CARGO_UNLOADED"
+        "SHIP_CARGO_UNLOADED"
       ],
      "destinationPorts": [
        {
@@ -203,7 +203,7 @@
         ]
       },
       "actions": [
-        "CARGO_UNLOADED"
+        "SHIP_CARGO_UNLOADED"
       ],
       "destinationPorts": [
         {

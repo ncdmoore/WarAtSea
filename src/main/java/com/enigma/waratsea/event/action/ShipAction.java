@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 @Getter
 @RequiredArgsConstructor
 public enum ShipAction {
-  CARGO_LOADED("Cargo loaded"),
-  CARGO_UNLOADED("Cargo unloaded"),
+  SHIP_CARGO_LOADED("Ship cargo loaded"),
+  SHIP_CARGO_UNLOADED("SHip cargo unloaded"),
 
   SHIP_ATTACKED("Ship attacked"),
   SHIP_HULL_DAMAGED("Ship's hull damaged"),

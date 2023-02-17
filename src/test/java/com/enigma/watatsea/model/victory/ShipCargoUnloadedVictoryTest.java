@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.event.action.ShipAction.CARGO_UNLOADED;
+import static com.enigma.waratsea.event.action.ShipAction.SHIP_CARGO_UNLOADED;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.ship.ShipType.HEAVY_CRUISER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -37,7 +37,7 @@ class ShipCargoUnloadedVictoryTest {
 
     var victoryMatcher = ShipCargoMatcher.builder()
         .ship(shipMatcher)
-        .actions(Set.of(CARGO_UNLOADED))
+        .actions(Set.of(SHIP_CARGO_UNLOADED))
         .build();
 
     victoryConditionBasicPoints = ShipCargoUnloadedVictory.builder()
@@ -86,7 +86,7 @@ class ShipCargoUnloadedVictoryTest {
         .id(destinationPortId)
         .build();
 
-    var event = new ShipCargoEvent(ship, CARGO_UNLOADED, 3, originPort, destPort);
+    var event = new ShipCargoEvent(ship, SHIP_CARGO_UNLOADED, 3, originPort, destPort);
 
     var prePoints = victoryConditionBasicPoints.getTotalPoints();
 
@@ -126,7 +126,7 @@ class ShipCargoUnloadedVictoryTest {
         .id(destinationPortId)
         .build();
 
-    var event = new ShipCargoEvent(ship, CARGO_UNLOADED, 3, originPort, destPort);
+    var event = new ShipCargoEvent(ship, SHIP_CARGO_UNLOADED, 3, originPort, destPort);
 
     var prePoints = victoryConditionFactor.getTotalPoints();
 
