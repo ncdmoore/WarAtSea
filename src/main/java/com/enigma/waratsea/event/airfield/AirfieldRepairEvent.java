@@ -6,7 +6,7 @@ import com.enigma.waratsea.model.Airfield;
 import lombok.Data;
 
 @Data
-public class AirfieldEvent implements Event {
+public class AirfieldRepairEvent implements Event {
   private final Airfield airfield;
   private final BaseAction action;
 }

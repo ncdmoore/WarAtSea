@@ -17,11 +17,14 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.enigma.waratsea.Constants.JSON_EXTENSION;
-import static com.enigma.waratsea.event.action.CombatAction.*;
-import static com.enigma.waratsea.event.action.FuelAction.OUT_OF_FUEL;
+import static com.enigma.waratsea.event.action.BaseAction.AIRFIELD_ATTACKED;
+import static com.enigma.waratsea.event.action.BaseAction.PORT_ATTACKED;
+import static com.enigma.waratsea.event.action.ShipAction.*;
+import static com.enigma.waratsea.event.action.SquadronAction.SQUADRON_DAMAGED;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
-import static com.enigma.waratsea.model.ship.ShipType.*;
+import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
+import static com.enigma.waratsea.model.ship.ShipType.CORVETTE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.BDDMockito.given;

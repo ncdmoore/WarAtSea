@@ -1,6 +1,6 @@
 package com.enigma.waratsea.event.matcher;
 
-import com.enigma.waratsea.event.action.CombatAction;
+import com.enigma.waratsea.event.action.BaseAction;
 import com.enigma.waratsea.event.airfield.AirfieldCombatEvent;
 import com.enigma.waratsea.event.port.PortCombatEvent;
 import com.enigma.waratsea.model.Airfield;
@@ -18,7 +18,7 @@ public class BaseCombatMatcher {
   private BaseMatcher base;
 
   @Builder.Default
-  private Set<CombatAction> actions = Collections.emptySet();
+  private Set<BaseAction> actions = Collections.emptySet();
 
   private EnemyMatcher enemy;
 
@@ -50,7 +50,7 @@ public class BaseCombatMatcher {
     return base == null || base.match(candidatePort);
   }
 
-  private boolean matchAction(final CombatAction candidateAction) {
+  private boolean matchAction(final BaseAction candidateAction) {
     return actions.isEmpty() || actions.contains(candidateAction);
   }
 

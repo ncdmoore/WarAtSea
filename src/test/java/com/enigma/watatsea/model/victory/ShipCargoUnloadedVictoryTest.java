@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.event.action.CargoAction.CARGO_UNLOADED;
+import static com.enigma.waratsea.event.action.ShipAction.CARGO_UNLOADED;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.ship.ShipType.HEAVY_CRUISER;
 import static org.junit.jupiter.api.Assertions.assertEquals;

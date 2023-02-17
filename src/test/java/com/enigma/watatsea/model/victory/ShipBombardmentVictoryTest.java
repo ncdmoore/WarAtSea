@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.event.action.CombatAction.AIRFIELD_ATTACKED;
+import static com.enigma.waratsea.event.action.BaseAction.AIRFIELD_ATTACKED;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;

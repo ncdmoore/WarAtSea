@@ -47,4 +47,8 @@ public enum Side {
   public static Stream<Side> stream() {
     return Stream.of(Side.values());
   }
+
+  public static Stream<Side> combatants() {
+    return Stream.of(ALLIES, AXIS);
+  }
 }

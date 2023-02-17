@@ -1,6 +1,6 @@
 package com.enigma.waratsea.entity.matcher;
 
-import com.enigma.waratsea.event.action.CombatAction;
+import com.enigma.waratsea.event.action.BaseAction;
 import com.enigma.waratsea.event.matcher.BaseMatcher;
 import com.enigma.waratsea.event.matcher.EnemyMatcher;
 import lombok.Builder;
@@ -12,6 +12,6 @@ import java.util.Set;
 @Builder
 public class BaseCombatMatcherEntity {
   private BaseMatcher base;
-  private Set<CombatAction> actions;
+  private Set<BaseAction> actions;
   private EnemyMatcher enemy;
 }

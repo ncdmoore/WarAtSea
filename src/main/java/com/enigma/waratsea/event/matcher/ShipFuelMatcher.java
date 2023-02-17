@@ -1,6 +1,6 @@
 package com.enigma.waratsea.event.matcher;
 
-import com.enigma.waratsea.event.action.FuelAction;
+import com.enigma.waratsea.event.action.ShipAction;
 import com.enigma.waratsea.event.ship.ShipFuelEvent;
 import com.enigma.waratsea.model.ship.Ship;
 import lombok.Builder;
@@ -15,7 +15,7 @@ public class ShipFuelMatcher {
   private ShipMatcher ship;
 
   @Builder.Default
-  private Set<FuelAction> actions = Collections.emptySet();
+  private Set<ShipAction> actions = Collections.emptySet();
 
   public boolean match(final ShipFuelEvent event) {
     var candidateShip = event.getShip();
@@ -29,7 +29,7 @@ public class ShipFuelMatcher {
     return ship == null || ship.match(candidateShip);
   }
 
-  private boolean matchAction(final FuelAction candidateAction) {
+  private boolean matchAction(final ShipAction candidateAction) {
     return actions.isEmpty() || actions.contains(candidateAction);
   }
 }

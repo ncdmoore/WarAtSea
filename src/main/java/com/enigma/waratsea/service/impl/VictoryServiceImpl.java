@@ -73,7 +73,7 @@ public class VictoryServiceImpl implements VictoryService {
   private void handleLoadAssetsEvent(final LoadTaskForcesEvent loadTaskForcesEvent) {
     log.info("Handle LoadTaskForcesEvent");
 
-    Side.stream()
+    Side.combatants()
         .forEach(this::get);
   }
 

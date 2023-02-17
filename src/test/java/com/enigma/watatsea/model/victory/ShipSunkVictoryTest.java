@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.event.action.CombatAction.SHIP_SUNK;
+import static com.enigma.waratsea.event.action.ShipAction.SHIP_SUNK;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;

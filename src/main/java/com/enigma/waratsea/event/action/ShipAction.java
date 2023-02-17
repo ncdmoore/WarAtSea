@@ -5,12 +5,9 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum CombatAction {
-  AIRFIELD_ATTACKED("Airfield attacked"),
-  AIRFIELD_DAMAGED("Airfield damaged"),
-
-  PORT_ATTACKED("Port attacked"),
-  PORT_DAMAGED("Port damaged"),
+public enum ShipAction {
+  CARGO_LOADED("Cargo loaded"),
+  CARGO_UNLOADED("Cargo unloaded"),
 
   SHIP_ATTACKED("Ship attacked"),
   SHIP_HULL_DAMAGED("Ship's hull damaged"),
@@ -21,11 +18,15 @@ public enum CombatAction {
   SHIP_TORPEDO_DAMAGED("Ship's torpedo damaged"),
   SHIP_MOVEMENT_REDUCED("Ship's movement reduced"),
   SHIP_DEAD_IN_WATER("Ship dead-in-water"),
+  OUT_OF_FUEL("Out of fuel"),
   SHIP_SUNK("Ship sunk"),
 
-  SQUADRON_ATTACKED("Squadron attacked"),
-  SQUADRON_DAMAGED("Squadron damaged"),
-  SQUADRON_DESTROYED("Squadron destroyed");
+  SHIP_SPOTTED("Ship mpotted"),
+  SHIP_LAID_MINEFIELD("Ship laid minefield"),
+  SHIP_CLEARED_MINEFIELD("Ship cleared minefield"),
+
+  SHIP_ARRIVED("Ship arrived"),
+  SHIP_SAILED("Ship sailed");
 
   private final String value;
 }

@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.event.action.FuelAction.OUT_OF_FUEL;
+import static com.enigma.waratsea.event.action.ShipAction.OUT_OF_FUEL;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
 import static org.junit.jupiter.api.Assertions.assertEquals;

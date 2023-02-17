@@ -1,6 +1,6 @@
 package com.enigma.waratsea.event.matcher;
 
-import com.enigma.waratsea.event.action.CargoAction;
+import com.enigma.waratsea.event.action.ShipAction;
 import com.enigma.waratsea.event.ship.ShipCargoEvent;
 import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.ship.Ship;
@@ -14,7 +14,7 @@ import java.util.Set;
 @Builder
 public class ShipCargoMatcher {
   private ShipMatcher ship;
-  private Set<CargoAction> actions;
+  private Set<ShipAction> actions;
 
   @Builder.Default
   private Set<Port> originPorts = Collections.emptySet();
@@ -38,7 +38,7 @@ public class ShipCargoMatcher {
     return ship == null || ship.match(candidateShip);
   }
 
-  private boolean matchAction(final CargoAction candidateAction) {
+  private boolean matchAction(final ShipAction candidateAction) {
     return actions.isEmpty() || actions.contains(candidateAction);
   }
 

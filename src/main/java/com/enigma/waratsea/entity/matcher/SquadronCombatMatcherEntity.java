@@ -1,6 +1,6 @@
 package com.enigma.waratsea.entity.matcher;
 
-import com.enigma.waratsea.event.action.CombatAction;
+import com.enigma.waratsea.event.action.SquadronAction;
 import lombok.Builder;
 import lombok.Data;
 
@@ -10,6 +10,6 @@ import java.util.Set;
 @Builder
 public class SquadronCombatMatcherEntity {
   private SquadronMatcherEntity squadron;
-  private Set<CombatAction> actions;
+  private Set<SquadronAction> actions;
 }
 

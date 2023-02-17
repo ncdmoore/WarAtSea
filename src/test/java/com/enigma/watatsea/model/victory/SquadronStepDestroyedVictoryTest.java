@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.event.action.CombatAction.*;
+import static com.enigma.waratsea.event.action.SquadronAction.*;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.Side.AXIS;
 import static com.enigma.waratsea.model.aircraft.AircraftType.BOMBER;
