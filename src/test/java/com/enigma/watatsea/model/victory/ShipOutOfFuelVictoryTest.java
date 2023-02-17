@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.event.action.ShipAction.OUT_OF_FUEL;
+import static com.enigma.waratsea.event.action.ShipAction.SHIP_OUT_OF_FUEL;
 import static com.enigma.waratsea.model.Side.ALLIES;
 import static com.enigma.waratsea.model.ship.ShipType.BATTLESHIP;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -32,7 +32,7 @@ class ShipOutOfFuelVictoryTest {
 
     var victoryMatcher = ShipFuelMatcher.builder()
         .ship(shipMatcher)
-        .actions(Set.of(OUT_OF_FUEL))
+        .actions(Set.of(SHIP_OUT_OF_FUEL))
         .build();
 
     victoryCondition = ShipOutOfFuelVictory.builder()
@@ -56,7 +56,7 @@ class ShipOutOfFuelVictoryTest {
         .victoryPoints(shipVictoryPoints)
         .build();
 
-    var event = new ShipFuelEvent(ship, OUT_OF_FUEL);
+    var event = new ShipFuelEvent(ship, SHIP_OUT_OF_FUEL);
 
     var prePoints = victoryCondition.getTotalPoints();
 
@@ -77,7 +77,7 @@ class ShipOutOfFuelVictoryTest {
         .type(BATTLESHIP)
         .build();
 
-    var event = new ShipFuelEvent(ship, OUT_OF_FUEL);
+    var event = new ShipFuelEvent(ship, SHIP_OUT_OF_FUEL);
 
     var prePoints = victoryCondition.getTotalPoints();
 

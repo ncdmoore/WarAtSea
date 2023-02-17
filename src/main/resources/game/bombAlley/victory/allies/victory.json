@@ -35,7 +35,7 @@
         "side": "AXIS"
       },
       "actions": [
-        "OUT_OF_FUEL"
+        "SHIP_OUT_OF_FUEL"
       ]
     }
   },

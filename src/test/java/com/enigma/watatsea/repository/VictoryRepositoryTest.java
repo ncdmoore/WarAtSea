@@ -94,7 +94,7 @@ class VictoryRepositoryTest {
     var shipOutOfFuelMatcher = shipOutOfFuelCondition.getMatcher();
 
     assertSame(shipOutOfFuelMatcher.getShip().getSide(), ALLIES);
-    assertTrue(shipOutOfFuelMatcher.getActions().contains(OUT_OF_FUEL));
+    assertTrue(shipOutOfFuelMatcher.getActions().contains(SHIP_OUT_OF_FUEL));
 
     var capitalShipHullDamaged = (ShipDamagedVictoryEntity) victoryConditions.get(CAPITAL_SHIP_HULL_ID);
     var capitalShipMatcher = capitalShipHullDamaged.getMatcher();
