@@ -1,4 +1,4 @@
-package com.enigma.waratsea.entity;
+package com.enigma.waratsea.entity.taskforce;
 
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.AssetState;

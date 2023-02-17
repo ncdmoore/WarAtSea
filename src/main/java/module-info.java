@@ -31,6 +31,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.event.ship;
   exports com.enigma.waratsea.event.matcher;
   exports com.enigma.waratsea.event.squadron;
+  exports com.enigma.waratsea.event.user;
   exports com.enigma.waratsea.exception;
   exports com.enigma.waratsea.mapper;
 
@@ -76,6 +77,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.entity.option;
   exports com.enigma.waratsea.entity.ship;
   exports com.enigma.waratsea.entity.squadron;
+  exports com.enigma.waratsea.entity.taskforce;
   exports com.enigma.waratsea.entity.victory;
 
   opens com.enigma.waratsea.event.matcher to com.google.gson;
@@ -88,6 +90,7 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.entity.option to com.google.gson;
   opens com.enigma.waratsea.entity.ship to com.google.gson;
   opens com.enigma.waratsea.entity.squadron to com.google.gson;
+  opens com.enigma.waratsea.entity.taskforce to com.google.gson;
   opens com.enigma.waratsea.entity.victory to com.google.gson;
 
   opens com.enigma.waratsea.model.die to com.google.gson;
@@ -97,5 +100,4 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.model.squadron to com.google.gson;
   opens com.enigma.waratsea.model.turn to com.google.gson;
   opens com.enigma.waratsea.model.weather to com.google.gson;
-  exports com.enigma.waratsea.event.user;
 }

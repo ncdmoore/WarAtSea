@@ -1,6 +1,6 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.TaskForceEntity;
+import com.enigma.waratsea.entity.taskforce.TaskForceEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.model.taskForce.TaskForce;

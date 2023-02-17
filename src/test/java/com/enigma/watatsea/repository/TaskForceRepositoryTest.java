@@ -1,6 +1,6 @@
 package com.enigma.watatsea.repository;
 
-import com.enigma.waratsea.entity.TaskForceEntity;
+import com.enigma.waratsea.entity.taskforce.TaskForceEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.impl.DataProvider;
 import com.enigma.waratsea.repository.impl.GamePaths;
