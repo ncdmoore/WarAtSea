@@ -202,17 +202,18 @@ public class NewGameView implements View {
     bindVisibility(visibilityValue, selectedScenario);
     bindDescription(descriptionValue, selectedScenario);
 
+    var row = 0;
     var detailsGrid = new GridPane();
-    detailsGrid.add(dateLabel, 0, 0);
-    detailsGrid.add(dateValue, 1, 0);
-    detailsGrid.add(turnLabel, 0, 1);
-    detailsGrid.add(turnValue, 1, 1);
-    detailsGrid.add(weatherLabel, 0, 2);
-    detailsGrid.add(weatherValue, 1, 2);
-    detailsGrid.add(visibilityLabel, 0, 3);
-    detailsGrid.add(visibilityValue, 1, 3);
-    detailsGrid.add(descriptionLabel, 0, 4);
-    detailsGrid.add(descriptionValue, 1, 4);
+    detailsGrid.add(dateLabel, 0, row);
+    detailsGrid.add(dateValue, 1, row);
+    detailsGrid.add(turnLabel, 0, ++row);
+    detailsGrid.add(turnValue, 1, row);
+    detailsGrid.add(weatherLabel, 0, ++row);
+    detailsGrid.add(weatherValue, 1, row);
+    detailsGrid.add(visibilityLabel, 0, ++row);
+    detailsGrid.add(visibilityValue, 1, row);
+    detailsGrid.add(descriptionLabel, 0, ++row);
+    detailsGrid.add(descriptionValue, 1, row);
     detailsGrid.setId("details-grid");
     GridPane.setValignment(descriptionLabel, VPos.TOP);
 

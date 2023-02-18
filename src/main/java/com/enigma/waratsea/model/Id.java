@@ -10,12 +10,12 @@ import org.jetbrains.annotations.NotNull;
 @ToString
 @EqualsAndHashCode
 @RequiredArgsConstructor
-public class Id implements Comparable<Id>{
+public class Id implements Comparable<Id> {
   private final Side side;
   private final String name;
 
   @Override
-  public int compareTo(@NotNull Id o) {
+  public int compareTo(@NotNull final Id o) {
     return name.compareTo(o.name);
   }
 }

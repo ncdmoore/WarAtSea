@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface GameRepository {
   List<GameEntity> get();
-  void save(final GameEntity game);
+  void save(GameEntity game);
 }

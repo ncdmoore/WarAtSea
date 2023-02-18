@@ -12,7 +12,12 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -54,7 +59,7 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   @Override
-  public void saveManifest(String gameId, final Side side, Set<Id> squadronIds) {
+  public void saveManifest(final String gameId, final Side side, final Set<Id> squadronIds) {
     var filePath = getSquadronManifestFilePath(side);
 
     writeSquadronManifest(gameId, filePath, squadronIds);
@@ -75,7 +80,7 @@ public class SquadronRepositoryImpl implements SquadronRepository {
     var path = dataProvider.getSaveFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
-    var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
+         var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
       log.debug("Save squadron to path: '{}'", path);
       var json = toJson(squadron);
       writer.write(json);

@@ -1,6 +1,8 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadSquadronsEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
@@ -15,7 +17,12 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -139,8 +146,8 @@ public class SquadronServiceImpl implements SquadronService {
   }
 
   private void saveSquadronManifestForSide(final String gameId, final Side side) {
-    var squadrons = getSquadronIdsForSide(side);
-    squadronRepository.saveManifest(gameId, side, squadrons);
+    var squadronIds = getSquadronIdsForSide(side);
+    squadronRepository.saveManifest(gameId, side, squadronIds);
   }
 
   private Set<Id> getSquadronIdsForSide(final Side side) {

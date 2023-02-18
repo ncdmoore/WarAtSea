@@ -28,15 +28,15 @@ public abstract class RegionMapper {
   @SuppressWarnings("unused")
   private PortService portService;
 
-  abstract public Region toModel(final RegionEntity regionEntity);
+  public abstract Region toModel(RegionEntity regionEntity);
 
-  List<Airfield> mapAirfields(List<Id> airfieldIds) {
+  List<Airfield> mapAirfields(final List<Id> airfieldIds) {
     return Optional.ofNullable(airfieldIds)
         .map(ids -> airfieldService.get(ids))
         .orElse(Collections.emptyList());
   }
 
-  Set<Port> mapPorts(Set<Id> portIds) {
+  Set<Port> mapPorts(final Set<Id> portIds) {
     return Optional.ofNullable(portIds)
         .map(ids -> portService.get(ids))
         .orElse(Collections.emptySet());

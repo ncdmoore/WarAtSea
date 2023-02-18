@@ -2,7 +2,11 @@ package com.enigma.waratsea.entity.aircraft;
 
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
-import com.enigma.waratsea.model.aircraft.*;
+import com.enigma.waratsea.model.aircraft.AircraftType;
+import com.enigma.waratsea.model.aircraft.AltitudeType;
+import com.enigma.waratsea.model.aircraft.Frame;
+import com.enigma.waratsea.model.aircraft.LandingType;
+import com.enigma.waratsea.model.aircraft.ServiceType;
 import com.enigma.waratsea.model.squadron.SquadronConfiguration;
 import lombok.Builder;
 import lombok.Data;

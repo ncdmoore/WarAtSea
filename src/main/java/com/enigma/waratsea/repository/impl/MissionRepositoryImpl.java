@@ -1,7 +1,14 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.gson.RuntimeTypeAdapterFactory;
-import com.enigma.waratsea.entity.mission.*;
+import com.enigma.waratsea.entity.mission.BombardmentEntity;
+import com.enigma.waratsea.entity.mission.EscortEntity;
+import com.enigma.waratsea.entity.mission.FerryShipsEntity;
+import com.enigma.waratsea.entity.mission.InterceptEntity;
+import com.enigma.waratsea.entity.mission.InvasionEntity;
+import com.enigma.waratsea.entity.mission.MissionEntity;
+import com.enigma.waratsea.entity.mission.PatrolEntity;
+import com.enigma.waratsea.entity.mission.TransportEntity;
 import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.MissionRepository;
@@ -11,7 +18,12 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,14 +45,14 @@ public class MissionRepositoryImpl implements MissionRepository {
   }
 
   @Override
-  public List<MissionEntity> get(Side side) {
+  public List<MissionEntity> get(final Side side) {
     var filePath = getFilePath(side);
 
     return readMissions(filePath);
   }
 
   @Override
-  public void save(String gameId, Side side, Set<MissionEntity> missions) {
+  public void save(final String gameId, final Side side, final Set<MissionEntity> missions) {
     var filePath = getFilePath(side);
 
     writeMissions(gameId, filePath, missions);

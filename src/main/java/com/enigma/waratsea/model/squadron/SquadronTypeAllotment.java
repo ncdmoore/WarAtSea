@@ -28,8 +28,8 @@ public class SquadronTypeAllotment {
     var totalInGroups = getGroupsTotal();
 
     if (numberToSelect > totalInGroups) {
-      log.warn("Number to select is greater than total number of aircraft in all groups, " +
-          "setting number to select to total in all groups.");
+      log.warn("Number to select is greater than total number of aircraft in all groups, "
+          + "setting number to select to total in all groups.");
       numberToSelect = totalInGroups;
     }
 
@@ -37,8 +37,8 @@ public class SquadronTypeAllotment {
   }
 
   public void adjust(final AllotmentModificationDto dto) {
-    dice+= dto.getDice();
-    factor+= dto.getFactor();
+    dice += dto.getDice();
+    factor += dto.getFactor();
 
     log.info("Adjust squadron type: {}, dice: {}, factor: {}", dto.getType(), dto.getDice(), dto.getFactor());
   }

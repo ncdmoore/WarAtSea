@@ -1,6 +1,7 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
@@ -32,7 +33,7 @@ public class AircraftServiceImpl implements AircraftService {
   }
 
   @Override
-  public Aircraft get(Id aircraftId) {
+  public Aircraft get(final Id aircraftId) {
     return aircraft.computeIfAbsent(aircraftId, this::getFromRepository);
   }
 

@@ -20,15 +20,15 @@ public abstract class SubmarineFlotillaMapper {
   public static final SubmarineFlotillaMapper INSTANCE = Mappers.getMapper(SubmarineFlotillaMapper.class);
 
   @Inject
-  public ShipService shipService;
+  private ShipService shipService;
 
-  abstract public List<SubmarineFlotilla> entitiesToModels(List<SubmarineFlotillaEntity> entities);
+  public abstract List<SubmarineFlotilla> entitiesToModels(List<SubmarineFlotillaEntity> entities);
 
-  abstract public Set<SubmarineFlotillaEntity> modelsToEntities(Set<SubmarineFlotilla> models);
+  public abstract Set<SubmarineFlotillaEntity> modelsToEntities(Set<SubmarineFlotilla> models);
 
-  abstract public SubmarineFlotilla toModel(final SubmarineFlotillaEntity submarineFlotillaEntity);
+  public abstract SubmarineFlotilla toModel(SubmarineFlotillaEntity submarineFlotillaEntity);
 
-  abstract public SubmarineFlotillaEntity toEntity(final SubmarineFlotilla submarineFlotilla);
+  public abstract SubmarineFlotillaEntity toEntity(SubmarineFlotilla submarineFlotilla);
 
   Set<Ship> mapSubs(final Set<Id> subIds) {
     return Optional.ofNullable(subIds)

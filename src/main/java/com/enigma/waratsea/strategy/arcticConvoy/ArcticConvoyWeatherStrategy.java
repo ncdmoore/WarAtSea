@@ -11,7 +11,12 @@ import java.time.Month;
 import java.util.Map;
 import java.util.Set;
 
-import static com.enigma.waratsea.model.weather.WeatherType.*;
+import static com.enigma.waratsea.model.weather.WeatherType.CLEAR;
+import static com.enigma.waratsea.model.weather.WeatherType.CLOUDY;
+import static com.enigma.waratsea.model.weather.WeatherType.RAIN;
+import static com.enigma.waratsea.model.weather.WeatherType.SQUALL;
+import static com.enigma.waratsea.model.weather.WeatherType.STORM;
+
 
 @Singleton
 public class ArcticConvoyWeatherStrategy implements WeatherStrategy {

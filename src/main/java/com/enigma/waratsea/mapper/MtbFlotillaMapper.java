@@ -20,15 +20,15 @@ public abstract class MtbFlotillaMapper {
   public static final MtbFlotillaMapper INSTANCE = Mappers.getMapper(MtbFlotillaMapper.class);
 
   @Inject
-  public ShipService shipService;
+  private ShipService shipService;
 
-  abstract public List<MtbFlotilla> entitiesToModels(List<MtbFlotillaEntity> entities);
+  public abstract List<MtbFlotilla> entitiesToModels(List<MtbFlotillaEntity> entities);
 
-  abstract public Set<MtbFlotillaEntity> modelsToEntities(Set<MtbFlotilla> models);
+  public abstract Set<MtbFlotillaEntity> modelsToEntities(Set<MtbFlotilla> models);
 
-  abstract public MtbFlotilla toModel(final MtbFlotillaEntity mtbFlotillaEntity);
+  public abstract MtbFlotilla toModel(MtbFlotillaEntity mtbFlotillaEntity);
 
-  abstract public MtbFlotillaEntity toEntity(final MtbFlotilla mtbFlotilla);
+  public abstract MtbFlotillaEntity toEntity(MtbFlotilla mtbFlotilla);
 
   Set<Ship> mapBoats(final Set<Id> boatIds) {
     return Optional.ofNullable(boatIds)

@@ -1,7 +1,14 @@
 package com.enigma.waratsea.repository.impl;
 
 import com.enigma.waratsea.entity.gson.RuntimeTypeAdapterFactory;
-import com.enigma.waratsea.entity.victory.*;
+import com.enigma.waratsea.entity.victory.ShipBombardmentVictoryEntity;
+import com.enigma.waratsea.entity.victory.ShipCargoLostVictoryEntity;
+import com.enigma.waratsea.entity.victory.ShipCargoUnloadedVictoryEntity;
+import com.enigma.waratsea.entity.victory.ShipDamagedVictoryEntity;
+import com.enigma.waratsea.entity.victory.ShipOutOfFuelVictoryEntity;
+import com.enigma.waratsea.entity.victory.ShipSunkVictoryEntity;
+import com.enigma.waratsea.entity.victory.SquadronStepDestroyedVictoryEntity;
+import com.enigma.waratsea.entity.victory.VictoryEntity;
 import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.VictoryRepository;
@@ -11,7 +18,12 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -33,14 +45,14 @@ public class VictoryRepositoryImpl implements VictoryRepository {
   }
 
   @Override
-  public List<VictoryEntity> get(Side side) {
+  public List<VictoryEntity> get(final Side side) {
     var filePath = getFilePath(side);
 
     return readVictoryConditions(filePath);
   }
 
   @Override
-  public void save(String gameId, Side side, Set<VictoryEntity> victoryConditions) {
+  public void save(final String gameId, final Side side, final Set<VictoryEntity> victoryConditions) {
     var filePath = getFilePath(side);
 
     writeVictoryConditions(gameId, filePath, victoryConditions);

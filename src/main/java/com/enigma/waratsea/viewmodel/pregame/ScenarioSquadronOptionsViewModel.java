@@ -33,7 +33,7 @@ public class ScenarioSquadronOptionsViewModel {
   private final SquadronAllotmentModService squadronAllotmentModService;
 
   @Getter
-  public Map<NationId, Set<AllotmentModification>> options;
+  private Map<NationId, Set<AllotmentModification>> options;
 
   @Getter
   private final Map<NationId, ObjectProperty<Toggle>> selectedOptions = new HashMap<>();
@@ -55,9 +55,9 @@ public class ScenarioSquadronOptionsViewModel {
 
   public void continueOn(final Stage stage) {
     var scenario = gameService.getGame().getScenario();
-    var selectedOptions = getSelectedOptionsFormToggles();
+    var currentOptions = getSelectedOptionsFormToggles();
 
-    events.getConfigScenarioOptionsEvent().fire(new ConfigScenarioOptionsEvent(selectedOptions));
+    events.getConfigScenarioOptionsEvent().fire(new ConfigScenarioOptionsEvent(currentOptions));
     events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(scenario));
     events.getNavigateEvent().fire(buildForwardNav(stage));
   }

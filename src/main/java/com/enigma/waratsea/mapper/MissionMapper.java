@@ -1,8 +1,22 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.mission.*;
+import com.enigma.waratsea.entity.mission.BombardmentEntity;
+import com.enigma.waratsea.entity.mission.EscortEntity;
+import com.enigma.waratsea.entity.mission.FerryShipsEntity;
+import com.enigma.waratsea.entity.mission.InterceptEntity;
+import com.enigma.waratsea.entity.mission.InvasionEntity;
+import com.enigma.waratsea.entity.mission.MissionEntity;
+import com.enigma.waratsea.entity.mission.PatrolEntity;
+import com.enigma.waratsea.entity.mission.TransportEntity;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.mission.*;
+import com.enigma.waratsea.model.mission.Bombardment;
+import com.enigma.waratsea.model.mission.Escort;
+import com.enigma.waratsea.model.mission.FerryShips;
+import com.enigma.waratsea.model.mission.Intercept;
+import com.enigma.waratsea.model.mission.Invasion;
+import com.enigma.waratsea.model.mission.Mission;
+import com.enigma.waratsea.model.mission.Patrol;
+import com.enigma.waratsea.model.mission.Transport;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.service.TaskForceService;
 import com.google.inject.Inject;
@@ -22,10 +36,11 @@ public abstract class MissionMapper {
   public static final MissionMapper INSTANCE = Mappers.getMapper(MissionMapper.class);
 
   @Inject
-  public TaskForceService taskForceService;
+  private TaskForceService taskForceService;
 
-  abstract public List<Mission> entitiesToModels(final List<MissionEntity> entities);
-  abstract public Set<MissionEntity> modelsToEntities(final Set<Mission> models);
+  public abstract List<Mission> entitiesToModels(List<MissionEntity> entities);
+
+  public abstract Set<MissionEntity> modelsToEntities(Set<Mission> models);
 
   @SubclassMapping(source = BombardmentEntity.class, target = Bombardment.class)
   @SubclassMapping(source = EscortEntity.class, target = Escort.class)
@@ -34,7 +49,7 @@ public abstract class MissionMapper {
   @SubclassMapping(source = InvasionEntity.class, target = Invasion.class)
   @SubclassMapping(source = PatrolEntity.class, target = Patrol.class)
   @SubclassMapping(source = TransportEntity.class, target = Transport.class)
-  abstract public Mission toModel(final MissionEntity missionEntity);
+  public abstract Mission toModel(MissionEntity missionEntity);
 
   @SubclassMapping(source = Bombardment.class, target = BombardmentEntity.class)
   @SubclassMapping(source = Escort.class, target = EscortEntity.class)
@@ -43,7 +58,7 @@ public abstract class MissionMapper {
   @SubclassMapping(source = Invasion.class, target = InvasionEntity.class)
   @SubclassMapping(source = Patrol.class, target = PatrolEntity.class)
   @SubclassMapping(source = Transport.class, target = TransportEntity.class)
-  abstract public MissionEntity toEntity(final Mission mission);
+  public abstract MissionEntity toEntity(Mission mission);
 
   Set<TaskForce> mapTaskForces(final Set<Id> taskForceIds) {
     return Optional.ofNullable(taskForceIds)

@@ -65,7 +65,7 @@ public class Game implements Comparable<Game> {
   }
 
   @Override
-  public int compareTo(@NotNull Game o) {
+  public int compareTo(@NotNull final Game o) {
     return id.compareTo(o.id);
   }
 

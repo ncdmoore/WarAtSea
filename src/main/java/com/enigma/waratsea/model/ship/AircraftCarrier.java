@@ -49,7 +49,7 @@ public class AircraftCarrier implements Ship, Airbase {
   }
 
   @Override
-  public void deploySquadron(Squadron squadron) {
+  public void deploySquadron(final Squadron squadron) {
     squadrons.add(squadron);
     squadron.setDeploymentState(ON_SHIP);
     squadron.setState(READY);

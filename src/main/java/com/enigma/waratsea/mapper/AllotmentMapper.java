@@ -19,9 +19,9 @@ import java.util.stream.Stream;
 public abstract class AllotmentMapper {
   public static final AllotmentMapper INSTANCE = Mappers.getMapper(AllotmentMapper.class);
 
-  abstract public Allotment toModel(AllotmentEntity allotmentEntity);
+  public abstract Allotment toModel(AllotmentEntity allotmentEntity);
 
-  SquadronTypeAllotment mapTypeAllotment(SquadronTypeAllotmentEntity squadronTypeAllotmentEntity) {
+  SquadronTypeAllotment mapTypeAllotment(final SquadronTypeAllotmentEntity squadronTypeAllotmentEntity) {
     return SquadronTypeAllotment.builder()
         .dice(squadronTypeAllotmentEntity.getDice())
         .factor(squadronTypeAllotmentEntity.getFactor())
@@ -29,14 +29,14 @@ public abstract class AllotmentMapper {
         .build();
   }
 
-  List<GroupAllotment> mapGroupAllotments(List<GroupAllotmentEntity> groups) {
+  List<GroupAllotment> mapGroupAllotments(final List<GroupAllotmentEntity> groups) {
     return groups.stream()
         .map(this::mapGroupAllotment)
         .sorted()
         .toList();
   }
 
-  GroupAllotment mapGroupAllotment(GroupAllotmentEntity groupAllotmentEntity) {
+  GroupAllotment mapGroupAllotment(final GroupAllotmentEntity groupAllotmentEntity) {
     return GroupAllotment.builder()
         .priority(groupAllotmentEntity.getPriority())
         .selectSize(groupAllotmentEntity.getSelectSize())
@@ -44,15 +44,15 @@ public abstract class AllotmentMapper {
         .build();
   }
 
-  List<Id> mapIds(List<AircraftAllotmentEntity> entities) {
-    var ids =  entities.stream()
+  List<Id> mapIds(final List<AircraftAllotmentEntity> entities) {
+    var ids = entities.stream()
         .flatMap(this::expand)
         .toList();
 
     return new ArrayList<>(ids);
   }
 
-  Stream<Id> expand(AircraftAllotmentEntity aircraftAllotment) {
+  Stream<Id> expand(final AircraftAllotmentEntity aircraftAllotment) {
     var number = aircraftAllotment.getNumber();
     var id = aircraftAllotment.getId();
 

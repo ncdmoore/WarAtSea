@@ -14,7 +14,7 @@ public class AllotmentModification implements Comparable<AllotmentModification> 
   private List<SquadronAllotmentModification> modifications;
 
   @Override
-  public int compareTo(@NotNull AllotmentModification o) {
+  public int compareTo(@NotNull final AllotmentModification o) {
     if (id == o.id) {
       return 0;
     } else if (id < o.id) {

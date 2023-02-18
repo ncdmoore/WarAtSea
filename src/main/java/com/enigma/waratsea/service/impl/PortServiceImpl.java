@@ -1,21 +1,27 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.PortMapper;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.repository.PortRepository;
 import com.enigma.waratsea.service.PortService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -60,7 +66,7 @@ public class PortServiceImpl implements PortService {
     events.getSaveGameEvent().register(this::save);
   }
 
-  private Port getAndIndex(Id portId) {
+  private Port getAndIndex(final Id portId) {
     var port = getFromRepository(portId);
 
     var side = portId.getSide();
@@ -71,7 +77,7 @@ public class PortServiceImpl implements PortService {
     return port;
   }
 
-  private Port getFromRepository(Id portId) {
+  private Port getFromRepository(final Id portId) {
     var entity = portRepository.get(portId);
 
     return PortMapper.INSTANCE.toModel(entity);

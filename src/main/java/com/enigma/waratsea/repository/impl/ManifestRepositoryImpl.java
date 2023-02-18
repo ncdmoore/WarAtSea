@@ -32,7 +32,7 @@ public class ManifestRepositoryImpl implements ManifestRepository {
   }
 
   @Override
-  public List<ManifestEntity> get(Side side) {
+  public List<ManifestEntity> get(final Side side) {
     var filePath = getFilePath(side);
 
     return readManifests(filePath);

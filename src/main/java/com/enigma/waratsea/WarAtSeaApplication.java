@@ -33,14 +33,14 @@ public class WarAtSeaApplication extends Application {
   }
 
   @Override
-  public void start(Stage stage) {
+  public void start(final Stage stage) {
     Injector injector = Guice.createInjector(new BasicModule());
 
     initGame(injector);
     initGui(injector, stage);
   }
 
-  public static void main(String[] args) {
+  public static void main(final String[] args) {
     handleArguments(args);
     launch();
   }

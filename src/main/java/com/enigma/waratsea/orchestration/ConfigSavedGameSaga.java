@@ -1,7 +1,13 @@
 package com.enigma.waratsea.orchestration;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ConfigSavedGameEvent;
+import com.enigma.waratsea.event.CreatePlayerEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadMapEvent;
+import com.enigma.waratsea.event.LoadMissionsEvent;
+import com.enigma.waratsea.event.LoadSquadronsEvent;
+import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;

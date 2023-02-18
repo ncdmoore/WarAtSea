@@ -25,7 +25,7 @@ public class Airfield implements Airbase {
   private Set<Squadron> squadrons;
 
   @Override
-  public void deploySquadron(Squadron squadron) {
+  public void deploySquadron(final Squadron squadron) {
     squadrons.add(squadron);
     squadron.setDeploymentState(AT_AIRFIELD);
     squadron.setState(READY);

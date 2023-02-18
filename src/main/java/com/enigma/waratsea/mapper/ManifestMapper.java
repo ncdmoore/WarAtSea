@@ -20,15 +20,15 @@ public abstract class ManifestMapper {
   public static final ManifestMapper INSTANCE = Mappers.getMapper(ManifestMapper.class);
 
   @Inject
-  public ShipService shipService;
+  private ShipService shipService;
 
-  abstract public List<Manifest> entitiesToModels(List<ManifestEntity> entities);
+  public abstract List<Manifest> entitiesToModels(List<ManifestEntity> entities);
 
-  abstract public Set<ManifestEntity> modelsToEntities(Set<Manifest> models);
+  public abstract Set<ManifestEntity> modelsToEntities(Set<Manifest> models);
 
-  abstract public Manifest toModel(final ManifestEntity manifestEntity);
+  public abstract Manifest toModel(ManifestEntity manifestEntity);
 
-  abstract public ManifestEntity toEntity(final Manifest manifest);
+  public abstract ManifestEntity toEntity(Manifest manifest);
 
   Set<Ship> mapShips(final Set<Id> shipIds) {
     return Optional.ofNullable(shipIds)

@@ -1,6 +1,8 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ConfigNewGameEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadScenarioOptionsEvent;
 import com.enigma.waratsea.event.user.ScenarioHasOptionsEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.SelectSideEvent;
@@ -79,8 +81,8 @@ public class NewGameViewModel {
   }
 
   private void setSelectedSide(final Toggle toggle) {
-    var selectedSide = getSelectedSideFromToggle(toggle);
-    events.getSelectSideEvent().fire(new SelectSideEvent(selectedSide));
+    var currentSide = getSelectedSideFromToggle(toggle);
+    events.getSelectSideEvent().fire(new SelectSideEvent(currentSide));
   }
 
   private Side getSelectedSideFromToggle(final Toggle toggle) {

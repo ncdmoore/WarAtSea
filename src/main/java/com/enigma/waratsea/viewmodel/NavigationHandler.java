@@ -1,14 +1,18 @@
 package com.enigma.waratsea.viewmodel;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.user.ScenarioHasOptionsEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
-import com.enigma.waratsea.view.pregame.*;
-import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
+import com.enigma.waratsea.view.pregame.NewGameView;
+import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
+import com.enigma.waratsea.view.pregame.SavedGameView;
+import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
+import com.enigma.waratsea.view.pregame.StartView;
+import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.viewmodel.events.NavigationType;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -36,7 +40,7 @@ public class NavigationHandler implements BootStrapped {
     private Page prev;
     private Page next;
 
-    public Page(final Supplier<View> viewSupplier) {
+    Page(final Supplier<View> viewSupplier) {
       this.viewSupplier = viewSupplier;
     }
 

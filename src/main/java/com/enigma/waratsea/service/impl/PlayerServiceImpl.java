@@ -5,7 +5,15 @@ import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.player.ComputerPlayer;
 import com.enigma.waratsea.model.player.HumanPlayer;
 import com.enigma.waratsea.model.player.Player;
-import com.enigma.waratsea.service.*;
+import com.enigma.waratsea.service.AirfieldService;
+import com.enigma.waratsea.service.GameService;
+import com.enigma.waratsea.service.MtbFlotillaService;
+import com.enigma.waratsea.service.PlayerService;
+import com.enigma.waratsea.service.PortService;
+import com.enigma.waratsea.service.RegionService;
+import com.enigma.waratsea.service.SquadronService;
+import com.enigma.waratsea.service.SubmarineFlotillaService;
+import com.enigma.waratsea.service.TaskForceService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -26,6 +34,7 @@ public class PlayerServiceImpl implements PlayerService {
   private final MtbFlotillaService mtbFlotillaService;
   private final SquadronService squadronService;
 
+  //CHECKSTYLE:OFF
   @Inject
   public PlayerServiceImpl(final Events events,
                            final GameService gameService,
@@ -47,6 +56,7 @@ public class PlayerServiceImpl implements PlayerService {
 
     events.getCreatePlayerEvent().register(this::handleCreatePlayerEvent);
   }
+  //CHECKSTYLE:ON
 
   private void handleCreatePlayerEvent(final CreatePlayerEvent event) {
     log.info("Player service received load player event");
@@ -67,7 +77,7 @@ public class PlayerServiceImpl implements PlayerService {
     players.forEach(this::configurePlayer);
   }
 
-  private void configurePlayer(Player player) {
+  private void configurePlayer(final Player player) {
     addNations(player);
     addAirfields(player);
     addPorts(player);

@@ -1,6 +1,12 @@
 package com.enigma.waratsea.model.player;
 
-import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.Airbase;
+import com.enigma.waratsea.model.Airfield;
+import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.MtbFlotilla;
+import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.SubmarineFlotilla;
 import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.taskForce.TaskForce;

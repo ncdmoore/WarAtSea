@@ -19,7 +19,12 @@ import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Separator;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -55,7 +60,7 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   @Override
-  public void display(Stage stage) {
+  public void display(final Stage stage) {
     var titlePane = buildTitle();
     var mainPane = buildMain();
     var pushButtons = buildPushButtons(stage);

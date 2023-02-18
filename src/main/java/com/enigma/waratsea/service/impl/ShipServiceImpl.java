@@ -1,6 +1,8 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadRegistryEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
@@ -63,7 +65,7 @@ public class ShipServiceImpl implements ShipService {
   }
 
   @Override
-  public Ship get(Id shipId) {
+  public Ship get(final Id shipId) {
     return ships.computeIfAbsent(shipId, this::getShip);
   }
 
@@ -157,14 +159,14 @@ public class ShipServiceImpl implements ShipService {
         .flatMap(shipType -> getShipRegistryForShipType(side, shipType))
         .collect(Collectors.toMap(
             ShipRegistry::getId,
-            registry -> registry));
+            shipRegistry -> shipRegistry));
   }
 
   private Stream<ShipRegistry> getShipRegistryForShipType(final Side side, final ShipType shipType) {
     return shipRepository.getRegistry(side, shipType)
         .stream()
         .map(ShipRegistryMapper.INSTANCE::toModel)
-        .map(registry -> registry.setShipType(shipType));
+        .map(shipRegistry -> shipRegistry.setShipType(shipType));
   }
 
   private Id convertShipIdToShipClassId(final Id shipId) {

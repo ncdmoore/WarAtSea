@@ -1,6 +1,10 @@
 package com.enigma.waratsea.model.ship;
 
-import com.enigma.waratsea.entity.ship.*;
+import com.enigma.waratsea.entity.ship.AircraftCarrierEntity;
+import com.enigma.waratsea.entity.ship.CapitalShipEntity;
+import com.enigma.waratsea.entity.ship.ShipEntity;
+import com.enigma.waratsea.entity.ship.SubmarineEntity;
+import com.enigma.waratsea.entity.ship.SurfaceShipEntity;
 import com.enigma.waratsea.model.Type;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

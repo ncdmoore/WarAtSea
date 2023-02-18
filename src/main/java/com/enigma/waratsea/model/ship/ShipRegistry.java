@@ -15,7 +15,7 @@ public class ShipRegistry {
   private Nation nation;
   private Id shipClassId;
   private Set<Id> squadrons;
-  transient private ShipType shipType;
+  private transient ShipType shipType;
 
   public ShipRegistry setShipType(final ShipType shipType) {
     this.shipType = shipType;

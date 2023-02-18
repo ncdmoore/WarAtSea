@@ -1,6 +1,8 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadMissionsEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
@@ -14,7 +16,11 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Slf4j
 @Singleton
@@ -35,7 +41,7 @@ public class MissionServiceImpl implements MissionService {
   }
 
   @Override
-  public Set<Mission> get(Side side) {
+  public Set<Mission> get(final Side side) {
     return missionSideMap.computeIfAbsent(side, this::getFromRepository);
   }
 

@@ -41,7 +41,6 @@ public class ShipCargoUnloadedVictory implements Victory {
 
   private void handleFactorPointsAward(final ShipCargoEvent event) {
     var cargoLevel = event.getCargoLevel();
-    var points = factor * cargoLevel;
-    totalPoints += points;
+    totalPoints += factor * cargoLevel;
   }
 }

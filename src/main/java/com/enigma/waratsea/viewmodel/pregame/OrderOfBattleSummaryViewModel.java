@@ -2,7 +2,11 @@ package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.user.SaveGameEvent;
-import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.Game;
+import com.enigma.waratsea.model.MtbFlotilla;
+import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.SubmarineFlotilla;
 import com.enigma.waratsea.model.player.Player;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
@@ -12,7 +16,12 @@ import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
-import javafx.beans.property.*;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -116,54 +125,54 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   private void setFlag(final Game game) {
-    var side = game.getHumanSide();
+    var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = side.toLower() + ".flag.medium.image";
+    var propertyName = humanSide.toLower() + ".flag.medium.image";
     var imageName = props.getString(propertyName);
     var image = resourceProvider.getImage(scenario, imageName);
     flag.setValue(image);
   }
 
   private void setTaskForceImage(final Game game) {
-    var side = game.getHumanSide();
+    var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = side.toLower() + ".task.force.ships.image";
+    var propertyName = humanSide.toLower() + ".task.force.ships.image";
     var imageName = props.getString(propertyName);
     var image = resourceProvider.getImage(scenario, imageName);
     taskForceImage.setValue(image);
   }
 
   private void setSubmarineFlotillaImage(final Game game) {
-    var side = game.getHumanSide();
+    var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = side.toLower() + ".submarine.flotilla.image";
+    var propertyName = humanSide.toLower() + ".submarine.flotilla.image";
     var imageName = props.getString(propertyName);
     var image = resourceProvider.getImage(scenario, imageName);
     submarineFlotillaImage.setValue(image);
   }
 
   private void setMtbFlotillaImage(final Game game) {
-    var side = game.getHumanSide();
+    var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = side.toLower() + ".mtb.flotilla.image";
+    var propertyName = humanSide.toLower() + ".mtb.flotilla.image";
     var imageName = props.getString(propertyName);
     var image = resourceProvider.getImage(scenario, imageName);
     mtbFlotillaImage.setValue(image);
   }
 
   private void setAirForceImage(final Game game) {
-    var side = game.getHumanSide();
+    var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = side.toLower() + ".air.force.squadrons.image";
+    var propertyName = humanSide.toLower() + ".air.force.squadrons.image";
     var imageName = props.getString(propertyName);
     var image = resourceProvider.getImage(scenario, imageName);
     airForceImage.setValue(image);
   }
 
   private void setTaskForces(final Game game) {
-    var player = game.getHuman();
+    var humanPlayer = game.getHuman();
 
-    var playerTaskForces = player.getTaskForces()
+    var playerTaskForces = humanPlayer.getTaskForces()
         .stream()
         .sorted()
         .toList();
@@ -172,9 +181,9 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   private void setSubmarineFlotillas(final Game game) {
-    var player = game.getHuman();
+    var humanPlayer = game.getHuman();
 
-    var playerSubFlotillas = player.getSubmarineFlotillas()
+    var playerSubFlotillas = humanPlayer.getSubmarineFlotillas()
         .stream()
         .sorted()
         .toList();
@@ -184,9 +193,9 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   private void setMtbFlotillas(final Game game) {
-    var player = game.getHuman();
+    var humanPlayer = game.getHuman();
 
-    var playerMtbFlotillas = player.getMtbFlotillas()
+    var playerMtbFlotillas = humanPlayer.getMtbFlotillas()
         .stream()
         .sorted()
         .toList();
@@ -196,9 +205,9 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   private void setNations(final Game game) {
-    var player = game.getHuman();
+    var humanPlayer = game.getHuman();
 
-    var playerNations = player.getNations()
+    var playerNations = humanPlayer.getNations()
         .stream()
         .sorted()
         .toList();

@@ -1,7 +1,9 @@
 package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.dto.AllotmentModificationDto;
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ApplyAllotmentModEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadScenarioOptionsEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.AllotmentModificationMapper;
@@ -16,7 +18,12 @@ import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Slf4j
 @Singleton
@@ -76,8 +83,8 @@ public class SquadronAllotmentModServiceImpl implements SquadronAllotmentModServ
   }
 
   private void applyAllotmentModifications(final NationId nationId, final int id) {
-    var modifications = getModifications(nationId, id);
-    applyModification(modifications);
+    var squadronModifications = getModifications(nationId, id);
+    applyModification(squadronModifications);
   }
 
   private List<SquadronAllotmentModification> getModifications(final NationId nationId, final int id) {
@@ -89,8 +96,8 @@ public class SquadronAllotmentModServiceImpl implements SquadronAllotmentModServ
         .orElse(Collections.emptyList());
   }
 
-  private void applyModification(final List<SquadronAllotmentModification> modifications) {
-    modifications.stream()
+  private void applyModification(final List<SquadronAllotmentModification> squadronModifications) {
+    squadronModifications.stream()
         .map(this::buildModificationDto)
         .forEach(squadronAllotmentService::update);
   }

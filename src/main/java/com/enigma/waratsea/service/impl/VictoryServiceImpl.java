@@ -38,14 +38,14 @@ public class VictoryServiceImpl implements VictoryService {
     this.victoryRepository = victoryRepository;
     this.victoryMapper = victoryMapper;
 
-    registerEvents(events);
+    registerEvents();
   }
 
   public Set<Victory> get(final Side side) {
     return victorySideMap.computeIfAbsent(side, this::getFromRepository);
   }
 
-  private void registerEvents(final Events events) {
+  private void registerEvents() {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);

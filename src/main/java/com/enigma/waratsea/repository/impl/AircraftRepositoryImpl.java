@@ -29,7 +29,7 @@ public class AircraftRepositoryImpl implements AircraftRepository {
   }
 
   @Override
-  public AircraftEntity get(Id aircraftId) {
+  public AircraftEntity get(final Id aircraftId) {
     var filePath = getFilePath(aircraftId);
 
     return readAircraft(filePath);

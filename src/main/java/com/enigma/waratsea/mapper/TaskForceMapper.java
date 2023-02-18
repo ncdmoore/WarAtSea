@@ -20,15 +20,15 @@ public abstract class TaskForceMapper {
   public static final TaskForceMapper INSTANCE = Mappers.getMapper(TaskForceMapper.class);
 
   @Inject
-  public ShipService shipService;
+  private ShipService shipService;
 
-  abstract public List<TaskForce> entitiesToModels(List<TaskForceEntity> entities);
+  public abstract List<TaskForce> entitiesToModels(List<TaskForceEntity> entities);
 
-  abstract public Set<TaskForceEntity> modelsToEntities(Set<TaskForce> models);
+  public abstract Set<TaskForceEntity> modelsToEntities(Set<TaskForce> models);
 
-  abstract public TaskForce toModel(final TaskForceEntity taskForceEntity);
+  public abstract TaskForce toModel(TaskForceEntity taskForceEntity);
 
-  abstract public TaskForceEntity toEntity(final TaskForce taskForce);
+  public abstract TaskForceEntity toEntity(TaskForce taskForce);
 
   Set<Ship> mapShips(final Set<Id> shipIds) {
     return Optional.ofNullable(shipIds)

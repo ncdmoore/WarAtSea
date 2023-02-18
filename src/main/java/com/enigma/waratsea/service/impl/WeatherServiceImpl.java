@@ -44,7 +44,7 @@ public class WeatherServiceImpl implements WeatherService {
   }
 
   @Override
-  public Weather determine(WeatherInput input) {
+  public Weather determine(final WeatherInput input) {
     var visibility = visibilityStrategy.determine(input.getTurn());
     var weatherType = weatherStrategy.determine(input);
 

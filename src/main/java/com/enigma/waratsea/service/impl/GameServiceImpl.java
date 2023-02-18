@@ -1,9 +1,13 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
-import com.enigma.waratsea.event.user.*;
-import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.user.SaveGameEvent;
+import com.enigma.waratsea.event.user.SelectSavedGameEvent;
+import com.enigma.waratsea.event.user.SelectScenarioEvent;
+import com.enigma.waratsea.event.user.SelectSideEvent;
+import com.enigma.waratsea.event.user.StartNewGameEvent;
+import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.repository.GameRepository;
@@ -92,7 +96,6 @@ public class GameServiceImpl implements GameService {
 
   private void save(final SaveGameEvent gameSaveEvent) {
     game.setId(gameSaveEvent.getId());
-    var gameMapper = GameMapper.INSTANCE;
     var gameEntity = gameMapper.toEntity(game);
 
     gameRepository.save(gameEntity);

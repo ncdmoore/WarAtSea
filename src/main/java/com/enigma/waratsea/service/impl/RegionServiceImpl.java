@@ -1,11 +1,16 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadMapEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.mapper.RegionMapper;
-import com.enigma.waratsea.model.*;
+import com.enigma.waratsea.model.Airfield;
+import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.map.Region;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.enigma.waratsea.service.GameService;
@@ -15,7 +20,12 @@ import com.google.inject.Singleton;
 import javafx.util.Pair;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -42,13 +52,13 @@ public class RegionServiceImpl implements RegionService {
   }
 
   @Override
-  public Region getAirfieldRegion(Nation nation, Id airfieldId) {
+  public Region getAirfieldRegion(final Nation nation, final Id airfieldId) {
     return airfields.get(nation)
         .get(airfieldId);
   }
 
   @Override
-  public Set<Nation> getNations(Side side) {
+  public Set<Nation> getNations(final Side side) {
     return nations.get(side);
   }
 
@@ -101,12 +111,12 @@ public class RegionServiceImpl implements RegionService {
 
   private Pair<Side, List<Region>> createRegions(final Id mapId) {
     var side = mapId.getSide();
-    var regions = regionRepository.get(mapId)
+    var regionsForSide = regionRepository.get(mapId)
         .stream()
         .map(regionMapper::toModel)
         .toList();
 
-    return new Pair<>(side, regions);
+    return new Pair<>(side, regionsForSide);
   }
 
   private void indexAllAirfields() {
@@ -116,7 +126,7 @@ public class RegionServiceImpl implements RegionService {
         .forEach(this::indexRegionAirfields);
   }
 
-  private void indexRegionAirfields (final Region region) {
+  private void indexRegionAirfields(final Region region) {
     var nation = region.getNation();
 
     airfields.computeIfAbsent(nation, n -> new HashMap<>());

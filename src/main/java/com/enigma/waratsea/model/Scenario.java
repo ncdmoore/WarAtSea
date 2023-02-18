@@ -43,7 +43,7 @@ public class Scenario implements Comparable<Scenario> {
   }
 
   @Override
-  public int compareTo(@NotNull Scenario o) {
+  public int compareTo(@NotNull final Scenario o) {
     return id.compareTo(o.id);
   }
 }

@@ -6,5 +6,5 @@ import com.enigma.waratsea.model.Side;
 import java.util.List;
 
 public interface ManifestRepository {
-  List<ManifestEntity> get(final Side side);
+  List<ManifestEntity> get(Side side);
 }

@@ -65,7 +65,7 @@ public class TaskForce implements Comparable<TaskForce> {
   }
 
   @Override
-  public int compareTo(@NotNull TaskForce o) {
+  public int compareTo(@NotNull final TaskForce o) {
     return id.compareTo(o.id);
   }
 

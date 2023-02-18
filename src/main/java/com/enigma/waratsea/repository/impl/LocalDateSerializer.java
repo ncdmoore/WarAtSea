@@ -18,7 +18,7 @@ public class LocalDateSerializer implements JsonSerializer<LocalDate> {
   }
 
   @Override
-  public JsonElement serialize(LocalDate date, Type typeOfSrc, JsonSerializationContext context) {
+  public JsonElement serialize(final LocalDate date, final Type typeOfSrc, final JsonSerializationContext context) {
     return new JsonPrimitive(date.format(DateTimeFormatter.ofPattern(dateFormat).withLocale(Locale.ENGLISH)));
   }
 }

@@ -1,8 +1,10 @@
 package com.enigma.waratsea.model;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 
+@Getter
 @RequiredArgsConstructor
 public enum Nation {
   AUSTRALIAN("Australian", "HMAS"),

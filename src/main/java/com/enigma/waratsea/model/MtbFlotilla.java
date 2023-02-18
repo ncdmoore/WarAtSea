@@ -11,7 +11,7 @@ import static com.enigma.waratsea.model.AssetState.RESERVE;
 
 @Getter
 @Builder
-public class MtbFlotilla implements Comparable<MtbFlotilla>{
+public class MtbFlotilla implements Comparable<MtbFlotilla> {
   private Id id;
   private String title;
   private AssetState state;
@@ -28,7 +28,7 @@ public class MtbFlotilla implements Comparable<MtbFlotilla>{
   }
 
   @Override
-  public int compareTo(@NotNull MtbFlotilla o) {
+  public int compareTo(@NotNull final MtbFlotilla o) {
     return id.compareTo(o.id);
   }
 }

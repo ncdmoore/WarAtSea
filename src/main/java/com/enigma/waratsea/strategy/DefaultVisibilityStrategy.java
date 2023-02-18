@@ -7,7 +7,12 @@ import com.google.inject.Singleton;
 
 import java.util.Map;
 
-import static com.enigma.waratsea.model.turn.TimeRange.*;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_1;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_2;
+import static com.enigma.waratsea.model.turn.TimeRange.DAY_3;
+import static com.enigma.waratsea.model.turn.TimeRange.NIGHT_1;
+import static com.enigma.waratsea.model.turn.TimeRange.NIGHT_2;
+import static com.enigma.waratsea.model.turn.TimeRange.TWILIGHT;
 import static com.enigma.waratsea.model.weather.Visibility.GOOD;
 import static com.enigma.waratsea.model.weather.Visibility.BAD;
 

@@ -21,7 +21,7 @@ public class Submarine implements Ship {
   private int victoryPoints;
 
   @Override
-  public Ship commission(Commission commission) {
+  public Ship commission(final Commission commission) {
     id = commission.getId();
     title = commission.getTitle();
 

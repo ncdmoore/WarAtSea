@@ -14,16 +14,17 @@ public abstract class SquadronMapper {
   public static final SquadronMapper INSTANCE = Mappers.getMapper(SquadronMapper.class);
 
   @Inject
-  public AircraftService aircraftService;
+  private AircraftService aircraftService;
 
-  abstract public Squadron toModel(final SquadronEntity squadronEntity);
-  abstract public SquadronEntity toEntity(final Squadron squadron);
+  public abstract Squadron toModel(SquadronEntity squadronEntity);
 
-  Aircraft mapAircraft(Id aircraftId) {
+  public abstract SquadronEntity toEntity(Squadron squadron);
+
+  Aircraft mapAircraft(final Id aircraftId) {
     return aircraftService.get(aircraftId);
   }
 
-  Id mapId(Aircraft aircraft) {
+  Id mapId(final Aircraft aircraft) {
     return aircraft.getId();
   }
 }

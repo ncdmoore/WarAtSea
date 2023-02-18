@@ -1,7 +1,15 @@
 package com.enigma.waratsea.orchestration;
 
 import com.enigma.waratsea.BootStrapped;
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.AllotSquadronEvent;
+import com.enigma.waratsea.event.ConfigNewGameEvent;
+import com.enigma.waratsea.event.CreatePlayerEvent;
+import com.enigma.waratsea.event.DeploySquadronEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadCargoEvent;
+import com.enigma.waratsea.event.LoadMapEvent;
+import com.enigma.waratsea.event.LoadMissionsEvent;
+import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
 import com.google.inject.Inject;

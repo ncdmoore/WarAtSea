@@ -10,5 +10,5 @@ import java.util.List;
 public class SquadronTypeAllotmentEntity {
   private int dice;
   private int factor;
-  List<GroupAllotmentEntity> groups;
+  private List<GroupAllotmentEntity> groups;
 }

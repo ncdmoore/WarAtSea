@@ -30,7 +30,7 @@ public class GroupAllotment implements Comparable<GroupAllotment> {
   }
 
   @Override
-  public int compareTo(@NotNull GroupAllotment o) {
+  public int compareTo(@NotNull final GroupAllotment o) {
     if (priority == o.priority) {
       return 0;
     } else if (priority < o.priority) {

@@ -17,14 +17,15 @@ public abstract class GameMapper {
   @SuppressWarnings("unused")
   private ScenarioService scenarioService;
 
-  abstract public GameEntity toEntity(Game game);
-  abstract public Game toModel(GameEntity gameEntity);
+  public abstract GameEntity toEntity(Game game);
 
-  int mapScenarioId(Scenario scenario) {
+  public abstract Game toModel(GameEntity gameEntity);
+
+  int mapScenarioId(final Scenario scenario) {
     return scenario.getId();
   }
 
-  Scenario mapScenario(int scenarioId) {
+  Scenario mapScenario(final int scenarioId) {
     return scenarioService.get(scenarioId);
   }
 }

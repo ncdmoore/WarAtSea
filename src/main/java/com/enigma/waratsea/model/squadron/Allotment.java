@@ -1,6 +1,7 @@
 package com.enigma.waratsea.model.squadron;
 
 import com.enigma.waratsea.dto.AllotmentModificationDto;
+import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.model.die.Die;
@@ -30,6 +31,7 @@ public class Allotment {
       case BOMBER -> bombers.adjust(dto);
       case FIGHTER -> fighters.adjust(dto);
       case RECONNAISSANCE -> recon.adjust(dto);
+      default -> throw new GameException("Invalid allotmentType");
     }
   }
 }

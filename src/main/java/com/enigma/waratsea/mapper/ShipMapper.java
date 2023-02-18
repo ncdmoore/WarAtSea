@@ -1,8 +1,18 @@
 package com.enigma.waratsea.mapper;
 
-import com.enigma.waratsea.entity.ship.*;
+import com.enigma.waratsea.entity.ship.AircraftCarrierEntity;
+import com.enigma.waratsea.entity.ship.CapitalShipEntity;
+import com.enigma.waratsea.entity.ship.MotorTorpedoBoatEntity;
+import com.enigma.waratsea.entity.ship.ShipEntity;
+import com.enigma.waratsea.entity.ship.SubmarineEntity;
+import com.enigma.waratsea.entity.ship.SurfaceShipEntity;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.model.ship.*;
+import com.enigma.waratsea.model.ship.AircraftCarrier;
+import com.enigma.waratsea.model.ship.CapitalShip;
+import com.enigma.waratsea.model.ship.MotorTorpedoBoat;
+import com.enigma.waratsea.model.ship.Ship;
+import com.enigma.waratsea.model.ship.Submarine;
+import com.enigma.waratsea.model.ship.SurfaceShip;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.service.SquadronService;
 import com.google.inject.Inject;
@@ -21,29 +31,33 @@ public abstract class ShipMapper {
   public static final ShipMapper INSTANCE = Mappers.getMapper(ShipMapper.class);
 
   @Inject
-  public SquadronService squadronService;
+  private SquadronService squadronService;
 
   @SubclassMapping(source = AircraftCarrierEntity.class, target = AircraftCarrier.class)
   @SubclassMapping(source = CapitalShipEntity.class, target = CapitalShip.class)
   @SubclassMapping(source = SurfaceShipEntity.class, target = SurfaceShip.class)
   @SubclassMapping(source = SubmarineEntity.class, target = Submarine.class)
   @SubclassMapping(source = MotorTorpedoBoatEntity.class, target = MotorTorpedoBoat.class)
-  abstract public Ship toModel(final ShipEntity shipEntity);
+  public abstract Ship toModel(ShipEntity shipEntity);
 
-  abstract public AircraftCarrier toAircraftCarrier(final AircraftCarrierEntity aircraftCarrierEntity);
-  abstract public CapitalShip toCapitalShip(final CapitalShipEntity capitalShipEntity);
-  abstract public SurfaceShip toSurfaceShip(final SurfaceShipEntity surfaceShipEntity);
+  public abstract AircraftCarrier toAircraftCarrier(AircraftCarrierEntity aircraftCarrierEntity);
+
+  public abstract CapitalShip toCapitalShip(CapitalShipEntity capitalShipEntity);
+
+  public abstract SurfaceShip toSurfaceShip(SurfaceShipEntity surfaceShipEntity);
 
   @SubclassMapping(source = AircraftCarrier.class, target = AircraftCarrierEntity.class)
   @SubclassMapping(source = CapitalShip.class, target = CapitalShipEntity.class)
   @SubclassMapping(source = SurfaceShip.class, target = SurfaceShipEntity.class)
   @SubclassMapping(source = Submarine.class, target = SubmarineEntity.class)
   @SubclassMapping(source = MotorTorpedoBoat.class, target = MotorTorpedoBoatEntity.class)
-  abstract public ShipEntity toEntity(final Ship ship);
+  public abstract ShipEntity toEntity(Ship ship);
 
-  abstract public AircraftCarrierEntity toAircraftCarrierEntity(final AircraftCarrier aircraftCarrier);
-  abstract public CapitalShipEntity toCapitalShipEntity(final CapitalShip capitalShip);
-  abstract public SurfaceShipEntity toSurfaceShipEntity(final SurfaceShip surfaceShip);
+  public abstract AircraftCarrierEntity toAircraftCarrierEntity(AircraftCarrier aircraftCarrier);
+
+  public abstract CapitalShipEntity toCapitalShipEntity(CapitalShip capitalShip);
+
+  public abstract SurfaceShipEntity toSurfaceShipEntity(SurfaceShip surfaceShip);
 
   Set<Squadron> mapSquadrons(final Set<Id> squadronIds) {
     return Optional.ofNullable(squadronIds)

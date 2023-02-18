@@ -31,7 +31,7 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
   }
 
   @Override
-  public List<SquadronDeploymentEntity> get(Side side) {
+  public List<SquadronDeploymentEntity> get(final Side side) {
     var filePath = getFilePath(side);
 
     return readDeployment(filePath);

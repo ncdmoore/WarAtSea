@@ -26,7 +26,7 @@ public class SubmarineFlotilla implements Comparable<SubmarineFlotilla> {
   }
 
   @Override
-  public int compareTo(@NotNull SubmarineFlotilla o) {
+  public int compareTo(@NotNull final SubmarineFlotilla o) {
     return id.compareTo(o.id);
   }
 }

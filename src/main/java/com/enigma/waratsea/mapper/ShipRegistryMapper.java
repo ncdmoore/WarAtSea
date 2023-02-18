@@ -10,5 +10,5 @@ import org.mapstruct.factory.Mappers;
 public abstract class ShipRegistryMapper {
   public static final ShipRegistryMapper INSTANCE = Mappers.getMapper(ShipRegistryMapper.class);
 
-  abstract public ShipRegistry toModel(ShipRegistryEntity entity);
+  public abstract ShipRegistry toModel(ShipRegistryEntity entity);
 }

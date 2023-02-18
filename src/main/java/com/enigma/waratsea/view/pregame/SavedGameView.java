@@ -46,7 +46,7 @@ public class SavedGameView implements View {
   }
 
   @Override
-  public void display(Stage stage) {
+  public void display(final Stage stage) {
     var titlePane = buildTitle();
     var mainPane = buildMainPane();
     var pushButtons = buildPushButtons(stage);
@@ -154,21 +154,22 @@ public class SavedGameView implements View {
     bindVisibility(visibilityValue, selectedGame);
     bindDescription(descriptionValue, selectedGame);
 
+    var row = 0;
     var detailsGrid = new GridPane();
     detailsGrid.add(nameLabel, 0, 0);
     detailsGrid.add(nameValue, 1, 0);
-    detailsGrid.add(sideLabel, 0, 1);
-    detailsGrid.add(sideValue, 1, 1);
-    detailsGrid.add(dateLabel, 0, 2);
-    detailsGrid.add(dateValue, 1, 2);
-    detailsGrid.add(turnLabel, 0, 3);
-    detailsGrid.add(turnValue, 1, 3);
-    detailsGrid.add(weatherLabel, 0, 4);
-    detailsGrid.add(weatherValue, 1, 4);
-    detailsGrid.add(visibilityLabel, 0, 5);
-    detailsGrid.add(visibilityValue, 1, 5);
-    detailsGrid.add(descriptionLabel, 0, 6);
-    detailsGrid.add(descriptionValue, 1, 6);
+    detailsGrid.add(sideLabel, 0, ++row);
+    detailsGrid.add(sideValue, 1, row);
+    detailsGrid.add(dateLabel, 0, ++row);
+    detailsGrid.add(dateValue, 1, row);
+    detailsGrid.add(turnLabel, 0, ++row);
+    detailsGrid.add(turnValue, 1, row);
+    detailsGrid.add(weatherLabel, 0, ++row);
+    detailsGrid.add(weatherValue, 1, row);
+    detailsGrid.add(visibilityLabel, 0, ++row);
+    detailsGrid.add(visibilityValue, 1, row);
+    detailsGrid.add(descriptionLabel, 0, ++row);
+    detailsGrid.add(descriptionValue, 1, row);
     detailsGrid.setId("details-grid");
     GridPane.setValignment(descriptionLabel, VPos.TOP);
 
@@ -199,7 +200,7 @@ public class SavedGameView implements View {
   private void bindTurn(final Text turnValue, final ObjectProperty<Game> selectedGame) {
     turnValue.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedGame.getValue())
-            .map(this::getTurn )
+            .map(this::getTurn)
             .orElse(""), selectedGame));
   }
 

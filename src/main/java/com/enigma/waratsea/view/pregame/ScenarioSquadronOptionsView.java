@@ -10,7 +10,13 @@ import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Separator;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -37,7 +43,7 @@ public class ScenarioSquadronOptionsView implements View {
   }
 
   @Override
-  public void display(Stage stage) {
+  public void display(final Stage stage) {
     var titlePane = buildTitle();
     var mainPane = buildMainPane();
     var pushButtons = buildPushButtons(stage);

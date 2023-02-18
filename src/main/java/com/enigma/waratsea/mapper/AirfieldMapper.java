@@ -22,8 +22,9 @@ public abstract class AirfieldMapper {
   @SuppressWarnings("unused")
   private SquadronService squadronService;
 
-  abstract public Airfield toModel(AirfieldEntity airfieldEntity);
-  abstract public AirfieldEntity toEntity(Airfield airfield);
+  public abstract Airfield toModel(AirfieldEntity airfieldEntity);
+
+  public abstract AirfieldEntity toEntity(Airfield airfield);
 
   Set<Squadron> mapSquadrons(final Set<Id> squadronIds) {
     return Optional.ofNullable(squadronIds)

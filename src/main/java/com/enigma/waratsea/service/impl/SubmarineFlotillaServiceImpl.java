@@ -1,6 +1,8 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.*;
+import com.enigma.waratsea.event.ClearEvent;
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
@@ -42,12 +44,12 @@ public class SubmarineFlotillaServiceImpl implements SubmarineFlotillaService {
   }
 
   @Override
-  public Set<SubmarineFlotilla> get(Side side) {
+  public Set<SubmarineFlotilla> get(final Side side) {
     return flotillaSideMap.computeIfAbsent(side, this::getFromRepository);
   }
 
   @Override
-  public Set<SubmarineFlotilla> get(Set<Id> flotillaIds) {
+  public Set<SubmarineFlotilla> get(final Set<Id> flotillaIds) {
     return flotillaIds.stream()
         .map(flotillaMap::get)
         .collect(Collectors.toSet());

@@ -10,7 +10,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
+public class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
   private final String dateFormat;
 
   public LocalDateDeserializer(final String dateFormat) {
@@ -18,7 +18,8 @@ class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
   }
 
   @Override
-  public LocalDate deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+  public LocalDate deserialize(final JsonElement json, final Type typeOfT, final JsonDeserializationContext context)
+      throws JsonParseException {
     return LocalDate.parse(json.getAsString(), DateTimeFormatter.ofPattern(dateFormat).withLocale(Locale.ENGLISH));
   }
 }
