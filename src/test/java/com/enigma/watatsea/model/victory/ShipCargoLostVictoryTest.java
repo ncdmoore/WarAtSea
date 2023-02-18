@@ -62,7 +62,10 @@ public class ShipCargoLostVictoryTest {
         .cargo(cargo)
         .build();
 
-    var event = new ShipCombatEvent(ship, SHIP_SUNK);
+    var event = ShipCombatEvent.builder()
+        .ship(ship)
+        .action(SHIP_SUNK)
+        .build();
 
     var prePoints = victoryCondition.getTotalPoints();
 
@@ -93,7 +96,10 @@ public class ShipCargoLostVictoryTest {
         .cargo(cargo)
         .build();
 
-    var event = new ShipCombatEvent(ship, SHIP_SUNK);
+    var event = ShipCombatEvent.builder()
+        .ship(ship)
+        .action(SHIP_SUNK)
+        .build();
 
     var prePoints = victoryCondition.getTotalPoints();
 

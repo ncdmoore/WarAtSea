@@ -9,6 +9,7 @@ import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.model.ship.ShipType;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.HashSet;
@@ -24,6 +25,8 @@ public class TaskForce implements Comparable<TaskForce> {
   private Id id;
   private String title;
   private String location;
+
+  @Setter
   private AssetState state;
 
   @Builder.Default

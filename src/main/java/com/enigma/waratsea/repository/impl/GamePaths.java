@@ -41,6 +41,8 @@ public class GamePaths {
   private final String missionFileName = "missions";
   private final String victoryDirectory = "victory";
   private final String victoryFileName = "victory";
+  private final String releaseDirectory = "releases";
+  private final String releaseFileName = "releases";
   private final String regionPath = Paths.get(mapDirectory, regionDirectory).toString();
 
   private final String squadronAllotmentModDirectory = Paths.get("options", "allotment").toString();

@@ -50,7 +50,7 @@ public class TaskForceServiceImpl implements TaskForceService {
   @Override
   public Set<TaskForce> get(final Set<Id> taskForceIds) {
     return taskForceIds.stream()
-        .map(taskForceMap::get)
+        .map(this::get)
         .collect(Collectors.toSet());
   }
 
@@ -91,6 +91,15 @@ public class TaskForceServiceImpl implements TaskForceService {
 
     taskForceSideMap.keySet()
         .forEach(side -> saveSide(gameId, side));
+  }
+
+  private TaskForce get(final Id id) {
+    if (!taskForceMap.containsKey(id)) {
+      var side = id.getSide();
+      get(side);
+    }
+
+    return taskForceMap.get(id);
   }
 
   private Set<TaskForce> getFromRepository(final Side side) {

@@ -10,6 +10,7 @@ public enum ShipAction {
   SHIP_CARGO_UNLOADED("SHip cargo unloaded"),
 
   SHIP_ATTACKED("Ship attacked"),
+  SHIP_DAMAGED("Ship damaged"),
   SHIP_HULL_DAMAGED("Ship's hull damaged"),
   SHIP_PRIMARY_DAMAGED("Ship's primary gun damaged"),
   SHIP_SECONDARY_DAMAGED("Ship's secondary gun damaged"),

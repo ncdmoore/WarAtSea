@@ -1,0 +1,49 @@
+[
+  {
+    "id": "ship-damaged",
+    "type": "ShipCombatReleaseEntity",
+    "description": "Emergency Force released if any Italian ship is damaged in surface combat",
+    "matcher": {
+      "ship": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "SHIP_DAMAGED"
+      ],
+      "enemy": {
+        "side": "ALLIES",
+        "types": [
+          "ANY_SHIP"
+        ]
+      }
+    },
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF4"
+      }
+    ]
+  },
+  {
+    "id": "ship-spotted",
+    "type": "ShipCombatReleaseEntity",
+    "description": "Emergency Force released if a British battleship is spotted.",
+    "matcher": {
+      "ship": {
+        "side": "ALLIES",
+        "types": [
+          "BATTLESHIP"
+        ]
+      },
+      "actions": [
+        "SHIP_SPOTTED"
+      ]
+    },
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF4"
+      }
+    ]
+  }
+]

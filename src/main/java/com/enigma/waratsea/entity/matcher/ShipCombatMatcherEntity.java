@@ -11,5 +11,6 @@ import java.util.Set;
 public class ShipCombatMatcherEntity {
   private ShipMatcherEntity ship;
   private Set<ShipAction> actions;
+  private EnemyMatcherEntity enemy;
 }
 

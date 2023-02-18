@@ -5,7 +5,6 @@ import com.enigma.waratsea.event.ConfigSavedGameEvent;
 import com.enigma.waratsea.event.CreatePlayerEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadMapEvent;
-import com.enigma.waratsea.event.LoadMissionsEvent;
 import com.enigma.waratsea.event.LoadSquadronsEvent;
 import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.google.inject.Inject;
@@ -31,7 +30,6 @@ public class ConfigSavedGameSaga implements BootStrapped {
     loadMap();
     loadTaskForces();
     loadSquadrons();
-    loadMissions();
     createPlayers();
   }
 
@@ -45,10 +43,6 @@ public class ConfigSavedGameSaga implements BootStrapped {
 
   private void loadSquadrons() {
     events.getLoadSquadronsEvent().fire(new LoadSquadronsEvent());
-  }
-
-  private void loadMissions() {
-    events.getLoadMissionsEvent().fire(new LoadMissionsEvent());
   }
 
   private void createPlayers() {

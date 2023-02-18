@@ -65,7 +65,7 @@ class VictoryRepositoryTest {
 
 
   @Test
-  void shouldVictoryConditions() {
+  void shouldGetVictoryConditions() {
     var inputStream = getInputStream();
 
     given(dataProvider.getDataInputStream(any())).willReturn(inputStream);

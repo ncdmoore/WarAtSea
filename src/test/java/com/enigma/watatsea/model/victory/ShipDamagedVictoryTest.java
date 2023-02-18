@@ -57,7 +57,10 @@ class ShipDamagedVictoryTest {
         .type(BATTLESHIP)
         .build();
 
-    var event = new ShipCombatEvent(ship, SHIP_HULL_DAMAGED);
+    var event = ShipCombatEvent.builder()
+        .ship(ship)
+        .action(SHIP_HULL_DAMAGED)
+        .build();
 
     var prePoints = victoryCondition.getTotalPoints();
 
@@ -78,7 +81,10 @@ class ShipDamagedVictoryTest {
         .type(BATTLESHIP)
         .build();
 
-    var event = new ShipCombatEvent(ship, SHIP_HULL_DAMAGED);
+    var event = ShipCombatEvent.builder()
+        .ship(ship)
+        .action(SHIP_HULL_DAMAGED)
+        .build();
 
     var prePoints = victoryCondition.getTotalPoints();
 

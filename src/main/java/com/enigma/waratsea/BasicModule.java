@@ -8,6 +8,7 @@ import com.enigma.waratsea.mapper.ManifestMapper;
 import com.enigma.waratsea.mapper.MissionMapper;
 import com.enigma.waratsea.mapper.MtbFlotillaMapper;
 import com.enigma.waratsea.mapper.RegionMapper;
+import com.enigma.waratsea.mapper.ReleaseMapper;
 import com.enigma.waratsea.mapper.ShipMapper;
 import com.enigma.waratsea.mapper.ShipRegistryMapper;
 import com.enigma.waratsea.mapper.SquadronMapper;
@@ -31,6 +32,7 @@ import com.enigma.waratsea.repository.MissionRepository;
 import com.enigma.waratsea.repository.MtbFlotillaRepository;
 import com.enigma.waratsea.repository.PortRepository;
 import com.enigma.waratsea.repository.RegionRepository;
+import com.enigma.waratsea.repository.ReleaseRepository;
 import com.enigma.waratsea.repository.ScenarioRepository;
 import com.enigma.waratsea.repository.ShipRepository;
 import com.enigma.waratsea.repository.SquadronAllotmentModRepository;
@@ -50,6 +52,7 @@ import com.enigma.waratsea.repository.impl.MissionRepositoryImpl;
 import com.enigma.waratsea.repository.impl.MtbFlotillaRepositoryImpl;
 import com.enigma.waratsea.repository.impl.PortRepositoryImpl;
 import com.enigma.waratsea.repository.impl.RegionRepositoryImpl;
+import com.enigma.waratsea.repository.impl.ReleaseRepositoryImpl;
 import com.enigma.waratsea.repository.impl.ResourceProvider;
 import com.enigma.waratsea.repository.impl.ScenarioRepositoryImpl;
 import com.enigma.waratsea.repository.impl.ShipRepositoryImpl;
@@ -72,6 +75,7 @@ import com.enigma.waratsea.service.MtbFlotillaService;
 import com.enigma.waratsea.service.PlayerService;
 import com.enigma.waratsea.service.PortService;
 import com.enigma.waratsea.service.RegionService;
+import com.enigma.waratsea.service.ReleaseService;
 import com.enigma.waratsea.service.ScenarioService;
 import com.enigma.waratsea.service.ShipService;
 import com.enigma.waratsea.service.SquadronAllotmentModService;
@@ -94,6 +98,7 @@ import com.enigma.waratsea.service.impl.MtbFlotillaServiceImpl;
 import com.enigma.waratsea.service.impl.PlayerServiceImpl;
 import com.enigma.waratsea.service.impl.PortServiceImpl;
 import com.enigma.waratsea.service.impl.RegionServiceImpl;
+import com.enigma.waratsea.service.impl.ReleaseServiceImpl;
 import com.enigma.waratsea.service.impl.ScenarioServiceImpl;
 import com.enigma.waratsea.service.impl.ShipServiceImpl;
 import com.enigma.waratsea.service.impl.SquadronAllotmentModServiceImpl;
@@ -175,6 +180,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(SubmarineFlotillaService.class);
     bootStrappedBinder.addBinding().to(MtbFlotillaService.class);
     bootStrappedBinder.addBinding().to(MissionService.class);
+    bootStrappedBinder.addBinding().to(ReleaseService.class);
     bootStrappedBinder.addBinding().to(VictoryService.class);
   }
 
@@ -210,6 +216,7 @@ public class BasicModule extends AbstractModule {
     bind(SubmarineFlotillaRepository.class).to(SubmarineFlotillaRepositoryImpl.class);
     bind(MtbFlotillaRepository.class).to(MtbFlotillaRepositoryImpl.class);
     bind(MissionRepository.class).to(MissionRepositoryImpl.class);
+    bind(ReleaseRepository.class).to(ReleaseRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
     bind(VictoryRepository.class).to(VictoryRepositoryImpl.class);
   }
@@ -228,6 +235,7 @@ public class BasicModule extends AbstractModule {
     bind(SubmarineFlotillaMapper.class).toInstance(SubmarineFlotillaMapper.INSTANCE);
     bind(MtbFlotillaMapper.class).toInstance(MtbFlotillaMapper.INSTANCE);
     bind(MissionMapper.class).toInstance(MissionMapper.INSTANCE);
+    bind(ReleaseMapper.class).toInstance(ReleaseMapper.INSTANCE);
     bind(VictoryMapper.class).toInstance(VictoryMapper.INSTANCE);
   }
 
@@ -265,6 +273,7 @@ public class BasicModule extends AbstractModule {
     bind(SubmarineFlotillaService.class).to(SubmarineFlotillaServiceImpl.class);
     bind(MtbFlotillaService.class).to(MtbFlotillaServiceImpl.class);
     bind(MissionService.class).to(MissionServiceImpl.class);
+    bind(ReleaseService.class).to(ReleaseServiceImpl.class);
     bind(GameService.class).to(GameServiceImpl.class);
     bind(VictoryService.class).to(VictoryServiceImpl.class);
   }

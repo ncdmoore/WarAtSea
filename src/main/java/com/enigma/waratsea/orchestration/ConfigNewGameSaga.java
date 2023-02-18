@@ -8,7 +8,6 @@ import com.enigma.waratsea.event.DeploySquadronEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadCargoEvent;
 import com.enigma.waratsea.event.LoadMapEvent;
-import com.enigma.waratsea.event.LoadMissionsEvent;
 import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
@@ -36,7 +35,6 @@ public class ConfigNewGameSaga implements BootStrapped {
     loadTaskForces();
     determineSquadronAllotment(scenario);
     deploySquadrons();
-    loadMissions();
     loadCargo();
     createPlayers();
   }
@@ -59,9 +57,6 @@ public class ConfigNewGameSaga implements BootStrapped {
     events.getDeploySquadronEvent().fire(new DeploySquadronEvent());
   }
 
-  private void loadMissions() {
-    events.getLoadMissionsEvent().fire(new LoadMissionsEvent());
-  }
 
   private void loadCargo() {
     events.getLoadCargoEvent().fire(new LoadCargoEvent());

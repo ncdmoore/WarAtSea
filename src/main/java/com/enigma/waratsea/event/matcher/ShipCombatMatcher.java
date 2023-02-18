@@ -2,6 +2,7 @@ package com.enigma.waratsea.event.matcher;
 
 import com.enigma.waratsea.event.action.ShipAction;
 import com.enigma.waratsea.event.ship.ShipCombatEvent;
+import com.enigma.waratsea.model.Enemy;
 import com.enigma.waratsea.model.ship.Ship;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,12 +18,16 @@ public class ShipCombatMatcher {
   @Builder.Default
   private Set<ShipAction> actions = Collections.emptySet();
 
+  private EnemyMatcher enemy;
+
   public boolean match(final ShipCombatEvent event) {
     var candidateShip = event.getShip();
     var candidateAction = event.getAction();
+    var candidateEnemy = event.getEnemy();
 
     return matchShip(candidateShip)
-        && matchAction(candidateAction);
+        && matchAction(candidateAction)
+        && matchEnemy(candidateEnemy);
   }
 
   private boolean matchShip(final Ship candidateShip) {
@@ -31,5 +36,9 @@ public class ShipCombatMatcher {
 
   private boolean matchAction(final ShipAction candidateAction) {
     return actions.isEmpty() || actions.contains(candidateAction);
+  }
+
+  private boolean matchEnemy(final Enemy candidateEnemy) {
+    return enemy == null || enemy.match(candidateEnemy);
   }
 }

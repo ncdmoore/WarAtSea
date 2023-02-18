@@ -2,7 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.ClearEvent;
 import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.LoadMissionsEvent;
+import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
@@ -49,7 +49,7 @@ public class MissionServiceImpl implements MissionService {
     events.getStartNewGameEvent().register(this::handleStartNewGameEvent);
     events.getStartSavedGameEvent().register(this::handleStartSavedGameEvent);
     events.getSelectScenarioEvent().register(this::handleScenarioSelectedEvent);
-    events.getLoadMissionsEvent().register(this::handleLoadMissionsEvent);
+    events.getLoadTaskForcesEvent().register(this::handleLoadTaskForcesEvent);
     events.getClearEvent().register(this::handleClearEvent);
     events.getSaveGameEvent().register(this::save);
   }
@@ -70,8 +70,8 @@ public class MissionServiceImpl implements MissionService {
     clearCache();
   }
 
-  private void handleLoadMissionsEvent(final LoadMissionsEvent loadMissionsEvent) {
-    log.info("MissionServiceImpl handle LoadMissionsEvent");
+  private void handleLoadTaskForcesEvent(final LoadTaskForcesEvent loadTaskForcesEvent) {
+    log.info("MissionServiceImpl handle LoadTaskForcesEvent");
 
     Side.stream().forEach(this::get);
   }
