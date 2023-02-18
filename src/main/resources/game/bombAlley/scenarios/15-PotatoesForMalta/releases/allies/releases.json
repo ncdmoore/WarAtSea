@@ -1,0 +1,25 @@
+[
+  {
+    "id": "ship-damaged",
+    "type": "ShipCombatReleaseEntity",
+    "description": "If any British CV or BB is damaged.",
+    "matcher": {
+      "ship": {
+        "side": "ALLIES",
+        "types": [
+          "AIRCRAFT_CARRIER",
+          "BATTLESHIP"
+        ]
+      },
+      "actions": [
+        "SHIP_DAMAGED"
+      ]
+    },
+    "taskForces": [
+      {
+        "side": "ALLIES",
+        "name": "TF6"
+      }
+    ]
+  }
+]

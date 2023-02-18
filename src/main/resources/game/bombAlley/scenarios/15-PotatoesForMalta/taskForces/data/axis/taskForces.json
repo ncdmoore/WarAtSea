@@ -6,7 +6,7 @@
     },
     "title": "Naples Force",
     "location": "Naples",
-    "state": "ACTIVE",
+    "state": "RESERVE",
     "ships": [
       {
         "side": "AXIS",

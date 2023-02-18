@@ -9,6 +9,7 @@ import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.service.TaskForceService;
 import com.google.inject.Inject;
 import org.mapstruct.Mapper;
+import org.mapstruct.ReportingPolicy;
 import org.mapstruct.SubclassExhaustiveStrategy;
 import org.mapstruct.SubclassMapping;
 import org.mapstruct.factory.Mappers;
@@ -19,7 +20,9 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "jsr330", subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION)
+@Mapper(componentModel = "jsr330",
+    subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION,
+    unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class ReleaseMapper {
   public static final ReleaseMapper INSTANCE = Mappers.getMapper(ReleaseMapper.class);
 
@@ -28,10 +31,11 @@ public abstract class ReleaseMapper {
   private TaskForceService taskForceService;
 
   public abstract Set<Release> entitiesToModels(List<ReleaseEntity> entities);
+
   public abstract Set<ReleaseEntity> modelsToEntities(Set<Release> models);
 
   @SubclassMapping(source = ShipCombatReleaseEntity.class, target = ShipCombatRelease.class)
-   public abstract Release toModel(ReleaseEntity releaseEntity);
+  public abstract Release toModel(ReleaseEntity releaseEntity);
 
   @SubclassMapping(source = ShipCombatRelease.class, target = ShipCombatReleaseEntity.class)
   public abstract ReleaseEntity toEntity(Release victory);

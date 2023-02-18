@@ -2,7 +2,7 @@
   {
     "id": "ship-damaged",
     "type": "ShipCombatReleaseEntity",
-    "description": "Emergency Force released if any Italian ship is damaged in surface combat",
+    "description": "If any Italian ship is damaged in surface combat.",
     "matcher": {
       "ship": {
         "side": "AXIS"
@@ -27,7 +27,7 @@
   {
     "id": "ship-spotted",
     "type": "ShipCombatReleaseEntity",
-    "description": "Emergency Force released if a British battleship is spotted.",
+    "description": "If a British battleship is spotted.",
     "matcher": {
       "ship": {
         "side": "ALLIES",

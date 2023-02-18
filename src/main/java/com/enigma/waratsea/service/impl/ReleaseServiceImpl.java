@@ -88,7 +88,10 @@ public class ReleaseServiceImpl implements ReleaseService {
     var entities = releaseRepository.get(side);
     var models = releaseMapper.entitiesToModels(entities);
 
-    models.forEach(this::registerReleaseEvents);
+    models.forEach(release -> {
+      release.registerEvents(events);
+      addReleaseToTaskForces(release);
+    });
 
     return new HashSet<>(models);
   }
@@ -99,8 +102,9 @@ public class ReleaseServiceImpl implements ReleaseService {
     releaseRepository.save(gameId, side, entities);
   }
 
-  private void registerReleaseEvents(final Release release) {
-    release.registerEvents(events);
+  private void addReleaseToTaskForces(final Release release) {
+    release.getTaskForces()
+        .forEach(taskForce -> taskForce.addRelease(release));
   }
 
   private void clearCache() {

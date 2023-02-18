@@ -1,0 +1,27 @@
+[
+  {
+    "id": "ship-spotted",
+    "type": "ShipCombatReleaseEntity",
+    "description": "If an Allied transport, battleship or aircraft carrier is spotted.",
+    "matcher": {
+      "ship": {
+        "side": "ALLIES",
+        "types": [
+          "AIRCRAFT_CARRIER",
+          "LIGHT_CARRIER",
+          "BATTLESHIP",
+          "TRANSPORT"
+        ]
+      },
+      "actions": [
+        "SHIP_SPOTTED"
+      ]
+    },
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF1"
+      }
+    ]
+  }
+]

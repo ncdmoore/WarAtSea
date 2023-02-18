@@ -1,0 +1,21 @@
+[
+  {
+    "id": "ship-attacked",
+    "type": "ShipCombatReleaseEntity",
+    "description": "If any French ship is attacked.",
+    "matcher": {
+      "ship": {
+        "side": "AXIS"
+      },
+      "actions": [
+        "SHIP_ATTACKED"
+      ]
+    },
+    "taskForces": [
+      {
+        "side": "AXIS",
+        "name": "TF1"
+      }
+    ]
+  }
+]

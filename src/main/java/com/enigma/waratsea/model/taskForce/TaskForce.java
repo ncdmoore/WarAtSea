@@ -5,6 +5,7 @@ import com.enigma.waratsea.model.AssetState;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.mission.Mission;
+import com.enigma.waratsea.model.release.Release;
 import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.model.ship.ShipType;
 import lombok.Builder;
@@ -31,6 +32,10 @@ public class TaskForce implements Comparable<TaskForce> {
 
   @Builder.Default
   private Set<Mission> missions = new HashSet<>();
+
+  @Builder.Default
+  private Set<Release> releases = new HashSet<>();
+
   private Set<Ship> ships;
 
   public Set<Airbase> getAirbases() {
@@ -47,15 +52,19 @@ public class TaskForce implements Comparable<TaskForce> {
   }
 
   public Map<AircraftType, Integer> getSquadronSummary() {
-     return getAirbases()
+    return getAirbases()
         .stream()
         .flatMap(airbase -> airbase.getSquadrons().stream())
-         .collect(Collectors.groupingBy(squadron -> squadron.getAircraft().getType(),
-             Collectors.summingInt(s -> 1)));
+        .collect(Collectors.groupingBy(squadron -> squadron.getAircraft().getType(),
+            Collectors.summingInt(s -> 1)));
   }
 
   public void addMission(final Mission mission) {
     missions.add(mission);
+  }
+
+  public void addRelease(final Release release) {
+    releases.add(release);
   }
 
   public boolean isReserved() {

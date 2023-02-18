@@ -6,6 +6,7 @@ import com.enigma.waratsea.model.SubmarineFlotilla;
 import com.enigma.waratsea.model.Type;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.mission.Mission;
+import com.enigma.waratsea.model.release.Release;
 import com.enigma.waratsea.model.ship.ShipType;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.property.Props;
@@ -319,6 +320,9 @@ public class OrderOfBattleSummaryView implements View {
     var stateLabel = new Text("State:");
     var stateValue = new Label();
 
+    var releasesLabel = new Text("Released:");
+    var releasesValue = new Text();
+
     var missionsLabel = new Text("Missions:");
     var missionsValue = new Text();
 
@@ -328,15 +332,20 @@ public class OrderOfBattleSummaryView implements View {
     bindTaskForceState(nameValue, selectedTaskForce);
     bindTaskForceState(stateValue, selectedTaskForce);
     bindTaskForceStateColor(stateValue, selectedTaskForce);
+    bindTaskForceReleases(releasesValue, selectedTaskForce);
     bindTaskForceMissions(missionsValue, selectedTaskForce);
 
+    int row = 0;
     var gridPane = new GridPane();
-    gridPane.add(nameLabel, 0, 0);
-    gridPane.add(nameValue, 1, 0);
-    gridPane.add(stateLabel, 0, 1);
-    gridPane.add(stateValue, 1, 1);
-    gridPane.add(missionsLabel, 0, 2);
-    gridPane.add(missionsValue, 1, 2);
+    gridPane.add(nameLabel, 0, row);
+    gridPane.add(nameValue, 1, row);
+    gridPane.add(stateLabel, 0, ++row);
+    gridPane.add(stateValue, 1, row);
+    gridPane.add(releasesLabel, 0, ++row);
+    gridPane.add(releasesValue, 1, row);
+    gridPane.add(missionsLabel, 0, ++row);
+    gridPane.add(missionsValue, 1, row);
+    GridPane.setValignment(releasesLabel, VPos.TOP);
     GridPane.setValignment(missionsLabel, VPos.TOP);
     gridPane.setId("missions-grid");
 
@@ -524,7 +533,7 @@ public class OrderOfBattleSummaryView implements View {
         .getValue()
         .getSquadrons(nation)
         .stream()
-        .filter(s ->  s.getDeploymentState() != ON_SHIP)
+        .filter(s -> s.getDeploymentState() != ON_SHIP)
         .collect(Collectors.groupingBy(squadron -> squadron.getAircraft().getType(),
             Collectors.summingInt(s -> 1)))
         .entrySet()
@@ -570,6 +579,17 @@ public class OrderOfBattleSummaryView implements View {
             .filter(TaskForce::isReserved)
             .map(taskForce -> Color.RED)
             .orElse(Color.GREEN), selectedTaskForce));
+  }
+
+  private void bindTaskForceReleases(final Text releasesValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
+    releasesValue.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedTaskForce.getValue())
+            .map(taskForce -> taskForce.getReleases()
+                .stream()
+                .map(Release::getDescription)
+                .collect(Collectors.joining("\n")))
+            .map(releases -> releases.isEmpty() ? "n/a" : releases)
+            .orElse(""), selectedTaskForce));
   }
 
   private void bindTaskForceMissions(final Text missionsValue, final ReadOnlyObjectProperty<TaskForce> selectedTaskForce) {
