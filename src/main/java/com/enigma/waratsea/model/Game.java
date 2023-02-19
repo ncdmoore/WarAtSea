@@ -1,5 +1,7 @@
 package com.enigma.waratsea.model;
 
+import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.phase.WeatherEvent;
 import com.enigma.waratsea.model.player.Player;
 import com.enigma.waratsea.model.turn.Turn;
 import com.enigma.waratsea.model.weather.Weather;
@@ -55,8 +57,9 @@ public class Game implements Comparable<Game> {
     return players.get(humanSide);
   }
 
-  public void nextTurn() {
-    turn = turn.next();
+  public void processTurn(final Events events) {
+    updateTurn();
+    determineWeather(events);
   }
 
   @Override
@@ -80,5 +83,11 @@ public class Game implements Comparable<Game> {
         .build();
   }
 
+  private void updateTurn() {
+    turn = turn.next();
+  }
 
+  private void determineWeather(final Events events) {
+    events.getWeatherEvent().fire(new WeatherEvent());
+  }
 }

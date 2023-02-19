@@ -2,6 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.phase.WeatherEvent;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.service.GameService;
@@ -49,6 +50,23 @@ public class WeatherServiceImpl implements WeatherService {
     registerEvents(events);
   }
 
+  private void registerEvents(final Events events) {
+    events.getGameNameEvent().register(this::setGameName);
+    events.getWeatherEvent().register(this::handleWeatherEvent);
+  }
+
+  private void setGameName(final GameNameEvent gameNameEvent) {
+    var gameName = gameNameEvent.gameName();
+
+    weatherStrategy = weatherStrategies.getOrDefault(gameName, defaultWeatherStrategy);
+    visibilityStrategy = visibilityStrategies.getOrDefault(gameName, defaultVisibilityStrategy);
+    log.debug("Weather Service received gameNameEvent, gameName set to '{}'", gameName);
+  }
+
+  private void handleWeatherEvent(final WeatherEvent weatherEvent) {
+    determine();
+  }
+
   public void determine() {
     var game = gameService.getGame();
 
@@ -70,17 +88,5 @@ public class WeatherServiceImpl implements WeatherService {
         .build();
 
     game.setWeather(newWeather);
-  }
-
-  private void registerEvents(final Events events) {
-    events.getGameNameEvent().register(this::setGameName);
-  }
-
-  private void setGameName(final GameNameEvent gameNameEvent) {
-    var gameName = gameNameEvent.gameName();
-
-    weatherStrategy = weatherStrategies.getOrDefault(gameName, defaultWeatherStrategy);
-    visibilityStrategy = visibilityStrategies.getOrDefault(gameName, defaultVisibilityStrategy);
-    log.debug("Weather Service received gameNameEvent, gameName set to '{}'", gameName);
   }
 }

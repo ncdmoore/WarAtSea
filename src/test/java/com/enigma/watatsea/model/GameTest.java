@@ -1,9 +1,10 @@
 package com.enigma.watatsea.model;
 
+import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Scenario;
-import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.model.player.HumanPlayer;
+import com.enigma.waratsea.model.weather.Weather;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -67,8 +68,10 @@ class GameTest {
 
   @Test
   void testNextTurn() {
+    var events = new Events();
+
     game.setScenario(scenario);
-    game.nextTurn();
+    game.processTurn(events);
     var turn = game.getTurn();
 
     assertEquals(2, turn.getNumber());

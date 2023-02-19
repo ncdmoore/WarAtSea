@@ -2,6 +2,7 @@ package com.enigma.waratsea.service.impl;
 
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.GameNameEvent;
+import com.enigma.waratsea.event.phase.NextTurnEvent;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.SelectSavedGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
@@ -23,6 +24,7 @@ import java.util.stream.Collectors;
 @Slf4j
 @Singleton
 public class GameServiceImpl implements GameService {
+  private final Events events;
   private final GameRepository gameRepository;
   private final GameMapper gameMapper;
   private GameName gameName;
@@ -34,10 +36,11 @@ public class GameServiceImpl implements GameService {
   public GameServiceImpl(final Events events,
                          final GameRepository gameRepository,
                          final GameMapper gameMapper) {
+    this.events = events;
     this.gameRepository = gameRepository;
     this.gameMapper = gameMapper;
 
-    registerEvents(events);
+    registerEvents();
   }
 
   @Override
@@ -50,13 +53,15 @@ public class GameServiceImpl implements GameService {
         .collect(Collectors.toList());
   }
 
-  private void registerEvents(final Events events) {
+  private void registerEvents() {
     events.getGameNameEvent().register(this::setGameName);
     events.getStartNewGameEvent().register(this::create);
     events.getSelectSavedGameEvent().register(this::create);
     events.getSaveGameEvent().register(this::save);
     events.getSelectScenarioEvent().register(this::setScenario);
     events.getSelectSideEvent().register(this::setHumanSide);
+
+    events.getNextTurnEvent().register(this::handleNextTurn);
   }
 
   private void setGameName(final GameNameEvent gameEvent) {
@@ -90,5 +95,9 @@ public class GameServiceImpl implements GameService {
   private void setHumanSide(final SelectSideEvent selectSideEvent) {
     game.setHumanSide(selectSideEvent.getSide());
     log.debug("Game Service received sideEvent, side set to: '{}'", selectSideEvent.getSide());
+  }
+
+  private void handleNextTurn(final NextTurnEvent nextTurnEvent) {
+    game.processTurn(events);
   }
 }

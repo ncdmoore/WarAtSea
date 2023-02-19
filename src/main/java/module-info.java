@@ -27,6 +27,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.event;
   exports com.enigma.waratsea.event.action;
   exports com.enigma.waratsea.event.airfield;
+  exports com.enigma.waratsea.event.phase;
   exports com.enigma.waratsea.event.port;
   exports com.enigma.waratsea.event.ship;
   exports com.enigma.waratsea.event.matcher;
