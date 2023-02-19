@@ -3,7 +3,7 @@ package com.enigma.watatsea.strategy.bombAlley;
 import com.enigma.waratsea.model.turn.Turn;
 import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.service.DiceService;
-import com.enigma.waratsea.service.WeatherInput;
+import com.enigma.waratsea.dto.WeatherDto;
 import com.enigma.waratsea.strategy.bombAlley.BombAlleyWeatherStrategy;
 import com.enigma.watatsea.mock.*;
 import org.junit.jupiter.api.Test;
@@ -39,7 +39,7 @@ public class BombAlleyWeatherStrategyTest {
     var date = LocalDate.parse(day);
     var currentWeather = Weather.builder().weatherType(CLEAR).build();
     var turn = Turn.builder().timeRange(DAY_1).date(date).build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die1());
 
@@ -54,7 +54,7 @@ public class BombAlleyWeatherStrategyTest {
     var date = LocalDate.parse(day);
     var currentWeather = Weather.builder().weatherType(GALE).build();
     var turn = Turn.builder().timeRange(DAY_1).date(date).build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die2());
 
@@ -69,7 +69,7 @@ public class BombAlleyWeatherStrategyTest {
     var date = LocalDate.parse(day);
     var currentWeather = Weather.builder().weatherType(GALE).build();
     var turn = Turn.builder().timeRange(DAY_1).date(date).build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die3());
 
@@ -84,7 +84,7 @@ public class BombAlleyWeatherStrategyTest {
     var date = LocalDate.parse(day);
     var currentWeather = Weather.builder().weatherType(RAIN).build();
     var turn = Turn.builder().timeRange(DAY_1).date(date).build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die4());
 
@@ -98,7 +98,7 @@ public class BombAlleyWeatherStrategyTest {
     var date = LocalDate.parse(summerDay);
     var currentWeather = Weather.builder().weatherType(RAIN).build();
     var turn = Turn.builder().timeRange(DAY_1).date(date).build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die5());
 
@@ -112,7 +112,7 @@ public class BombAlleyWeatherStrategyTest {
     var date = LocalDate.parse(winterDay);
     var currentWeather = Weather.builder().weatherType(RAIN).build();
     var turn = Turn.builder().timeRange(DAY_1).date(date).build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die5());
 
@@ -127,7 +127,7 @@ public class BombAlleyWeatherStrategyTest {
     var date = LocalDate.parse(day);
     var currentWeather = Weather.builder().weatherType(SQUALL).build();
     var turn = Turn.builder().timeRange(DAY_1).date(date).build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die6());
 

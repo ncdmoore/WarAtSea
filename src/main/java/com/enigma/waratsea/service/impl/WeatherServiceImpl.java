@@ -1,10 +1,11 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.GameNameEvent;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.model.weather.Weather;
-import com.enigma.waratsea.service.WeatherInput;
+import com.enigma.waratsea.service.GameService;
+import com.enigma.waratsea.dto.WeatherDto;
 import com.enigma.waratsea.service.WeatherService;
 import com.enigma.waratsea.strategy.VisibilityStrategy;
 import com.enigma.waratsea.strategy.WeatherStrategy;
@@ -26,12 +27,15 @@ public class WeatherServiceImpl implements WeatherService {
   private WeatherStrategy weatherStrategy;
   private VisibilityStrategy visibilityStrategy;
 
+  private final GameService gameService;
+
   @Inject
   public WeatherServiceImpl(final Events events,
                             final @Named("Default") WeatherStrategy defaultWeatherStrategy,
                             final @Named("Default") VisibilityStrategy defaultVisibilityStrategy,
                             final Map<GameName, WeatherStrategy> weatherStrategies,
-                            final Map<GameName, VisibilityStrategy> visibilityStrategies) {
+                            final Map<GameName, VisibilityStrategy> visibilityStrategies,
+                            final GameService gameService) {
     this.defaultWeatherStrategy = defaultWeatherStrategy;
     this.defaultVisibilityStrategy = defaultVisibilityStrategy;
     this.weatherStrategies = weatherStrategies;
@@ -40,19 +44,32 @@ public class WeatherServiceImpl implements WeatherService {
     visibilityStrategy = defaultVisibilityStrategy;
     weatherStrategy = defaultWeatherStrategy;
 
+    this.gameService = gameService;
+
     registerEvents(events);
   }
 
-  @Override
-  public Weather determine(final WeatherInput input) {
-    var visibility = visibilityStrategy.determine(input.getTurn());
-    var weatherType = weatherStrategy.determine(input);
+  public void determine() {
+    var game = gameService.getGame();
 
-    return Weather
+    var currentTurn = game.getTurn();
+    var currentWeather = game.getWeather();
+
+    var weatherDto = WeatherDto.builder()
+        .turn(currentTurn)
+        .weather(currentWeather)
+        .build();
+
+    var visibility = visibilityStrategy.determine(currentTurn);
+    var weatherType = weatherStrategy.determine(weatherDto);
+
+    var newWeather = Weather
         .builder()
         .weatherType(weatherType)
         .visibility(visibility)
         .build();
+
+    game.setWeather(newWeather);
   }
 
   private void registerEvents(final Events events) {

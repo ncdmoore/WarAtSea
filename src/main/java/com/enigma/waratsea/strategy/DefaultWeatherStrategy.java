@@ -2,7 +2,7 @@ package com.enigma.waratsea.strategy;
 
 import com.enigma.waratsea.model.weather.WeatherType;
 import com.enigma.waratsea.service.DiceService;
-import com.enigma.waratsea.service.WeatherInput;
+import com.enigma.waratsea.dto.WeatherDto;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 
@@ -28,7 +28,7 @@ public class DefaultWeatherStrategy implements WeatherStrategy {
   }
 
   @Override
-  public WeatherType determine(final WeatherInput input) {
+  public WeatherType determine(final WeatherDto input) {
     var currentWeather = input.getWeather();
     var die = diceService.get().roll();
 

@@ -3,7 +3,7 @@ package com.enigma.watatsea.strategy;
 import com.enigma.waratsea.model.turn.Turn;
 import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.service.DiceService;
-import com.enigma.waratsea.service.WeatherInput;
+import com.enigma.waratsea.dto.WeatherDto;
 import com.enigma.waratsea.strategy.DefaultWeatherStrategy;
 import com.enigma.watatsea.mock.*;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ class DefaultWeatherStrategyTest {
   void testDieResultOne() {
     var currentWeather = Weather.builder().weatherType(CLEAR).build();
     var turn = Turn.builder().build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die1());
 
@@ -41,7 +41,7 @@ class DefaultWeatherStrategyTest {
   void testDieResultTwo() {
     var currentWeather = Weather.builder().weatherType(CLOUDY).build();
     var turn = Turn.builder().build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die2());
 
@@ -54,7 +54,7 @@ class DefaultWeatherStrategyTest {
   void testDieResultThree() {
     var currentWeather = Weather.builder().weatherType(RAIN).build();
     var turn = Turn.builder().build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die3());
 
@@ -67,7 +67,7 @@ class DefaultWeatherStrategyTest {
   void testDieResultFour() {
     var currentWeather = Weather.builder().weatherType(GALE).build();
     var turn = Turn.builder().build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die4());
 
@@ -80,7 +80,7 @@ class DefaultWeatherStrategyTest {
   void testDieResultFive() {
     var currentWeather = Weather.builder().weatherType(CLEAR).build();
     var turn = Turn.builder().build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die5());
 
@@ -93,7 +93,7 @@ class DefaultWeatherStrategyTest {
   void testDieResultSix() {
     var currentWeather = Weather.builder().weatherType(CLOUDY).build();
     var turn = Turn.builder().build();
-    var input = WeatherInput.builder().weather(currentWeather).turn(turn).build();
+    var input = WeatherDto.builder().weather(currentWeather).turn(turn).build();
 
     given(diceService.get()).willReturn(new Die6());
 

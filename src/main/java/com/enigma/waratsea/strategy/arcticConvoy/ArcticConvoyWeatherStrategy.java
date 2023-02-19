@@ -2,7 +2,7 @@ package com.enigma.waratsea.strategy.arcticConvoy;
 
 import com.enigma.waratsea.model.weather.WeatherType;
 import com.enigma.waratsea.service.DiceService;
-import com.enigma.waratsea.service.WeatherInput;
+import com.enigma.waratsea.dto.WeatherDto;
 import com.enigma.waratsea.strategy.WeatherStrategy;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -70,7 +70,7 @@ public class ArcticConvoyWeatherStrategy implements WeatherStrategy {
   }
 
   @Override
-  public WeatherType determine(final WeatherInput input) {
+  public WeatherType determine(final WeatherDto input) {
     var die = diceService.get().roll();
     return null;
   }

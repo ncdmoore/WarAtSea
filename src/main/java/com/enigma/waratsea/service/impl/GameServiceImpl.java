@@ -12,8 +12,6 @@ import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.repository.GameRepository;
 import com.enigma.waratsea.service.GameService;
-import com.enigma.waratsea.service.WeatherInput;
-import com.enigma.waratsea.service.WeatherService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.Getter;
@@ -25,7 +23,6 @@ import java.util.stream.Collectors;
 @Slf4j
 @Singleton
 public class GameServiceImpl implements GameService {
-  private final WeatherService weatherService;
   private final GameRepository gameRepository;
   private final GameMapper gameMapper;
   private GameName gameName;
@@ -35,10 +32,8 @@ public class GameServiceImpl implements GameService {
 
   @Inject
   public GameServiceImpl(final Events events,
-                         final WeatherService weatherService,
                          final GameRepository gameRepository,
                          final GameMapper gameMapper) {
-    this.weatherService = weatherService;
     this.gameRepository = gameRepository;
     this.gameMapper = gameMapper;
 
@@ -62,21 +57,6 @@ public class GameServiceImpl implements GameService {
     events.getSaveGameEvent().register(this::save);
     events.getSelectScenarioEvent().register(this::setScenario);
     events.getSelectSideEvent().register(this::setHumanSide);
-  }
-
-  private void nextTurn() {
-    game.nextTurn();
-  }
-
-  private void determineWeather() {
-    var weatherInput = WeatherInput
-        .builder()
-        .weather(game.getWeather())
-        .turn(game.getTurn())
-        .build();
-
-    var newWeather = weatherService.determine(weatherInput);
-    game.setWeather(newWeather);
   }
 
   private void setGameName(final GameNameEvent gameEvent) {
