@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
-public class BombAlleyWeatherStrategyTest {
+class BombAlleyWeatherStrategyTest {
   @InjectMocks
   private BombAlleyWeatherStrategy bombAlleyWeatherStrategy;
 
