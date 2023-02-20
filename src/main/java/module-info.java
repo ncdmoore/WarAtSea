@@ -64,10 +64,12 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.strategy.arcticConvoy;
 
   exports com.enigma.waratsea.view;
+  exports com.enigma.waratsea.view.game;
   exports com.enigma.waratsea.view.pregame;
   exports com.enigma.waratsea.view.resources;
 
   exports com.enigma.waratsea.viewmodel;
+  exports com.enigma.waratsea.viewmodel.game;
   exports com.enigma.waratsea.viewmodel.pregame;
   exports com.enigma.waratsea.viewmodel.events;
 

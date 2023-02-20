@@ -7,6 +7,7 @@ import com.enigma.waratsea.event.user.StartNewGameEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
+import com.enigma.waratsea.view.game.MainView;
 import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
@@ -118,29 +119,35 @@ public class NavigationHandler implements BootStrapped {
     Page newGamePage = new Page(viewFactory::buildNewGame);
     Page optionsPage = new Page(viewFactory::buildScenarioSquadronOptions);
     Page oobPage = new Page(viewFactory::buildOrderOfBattleSummary);
+    Page mainPage = new Page(viewFactory::buildMainView);
 
     startPage.setNext(newGamePage);
     newGamePage.setNext(optionsPage);
     optionsPage.setNext(oobPage);
     optionsPage.active = false;
+    oobPage.setNext(mainPage);
 
     newGamePageFlow.put(StartView.class, startPage);
     newGamePageFlow.put(NewGameView.class, newGamePage);
     newGamePageFlow.put(ScenarioSquadronOptionsView.class, optionsPage);
     newGamePageFlow.put(OrderOfBattleSummaryView.class, oobPage);
+    newGamePageFlow.put(MainView.class, mainPage);
   }
 
   private void buildSavedGameFlow() {
     Page startPage = new Page(viewFactory::buildStart);
     Page savedGamePage = new Page(viewFactory::buildSavedGame);
     Page oobPage = new Page(viewFactory::buildOrderOfBattleSummary);
+    Page mainPage = new Page(viewFactory::buildMainView);
 
     startPage.setNext(savedGamePage);
     savedGamePage.setNext(oobPage);
+    oobPage.setNext(mainPage);
 
     savedGamePageFlow.put(StartView.class, startPage);
     savedGamePageFlow.put(SavedGameView.class, savedGamePage);
     savedGamePageFlow.put(OrderOfBattleSummaryView.class, oobPage);
+    savedGamePageFlow.put(MainView.class, mainPage);
   }
 
   private void handleStartNewGame(final StartNewGameEvent startNewGameEvent) {

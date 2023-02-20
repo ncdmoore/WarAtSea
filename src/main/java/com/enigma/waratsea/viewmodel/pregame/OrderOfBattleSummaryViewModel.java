@@ -29,6 +29,7 @@ import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import static com.enigma.waratsea.viewmodel.events.NavigationType.BACKWARD;
+import static com.enigma.waratsea.viewmodel.events.NavigationType.FORWARD;
 
 @Slf4j
 public class OrderOfBattleSummaryViewModel {
@@ -106,13 +107,12 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   public void continueOn(final Stage stage) {
-    log.info("continue");
-
     var selectedScenarioName = gameService.getGame()
         .getScenario()
         .getName();
 
     events.getSaveGameEvent().fire(new SaveGameEvent(selectedScenarioName));
+    events.getNavigateEvent().fire(buildForwardNav(stage));
   }
 
   private void setSide(final Game game) {
@@ -213,6 +213,15 @@ public class OrderOfBattleSummaryViewModel {
         .toList();
 
     nations.setValue(FXCollections.observableList(playerNations));
+  }
+
+  private NavigateEvent buildForwardNav(final Stage stage) {
+    return NavigateEvent
+        .builder()
+        .clazz(OrderOfBattleSummaryView.class)
+        .stage(stage)
+        .type(FORWARD)
+        .build();
   }
 
   private NavigateEvent buildBackwardNav(final Stage stage) {

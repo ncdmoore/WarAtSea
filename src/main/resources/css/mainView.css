@@ -1,0 +1,5 @@
+@import "colors.css"
+
+.root {
+    -fx-background: -fx-var-background-color;
+}
