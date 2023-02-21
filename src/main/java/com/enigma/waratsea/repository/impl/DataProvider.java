@@ -84,17 +84,6 @@ public class DataProvider implements BootStrapped {
     return path;
   }
 
-  public Path getSavedEntityDirectory(final String gameId, final FilePath filePath) {
-    var savedGameDirectory = gamePaths.getSavedGameDirectory();
-    var side = filePath.getSide().toLower();
-    var baseDirectory = filePath.getBaseDirectory();
-    var path = Paths.get(savedGameDirectory, gameId, baseDirectory, side);
-
-    createDirectoryIfNeeded(path);
-
-    return path;
-  }
-
   public InputStream getSavedFileInputStream(final Path path) throws FileNotFoundException {
     return new FileInputStream(path.toString());
   }
@@ -103,6 +92,17 @@ public class DataProvider implements BootStrapped {
     var path = getSavedEntityDirectory(gameId, filePath);
     var name = filePath.getFileName();
     return Paths.get(path.toString(), name + JSON_EXTENSION);
+  }
+
+  private Path getSavedEntityDirectory(final String gameId, final FilePath filePath) {
+    var savedGameDirectory = gamePaths.getSavedGameDirectory();
+    var side = filePath.getSide().toLower();
+    var baseDirectory = filePath.getBaseDirectory();
+    var path = Paths.get(savedGameDirectory, gameId, baseDirectory, side);
+
+    createDirectoryIfNeeded(path);
+
+    return path;
   }
 
   private void registerEvents(final Events events) {
@@ -165,5 +165,4 @@ public class DataProvider implements BootStrapped {
         .map(p -> p.endsWith(parentName))
         .orElseThrow(() -> new DataException("Cannot get parent directory from path: " + path));
   }
-
 }
