@@ -7,7 +7,7 @@
   "type": "TORPEDO_BOMBER",
   "nation": "UNITED_STATES",
   "service": "NAVY",
-  "designation": "VT-",
+  "designation": "VT.",
   "altitude": "MEDIUM",
   "takeOff": "CARRIER",
   "landing": "CARRIER",

@@ -1,7 +1,8 @@
 package com.enigma.waratsea.service.impl;
 
-import com.enigma.waratsea.model.Airbase;
+import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.service.AirbaseService;
 import com.enigma.waratsea.service.AirfieldService;
@@ -9,6 +10,7 @@ import com.enigma.waratsea.service.TaskForceService;
 import com.google.inject.Inject;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -21,6 +23,15 @@ public class AirbaseServiceImpl implements AirbaseService {
                             final TaskForceService taskForceService) {
     this.airfieldService = airfieldService;
     this.taskForceService = taskForceService;
+  }
+
+  @Override
+  public Set<Nation> getNations(final Side side) {
+    return get().values()
+        .stream()
+        .filter(airbase -> matchSide(airbase, side))
+        .flatMap(airbase -> airbase.getNations().stream())
+        .collect(Collectors.toSet());
   }
 
   @Override
@@ -44,5 +55,9 @@ public class AirbaseServiceImpl implements AirbaseService {
     airbases.addAll(shipsThatAreAirbases);
 
     return airbases.stream();
+  }
+
+  private boolean matchSide(final Airbase airbase, final Side side) {
+    return airbase.getId().getSide() == side;
   }
 }

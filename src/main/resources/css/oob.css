@@ -1,0 +1,51 @@
+@import "colors.css"
+@import "common.css"
+
+.root {
+    -fx-background: -fx-var-background-color;
+}
+
+.separator .line {
+    -fx-border-width: 2;
+}
+
+.squadron-type-tab {
+    -fx-padding: /* top: */ 5 /* right: */ 10 /* bottom: */ 0 /* left: */ 10;
+}
+
+.squadron-type-hbox-pane {
+    -fx-alignment: top-center;
+    -fx-spacing: 10;
+    -fx-padding: /* top: */ 5 /* right: */ 0 /* bottom: */ 0 /* left: */ 20;
+}
+
+.squadron-list-vbox-pane {
+    -fx-spacing: 5;
+}
+
+.details-main-pane {
+    -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 20;
+}
+
+.details-main-vbox {
+    -fx-spacing: 40;
+}
+
+.attack-grid {
+    -fx-hgap: 50;
+    -fx-vgap: 40;
+}
+
+.details-vbox {
+    -fx-spacing: 5;
+}
+
+.details-grid {
+    -fx-hgap: 30;
+}
+
+#push-buttons-pane {
+    -fx-alignment: center;
+    -fx-spacing: 50;
+    -fx-padding: /* top: */ 0 /* right: */ 0 /* bottom: */ 20 /* left: */ 0;
+}

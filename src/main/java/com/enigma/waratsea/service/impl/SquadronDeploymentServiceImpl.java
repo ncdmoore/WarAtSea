@@ -4,7 +4,7 @@ import com.enigma.waratsea.event.DeploySquadronEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.exception.GameException;
 import com.enigma.waratsea.mapper.SquadronDeploymentMapper;
-import com.enigma.waratsea.model.Airbase;
+import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.squadron.SquadronDeployment;
@@ -77,7 +77,6 @@ public class SquadronDeploymentServiceImpl implements SquadronDeploymentService 
           var airbaseId = pickAirbaseId(airbaseIds);
           var airbase = airbases.get(airbaseId);
           airbase.deploySquadron(squadron);
-          log.info("Deploy squadron: '{}' to airbase: '{}'", squadron.getId(), airbase.getId());
         });
   }
 

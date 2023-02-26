@@ -3,11 +3,11 @@
     "side": "AXIS",
     "name": "A6M2N"
   },
-  "title": "A6M2N",
+  "title": "A6M2N Rufe",
   "type": "FIGHTER",
   "nation": "JAPANESE",
   "service": "NAVY",
-  "designation": "NAS-",
+  "designation": "NAS.",
   "altitude": "LOW",
   "takeOff": "SEAPLANE",
   "landing": "SEAPLANE",

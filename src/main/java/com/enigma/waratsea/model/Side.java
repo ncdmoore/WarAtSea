@@ -11,11 +11,12 @@ import java.util.stream.Stream;
 @Getter
 @RequiredArgsConstructor
 public enum Side {
-  ALLIES("Allies"),
-  AXIS("Axis"),
-  NEUTRAL("Neutral");
+  ALLIES("Allies", "Allied"),
+  AXIS("Axis", "Axis"),
+  NEUTRAL("Neutral", "Neutral");
 
   private final String value;
+  private final String possessive;
 
   private static final Map<Side, Side> OPPOSITE_MAP = Map.of(
       ALLIES, AXIS,

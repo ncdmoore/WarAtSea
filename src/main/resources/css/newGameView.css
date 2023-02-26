@@ -14,7 +14,7 @@
 }
 
 #title {
-    -fx-font: bold 16pt "Lucida Grande";
+    -fx-font:  16pt "Lucida Grande";
     -fx-text-fill: navy;
     -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 20 /* left: */ 0;
 }

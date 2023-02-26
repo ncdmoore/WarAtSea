@@ -1,12 +1,13 @@
 package com.enigma.waratsea.model.player;
 
-import com.enigma.waratsea.model.Airbase;
 import com.enigma.waratsea.model.Airfield;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.MtbFlotilla;
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.SubmarineFlotilla;
+import com.enigma.waratsea.model.airbase.Airbase;
+import com.enigma.waratsea.model.airbase.AirbaseType;
 import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.taskForce.TaskForce;
@@ -66,6 +67,14 @@ public class ComputerPlayer implements Player {
     taskForces.stream()
         .flatMap(taskForce -> taskForce.getAirbases().stream())
         .forEach(this::addToAirbase);
+  }
+
+  @Override
+  public Set<Airbase> getAirbases(final AirbaseType airbaseType) {
+    return airbases.values()
+        .stream()
+        .filter(airbaseType.getFilter())
+        .collect(Collectors.toSet());
   }
 
   private void addToAirbase(final Airbase airbase) {

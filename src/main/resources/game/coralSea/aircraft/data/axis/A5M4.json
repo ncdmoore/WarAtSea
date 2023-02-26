@@ -3,11 +3,11 @@
     "side": "AXIS",
     "name": "A5M4"
   },
-  "name": "A5M4",
+  "title": "A5M4",
   "type": "FIGHTER",
   "nation": "JAPANESE",
   "service": "NAVY",
-  "designation": "NAS-",
+  "designation": "NAS.",
   "altitude": "LOW",
   "takeOff": "CARRIER",
   "landing": "CARRIER",

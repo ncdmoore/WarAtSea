@@ -8,6 +8,9 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
+import static com.enigma.waratsea.model.airbase.AirbaseType.AIRFIELD;
+import static com.enigma.waratsea.model.airbase.AirbaseType.SHIP;
+
 public class MainMenu {
   private final MainMenuViewModel mainMenuViewModel;
 
@@ -19,9 +22,10 @@ public class MainMenu {
   public MenuBar getMenuBar(final Stage stage) {
     var menuBar = new MenuBar();
     var fileMenu = buildFileMenu(stage);
+    var oobMenu = buildOrderOfBattleMenu();
 
     menuBar.getMenus()
-        .add(fileMenu);
+        .addAll(fileMenu, oobMenu);
 
     // Menu will appear in Mac system menu area like all other mac applications.
     menuBar.setUseSystemMenuBar(true);
@@ -31,13 +35,27 @@ public class MainMenu {
 
   private Menu buildFileMenu(final Stage stage) {
     var fileMenu = new Menu("File");
-    var quitWarAtSea = new MenuItem("Quit War at Sea");
+    var quitWarAtSeaMenuItem = new MenuItem("Quit");
 
-    quitWarAtSea.setOnAction(event -> mainMenuViewModel.quitWarAtSea(stage));
+    quitWarAtSeaMenuItem.setOnAction(event -> mainMenuViewModel.quitWarAtSea(stage));
 
     fileMenu.getItems()
-        .add(quitWarAtSea);
+        .add(quitWarAtSeaMenuItem);
 
     return fileMenu;
+  }
+
+  private Menu buildOrderOfBattleMenu() {
+    var orderOfBattleMenu = new Menu("OOB");
+    var airfieldSquadronsMenuItem = new MenuItem("Airfield Squadrons");
+    var taskForceSquadronsMenuItem = new MenuItem("Task Force Squadrons");
+
+    airfieldSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(AIRFIELD));
+    taskForceSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(SHIP));
+
+    orderOfBattleMenu.getItems()
+        .addAll(airfieldSquadronsMenuItem, taskForceSquadronsMenuItem);
+
+    return orderOfBattleMenu;
   }
 }

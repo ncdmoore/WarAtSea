@@ -4,6 +4,8 @@ import com.enigma.waratsea.model.Type;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.stream.Stream;
+
 @Getter
 @AllArgsConstructor
 public enum AircraftType implements Type {
@@ -16,4 +18,8 @@ public enum AircraftType implements Type {
   private final String value;
   private final String abbreviated;
   private final String designation;
+
+  public static Stream<AircraftType> stream() {
+    return Stream.of(AircraftType.values());
+  }
 }

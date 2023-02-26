@@ -7,7 +7,7 @@
   "type": "TORPEDO_BOMBER",
   "nation": "ITALIAN",
   "service": "AIR_FORCE",
-  "designation": "RA-",
+  "designation": "RA.",
   "altitude": "MEDIUM",
   "takeOff": "LAND",
   "landing": "LAND",

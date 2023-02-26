@@ -1,15 +1,25 @@
 package com.enigma.watatsea.model;
 
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.Aircraft;
-import com.enigma.waratsea.model.ship.*;
+import com.enigma.waratsea.model.ship.AircraftCarrier;
+import com.enigma.waratsea.model.ship.CapitalShip;
+import com.enigma.waratsea.model.ship.Catapult;
+import com.enigma.waratsea.model.ship.Ship;
+import com.enigma.waratsea.model.ship.SurfaceShip;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static com.enigma.waratsea.model.aircraft.AircraftType.*;
-import static com.enigma.waratsea.model.ship.ShipType.*;
+import static com.enigma.waratsea.model.Side.ALLIES;
+import static com.enigma.waratsea.model.aircraft.AircraftType.DIVE_BOMBER;
+import static com.enigma.waratsea.model.aircraft.AircraftType.FIGHTER;
+import static com.enigma.waratsea.model.aircraft.AircraftType.RECONNAISSANCE;
+import static com.enigma.waratsea.model.ship.ShipType.AIRCRAFT_CARRIER;
+import static com.enigma.waratsea.model.ship.ShipType.DESTROYER;
+import static com.enigma.waratsea.model.ship.ShipType.LIGHT_CRUISER;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TaskForceTest {
@@ -100,20 +110,20 @@ class TaskForceTest {
   }
 
   private Set<Squadron> buildSquadronsForAircraftCarrier() {
-    var fighter = Aircraft.builder().type(FIGHTER).build();
-    var diveBomber1 = Aircraft.builder().type(DIVE_BOMBER).build();
-    var diveBomber2 = Aircraft.builder().type(DIVE_BOMBER).build();
+    var fighter = Aircraft.builder().id(new Id(ALLIES, "F1")).type(FIGHTER).build();
+    var diveBomber1 = Aircraft.builder().id(new Id(ALLIES, "DB1")).type(DIVE_BOMBER).build();
+    var diveBomber2 = Aircraft.builder().id(new Id(ALLIES, "DB2")).type(DIVE_BOMBER).build();
 
-    return Set.of(Squadron.builder().aircraft(fighter).build(),
-        Squadron.builder().aircraft(diveBomber1).build(),
-        Squadron.builder().aircraft(diveBomber2).build()
+    return Set.of(Squadron.builder().id(new Id(ALLIES, "sc1")).aircraft(fighter).build(),
+        Squadron.builder().id(new Id(ALLIES, "sc2")).aircraft(diveBomber1).build(),
+        Squadron.builder().id(new Id(ALLIES, "sc3")).aircraft(diveBomber2).build()
     );
   }
 
   private Set<Squadron> buildSquadronsForCapitalShip() {
     var recon = Aircraft.builder().type(RECONNAISSANCE).build();
 
-    return Set.of(Squadron.builder().aircraft(recon).build()
+    return Set.of(Squadron.builder().id(new Id(ALLIES, "ss4")).aircraft(recon).build()
     );
   }
 }

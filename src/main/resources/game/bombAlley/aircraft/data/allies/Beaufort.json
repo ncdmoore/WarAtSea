@@ -7,7 +7,7 @@
   "type": "TORPEDO_BOMBER",
   "nation": "BRITISH",
   "service": "AIR_FORCE",
-  "designation": "RAF-",
+  "designation": "RAF.",
   "altitude": "MEDIUM",
   "takeOff": "LAND",
   "landing": "LAND",

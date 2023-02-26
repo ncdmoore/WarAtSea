@@ -449,6 +449,8 @@ public class OrderOfBattleSummaryView implements View {
 
   private Node buildSquadronSummaries(final ListView<Nation> nation) {
     var summaryLabel = new Label("Squadron Summary");
+    summaryLabel.getStyleClass().add("heading");
+
     var horizontalLine = new Separator();
     var gridPane = new GridPane();
 
@@ -466,6 +468,8 @@ public class OrderOfBattleSummaryView implements View {
 
   private Node buildShipSummary(final GridPane gridPane) {
     var summaryLabel = new Label("Ship Summary");
+    summaryLabel.getStyleClass().add("heading");
+
     var horizontalLine = new Separator();
 
     gridPane.getStyleClass().add("details-grid");
@@ -478,6 +482,8 @@ public class OrderOfBattleSummaryView implements View {
 
   private Node buildSquadronSummary(final GridPane gridPane) {
     var summaryLabel = new Label("Squadron Summary");
+    summaryLabel.getStyleClass().add("heading");
+
     var horizontalLine = new Separator();
 
     gridPane.getStyleClass().add("details-grid");

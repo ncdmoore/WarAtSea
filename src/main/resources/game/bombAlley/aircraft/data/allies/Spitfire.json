@@ -7,7 +7,7 @@
   "type": "FIGHTER",
   "nation": "BRITISH",
   "service": "AIR_FORCE",
-  "designation": "RAF-",
+  "designation": "RAF.",
   "altitude": "LOW",
   "takeOff": "CARRIER",
   "landing": "LAND",

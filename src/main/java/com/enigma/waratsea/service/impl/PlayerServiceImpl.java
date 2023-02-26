@@ -5,12 +5,12 @@ import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.player.ComputerPlayer;
 import com.enigma.waratsea.model.player.HumanPlayer;
 import com.enigma.waratsea.model.player.Player;
+import com.enigma.waratsea.service.AirbaseService;
 import com.enigma.waratsea.service.AirfieldService;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.MtbFlotillaService;
 import com.enigma.waratsea.service.PlayerService;
 import com.enigma.waratsea.service.PortService;
-import com.enigma.waratsea.service.RegionService;
 import com.enigma.waratsea.service.SquadronService;
 import com.enigma.waratsea.service.SubmarineFlotillaService;
 import com.enigma.waratsea.service.TaskForceService;
@@ -26,7 +26,7 @@ import static com.enigma.waratsea.model.Side.NEUTRAL;
 @Singleton
 public class PlayerServiceImpl implements PlayerService {
   private final GameService gameService;
-  private final RegionService regionService;
+  private final AirbaseService airbaseService;
   private final AirfieldService airfieldService;
   private final PortService portService;
   private final TaskForceService taskForceService;
@@ -38,7 +38,7 @@ public class PlayerServiceImpl implements PlayerService {
   @Inject
   public PlayerServiceImpl(final Events events,
                            final GameService gameService,
-                           final RegionService regionService,
+                           final AirbaseService airbaseService,
                            final AirfieldService airfieldService,
                            final PortService portService,
                            final TaskForceService taskForceService,
@@ -46,7 +46,7 @@ public class PlayerServiceImpl implements PlayerService {
                            final MtbFlotillaService mtbFlotillaService,
                            final SquadronService squadronService) {
     this.gameService = gameService;
-    this.regionService = regionService;
+    this.airbaseService = airbaseService;
     this.airfieldService = airfieldService;
     this.portService = portService;
     this.taskForceService = taskForceService;
@@ -90,7 +90,7 @@ public class PlayerServiceImpl implements PlayerService {
 
   private void addNations(final Player player) {
     var side = player.getSide();
-    var nations = regionService.getNations(side);
+    var nations = airbaseService.getNations(side);
     player.setNations(nations);
   }
 

@@ -1,6 +1,6 @@
 package com.enigma.waratsea.model.taskForce;
 
-import com.enigma.waratsea.model.Airbase;
+import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.AssetState;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.AircraftType;

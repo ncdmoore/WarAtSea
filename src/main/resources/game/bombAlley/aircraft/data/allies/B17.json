@@ -7,7 +7,7 @@
   "type": "Bomber",
   "nation": "British",
   "service": "AIR_FORCE",
-  "designation": "RAF-",
+  "designation": "RAF.",
   "altitude": "HIGH",
   "takeOff": "LAND",
   "landing": "LAND",

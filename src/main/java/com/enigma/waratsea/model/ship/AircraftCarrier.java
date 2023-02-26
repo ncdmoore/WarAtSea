@@ -1,6 +1,6 @@
 package com.enigma.waratsea.model.ship;
 
-import com.enigma.waratsea.model.Airbase;
+import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.aircraft.LandingType;
@@ -35,6 +35,11 @@ public class AircraftCarrier implements Ship, Airbase {
   private Set<Squadron> squadrons;
 
   @Override
+  public Set<Nation> getNations() {
+    return Set.of(nation);
+  }
+
+  @Override
   public Ship commission(final Commission commission) {
     id = commission.getId();
     title = commission.getTitle();
@@ -53,6 +58,7 @@ public class AircraftCarrier implements Ship, Airbase {
     squadrons.add(squadron);
     squadron.setDeploymentState(ON_SHIP);
     squadron.setState(READY);
+    squadron.setAirbase(this);
   }
 
   @Override

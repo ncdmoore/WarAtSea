@@ -133,6 +133,7 @@ public class RegionServiceImpl implements RegionService {
 
     region.getAirfields()
         .stream()
+        .map(airfield -> airfield.addNation(nation))
         .map(Airfield::getId)
         .forEach(airfieldId -> airfields.get(nation).putIfAbsent(airfieldId, region));
   }

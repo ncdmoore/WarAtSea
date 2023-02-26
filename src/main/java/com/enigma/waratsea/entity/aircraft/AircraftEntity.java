@@ -25,10 +25,10 @@ public class AircraftEntity {
   private AltitudeType altitude;
   private LandingType takeOff;
   private LandingType landing;
-  private AttackEntity navalWarship;
-  private AttackEntity navalTransport;
-  private AttackEntity land;
-  private AttackEntity air;
+  private AttackRatingEntity navalWarship;
+  private AttackRatingEntity navalTransport;
+  private AttackRatingEntity land;
+  private AttackRatingEntity air;
   private PerformanceEntity performance;
   private Frame frame;
   private Set<SquadronConfiguration> configuration;

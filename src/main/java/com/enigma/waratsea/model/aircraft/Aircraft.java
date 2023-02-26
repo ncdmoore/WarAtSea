@@ -20,10 +20,10 @@ public class Aircraft {
   private AltitudeType altitude;
   private LandingType takeOff;
   private LandingType landing;
-  private Attack navalWarship;
-  private Attack navalTransport;
-  private Attack land;
-  private Attack air;
+  private AttackRating navalWarship;
+  private AttackRating navalTransport;
+  private AttackRating land;
+  private AttackRating air;
   private Performance performance;
   private Frame frame;
   private Set<SquadronConfiguration> configuration;

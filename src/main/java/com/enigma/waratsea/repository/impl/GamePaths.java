@@ -25,7 +25,8 @@ public class GamePaths {
   private final String commonDirectory = "common";
   private final String mapDirectory = "map";
   private final String regionDirectory = "region";
-  private final String aircraftDirectory = Paths.get("aircraft", "data").toString();
+  private final String aircraftBaseDirectory = "aircraft";
+  private final String aircraftDirectory = Paths.get(aircraftBaseDirectory, "data").toString();
   private final String squadronDirectory = Paths.get("squadrons", "data").toString();
   private final String squadronAllotmentDirectory = Paths.get("squadrons", "allotment").toString();
   private final String squadronDeploymentDirectory = Paths.get("squadrons", "deployment").toString();

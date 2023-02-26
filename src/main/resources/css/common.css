@@ -6,3 +6,9 @@
 .instruction {
     -fx-text-fill: navy;
 }
+
+.heading {
+    -fx-font-size: 10pt;
+    -fx-font-family: Arial;
+    -fx-font-weight: bold
+}

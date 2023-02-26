@@ -3,11 +3,11 @@
     "side": "AXIS",
     "name": "D3A1"
   },
-  "title": "D3A1",
+  "title": "D3A1 Val",
   "type": "DIVE_BOMBER",
   "nation": "JAPANESE",
   "service": "NAVY",
-  "designation": "NAS-",
+  "designation": "NAS.",
   "altitude": "MEDIUM",
   "takeOff": "CARRIER",
   "landing": "CARRIER",

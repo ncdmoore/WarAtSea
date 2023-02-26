@@ -3,11 +3,11 @@
     "side": "AXIS",
     "name": "B5N2"
   },
-  "name": "B5N2",
+  "title": "B5N2 Kate",
   "type": "TORPEDO_BOMBER",
   "nation": "JAPANESE",
   "service": "NAVY",
-  "designation": "NAS-",
+  "designation": "NAS.",
   "altitude": "MEDIUM",
   "takeOff": "CARRIER",
   "landing": "CARRIER",

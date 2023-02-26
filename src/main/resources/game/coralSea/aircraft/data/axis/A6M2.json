@@ -3,11 +3,11 @@
     "side": "AXIS",
     "name": "A6M2"
   },
-  "title": "A6M2",
+  "title": "A6M2 Zero",
   "type": "FIGHTER",
   "nation": "JAPANESE",
   "service": "NAVY",
-  "designation": "NAS-",
+  "designation": "NAS.",
   "altitude": "MEDIUM",
   "takeOff": "CARRIER",
   "landing": "CARRIER",
