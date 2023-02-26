@@ -16,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Separator;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
@@ -25,6 +26,7 @@ import javafx.stage.Stage;
 
 import java.util.Optional;
 
+import static javafx.geometry.Orientation.VERTICAL;
 import static javafx.geometry.Pos.TOP_CENTER;
 import static javafx.stage.Modality.APPLICATION_MODAL;
 
@@ -137,9 +139,12 @@ public class OobSquadronsView {
 
     var squadronListNode = buildSquadronListNode(nation, aircraftType, squadronList);
 
+    var verticalLine = new Separator();
+    verticalLine.setOrientation(VERTICAL);
+
     var squadronDetails = squadronDetailsView.build(squadronList);
 
-    var hBox = new HBox(squadronListNode, squadronDetails);
+    var hBox = new HBox(squadronListNode, verticalLine, squadronDetails);
     hBox.getStyleClass().add("squadron-type-hbox-pane");
 
     aircraftTypeTab.setContent(hBox);

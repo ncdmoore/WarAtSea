@@ -15,15 +15,15 @@
 
 .squadron-type-hbox-pane {
     -fx-alignment: top-center;
-    -fx-spacing: 10;
-    -fx-padding: /* top: */ 5 /* right: */ 0 /* bottom: */ 0 /* left: */ 20;
+    -fx-spacing: 20;
+    -fx-padding: /* top: */ 20 /* right: */ 0 /* bottom: */ 0 /* left: */ 20;
 }
 
 .squadron-list-vbox-pane {
     -fx-spacing: 5;
 }
 
-.main-pane {
+.squadron-details-main-pane {
     -fx-spacing: 10;
 }
 
