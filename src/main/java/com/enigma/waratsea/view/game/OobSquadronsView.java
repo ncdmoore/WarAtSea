@@ -111,7 +111,11 @@ public class OobSquadronsView {
 
     var nationPane = buildNationPane(nation);
 
+    var roundelImageName = nation.toLower() + ".roundel.small.image";
+    var roundelImage = resourceProvider.getGameImageView(props.getString(roundelImageName));
+
     nationTab.setContent(nationPane);
+    nationTab.setGraphic(roundelImage);
 
     return nationTab;
   }

@@ -28,6 +28,6 @@ public enum Nation {
   }
 
   public String toLower() {
-    return value.toLowerCase();
+    return value.toLowerCase().replaceAll("\\s+", "_");
   }
 }
