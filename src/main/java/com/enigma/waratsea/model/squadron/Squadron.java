@@ -24,7 +24,6 @@ public class Squadron implements Comparable<Squadron> {
   @Setter
   private SquadronState state;
 
-  @Setter
   private SquadronConfiguration configuration;
 
   @Setter
@@ -79,6 +78,11 @@ public class Squadron implements Comparable<Squadron> {
 
   public int getRadius() {
     return configuration.getRadius(aircraft);
+  }
+
+  public Squadron setConfiguration(final SquadronConfiguration newConfiguration) {
+    this.configuration = newConfiguration;
+    return this;
   }
 
   @Override

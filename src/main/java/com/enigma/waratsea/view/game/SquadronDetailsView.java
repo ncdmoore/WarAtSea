@@ -2,6 +2,7 @@ package com.enigma.waratsea.view.game;
 
 import com.enigma.waratsea.model.aircraft.AttackType;
 import com.enigma.waratsea.model.squadron.Squadron;
+import com.enigma.waratsea.model.squadron.SquadronConfiguration;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.google.inject.Inject;
@@ -9,6 +10,7 @@ import com.google.inject.name.Named;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.ReadOnlyObjectProperty;
 import javafx.scene.Node;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Separator;
@@ -20,11 +22,13 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.Optional;
+import java.util.concurrent.Callable;
 
 import static com.enigma.waratsea.model.aircraft.AttackType.AIR;
 import static com.enigma.waratsea.model.aircraft.AttackType.LAND;
 import static com.enigma.waratsea.model.aircraft.AttackType.NAVAL_TRANSPORT;
 import static com.enigma.waratsea.model.aircraft.AttackType.NAVAL_WARSHIP;
+import static com.enigma.waratsea.model.squadron.SquadronConfiguration.NONE;
 
 public class SquadronDetailsView {
   private final Props props;
@@ -37,8 +41,11 @@ public class SquadronDetailsView {
     this.resourceProvider = resourceProvider;
   }
 
-  public Node build(final ListView<Squadron> squadrons) {
+  public Node build(final ListView<Squadron> squadrons, final ChoiceBox<SquadronConfiguration> configurations) {
     var selectedSquadron = squadrons.getSelectionModel()
+        .selectedItemProperty();
+
+    var selectedConfiguration = configurations.getSelectionModel()
         .selectedItemProperty();
 
     var profileImage = new ImageView();
@@ -48,7 +55,7 @@ public class SquadronDetailsView {
     imagePane.setMinWidth(props.getInt("oob.dialog.image.width"));
     imagePane.setMinHeight(props.getInt("oob.dialog.image.height"));
 
-    var tabPane = buildTabPane(selectedSquadron);
+    var tabPane = buildTabPane(selectedSquadron, selectedConfiguration);
 
     var mainPane = new VBox(imagePane, tabPane);
     mainPane.getStyleClass().add("squadron-details-main-pane");
@@ -58,25 +65,27 @@ public class SquadronDetailsView {
     return mainPane;
   }
 
-  private TabPane buildTabPane(final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private TabPane buildTabPane(final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                               final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-    var detailsTab = buildDetailsTab(selectedSquadron);
-    var attackTab = buildAttackTab(selectedSquadron);
+    var detailsTab = buildDetailsTab(selectedSquadron, selectedConfiguration);
+    var attackTab = buildAttackTab(selectedSquadron, selectedConfiguration);
     var defenseTab = buildDefenseTab(selectedSquadron);
-    var performanceTab = buildPerformanceTab(selectedSquadron);
+    var performanceTab = buildPerformanceTab(selectedSquadron, selectedConfiguration);
 
     tabPane.getTabs().addAll(detailsTab, attackTab, defenseTab, performanceTab);
 
     return tabPane;
   }
 
-  private Tab buildDetailsTab(final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private Tab buildDetailsTab(final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                              final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var tab = new Tab("Details");
 
     var aircraftDetails = buildAircraftDetails(selectedSquadron);
-    var squadronDetails = buildSquadronDetails(selectedSquadron);
+    var squadronDetails = buildSquadronDetails(selectedSquadron, selectedConfiguration);
 
     var vBox = new VBox(aircraftDetails, squadronDetails);
     vBox.getStyleClass().addAll("details-main-pane", "details-main-vbox");
@@ -86,13 +95,14 @@ public class SquadronDetailsView {
     return tab;
   }
 
-  private Tab buildAttackTab(final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private Tab buildAttackTab(final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                             final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var tab = new Tab("Attack");
 
-    var airAttackGrid = buildAirAttackGrid(selectedSquadron);
-    var landAttackGrid = buildAttackGrid(LAND, selectedSquadron);
-    var navalTransportAttackGrid = buildAttackGrid(NAVAL_TRANSPORT, selectedSquadron);
-    var navalWarshipAttackGrid = buildAttackGrid(NAVAL_WARSHIP, selectedSquadron);
+    var airAttackGrid = buildAirAttackGrid(selectedSquadron, selectedConfiguration);
+    var landAttackGrid = buildAttackGrid(LAND, selectedSquadron, selectedConfiguration);
+    var navalTransportAttackGrid = buildAttackGrid(NAVAL_TRANSPORT, selectedSquadron, selectedConfiguration);
+    var navalWarshipAttackGrid = buildAttackGrid(NAVAL_WARSHIP, selectedSquadron, selectedConfiguration);
 
     var gridPane = new GridPane();
     gridPane.add(airAttackGrid, 0, 0);
@@ -119,11 +129,12 @@ public class SquadronDetailsView {
     return tab;
   }
 
-  private Tab buildPerformanceTab(final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private Tab buildPerformanceTab(final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                                  final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var tab = new Tab("Performance");
 
     var performanceDetails = buildPerformanceDetails(selectedSquadron);
-    var rangeDetails = buildRangeDetails(selectedSquadron);
+    var rangeDetails = buildRangeDetails(selectedSquadron, selectedConfiguration);
 
     var vBox = new VBox(performanceDetails, rangeDetails);
     vBox.getStyleClass().addAll("details-main-pane", "details-main-vbox");
@@ -161,7 +172,8 @@ public class SquadronDetailsView {
     return vBox;
   }
 
-  private Node buildSquadronDetails(final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private Node buildSquadronDetails(final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                                    final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var titleLabel = new Label("Squadron Details");
     titleLabel.getStyleClass().add("heading");
 
@@ -184,7 +196,7 @@ public class SquadronDetailsView {
     bindStrength(strengthValue, selectedSquadron);
     bindService(serviceValue, selectedSquadron);
     bindState(stateValue, selectedSquadron);
-    bindConfiguration(configurationValue, selectedSquadron);
+    bindConfiguration(configurationValue, selectedSquadron, selectedConfiguration);
     bindAirbase(airbaseValue, selectedSquadron);
 
     var row = 0;
@@ -209,7 +221,9 @@ public class SquadronDetailsView {
     return vBox;
   }
 
-  private Node buildAttackGrid(final AttackType attackType, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private Node buildAttackGrid(final AttackType attackType,
+                               final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                               final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var titleLabel = new Label(attackType.getValue());
     titleLabel.getStyleClass().add("heading");
 
@@ -229,8 +243,8 @@ public class SquadronDetailsView {
     gridPane.add(factorValue, 1, row);
     gridPane.getStyleClass().add("details-grid");
 
-    bindAttackModifier(attackType, modifierValue, selectedSquadron);
-    bindAttackFactor(attackType, factorValue, selectedSquadron);
+    bindAttackModifier(attackType, modifierValue, selectedSquadron, selectedConfiguration);
+    bindAttackFactor(attackType, factorValue, selectedSquadron, selectedConfiguration);
 
     var vBox = new VBox(titleLabel, horizontalLine, gridPane);
     vBox.getStyleClass().add("details-vbox");
@@ -238,7 +252,8 @@ public class SquadronDetailsView {
     return vBox;
   }
 
-  private Node buildAirAttackGrid(final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private Node buildAirAttackGrid(final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                                  final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var titleLabel = new Label("Air Attack");
     titleLabel.getStyleClass().add("heading");
 
@@ -263,8 +278,8 @@ public class SquadronDetailsView {
     gridPane.add(defensiveValue, 1, row);
     gridPane.getStyleClass().add("details-grid");
 
-    bindAttackModifier(AIR, modifierValue, selectedSquadron);
-    bindAttackFactor(AIR, factorValue, selectedSquadron);
+    bindAttackModifier(AIR, modifierValue, selectedSquadron, selectedConfiguration);
+    bindAttackFactor(AIR, factorValue, selectedSquadron, selectedConfiguration);
     bindDefensive(defensiveValue, selectedSquadron);
 
     var vBox = new VBox(titleLabel, horizontalLine, gridPane);
@@ -329,7 +344,8 @@ public class SquadronDetailsView {
     return vBox;
   }
 
-  private Node buildRangeDetails(final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
+  private Node buildRangeDetails(final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                                 final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
     var titleLabel = new Label("Range Details");
     titleLabel.getStyleClass().add("heading");
 
@@ -344,10 +360,10 @@ public class SquadronDetailsView {
     var ferryLabel = new Label("Ferry Distance:");
     var ferryValue = new Label();
 
-    bindRange(rangeValue, selectedSquadron);
-    bindEndurance(enduranceValue, selectedSquadron);
-    bindRadius(radiusValue, selectedSquadron);
-    bindFerry(ferryValue, selectedSquadron);
+    bindRange(rangeValue, selectedSquadron, selectedConfiguration);
+    bindEndurance(enduranceValue, selectedSquadron, selectedConfiguration);
+    bindRadius(radiusValue, selectedSquadron, selectedConfiguration);
+    bindFerry(ferryValue, selectedSquadron, selectedConfiguration);
 
     var row = 0;
     var gridPane = new GridPane();
@@ -409,11 +425,20 @@ public class SquadronDetailsView {
             .orElse(""), selectedSquadron));
   }
 
-  private void bindConfiguration(final Label label, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
-    label.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getConfiguration().getValue())
-            .orElse(""), selectedSquadron));
+  private void bindConfiguration(final Label label,
+                                 final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                                 final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig(selectedConfiguration);
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getConfiguration().getValue() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
   }
 
   private void bindAirbase(final Label label, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
@@ -425,22 +450,38 @@ public class SquadronDetailsView {
 
   private void bindAttackModifier(final AttackType attackType,
                                   final Label label,
-                                  final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
-    label.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getAttack(attackType))
-            .map(attack -> attack.getModifier() + "")
-            .orElse(""), selectedSquadron));
+                                  final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                                  final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig(selectedConfiguration);
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getAttack(attackType).getModifier() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
   }
 
   private void bindAttackFactor(final AttackType attackType,
                                 final Label label,
-                                final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
-    label.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getAttack(attackType))
-            .map(attack -> attack.getFactor() + "")
-            .orElse(""), selectedSquadron));
+                                final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                                final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig(selectedConfiguration);
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getAttack(attackType).getFactor() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
   }
 
   private void bindDefensive(final Label label, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
@@ -479,32 +520,72 @@ public class SquadronDetailsView {
             .orElse(""), selectedSquadron));
   }
 
-  private void bindRange(final Label label, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
-    label.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getRange() + "")
-            .orElse(""), selectedSquadron));
+  private void bindRange(final Label label,
+                         final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                         final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig(selectedConfiguration);
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getRange() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
   }
 
-  private void bindEndurance(final Label label, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
-    label.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getEndurance() + "")
-            .orElse(""), selectedSquadron));
+  private void bindEndurance(final Label label,
+                             final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                             final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig(selectedConfiguration);
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getEndurance() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
   }
 
-  private void bindRadius(final Label label, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
-    label.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getRadius() + "")
-            .orElse(""), selectedSquadron));
+  private void bindRadius(final Label label,
+                          final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                          final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig(selectedConfiguration);
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getRadius() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
   }
 
-  private void bindFerry(final Label label, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
-    label.textProperty().bind(Bindings.createStringBinding(() ->
-        Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getFerryDistance() + "")
-            .orElse(""), selectedSquadron));
+  private void bindFerry(final Label label,
+                         final ReadOnlyObjectProperty<Squadron> selectedSquadron,
+                         final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig(selectedConfiguration);
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getFerryDistance() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
   }
 
   private void bindProfileImage(final ImageView image, final ReadOnlyObjectProperty<Squadron> selectedSquadron) {
@@ -513,5 +594,11 @@ public class SquadronDetailsView {
             .map(squadron -> squadron.getAircraft().getId())
             .map(resourceProvider::getAircraftProfileImage)
             .orElse(null), selectedSquadron));
+  }
+
+  private SquadronConfiguration getConfig(final ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration) {
+    return Optional
+        .ofNullable(selectedConfiguration.getValue())
+        .orElse(NONE);
   }
 }

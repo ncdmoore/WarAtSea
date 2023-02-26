@@ -21,6 +21,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -101,22 +102,22 @@ public class OobSquadronsView {
     var nationsTabPane = new TabPane();
     nationsTabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-    oobSquadronsViewModel.getNations()
+    var nationTabs = oobSquadronsViewModel.getNations()
         .stream()
         .sorted()
         .map(this::buildNationTab)
-        .forEach(tab -> nationsTabPane.getTabs().add(tab));
+        .toList();
+
+    nationsTabPane.getTabs()
+        .addAll(nationTabs);
 
     return nationsTabPane;
   }
 
   private Tab buildNationTab(final Nation nation) {
-    var nationTab = new Tab(nation.toString());
-
     var nationPane = buildNationPane(nation);
-
-    var roundelImageName = nation.toLower() + ".roundel.small.image";
-    var roundelImage = resourceProvider.getGameImageView(props.getString(roundelImageName));
+    var roundelImage = getRoundel(nation);
+    var nationTab = new Tab(nation.toString());
 
     nationTab.setContent(nationPane);
     nationTab.setGraphic(roundelImage);
@@ -129,10 +130,13 @@ public class OobSquadronsView {
     squadronTypeTabPane.getStyleClass().add("squadron-type-tab");
     squadronTypeTabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
 
-    AircraftType.stream()
+    var aircraftTypeTabs = AircraftType.stream()
         .sorted()
         .map(aircraftType -> buildAircraftTypeTab(nation, aircraftType))
-        .forEach(tab -> squadronTypeTabPane.getTabs().add(tab));
+        .toList();
+
+    squadronTypeTabPane.getTabs()
+        .addAll(aircraftTypeTabs);
 
     return squadronTypeTabPane;
   }
@@ -151,7 +155,7 @@ public class OobSquadronsView {
     var verticalLine = new Separator();
     verticalLine.setOrientation(VERTICAL);
 
-    var squadronDetails = squadronDetailsView.build(squadronList);
+    var squadronDetails = squadronDetailsView.build(squadronList, configChoices);
 
     var hBox = new HBox(squadronListNode, verticalLine, squadronDetails);
     hBox.getStyleClass().add("squadron-type-hbox-pane");
@@ -168,9 +172,22 @@ public class OobSquadronsView {
                                      final AircraftType aircraftType,
                                      final ListView<Squadron> squadronList,
                                      final ChoiceBox<SquadronConfiguration> configChoices) {
-    var instruction = new Label("Select squadron:");
-    instruction.getStyleClass().add("instruction");
+    var selectSquadronInstruction = buildInstructionLabel("Select squadron:");
+    var selectConfigurationInstruction = buildInstructionLabel("Select configuration:");
 
+    setupSquadronLists(nation, aircraftType, squadronList, configChoices);
+    setupConfigurationChoices(squadronList, configChoices);
+
+    var vBox = new VBox(selectSquadronInstruction, squadronList, selectConfigurationInstruction, configChoices);
+    vBox.getStyleClass().add("squadron-list-vbox-pane");
+
+    return vBox;
+  }
+
+  private void setupSquadronLists(final Nation nation,
+                                  final AircraftType aircraftType,
+                                  final ListView<Squadron> squadronList,
+                                  final ChoiceBox<SquadronConfiguration> configChoices) {
     squadronList.itemsProperty()
         .bind(oobSquadronsViewModel.getAircraftTypeSquadrons(nation, aircraftType));
 
@@ -180,19 +197,17 @@ public class OobSquadronsView {
 
     squadronList.setMaxWidth(props.getInt("squadron.list.width"));
     squadronList.setMaxHeight(props.getInt("squadron.list.height"));
+  }
 
-    var instruction1 = new Label("Select configuration:");
-    instruction1.getStyleClass().add("instruction");
-
+  private void setupConfigurationChoices(final ListView<Squadron> squadronList,
+                                         final ChoiceBox<SquadronConfiguration> configChoices) {
     configChoices.setMaxWidth(props.getInt("squadron.list.width"));
     configChoices.setMaxHeight(props.getInt("squadron.list.height"));
 
-    var vBox = new VBox(instruction, squadronList, instruction1, configChoices);
-    vBox.getStyleClass().add("squadron-list-vbox-pane");
-
-    return vBox;
+    configChoices.getSelectionModel()
+        .selectedItemProperty()
+        .addListener((o, oldValue, newValue) -> handleConfigSelection(squadronList, newValue));
   }
-
 
   private Node buildButtonsPane(final Stage stage) {
     var okButton = new Button("ok");
@@ -210,5 +225,22 @@ public class OobSquadronsView {
     configChoices.getItems().clear();
     configChoices.getItems().addAll(selectedSquadron.getAircraft().getConfiguration());
     configChoices.getSelectionModel().selectFirst();
+  }
+
+  private void handleConfigSelection(final ListView<Squadron> squadronList, final SquadronConfiguration config) {
+    squadronList.getSelectionModel()
+        .getSelectedItem()
+        .setConfiguration(config);
+  }
+
+  private ImageView getRoundel(final Nation nation) {
+    var roundelImageName = nation.toLower() + ".roundel.small.image";
+    return resourceProvider.getGameImageView(props.getString(roundelImageName));
+  }
+
+  private Label buildInstructionLabel(final String text) {
+    var instructionLabel = new Label(text);
+    instructionLabel.getStyleClass().add("instruction");
+    return instructionLabel;
   }
 }
