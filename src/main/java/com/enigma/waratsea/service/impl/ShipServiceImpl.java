@@ -12,6 +12,7 @@ import com.enigma.waratsea.mapper.ShipMapper;
 import com.enigma.waratsea.mapper.ShipRegistryMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Side;
+import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.ship.Commission;
 import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.model.ship.ShipRegistry;
@@ -144,7 +145,13 @@ public class ShipServiceImpl implements ShipService {
   private Ship getFromRepository(final Id shipId, final ShipType shipType) {
     var entity = shipRepository.get(shipId, shipType);
 
-    return shipMapper.toModel(entity);
+    var model = shipMapper.toModel(entity);
+
+    if (model instanceof Airbase airbase) {
+      airbase.getSquadrons().forEach(squadron -> squadron.setAirbase(airbase));
+    }
+
+    return model;
   }
 
   private Ship buildShip(final Id shipId, final Ship shipClass) {

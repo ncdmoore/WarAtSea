@@ -35,11 +35,13 @@ public class Squadron implements Comparable<Squadron> {
                   final Aircraft aircraft,
                   final SquadronStrength strength,
                   final DeploymentState deploymentState,
+                  final SquadronState state,
                   final SquadronConfiguration configuration) {
     this.id = id;
     this.aircraft = aircraft;
     this.strength = strength;
     this.deploymentState = deploymentState;
+    this.state = state;
     this.configuration = configuration;
 
     setTitle();

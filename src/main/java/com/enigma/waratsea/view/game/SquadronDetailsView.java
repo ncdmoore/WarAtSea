@@ -44,10 +44,14 @@ public class SquadronDetailsView {
     var profileImage = new ImageView();
 
     var imagePane = new HBox(profileImage);
+    imagePane.getStyleClass().add("image-pane");
+    imagePane.setMinWidth(520);
+    imagePane.setMinHeight(180);
 
     var tabPane = buildTabPane(selectedSquadron);
 
     var mainPane = new VBox(imagePane, tabPane);
+    mainPane.getStyleClass().add("main-pane");
 
     bindProfileImage(profileImage, selectedSquadron);
 
@@ -169,7 +173,7 @@ public class SquadronDetailsView {
     var strengthValue = new Label();
     var serviceLabel = new Label("Service:");
     var serviceValue = new Label();
-    var stateLabel = new Label("Status:");
+    var stateLabel = new Label("State:");
     var stateValue = new Label();
     var configurationLabel = new Label("Configuration:");
     var configurationValue = new Label();

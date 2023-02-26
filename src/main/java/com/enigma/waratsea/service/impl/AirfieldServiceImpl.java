@@ -83,7 +83,11 @@ public class AirfieldServiceImpl implements AirfieldService {
   private Airfield getFromRepository(final Id airfieldId) {
     var entity = airfieldRepository.get(airfieldId);
 
-    return airfieldMapper.toModel(entity);
+    var model = airfieldMapper.toModel(entity);
+
+    model.getSquadrons().forEach(squadron -> squadron.setAirbase(model));
+
+    return model;
   }
 
   private void handleStartNewGameEvent(final StartNewGameEvent startNewGameEvent) {

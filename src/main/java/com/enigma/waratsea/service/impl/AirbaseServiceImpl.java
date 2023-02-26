@@ -8,12 +8,16 @@ import com.enigma.waratsea.service.AirbaseService;
 import com.enigma.waratsea.service.AirfieldService;
 import com.enigma.waratsea.service.TaskForceService;
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@Slf4j
+@Singleton
 public class AirbaseServiceImpl implements AirbaseService {
   private final AirfieldService airfieldService;
   private final TaskForceService taskForceService;
