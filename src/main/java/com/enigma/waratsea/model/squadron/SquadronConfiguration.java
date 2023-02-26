@@ -245,6 +245,11 @@ public enum SquadronConfiguration {
   public abstract int getFerryDistance(Aircraft aircraft);
   public abstract int getRadius(Aircraft aircraft);
 
+  @Override
+  public String toString() {
+    return value;
+  }
+
   private static final double DROP_TANK_FACTOR = 1.5; 
   private static final int LEAN_ENGINE_FACTOR = 2;
   private static final int REDUCED_PAYLOAD_FACTOR = 2;

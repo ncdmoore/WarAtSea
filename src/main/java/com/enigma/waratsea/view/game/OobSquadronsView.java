@@ -4,6 +4,7 @@ import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.airbase.AirbaseType;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.squadron.Squadron;
+import com.enigma.waratsea.model.squadron.SquadronConfiguration;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.game.OobSquadronsViewModel;
@@ -14,6 +15,7 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Separator;
@@ -23,6 +25,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Optional;
 
@@ -30,6 +33,7 @@ import static javafx.geometry.Orientation.VERTICAL;
 import static javafx.geometry.Pos.TOP_CENTER;
 import static javafx.stage.Modality.APPLICATION_MODAL;
 
+@Slf4j
 public class OobSquadronsView {
   private static final String CSS_FILE = "oob.css";
 
@@ -140,8 +144,9 @@ public class OobSquadronsView {
         .bind(oobSquadronsViewModel.isAircraftTypePresent(nation, aircraftType));
 
     var squadronList = new ListView<Squadron>();
+    var configChoices = new ChoiceBox<SquadronConfiguration>();
 
-    var squadronListNode = buildSquadronListNode(nation, aircraftType, squadronList);
+    var squadronListNode = buildSquadronListNode(nation, aircraftType, squadronList, configChoices);
 
     var verticalLine = new Separator();
     verticalLine.setOrientation(VERTICAL);
@@ -154,20 +159,35 @@ public class OobSquadronsView {
     aircraftTypeTab.setContent(hBox);
 
     squadronList.getSelectionModel().selectFirst();
+    configChoices.getSelectionModel().selectFirst();
 
     return aircraftTypeTab;
   }
 
   private Node buildSquadronListNode(final Nation nation,
                                      final AircraftType aircraftType,
-                                     final ListView<Squadron> squadronList) {
+                                     final ListView<Squadron> squadronList,
+                                     final ChoiceBox<SquadronConfiguration> configChoices) {
     var instruction = new Label("Select squadron:");
     instruction.getStyleClass().add("instruction");
 
     squadronList.itemsProperty()
         .bind(oobSquadronsViewModel.getAircraftTypeSquadrons(nation, aircraftType));
 
-    var vBox = new VBox(instruction, squadronList);
+    squadronList.getSelectionModel()
+        .selectedItemProperty()
+        .addListener((o, oldValue, newValue) -> handleSquadronSelection(configChoices, newValue));
+
+    squadronList.setMaxWidth(props.getInt("squadron.list.width"));
+    squadronList.setMaxHeight(props.getInt("squadron.list.height"));
+
+    var instruction1 = new Label("Select configuration:");
+    instruction1.getStyleClass().add("instruction");
+
+    configChoices.setMaxWidth(props.getInt("squadron.list.width"));
+    configChoices.setMaxHeight(props.getInt("squadron.list.height"));
+
+    var vBox = new VBox(instruction, squadronList, instruction1, configChoices);
     vBox.getStyleClass().add("squadron-list-vbox-pane");
 
     return vBox;
@@ -184,5 +204,11 @@ public class OobSquadronsView {
     hBox.setId("push-buttons-pane");
 
     return hBox;
+  }
+
+  private void handleSquadronSelection(final ChoiceBox<SquadronConfiguration> configChoices, final Squadron selectedSquadron) {
+    configChoices.getItems().clear();
+    configChoices.getItems().addAll(selectedSquadron.getAircraft().getConfiguration());
+    configChoices.getSelectionModel().selectFirst();
   }
 }
