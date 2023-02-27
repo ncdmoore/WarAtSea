@@ -66,7 +66,8 @@ public class SquadronServiceImpl implements SquadronService {
   public void add(final Side side, final Set<Squadron> newSquadrons) {
     newSquadrons.forEach(squadron -> squadrons.put(squadron.getId(), squadron));
 
-    squadronSideMap.get(side).addAll(newSquadrons);
+    squadronSideMap.computeIfAbsent(side, s -> new HashSet<>())
+        .addAll(newSquadrons);
   }
 
   private void registerEvents(final Events events) {

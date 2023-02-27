@@ -1,9 +1,9 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "Catalina_USSR"
+    "name": "GST"
   },
-  "title": "Catalina",
+  "title": "GST (PBY Catalina)",
   "type": "RECONNAISSANCE",
   "nation": "USSR",
   "service": "NAVY",

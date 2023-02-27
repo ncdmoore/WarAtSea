@@ -1,24 +1,24 @@
 {
   "id": {
     "side": "ALLIES",
-    "name": "Catalina"
+    "name": "Yak_9"
   },
-  "title": "PBY Catalina",
-  "type": "RECONNAISSANCE",
-  "nation": "UNITED_STATES",
-  "service": "NAVY",
-  "designation": "VQ.",
-  "altitude": "MEDIUM",
-  "takeOff": "SEAPLANE",
-  "landing": "SEAPLANE",
+  "title": "Yak 9",
+  "type": "FIGHTER",
+  "nation": "USSR",
+  "service": "AIR_FORCE",
+  "designation": "FAR.",
+  "altitude": "HIGH",
+  "takeOff": "LAND",
+  "landing": "LAND",
   "navalWarship": {
     "modifier": 0,
-    "full": 1,
+    "full": 0,
     "half": 0
   },
   "navalTransport": {
     "modifier": 0,
-    "full": 1,
+    "full": 0,
     "half": 0
   },
   "land": {
@@ -27,13 +27,13 @@
     "half": 0
   },
   "air": {
-    "modifier": 0,
-    "full": 0,
-    "half": 0
+    "modifier": 1,
+    "full": 5,
+    "half": 3
   },
   "performance": {
-    "range": 13,
-    "endurance": 3
+    "range": 5,
+    "endurance": 1
   },
   "frame": {
     "frame": 1,
@@ -41,6 +41,7 @@
   },
   "configuration": [
     "NONE",
+    "DROP_TANKS",
     "SEARCH"
   ]
 }
