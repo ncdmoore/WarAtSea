@@ -1,9 +1,9 @@
 {
   "id": {
     "side": "AXIS",
-    "name": "G4M1 Betty"
+    "name": "G4M1"
   },
-  "title": "G4M1",
+  "title": "G4M1 Betty",
   "type": "TORPEDO_BOMBER",
   "nation": "JAPANESE",
   "service": "NAVY",

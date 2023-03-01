@@ -48,6 +48,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.model.release;
   exports com.enigma.waratsea.model.squadron;
   exports com.enigma.waratsea.model.ship;
+  exports com.enigma.waratsea.model.statistics;
   exports com.enigma.waratsea.model.taskForce;
   exports com.enigma.waratsea.model.turn;
   exports com.enigma.waratsea.model.victory;

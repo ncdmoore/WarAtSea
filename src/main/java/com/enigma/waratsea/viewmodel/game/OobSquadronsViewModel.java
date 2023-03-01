@@ -4,7 +4,9 @@ import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.airbase.AirbaseType;
 import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.squadron.Squadron;
+import com.enigma.waratsea.model.statistics.ProbabilityVisitor;
 import com.enigma.waratsea.service.GameService;
+import com.enigma.waratsea.service.StatisticsService;
 import com.google.inject.Inject;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ListProperty;
@@ -36,9 +38,14 @@ public class OobSquadronsViewModel {
   @Getter
   private final Map<Nation, Map<AircraftType, ListProperty<Squadron>>> squadrons = new HashMap<>();
 
+  @Getter
+  private final ProbabilityVisitor probability;
+
   @Inject
-  public OobSquadronsViewModel(final GameService gameService) {
+  public OobSquadronsViewModel(final GameService gameService,
+                               final StatisticsService statisticsService) {
     this.gameService = gameService;
+    this.probability = statisticsService.getSuccessRate();
   }
 
   public void init(final AirbaseType filter) {

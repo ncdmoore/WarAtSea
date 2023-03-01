@@ -9,6 +9,7 @@ import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.game.OobSquadronsViewModel;
 import com.google.inject.Inject;
+import com.google.inject.Provider;
 import com.google.inject.name.Named;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.StringProperty;
@@ -41,17 +42,17 @@ public class OobSquadronsView {
   private final Props props;
   private final ResourceProvider resourceProvider;
   private final OobSquadronsViewModel oobSquadronsViewModel;
-  private final SquadronDetailsView squadronDetailsView;
+  private final Provider<SquadronDetailsView> squadronDetailsViewProvider;
 
   @Inject
   public OobSquadronsView(final @Named("View") Props props,
                           final ResourceProvider resourceProvider,
                           final OobSquadronsViewModel oobSquadronsViewModel,
-                          final SquadronDetailsView squadronDetailsView) {
+                          final Provider<SquadronDetailsView> squadronDetailsViewProvider) {
     this.props = props;
     this.resourceProvider = resourceProvider;
     this.oobSquadronsViewModel = oobSquadronsViewModel;
-    this.squadronDetailsView = squadronDetailsView;
+    this.squadronDetailsViewProvider = squadronDetailsViewProvider;
   }
 
   public void display(final AirbaseType airbaseType) {
@@ -155,7 +156,7 @@ public class OobSquadronsView {
     var verticalLine = new Separator();
     verticalLine.setOrientation(VERTICAL);
 
-    var squadronDetails = squadronDetailsView.build(squadronList, configChoices);
+    var squadronDetails = squadronDetailsViewProvider.get().build(squadronList, configChoices);
 
     var hBox = new HBox(squadronListNode, verticalLine, squadronDetails);
     hBox.getStyleClass().add("squadron-type-hbox-pane");

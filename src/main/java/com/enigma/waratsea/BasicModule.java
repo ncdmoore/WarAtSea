@@ -82,6 +82,7 @@ import com.enigma.waratsea.service.SquadronAllotmentModService;
 import com.enigma.waratsea.service.SquadronAllotmentService;
 import com.enigma.waratsea.service.SquadronDeploymentService;
 import com.enigma.waratsea.service.SquadronService;
+import com.enigma.waratsea.service.StatisticsService;
 import com.enigma.waratsea.service.SubmarineFlotillaService;
 import com.enigma.waratsea.service.TaskForceService;
 import com.enigma.waratsea.service.VictoryService;
@@ -105,6 +106,7 @@ import com.enigma.waratsea.service.impl.SquadronAllotmentModServiceImpl;
 import com.enigma.waratsea.service.impl.SquadronAllotmentServiceImpl;
 import com.enigma.waratsea.service.impl.SquadronDeploymentServiceImpl;
 import com.enigma.waratsea.service.impl.SquadronServiceImpl;
+import com.enigma.waratsea.service.impl.StatisticsServiceImpl;
 import com.enigma.waratsea.service.impl.SubmarineFlotillaServiceImpl;
 import com.enigma.waratsea.service.impl.TaskForceServiceImpl;
 import com.enigma.waratsea.service.impl.VictoryServiceImpl;
@@ -257,6 +259,7 @@ public class BasicModule extends AbstractModule {
 
   private void bindServices() {
     bind(DiceService.class).to(DiceServiceImpl.class);
+    bind(StatisticsService.class).to(StatisticsServiceImpl.class);
     bind(ScenarioService.class).to(ScenarioServiceImpl.class);
     bind(MapService.class).to(MapServiceImpl.class);
     bind(RegionService.class).to(RegionServiceImpl.class);
