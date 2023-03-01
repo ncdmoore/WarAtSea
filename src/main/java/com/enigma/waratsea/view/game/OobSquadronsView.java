@@ -156,7 +156,9 @@ public class OobSquadronsView {
     var verticalLine = new Separator();
     verticalLine.setOrientation(VERTICAL);
 
-    var squadronDetails = squadronDetailsViewProvider.get().build(squadronList, configChoices);
+    var probability = oobSquadronsViewModel.getProbability();
+    var squadronDetails = squadronDetailsViewProvider.get()
+        .build(squadronList, configChoices, probability);
 
     var hBox = new HBox(squadronListNode, verticalLine, squadronDetails);
     hBox.getStyleClass().add("squadron-type-hbox-pane");

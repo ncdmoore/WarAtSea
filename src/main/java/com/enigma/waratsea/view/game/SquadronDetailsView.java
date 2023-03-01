@@ -3,6 +3,7 @@ package com.enigma.waratsea.view.game;
 import com.enigma.waratsea.model.aircraft.AttackType;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.squadron.SquadronConfiguration;
+import com.enigma.waratsea.model.statistics.ProbabilityVisitor;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.google.inject.Inject;
@@ -36,6 +37,7 @@ public class SquadronDetailsView {
 
   private ReadOnlyObjectProperty<Squadron> selectedSquadron;
   private ReadOnlyObjectProperty<SquadronConfiguration> selectedConfiguration;
+  private ProbabilityVisitor probability;
 
   @Inject
   public SquadronDetailsView(final @Named("View") Props props,
@@ -44,8 +46,10 @@ public class SquadronDetailsView {
     this.resourceProvider = resourceProvider;
   }
 
-  public Node build(final ListView<Squadron> squadrons, final ChoiceBox<SquadronConfiguration> configurations) {
-    setDependentProperties(squadrons, configurations);
+  public Node build(final ListView<Squadron> squadrons,
+                    final ChoiceBox<SquadronConfiguration> configurations,
+                    final ProbabilityVisitor probabilityVisitor) {
+    setDependentProperties(squadrons, configurations, probabilityVisitor);
 
     var profileImage = new ImageView();
 
@@ -64,12 +68,16 @@ public class SquadronDetailsView {
     return mainPane;
   }
 
-  private void setDependentProperties(final ListView<Squadron> squadrons, final ChoiceBox<SquadronConfiguration> configurations) {
+  private void setDependentProperties(final ListView<Squadron> squadrons,
+                                      final ChoiceBox<SquadronConfiguration> configurations,
+                                      final ProbabilityVisitor probabilityVisitor) {
     selectedSquadron = squadrons.getSelectionModel()
         .selectedItemProperty();
 
     selectedConfiguration = configurations.getSelectionModel()
         .selectedItemProperty();
+
+    probability = probabilityVisitor;
   }
 
   private TabPane buildTabPane() {
@@ -233,14 +241,20 @@ public class SquadronDetailsView {
     gridPane.add(modifierValue, 1, row);
     gridPane.add(factorLabel, 0, ++row);
     gridPane.add(factorValue, 1, row);
-    gridPane.getStyleClass().add("details-grid");
 
     if (attackType == AIR) {
-      addDefensive(gridPane, row);
+      row = addDefensive(gridPane, row);
     }
+
+    var successRateLabel = new Label("Success Rate:");
+    var successRateValue = new Label();
+    gridPane.add(successRateLabel, 0, ++row);
+    gridPane.add(successRateValue, 1, row);
+    gridPane.getStyleClass().add("details-grid");
 
     bindAttackModifier(attackType, modifierValue);
     bindAttackFactor(attackType, factorValue);
+    bindSuccessRate(attackType, successRateValue);
 
     var vBox = new VBox(titleLabel, horizontalLine, gridPane);
     vBox.getStyleClass().add("details-vbox");
@@ -248,7 +262,7 @@ public class SquadronDetailsView {
     return vBox;
   }
 
-  private void addDefensive(final GridPane gridPane,
+  private int addDefensive(final GridPane gridPane,
                             final int startRow) {
     var defensiveLabel = new Label("Defensive:");
     var defensiveValue = new Label();
@@ -258,6 +272,8 @@ public class SquadronDetailsView {
     gridPane.add(defensiveValue, 1, row);
 
     bindDefensive(defensiveValue);
+
+    return row;
   }
 
   private Node buildDefenseDetails() {
@@ -439,6 +455,22 @@ public class SquadronDetailsView {
       return Optional.ofNullable(selectedSquadron.getValue())
           .map(squadron -> squadron.setConfiguration(config))
           .map(squadron -> squadron.getAttack(attackType).getFactor() + "")
+          .orElse("");
+    };
+
+    label.textProperty()
+        .bind(Bindings.createStringBinding(bindingFunction, selectedSquadron, selectedConfiguration));
+  }
+
+  private void bindSuccessRate(final AttackType attackType,
+                               final Label label) {
+
+    Callable<String> bindingFunction = () -> {
+      var config = getConfig();
+
+      return Optional.ofNullable(selectedSquadron.getValue())
+          .map(squadron -> squadron.setConfiguration(config))
+          .map(squadron -> squadron.getAttack(attackType).accept(probability) + " %")
           .orElse("");
     };
 
