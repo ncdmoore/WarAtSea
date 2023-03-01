@@ -54,6 +54,7 @@ public class OobSquadronsViewModel {
     setSide();
     setNations();
     setSquadrons();
+    updateNations();
   }
 
   public ListProperty<Squadron> getAircraftTypeSquadrons(final Nation nation, final AircraftType aircraftType) {
@@ -87,6 +88,14 @@ public class OobSquadronsViewModel {
   private void initNationMaps(final Nation nation) {
     squadrons.computeIfAbsent(nation, k -> new HashMap<>());
     aircraftTypePresent.computeIfAbsent(nation, k -> new HashMap<>());
+  }
+
+  private void updateNations() {
+    squadrons.forEach((nation, squadronMap) -> {
+      if (squadronMap.isEmpty()) {
+        nations.remove(nation);
+      }
+    });
   }
 
   private void setSquadronsForNation(final Nation nation) {
