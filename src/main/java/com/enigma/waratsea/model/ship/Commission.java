@@ -12,6 +12,7 @@ import java.util.Set;
 @Builder
 public class Commission {
   private Id id;
+  private Id shipClassId;
   private String title;
   private Nation nation;
   private Set<Squadron> squadrons;

@@ -55,8 +55,8 @@ public class SquadronDetailsView {
 
     var imagePane = new HBox(profileImage);
     imagePane.getStyleClass().add("image-pane");
-    imagePane.setMinWidth(props.getInt("oob.dialog.image.width"));
-    imagePane.setMinHeight(props.getInt("oob.dialog.image.height"));
+    imagePane.setMinWidth(props.getInt("oob.dialog.aircraft.image.width"));
+    imagePane.setMinHeight(props.getInt("oob.dialog.aircraft.image.height"));
 
     var tabPane = buildTabPane();
 

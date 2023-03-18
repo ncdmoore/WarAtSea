@@ -21,6 +21,7 @@ public class ResourceProvider {
   private final String imageDirectory;
   private final String commonImageDirectory;
   private final String aircraftImageDirectory;
+  private final String shipImageDirectory;
   private final String gamePath;
 
   @Inject
@@ -32,6 +33,7 @@ public class ResourceProvider {
     this.cssDirectory = gamePaths.getCssDirectory();
     this.commonImageDirectory = Paths.get(imageDirectory, commonDirectory).toString();
     this.aircraftImageDirectory = Paths.get(gamePaths.getAircraftBaseDirectory(), imageDirectory).toString();
+    this.shipImageDirectory = Paths.get(gamePaths.getShipBaseDirectory(), imageDirectory).toString();
     this.gamePath = gamePaths.getGamePath();
   }
 
@@ -68,6 +70,18 @@ public class ResourceProvider {
             .orElseThrow(() -> new ResourceException("Can't even find NotFound.png")));
   }
 
+  public Image getShipProfileImage(final Id shipId) {
+    return getGameShipProfileImage(shipId)
+        .orElseGet(() -> getAppCommonImage("NotFound.png")
+            .orElseThrow(() -> new ResourceException("Can't even find NotFound.png")));
+  }
+
+  public Image getShipImage(final Id shipId) {
+    return getGameShipImage(shipId)
+        .orElseGet(() -> getAppCommonImage("NotFound.png")
+            .orElseThrow(() -> new ResourceException("Can't even find NotFound.png")));
+  }
+
   public ImageView getGameImageView(final String imageName) {
     return new ImageView(getGameImage(imageName));
   }
@@ -92,6 +106,20 @@ public class ResourceProvider {
     var side = aircraftId.getSide().toLower();
     var name = aircraftId.getName() + "-profile.png";
     var path = Paths.get(gamePath, aircraftImageDirectory, side, name).toString();
+    return getImageResource(path);
+  }
+
+  private Optional<Image> getGameShipProfileImage(final Id shipId) {
+    var side = shipId.getSide().toLower();
+    var name = shipId.getName() + "-profile.png";
+    var path = Paths.get(gamePath, shipImageDirectory, side, name).toString();
+    return getImageResource(path);
+  }
+
+  private Optional<Image> getGameShipImage(final Id shipId) {
+    var side = shipId.getSide().toLower();
+    var name = shipId.getName() + ".png";
+    var path = Paths.get(gamePath, shipImageDirectory, side, name).toString();
     return getImageResource(path);
   }
 

@@ -1,10 +1,10 @@
 {
   "id": {
     "side": "AXIS",
-    "name": "Alberto_di_Guissano"
+    "name": "Alberto_di_Giussano"
   },
   "type": "LIGHT_CRUISER",
-  "shipClass": "Alberto di Guissano",
+  "shipClass": "Alberto di Giussano",
   "nation": "ITALIAN",
   "secondary": {
     "armour": "NONE",

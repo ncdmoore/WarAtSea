@@ -1,4 +1,4 @@
-package com.enigma.waratsea.viewmodel.game;
+package com.enigma.waratsea.viewmodel.game.oob;
 
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.airbase.AirbaseType;

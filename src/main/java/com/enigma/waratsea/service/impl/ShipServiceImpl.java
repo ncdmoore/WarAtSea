@@ -195,6 +195,7 @@ public class ShipServiceImpl implements ShipService {
   private Commission buildCommission(final ShipRegistry shipRegistry) {
     return Commission.builder()
         .id(shipRegistry.getId())
+        .shipClassId(shipRegistry.getShipClassId())
         .title(shipRegistry.getTitle())
         .nation(shipRegistry.getNation())
         .squadrons(squadronService.get(shipRegistry.getSquadrons()))

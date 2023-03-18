@@ -26,14 +26,15 @@ public class GamePaths {
   private final String mapDirectory = "map";
   private final String regionDirectory = "region";
   private final String aircraftBaseDirectory = "aircraft";
+  private final String shipBaseDirectory = "ships";
   private final String aircraftDirectory = Paths.get(aircraftBaseDirectory, "data").toString();
   private final String squadronDirectory = Paths.get("squadrons", "data").toString();
   private final String squadronAllotmentDirectory = Paths.get("squadrons", "allotment").toString();
   private final String squadronDeploymentDirectory = Paths.get("squadrons", "deployment").toString();
   private final String squadronManifestFileName = "manifest";
   private final String scenarioDirectory = "scenarios";
-  private final String shipRegistryDirectory = Paths.get("ships", "registry").toString();
-  private final String shipDirectory = Paths.get("ships", "data").toString();
+  private final String shipRegistryDirectory = Paths.get(shipBaseDirectory, "registry").toString();
+  private final String shipDirectory = Paths.get(shipBaseDirectory, "data").toString();
   private final String cargoDirectory = "cargo";
   private final String cargoFileName = "manifests";
   private final String taskForceDirectory = Paths.get("taskForces", "data").toString();

@@ -4,7 +4,7 @@
     "name": "Astoria"
   },
   "type": "HEAVY_CRUISER",
-  "shipClass": "Astoria",
+  "shipClass": "New Orleans",
   "nation": "UNITED_STATES",
   "secondary": {
     "armour": "LIGHT",

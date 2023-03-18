@@ -18,14 +18,24 @@ import java.util.Set;
 @AllArgsConstructor
 public class CapitalShipEntity implements ShipEntity {
   private Id id;
+  private Id shipClassId;
   private ShipType type;
   private String title;
   private String shipClass;
   private Nation nation;
-  private GunEntity primary;
-  private GunEntity secondary;
-  private GunEntity tertiary;
-  private GunEntity antiAir;
+
+  @Builder.Default
+  private GunEntity primary = GunEntity.builder().build();
+
+  @Builder.Default
+  private GunEntity secondary = GunEntity.builder().build();
+
+  @Builder.Default
+  private GunEntity tertiary = GunEntity.builder().build();
+
+  @Builder.Default
+  private GunEntity antiAir = GunEntity.builder().build();
+
   private TorpedoEntity torpedo;
   private HullEntity hull;
   private FuelEntity fuel;

@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SubmarineEntity implements ShipEntity {
   private Id id;
+  private Id shipClassId;
   private ShipType type;
   private String title;
   private String shipClass;

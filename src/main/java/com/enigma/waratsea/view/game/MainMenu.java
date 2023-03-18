@@ -49,12 +49,14 @@ public class MainMenu {
     var orderOfBattleMenu = new Menu("OOB");
     var airfieldSquadronsMenuItem = new MenuItem("Airfield Squadrons");
     var taskForceSquadronsMenuItem = new MenuItem("Task Force Squadrons");
+    var shipsMenuItem = new MenuItem("Ships");
 
     airfieldSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(AIRFIELD));
     taskForceSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(SHIP));
+    shipsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showShips());
 
     orderOfBattleMenu.getItems()
-        .addAll(airfieldSquadronsMenuItem, taskForceSquadronsMenuItem);
+        .addAll(airfieldSquadronsMenuItem, taskForceSquadronsMenuItem, shipsMenuItem);
 
     return orderOfBattleMenu;
   }

@@ -1,4 +1,4 @@
-package com.enigma.waratsea.view.game;
+package com.enigma.waratsea.view.game.oob;
 
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.airbase.AirbaseType;
@@ -6,8 +6,9 @@ import com.enigma.waratsea.model.aircraft.AircraftType;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.squadron.SquadronConfiguration;
 import com.enigma.waratsea.property.Props;
+import com.enigma.waratsea.view.game.SquadronDetailsView;
 import com.enigma.waratsea.view.resources.ResourceProvider;
-import com.enigma.waratsea.viewmodel.game.OobSquadronsViewModel;
+import com.enigma.waratsea.viewmodel.game.oob.OobSquadronsViewModel;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import com.google.inject.name.Named;

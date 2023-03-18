@@ -2,18 +2,18 @@
   {
     "id": {
       "side": "AXIS",
-      "name": "Alberto_di_Guissano"
+      "name": "Alberto_di_Giussano"
     },
-    "title": "CL01 Alberto di Guissano",
+    "title": "CL01 Alberto di Giussano",
     "squadrons": [
       {
         "side": "AXIS",
-        "name": "RO43-Alberto_di_Guissano"
+        "name": "RO43-Alberto_di_Giussano"
       }
     ],
     "shipClassId": {
       "side": "AXIS",
-      "name": "Alberto_di_Guissano"
+      "name": "Alberto_di_Giussano"
     }
   },
   {
@@ -30,7 +30,7 @@
     ],
     "shipClassId": {
       "side": "AXIS",
-      "name": "Alberto_di_Guissano"
+      "name": "Alberto_di_Giussano"
     }
   },
   {
@@ -47,7 +47,7 @@
     ],
     "shipClassId": {
       "side": "AXIS",
-      "name": "Alberto_di_Guissano"
+      "name": "Alberto_di_Giussano"
     }
   },
   {
@@ -64,7 +64,7 @@
     ],
     "shipClassId": {
       "side": "AXIS",
-      "name": "Alberto_di_Guissano"
+      "name": "Alberto_di_Giussano"
     }
   },
   {
