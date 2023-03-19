@@ -18,7 +18,7 @@
     "title": "CL01 Caledon",
     "shipClassId": {
       "side": "ALLIES",
-      "name": "Caledon_43"
+      "name": "C_Class_Cruiser"
     }
   },
   {
@@ -29,7 +29,7 @@
     "title": "CL02 Calypso",
     "shipClassId": {
       "side": "ALLIES",
-      "name": "Caledon_43"
+      "name": "Caledon_39"
     }
   },
   {

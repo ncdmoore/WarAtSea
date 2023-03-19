@@ -4,8 +4,8 @@
     "name": "Large_Transport"
   },
   "type": "TRANSPORT",
-  "shipClass": "Large_Transport",
-  "nation": "ITALIAN",
+  "shipClass": "Large Transport",
+  "nation": "BRITISH",
   "antiAir":
   {
     "armour": "NONE",

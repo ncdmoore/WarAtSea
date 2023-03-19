@@ -6,21 +6,19 @@
   "type": "LIGHT_CRUISER",
   "shipClass": "C Class Cruiser",
   "nation": "BRITISH",
-  "tertiary":
-  {
+  "tertiary": {
     "armour": "NONE",
     "maxHealth": 1,
     "health": 1
   },
-  "torpedo": {
+  "antiAir": {
+    "armour": "NONE",
     "maxHealth": 2,
-    "health": 2,
-    "maxNumber": 1,
-    "number": 1
+    "health": 2
   },
   "hull": {
     "armour": "LIGHT",
-    "maxHealth" : 3,
+    "maxHealth": 3,
     "health": 3,
     "deck": false
   },
