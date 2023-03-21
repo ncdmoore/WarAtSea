@@ -42,9 +42,7 @@ public class ShipDetailsView {
     setDependentProperties(ships);
 
     var shipImages = buildImages();
-
     var imagePane = new HBox(shipImages);
-
     var tabPane = buildTabPane();
 
     var mainPane = new VBox(imagePane, tabPane);
