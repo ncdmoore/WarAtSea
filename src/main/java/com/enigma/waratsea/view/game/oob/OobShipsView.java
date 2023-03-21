@@ -3,7 +3,7 @@ package com.enigma.waratsea.view.game.oob;
 import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.model.ship.ShipType;
 import com.enigma.waratsea.property.Props;
-import com.enigma.waratsea.view.game.ShipDetailsView;
+import com.enigma.waratsea.view.game.ship.ShipDetailsView;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.game.oob.OobShipsViewModel;
 import com.google.inject.Inject;

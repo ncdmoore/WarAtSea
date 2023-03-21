@@ -112,4 +112,6 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.model.airbase to com.google.gson;
   exports com.enigma.waratsea.viewmodel.game.oob;
   exports com.enigma.waratsea.view.game.oob;
+  exports com.enigma.waratsea.view.game.ship;
+  exports com.enigma.waratsea.view.game.squadron;
 }

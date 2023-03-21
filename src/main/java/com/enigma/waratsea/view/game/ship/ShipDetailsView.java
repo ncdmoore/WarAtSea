@@ -1,4 +1,4 @@
-package com.enigma.waratsea.view.game;
+package com.enigma.waratsea.view.game.ship;
 
 import com.enigma.waratsea.dto.ArmourDto;
 import com.enigma.waratsea.dto.WeaponsDto;

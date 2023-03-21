@@ -1,4 +1,4 @@
-package com.enigma.waratsea.view.game;
+package com.enigma.waratsea.view.game.squadron;
 
 import com.enigma.waratsea.model.aircraft.AttackType;
 import com.enigma.waratsea.model.squadron.Squadron;
