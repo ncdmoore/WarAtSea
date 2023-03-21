@@ -2,6 +2,7 @@ package com.enigma.waratsea.view.game.ship;
 
 import com.enigma.waratsea.dto.ArmourDto;
 import com.enigma.waratsea.dto.WeaponsDto;
+import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.ship.ArmourType;
 import com.enigma.waratsea.model.ship.Gun;
 import com.enigma.waratsea.model.ship.Ship;
@@ -17,6 +18,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Separator;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -70,16 +72,10 @@ public class ShipDetailsView {
 
   private Tab buildProfileImageTab() {
     var profileTab = new Tab("Profile");
-
     var image = new ImageView();
+    var imagePane = buildImagePane(image);
 
-    var imagePane = new HBox(image);
-    imagePane.getStyleClass().add("image-pane");
-    imagePane.setMinWidth(props.getInt("oob.dialog.ship.image.width"));
-    imagePane.setMinHeight(props.getInt("oob.dialog.ship.image.height"));
-
-    bindProfileImage(image);
-
+    bindImage(image, resourceProvider::getShipProfileImage);
     profileTab.setContent(imagePane);
 
     return profileTab;
@@ -87,34 +83,30 @@ public class ShipDetailsView {
 
   private Tab buildPictureImageTab() {
     var profileTab = new Tab("Picture");
-
     var image = new ImageView();
+    var imagePane = buildImagePane(image);
 
-    var imagePane = new HBox(image);
-    imagePane.getStyleClass().add("image-pane");
-    imagePane.setMinWidth(props.getInt("oob.dialog.ship.image.width"));
-    imagePane.setMinHeight(props.getInt("oob.dialog.ship.image.height"));
-
-    bindPictureImage(image);
-
+    bindImage(image, resourceProvider::getShipImage);
     profileTab.setContent(imagePane);
 
     return profileTab;
   }
 
-  private void bindProfileImage(final ImageView image) {
-    image.imageProperty().bind(Bindings.createObjectBinding(() ->
-        Optional.ofNullable(selectedShip.getValue())
-            .map(Ship::getShipClassId)
-            .map(resourceProvider::getShipProfileImage)
-            .orElse(null), selectedShip));
+  private Node buildImagePane(final ImageView image) {
+    var imagePane = new HBox(image);
+
+    imagePane.getStyleClass().add("image-pane");
+    imagePane.setMinWidth(props.getInt("oob.dialog.ship.image.width"));
+    imagePane.setMinHeight(props.getInt("oob.dialog.ship.image.height"));
+
+    return imagePane;
   }
 
-  private void bindPictureImage(final ImageView image) {
+  private void bindImage(final ImageView image, final Function<Id, Image> getImageFunction) {
     image.imageProperty().bind(Bindings.createObjectBinding(() ->
         Optional.ofNullable(selectedShip.getValue())
             .map(Ship::getShipClassId)
-            .map(resourceProvider::getShipImage)
+            .map(getImageFunction)
             .orElse(null), selectedShip));
   }
 
