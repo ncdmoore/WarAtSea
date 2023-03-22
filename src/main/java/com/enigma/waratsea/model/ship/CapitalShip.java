@@ -73,7 +73,7 @@ public class CapitalShip implements Ship, Airbase {
 
   @Override
   public Optional<Cargo> retrieveCargo() {
-    return Optional.of(cargo);
+    return Optional.ofNullable(cargo);
   }
 
   @Override

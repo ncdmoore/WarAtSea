@@ -4,7 +4,10 @@ import com.enigma.waratsea.dto.ArmourDto;
 import com.enigma.waratsea.dto.WeaponsDto;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.ship.ArmourType;
+import com.enigma.waratsea.model.ship.Cargo;
+import com.enigma.waratsea.model.ship.Fuel;
 import com.enigma.waratsea.model.ship.Gun;
+import com.enigma.waratsea.model.ship.Movement;
 import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.resources.ResourceProvider;
@@ -169,12 +172,27 @@ public class ShipDetailsView {
 
   private Tab buildMovementTab() {
     var tab = new Tab("Movement");
+    var movement = buildMovement();
+    var fuel = buildFuel();
+
+    var vBox = new VBox(movement, fuel);
+    vBox.getStyleClass().addAll("details-main-pane", "details-main-vbox");
+
+    tab.setContent(vBox);
 
     return tab;
   }
 
   private Tab buildCargoTab() {
     var tab = new Tab("Cargo");
+
+    bindCargoTab(tab);
+
+    var cargo = buildCargo();
+    var vBox = new VBox(cargo);
+    vBox.getStyleClass().addAll("details-main-pane", "details-main-vbox");
+
+    tab.setContent(vBox);
 
     return tab;
   }
@@ -371,6 +389,87 @@ public class ShipDetailsView {
     return vBox;
   }
 
+  private Node buildMovement() {
+    var titleLabel = new Label("Movement");
+    titleLabel.getStyleClass().add("heading");
+
+    var horizontalLine = new Separator();
+    var evenLabel = new Label("Even Turns:");
+    var evenValue = new Label();
+    var oddLabel = new Label("Odd Turns:");
+    var oddValue = new Label();
+
+    var row = 0;
+    var gridPane = new GridPane();
+    gridPane.add(evenLabel, 0, row);
+    gridPane.add(evenValue, 1, row);
+    gridPane.add(oddLabel, 0, ++row);
+    gridPane.add(oddValue, 1, row);
+    gridPane.getStyleClass().add("details-grid");
+
+    bindMovement(evenValue, movement -> movement.getEven() + "");
+    bindMovement(oddValue, movement -> movement.getOdd() + "");
+
+    var vBox = new VBox(titleLabel, horizontalLine, gridPane);
+    vBox.getStyleClass().add("details-vbox");
+
+    return vBox;
+  }
+
+  private Node buildFuel() {
+    var titleLabel = new Label("Fuel");
+    titleLabel.getStyleClass().add("heading");
+
+    var horizontalLine = new Separator();
+    var maxFuelLabel = new Label("Max fuel level:");
+    var maxFuelValue = new Label();
+    var currentFuelLabel = new Label("Current fuel level:");
+    var currentFuelValue = new Label();
+
+    var row = 0;
+    var gridPane = new GridPane();
+    gridPane.add(maxFuelLabel, 0, row);
+    gridPane.add(maxFuelValue, 1, row);
+    gridPane.add(currentFuelLabel, 0, ++row);
+    gridPane.add(currentFuelValue, 1, row);
+    gridPane.getStyleClass().add("details-grid");
+
+    bindFuel(maxFuelValue, fuel -> fuel.getCapacity() + "");
+    bindFuel(currentFuelValue, fuel -> fuel.getLevel() + "");
+
+    var vBox = new VBox(titleLabel, horizontalLine, gridPane);
+    vBox.getStyleClass().add("details-vbox");
+
+    return vBox;
+  }
+
+  private Node buildCargo() {
+    var titleLabel = new Label("Cargo");
+    titleLabel.getStyleClass().add("heading");
+
+    var horizontalLine = new Separator();
+    var maxCargoLabel = new Label("Max cargo capacity");
+    var maxCargoValue = new Label();
+    var currentCargoLabel = new Label("Current cargo capacity");
+    var currentCargoValue = new Label();
+
+    var row = 0;
+    var gridPane = new GridPane();
+    gridPane.add(maxCargoLabel, 0, row);
+    gridPane.add(maxCargoValue, 1, row);
+    gridPane.add(currentCargoLabel, 0, ++row);
+    gridPane.add(currentCargoValue, 1, row);
+    gridPane.getStyleClass().add("details-grid");
+
+    bindCargo(maxCargoValue, cargo -> cargo.getCapacity() + "");
+    bindCargo(currentCargoValue, cargo -> cargo.getLevel() + "");
+
+    var vBox = new VBox(titleLabel, horizontalLine, gridPane);
+    vBox.getStyleClass().add("details-vbox");
+
+    return vBox;
+  }
+
   private void bindString(final Label label, final Function<Ship, String> getString) {
     label.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedShip.getValue())
@@ -430,5 +529,41 @@ public class ShipDetailsView {
             .map(ArmourDto::isDeck)
             .map(String::valueOf)
             .orElse("false"), selectedShip));
+  }
+
+  private void bindMovement(final Label label, final Function<Movement, String> getMovement) {
+    label.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedShip.getValue())
+            .map(Ship::getMovement)
+            .map(getMovement)
+            .orElse(""), selectedShip));
+  }
+
+  private void bindFuel(final Label label, final Function<Fuel, String> getFuel) {
+    label.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedShip.getValue())
+            .map(Ship::getFuel)
+            .map(getFuel)
+            .orElse(""), selectedShip));
+  }
+
+  private void bindCargoTab(final Tab tab) {
+    tab.disableProperty().bind(Bindings.createBooleanBinding(() ->
+        Optional.ofNullable(selectedShip.getValue())
+            .map(Ship::retrieveCargo)
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .map(cargo -> cargo.getCapacity() <= 0)
+            .orElse(true), selectedShip));
+  }
+
+  private void bindCargo(final Label label, final Function<Cargo, String> getCargo) {
+    label.textProperty().bind(Bindings.createStringBinding(() ->
+        Optional.ofNullable(selectedShip.getValue())
+            .map(Ship::retrieveCargo)
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .map(getCargo)
+            .orElse(""), selectedShip));
   }
 }

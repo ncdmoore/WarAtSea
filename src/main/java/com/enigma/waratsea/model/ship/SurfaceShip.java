@@ -45,7 +45,7 @@ public class SurfaceShip implements Ship {
 
   @Override
   public Optional<Cargo> retrieveCargo() {
-    return Optional.of(cargo);
+    return Optional.ofNullable(cargo);
   }
 
   @Override
