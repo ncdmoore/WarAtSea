@@ -41,7 +41,7 @@
   },
   "frame": {
     "frame": 1,
-    "fragile": true
+    "fragile": false
   },
   "configuration": [
     "NONE",
