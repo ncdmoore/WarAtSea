@@ -18,6 +18,7 @@ import javafx.collections.FXCollections;
 import lombok.Getter;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -68,10 +69,7 @@ public class OobSquadronsViewModel {
   }
 
   private void setNations() {
-    nations = gameService.getGame()
-        .getHuman()
-        .getNations();
-
+    nations = determineNations();
     nations.forEach(this::initNationMaps);
   }
 
@@ -130,5 +128,13 @@ public class OobSquadronsViewModel {
 
   private SimpleListProperty<Squadron> buildListProperty(final List<Squadron> squadronsOfType) {
     return new SimpleListProperty<>(FXCollections.observableList(squadronsOfType));
+  }
+
+  private Set<Nation> determineNations() {
+    var playerNations = gameService.getGame()
+        .getHuman()
+        .getNations();
+
+    return new HashSet<>(playerNations);
   }
 }
