@@ -1,6 +1,6 @@
 package com.enigma.waratsea.viewmodel.game;
 
-import com.enigma.waratsea.model.airbase.AirbaseType;
+import com.enigma.waratsea.model.squadron.DeploymentState;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.game.oob.OobShipsView;
 import com.enigma.waratsea.view.game.oob.OobSquadronsView;
@@ -18,7 +18,7 @@ public class MainMenuViewModel {
   private final Provider<OobSquadronsView> oobSquadronsViewProvider;
   private final Provider<OobShipsView> oobShipsViewProvider;
 
-  private final Map<AirbaseType, BooleanProperty> squadronsPresent = new HashMap<>();
+  private final Map<DeploymentState, BooleanProperty> squadronsPresent = new HashMap<>();
 
   @Inject
   public MainMenuViewModel(final GameService gameService,
@@ -28,7 +28,7 @@ public class MainMenuViewModel {
     this.oobSquadronsViewProvider = oobSquadronsViewProvider;
     this.oobShipsViewProvider = oobShipsViewProvider;
 
-    AirbaseType.stream()
+    DeploymentState.stream()
         .forEach(this::setSquadronPresent);
   }
 
@@ -36,9 +36,9 @@ public class MainMenuViewModel {
     stage.close();
   }
 
-  public void showSquadrons(final AirbaseType airbaseType) {
+  public void showSquadrons(final DeploymentState deploymentState) {
    oobSquadronsViewProvider.get()
-       .display(airbaseType);
+       .display(deploymentState);
   }
 
   public void showShips() {
@@ -46,20 +46,21 @@ public class MainMenuViewModel {
         .display();
   }
 
-  public BooleanProperty getSquadronsPresent(final AirbaseType airbaseType) {
-    return squadronsPresent.getOrDefault(airbaseType, new SimpleBooleanProperty(false));
+  public BooleanProperty getSquadronsPresent(final DeploymentState deploymentState) {
+    return squadronsPresent.getOrDefault(deploymentState, new SimpleBooleanProperty(true));
   }
 
-  private void setSquadronPresent(final AirbaseType airbaseType) {
-    squadronsPresent.computeIfAbsent(airbaseType, this::determineIfSquadronsPresent);
+  private void setSquadronPresent(final DeploymentState deploymentState) {
+    squadronsPresent.computeIfAbsent(deploymentState, this::determineIfSquadronsPresent);
   }
 
-  private SimpleBooleanProperty determineIfSquadronsPresent(final AirbaseType airbaseType) {
-    var value = gameService.getGame()
+  private SimpleBooleanProperty determineIfSquadronsPresent(final DeploymentState deploymentState) {
+    var present = gameService.getGame()
         .getHuman()
-        .getSquadrons(airbaseType)
-        .isEmpty();
+        .getSquadrons()
+        .stream()
+        .anyMatch(s -> s.getDeploymentState() == deploymentState);
 
-    return new SimpleBooleanProperty(value);
+    return new SimpleBooleanProperty(!present);
   }
 }

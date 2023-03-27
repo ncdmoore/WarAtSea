@@ -1,8 +1,8 @@
 package com.enigma.waratsea.view.game.oob;
 
 import com.enigma.waratsea.model.Nation;
-import com.enigma.waratsea.model.airbase.AirbaseType;
 import com.enigma.waratsea.model.aircraft.AircraftType;
+import com.enigma.waratsea.model.squadron.DeploymentState;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.squadron.SquadronConfiguration;
 import com.enigma.waratsea.property.Props;
@@ -56,8 +56,8 @@ public class OobSquadronsView {
     this.squadronDetailsViewProvider = squadronDetailsViewProvider;
   }
 
-  public void display(final AirbaseType airbaseType) {
-    oobSquadronsViewModel.init(airbaseType);
+  public void display(final DeploymentState deploymentState) {
+    oobSquadronsViewModel.init(deploymentState);
 
     var stage = buildStage();
 

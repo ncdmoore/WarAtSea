@@ -8,8 +8,9 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
 
-import static com.enigma.waratsea.model.airbase.AirbaseType.AIRFIELD;
-import static com.enigma.waratsea.model.airbase.AirbaseType.SHIP;
+import static com.enigma.waratsea.model.squadron.DeploymentState.AT_AIRFIELD;
+import static com.enigma.waratsea.model.squadron.DeploymentState.NOT_DEPLOYED;
+import static com.enigma.waratsea.model.squadron.DeploymentState.ON_SHIP;
 
 public class MainMenu {
   private final MainMenuViewModel mainMenuViewModel;
@@ -49,18 +50,22 @@ public class MainMenu {
     var orderOfBattleMenu = new Menu("OOB");
     var airfieldSquadronsMenuItem = new MenuItem("Airfield Squadrons");
     var taskForceSquadronsMenuItem = new MenuItem("Task Force Squadrons");
+    var notDeployedSquadronsMenuItem = new MenuItem("Reserve Squadrons");
     var shipsMenuItem = new MenuItem("Ships");
 
-    airfieldSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(AIRFIELD));
-    airfieldSquadronsMenuItem.disableProperty().bind(mainMenuViewModel.getSquadronsPresent(AIRFIELD));
+    airfieldSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(AT_AIRFIELD));
+    airfieldSquadronsMenuItem.disableProperty().bind(mainMenuViewModel.getSquadronsPresent(AT_AIRFIELD));
 
-    taskForceSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(SHIP));
-    taskForceSquadronsMenuItem.disableProperty().bind(mainMenuViewModel.getSquadronsPresent(SHIP));
+    taskForceSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(ON_SHIP));
+    taskForceSquadronsMenuItem.disableProperty().bind(mainMenuViewModel.getSquadronsPresent(ON_SHIP));
+
+    notDeployedSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(NOT_DEPLOYED));
+    notDeployedSquadronsMenuItem.disableProperty().bind(mainMenuViewModel.getSquadronsPresent(NOT_DEPLOYED));
 
     shipsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showShips());
 
     orderOfBattleMenu.getItems()
-        .addAll(airfieldSquadronsMenuItem, taskForceSquadronsMenuItem, shipsMenuItem);
+        .addAll(airfieldSquadronsMenuItem, taskForceSquadronsMenuItem, notDeployedSquadronsMenuItem, shipsMenuItem);
 
     return orderOfBattleMenu;
   }

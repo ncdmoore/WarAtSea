@@ -1,8 +1,8 @@
 package com.enigma.waratsea.viewmodel.game.oob;
 
 import com.enigma.waratsea.model.Nation;
-import com.enigma.waratsea.model.airbase.AirbaseType;
 import com.enigma.waratsea.model.aircraft.AircraftType;
+import com.enigma.waratsea.model.squadron.DeploymentState;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.statistics.ProbabilityVisitor;
 import com.enigma.waratsea.service.GameService;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
 public class OobSquadronsViewModel {
   private final GameService gameService;
-  private AirbaseType airbaseType;
+  private DeploymentState deploymentState;
 
   @Getter
   private final StringProperty side = new SimpleStringProperty();
@@ -49,8 +49,8 @@ public class OobSquadronsViewModel {
     this.probability = statisticsService.getSuccessRate();
   }
 
-  public void init(final AirbaseType filter) {
-    airbaseType = filter;
+  public void init(final DeploymentState filter) {
+    deploymentState = filter;
 
     setSide();
     setNations();
@@ -99,8 +99,9 @@ public class OobSquadronsViewModel {
   private void setSquadronsForNation(final Nation nation) {
     var squadronTypeMap = gameService.getGame()
         .getHuman()
-        .getSquadrons(nation, airbaseType)
+        .getSquadrons(nation)
         .stream()
+        .filter(s -> s.getDeploymentState() == deploymentState)
         .collect(Collectors.groupingBy(squadron -> squadron.getAircraft().getType()));
 
     squadronTypeMap

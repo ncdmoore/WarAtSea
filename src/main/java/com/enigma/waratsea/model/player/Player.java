@@ -1,13 +1,12 @@
 package com.enigma.waratsea.model.player;
 
-import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.Airfield;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.MtbFlotilla;
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.SubmarineFlotilla;
-import com.enigma.waratsea.model.airbase.AirbaseType;
+import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.taskForce.TaskForce;
@@ -45,10 +44,6 @@ public interface Player {
   Set<Squadron> getSquadrons();
 
   Set<Squadron> getSquadrons(Nation nation);
-
-  Set<Squadron> getSquadrons(AirbaseType airbaseType);
-
-  Set<Squadron> getSquadrons(Nation nation, AirbaseType airbaseType);
 
   void setSquadrons(Set<Squadron> squadrons);
 }

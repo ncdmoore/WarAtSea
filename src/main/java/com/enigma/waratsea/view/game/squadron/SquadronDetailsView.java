@@ -1,5 +1,6 @@
 package com.enigma.waratsea.view.game.squadron;
 
+import com.enigma.waratsea.model.airbase.Airbase;
 import com.enigma.waratsea.model.aircraft.AttackType;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.model.squadron.SquadronConfiguration;
@@ -426,8 +427,9 @@ public class SquadronDetailsView {
   private void bindAirbase(final Label label) {
     label.textProperty().bind(Bindings.createStringBinding(() ->
         Optional.ofNullable(selectedSquadron.getValue())
-            .map(squadron -> squadron.getAirbase().getTitle())
-            .orElse(""), selectedSquadron));
+            .map(Squadron::getAirbase)
+            .map(Airbase::getTitle)
+            .orElse("Not Deployed"), selectedSquadron));
   }
 
   private void bindAttackModifier(final AttackType attackType,
