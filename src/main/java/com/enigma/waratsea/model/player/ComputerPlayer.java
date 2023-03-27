@@ -54,6 +54,25 @@ public class ComputerPlayer implements Player {
   }
 
   @Override
+  public Set<Squadron> getSquadrons(final AirbaseType airbaseType) {
+    return airbases.values()
+        .stream()
+        .filter(airbaseType.getFilter())
+        .flatMap(airbase -> airbase.getSquadrons().stream())
+        .collect(Collectors.toSet());
+  }
+
+  @Override
+  public Set<Squadron> getSquadrons(final Nation nation, final AirbaseType airbaseType) {
+    return airbases.values()
+        .stream()
+        .filter(airbaseType.getFilter())
+        .flatMap(airbase -> airbase.getSquadrons().stream())
+        .filter(squadron -> squadron.ofNation(nation))
+        .collect(Collectors.toSet());
+  }
+
+  @Override
   public void setAirfields(final Set<Airfield> airfields) {
     this.airfields = airfields;
 
@@ -67,14 +86,6 @@ public class ComputerPlayer implements Player {
     taskForces.stream()
         .flatMap(taskForce -> taskForce.getAirbases().stream())
         .forEach(this::addToAirbase);
-  }
-
-  @Override
-  public Set<Airbase> getAirbases(final AirbaseType airbaseType) {
-    return airbases.values()
-        .stream()
-        .filter(airbaseType.getFilter())
-        .collect(Collectors.toSet());
   }
 
   private void addToAirbase(final Airbase airbase) {

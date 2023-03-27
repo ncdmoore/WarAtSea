@@ -24,8 +24,6 @@ public interface Player {
 
   Map<Id, Airbase> getAirbases();
 
-  Set<Airbase> getAirbases(AirbaseType filter);
-
   Set<Airfield> getAirfields();
 
   void setAirfields(Set<Airfield> airfields);
@@ -47,6 +45,10 @@ public interface Player {
   Set<Squadron> getSquadrons();
 
   Set<Squadron> getSquadrons(Nation nation);
+
+  Set<Squadron> getSquadrons(AirbaseType airbaseType);
+
+  Set<Squadron> getSquadrons(Nation nation, AirbaseType airbaseType);
 
   void setSquadrons(Set<Squadron> squadrons);
 }

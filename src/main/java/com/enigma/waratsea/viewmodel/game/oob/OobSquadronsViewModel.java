@@ -97,13 +97,10 @@ public class OobSquadronsViewModel {
   }
 
   private void setSquadronsForNation(final Nation nation) {
-
     var squadronTypeMap = gameService.getGame()
         .getHuman()
-        .getAirbases(airbaseType)
+        .getSquadrons(nation, airbaseType)
         .stream()
-        .flatMap(airfield -> airfield.getSquadrons().stream())
-        .filter(squadron -> squadron.ofNation(nation))
         .collect(Collectors.groupingBy(squadron -> squadron.getAircraft().getType()));
 
     squadronTypeMap

@@ -52,7 +52,11 @@ public class MainMenu {
     var shipsMenuItem = new MenuItem("Ships");
 
     airfieldSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(AIRFIELD));
+    airfieldSquadronsMenuItem.disableProperty().bind(mainMenuViewModel.getSquadronsPresent(AIRFIELD));
+
     taskForceSquadronsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showSquadrons(SHIP));
+    taskForceSquadronsMenuItem.disableProperty().bind(mainMenuViewModel.getSquadronsPresent(SHIP));
+
     shipsMenuItem.setOnAction(actionEvent -> mainMenuViewModel.showShips());
 
     orderOfBattleMenu.getItems()
