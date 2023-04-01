@@ -1,0 +1,59 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "nation": "BRITISH"
+  },
+  "bombers": {
+    "dice": 1,
+    "factor": 0,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Beaufort"
+            },
+            "number": 4
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Catalina_British"
+            },
+            "number": 5
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Hurricane_1"
+            },
+            "number": 3
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Sunderland"
+            },
+            "number": 2
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 0,
+    "factor": 0,
+    "groups": [
+    ]
+  },
+  "recon": {
+    "dice": 0,
+    "factor": 0,
+    "groups": [
+    ]
+  }
+}
+

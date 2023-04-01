@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "JU88T"
+  },
+  "title": "Ju88T",
+  "type": "TORPEDO_BOMBER",
+  "nation": "GERMAN",
+  "service": "AIR_FORCE",
+  "designation": "KG.",
+  "altitude": "MEDIUM",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 1,
+    "full": 4,
+    "half": 2
+  },
+  "navalTransport": {
+    "modifier": 1,
+    "full": 4,
+    "half": 2
+  },
+  "land": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "air": {
+    "modifier": 0,
+    "full": 1,
+    "half": 1
+  },
+  "performance": {
+    "range": 10,
+    "endurance": 2
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

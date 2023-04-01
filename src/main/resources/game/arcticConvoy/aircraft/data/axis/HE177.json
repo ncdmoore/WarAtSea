@@ -1,0 +1,46 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "HE177"
+  },
+  "title": "Ju88a",
+  "type": "BOMBER",
+  "nation": "GERMAN",
+  "service": "AIR_FORCE",
+  "designation": "KG.",
+  "altitude": "HIGH",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "navalTransport": {
+    "modifier": 0,
+    "full": 1,
+    "half": 0
+  },
+  "land": {
+    "modifier": 1,
+    "full": 6,
+    "half": 3
+  },
+  "air": {
+    "modifier": 0,
+    "full": 3,
+    "half": 2
+  },
+  "performance": {
+    "range": 15,
+    "endurance": 2
+  },
+  "frame": {
+    "frame": 2,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

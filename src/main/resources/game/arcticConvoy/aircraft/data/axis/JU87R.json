@@ -1,0 +1,47 @@
+{
+  "id": {
+    "side": "AXIS",
+    "name": "JU87R"
+  },
+  "title": "Ju87r",
+  "type": "DIVE_BOMBER",
+  "nation": "GERMAN",
+  "service": "AIR_FORCE",
+  "designation": "StG.",
+  "altitude": "LOW",
+  "takeOff": "LAND",
+  "landing": "LAND",
+  "navalWarship": {
+    "modifier": 2,
+    "full": 8,
+    "half": 4
+  },
+  "navalTransport": {
+    "modifier": 2,
+    "full": 4,
+    "half": 2
+  },
+  "land": {
+    "modifier": 2,
+    "full": 3,
+    "half": 2
+  },
+  "air": {
+    "modifier": 0,
+    "defensive": true,
+    "full": 1,
+    "half": 0
+  },
+  "performance": {
+    "range": 12,
+    "endurance": 1
+  },
+  "frame": {
+    "frame": 1,
+    "fragile": false
+  },
+  "configuration": [
+    "NONE",
+    "SEARCH"
+  ]
+}

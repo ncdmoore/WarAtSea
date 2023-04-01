@@ -1,0 +1,66 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "nation": "USSR"
+  },
+  "bombers": {
+    "dice": 1,
+    "factor": 0,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "GST"
+            },
+            "number": 3
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Mig_3"
+            },
+            "number": 3
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "La_5"
+            },
+            "number": 2
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Yak_9"
+            },
+            "number": 2
+          },
+          {
+            "id": {
+              "side": "ALLIES",
+              "name": "Hurricane_1_USSR"
+            },
+            "number": 3
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 0,
+    "factor": 0,
+    "groups": [
+    ]
+  },
+  "recon": {
+    "dice": 0,
+    "factor": 0,
+    "groups": [
+    ]
+  }
+}
+

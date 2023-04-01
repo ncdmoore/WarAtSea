@@ -1,0 +1,151 @@
+{
+  "id": {
+    "side": "AXIS",
+    "nation": "GERMAN"
+  },
+  "bombers": {
+    "dice": 3,
+    "factor": 3,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "JU88A"
+            },
+            "number": 4
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "JU87D"
+            },
+            "number": 4
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "JU88T"
+            },
+            "number": 4
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "HE111H"
+            },
+            "number": 3
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "HE111H6"
+            },
+            "number": 5
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "JU87R"
+            },
+            "number": 4
+          },
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "HE177"
+            },
+            "number": 4
+          }
+        ]
+      }
+    ]
+  },
+  "fighters": {
+    "dice": 1,
+    "factor": 4,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "BF109G"
+            },
+            "number": 5
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "BF110D"
+            },
+            "number": 2
+          },
+          {
+          "id": {
+            "side": "AXIS",
+            "name": "FW190A"
+          },
+          "number": 3
+        }
+        ]
+      }
+    ]
+  },
+  "recon": {
+    "dice": 1,
+    "factor": 4,
+    "groups": [
+      {
+        "priority": 1,
+        "selectSize": 2,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "FW200"
+            },
+            "number": 5
+          }
+        ]
+      },
+      {
+        "priority": 2,
+        "selectSize": 1,
+        "aircraft": [
+          {
+            "id": {
+              "side": "AXIS",
+              "name": "BV138"
+            },
+            "number": 5
+          }
+        ]
+      }
+    ]
+  }
+}
+
