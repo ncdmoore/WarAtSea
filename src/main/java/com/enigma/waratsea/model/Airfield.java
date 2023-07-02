@@ -24,7 +24,9 @@ public class Airfield implements Airbase {
   private int maxAntiAir;
   private int antiAir;
   private String gridReference;
-  private Set<Squadron> squadrons;
+
+  @Builder.Default
+  private Set<Squadron> squadrons = new HashSet<>();
 
   @Builder.Default
   private Set<Nation> nations = new HashSet<>();

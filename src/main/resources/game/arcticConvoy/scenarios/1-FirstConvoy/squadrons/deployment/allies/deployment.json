@@ -1,0 +1,72 @@
+[
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Akureyri"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hvalfjordur"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Kaldaharnes"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Catalina-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Catalina-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Catalina-M3"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Victorious"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "Albacore-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Albacore-M2"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Martlet_2-M1"
+      }
+    ]
+  },
+  {
+    "airbases": [
+      {
+        "side": "ALLIES",
+        "name": "Argus"
+      }
+    ],
+    "squadrons": [
+      {
+        "side": "ALLIES",
+        "name": "SeaHurricane-M1"
+      },
+      {
+        "side": "ALLIES",
+        "name": "SeaHurricane-M2"
+      }
+    ]
+  }
+]

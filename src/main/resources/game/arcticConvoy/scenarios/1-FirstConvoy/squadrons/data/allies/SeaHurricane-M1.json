@@ -1,0 +1,10 @@
+{
+  "id": {
+    "side": "ALLIES",
+    "name": "SeaHurricane-M1"
+  },
+  "aircraft": {
+    "side": "ALLIES",
+    "name": "SeaHurricane"
+  }
+}

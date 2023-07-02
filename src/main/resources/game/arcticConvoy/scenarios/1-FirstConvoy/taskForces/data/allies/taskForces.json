@@ -1,0 +1,138 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF1"
+    },
+    "title": "Dervish Convoy",
+    "location": "Hvalfjordur",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Active"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Electra"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Impulsive"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Halcyon"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Harrier"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Hussar"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF2"
+    },
+    "title": "Force K",
+    "location": "Scapa_Flow",
+    "state": "ACTIVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Aurora"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Nigeria"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Antelope"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Eclipse"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Icarus"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Tartar"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Anthony"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF3"
+    },
+    "title": "Distant Cover",
+    "location": "Hvalfjordur",
+    "state": "RESERVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Victorious"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Suffolk"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Devonshire"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Escapade"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Inglefield"
+      }
+    ]
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "TF4"
+    },
+    "title": "Strength Convoy",
+    "location": "Hvalfjordur",
+    "state": "RESERVE",
+    "ships": [
+      {
+        "side": "ALLIES",
+        "name": "Argus"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Shropshire"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Matabele"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Punjabi"
+      },
+      {
+        "side": "ALLIES",
+        "name": "Somali"
+      }
+    ]
+  }
+]

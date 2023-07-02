@@ -1,0 +1,134 @@
+[
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S1"
+    },
+    "title": "S1",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S2"
+    },
+    "title": "S2",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S3"
+    },
+    "title": "S3",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S4"
+    },
+    "title": "S4",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S5"
+    },
+    "title": "S5",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S6"
+    },
+    "title": "S6",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S7"
+    },
+    "title": "S7",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S8"
+    },
+    "title": "S8",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S9"
+    },
+    "title": "S9",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S10"
+    },
+    "title": "S10",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "S11"
+    },
+    "title": "S11",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "S_Sub"
+    }
+  },
+  {
+    "id": {
+      "side": "ALLIES",
+      "name": "Type_VII_1"
+    },
+    "title": "Type VII-1",
+    "shipClassId": {
+      "side": "ALLIES",
+      "name": "Type_VII_Sub"
+    }
+  }
+]
