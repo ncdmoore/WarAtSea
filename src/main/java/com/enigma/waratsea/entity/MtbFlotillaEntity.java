@@ -2,17 +2,25 @@ package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.AssetState;
 import com.enigma.waratsea.model.Id;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Data;
 
+import java.util.Collections;
 import java.util.Set;
 
-@Getter
-@Setter
+import static com.enigma.waratsea.model.AssetState.ACTIVE;
+
+@Data
+@Builder
 public class MtbFlotillaEntity {
   private Id id;
   private String title;
-  private AssetState state;
   private String location;
-  private Set<Id> boats;
+
+  @Builder.Default
+  private AssetState state = ACTIVE;
+
+  @Builder.Default
+  private Set<Id> boats = Collections.emptySet();
+
 }

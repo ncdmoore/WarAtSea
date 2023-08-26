@@ -104,8 +104,8 @@ public class MtbFlotillaServiceImpl implements MtbFlotillaService {
   }
 
   private void saveSide(final String gameId, final Side side) {
-    var taskForces = flotillaSideMap.get(side);
-    var entities = mtbFlotillaMapper.modelsToEntities(taskForces);
+    var mtbFlotillas = flotillaSideMap.get(side);
+    var entities = mtbFlotillaMapper.modelsToEntities(mtbFlotillas);
     mtbFlotillaRepository.save(gameId, side, entities);
   }
 
