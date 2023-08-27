@@ -2,6 +2,7 @@ package com.enigma.watatsea.service;
 
 import com.enigma.waratsea.entity.MtbFlotillaEntity;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.enigma.waratsea.mapper.MtbFlotillaMapper;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.MtbFlotilla;
@@ -17,10 +18,12 @@ import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.BDDMockito.given;
+import static org.mockito.Mockito.lenient;
 
 @ExtendWith(MockitoExtension.class)
 class MtbFlotillaServiceTest {
@@ -59,6 +62,43 @@ class MtbFlotillaServiceTest {
         .count();
 
     assertEquals(mtbNames.size(), numberOfFlotillas);
+  }
+
+  @ParameterizedTest
+  @EnumSource(value = Side.class, names = {"ALLIES", "AXIS"})
+  void shouldSetMtbFlotillas(final Side side) {
+    var mtbEntities = buildEntities(side);
+    var mtbFlotillas = buildMtbFlotillas(side);
+
+    var expectedIds = mtbNames.stream()
+        .map(name -> new Id(side, name))
+        .collect(Collectors.toSet());
+
+    lenient().when(mtbFlotillaRepository.get(side)).thenReturn(mtbEntities);
+    lenient().when(mtbFlotillaMapper.entitiesToModels(mtbEntities)).thenReturn(mtbFlotillas);
+
+    events.getLoadTaskForcesEvent().fire(new LoadTaskForcesEvent());
+
+    var result = mtbFlotillaService.get(side);
+
+    assertNotNull(result);
+    assertEquals(mtbNames.size(), result.size());
+
+    var ids = result.stream()
+        .map(MtbFlotilla::getId)
+        .collect(Collectors.toSet());
+
+    assertEquals(expectedIds, ids);
+
+    var cachedMtbs = mtbFlotillaService.get(expectedIds);
+
+    assertNotNull(cachedMtbs);
+
+    var cachedMtbIds = cachedMtbs.stream()
+        .map(MtbFlotilla::getId)
+        .collect(Collectors.toSet());
+
+    assertEquals(expectedIds, cachedMtbIds);
   }
 
   private List<MtbFlotillaEntity> buildEntities(final Side side) {
