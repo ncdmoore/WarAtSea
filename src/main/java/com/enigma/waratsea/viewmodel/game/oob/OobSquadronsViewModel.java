@@ -16,6 +16,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -24,8 +25,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class OobSquadronsViewModel {
   private final GameService gameService;
+  private final StatisticsService statisticsService;
   private DeploymentState deploymentState;
 
   @Getter
@@ -38,16 +41,6 @@ public class OobSquadronsViewModel {
 
   @Getter
   private final Map<Nation, Map<AircraftType, ListProperty<Squadron>>> squadrons = new HashMap<>();
-
-  @Getter
-  private final ProbabilityVisitor probability;
-
-  @Inject
-  public OobSquadronsViewModel(final GameService gameService,
-                               final StatisticsService statisticsService) {
-    this.gameService = gameService;
-    this.probability = statisticsService.getSuccessRate();
-  }
 
   public void init(final DeploymentState filter) {
     deploymentState = filter;
@@ -66,6 +59,10 @@ public class OobSquadronsViewModel {
   public BooleanProperty isAircraftTypePresent(final Nation nation, final AircraftType aircraftType) {
     return aircraftTypePresent.get(nation)
         .getOrDefault(aircraftType, new SimpleBooleanProperty(true));
+  }
+
+  public ProbabilityVisitor getProbability() {
+    return statisticsService.getSuccessRate();
   }
 
   private void setNations() {

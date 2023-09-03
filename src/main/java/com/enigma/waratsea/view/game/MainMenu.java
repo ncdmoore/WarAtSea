@@ -7,18 +7,15 @@ import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
+import lombok.RequiredArgsConstructor;
 
 import static com.enigma.waratsea.model.squadron.DeploymentState.AT_AIRFIELD;
 import static com.enigma.waratsea.model.squadron.DeploymentState.NOT_DEPLOYED;
 import static com.enigma.waratsea.model.squadron.DeploymentState.ON_SHIP;
 
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class MainMenu {
   private final MainMenuViewModel mainMenuViewModel;
-
-  @Inject
-  public MainMenu(final MainMenuViewModel mainMenuViewModel) {
-    this.mainMenuViewModel = mainMenuViewModel;
-  }
 
   public MenuBar getMenuBar(final Stage stage) {
     var menuBar = new MenuBar();

@@ -6,6 +6,7 @@ import com.enigma.waratsea.dto.WeatherDto;
 import com.enigma.waratsea.strategy.WeatherStrategy;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 
 import java.time.Month;
 import java.util.Map;
@@ -13,6 +14,7 @@ import java.util.Set;
 import java.util.function.BiFunction;
 
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class BombAlleyWeatherStrategy implements WeatherStrategy {
   private final Set<Month> winterMonths = Set.of(
       Month.JANUARY,
@@ -32,11 +34,6 @@ public class BombAlleyWeatherStrategy implements WeatherStrategy {
   );
 
   private final DiceService diceService;
-
-  @Inject
-  public BombAlleyWeatherStrategy(final DiceService diceService) {
-    this.diceService = diceService;
-  }
 
   @Override
   public WeatherType determine(final WeatherDto input) {

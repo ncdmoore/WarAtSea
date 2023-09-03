@@ -5,11 +5,13 @@ import com.enigma.waratsea.service.DiceService;
 import com.enigma.waratsea.dto.WeatherDto;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
 import java.util.function.Function;
 
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class DefaultWeatherStrategy implements WeatherStrategy {
   private final Map<Integer, Function<WeatherType, WeatherType>> weatherFunctions = Map.of(
       1, this::improve,
@@ -21,11 +23,6 @@ public class DefaultWeatherStrategy implements WeatherStrategy {
   );
 
   private final DiceService diceService;
-
-  @Inject
-  public DefaultWeatherStrategy(final DiceService diceService) {
-    this.diceService = diceService;
-  }
 
   @Override
   public WeatherType determine(final WeatherDto input) {

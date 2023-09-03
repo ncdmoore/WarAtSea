@@ -11,20 +11,14 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class MainView implements View {
   private static final String CSS_FILE = "mainView.css";
 
   private final ResourceProvider resourceProvider;
   private final MainMenu mainMenu;
-
-  @Inject
-  public MainView(final ResourceProvider resourceProvider,
-                  final MainMenu mainMenu) {
-    this.resourceProvider = resourceProvider;
-
-    this.mainMenu = mainMenu;
-  }
 
   @Override
   public void display(final Stage stage) {
