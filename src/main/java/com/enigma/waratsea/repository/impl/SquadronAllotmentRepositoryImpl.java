@@ -6,6 +6,7 @@ import com.enigma.waratsea.repository.SquadronAllotmentRepository;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -17,16 +18,10 @@ import java.util.Optional;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentRepository {
   private final ResourceProvider resourceProvider;
   private final GamePaths gamePaths;
-
-  @Inject
-  public SquadronAllotmentRepositoryImpl(final GamePaths gamePaths,
-                                         final ResourceProvider resourceProvider) {
-    this.resourceProvider = resourceProvider;
-    this.gamePaths = gamePaths;
-  }
 
   @Override
   public Optional<AllotmentEntity> get(final String timeFrame, final NationId allotmentId) {

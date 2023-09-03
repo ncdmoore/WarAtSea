@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -20,16 +21,10 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModRepository {
   private final ResourceProvider resourceProvider;
   private final GamePaths gamePaths;
-
-  @Inject
-  public SquadronAllotmentModRepositoryImpl(final GamePaths gamePaths,
-                                            final ResourceProvider resourceProvider) {
-    this.resourceProvider = resourceProvider;
-    this.gamePaths = gamePaths;
-  }
 
   @Override
   public List<AllotmentModificationEntity> get(final NationId modificationId) {

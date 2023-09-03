@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -20,16 +21,10 @@ import java.nio.charset.StandardCharsets;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class PortRepositoryImpl implements PortRepository {
   private final DataProvider dataProvider;
   private final GamePaths gamePaths;
-
-  @Inject
-  public PortRepositoryImpl(final GamePaths gamePaths,
-                            final DataProvider dataProvider) {
-    this.dataProvider = dataProvider;
-    this.gamePaths = gamePaths;
-  }
 
   @Override
   public PortEntity get(final Id portId) {

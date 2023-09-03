@@ -6,6 +6,7 @@ import com.enigma.waratsea.repository.MapRepository;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -17,16 +18,10 @@ import java.nio.file.Paths;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class MapRepositoryImpl implements MapRepository {
   private final GamePaths gamePaths;
   private final ResourceProvider resourceProvider;
-
-  @Inject
-  public MapRepositoryImpl(final GamePaths gamePaths,
-                           final ResourceProvider resourceProvider) {
-    this.gamePaths = gamePaths;
-    this.resourceProvider = resourceProvider;
-  }
 
   @Override
   public GameMapEntity get() {

@@ -12,6 +12,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -27,19 +28,11 @@ import java.util.List;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class ShipRepositoryImpl implements ShipRepository {
   private final ResourceProvider resourceProvider;
   private final DataProvider dataProvider;
   private final GamePaths gamePaths;
-
-  @Inject
-  public ShipRepositoryImpl(final GamePaths gamePaths,
-                            final ResourceProvider resourceProvider,
-                            final DataProvider dataProvider) {
-    this.resourceProvider = resourceProvider;
-    this.dataProvider = dataProvider;
-    this.gamePaths = gamePaths;
-  }
 
   @Override
   public ShipEntity get(final Id shipId, final ShipType shipType) {

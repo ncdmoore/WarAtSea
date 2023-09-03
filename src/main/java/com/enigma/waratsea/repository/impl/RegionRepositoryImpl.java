@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -21,16 +22,10 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class RegionRepositoryImpl implements RegionRepository {
   private final GamePaths gamePaths;
   private final ResourceProvider resourceProvider;
-
-  @Inject
-  public RegionRepositoryImpl(final GamePaths gamePaths,
-                              final ResourceProvider resourceProvider) {
-    this.gamePaths = gamePaths;
-    this.resourceProvider = resourceProvider;
-  }
 
   @Override
   public List<RegionEntity> get(final Id mapId) {

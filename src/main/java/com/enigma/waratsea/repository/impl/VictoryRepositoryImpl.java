@@ -16,6 +16,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -33,16 +34,10 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class VictoryRepositoryImpl implements VictoryRepository {
   private final DataProvider dataProvider;
   private final GamePaths gamePaths;
-
-  @Inject
-  public VictoryRepositoryImpl(final GamePaths gamePaths,
-                               final DataProvider dataProvider) {
-    this.dataProvider = dataProvider;
-    this.gamePaths = gamePaths;
-  }
 
   @Override
   public List<VictoryEntity> get(final Side side) {
