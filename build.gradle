@@ -15,7 +15,7 @@ repositories {
 ext {
     junitVersion = '5.9.1'
     lombokVersion = '1.18.28'
-    guiceVersion = '5.1.0'
+    guiceVersion = '7.0.0'
     gsonVersion = '2.10.1'
     mapStructVersion = '1.5.5.Final'
 }

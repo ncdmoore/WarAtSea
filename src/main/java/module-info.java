@@ -10,6 +10,7 @@ module com.enigma.waratsea {
   requires org.mapstruct;
   requires org.jetbrains.annotations;
   requires org.apache.commons.collections4;
+  requires jakarta.inject;
 
   opens com.enigma.waratsea to javafx.fxml;
 
