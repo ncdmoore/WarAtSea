@@ -7,21 +7,17 @@ import com.enigma.waratsea.repository.ScenarioRepository;
 import com.enigma.waratsea.service.ScenarioService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class ScenarioServiceImpl implements ScenarioService {
   private final ScenarioRepository scenarioRepository;
-
   private List<Scenario> scenarios;
-
-  @Inject
-  ScenarioServiceImpl(final ScenarioRepository scenarioRepository) {
-    this.scenarioRepository = scenarioRepository;
-  }
 
   @Override
   public List<Scenario> get() {
