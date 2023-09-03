@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
-@Mapper(componentModel = "jsr330")
+@Mapper
 public abstract class AllotmentMapper {
   public static final AllotmentMapper INSTANCE = Mappers.getMapper(AllotmentMapper.class);
 

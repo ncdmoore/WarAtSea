@@ -19,7 +19,7 @@ import com.enigma.waratsea.model.victory.ShipSunkVictory;
 import com.enigma.waratsea.model.victory.SquadronStepDestroyedVictory;
 import com.enigma.waratsea.model.victory.Victory;
 import com.enigma.waratsea.service.PortService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.SubclassExhaustiveStrategy;
 import org.mapstruct.SubclassMapping;
@@ -31,11 +31,11 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "jsr330", subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION)
+@Mapper(subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION)
 public abstract class VictoryMapper {
   public static final VictoryMapper INSTANCE = Mappers.getMapper(VictoryMapper.class);
 
-  @Inject
+  @Setter
   private PortService portService;
 
   public abstract Set<Victory> entitiesToModels(List<VictoryEntity> entities);

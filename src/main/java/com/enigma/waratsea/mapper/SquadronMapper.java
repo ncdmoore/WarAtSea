@@ -5,16 +5,15 @@ import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.aircraft.Aircraft;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.service.AircraftService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "jsr330")
+@Mapper
 public abstract class SquadronMapper {
   public static final SquadronMapper INSTANCE = Mappers.getMapper(SquadronMapper.class);
 
-  @Inject
-  @SuppressWarnings("unused")
+  @Setter
   private AircraftService aircraftService;
 
   public abstract Squadron toModel(SquadronEntity squadronEntity);

@@ -4,8 +4,10 @@ import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.google.inject.Inject;
 import javafx.geometry.Rectangle2D;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -27,10 +29,12 @@ public class MainView implements View {
   @Override
   public void display(final Stage stage) {
     var menuBar = buildMenuBar(stage);
+    var map = buildMap();
 
     var overAllPane = new BorderPane();
 
     overAllPane.setTop(menuBar);
+    overAllPane.setCenter(map);
 
     var screenBounds = getSceneBounds(stage);
 
@@ -54,5 +58,13 @@ public class MainView implements View {
 
   private MenuBar buildMenuBar(final Stage stage) {
     return mainMenu.getMenuBar(stage);
+  }
+
+  private Node buildMap() {
+    var imageView = resourceProvider.getGameImageView("map.png");
+
+    var scrollPane = new ScrollPane();
+    scrollPane.setContent(imageView);
+    return scrollPane;
   }
 }

@@ -37,6 +37,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.mapper;
 
   exports com.enigma.waratsea.model;
+  exports com.enigma.waratsea.model.airbase;
   exports com.enigma.waratsea.model.aircraft;
   exports com.enigma.waratsea.model.cargo;
   exports com.enigma.waratsea.model.die;
@@ -71,6 +72,7 @@ module com.enigma.waratsea {
 
   exports com.enigma.waratsea.viewmodel;
   exports com.enigma.waratsea.viewmodel.game;
+  exports com.enigma.waratsea.viewmodel.game.oob;
   exports com.enigma.waratsea.viewmodel.pregame;
   exports com.enigma.waratsea.viewmodel.events;
 
@@ -108,9 +110,11 @@ module com.enigma.waratsea {
   opens com.enigma.waratsea.model.squadron to com.google.gson;
   opens com.enigma.waratsea.model.turn to com.google.gson;
   opens com.enigma.waratsea.model.weather to com.google.gson;
-  exports com.enigma.waratsea.model.airbase;
   opens com.enigma.waratsea.model.airbase to com.google.gson;
-  exports com.enigma.waratsea.viewmodel.game.oob;
+
+  opens com.enigma.waratsea.viewmodel to com.google.guice;
+  opens com.enigma.waratsea.viewmodel.game.oob to com.google.guice;
+
   exports com.enigma.waratsea.view.game.oob;
   exports com.enigma.waratsea.view.game.ship;
   exports com.enigma.waratsea.view.game.squadron;

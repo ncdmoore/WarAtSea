@@ -15,7 +15,7 @@ import com.enigma.waratsea.model.ship.Submarine;
 import com.enigma.waratsea.model.ship.SurfaceShip;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.service.SquadronService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.SubclassExhaustiveStrategy;
 import org.mapstruct.SubclassMapping;
@@ -26,11 +26,11 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "jsr330", subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION)
+@Mapper(subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION)
 public abstract class ShipMapper {
   public static final ShipMapper INSTANCE = Mappers.getMapper(ShipMapper.class);
 
-  @Inject
+  @Setter
   private SquadronService squadronService;
 
   @SubclassMapping(source = AircraftCarrierEntity.class, target = AircraftCarrier.class)

@@ -7,7 +7,7 @@ import com.enigma.waratsea.model.release.Release;
 import com.enigma.waratsea.model.release.ShipCombatRelease;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.service.TaskForceService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.SubclassExhaustiveStrategy;
@@ -20,14 +20,12 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "jsr330",
-    subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION,
+@Mapper(subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION,
     unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class ReleaseMapper {
   public static final ReleaseMapper INSTANCE = Mappers.getMapper(ReleaseMapper.class);
 
-  @Inject
-  @SuppressWarnings("unused")
+  @Setter
   private TaskForceService taskForceService;
 
   public abstract Set<Release> entitiesToModels(List<ReleaseEntity> entities);

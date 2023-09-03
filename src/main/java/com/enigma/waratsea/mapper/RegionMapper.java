@@ -7,7 +7,7 @@ import com.enigma.waratsea.model.map.Region;
 import com.enigma.waratsea.model.port.Port;
 import com.enigma.waratsea.service.AirfieldService;
 import com.enigma.waratsea.service.PortService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -16,16 +16,14 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-@Mapper(componentModel = "jsr330")
+@Mapper
 public abstract class RegionMapper {
   public static final RegionMapper INSTANCE = Mappers.getMapper(RegionMapper.class);
 
-  @Inject
-  @SuppressWarnings("unused")
+  @Setter
   private AirfieldService airfieldService;
 
-  @Inject
-  @SuppressWarnings("unused")
+  @Setter
   private PortService portService;
 
   public abstract Region toModel(RegionEntity regionEntity);

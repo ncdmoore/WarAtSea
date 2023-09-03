@@ -4,17 +4,16 @@ import com.enigma.waratsea.entity.GameEntity;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.Scenario;
 import com.enigma.waratsea.service.ScenarioService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
 import org.mapstruct.factory.Mappers;
 
-@Mapper(componentModel = "jsr330", unmappedTargetPolicy = ReportingPolicy.IGNORE)
+@Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public abstract class GameMapper {
   public static final GameMapper INSTANCE = Mappers.getMapper(GameMapper.class);
 
-  @Inject
-  @SuppressWarnings("unused")
+  @Setter
   private ScenarioService scenarioService;
 
   public abstract GameEntity toEntity(Game game);

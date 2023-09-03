@@ -5,7 +5,7 @@ import com.enigma.waratsea.model.Airfield;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.squadron.Squadron;
 import com.enigma.waratsea.service.SquadronService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -14,12 +14,11 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "jsr330")
+@Mapper
 public abstract class AirfieldMapper {
   public static final AirfieldMapper INSTANCE = Mappers.getMapper(AirfieldMapper.class);
 
-  @Inject
-  @SuppressWarnings("unused")
+  @Setter
   private SquadronService squadronService;
 
   public abstract Airfield toModel(AirfieldEntity airfieldEntity);

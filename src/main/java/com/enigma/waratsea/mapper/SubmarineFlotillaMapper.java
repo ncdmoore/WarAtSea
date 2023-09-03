@@ -5,7 +5,7 @@ import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.SubmarineFlotilla;
 import com.enigma.waratsea.model.ship.Ship;
 import com.enigma.waratsea.service.ShipService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -15,11 +15,11 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "jsr330")
+@Mapper
 public abstract class SubmarineFlotillaMapper {
   public static final SubmarineFlotillaMapper INSTANCE = Mappers.getMapper(SubmarineFlotillaMapper.class);
 
-  @Inject
+  @Setter
   private ShipService shipService;
 
   public abstract List<SubmarineFlotilla> entitiesToModels(List<SubmarineFlotillaEntity> entities);

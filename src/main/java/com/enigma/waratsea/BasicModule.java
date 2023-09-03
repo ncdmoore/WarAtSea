@@ -129,6 +129,8 @@ import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.ErrorHandler;
 import com.enigma.waratsea.viewmodel.NavigationHandler;
 import com.google.inject.AbstractModule;
+import com.google.inject.Provides;
+import com.google.inject.Singleton;
 import com.google.inject.assistedinject.FactoryModuleBuilder;
 import com.google.inject.multibindings.MapBinder;
 import com.google.inject.multibindings.Multibinder;
@@ -150,10 +152,138 @@ public class BasicModule extends AbstractModule {
     bindViews();
 
     bindRepositories();
-    bindMappers();
     bindWeatherStrategies();
     bindVisibilityStrategies();
     bindServices();
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public GameMapper provideGameMapper(final ScenarioService scenarioService) {
+    var gameMapper = GameMapper.INSTANCE;
+    gameMapper.setScenarioService(scenarioService);
+    return gameMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public AirfieldMapper provideAirfieldMapper(final SquadronService squadronService) {
+    var airfieldMapper = AirfieldMapper.INSTANCE;
+    airfieldMapper.setSquadronService(squadronService);
+    return airfieldMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public AllotmentMapper provideAllotmentMapper() {
+    return AllotmentMapper.INSTANCE;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public AllotmentModificationMapper provideAllotmentModificationMapper() {
+    return AllotmentModificationMapper.INSTANCE;
+  }
+
+  @Provides
+  @SuppressWarnings("unused")
+  public ManifestMapper provideManifestMapper(final ShipService shipService) {
+    var manifestMapper = ManifestMapper.INSTANCE;
+    manifestMapper.setShipService(shipService);
+    return manifestMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public MissionMapper provideMissionMapper(final TaskForceService taskForceService) {
+    var missionMapper = MissionMapper.INSTANCE;
+    missionMapper.setTaskForceService(taskForceService);
+    return missionMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public MtbFlotillaMapper provideMtbFlotillaMapper(final ShipService shipService) {
+    var mtbFlotillaMapper = MtbFlotillaMapper.INSTANCE;
+    mtbFlotillaMapper.setShipService(shipService);
+    return mtbFlotillaMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public RegionMapper provideRegionMapper(final AirfieldService airfieldService, final PortService portService) {
+    var regionMapper = RegionMapper.INSTANCE;
+    regionMapper.setAirfieldService(airfieldService);
+    regionMapper.setPortService(portService);
+    return regionMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public ReleaseMapper provideReleaseMapper(final TaskForceService taskForceService) {
+    var releaseMapper = ReleaseMapper.INSTANCE;
+    releaseMapper.setTaskForceService(taskForceService);
+    return releaseMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public ShipMapper provideShipMapper(final SquadronService squadronService) {
+    var shipMapper = ShipMapper.INSTANCE;
+    shipMapper.setSquadronService(squadronService);
+    return shipMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public ShipRegistryMapper provideShipRegisterMapper() {
+    return ShipRegistryMapper.INSTANCE;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public SquadronMapper provideSquadronMapper(final AircraftService aircraftService) {
+    var squadronMapper = SquadronMapper.INSTANCE;
+    squadronMapper.setAircraftService(aircraftService);
+    return squadronMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public SubmarineFlotillaMapper provideSubmarineFlotillaMapper(final ShipService shipService) {
+    var submarineFlotillaMapper = SubmarineFlotillaMapper.INSTANCE;
+    submarineFlotillaMapper.setShipService(shipService);
+    return submarineFlotillaMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public TaskForceMapper provideTaskForceMapper(final ShipService shipService) {
+    var taskForceMapper = TaskForceMapper.INSTANCE;
+    taskForceMapper.setShipService(shipService);
+    return taskForceMapper;
+  }
+
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public VictoryMapper provideVictoryMapper(final PortService portService) {
+    var victoryMapper = VictoryMapper.INSTANCE;
+    victoryMapper.setPortService(portService);
+    return victoryMapper;
   }
 
   private void bindBootStrapped() {
@@ -224,24 +354,6 @@ public class BasicModule extends AbstractModule {
     bind(ReleaseRepository.class).to(ReleaseRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
     bind(VictoryRepository.class).to(VictoryRepositoryImpl.class);
-  }
-
-  private void bindMappers() {
-    bind(RegionMapper.class).toInstance(RegionMapper.INSTANCE);
-    bind(GameMapper.class).toInstance(GameMapper.INSTANCE);
-    bind(AirfieldMapper.class).toInstance(AirfieldMapper.INSTANCE);
-    bind(AllotmentMapper.class).toInstance(AllotmentMapper.INSTANCE);
-    bind(AllotmentModificationMapper.class).toInstance(AllotmentModificationMapper.INSTANCE);
-    bind(SquadronMapper.class).toInstance(SquadronMapper.INSTANCE);
-    bind(ShipRegistryMapper.class).toInstance(ShipRegistryMapper.INSTANCE);
-    bind(ShipMapper.class).toInstance(ShipMapper.INSTANCE);
-    bind(ManifestMapper.class).toInstance(ManifestMapper.INSTANCE);
-    bind(TaskForceMapper.class).toInstance(TaskForceMapper.INSTANCE);
-    bind(SubmarineFlotillaMapper.class).toInstance(SubmarineFlotillaMapper.INSTANCE);
-    bind(MtbFlotillaMapper.class).toInstance(MtbFlotillaMapper.INSTANCE);
-    bind(MissionMapper.class).toInstance(MissionMapper.INSTANCE);
-    bind(ReleaseMapper.class).toInstance(ReleaseMapper.INSTANCE);
-    bind(VictoryMapper.class).toInstance(VictoryMapper.INSTANCE);
   }
 
   private void bindWeatherStrategies() {

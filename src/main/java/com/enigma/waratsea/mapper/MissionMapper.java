@@ -19,7 +19,7 @@ import com.enigma.waratsea.model.mission.Patrol;
 import com.enigma.waratsea.model.mission.Transport;
 import com.enigma.waratsea.model.taskForce.TaskForce;
 import com.enigma.waratsea.service.TaskForceService;
-import com.google.inject.Inject;
+import lombok.Setter;
 import org.mapstruct.Mapper;
 import org.mapstruct.SubclassExhaustiveStrategy;
 import org.mapstruct.SubclassMapping;
@@ -31,11 +31,11 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Mapper(componentModel = "jsr330", subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION)
+@Mapper(subclassExhaustiveStrategy = SubclassExhaustiveStrategy.RUNTIME_EXCEPTION)
 public abstract class MissionMapper {
   public static final MissionMapper INSTANCE = Mappers.getMapper(MissionMapper.class);
 
-  @Inject
+  @Setter
   private TaskForceService taskForceService;
 
   public abstract List<Mission> entitiesToModels(List<MissionEntity> entities);

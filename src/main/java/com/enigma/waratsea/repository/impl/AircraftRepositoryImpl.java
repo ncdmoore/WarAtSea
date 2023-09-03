@@ -7,6 +7,7 @@ import com.enigma.waratsea.repository.AircraftRepository;
 import com.google.gson.Gson;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
@@ -17,16 +18,10 @@ import java.nio.charset.StandardCharsets;
 
 @Slf4j
 @Singleton
+@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class AircraftRepositoryImpl implements AircraftRepository {
   private final ResourceProvider resourceProvider;
   private final GamePaths gamePaths;
-
-  @Inject
-  public AircraftRepositoryImpl(final GamePaths gamePaths,
-                                final ResourceProvider resourceProvider) {
-    this.resourceProvider = resourceProvider;
-    this.gamePaths = gamePaths;
-  }
 
   @Override
   public AircraftEntity get(final Id aircraftId) {
