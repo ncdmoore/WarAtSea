@@ -21,13 +21,16 @@ import java.util.Map;
 @Singleton
 public class AircraftServiceImpl implements AircraftService {
   private final AircraftRepository aircraftRepository;
+  private final AircraftMapper aircraftMapper;
 
   private final Map<Id, Aircraft> aircraft = new HashMap<>();
 
   @Inject
   public AircraftServiceImpl(final Events events,
-                             final AircraftRepository aircraftRepository) {
+                             final AircraftRepository aircraftRepository,
+                             final AircraftMapper aircraftMapper) {
     this.aircraftRepository = aircraftRepository;
+    this.aircraftMapper = aircraftMapper;
 
     registerEvents(events);
   }
@@ -62,7 +65,7 @@ public class AircraftServiceImpl implements AircraftService {
 
   private Aircraft getFromRepository(final Id aircraftId) {
     var entity = aircraftRepository.get(aircraftId);
-    return AircraftMapper.INSTANCE.toModel(entity);
+    return aircraftMapper.toModel(entity);
   }
 
   private void clearCache() {

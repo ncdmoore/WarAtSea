@@ -1,5 +1,6 @@
 package com.enigma.waratsea;
 
+import com.enigma.waratsea.mapper.AircraftMapper;
 import com.enigma.waratsea.mapper.AirfieldMapper;
 import com.enigma.waratsea.mapper.AllotmentMapper;
 import com.enigma.waratsea.mapper.AllotmentModificationMapper;
@@ -164,6 +165,13 @@ public class BasicModule extends AbstractModule {
     var gameMapper = GameMapper.INSTANCE;
     gameMapper.setScenarioService(scenarioService);
     return gameMapper;
+  }
+
+  @Singleton
+  @Provides
+  @SuppressWarnings("unused")
+  public AircraftMapper provideAircraftMapper() {
+    return AircraftMapper.INSTANCE;
   }
 
   @Provides
