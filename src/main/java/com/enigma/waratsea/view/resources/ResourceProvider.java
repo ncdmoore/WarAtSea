@@ -3,6 +3,7 @@ package com.enigma.waratsea.view.resources;
 import com.enigma.waratsea.exception.ResourceException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.repository.impl.GamePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -53,6 +54,18 @@ public class ResourceProvider {
     return getScenarioSpecificImage(scenario, imageName)
         .or(() -> getGameCommonImage(imageName))
         .orElseThrow(() -> new ResourceException("Unable to get image: " + imageName));
+  }
+
+  public Image getImage(final String scenario, final Side side, final String imageName) {
+    return getScenarioSpecificImage(scenario, side, imageName)
+       .or(() -> Optional.ofNullable(getImage(side, imageName)))
+       .orElseThrow(() -> new ResourceException("Unable to get image: " + imageName));
+  }
+
+  public Image getImage(final Side side, final String imageName) {
+    return getSideImageResource(side, imageName)
+      .or(() -> getGameCommonImage(imageName))
+      .orElseThrow(() -> new ResourceException("Unable to get image: " + imageName));
   }
 
   public Image getImage(final Nation nation, final String imageName) {
@@ -133,6 +146,18 @@ public class ResourceProvider {
   private Optional<Image> getScenarioSpecificImage(final String scenario, final String imageName) {
     var path = Paths.get(gamePath, scenarioDirectory, scenario, imageDirectory, imageName).toString();
     log.debug("get image: {}", path);
+    return getImageResource(path);
+  }
+
+  private Optional<Image> getScenarioSpecificImage(final String scenario, final Side side, final String imageName) {
+    var path = Paths.get(gamePath, scenarioDirectory, scenario, imageDirectory, side.toString(), imageName).toString();
+    log.debug("get image: {}", path);
+    return getImageResource(path);
+  }
+
+  private Optional<Image> getSideImageResource(final Side side, final String imageName) {
+    var path = Paths.get(gamePath, imageDirectory, side.toString(), imageName).toString();
+    log.debug("get image: '{}'", path);
     return getImageResource(path);
   }
 

@@ -1,6 +1,7 @@
 package com.enigma.waratsea.view.pregame;
 
 import com.enigma.waratsea.model.Scenario;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.resources.ResourceProvider;
@@ -142,11 +143,8 @@ public class NewGameView implements View {
     var alliesFlag = new ImageView();
     var axisFlag = new ImageView();
 
-    var alliesFlagName = props.getString("allies.flag.medium.image");
-    var axisFlagName = props.getString("axis.flag.medium.image");
-
-    bindFlag(alliesFlag, alliesFlagName, selectedScenario);
-    bindFlag(axisFlag, axisFlagName, selectedScenario);
+    bindFlag(alliesFlag, ALLIES, selectedScenario);
+    bindFlag(axisFlag, AXIS, selectedScenario);
 
     HBox radioButtonsHBox = new HBox(alliesFlag, alliesRadioButton, axisRadioButton, axisFlag);
     radioButtonsHBox.setId("radio-buttons-hbox");
@@ -220,9 +218,9 @@ public class NewGameView implements View {
     return detailsGrid;
   }
 
-  private void bindFlag(final ImageView flag, final String flagName, final ObjectProperty<Scenario> selectedScenario) {
+  private void bindFlag(final ImageView flag, final Side side, final ObjectProperty<Scenario> selectedScenario) {
     flag.imageProperty().bind(Bindings.createObjectBinding(() ->
-        getFlagImage(selectedScenario, flagName), selectedScenario));
+        getFlagImage(selectedScenario, side), selectedScenario));
   }
 
   private void bindScenarioImage(final ImageView scenarioImage, final ObjectProperty<Scenario> selectedScenario) {
@@ -286,13 +284,14 @@ public class NewGameView implements View {
     return Integer.toString(scenario.getMaxTurns());
   }
 
-  private Image getFlagImage(final ObjectProperty<Scenario> selectedScenario, final String imageName) {
+  private Image getFlagImage(final ObjectProperty<Scenario> selectedScenario, final Side side) {
     return Optional.ofNullable(selectedScenario.getValue())
-        .map(s -> getFlagImage(s, imageName))
+        .map(s -> getFlagImage(s, side))
         .orElse(null);
   }
 
-  private Image getFlagImage(final Scenario scenario, final String imageName) {
-    return resourceProvider.getImage(scenario.getName(), imageName);
+  private Image getFlagImage(final Scenario scenario, final Side side) {
+    var flagName = props.getString("flag.medium.image");
+    return resourceProvider.getImage(scenario.getName(), side, flagName);
   }
 }

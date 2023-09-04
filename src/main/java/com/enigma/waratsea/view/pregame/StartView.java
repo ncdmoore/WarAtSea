@@ -18,6 +18,9 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import static com.enigma.waratsea.model.Side.ALLIES;
+import static com.enigma.waratsea.model.Side.AXIS;
+
 public class StartView implements View {
   private static final String CSS_FILE = "startView.css";
 
@@ -60,7 +63,9 @@ public class StartView implements View {
   private Node buildTitlePane() {
     var flagHBoxWidth = props.getInt("pregame.start.image.width");
 
-    var alliesFlag = resourceProvider.getGameImageView(props.getString("allies.flag.large.image"));
+    var flagName = props.getString("flag.large.image");
+    var alliesFlagImage = resourceProvider.getImage(ALLIES, flagName);
+    var alliesFlagImageView = new ImageView(alliesFlagImage);
 
     var leftRegion = new Region();
     HBox.setHgrow(leftRegion, Priority.ALWAYS);
@@ -71,9 +76,10 @@ public class StartView implements View {
     var rightRegion = new Region();
     HBox.setHgrow(rightRegion, Priority.ALWAYS);
 
-    var axisFlag = resourceProvider.getGameImageView(props.getString("axis.flag.large.image"));
+    var axisFlagImage = resourceProvider.getImage(AXIS, flagName);
+    var axisFlagImageView = new ImageView(axisFlagImage);
 
-    var titlePane = new HBox(alliesFlag, leftRegion, title, rightRegion, axisFlag);
+    var titlePane = new HBox(alliesFlagImageView, leftRegion, title, rightRegion, axisFlagImageView);
     titlePane.setMaxWidth(flagHBoxWidth);
     titlePane.setId("title-pane");
 

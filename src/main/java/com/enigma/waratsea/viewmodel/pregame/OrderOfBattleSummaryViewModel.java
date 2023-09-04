@@ -123,36 +123,32 @@ public class OrderOfBattleSummaryViewModel {
   private void setFlag(final Game game) {
     var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = humanSide.toLower() + ".flag.medium.image";
-    var imageName = props.getString(propertyName);
-    var image = resourceProvider.getImage(scenario, imageName);
+    var imageName = props.getString("flag.medium.image");
+    var image = resourceProvider.getImage(scenario, humanSide, imageName);
     flag.setValue(image);
   }
 
   private void setTaskForceImage(final Game game) {
     var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = humanSide.toLower() + ".task.force.ships.image";
-    var imageName = props.getString(propertyName);
-    var image = resourceProvider.getImage(scenario, imageName);
+    var imageName = props.getString("task.force.ships.image");
+    var image = resourceProvider.getImage(scenario, humanSide, imageName);
     taskForceImage.setValue(image);
   }
 
   private void setSubmarineFlotillaImage(final Game game) {
     var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = humanSide.toLower() + ".submarine.flotilla.image";
-    var imageName = props.getString(propertyName);
-    var image = resourceProvider.getImage(scenario, imageName);
+    var imageName = props.getString("submarine.flotilla.image");
+    var image = resourceProvider.getImage(scenario, humanSide, imageName);
     submarineFlotillaImage.setValue(image);
   }
 
   private void setMtbFlotillaImage(final Game game) {
     var humanSide = game.getHumanSide();
     var scenario = game.getScenario().getName();
-    var propertyName = humanSide.toLower() + ".mtb.flotilla.image";
-    var imageName = props.getString(propertyName);
-    var image = resourceProvider.getImage(scenario, imageName);
+    var imageName = props.getString("mtb.flotilla.image");
+    var image = resourceProvider.getImage(scenario, humanSide, imageName);
     mtbFlotillaImage.setValue(image);
   }
 

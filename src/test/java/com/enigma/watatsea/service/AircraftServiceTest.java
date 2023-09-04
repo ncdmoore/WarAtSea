@@ -2,7 +2,9 @@ package com.enigma.watatsea.service;
 
 import com.enigma.waratsea.entity.aircraft.AircraftEntity;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.mapper.AircraftMapper;
 import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.aircraft.Aircraft;
 import com.enigma.waratsea.repository.AircraftRepository;
 import com.enigma.waratsea.service.impl.AircraftServiceImpl;
 import org.junit.jupiter.api.Test;
@@ -24,6 +26,9 @@ class AircraftServiceTest {
   @Mock
   private AircraftRepository aircraftRepository;
 
+  @Mock
+  private AircraftMapper aircraftMapper;
+
   @SuppressWarnings("unused")
   @Spy
   private Events events;
@@ -33,8 +38,10 @@ class AircraftServiceTest {
     var aircraftId = new Id(ALLIES, "aircraft");
 
     var aircraftEntity = AircraftEntity.builder().id(aircraftId).build();
+    var aircraft = Aircraft.builder().id(aircraftId).build();
 
     given(aircraftRepository.get(aircraftId)).willReturn(aircraftEntity);
+    given(aircraftMapper.toModel(aircraftEntity)).willReturn(aircraft);
 
     var result = aircraftService.get(aircraftId);
 

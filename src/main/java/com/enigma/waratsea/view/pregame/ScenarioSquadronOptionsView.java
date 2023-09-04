@@ -17,6 +17,7 @@ import javafx.scene.control.Separator;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -108,11 +109,12 @@ public class ScenarioSquadronOptionsView implements View {
     var hBox = new HBox(imagePane, optionsPane);
     hBox.setId("nation-hbox");
 
-    var roundelImageName = nation.toLower() + ".roundel.small.image";
-    var roundelImage = resourceProvider.getGameImageView(props.getString(roundelImageName));
+    var roundelImageName = props.getString("roundel.small.image");
+    var roundelImage = resourceProvider.getImage(nation, roundelImageName);
+    var roundelImageView = new ImageView(roundelImage);
 
     nationTab.setContent(hBox);
-    nationTab.setGraphic(roundelImage);
+    nationTab.setGraphic(roundelImageView);
 
     return nationTab;
   }
@@ -121,9 +123,9 @@ public class ScenarioSquadronOptionsView implements View {
     var nationId = entry.getKey();
     var nation = nationId.getNation();
 
-    var imageName = nation.toLower() + ".allotment.options.image";
-
-    return resourceProvider.getGameImageView(props.getString(imageName));
+    var imageName = props.getString("allotment.options.image");
+    var image = resourceProvider.getImage(nation, imageName);
+    return new ImageView(image);
   }
 
   private Node buildNationOptions(final Map.Entry<NationId, Set<AllotmentModification>> entry) {
