@@ -12,8 +12,6 @@ module com.enigma.waratsea {
   requires org.apache.commons.collections4;
   requires jakarta.inject;
 
-  opens com.enigma.waratsea to javafx.fxml;
-
   opens com.enigma.waratsea.entity to com.google.gson;
   opens com.enigma.waratsea.model to com.google.gson;
   opens com.enigma.waratsea.model.player to com.google.gson;
