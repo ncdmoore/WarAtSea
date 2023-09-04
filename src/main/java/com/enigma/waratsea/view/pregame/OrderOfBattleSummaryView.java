@@ -677,10 +677,10 @@ public class OrderOfBattleSummaryView implements View {
   }
 
   private void bindAirForceImage(final ImageView airForceImage, final ReadOnlyObjectProperty<Nation> selectedNation) {
+    var imageName = props.getString("air.force.squadrons.image");
     airForceImage.imageProperty().bind(Bindings.createObjectBinding(() ->
         Optional.ofNullable(selectedNation.getValue())
-            .map(nation -> props.getString(nation.toLower() + ".air.force.squadrons.image"))
-            .map(resourceProvider::getGameImage)
+            .map(nation -> resourceProvider.getImage(nation, imageName))
             .orElse(null), selectedNation));
   }
 }

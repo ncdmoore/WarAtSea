@@ -2,6 +2,7 @@ package com.enigma.waratsea.view.resources;
 
 import com.enigma.waratsea.exception.ResourceException;
 import com.enigma.waratsea.model.Id;
+import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.repository.impl.GamePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
@@ -52,6 +53,12 @@ public class ResourceProvider {
     return getScenarioSpecificImage(scenario, imageName)
         .or(() -> getGameCommonImage(imageName))
         .orElseThrow(() -> new ResourceException("Unable to get image: " + imageName));
+  }
+
+  public Image getImage(final Nation nation, final String imageName) {
+    return getNationImageResource(nation, imageName)
+       .or(() -> getGameCommonImage(imageName))
+       .orElseThrow(() -> new ResourceException("Unable to get image: " + imageName));
   }
 
   public Image getGameImage(final String imageName) {
@@ -124,8 +131,14 @@ public class ResourceProvider {
   }
 
   private Optional<Image> getScenarioSpecificImage(final String scenario, final String imageName) {
-    String path = Paths.get(gamePath, scenarioDirectory, scenario, imageDirectory, imageName).toString();
+    var path = Paths.get(gamePath, scenarioDirectory, scenario, imageDirectory, imageName).toString();
     log.debug("get image: {}", path);
+    return getImageResource(path);
+  }
+
+  private Optional<Image> getNationImageResource(final Nation nation, final String imageName) {
+    var path = Paths.get(gamePath, imageDirectory, nation.toLower(), imageName).toString();
+    log.debug("get image: '{}'", path);
     return getImageResource(path);
   }
 

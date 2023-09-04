@@ -238,8 +238,9 @@ public class OobSquadronsView {
   }
 
   private ImageView getRoundel(final Nation nation) {
-    var roundelImageName = nation.toLower() + ".roundel.small.image";
-    return resourceProvider.getGameImageView(props.getString(roundelImageName));
+    var roundelImageName = props.getString("roundel.small.image");
+    var roundelImage = resourceProvider.getImage(nation, roundelImageName);
+    return new ImageView(roundelImage);
   }
 
   private Label buildInstructionLabel(final String text) {
