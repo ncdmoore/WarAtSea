@@ -263,7 +263,8 @@ public class OrderOfBattleSummaryView implements View {
   private Node buildNationsList(final ListView<Nation> nations) {
     var airForceImage = new ImageView();
 
-    airForceImage.imageProperty().bind(orderOfBattleSummaryViewModel.getAirForceImage());
+    bindAirForceImage(airForceImage, nations.getSelectionModel().selectedItemProperty());
+
     nations.itemsProperty().bind(orderOfBattleSummaryViewModel.getNations());
 
     nations.setMaxWidth(props.getInt("pregame.scenario.list.width"));
@@ -671,5 +672,13 @@ public class OrderOfBattleSummaryView implements View {
         Optional.ofNullable(selectedFlotilla.getValue())
             .map(flotilla -> flotilla.getBoats().size() + "")
             .orElse(""), selectedFlotilla));
+  }
+
+  private void bindAirForceImage(final ImageView airForceImage, final ReadOnlyObjectProperty<Nation> selectedNation) {
+    airForceImage.imageProperty().bind(Bindings.createObjectBinding(() ->
+        Optional.ofNullable(selectedNation.getValue())
+            .map(nation -> props.getString(nation.toLower() + ".air.force.squadrons.image"))
+            .map(resourceProvider::getGameImage)
+            .orElse(null), selectedNation));
   }
 }
