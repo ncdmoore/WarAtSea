@@ -262,8 +262,10 @@ public class OrderOfBattleSummaryView implements View {
 
   private Node buildNationsList(final ListView<Nation> nations) {
     var airForceImage = new ImageView();
+    var nation = nations.getSelectionModel()
+        .selectedItemProperty();
 
-    bindAirForceImage(airForceImage, nations.getSelectionModel().selectedItemProperty());
+    bindAirForceImage(airForceImage, nation);
 
     nations.itemsProperty().bind(orderOfBattleSummaryViewModel.getNations());
 
