@@ -80,7 +80,7 @@ public class ReleaseRepositoryImpl implements ReleaseRepository {
     var type = new TypeToken<ArrayList<ReleaseEntity>>() {
     }.getType();
 
-    RuntimeTypeAdapterFactory<ReleaseEntity> adapter = RuntimeTypeAdapterFactory
+    var adapter = RuntimeTypeAdapterFactory
         .of(ReleaseEntity.class, "type")
         .registerSubtype(ShipCombatReleaseEntity.class);
 

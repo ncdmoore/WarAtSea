@@ -86,7 +86,7 @@ public class MissionRepositoryImpl implements MissionRepository {
     var type = new TypeToken<ArrayList<MissionEntity>>() {
     }.getType();
 
-    RuntimeTypeAdapterFactory<MissionEntity> adapter = RuntimeTypeAdapterFactory
+    var adapter = RuntimeTypeAdapterFactory
         .of(MissionEntity.class, "type")
         .registerSubtype(BombardmentEntity.class)
         .registerSubtype(EscortEntity.class)

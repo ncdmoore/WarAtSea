@@ -86,7 +86,7 @@ public class VictoryRepositoryImpl implements VictoryRepository {
     var type = new TypeToken<ArrayList<VictoryEntity>>() {
     }.getType();
 
-    RuntimeTypeAdapterFactory<VictoryEntity> adapter = RuntimeTypeAdapterFactory
+    var adapter = RuntimeTypeAdapterFactory
         .of(VictoryEntity.class, "type")
         .registerSubtype(ShipBombardmentVictoryEntity.class)
         .registerSubtype(ShipCargoLostVictoryEntity.class)
