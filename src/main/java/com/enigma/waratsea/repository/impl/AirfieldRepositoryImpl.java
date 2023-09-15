@@ -70,6 +70,7 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
 
   private AirfieldEntity toEntity(final BufferedReader bufferedReader) {
     var gson = new Gson();
+
     var airfield = gson.fromJson(bufferedReader, AirfieldEntity.class);
 
     log.debug("load airfield: '{}'", airfield.getId());

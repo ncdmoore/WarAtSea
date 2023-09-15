@@ -20,8 +20,8 @@ import java.nio.charset.StandardCharsets;
 @Singleton
 @RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class AircraftRepositoryImpl implements AircraftRepository {
-  private final ResourceProvider resourceProvider;
   private final GamePaths gamePaths;
+  private final ResourceProvider resourceProvider;
 
   @Override
   public AircraftEntity get(final Id aircraftId) {
@@ -31,11 +31,10 @@ public class AircraftRepositoryImpl implements AircraftRepository {
   }
 
   private AircraftEntity readAircraft(final FilePath filePath) {
-    log.info("Read aircraft: '{}'", filePath);
-
     try (var in = getInputStream(filePath);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
+      log.debug("Read aircraft: '{}'", filePath);
       return toEntity(br);
     } catch (IOException e) {
       throw new GameException("Unable to create aircraft: " + filePath, e);
