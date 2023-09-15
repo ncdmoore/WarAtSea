@@ -35,7 +35,8 @@ public class PortRepositoryImpl implements PortRepository {
 
   @Override
   public void save(final String gameId, final PortEntity port) {
-    var filePath = getFilePath(port);
+    var portId = port.getId();
+    var filePath = getFilePath(portId);
 
     writePort(gameId, filePath, port);
   }
@@ -92,16 +93,6 @@ public class PortRepositoryImpl implements PortRepository {
         .baseDirectory(portDirectory)
         .side(portId.getSide())
         .fileName(portId.getName())
-        .build();
-  }
-
-  private FilePath getFilePath(final PortEntity port) {
-    var portDirectory = gamePaths.getPortDirectory();
-
-    return FilePath.builder()
-        .baseDirectory(portDirectory)
-        .side(port.getId().getSide())
-        .fileName(port.getId().getName())
         .build();
   }
 }

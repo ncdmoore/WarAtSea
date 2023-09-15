@@ -35,7 +35,8 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
 
   @Override
   public void save(final String gameId, final AirfieldEntity airfield) {
-    var filePath = getFilePath(airfield);
+    var airfieldId = airfield.getId();
+    var filePath = getFilePath(airfieldId);
 
     writeAirfield(gameId, filePath, airfield);
   }
@@ -93,16 +94,6 @@ public class AirfieldRepositoryImpl implements AirfieldRepository {
         .baseDirectory(airfieldDirectory)
         .side(airfieldId.getSide())
         .fileName(airfieldId.getName())
-        .build();
-  }
-
-  private FilePath getFilePath(final AirfieldEntity airfield) {
-    var airfieldDirectory = gamePaths.getAirfieldDirectory();
-
-    return FilePath.builder()
-        .baseDirectory(airfieldDirectory)
-        .side(airfield.getId().getSide())
-        .fileName(airfield.getId().getName())
         .build();
   }
 }

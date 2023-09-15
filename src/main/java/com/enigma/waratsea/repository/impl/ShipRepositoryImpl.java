@@ -50,7 +50,8 @@ public class ShipRepositoryImpl implements ShipRepository {
 
   @Override
   public void save(final String gameId, final ShipEntity ship) {
-    var filePath = getFilePath(ship);
+    var shipId = ship.getId();
+    var filePath = getFilePath(shipId);
 
     writeShip(gameId, filePath, ship);
   }
@@ -128,16 +129,6 @@ public class ShipRepositoryImpl implements ShipRepository {
         .baseDirectory(shipDirectory)
         .side(shipId.getSide())
         .fileName(shipId.getName())
-        .build();
-  }
-
-  private FilePath getFilePath(final ShipEntity ship) {
-    var shipDirectory = gamePaths.getShipDirectory();
-
-    return FilePath.builder()
-        .baseDirectory(shipDirectory)
-        .side(ship.getId().getSide())
-        .fileName(ship.getId().getName())
         .build();
   }
 

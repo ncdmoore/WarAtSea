@@ -41,7 +41,8 @@ public class SquadronRepositoryImpl implements SquadronRepository {
 
   @Override
   public void save(final String gameId, final SquadronEntity squadron) {
-    var filePath = getSquadronFilePath(squadron);
+    var squadronId = squadron.getId();
+    var filePath = getSquadronFilePath(squadronId);
 
     writeSquadron(gameId, filePath, squadron);
   }
@@ -161,15 +162,6 @@ public class SquadronRepositoryImpl implements SquadronRepository {
         .build();
   }
 
-  private FilePath getSquadronFilePath(final SquadronEntity squadron) {
-    var squadronDirectory = gamePaths.getSquadronDirectory();
-
-    return FilePath.builder()
-        .baseDirectory(squadronDirectory)
-        .side(squadron.getId().getSide())
-        .fileName(squadron.getId().getName())
-        .build();
-  }
   private FilePath getSquadronManifestFilePath(final Side side) {
     var squadronDirectory = gamePaths.getSquadronDirectory();
     var squadronManifestFileName = gamePaths.getSquadronManifestFileName();
