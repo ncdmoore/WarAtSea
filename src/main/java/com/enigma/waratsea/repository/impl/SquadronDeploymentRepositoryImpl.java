@@ -39,7 +39,7 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
       log.debug("Read squadron deployment: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read deployment: '{}'", filePath);
+      log.warn("Unable to read deployment: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }

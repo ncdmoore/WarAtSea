@@ -40,7 +40,7 @@ public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModR
       log.debug("Read allotment modification: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read allotment modification: '{}'", filePath, e);
+      log.warn("Unable to read allotment modification: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }

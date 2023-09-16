@@ -38,7 +38,7 @@ public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentReposit
          var br = new BufferedReader(reader)) {
       return Optional.of(toEntities(br));
     } catch (Exception e) {
-      log.warn("Unable to squadron load allotment: " + filePath);
+      log.warn("Unable to squadron load allotment: '{}', {}, '{}'", filePath, e.getClass(), e.getMessage());
       return Optional.empty();
     }
   }

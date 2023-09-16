@@ -54,7 +54,7 @@ public class ReleaseRepositoryImpl implements ReleaseRepository {
       log.debug("Read release conditions: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read release conditions: '{}'", filePath, e);
+      log.warn("Unable to read release conditions: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }

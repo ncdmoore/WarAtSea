@@ -54,7 +54,7 @@ public class TaskForceRepositoryImpl implements TaskForceRepository {
       log.debug("Read task forces: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read task forces: '{}'", filePath);
+      log.warn("Unable to read task forces: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }

@@ -54,7 +54,7 @@ public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaReposit
       log.debug("Read submarine flotillas: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read submarine flotilla: '{}'", filePath);
+      log.warn("Unable to read submarine flotilla: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }

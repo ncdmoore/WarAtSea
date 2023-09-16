@@ -40,7 +40,7 @@ public class ManifestRepositoryImpl implements ManifestRepository {
       log.debug("Read cargo manifests: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read cargo manifests: '{}'", filePath);
+      log.warn("Unable to read cargo manifests: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }

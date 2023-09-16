@@ -60,7 +60,7 @@ public class MissionRepositoryImpl implements MissionRepository {
       log.debug("Read missions: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read missions: '{}'", filePath);
+      log.warn("Unable to read missions: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }

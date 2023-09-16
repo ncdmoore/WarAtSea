@@ -72,7 +72,7 @@ public class ShipRepositoryImpl implements ShipRepository {
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.info("Save ship to path: '{}'", path);
+      log.debug("Save ship to path: '{}'", path);
       var json = toJson(ship);
       writer.write(json);
 

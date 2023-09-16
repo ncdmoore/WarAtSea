@@ -54,7 +54,7 @@ public class MtbFlotillaRepositoryImpl implements MtbFlotillaRepository {
       log.debug("Read MTB flotillas: '{}'", filePath);
       return toEntities(br);
     } catch (Exception e) {
-      log.warn("Unable to read MTB flotilla: '{}'", filePath);
+      log.warn("Unable to read MTB flotilla: '{}' {} '{}'", filePath, e.getClass(), e.getMessage());
       return Collections.emptyList();
     }
   }
