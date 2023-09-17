@@ -1,4 +1,4 @@
-package com.enigma.waratsea.view;
+package com.enigma.waratsea.view.dialog;
 
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.resources.ResourceProvider;

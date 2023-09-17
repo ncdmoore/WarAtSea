@@ -117,4 +117,5 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.view.game.oob;
   exports com.enigma.waratsea.view.game.ship;
   exports com.enigma.waratsea.view.game.squadron;
+  exports com.enigma.waratsea.view.dialog;
 }

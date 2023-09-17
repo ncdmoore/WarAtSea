@@ -416,7 +416,7 @@ public class SquadronDetailsView {
 
       return Optional.ofNullable(selectedSquadron.getValue())
           .map(squadron -> squadron.setConfiguration(config))
-          .map(squadron -> squadron.getConfiguration().getValue() + "")
+          .map(squadron -> squadron.getConfiguration().getValue())
           .orElse("");
     };
 
