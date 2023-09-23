@@ -8,6 +8,7 @@ import com.enigma.waratsea.model.statistics.ProbabilityVisitor;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.StatisticsService;
 import com.google.inject.Inject;
+import com.google.inject.assistedinject.Assisted;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -16,7 +17,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -25,11 +25,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor(onConstructor = @__({@Inject}))
 public class OobSquadronsViewModel {
   private final GameService gameService;
   private final StatisticsService statisticsService;
-  private DeploymentState deploymentState;
+  private final DeploymentState deploymentState;
 
   @Getter
   private final StringProperty side = new SimpleStringProperty();
@@ -42,13 +41,15 @@ public class OobSquadronsViewModel {
   @Getter
   private final Map<Nation, Map<AircraftType, ListProperty<Squadron>>> squadrons = new HashMap<>();
 
-  public void init(final DeploymentState filter) {
-    deploymentState = filter;
+  @Inject
+  public OobSquadronsViewModel(final GameService gameService,
+                               final StatisticsService statisticsService,
+                               @Assisted final DeploymentState deploymentState) {
+    this.gameService = gameService;
+    this.statisticsService = statisticsService;
+    this.deploymentState = deploymentState;
 
-    setSide();
-    setNations();
-    setSquadrons();
-    updateNations();
+    init();
   }
 
   public ListProperty<Squadron> getAircraftTypeSquadrons(final Nation nation, final AircraftType aircraftType) {
@@ -63,6 +64,13 @@ public class OobSquadronsViewModel {
 
   public ProbabilityVisitor getProbability() {
     return statisticsService.getSuccessRate();
+  }
+
+  private void init() {
+    setSide();
+    setNations();
+    setSquadrons();
+    updateNations();
   }
 
   private void setNations() {

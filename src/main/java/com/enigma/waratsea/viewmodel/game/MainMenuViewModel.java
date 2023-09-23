@@ -3,7 +3,7 @@ package com.enigma.waratsea.viewmodel.game;
 import com.enigma.waratsea.model.squadron.DeploymentState;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.game.oob.OobShipsView;
-import com.enigma.waratsea.view.game.oob.OobSquadronsView;
+import com.enigma.waratsea.view.game.oob.OobSquadronsViewFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import javafx.beans.property.BooleanProperty;
@@ -15,17 +15,17 @@ import java.util.Map;
 
 public class MainMenuViewModel {
   private final GameService gameService;
-  private final Provider<OobSquadronsView> oobSquadronsViewProvider;
+  private final OobSquadronsViewFactory oobSquadronsViewFactory;
   private final Provider<OobShipsView> oobShipsViewProvider;
 
   private final Map<DeploymentState, BooleanProperty> squadronsPresent = new HashMap<>();
 
   @Inject
   public MainMenuViewModel(final GameService gameService,
-                           final Provider<OobSquadronsView> oobSquadronsViewProvider,
+                           final OobSquadronsViewFactory oobSquadronsViewFactory,
                            final Provider<OobShipsView> oobShipsViewProvider) {
     this.gameService = gameService;
-    this.oobSquadronsViewProvider = oobSquadronsViewProvider;
+    this.oobSquadronsViewFactory = oobSquadronsViewFactory;
     this.oobShipsViewProvider = oobShipsViewProvider;
 
     DeploymentState.stream()
@@ -37,8 +37,8 @@ public class MainMenuViewModel {
   }
 
   public void showSquadrons(final DeploymentState deploymentState) {
-   oobSquadronsViewProvider.get()
-       .display(deploymentState);
+   oobSquadronsViewFactory.get(deploymentState)
+       .display();
   }
 
   public void showShips() {

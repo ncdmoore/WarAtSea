@@ -9,8 +9,10 @@ import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.view.game.squadron.SquadronDetailsView;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.game.oob.OobSquadronsViewModel;
+import com.enigma.waratsea.viewmodel.game.oob.OobSquadronsViewModelFactory;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.google.inject.assistedinject.Assisted;
 import com.google.inject.name.Named;
 import javafx.beans.binding.Bindings;
 import javafx.beans.property.StringProperty;
@@ -42,23 +44,22 @@ public class OobSquadronsView {
 
   private final Props props;
   private final ResourceProvider resourceProvider;
-  private final OobSquadronsViewModel oobSquadronsViewModel;
   private final Provider<SquadronDetailsView> squadronDetailsViewProvider;
+  private final OobSquadronsViewModel oobSquadronsViewModel;
 
   @Inject
   public OobSquadronsView(final @Named("View") Props props,
                           final ResourceProvider resourceProvider,
-                          final OobSquadronsViewModel oobSquadronsViewModel,
-                          final Provider<SquadronDetailsView> squadronDetailsViewProvider) {
+                          final OobSquadronsViewModelFactory oobSquadronsViewModelFactory,
+                          final Provider<SquadronDetailsView> squadronDetailsViewProvider,
+                          @Assisted final DeploymentState deploymentState) {
     this.props = props;
     this.resourceProvider = resourceProvider;
-    this.oobSquadronsViewModel = oobSquadronsViewModel;
+    this.oobSquadronsViewModel = oobSquadronsViewModelFactory.get(deploymentState);
     this.squadronDetailsViewProvider = squadronDetailsViewProvider;
   }
 
-  public void display(final DeploymentState deploymentState) {
-    oobSquadronsViewModel.init(deploymentState);
-
+  public void display() {
     var stage = buildStage();
 
     setScene(stage);

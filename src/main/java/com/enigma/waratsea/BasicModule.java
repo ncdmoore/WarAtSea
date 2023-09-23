@@ -122,6 +122,8 @@ import com.enigma.waratsea.strategy.bombAlley.BombAlleyWeatherStrategy;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
 import com.enigma.waratsea.view.game.MainView;
+import com.enigma.waratsea.view.game.oob.OobSquadronsView;
+import com.enigma.waratsea.view.game.oob.OobSquadronsViewFactory;
 import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
@@ -129,6 +131,8 @@ import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.ErrorHandler;
 import com.enigma.waratsea.viewmodel.NavigationHandler;
+import com.enigma.waratsea.viewmodel.game.oob.OobSquadronsViewModel;
+import com.enigma.waratsea.viewmodel.game.oob.OobSquadronsViewModelFactory;
 import com.google.inject.AbstractModule;
 import com.google.inject.Provides;
 import com.google.inject.Singleton;
@@ -151,6 +155,8 @@ public class BasicModule extends AbstractModule {
     bindProps();
 
     bindViews();
+
+    bindViewModels();
 
     bindRepositories();
     bindWeatherStrategies();
@@ -340,6 +346,16 @@ public class BasicModule extends AbstractModule {
         .implement(View.class, Names.named("OrderOfBattleSummary"), OrderOfBattleSummaryView.class)
         .implement(View.class, Names.named("MainView"), MainView.class)
         .build(ViewFactory.class));
+
+    install(new FactoryModuleBuilder()
+        .implement(OobSquadronsView.class, OobSquadronsView.class)
+        .build(OobSquadronsViewFactory.class));
+  }
+
+  private void bindViewModels() {
+    install(new FactoryModuleBuilder()
+        .implement(OobSquadronsViewModel.class, OobSquadronsViewModel.class)
+        .build(OobSquadronsViewModelFactory.class));
   }
 
   private void bindRepositories() {
