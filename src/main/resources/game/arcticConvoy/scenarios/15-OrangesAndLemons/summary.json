@@ -11,5 +11,9 @@
   "maxTurns": 54,
   "description": "Stung by Allied attempts to hunt down German meteorological teams in the Svalbard Archipelago, Adolf Hitler asked the Navy to stage a raid against the islands. Taking aboard a battalion of infantry, a German squadron set out with two battleships and nine destroyers - the most powerful force the Kriegsmarine deployed outside of coastal waters.",
   "map": "august1941",
-  "timeFrame": "1943"
+  "timeFrame": "1943",
+  "sidesWithAllotments": [
+    "AXIS",
+    "ALLIES"
+  ]
 }

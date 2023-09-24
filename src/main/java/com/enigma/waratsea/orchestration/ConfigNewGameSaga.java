@@ -10,7 +10,6 @@ import com.enigma.waratsea.event.LoadCargoEvent;
 import com.enigma.waratsea.event.LoadMapEvent;
 import com.enigma.waratsea.event.LoadTaskForcesEvent;
 import com.enigma.waratsea.model.Scenario;
-import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import lombok.extern.slf4j.Slf4j;
@@ -48,7 +47,7 @@ public class ConfigNewGameSaga implements BootStrapped {
   }
 
   private void determineSquadronAllotment(final Scenario scenario) {
-    if (scenario.getSquadron() != SquadronDeploymentType.FIXED) {
+    if (scenario.hasAllotments()) {
       events.getAllotSquadronEvent().fire(new AllotSquadronEvent(scenario));
     }
   }

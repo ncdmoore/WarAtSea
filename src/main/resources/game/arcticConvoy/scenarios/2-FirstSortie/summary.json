@@ -11,5 +11,9 @@
   "maxTurns": 90,
   "description": "The German battleship Tirpitz moved from Germany to Norway in January 1942, preparing to interdict convoy traffic in the Arctic. Allied aircraft searched frantically for the battleship, but had not yet located her when a German recon plane spotted Convoy PQ12 heading toward Murmansk. The battleship headed out with a destroyer escort, but the British Home Fleet was also at sea.",
   "map": "august1941",
-  "timeFrame": "1942"
+  "timeFrame": "1942",
+  "sidesWithAllotments": [
+    "AXIS",
+    "ALLIES"
+  ]
 }

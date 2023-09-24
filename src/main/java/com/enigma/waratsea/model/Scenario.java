@@ -1,6 +1,5 @@
 package com.enigma.waratsea.model;
 
-import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
 import com.enigma.waratsea.model.turn.TimeRange;
 import com.enigma.waratsea.model.weather.Weather;
 import lombok.Data;
@@ -25,8 +24,8 @@ public class Scenario implements Comparable<Scenario> {
   private TimeRange timeRange;
   private String map;
   private String timeFrame;
-  private SquadronDeploymentType squadron;
   private Set<NationId> nationsWithAllotmentOptions;
+  private Set<Side> sidesWithAllotments;
 
   public boolean hasOptions(final Side side) {
     var sideWithOptions = nationsWithAllotmentOptions.stream()
@@ -35,6 +34,10 @@ public class Scenario implements Comparable<Scenario> {
         .orElse(null);
 
     return side == sideWithOptions;
+  }
+
+  public boolean hasAllotments() {
+    return !sidesWithAllotments.isEmpty();
   }
 
   @Override

@@ -1,7 +1,7 @@
 package com.enigma.waratsea.entity;
 
 import com.enigma.waratsea.model.NationId;
-import com.enigma.waratsea.model.squadron.SquadronDeploymentType;
+import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.model.turn.TimeRange;
 import com.enigma.waratsea.model.weather.Weather;
 import lombok.AllArgsConstructor;
@@ -13,7 +13,6 @@ import java.time.LocalDate;
 import java.util.Collections;
 import java.util.Set;
 
-import static com.enigma.waratsea.model.squadron.SquadronDeploymentType.VARIABLE;
 import static com.enigma.waratsea.model.turn.TimeRange.DAY_1;
 
 @Data
@@ -37,8 +36,8 @@ public class ScenarioEntity {
   private String timeFrame;
 
   @Builder.Default
-  private SquadronDeploymentType squadron = VARIABLE;
+  private Set<NationId> nationsWithAllotmentOptions = Collections.emptySet();
 
   @Builder.Default
-  private Set<NationId> nationsWithAllotmentOptions = Collections.emptySet();
+  private Set<Side> sidesWithAllotments = Collections.emptySet();
 }

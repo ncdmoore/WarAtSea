@@ -17,5 +17,9 @@
       "side": "AXIS",
       "nation": "GERMAN"
     }
+  ],
+  "sidesWithAllotments": [
+    "AXIS",
+    "ALLIES"
   ]
 }
