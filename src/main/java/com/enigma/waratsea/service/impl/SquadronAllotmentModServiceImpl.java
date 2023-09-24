@@ -74,7 +74,7 @@ public class SquadronAllotmentModServiceImpl implements SquadronAllotmentModServ
 
     loadScenarioOptionsEvent.getScenario()
         .getNationsWithAllotmentOptions()
-        .forEach(this::getAllotment);
+        .forEach(this::getAllotmentModification);
   }
 
   private void handleAllotmentModEvent(final ApplyAllotmentModEvent applyAllotmentModEvent) {
@@ -114,7 +114,7 @@ public class SquadronAllotmentModServiceImpl implements SquadronAllotmentModServ
         .build();
   }
 
-  private void getAllotment(final NationId modificationId) {
+  private void getAllotmentModification(final NationId modificationId) {
     log.debug("Get allotment modification for '{}'", modificationId);
 
     modifications.computeIfAbsent(modificationId, this::getFromRepository);
