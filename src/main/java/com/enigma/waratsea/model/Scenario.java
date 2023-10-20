@@ -27,7 +27,7 @@ public class Scenario implements Comparable<Scenario> {
   private Set<NationId> nationsWithAllotmentOptions;
   private Set<Side> sidesWithAllotments;
 
-  public boolean hasOptions(final Side side) {
+  public boolean hasAllotmentOptions(final Side side) {
     var sideWithOptions = nationsWithAllotmentOptions.stream()
         .findAny()
         .map(NationId::getSide)
@@ -38,6 +38,10 @@ public class Scenario implements Comparable<Scenario> {
 
   public boolean hasAllotments() {
     return !sidesWithAllotments.isEmpty();
+  }
+
+  public boolean hasAllotment(final Side side) {
+    return sidesWithAllotments.contains(side);
   }
 
   @Override

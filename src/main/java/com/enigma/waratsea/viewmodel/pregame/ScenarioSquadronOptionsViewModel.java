@@ -1,7 +1,5 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.event.ConfigNewGameEvent;
-import com.enigma.waratsea.event.ConfigScenarioOptionsEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.model.NationId;
 import com.enigma.waratsea.model.option.AllotmentModification;
@@ -9,6 +7,7 @@ import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.SquadronAllotmentModService;
 import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
+import com.enigma.waratsea.viewmodel.pregame.orchestration.NewGameSaga;
 import com.google.inject.Inject;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -31,6 +30,7 @@ public class ScenarioSquadronOptionsViewModel {
   private final Events events;
   private final GameService gameService;
   private final SquadronAllotmentModService squadronAllotmentModService;
+  private final NewGameSaga newGameSaga;
 
   @Getter
   private Map<NationId, Set<AllotmentModification>> options;
@@ -41,25 +41,26 @@ public class ScenarioSquadronOptionsViewModel {
   @Inject
   public ScenarioSquadronOptionsViewModel(final Events events,
                                           final GameService gameService,
-                                          final SquadronAllotmentModService squadronAllotmentModService) {
+                                          final SquadronAllotmentModService squadronAllotmentModService,
+                                          final NewGameSaga newGameSaga) {
     this.events = events;
     this.gameService = gameService;
     this.squadronAllotmentModService = squadronAllotmentModService;
+    this.newGameSaga = newGameSaga;
 
     initializeOptions();
   }
 
   public void goBack(final Stage stage) {
-    events.getNavigateEvent().fire(buildBackwardNav(stage));
+    goToPreviousPage(stage);
   }
 
   public void continueOn(final Stage stage) {
     var scenario = gameService.getGame().getScenario();
     var currentOptions = getSelectedOptionsFormToggles();
 
-    events.getConfigScenarioOptionsEvent().fire(new ConfigScenarioOptionsEvent(currentOptions));
-    events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(scenario));
-    events.getNavigateEvent().fire(buildForwardNav(stage));
+    newGameSaga.squadronOptionsSelected(scenario, currentOptions);
+    goToNextPage(stage);
   }
 
   private void initializeOptions() {
@@ -72,6 +73,16 @@ public class ScenarioSquadronOptionsViewModel {
         .collect(Collectors.toMap(id -> id, squadronAllotmentModService::get));
 
     options.keySet().forEach(nationId -> selectedOptions.put(nationId, new SimpleObjectProperty<>()));
+  }
+
+  private void goToPreviousPage(final Stage stage) {
+    events.getNavigateEvent()
+        .fire(buildBackwardNav(stage));
+  }
+
+  private void goToNextPage(final Stage stage) {
+    events.getNavigateEvent()
+        .fire(buildForwardNav(stage));
   }
 
   private NavigateEvent buildForwardNav(final Stage stage) {

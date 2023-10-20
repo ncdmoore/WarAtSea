@@ -1,7 +1,6 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
 import com.enigma.waratsea.event.Events;
-import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.MtbFlotilla;
 import com.enigma.waratsea.model.Nation;
@@ -14,6 +13,7 @@ import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
+import com.enigma.waratsea.viewmodel.pregame.orchestration.NewGameSaga;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 import javafx.beans.property.BooleanProperty;
@@ -37,6 +37,7 @@ public class OrderOfBattleSummaryViewModel {
   private final Props props;
   private final ResourceProvider resourceProvider;
   private final GameService gameService;
+  private final NewGameSaga newGameSaga;
 
   @Getter
   private final ObjectProperty<Image> flag = new SimpleObjectProperty<>();
@@ -78,11 +79,13 @@ public class OrderOfBattleSummaryViewModel {
   public OrderOfBattleSummaryViewModel(final Events events,
                                        final @Named("View") Props props,
                                        final ResourceProvider resourceProvider,
-                                       final GameService gameService) {
+                                       final GameService gameService,
+                                       final NewGameSaga newGameSaga) {
     this.events = events;
     this.props = props;
     this.resourceProvider = resourceProvider;
     this.gameService = gameService;
+    this.newGameSaga = newGameSaga;
 
     var game = gameService.getGame();
 
@@ -99,7 +102,7 @@ public class OrderOfBattleSummaryViewModel {
   }
 
   public void goBack(final Stage stage) {
-    events.getNavigateEvent().fire(buildBackwardNav(stage));
+    goToPreviousPage(stage);
   }
 
   public void continueOn(final Stage stage) {
@@ -107,8 +110,8 @@ public class OrderOfBattleSummaryViewModel {
         .getScenario()
         .getName();
 
-    events.getSaveGameEvent().fire(new SaveGameEvent(selectedScenarioName));
-    events.getNavigateEvent().fire(buildForwardNav(stage));
+    newGameSaga.finish(selectedScenarioName);
+    goToNextPage(stage);
   }
 
   private void setSide(final Game game) {
@@ -198,9 +201,18 @@ public class OrderOfBattleSummaryViewModel {
     nations.setValue(FXCollections.observableList(playerNations));
   }
 
+  private void goToPreviousPage(final Stage stage) {
+    events.getNavigateEvent()
+        .fire(buildBackwardNav(stage));
+  }
+
+  private void goToNextPage(final Stage stage) {
+    events.getNavigateEvent()
+        .fire(buildForwardNav(stage));
+  }
+
   private NavigateEvent buildForwardNav(final Stage stage) {
-    return NavigateEvent
-        .builder()
+    return NavigateEvent.builder()
         .clazz(OrderOfBattleSummaryView.class)
         .stage(stage)
         .type(FORWARD)

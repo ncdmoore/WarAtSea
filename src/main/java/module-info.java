@@ -74,6 +74,7 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.viewmodel.game.oob;
   exports com.enigma.waratsea.viewmodel.pregame;
   exports com.enigma.waratsea.viewmodel.events;
+  exports com.enigma.waratsea.viewmodel.pregame.orchestration;
 
   exports com.enigma.waratsea.entity.aircraft;
   exports com.enigma.waratsea.entity.cargo;

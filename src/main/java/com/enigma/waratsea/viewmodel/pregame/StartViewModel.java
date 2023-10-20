@@ -1,13 +1,13 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.event.user.StartSavedGameEvent;
-import com.enigma.waratsea.event.user.StartNewGameEvent;
-import com.enigma.waratsea.exception.WarAtSeaException;
 import com.enigma.waratsea.event.Events;
+import com.enigma.waratsea.exception.WarAtSeaException;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
+import com.enigma.waratsea.viewmodel.pregame.orchestration.NewGameSaga;
+import com.enigma.waratsea.viewmodel.pregame.orchestration.SavedGameSaga;
 import com.google.inject.Inject;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -22,11 +22,17 @@ public class StartViewModel {
   @Getter
   private final BooleanProperty savedGamesExist = new SimpleBooleanProperty();
 
+  private final NewGameSaga newGameSaga;
+  private final SavedGameSaga savedGameSaga;
   private final Events events;
 
   @Inject
   StartViewModel(final Events events,
-                 final GameService gameService) {
+                 final GameService gameService,
+                 final NewGameSaga newGameSaga,
+                 final SavedGameSaga savedGameSaga) {
+    this.newGameSaga = newGameSaga;
+    this.savedGameSaga = savedGameSaga;
     this.events = events;
 
     savedGamesExist.setValue(gameService.get().isEmpty());
@@ -34,16 +40,16 @@ public class StartViewModel {
 
   public void newGame(final Stage stage) {
     try {
-      events.getStartNewGameEvent().fire(new StartNewGameEvent());
-      events.getNavigateEvent().fire(buildForwardNavigateEvent(stage));
+      newGameSaga.start();
+      goToNextPage(stage);
     } catch (WarAtSeaException e) {
       events.getErrorEvents().fire(buildErrorEvent());
     }
   }
 
   public void savedGame(final Stage stage) {
-    events.getStartSavedGameEvent().fire(new StartSavedGameEvent());
-    events.getNavigateEvent().fire(buildForwardNavigateEvent(stage));
+    savedGameSaga.start();
+    goToNextPage(stage);
   }
 
   public void options() {
@@ -52,6 +58,11 @@ public class StartViewModel {
 
   public void quitGame(final Stage stage) {
     stage.close();
+  }
+
+  private void goToNextPage(final Stage stage) {
+    events.getNavigateEvent()
+        .fire(buildForwardNavigateEvent(stage));
   }
 
   private NavigateEvent buildForwardNavigateEvent(final Stage stage) {

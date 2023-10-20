@@ -12,6 +12,7 @@ import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
+import com.enigma.waratsea.view.pregame.SquadronDeploymentView;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.viewmodel.events.NavigationType;
@@ -91,7 +92,8 @@ public class NavigationHandler implements BootStrapped {
     var scenario = scenarioHasOptionsEvent.getScenario();
     var side = scenarioHasOptionsEvent.getSide();
 
-    newGamePageFlow.get(ScenarioSquadronOptionsView.class).active = scenario.hasOptions(side);
+    newGamePageFlow.get(ScenarioSquadronOptionsView.class).active = scenario.hasAllotmentOptions(side);
+    newGamePageFlow.get(SquadronDeploymentView.class).active = scenario.hasAllotment(side);
   }
 
   private void goNext(final Class<?> currentPage, final Stage stage) {
@@ -119,18 +121,25 @@ public class NavigationHandler implements BootStrapped {
     Page newGamePage = new Page(viewFactory::buildNewGame);
     Page optionsPage = new Page(viewFactory::buildScenarioSquadronOptions);
     Page oobPage = new Page(viewFactory::buildOrderOfBattleSummary);
+    Page squadronDeploymentPage = new Page(viewFactory::buildSquronDeployment);
     Page mainPage = new Page(viewFactory::buildMainView);
 
     startPage.setNext(newGamePage);
     newGamePage.setNext(optionsPage);
+
     optionsPage.setNext(oobPage);
     optionsPage.active = false;
-    oobPage.setNext(mainPage);
+
+    oobPage.setNext(squadronDeploymentPage);
+
+    squadronDeploymentPage.setNext(mainPage);
+    squadronDeploymentPage.active = false;
 
     newGamePageFlow.put(StartView.class, startPage);
     newGamePageFlow.put(NewGameView.class, newGamePage);
     newGamePageFlow.put(ScenarioSquadronOptionsView.class, optionsPage);
     newGamePageFlow.put(OrderOfBattleSummaryView.class, oobPage);
+    newGamePageFlow.put(SquadronDeploymentView.class, squadronDeploymentPage);
     newGamePageFlow.put(MainView.class, mainPage);
   }
 

@@ -56,7 +56,6 @@ public class ConfigNewGameSaga implements BootStrapped {
     events.getDeploySquadronEvent().fire(new DeploySquadronEvent());
   }
 
-
   private void loadCargo() {
     events.getLoadCargoEvent().fire(new LoadCargoEvent());
   }

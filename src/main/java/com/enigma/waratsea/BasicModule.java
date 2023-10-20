@@ -128,6 +128,7 @@ import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
+import com.enigma.waratsea.view.pregame.SquadronDeploymentView;
 import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.ErrorHandler;
 import com.enigma.waratsea.viewmodel.NavigationHandler;
@@ -344,6 +345,7 @@ public class BasicModule extends AbstractModule {
         .implement(View.class, Names.named("SavedGame"), SavedGameView.class)
         .implement(View.class, Names.named("ScenarioSquadronOptions"), ScenarioSquadronOptionsView.class)
         .implement(View.class, Names.named("OrderOfBattleSummary"), OrderOfBattleSummaryView.class)
+        .implement(View.class, Names.named("SquadronDeployment"), SquadronDeploymentView.class)
         .implement(View.class, Names.named("MainView"), MainView.class)
         .build(ViewFactory.class));
 

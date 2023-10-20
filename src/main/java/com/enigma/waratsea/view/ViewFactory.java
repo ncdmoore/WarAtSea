@@ -18,6 +18,9 @@ public interface ViewFactory {
     @Named("OrderOfBattleSummary")
     View buildOrderOfBattleSummary();
 
+    @Named("SquadronDeployment")
+    View buildSquronDeployment();
+
     @Named("MainView")
     View buildMainView();
 }

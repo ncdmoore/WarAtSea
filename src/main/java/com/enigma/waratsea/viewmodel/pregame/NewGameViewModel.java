@@ -1,9 +1,7 @@
 package com.enigma.waratsea.viewmodel.pregame;
 
-import com.enigma.waratsea.event.ConfigNewGameEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.LoadScenarioOptionsEvent;
-import com.enigma.waratsea.event.user.ScenarioHasOptionsEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.SelectSideEvent;
 import com.enigma.waratsea.model.Scenario;
@@ -11,6 +9,7 @@ import com.enigma.waratsea.model.Side;
 import com.enigma.waratsea.service.ScenarioService;
 import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
+import com.enigma.waratsea.viewmodel.pregame.orchestration.NewGameSaga;
 import com.google.inject.Inject;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
@@ -38,12 +37,15 @@ public class NewGameViewModel {
 
   private final Events events;
   private final ScenarioService scenarioService;
+  private final NewGameSaga newGameSaga;
 
   @Inject
   NewGameViewModel(final Events events,
-                   final ScenarioService scenarioService) {
+                   final ScenarioService scenarioService,
+                   final NewGameSaga newGameSaga) {
     this.events = events;
     this.scenarioService = scenarioService;
+    this.newGameSaga = newGameSaga;
 
     selectedScenario.addListener((observable, oldValue, newValue) -> setSelectedScenario(newValue));
     selectedSide.addListener((observable, oldValue, newValue) -> setSelectedSide(newValue));
@@ -52,20 +54,15 @@ public class NewGameViewModel {
   }
 
   public void goBack(final Stage stage) {
-    events.getNavigateEvent().fire(buildBackwardNav(stage));
+    gotToPreviousPage(stage);
   }
 
   public void continueOn(final Stage stage) {
     var scenario = selectedScenario.get();
     var side = getSelectedSideFromToggle(selectedSide.get());
 
-    events.getScenarioOptionsEvent().fire(new ScenarioHasOptionsEvent(scenario, side));
-
-    if (!scenario.hasOptions(side)) {
-      events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(scenario));
-    }
-
-    events.getNavigateEvent().fire(buildForwardNav(stage));
+    newGameSaga.scenarioSelected(scenario, side);
+    gotToNextPage(stage);
   }
 
   private void loadScenarios() {
@@ -82,7 +79,9 @@ public class NewGameViewModel {
 
   private void setSelectedSide(final Toggle toggle) {
     var currentSide = getSelectedSideFromToggle(toggle);
-    events.getSelectSideEvent().fire(new SelectSideEvent(currentSide));
+
+    events.getSelectSideEvent()
+        .fire(new SelectSideEvent(currentSide));
   }
 
   private Side getSelectedSideFromToggle(final Toggle toggle) {
@@ -93,6 +92,16 @@ public class NewGameViewModel {
         .findFirst()
         .orElseThrow()
         .getUserData();
+  }
+
+  private void gotToPreviousPage(final Stage stage) {
+    events.getNavigateEvent()
+        .fire(buildBackwardNav(stage));
+  }
+
+  private void gotToNextPage(final Stage stage) {
+    events.getNavigateEvent()
+        .fire(buildForwardNav(stage));
   }
 
   private NavigateEvent buildForwardNav(final Stage stage) {
