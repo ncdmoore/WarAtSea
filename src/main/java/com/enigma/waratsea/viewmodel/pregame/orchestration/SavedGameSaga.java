@@ -14,10 +14,12 @@ public class SavedGameSaga {
   private final Events events;
 
   public void start() {
-    events.getStartSavedGameEvent().fire(new StartSavedGameEvent());
+    events.getStartSavedGameEvent()
+        .fire(new StartSavedGameEvent());
   }
 
   public void finish(final Game game) {
-    events.getConfigSavedGameEvent().fire(new ConfigSavedGameEvent(game));
+    events.getConfigSavedGameEvent()
+        .fire(new ConfigSavedGameEvent(game));
   }
 }

@@ -21,14 +21,17 @@ public class NewGameSaga {
   private final Events events;
 
   public void start() {
-    events.getStartNewGameEvent().fire(new StartNewGameEvent());
+    events.getStartNewGameEvent()
+        .fire(new StartNewGameEvent());
   }
 
   public void scenarioSelected(final Scenario scenario, final Side side) {
-    events.getScenarioOptionsEvent().fire(new ScenarioHasOptionsEvent(scenario, side));
+    events.getScenarioOptionsEvent()
+        .fire(new ScenarioHasOptionsEvent(scenario, side));
 
     if (!scenario.hasAllotmentOptions(side)) {
-      events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(scenario));
+      events.getConfigNewGameEvent()
+          .fire(new ConfigNewGameEvent(scenario));
     }
   }
 
@@ -38,6 +41,7 @@ public class NewGameSaga {
   }
 
   public void finish(final String selectedScenarioName) {
-    events.getSaveGameEvent().fire(new SaveGameEvent(selectedScenarioName));
+    events.getSaveGameEvent()
+        .fire(new SaveGameEvent(selectedScenarioName));
   }
 }
