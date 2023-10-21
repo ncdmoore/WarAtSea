@@ -86,8 +86,7 @@ public class ScenarioSquadronOptionsViewModel {
   }
 
   private NavigateEvent buildForwardNav(final Stage stage) {
-    return NavigateEvent
-        .builder()
+    return NavigateEvent.builder()
         .clazz(ScenarioSquadronOptionsView.class)
         .stage(stage)
         .type(FORWARD)

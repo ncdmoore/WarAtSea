@@ -66,8 +66,7 @@ public class StartViewModel {
   }
 
   private NavigateEvent buildForwardNavigateEvent(final Stage stage) {
-    return NavigateEvent
-        .builder()
+    return NavigateEvent.builder()
         .clazz(StartView.class)
         .stage(stage)
         .type(FORWARD)
@@ -75,8 +74,7 @@ public class StartViewModel {
   }
 
   private ErrorEvent buildErrorEvent() {
-    return ErrorEvent
-        .builder()
+    return ErrorEvent.builder()
         .message("Cannot create new game")
         .fatal(true)
         .build();

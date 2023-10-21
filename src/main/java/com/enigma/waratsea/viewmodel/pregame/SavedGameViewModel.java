@@ -79,8 +79,7 @@ public class SavedGameViewModel {
   }
 
   private NavigateEvent buildForwardNav(final Stage stage) {
-    return NavigateEvent
-        .builder()
+    return NavigateEvent.builder()
         .clazz(SavedGameView.class)
         .stage(stage)
         .type(FORWARD)
