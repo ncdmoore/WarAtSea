@@ -6,6 +6,7 @@ import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
+import com.enigma.waratsea.viewmodel.events.NavigationType;
 import com.enigma.waratsea.viewmodel.pregame.orchestration.SavedGameSaga;
 import com.google.inject.Inject;
 import javafx.beans.property.ListProperty;
@@ -70,27 +71,19 @@ public class SavedGameViewModel {
 
   private void goToPreviousPage(final Stage stage) {
     events.getNavigateEvent()
-        .fire(buildBackwardNav(stage));
+        .fire(buildNavigateEvent(BACKWARD, stage));
   }
 
   private void goToNextPage(final Stage stage) {
     events.getNavigateEvent()
-        .fire(buildForwardNav(stage));
+        .fire(buildNavigateEvent(FORWARD, stage));
   }
 
-  private NavigateEvent buildForwardNav(final Stage stage) {
+  private NavigateEvent buildNavigateEvent(final NavigationType type, final Stage stage) {
     return NavigateEvent.builder()
         .clazz(SavedGameView.class)
         .stage(stage)
-        .type(FORWARD)
-        .build();
-  }
-
-  private NavigateEvent buildBackwardNav(final Stage stage) {
-    return NavigateEvent.builder()
-        .clazz(SavedGameView.class)
-        .stage(stage)
-        .type(BACKWARD)
+        .type(type)
         .build();
   }
 }

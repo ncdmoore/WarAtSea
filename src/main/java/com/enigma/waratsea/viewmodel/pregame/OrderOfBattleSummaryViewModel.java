@@ -13,6 +13,7 @@ import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
 import com.enigma.waratsea.view.resources.ResourceProvider;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
+import com.enigma.waratsea.viewmodel.events.NavigationType;
 import com.enigma.waratsea.viewmodel.pregame.orchestration.NewGameSaga;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
@@ -203,27 +204,19 @@ public class OrderOfBattleSummaryViewModel {
 
   private void goToPreviousPage(final Stage stage) {
     events.getNavigateEvent()
-        .fire(buildBackwardNav(stage));
+        .fire(buildNavigateEvent(BACKWARD, stage));
   }
 
   private void goToNextPage(final Stage stage) {
     events.getNavigateEvent()
-        .fire(buildForwardNav(stage));
+        .fire(buildNavigateEvent(FORWARD, stage));
   }
 
-  private NavigateEvent buildForwardNav(final Stage stage) {
+  private NavigateEvent buildNavigateEvent(final NavigationType type, final Stage stage) {
     return NavigateEvent.builder()
         .clazz(OrderOfBattleSummaryView.class)
         .stage(stage)
-        .type(FORWARD)
-        .build();
-  }
-
-  private NavigateEvent buildBackwardNav(final Stage stage) {
-    return NavigateEvent.builder()
-        .clazz(OrderOfBattleSummaryView.class)
-        .type(BACKWARD)
-        .stage(stage)
+        .type(type)
         .build();
   }
 }

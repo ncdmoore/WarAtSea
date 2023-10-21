@@ -7,6 +7,7 @@ import com.enigma.waratsea.service.GameService;
 import com.enigma.waratsea.service.SquadronAllotmentModService;
 import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
+import com.enigma.waratsea.viewmodel.events.NavigationType;
 import com.enigma.waratsea.viewmodel.pregame.orchestration.NewGameSaga;
 import com.google.inject.Inject;
 import javafx.beans.property.ObjectProperty;
@@ -77,27 +78,19 @@ public class ScenarioSquadronOptionsViewModel {
 
   private void goToPreviousPage(final Stage stage) {
     events.getNavigateEvent()
-        .fire(buildBackwardNav(stage));
+        .fire(buildNavigateEvent(BACKWARD, stage));
   }
 
   private void goToNextPage(final Stage stage) {
     events.getNavigateEvent()
-        .fire(buildForwardNav(stage));
+        .fire(buildNavigateEvent(FORWARD, stage));
   }
 
-  private NavigateEvent buildForwardNav(final Stage stage) {
+  private NavigateEvent buildNavigateEvent(final NavigationType type, final Stage stage) {
     return NavigateEvent.builder()
         .clazz(ScenarioSquadronOptionsView.class)
         .stage(stage)
-        .type(FORWARD)
-        .build();
-  }
-
-  private NavigateEvent buildBackwardNav(final Stage stage) {
-    return NavigateEvent.builder()
-        .clazz(ScenarioSquadronOptionsView.class)
-        .type(BACKWARD)
-        .stage(stage)
+        .type(type)
         .build();
   }
 
