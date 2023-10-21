@@ -36,8 +36,11 @@ public class NewGameSaga {
   }
 
   public void squadronOptionsSelected(final Scenario scenario, final Map<NationId, Integer> options) {
-    events.getConfigScenarioOptionsEvent().fire(new ConfigScenarioOptionsEvent(options));
-    events.getConfigNewGameEvent().fire(new ConfigNewGameEvent(scenario));
+    events.getConfigScenarioOptionsEvent()
+        .fire(new ConfigScenarioOptionsEvent(options));
+
+    events.getConfigNewGameEvent()
+        .fire(new ConfigNewGameEvent(scenario));
   }
 
   public void finish(final String selectedScenarioName) {
