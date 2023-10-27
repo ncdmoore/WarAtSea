@@ -35,7 +35,6 @@ public class Events {
   private final EventDispatcher<SelectSideEvent> selectSideEvent = new EventDispatcher<>(SelectSideEvent.class);
   private final EventDispatcher<ConfigNewGameEvent> configNewGameEvent = new EventDispatcher<>(ConfigNewGameEvent.class);
   private final EventDispatcher<ConfigSavedGameEvent> configSavedGameEvent = new EventDispatcher<>(ConfigSavedGameEvent.class);
-  private final EventDispatcher<ConfigScenarioOptionsEvent> configScenarioOptionsEvent = new EventDispatcher<>(ConfigScenarioOptionsEvent.class);
   private final EventDispatcher<LoadMapEvent> loadMapEvent = new EventDispatcher<>(LoadMapEvent.class);
   private final EventDispatcher<ClearEvent> clearEvent = new EventDispatcher<>(ClearEvent.class);
   private final EventDispatcher<ApplyAllotmentModEvent> applyAllotmentModEvent = new EventDispatcher<>(ApplyAllotmentModEvent.class);

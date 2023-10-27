@@ -20,7 +20,6 @@ import com.enigma.waratsea.model.GameName;
 import com.enigma.waratsea.orchestration.ConfigApplicationSaga;
 import com.enigma.waratsea.orchestration.ConfigNewGameSaga;
 import com.enigma.waratsea.orchestration.ConfigSavedGameSaga;
-import com.enigma.waratsea.orchestration.ConfigScenarioOptionsSaga;
 import com.enigma.waratsea.property.AppProps;
 import com.enigma.waratsea.property.Props;
 import com.enigma.waratsea.property.ViewProps;
@@ -306,7 +305,6 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(ConfigApplicationSaga.class);
     bootStrappedBinder.addBinding().to(ConfigNewGameSaga.class);
     bootStrappedBinder.addBinding().to(ConfigSavedGameSaga.class);
-    bootStrappedBinder.addBinding().to(ConfigScenarioOptionsSaga.class);
     bootStrappedBinder.addBinding().to(NavigationHandler.class);
     bootStrappedBinder.addBinding().to(ResourceProvider.class);
     bootStrappedBinder.addBinding().to(DataProvider.class);

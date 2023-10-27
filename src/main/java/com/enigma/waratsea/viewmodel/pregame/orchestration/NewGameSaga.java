@@ -1,7 +1,8 @@
 package com.enigma.waratsea.viewmodel.pregame.orchestration;
 
+import com.enigma.waratsea.event.ApplyAllotmentModEvent;
+import com.enigma.waratsea.event.ClearEvent;
 import com.enigma.waratsea.event.ConfigNewGameEvent;
-import com.enigma.waratsea.event.ConfigScenarioOptionsEvent;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.user.SaveGameEvent;
 import com.enigma.waratsea.event.user.ScenarioHasOptionsEvent;
@@ -26,8 +27,20 @@ public class NewGameSaga {
   }
 
   public void scenarioSelected(final Scenario scenario, final Side side) {
+    events.getClearEvent()
+        .fire(new ClearEvent());
+
     events.getScenarioOptionsEvent()
         .fire(new ScenarioHasOptionsEvent(scenario, side));
+
+    //if (scenario.hasAllotmentOptions(side.oppositeSide())) {
+      // have AI pick an option and then call applyAllotmentModeEvent
+
+      // Wrap all of that in an AI event that picks the option and applies the mode to the allotment.
+
+      // AI.scenarioSelected(scenario, side)   or AI.scenarioSelected(game)
+    //}
+
 
     if (!scenario.hasAllotmentOptions(side)) {
       events.getConfigNewGameEvent()
@@ -36,8 +49,11 @@ public class NewGameSaga {
   }
 
   public void squadronOptionsSelected(final Scenario scenario, final Map<NationId, Integer> options) {
-    events.getConfigScenarioOptionsEvent()
-        .fire(new ConfigScenarioOptionsEvent(options));
+    events.getClearEvent()
+        .fire(new ClearEvent());
+
+    events.getApplyAllotmentModEvent()
+        .fire(new ApplyAllotmentModEvent(options));
 
     events.getConfigNewGameEvent()
         .fire(new ConfigNewGameEvent(scenario));
