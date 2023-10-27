@@ -4,7 +4,7 @@ import com.enigma.waratsea.exception.ResourceException;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.model.Nation;
 import com.enigma.waratsea.model.Side;
-import com.enigma.waratsea.repository.impl.GamePaths;
+import com.enigma.waratsea.repository.provider.GamePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import javafx.scene.image.Image;

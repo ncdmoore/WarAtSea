@@ -119,4 +119,6 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.view.game.ship;
   exports com.enigma.waratsea.view.game.squadron;
   exports com.enigma.waratsea.view.dialog;
+  exports com.enigma.waratsea.repository.provider;
+  exports com.enigma.waratsea.repository.serializer;
 }

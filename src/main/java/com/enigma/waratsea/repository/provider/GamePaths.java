@@ -1,4 +1,4 @@
-package com.enigma.waratsea.repository.impl;
+package com.enigma.waratsea.repository.provider;
 
 import com.enigma.waratsea.model.Game;
 import com.enigma.waratsea.model.GameName;

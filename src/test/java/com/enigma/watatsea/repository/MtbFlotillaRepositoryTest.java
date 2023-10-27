@@ -2,8 +2,8 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.entity.MtbFlotillaEntity;
 import com.enigma.waratsea.model.Id;
-import com.enigma.waratsea.repository.impl.DataProvider;
-import com.enigma.waratsea.repository.impl.GamePaths;
+import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.MtbFlotillaRepositoryImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

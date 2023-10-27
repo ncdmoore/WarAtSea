@@ -1,8 +1,8 @@
 package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.repository.impl.MapRepositoryImpl;
-import com.enigma.waratsea.repository.impl.GamePaths;
-import com.enigma.waratsea.repository.impl.ResourceProvider;
+import com.enigma.waratsea.repository.provider.GamePaths;
+import com.enigma.waratsea.repository.provider.ResourceProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

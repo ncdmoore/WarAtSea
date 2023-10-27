@@ -1,4 +1,4 @@
-package com.enigma.waratsea.repository.impl;
+package com.enigma.waratsea.repository.provider;
 
 import com.enigma.waratsea.model.Side;
 import lombok.Builder;

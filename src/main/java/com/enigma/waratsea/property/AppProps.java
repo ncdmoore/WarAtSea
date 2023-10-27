@@ -1,6 +1,6 @@
 package com.enigma.waratsea.property;
 
-import com.enigma.waratsea.repository.impl.GamePaths;
+import com.enigma.waratsea.repository.provider.GamePaths;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 

@@ -2,8 +2,8 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.property.AppProps;
-import com.enigma.waratsea.repository.impl.GamePaths;
-import com.enigma.waratsea.repository.impl.ResourceProvider;
+import com.enigma.waratsea.repository.provider.GamePaths;
+import com.enigma.waratsea.repository.provider.ResourceProvider;
 import com.enigma.waratsea.repository.impl.ScenarioRepositoryImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

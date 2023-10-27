@@ -1,4 +1,4 @@
-package com.enigma.waratsea.repository.impl;
+package com.enigma.waratsea.repository.serializer;
 
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;

@@ -1,8 +1,8 @@
 package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.entity.mission.MissionEntity;
-import com.enigma.waratsea.repository.impl.DataProvider;
-import com.enigma.waratsea.repository.impl.GamePaths;
+import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.MissionRepositoryImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
