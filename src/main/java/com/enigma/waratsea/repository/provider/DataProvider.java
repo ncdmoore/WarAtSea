@@ -64,8 +64,8 @@ public class DataProvider implements BootStrapped {
         .orElse(genericFullPath);
 
     var inputStream = isNewGame
-        ? getResourceInputStream(scenarioSpecificFullPath, genericFullPath)
-        : getFileInputStream(genericFullPath);
+        ? getResourceFileInputStream(scenarioSpecificFullPath, genericFullPath)
+        : getDataFileInputStream(genericFullPath);
 
     if (inputStream == null) {
       log.warn("Cannot find scenario specific path: '{}'", scenarioSpecificFullPath);
@@ -133,19 +133,19 @@ public class DataProvider implements BootStrapped {
     }
   }
 
-  private InputStream getResourceInputStream(final String scenarioSpecificPath, final String genericPath) {
-    return Optional.ofNullable(getResourceInputStream(scenarioSpecificPath))
-        .orElseGet(() -> getResourceInputStream(genericPath));
+  private InputStream getResourceFileInputStream(final String scenarioSpecificPath, final String genericPath) {
+    return Optional.ofNullable(getResourceFileInputStream(scenarioSpecificPath))
+        .orElseGet(() -> getResourceFileInputStream(genericPath));
   }
 
-  private InputStream getResourceInputStream(final String fullPath) {
+  private InputStream getResourceFileInputStream(final String fullPath) {
     return getClass()
         .getClassLoader()
         .getResourceAsStream(fullPath);
   }
 
   @SneakyThrows
-  private InputStream getFileInputStream(final String fullPath) {
+  private InputStream getDataFileInputStream(final String fullPath) {
     log.debug("Get data input stream for path: '{}'", fullPath);
 
     var path = Paths.get(fullPath);
