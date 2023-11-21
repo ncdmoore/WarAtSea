@@ -63,7 +63,7 @@ public class ReleaseRepositoryImpl implements ReleaseRepository {
   }
 
   private void writeReleaseConditions(final String gameId, final FilePath filePath, final Set<ReleaseEntity> victoryConditions) {
-    var path = dataProvider.getSaveFile(gameId, filePath);
+    var path = dataProvider.getSavedFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -76,7 +76,7 @@ public class ReleaseRepositoryImpl implements ReleaseRepository {
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return dataProvider.getDataInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private List<ReleaseEntity> toEntities(final BufferedReader bufferedReader) {

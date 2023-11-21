@@ -58,7 +58,7 @@ class ShipRepositoryTest {
     var inputStream = getRegistryInputStream();
 
 
-    given(resourceProvider.getDefaultResourceInputStream(filePath)).willReturn(inputStream);
+    given(resourceProvider.getDefaultInputStream(filePath)).willReturn(inputStream);
 
     var result = shipRepository.getRegistry(ALLIES, DESTROYER);
 
@@ -80,7 +80,7 @@ class ShipRepositoryTest {
 
     var inputStream = getShipInputStream();
 
-    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = shipRepository.get(shipId, DESTROYER);
 

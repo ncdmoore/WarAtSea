@@ -47,7 +47,7 @@ public class SquadronAllotmentRepositoryImpl implements SquadronAllotmentReposit
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return resourceProvider.getResourceInputStream(filePath);
+    return resourceProvider.getInputStream(filePath);
   }
 
   private AllotmentEntity toEntities(final BufferedReader bufferedReader) {

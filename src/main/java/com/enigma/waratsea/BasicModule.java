@@ -31,6 +31,7 @@ import com.enigma.waratsea.repository.MapRepository;
 import com.enigma.waratsea.repository.MissionRepository;
 import com.enigma.waratsea.repository.MtbFlotillaRepository;
 import com.enigma.waratsea.repository.PortRepository;
+import com.enigma.waratsea.repository.PreferencesRepository;
 import com.enigma.waratsea.repository.RegionRepository;
 import com.enigma.waratsea.repository.ReleaseRepository;
 import com.enigma.waratsea.repository.ScenarioRepository;
@@ -44,16 +45,15 @@ import com.enigma.waratsea.repository.TaskForceRepository;
 import com.enigma.waratsea.repository.VictoryRepository;
 import com.enigma.waratsea.repository.impl.AircraftRepositoryImpl;
 import com.enigma.waratsea.repository.impl.AirfieldRepositoryImpl;
-import com.enigma.waratsea.repository.provider.DataProvider;
 import com.enigma.waratsea.repository.impl.GameRepositoryImpl;
 import com.enigma.waratsea.repository.impl.ManifestRepositoryImpl;
 import com.enigma.waratsea.repository.impl.MapRepositoryImpl;
 import com.enigma.waratsea.repository.impl.MissionRepositoryImpl;
 import com.enigma.waratsea.repository.impl.MtbFlotillaRepositoryImpl;
 import com.enigma.waratsea.repository.impl.PortRepositoryImpl;
+import com.enigma.waratsea.repository.impl.PreferencesRepositoryImpl;
 import com.enigma.waratsea.repository.impl.RegionRepositoryImpl;
 import com.enigma.waratsea.repository.impl.ReleaseRepositoryImpl;
-import com.enigma.waratsea.repository.provider.ResourceProvider;
 import com.enigma.waratsea.repository.impl.ScenarioRepositoryImpl;
 import com.enigma.waratsea.repository.impl.ShipRepositoryImpl;
 import com.enigma.waratsea.repository.impl.SquadronAllotmentModRepositoryImpl;
@@ -63,6 +63,9 @@ import com.enigma.waratsea.repository.impl.SquadronRepositoryImpl;
 import com.enigma.waratsea.repository.impl.SubmarineFlotillaRepositoryImpl;
 import com.enigma.waratsea.repository.impl.TaskForceRepositoryImpl;
 import com.enigma.waratsea.repository.impl.VictoryRepositoryImpl;
+import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.PreferencesProvider;
+import com.enigma.waratsea.repository.provider.ResourceProvider;
 import com.enigma.waratsea.service.AirbaseService;
 import com.enigma.waratsea.service.AircraftService;
 import com.enigma.waratsea.service.AirfieldService;
@@ -308,6 +311,7 @@ public class BasicModule extends AbstractModule {
     bootStrappedBinder.addBinding().to(NavigationHandler.class);
     bootStrappedBinder.addBinding().to(ResourceProvider.class);
     bootStrappedBinder.addBinding().to(DataProvider.class);
+    bootStrappedBinder.addBinding().to(PreferencesProvider.class);
     bootStrappedBinder.addBinding().to(ErrorHandler.class);
     bootStrappedBinder.addBinding().to(GameService.class);
     bootStrappedBinder.addBinding().to(MapService.class);
@@ -378,6 +382,7 @@ public class BasicModule extends AbstractModule {
     bind(ReleaseRepository.class).to(ReleaseRepositoryImpl.class);
     bind(GameRepository.class).to(GameRepositoryImpl.class);
     bind(VictoryRepository.class).to(VictoryRepositoryImpl.class);
+    bind(PreferencesRepository.class).to(PreferencesRepositoryImpl.class);
   }
 
   private void bindWeatherStrategies() {

@@ -49,7 +49,7 @@ class SquadronRepositoryTest {
 
     var inputStream = getInputStream(SQUADRON_NAME);
 
-    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = squadronRepository.get(squadronId);
 
@@ -68,7 +68,7 @@ class SquadronRepositoryTest {
 
     var inputStream = getInputStream(SQUADRON_WITH_DEFAULTS_NAME);
 
-    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = squadronRepository.get(squadronId);
 

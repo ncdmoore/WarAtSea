@@ -45,7 +45,7 @@ public class AircraftRepositoryImpl implements AircraftRepository {
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return resourceProvider.getResourceInputStream(filePath);
+    return resourceProvider.getInputStream(filePath);
   }
 
   private AircraftEntity toEntity(final BufferedReader bufferedReader) {

@@ -48,7 +48,7 @@ public class SquadronDeploymentRepositoryImpl implements SquadronDeploymentRepos
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return dataProvider.getDataInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private List<SquadronDeploymentEntity> toEntities(final BufferedReader bufferedReader) {

@@ -48,7 +48,7 @@ class SubmarineFlotillaRepositoryTest {
   void shouldGetSubmarineFlotilla() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = submarineFlotillaRepository.get(ALLIES);
 

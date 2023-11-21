@@ -56,7 +56,7 @@ public class PortRepositoryImpl implements PortRepository {
   }
 
   private void writePort(final String gameId, final FilePath filePath, final PortEntity port) {
-    var path = dataProvider.getSaveFile(gameId, filePath);
+    var path = dataProvider.getSavedFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -69,7 +69,7 @@ public class PortRepositoryImpl implements PortRepository {
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return dataProvider.getDataInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private PortEntity toEntity(final BufferedReader bufferedReader) {

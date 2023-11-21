@@ -55,10 +55,14 @@ public class GamePaths {
   private String savedGameDirectory;
   private String newGameDirectory;
 
+  private String defaultPreferencesFile;
+  private String savedPreferencesFile;
+
   private String gamePath;
   private String scenarioName;
   private String scenarioPath;
 
+  private final String preferencesFileName = "preferences.json";
   private final String summaryFileName = "summary.json";
   private final String gameMapFileName = "map.json";
   private final String gameEntityName = "game.json";
@@ -98,8 +102,16 @@ public class GamePaths {
     newGameDirectory = Paths.get(gameDirectory, name).toString();
     gameDataDirectory = newGameDirectory; // assume new game at boot time.
 
-    log.debug("DataNames received GameNameEvent, game name is: '{}'", name);
-    log.debug(" - newGameDirectory set to: '{}'", newGameDirectory);
-    log.debug(" - savedGameDirectory set to: '{}'", savedGameDirectory);
+    log.debug("newGameDirectory set to: '{}'", newGameDirectory);
+    log.debug("savedGameDirectory set to: '{}'", savedGameDirectory);
+  }
+
+  public void setPreferencesFiles(final GameName gameName) {
+    var name = gameName.getValue();
+    defaultPreferencesFile = Paths.get(gameDirectory, name, preferencesFileName).toString();
+    savedPreferencesFile = Paths.get(userHomeDirectory, DATA_DIRECTORY, name, preferencesFileName).toString();
+
+    log.info("defaultPreferencesFile set to: '{}'", defaultPreferencesFile);
+    log.info("savedPreferencesFile set to: '{}'", savedPreferencesFile);
   }
 }

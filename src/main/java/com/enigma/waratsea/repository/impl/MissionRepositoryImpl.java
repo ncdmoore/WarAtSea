@@ -69,7 +69,7 @@ public class MissionRepositoryImpl implements MissionRepository {
   }
 
   private void writeMissions(final String gameId, final FilePath filePath, final Set<MissionEntity> missions) {
-    var path = dataProvider.getSaveFile(gameId, filePath);
+    var path = dataProvider.getSavedFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -82,7 +82,7 @@ public class MissionRepositoryImpl implements MissionRepository {
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return dataProvider.getDataInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private List<MissionEntity> toEntities(final BufferedReader bufferedReader) {

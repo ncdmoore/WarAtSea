@@ -56,7 +56,7 @@ public class GameRepositoryImpl implements GameRepository {
   @Override
   public void save(final GameEntity game) {
     var gameId = game.getId();
-    var directory = dataProvider.getSaveDirectory(gameId);
+    var directory = dataProvider.getSavedDirectory(gameId);
     writeGame(directory, game);
   }
 
@@ -82,14 +82,14 @@ public class GameRepositoryImpl implements GameRepository {
     var savedGameDirectory = gamePaths.getSavedGameDirectory();
     var savedGameFile = gamePaths.getGameEntityName();
     var filePath = Paths.get(savedGameDirectory, savedGameName, savedGameFile);
-    return dataProvider.getSavedFileInputStream(filePath);
+    return dataProvider.getSavedGameFileInputStream(filePath);
   }
 
   private GameEntity readGame(final BufferedReader bufferedReader) {
     var dateFormat = getDateFormat();
-    var gsonBuilder = new GsonBuilder()
-        .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat));
-    var gson = gsonBuilder.create();
+    var gson = new GsonBuilder()
+        .registerTypeAdapter(LocalDate.class, new LocalDateDeserializer(dateFormat))
+        .create();
     var game = gson.fromJson(bufferedReader, GameEntity.class);
 
     log.debug("loaded game: {}", game.getId());

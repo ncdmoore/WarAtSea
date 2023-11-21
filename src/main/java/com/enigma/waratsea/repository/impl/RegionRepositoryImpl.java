@@ -49,7 +49,7 @@ public class RegionRepositoryImpl implements RegionRepository {
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return resourceProvider.getResourceInputStream(filePath);
+    return resourceProvider.getInputStream(filePath);
   }
 
   private List<RegionEntity> readRegions(final BufferedReader bufferedReader) {

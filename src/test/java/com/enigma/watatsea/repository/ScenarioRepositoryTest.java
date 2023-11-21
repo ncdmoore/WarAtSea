@@ -54,7 +54,7 @@ class ScenarioRepositoryTest {
 
     given(props.getString(anyString())).willReturn(DATE_FORMAT);
     given(resourceProvider.getSubDirectoryPaths(scenarioDirectory)).willReturn(paths);
-    given(resourceProvider.getDefaultResourceInputStream(anyString())).willReturn(inputStream);
+    given(resourceProvider.getDefaultInputStream(anyString())).willReturn(inputStream);
 
     var results = scenarioRepository.get();
 

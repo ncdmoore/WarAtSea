@@ -54,7 +54,7 @@ class ReleaseRepositoryTest {
   void shouldGetReleaseConditions() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = releaseRepository.get(AXIS);
 

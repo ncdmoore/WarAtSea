@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.file.FileSystems;
 import java.nio.file.Files;
@@ -26,11 +25,14 @@ import java.util.Optional;
 @Singleton
 public class ResourceProvider implements BootStrapped {
   private final GamePaths gamePaths;
+  private final Resource resource;
 
   @Inject
   public ResourceProvider(final Events events,
-                          final GamePaths gamePaths) {
+                          final GamePaths gamePaths,
+                          final Resource resource) {
     this.gamePaths = gamePaths;
+    this.resource = resource;
 
     registerEvents(events);
   }
@@ -45,40 +47,38 @@ public class ResourceProvider implements BootStrapped {
     }
   }
 
-  public InputStream getResourceInputStream(final FilePath filePath) {
+  public InputStream getInputStream(final FilePath filePath) {
     var path = filePath.getPath();
 
     return getResourceInputStream(path);
   }
 
-  public InputStream getDefaultResourceInputStream(final FilePath filePath) {
+  public InputStream getDefaultInputStream(final FilePath filePath) {
     var path = filePath.getPath();
+    var fullPath = Paths.get(gamePaths.getGamePath(), path).toString();
 
-    return getInputStream(path);
+    return resource.getInputStream(fullPath);
   }
 
-  public InputStream getDefaultResourceInputStream(final String resourcePath) {
-    return getInputStream(resourcePath);
+  public InputStream getDefaultInputStream(final String resourcePath) {
+    var fullPath = Paths.get(gamePaths.getGamePath(), resourcePath).toString();
+
+    return resource.getInputStream(fullPath);
   }
 
   private InputStream getResourceInputStream(final String resourcePath) {
+    var gamePath = gamePaths.getGamePath();
     var scenarioPath = gamePaths.getScenarioPath();
-    var scenarioSpecificPath = Optional.ofNullable(scenarioPath)
+    var scenarioSpecificResourcePath = Optional.ofNullable(scenarioPath)
         .map(sp -> Paths.get(sp, resourcePath).toString())
         .orElse(resourcePath);
 
-    return Optional.ofNullable(getInputStream(scenarioSpecificPath))
-        .orElseGet(() -> getInputStream(resourcePath));
-  }
+    scenarioSpecificResourcePath = Paths.get(gamePath, scenarioSpecificResourcePath).toString();
 
-  private InputStream getInputStream(final String resourcePath) {
-    var fullPath = Paths.get(gamePaths.getGamePath(), resourcePath).toString();
+    var defaultResourcePath = Paths.get(gamePath, resourcePath).toString();
 
-    log.debug("Get resource input stream for path: '{}'", fullPath);
-
-    return getClass()
-        .getClassLoader()
-        .getResourceAsStream(fullPath);
+    return Optional.ofNullable(resource.getInputStream(scenarioSpecificResourcePath))
+        .orElseGet(() -> resource.getInputStream(defaultResourcePath));
   }
 
   private void registerEvents(final Events events) {
@@ -100,7 +100,7 @@ public class ResourceProvider implements BootStrapped {
   }
 
   private List<Path> getSubDirectoryPathsFromJar(final String directoryName) throws URISyntaxException, IOException {
-    var jarUri = getJarPathUri();
+    var jarUri = resource.getUri();
 
     try (var fs = FileSystems.newFileSystem(jarUri, Collections.emptyMap());
          var paths = Files.walk(fs.getPath(directoryName))) {
@@ -110,16 +110,6 @@ public class ResourceProvider implements BootStrapped {
           .filter(path -> isPathSubDirectory(path, directoryName))
           .toList();
     }
-  }
-
-  private URI getJarPathUri() throws URISyntaxException {
-    var jarPath = getClass().getProtectionDomain()
-        .getCodeSource()
-        .getLocation()
-        .toURI()
-        .getPath();
-
-    return URI.create("jar:file:" + jarPath);
   }
 
   private boolean isPathSubDirectory(final Path path, final String parentName) {

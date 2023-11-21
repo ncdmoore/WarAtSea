@@ -63,7 +63,7 @@ public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaReposit
   }
 
   private void writeSubmarineFlotillas(final String gameId, final FilePath filePath, final Set<SubmarineFlotillaEntity> flotillas) {
-    var path = dataProvider.getSaveFile(gameId, filePath);
+    var path = dataProvider.getSavedFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -76,7 +76,7 @@ public class SubmarineFlotillaRepositoryImpl implements SubmarineFlotillaReposit
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return dataProvider.getDataInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private List<SubmarineFlotillaEntity> toEntities(final BufferedReader bufferedReader) {

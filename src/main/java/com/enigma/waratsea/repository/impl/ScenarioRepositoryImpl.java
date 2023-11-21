@@ -68,7 +68,7 @@ public class ScenarioRepositoryImpl implements ScenarioRepository {
     var scenarioDirectoryName = gamePaths.getScenarioDirectory();
     var scenarioSummaryFileName = gamePaths.getSummaryFileName();
     var resourceName = Paths.get(scenarioDirectoryName, scenarioName, scenarioSummaryFileName).toString();
-    return resourceProvider.getDefaultResourceInputStream(resourceName);
+    return resourceProvider.getDefaultInputStream(resourceName);
   }
 
   private ScenarioEntity readScenario(final BufferedReader bufferedReader) {

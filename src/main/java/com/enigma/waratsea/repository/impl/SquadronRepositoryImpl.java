@@ -76,7 +76,7 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   private void writeSquadron(final String gameId, final FilePath filePath, final SquadronEntity squadron) {
-    var path = dataProvider.getSaveFile(gameId, filePath);
+    var path = dataProvider.getSavedFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -100,7 +100,7 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   private void writeSquadronManifest(final String gameId, final FilePath filePath, final Set<Id> squadronIds) {
-    var path = dataProvider.getSaveFile(gameId, filePath);
+    var path = dataProvider.getSavedFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -113,7 +113,7 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return dataProvider.getDataInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private SquadronEntity toEntity(final BufferedReader bufferedReader) {

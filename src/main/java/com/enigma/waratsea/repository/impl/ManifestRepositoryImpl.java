@@ -49,7 +49,7 @@ public class ManifestRepositoryImpl implements ManifestRepository {
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return resourceProvider.getResourceInputStream(filePath);
+    return resourceProvider.getInputStream(filePath);
   }
 
   private List<ManifestEntity> toEntities(final BufferedReader bufferedReader) {

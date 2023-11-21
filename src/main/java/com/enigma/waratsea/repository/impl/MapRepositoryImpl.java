@@ -44,7 +44,7 @@ public class MapRepositoryImpl implements MapRepository {
     var mapDirectory = gamePaths.getMapDirectory();
     var mapFileName = gamePaths.getGameMapFileName();
     var resourceName = Paths.get(mapDirectory, mapFileName).toString();
-    return resourceProvider.getDefaultResourceInputStream(resourceName);
+    return resourceProvider.getDefaultInputStream(resourceName);
   }
 
   private GameMapEntity readGameMap(final BufferedReader bufferedReader) {

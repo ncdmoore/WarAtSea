@@ -72,7 +72,7 @@ public class ShipRepositoryImpl implements ShipRepository {
   }
 
   private void writeShip(final String gameId, final FilePath filePath, final ShipEntity ship) {
-    var path = dataProvider.getSaveFile(gameId, filePath);
+    var path = dataProvider.getSavedFile(gameId, filePath);
 
     try (var out = new FileOutputStream(path.toString());
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
@@ -98,11 +98,11 @@ public class ShipRepositoryImpl implements ShipRepository {
   }
 
   private InputStream getRegistryInputStream(final FilePath filePath) {
-    return resourceProvider.getDefaultResourceInputStream(filePath);
+    return resourceProvider.getDefaultInputStream(filePath);
   }
 
   private InputStream getShipInputStream(final FilePath filePath) {
-    return dataProvider.getDataInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private ShipEntity toEntity(final BufferedReader bufferedReader, final ShipType shipType) {

@@ -59,7 +59,7 @@ class GameRepositoryTest {
 
     given(props.getString(anyString())).willReturn(DATE_FORMAT);
     given(dataProvider.getSubDirectoryPaths(savedGameDirectory)).willReturn(paths);
-    given(dataProvider.getSavedFileInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getSavedGameFileInputStream(any())).willReturn(inputStream);
 
     var results = gameRepository.get();
 

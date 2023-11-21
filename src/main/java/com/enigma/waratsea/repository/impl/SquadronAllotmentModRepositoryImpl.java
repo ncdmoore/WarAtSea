@@ -49,7 +49,7 @@ public class SquadronAllotmentModRepositoryImpl implements SquadronAllotmentModR
   }
 
   private InputStream getInputStream(final FilePath filePath) {
-    return resourceProvider.getResourceInputStream(filePath);
+    return resourceProvider.getInputStream(filePath);
   }
 
   private List<AllotmentModificationEntity> toEntities(final BufferedReader bufferedReader) {

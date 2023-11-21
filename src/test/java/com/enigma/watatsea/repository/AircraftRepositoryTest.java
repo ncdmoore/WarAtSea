@@ -52,7 +52,7 @@ class AircraftRepositoryTest {
 
     var inputStream = getInputStream();
 
-    given(resourceProvider.getResourceInputStream(any())).willReturn(inputStream);
+    given(resourceProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = aircraftRepository.get(aircraftId);
 

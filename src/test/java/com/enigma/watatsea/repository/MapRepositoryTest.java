@@ -42,7 +42,7 @@ class MapRepositoryTest {
   void shouldGetGameMapEntity() {
     var inputStream = getInputStream(MAP);
 
-    given(resourceProvider.getDefaultResourceInputStream(anyString())).willReturn(inputStream);
+    given(resourceProvider.getDefaultInputStream(anyString())).willReturn(inputStream);
 
     var result = mapRepository.get();
 
@@ -62,7 +62,7 @@ class MapRepositoryTest {
   void shouldGetGameMapEntityWithoutGrids() {
     var inputStream = getInputStream(MAP_WITHOUT_GRIDS);
 
-    given(resourceProvider.getDefaultResourceInputStream(anyString())).willReturn(inputStream);
+    given(resourceProvider.getDefaultInputStream(anyString())).willReturn(inputStream);
 
     var result = mapRepository.get();
 

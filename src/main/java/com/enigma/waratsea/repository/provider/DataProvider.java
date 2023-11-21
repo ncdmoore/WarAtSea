@@ -27,12 +27,15 @@ import static com.enigma.waratsea.Constants.JSON_EXTENSION;
 @Singleton
 public class DataProvider implements BootStrapped {
   private final GamePaths gamePaths;
+  private final Resource resource;
   private boolean isNewGame = true;
 
   @Inject
   public DataProvider(final Events events,
-                      final GamePaths gamePaths) {
+                      final GamePaths gamePaths,
+                      final Resource resource) {
     this.gamePaths = gamePaths;
+    this.resource = resource;
 
     registerEvents(events);
   }
@@ -53,7 +56,7 @@ public class DataProvider implements BootStrapped {
     }
   }
 
-  public InputStream getDataInputStream(final FilePath filePath) {
+  public InputStream getInputStream(final FilePath filePath) {
     var gameDataDirectory = gamePaths.getGameDataDirectory();
     var scenarioDirectory = gamePaths.getScenarioPath();
     var path = filePath.getPath();
@@ -75,7 +78,7 @@ public class DataProvider implements BootStrapped {
     return inputStream;
   }
 
-  public Path getSaveDirectory(final String gameId) {
+  public Path getSavedDirectory(final String gameId) {
     var savedGameDirectory = gamePaths.getSavedGameDirectory();
     var path = Paths.get(savedGameDirectory, gameId);
 
@@ -84,11 +87,11 @@ public class DataProvider implements BootStrapped {
     return path;
   }
 
-  public InputStream getSavedFileInputStream(final Path path) throws FileNotFoundException {
+  public InputStream getSavedGameFileInputStream(final Path path) throws FileNotFoundException {
     return new FileInputStream(path.toString());
   }
 
-  public Path getSaveFile(final String gameId, final FilePath filePath) {
+  public Path getSavedFile(final String gameId, final FilePath filePath) {
     var path = getSavedEntityDirectory(gameId, filePath);
     var name = filePath.getFileName();
     return Paths.get(path.toString(), name + JSON_EXTENSION);
@@ -134,14 +137,8 @@ public class DataProvider implements BootStrapped {
   }
 
   private InputStream getResourceFileInputStream(final String scenarioSpecificPath, final String genericPath) {
-    return Optional.ofNullable(getResourceFileInputStream(scenarioSpecificPath))
-        .orElseGet(() -> getResourceFileInputStream(genericPath));
-  }
-
-  private InputStream getResourceFileInputStream(final String fullPath) {
-    return getClass()
-        .getClassLoader()
-        .getResourceAsStream(fullPath);
+    return Optional.ofNullable(resource.getInputStream(scenarioSpecificPath))
+        .orElseGet(() -> resource.getInputStream(genericPath));
   }
 
   @SneakyThrows

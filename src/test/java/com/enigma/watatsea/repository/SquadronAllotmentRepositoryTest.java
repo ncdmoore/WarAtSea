@@ -44,7 +44,7 @@ public class SquadronAllotmentRepositoryTest {
 
     var inputStream = getInputStream();
 
-    given(resourceProvider.getResourceInputStream(any())).willReturn(inputStream);
+    given(resourceProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = squadronAllotmentRepository.get(TIME_FRAME, allotmentId);
 

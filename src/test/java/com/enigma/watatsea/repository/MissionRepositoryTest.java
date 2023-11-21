@@ -42,7 +42,7 @@ class MissionRepositoryTest {
   void shouldGetMissions() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getDataInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any())).willReturn(inputStream);
 
     var result = missionRepository.get(ALLIES);
 
