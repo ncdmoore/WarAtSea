@@ -55,7 +55,7 @@ public class ScenarioRepositoryImpl implements ScenarioRepository {
   }
 
   private ScenarioEntity createScenario(final String scenarioName) {
-    try (var in = getScenarioInputStream(scenarioName);
+    try (var in = getInputStream(scenarioName);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       return readScenario(br);
@@ -64,7 +64,7 @@ public class ScenarioRepositoryImpl implements ScenarioRepository {
     }
   }
 
-  private InputStream getScenarioInputStream(final String scenarioName) {
+  private InputStream getInputStream(final String scenarioName) {
     var scenarioDirectoryName = gamePaths.getScenarioDirectory();
     var scenarioSummaryFileName = gamePaths.getSummaryFileName();
     var resourceName = Paths.get(scenarioDirectoryName, scenarioName, scenarioSummaryFileName).toString();

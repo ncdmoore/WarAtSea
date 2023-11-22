@@ -20,10 +20,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -72,16 +73,14 @@ public class ShipRepositoryImpl implements ShipRepository {
   }
 
   private void writeShip(final String gameId, final FilePath filePath, final ShipEntity ship) {
-    var path = dataProvider.getSavedFile(gameId, filePath);
-
-    try (var out = new FileOutputStream(path.toString());
+    try (var out = getOutputStream(gameId, filePath);
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save ship to path: '{}'", path);
+      log.debug("Save ship for game: '{}' to path: '{}'", gameId, filePath);
       var json = toJson(ship);
       writer.write(json);
 
     } catch (IOException e) {
-      throw new GameException("Unable to save ship to path: " + path, e);
+      throw new GameException("Unable to save ship for game: " + gameId + " to path: " + filePath, e);
     }
   }
 
@@ -103,6 +102,10 @@ public class ShipRepositoryImpl implements ShipRepository {
 
   private InputStream getShipInputStream(final FilePath filePath) {
     return dataProvider.getInputStream(filePath);
+  }
+
+  private OutputStream getOutputStream(final String gameId, final FilePath filePath) throws FileNotFoundException {
+    return dataProvider.getOutputStream(gameId, filePath);
   }
 
   private ShipEntity toEntity(final BufferedReader bufferedReader, final ShipType shipType) {

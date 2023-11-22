@@ -3,6 +3,7 @@ package com.enigma.watatsea.repository;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.impl.AirfieldRepositoryImpl;
 import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.FilePath;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -44,7 +45,7 @@ class AirfieldRepositoryTest {
 
     var inputStream = getInputStream();
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = airfieldRepository.get(airfieldId);
 

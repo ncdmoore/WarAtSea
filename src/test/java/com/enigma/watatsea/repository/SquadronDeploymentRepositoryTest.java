@@ -2,6 +2,7 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.FilePath;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.SquadronDeploymentRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -38,7 +39,7 @@ class SquadronDeploymentRepositoryTest {
   void shouldGetSquadronDeployment() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream((FilePath) any())).willReturn(inputStream);
 
     var result = squadronDeploymentRepository.get(ALLIES);
 

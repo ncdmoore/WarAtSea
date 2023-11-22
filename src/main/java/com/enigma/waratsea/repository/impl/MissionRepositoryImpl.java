@@ -23,10 +23,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -69,20 +70,22 @@ public class MissionRepositoryImpl implements MissionRepository {
   }
 
   private void writeMissions(final String gameId, final FilePath filePath, final Set<MissionEntity> missions) {
-    var path = dataProvider.getSavedFile(gameId, filePath);
-
-    try (var out = new FileOutputStream(path.toString());
+    try (var out = getOutputStream(gameId, filePath);
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save missions to path: '{}'", path);
+      log.debug("Save missions for game: '{} to path: '{}'", gameId, filePath);
       var json = toJson(missions);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save missions to path: " + path, e);
+      throw new GameException("Unable to save missions for game: " + gameId + " to path: " + filePath, e);
     }
   }
 
   private InputStream getInputStream(final FilePath filePath) {
     return dataProvider.getInputStream(filePath);
+  }
+
+  private OutputStream getOutputStream(final String gameId, final FilePath filePath) throws FileNotFoundException {
+    return dataProvider.getOutputStream(gameId, filePath);
   }
 
   private List<MissionEntity> toEntities(final BufferedReader bufferedReader) {

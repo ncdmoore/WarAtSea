@@ -17,10 +17,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedReader;
-import java.io.FileOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
@@ -76,15 +77,13 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   private void writeSquadron(final String gameId, final FilePath filePath, final SquadronEntity squadron) {
-    var path = dataProvider.getSavedFile(gameId, filePath);
-
-    try (var out = new FileOutputStream(path.toString());
+    try (var out = getOutputStream(gameId, filePath);
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save squadron to path: '{}'", path);
+      log.debug("Save squadron for game: '{}' to path: '{}'", gameId, filePath);
       var json = toJson(squadron);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save squadron to path: " + path, e);
+      throw new GameException("Unable to save squadron for game: " + gameId + "to path: " + filePath, e);
     }
   }
 
@@ -100,20 +99,22 @@ public class SquadronRepositoryImpl implements SquadronRepository {
   }
 
   private void writeSquadronManifest(final String gameId, final FilePath filePath, final Set<Id> squadronIds) {
-    var path = dataProvider.getSavedFile(gameId, filePath);
-
-    try (var out = new FileOutputStream(path.toString());
+    try (var out = getOutputStream(gameId, filePath);
          var writer = new OutputStreamWriter(out, StandardCharsets.UTF_8)) {
-      log.debug("Save squadron manifest to path: '{}'", path);
+      log.debug("Save squadron manifest for game: '{}' to path: '{}'", gameId, filePath);
       var json = toJson(squadronIds);
       writer.write(json);
     } catch (IOException e) {
-      throw new GameException("Unable to save squadron manifest to path: " + path, e);
+      throw new GameException("Unable to save squadron manifest for game: " + gameId + " to path: " + filePath, e);
     }
   }
 
   private InputStream getInputStream(final FilePath filePath) {
     return dataProvider.getInputStream(filePath);
+  }
+
+  private OutputStream getOutputStream(final String gameId, final FilePath filePath) throws FileNotFoundException {
+    return dataProvider.getOutputStream(gameId, filePath);
   }
 
   private SquadronEntity toEntity(final BufferedReader bufferedReader) {

@@ -13,8 +13,10 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -78,7 +80,17 @@ public class DataProvider implements BootStrapped {
     return inputStream;
   }
 
-  public Path getSavedDirectory(final String gameId) {
+  public InputStream getInputStream(final Path path) throws FileNotFoundException {
+    return new FileInputStream(path.toString());
+  }
+
+  public OutputStream getOutputStream(final String gameId, final FilePath filePath) throws FileNotFoundException {
+    var path = getSavedFile(gameId, filePath);
+
+    return new FileOutputStream(path.toString());
+  }
+
+  public Path getSavedGameDirectory(final String gameId) {
     var savedGameDirectory = gamePaths.getSavedGameDirectory();
     var path = Paths.get(savedGameDirectory, gameId);
 
@@ -87,11 +99,7 @@ public class DataProvider implements BootStrapped {
     return path;
   }
 
-  public InputStream getSavedGameFileInputStream(final Path path) throws FileNotFoundException {
-    return new FileInputStream(path.toString());
-  }
-
-  public Path getSavedFile(final String gameId, final FilePath filePath) {
+  private Path getSavedFile(final String gameId, final FilePath filePath) {
     var path = getSavedEntityDirectory(gameId, filePath);
     var name = filePath.getFileName();
     return Paths.get(path.toString(), name + JSON_EXTENSION);

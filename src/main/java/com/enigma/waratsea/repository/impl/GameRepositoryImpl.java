@@ -56,7 +56,7 @@ public class GameRepositoryImpl implements GameRepository {
   @Override
   public void save(final GameEntity game) {
     var gameId = game.getId();
-    var directory = dataProvider.getSavedDirectory(gameId);
+    var directory = dataProvider.getSavedGameDirectory(gameId);
     writeGame(directory, game);
   }
 
@@ -69,7 +69,7 @@ public class GameRepositoryImpl implements GameRepository {
   }
 
   private GameEntity createGame(final String savedGameName) {
-    try (var in = getSavedGameInputStream(savedGameName);
+    try (var in = getInputStream(savedGameName);
          var reader = new InputStreamReader(in, StandardCharsets.UTF_8);
          var br = new BufferedReader(reader)) {
       return readGame(br);
@@ -78,11 +78,11 @@ public class GameRepositoryImpl implements GameRepository {
     }
   }
 
-  private InputStream getSavedGameInputStream(final String savedGameName) throws FileNotFoundException {
+  private InputStream getInputStream(final String savedGameName) throws FileNotFoundException {
     var savedGameDirectory = gamePaths.getSavedGameDirectory();
     var savedGameFile = gamePaths.getGameEntityName();
     var filePath = Paths.get(savedGameDirectory, savedGameName, savedGameFile);
-    return dataProvider.getSavedGameFileInputStream(filePath);
+    return dataProvider.getInputStream(filePath);
   }
 
   private GameEntity readGame(final BufferedReader bufferedReader) {

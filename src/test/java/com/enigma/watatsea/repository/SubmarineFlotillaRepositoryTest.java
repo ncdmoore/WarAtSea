@@ -3,6 +3,7 @@ package com.enigma.watatsea.repository;
 import com.enigma.waratsea.entity.SubmarineFlotillaEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.FilePath;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.SubmarineFlotillaRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -48,7 +49,7 @@ class SubmarineFlotillaRepositoryTest {
   void shouldGetSubmarineFlotilla() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = submarineFlotillaRepository.get(ALLIES);
 

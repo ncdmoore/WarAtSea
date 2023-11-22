@@ -3,6 +3,7 @@ package com.enigma.watatsea.repository;
 import com.enigma.waratsea.entity.MtbFlotillaEntity;
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.FilePath;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.MtbFlotillaRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -50,7 +51,7 @@ class MtbFlotillaRepositoryTest {
   void shouldGetMtbFlotilla() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = mtbFlotillaRepository.get(AXIS);
 

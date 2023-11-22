@@ -64,6 +64,8 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.strategy.bombAlley;
   exports com.enigma.waratsea.strategy.arcticConvoy;
 
+  exports com.enigma.waratsea.ai.strategy.commandStrategy;
+
   exports com.enigma.waratsea.view;
   exports com.enigma.waratsea.view.game;
   exports com.enigma.waratsea.view.pregame;
@@ -89,6 +91,8 @@ module com.enigma.waratsea {
   exports com.enigma.waratsea.entity.squadron;
   exports com.enigma.waratsea.entity.taskforce;
   exports com.enigma.waratsea.entity.victory;
+
+
 
   opens com.enigma.waratsea.event.matcher to com.google.gson;
 

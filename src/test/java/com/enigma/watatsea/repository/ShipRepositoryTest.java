@@ -80,7 +80,7 @@ class ShipRepositoryTest {
 
     var inputStream = getShipInputStream();
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = shipRepository.get(shipId, DESTROYER);
 

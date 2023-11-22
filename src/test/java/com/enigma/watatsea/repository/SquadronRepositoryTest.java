@@ -2,6 +2,7 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.model.Id;
 import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.FilePath;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.SquadronRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -49,7 +50,7 @@ class SquadronRepositoryTest {
 
     var inputStream = getInputStream(SQUADRON_NAME);
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = squadronRepository.get(squadronId);
 
@@ -68,7 +69,7 @@ class SquadronRepositoryTest {
 
     var inputStream = getInputStream(SQUADRON_WITH_DEFAULTS_NAME);
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = squadronRepository.get(squadronId);
 

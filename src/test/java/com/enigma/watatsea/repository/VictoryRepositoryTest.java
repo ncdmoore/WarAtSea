@@ -2,6 +2,7 @@ package com.enigma.watatsea.repository;
 
 import com.enigma.waratsea.entity.victory.*;
 import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.FilePath;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.VictoryRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -68,7 +69,7 @@ class VictoryRepositoryTest {
   void shouldGetVictoryConditions() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = victoryRepository.get(AXIS);
 

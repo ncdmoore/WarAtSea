@@ -3,6 +3,7 @@ package com.enigma.watatsea.repository;
 import com.enigma.waratsea.entity.release.ReleaseEntity;
 import com.enigma.waratsea.entity.release.ShipCombatReleaseEntity;
 import com.enigma.waratsea.repository.provider.DataProvider;
+import com.enigma.waratsea.repository.provider.FilePath;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import com.enigma.waratsea.repository.impl.ReleaseRepositoryImpl;
 import org.junit.jupiter.api.Test;
@@ -54,7 +55,7 @@ class ReleaseRepositoryTest {
   void shouldGetReleaseConditions() {
     var inputStream = getInputStream();
 
-    given(dataProvider.getInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(FilePath.class))).willReturn(inputStream);
 
     var result = releaseRepository.get(AXIS);
 

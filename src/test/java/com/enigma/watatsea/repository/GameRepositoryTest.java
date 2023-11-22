@@ -3,8 +3,8 @@ package com.enigma.watatsea.repository;
 import com.enigma.waratsea.model.turn.Turn;
 import com.enigma.waratsea.model.weather.Weather;
 import com.enigma.waratsea.property.AppProps;
-import com.enigma.waratsea.repository.provider.DataProvider;
 import com.enigma.waratsea.repository.impl.GameRepositoryImpl;
+import com.enigma.waratsea.repository.provider.DataProvider;
 import com.enigma.waratsea.repository.provider.GamePaths;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -59,7 +59,7 @@ class GameRepositoryTest {
 
     given(props.getString(anyString())).willReturn(DATE_FORMAT);
     given(dataProvider.getSubDirectoryPaths(savedGameDirectory)).willReturn(paths);
-    given(dataProvider.getSavedGameFileInputStream(any())).willReturn(inputStream);
+    given(dataProvider.getInputStream(any(Path.class))).willReturn(inputStream);
 
     var results = gameRepository.get();
 
