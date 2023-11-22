@@ -8,6 +8,7 @@ import com.enigma.waratsea.mapper.GameMapper;
 import com.enigma.waratsea.mapper.ManifestMapper;
 import com.enigma.waratsea.mapper.MissionMapper;
 import com.enigma.waratsea.mapper.MtbFlotillaMapper;
+import com.enigma.waratsea.mapper.PreferencesMapper;
 import com.enigma.waratsea.mapper.RegionMapper;
 import com.enigma.waratsea.mapper.ReleaseMapper;
 import com.enigma.waratsea.mapper.ShipMapper;
@@ -77,6 +78,7 @@ import com.enigma.waratsea.service.MissionService;
 import com.enigma.waratsea.service.MtbFlotillaService;
 import com.enigma.waratsea.service.PlayerService;
 import com.enigma.waratsea.service.PortService;
+import com.enigma.waratsea.service.PreferencesService;
 import com.enigma.waratsea.service.RegionService;
 import com.enigma.waratsea.service.ReleaseService;
 import com.enigma.waratsea.service.ScenarioService;
@@ -101,6 +103,7 @@ import com.enigma.waratsea.service.impl.MissionServiceImpl;
 import com.enigma.waratsea.service.impl.MtbFlotillaServiceImpl;
 import com.enigma.waratsea.service.impl.PlayerServiceImpl;
 import com.enigma.waratsea.service.impl.PortServiceImpl;
+import com.enigma.waratsea.service.impl.PreferencesServiceImpl;
 import com.enigma.waratsea.service.impl.RegionServiceImpl;
 import com.enigma.waratsea.service.impl.ReleaseServiceImpl;
 import com.enigma.waratsea.service.impl.ScenarioServiceImpl;
@@ -303,6 +306,13 @@ public class BasicModule extends AbstractModule {
     return victoryMapper;
   }
 
+  @Provides
+  @Singleton
+  @SuppressWarnings("unused")
+  public PreferencesMapper providePreferencesMapper() {
+    return PreferencesMapper.INSTANCE;
+  }
+
   private void bindBootStrapped() {
     Multibinder<BootStrapped> bootStrappedBinder = Multibinder.newSetBinder(binder(), BootStrapped.class);
     bootStrappedBinder.addBinding().to(ConfigApplicationSaga.class);
@@ -423,5 +433,6 @@ public class BasicModule extends AbstractModule {
     bind(ReleaseService.class).to(ReleaseServiceImpl.class);
     bind(GameService.class).to(GameServiceImpl.class);
     bind(VictoryService.class).to(VictoryServiceImpl.class);
+    bind(PreferencesService.class).to(PreferencesServiceImpl.class);
   }
 }

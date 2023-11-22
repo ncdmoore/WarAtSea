@@ -10,5 +10,5 @@ public interface PreferencesMapper {
   PreferencesMapper INSTANCE = Mappers.getMapper(PreferencesMapper.class);
 
   Preferences toModel(PreferencesEntity preferencesEntity);
-  PreferencesEntity toEntity(PreferencesEntity port);
+  PreferencesEntity toEntity(Preferences preferences);
 }

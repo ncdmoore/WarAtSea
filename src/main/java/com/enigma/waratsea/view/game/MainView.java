@@ -56,6 +56,9 @@ public class MainView implements View {
 
   private Node buildMap() {
     var imageView = resourceProvider.getGameImageView("map.png");
+    imageView.setPreserveRatio(true);
+    imageView.setSmooth(true);
+    imageView.setCache(true);
 
     var scrollPane = new ScrollPane();
     scrollPane.setContent(imageView);
