@@ -131,6 +131,7 @@ import com.enigma.waratsea.view.game.oob.OobSquadronsView;
 import com.enigma.waratsea.view.game.oob.OobSquadronsViewFactory;
 import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
+import com.enigma.waratsea.view.pregame.PreferencesView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
 import com.enigma.waratsea.view.pregame.SquadronDeploymentView;
@@ -355,6 +356,7 @@ public class BasicModule extends AbstractModule {
         .implement(View.class, Names.named("Start"), StartView.class)
         .implement(View.class, Names.named("NewGame"), NewGameView.class)
         .implement(View.class, Names.named("SavedGame"), SavedGameView.class)
+        .implement(View.class, Names.named("Preferences"), PreferencesView.class)
         .implement(View.class, Names.named("ScenarioSquadronOptions"), ScenarioSquadronOptionsView.class)
         .implement(View.class, Names.named("OrderOfBattleSummary"), OrderOfBattleSummaryView.class)
         .implement(View.class, Names.named("SquadronDeployment"), SquadronDeploymentView.class)

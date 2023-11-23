@@ -14,6 +14,7 @@ import com.enigma.waratsea.event.user.SelectSavedGameEvent;
 import com.enigma.waratsea.event.user.SelectScenarioEvent;
 import com.enigma.waratsea.event.user.SelectSideEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
+import com.enigma.waratsea.event.user.StartPreferencesEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
@@ -28,6 +29,7 @@ public class Events {
   private final EventDispatcher<LoadRegistryEvent> loadRegistryEvent = new EventDispatcher<>(LoadRegistryEvent.class);
   private final EventDispatcher<StartNewGameEvent> startNewGameEvent = new EventDispatcher<>(StartNewGameEvent.class);
   private final EventDispatcher<StartSavedGameEvent> startSavedGameEvent = new EventDispatcher<>(StartSavedGameEvent.class);
+  private final EventDispatcher<StartPreferencesEvent> startPreferencesEvent = new EventDispatcher<>(StartPreferencesEvent.class);
   private final EventDispatcher<SaveGameEvent> saveGameEvent = new EventDispatcher<>(SaveGameEvent.class);
   private final EventDispatcher<SelectScenarioEvent> selectScenarioEvent = new EventDispatcher<>(SelectScenarioEvent.class);
   private final EventDispatcher<LoadScenarioOptionsEvent> loadScenarioOptionsEvent = new EventDispatcher<>(LoadScenarioOptionsEvent.class);

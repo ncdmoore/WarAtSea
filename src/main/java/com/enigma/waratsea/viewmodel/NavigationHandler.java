@@ -4,12 +4,14 @@ import com.enigma.waratsea.BootStrapped;
 import com.enigma.waratsea.event.Events;
 import com.enigma.waratsea.event.user.ScenarioHasOptionsEvent;
 import com.enigma.waratsea.event.user.StartNewGameEvent;
+import com.enigma.waratsea.event.user.StartPreferencesEvent;
 import com.enigma.waratsea.event.user.StartSavedGameEvent;
 import com.enigma.waratsea.view.View;
 import com.enigma.waratsea.view.ViewFactory;
 import com.enigma.waratsea.view.game.MainView;
 import com.enigma.waratsea.view.pregame.NewGameView;
 import com.enigma.waratsea.view.pregame.OrderOfBattleSummaryView;
+import com.enigma.waratsea.view.pregame.PreferencesView;
 import com.enigma.waratsea.view.pregame.SavedGameView;
 import com.enigma.waratsea.view.pregame.ScenarioSquadronOptionsView;
 import com.enigma.waratsea.view.pregame.SquadronDeploymentView;
@@ -54,6 +56,7 @@ public class NavigationHandler implements BootStrapped {
   private final ViewFactory viewFactory;
   private final Map<Class<?>, Page> newGamePageFlow = new HashMap<>();
   private final Map<Class<?>, Page> savedGamePageFlow = new HashMap<>();
+  private final Map<Class<?>, Page> preferencesPageFlow = new HashMap<>();
 
   private final Map<NavigationType, BiConsumer<Class<?>, Stage>> navigationFunctions = Map.of(
       FORWARD, this::goNext,
@@ -69,6 +72,7 @@ public class NavigationHandler implements BootStrapped {
 
     buildNewGameFlow();
     buildSavedGameFlow();
+    buildPreferencesFlow();
 
     registerEvents(events);
   }
@@ -76,6 +80,7 @@ public class NavigationHandler implements BootStrapped {
   private void registerEvents(final Events events) {
     events.getStartNewGameEvent().register(this::handleStartNewGame);
     events.getStartSavedGameEvent().register(this::handleStartSavedGame);
+    events.getStartPreferencesEvent().register(this::handleStartPreferences);
     events.getNavigateEvent().register(this::handleNavigate);
     events.getScenarioOptionsEvent().register(this::handleScenarioOptions);
   }
@@ -159,11 +164,25 @@ public class NavigationHandler implements BootStrapped {
     savedGamePageFlow.put(MainView.class, mainPage);
   }
 
+  private void buildPreferencesFlow() {
+    Page startPage = new Page(viewFactory::buildStart);
+    Page preferencesPage = new Page(viewFactory::buildPreferences);
+
+    startPage.setNext(preferencesPage);
+
+    preferencesPageFlow.put(StartView.class, startPage);
+    preferencesPageFlow.put(PreferencesView.class, preferencesPage);
+  }
+
   private void handleStartNewGame(final StartNewGameEvent startNewGameEvent) {
     pageFlow = newGamePageFlow;
   }
 
   private void handleStartSavedGame(final StartSavedGameEvent startSavedGameEvent) {
     pageFlow = savedGamePageFlow;
+  }
+
+  private void handleStartPreferences(final StartPreferencesEvent startPreferencesEvent) {
+    pageFlow = preferencesPageFlow;
   }
 }

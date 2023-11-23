@@ -102,8 +102,8 @@ public class StartView implements View {
     savedButton.disableProperty().bind(startViewModel.getSavedGamesExist());
     savedButton.setOnAction(event -> startViewModel.savedGame(stage));
 
-    var optionsButton = buildButton("Options");
-    optionsButton.setOnAction(event -> startViewModel.options());
+    var optionsButton = buildButton("Preferences");
+    optionsButton.setOnAction(event -> startViewModel.preferences(stage));
 
     var quitButton = buildButton("Quit Game");
     quitButton.setOnAction(event -> startViewModel.quitGame(stage));

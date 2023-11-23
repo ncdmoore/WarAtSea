@@ -7,6 +7,7 @@ import com.enigma.waratsea.view.pregame.StartView;
 import com.enigma.waratsea.viewmodel.events.ErrorEvent;
 import com.enigma.waratsea.viewmodel.events.NavigateEvent;
 import com.enigma.waratsea.viewmodel.pregame.orchestration.NewGameSaga;
+import com.enigma.waratsea.viewmodel.pregame.orchestration.PreferencesSaga;
 import com.enigma.waratsea.viewmodel.pregame.orchestration.SavedGameSaga;
 import com.google.inject.Inject;
 import javafx.beans.property.BooleanProperty;
@@ -24,15 +25,18 @@ public class StartViewModel {
 
   private final NewGameSaga newGameSaga;
   private final SavedGameSaga savedGameSaga;
+  private final PreferencesSaga preferencesSaga;
   private final Events events;
 
   @Inject
   StartViewModel(final Events events,
                  final GameService gameService,
                  final NewGameSaga newGameSaga,
-                 final SavedGameSaga savedGameSaga) {
+                 final SavedGameSaga savedGameSaga,
+                 final PreferencesSaga preferencesSaga) {
     this.newGameSaga = newGameSaga;
     this.savedGameSaga = savedGameSaga;
+    this.preferencesSaga = preferencesSaga;
     this.events = events;
 
     savedGamesExist.setValue(gameService.get().isEmpty());
@@ -52,8 +56,10 @@ public class StartViewModel {
     goToNextPage(stage);
   }
 
-  public void options() {
-    log.info("options todo");
+  public void preferences(final Stage stage) {
+    log.info("preferences todo");
+    preferencesSaga.start();
+    goToNextPage(stage);
   }
 
   public void quitGame(final Stage stage) {
