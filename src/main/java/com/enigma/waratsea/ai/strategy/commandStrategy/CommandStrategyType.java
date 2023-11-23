@@ -8,9 +8,9 @@ import java.util.stream.Stream;
 @Getter
 @RequiredArgsConstructor
 public enum CommandStrategyType {
-  AGGRESSIVE("Aggressive"),
-  BALANCED("Balanced"),
-  CAUTIOUS("Cautious");
+  AGGRESSIVE("Aggressive - Computer opponent operates in an offensive manner"),
+  CAUTIOUS("Cautious - Computer opponent operates in a defensive manner"),
+  BALANCED("Balanced - Computer opponent operates within the principle of calculated risk");
 
   private final String value;
 

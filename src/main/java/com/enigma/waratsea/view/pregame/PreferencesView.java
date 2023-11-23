@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.Separator;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -22,7 +23,7 @@ import java.util.LinkedHashMap;
 import java.util.stream.Collectors;
 
 public class PreferencesView implements View {
-  private static final String CSS_FILE = "savedGameView.css";
+  private static final String CSS_FILE = "preferencesView.css";
 
   private final Props props;
   private final ResourceProvider resourceProvider;
@@ -69,10 +70,14 @@ public class PreferencesView implements View {
   }
 
   private Node buildPreferences() {
-    return new VBox(buildCommandStrategyPane());
+    var mainPane =  new VBox(buildCommandStrategyPane());
+    mainPane.setId("main-pane");
+
+    return mainPane;
   }
 
   private Node buildCommandStrategyPane() {
+    var horizontalLine = new Separator();
     var instructionLabel = new Label("Select AI Command Strategy:");
     instructionLabel.getStyleClass().add("instruction");
 
@@ -93,19 +98,23 @@ public class PreferencesView implements View {
     var selectedStrategy = preferencesViewModel.getSelectedCommandStrategy();
     selectedStrategy.bind(strategyGroup.selectedToggleProperty());
 
-    var radioButtonVBox = new VBox(instructionLabel);
+    var radioButtonVBox = new VBox();
+    radioButtonVBox.getChildren().addAll(radioButtons.values());
+    radioButtonVBox.setId("radio-buttons-vbox");
 
-    radioButtonVBox.getChildren()
-        .addAll(radioButtons.values());
-
-    return radioButtonVBox;
+    return new VBox(horizontalLine, instructionLabel, radioButtonVBox);
   }
 
   private RadioButton buildRadioButton(final CommandStrategyType type,
                                        final ToggleGroup toggleGroup) {
+
+    var graphicName = type.name().toLowerCase() + ".small.image";
+    var graphic = resourceProvider.getAppImageView(props.getString(graphicName));
+
     var radioButton =  new RadioButton(type.getValue());
     radioButton.setUserData(type);
     radioButton.setToggleGroup(toggleGroup);
+    radioButton.setGraphic(graphic);
 
     return radioButton;
   }
